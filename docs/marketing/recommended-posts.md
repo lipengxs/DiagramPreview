@@ -6,13 +6,13 @@ These are the strongest copy versions to publish first. They are written to feel
 
 Use these local screenshots when publishing:
 
-![Header DevOps menu](./images/desktop-header-devops-menu.png)
+![Header DevOps menu](https://diagrampreview.com/marketing/images/desktop-header-devops-menu.png)
 
-![AI Draw.io Generator](./images/desktop-ai-drawio-generator.png)
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
 
-![Mermaid Preview](./images/desktop-mermaid-preview.png)
+![Mermaid Preview](https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png)
 
-![Grafana Dashboard Generator](./images/desktop-grafana-dashboard-generator.png)
+![Grafana Dashboard Generator](https://diagrampreview.com/marketing/images/desktop-grafana-dashboard-generator.png)
 
 ## Chinese Recommended Post
 
@@ -55,9 +55,9 @@ https://diagrampreview.com
 
 效果图：
 
-![AI Draw.io Generator](./images/desktop-ai-drawio-generator.png)
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
 
-![Mermaid Preview](./images/desktop-mermaid-preview.png)
+![Mermaid Preview](https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png)
 
 目前工具按场景分成几类：
 
@@ -70,7 +70,7 @@ https://diagrampreview.com
 
 工具菜单效果：
 
-![DevOps menu](./images/desktop-header-devops-menu.png)
+![DevOps menu](https://diagrampreview.com/marketing/images/desktop-header-devops-menu.png)
 
 我自己的使用场景主要是：
 
@@ -128,9 +128,9 @@ The workflow is:
 
 Screenshots:
 
-![AI Draw.io Generator](./images/desktop-ai-drawio-generator.png)
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
 
-![Mermaid Preview](./images/desktop-mermaid-preview.png)
+![Mermaid Preview](https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png)
 
 The current tools are grouped by use case:
 
@@ -143,7 +143,7 @@ The current tools are grouped by use case:
 
 Tool menu:
 
-![DevOps menu](./images/desktop-header-devops-menu.png)
+![DevOps menu](https://diagrampreview.com/marketing/images/desktop-header-devops-menu.png)
 
 DiagramPreview is not meant to replace AI. It is the step after AI output and before production documentation: preview, validate, repair, and export.
 

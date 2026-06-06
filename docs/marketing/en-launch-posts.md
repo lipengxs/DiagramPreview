@@ -4,9 +4,9 @@ Recommended polished version with screenshots: [recommended-posts.md](./recommen
 
 Suggested screenshots:
 
-![AI Draw.io Generator](./images/desktop-ai-drawio-generator.png)
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
 
-![Mermaid Preview](./images/desktop-mermaid-preview.png)
+![Mermaid Preview](https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png)
 
 ## Hacker News Show HN
 
@@ -22,6 +22,11 @@ Suggested screenshots:
 I built DiagramPreview:
 
 https://diagrampreview.com
+
+Screenshots, if you want to preview the UI before opening it:
+
+- Mermaid preview: `https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png`
+- AI Draw.io generator: `https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png`
 
 The problem I kept running into: LLMs are good at generating Mermaid, PlantUML, architecture notes, OpenAPI flows, SQL schemas, Docker Compose snippets, and Kubernetes manifests, but they usually stop at text. You still need to check whether the diagram renders and export it before it belongs in real docs.
 
@@ -78,6 +83,10 @@ I built DiagramPreview to cover that missing step:
 
 https://diagrampreview.com
 
+Here is what the preview workflow looks like:
+
+![Mermaid Preview](https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png)
+
 The workflow is simple:
 
 1. Ask an LLM to generate a Mermaid, PlantUML, or architecture diagram.
@@ -87,6 +96,12 @@ The workflow is simple:
 5. Export it for documentation.
 
 It currently supports Mermaid, PlantUML, Graphviz, D2, Markdown with Mermaid, OpenAPI to sequence diagrams, SQL to ER diagrams, JSON/YAML/XML/CSV visualizers, JSON Schema, Docker Compose, Kubernetes manifests, package.json dependencies, and regex railroad diagrams.
+
+It also includes AI-assisted tools such as AI Draw.io generation and Grafana dashboard JSON generation:
+
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
+
+![Grafana Dashboard Generator](https://diagrampreview.com/marketing/images/desktop-grafana-dashboard-generator.png)
 
 The goal is not to replace AI. It is to make AI-generated diagram output easier to validate, edit, and ship into real documentation.
 
@@ -104,9 +119,17 @@ I have been building DiagramPreview:
 
 https://diagrampreview.com
 
+Current UI:
+
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
+
 The idea came from a repeated workflow: I ask an LLM to generate a Mermaid or PlantUML diagram, then I need another tool to preview it, fix syntax issues, and export it before using it in docs.
 
 So I turned that middle step into a browser-first toolbox for developers. It supports Mermaid, PlantUML, Graphviz, D2, OpenAPI, SQL ER, JSON/YAML/XML/CSV visualizers, Docker Compose, Kubernetes, package.json dependency diagrams, and a few AI-assisted tools.
+
+The tools are grouped by use case so the header does not become one long flat menu:
+
+![DevOps menu](https://diagrampreview.com/marketing/images/desktop-header-devops-menu.png)
 
 The positioning is: preview, fix, and export AI-generated diagrams.
 
@@ -132,6 +155,12 @@ That is the gap DiagramPreview is designed for:
 
 https://diagrampreview.com
 
+Product screenshots:
+
+![Mermaid Preview](https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png)
+
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
+
 It is a browser-first toolbox for developers and technical writers who use AI-assisted documentation workflows. Paste the generated text, preview it visually, fix issues, and export a clean asset.
 
 ## Product Hunt
@@ -145,6 +174,12 @@ Preview, fix, and export AI-generated diagrams.
 Hi Product Hunt,
 
 I built DiagramPreview for a workflow I kept repeating: ask an AI tool to generate a Mermaid, PlantUML, architecture, OpenAPI, SQL, Docker Compose, or Kubernetes diagram, then find another tool to preview and export it.
+
+Screenshots:
+
+![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
+
+![Grafana Dashboard Generator](https://diagrampreview.com/marketing/images/desktop-grafana-dashboard-generator.png)
 
 DiagramPreview focuses on the missing middle step between AI-generated text and production-ready documentation:
 
