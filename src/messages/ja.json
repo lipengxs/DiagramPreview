@@ -740,6 +740,571 @@
         "ワークスペースではソースとプレビューを並べて表示し、公開前に構文、階層、レイアウトの問題を見つけやすくします。",
         "各ツールには独立 URL、metadata、FAQ、関連ツールリンクがあり、検索しやすい実用ページとして育てられます。"
       ]
+    },
+    "ai-diagram-generator": {
+      "name": "AI 図表ジェネレーター",
+      "shortDescription": "自然言語プロンプトから Mermaid 図表を生成します。",
+      "seoTitle": "AI 図表ジェネレーター - DiagramPreview",
+      "seoDescription": "自然言語プロンプトから Mermaid 図表を生成します。",
+      "keywords": [
+        "ai-diagram-generator",
+        "ai diagram generator",
+        "text to mermaid",
+        "mermaid ai"
+      ],
+      "h1": "AI 図表ジェネレーター",
+      "intro": "作りたい図を説明し、Mermaid タイプを選ぶと、AI が編集可能なコードとプレビューを生成します。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "図表リクエスト",
+      "outputLabel": "Mermaid プレビュー",
+      "placeholder": "作りたい図を説明...",
+      "emptyPreview": "作りたい図を説明し、Mermaid タイプを選ぶと、AI が編集可能なコードとプレビューを生成します。",
+      "samples": {
+        "system": {
+          "label": "System flow",
+          "diagramType": "flowchart",
+          "prompt": "Create a system architecture flow for a web app with browser, API gateway, auth service, billing service, queue, worker, database, and object storage."
+        },
+        "api": {
+          "label": "API flow",
+          "diagramType": "sequenceDiagram",
+          "prompt": "Create a sequence diagram for a client calling an API, API validating auth, reading database records, and returning JSON."
+        },
+        "product": {
+          "label": "Product journey",
+          "diagramType": "flowchart",
+          "prompt": "Create a product onboarding flow with signup, email verification, workspace creation, first diagram preview, export, and feedback."
+        }
+      },
+      "ai": {
+        "promptLabel": "図表リクエスト",
+        "promptPlaceholder": "作りたい図を説明...",
+        "existingCodeLabel": "既存の Mermaid コード",
+        "existingCodePlaceholder": "修正したい Mermaid を貼り付け...",
+        "diagramTypeLabel": "図表タイプ",
+        "generateButton": "図表を生成",
+        "generatedCodeLabel": "生成された Mermaid コード",
+        "previewLabel": "Mermaid プレビュー",
+        "providerLabel": "プロバイダー"
+      },
+      "howToUse": [
+        "自然言語で目的の図を説明します。",
+        "Mermaid タイプを選び AI でコードを生成します。",
+        "出力を確認し、必要に応じて編集して SVG/PNG をエクスポートします。"
+      ],
+      "useCases": [
+        "AI 図表ドラフト",
+        "テキストから Mermaid",
+        "Mermaid 修正"
+      ],
+      "faq": [
+        {
+          "question": "どの AI プロバイダーを使いますか？",
+          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        },
+        {
+          "question": "どの AI プロバイダーを使いますか？",
+          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        }
+      ],
+      "seoBody": [
+        "自然言語プロンプトから Mermaid 図表を生成します。",
+        "作りたい図を説明し、Mermaid タイプを選ぶと、AI が編集可能なコードとプレビューを生成します。",
+        "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+      ]
+    },
+    "text-to-mermaid": {
+      "name": "テキストから Mermaid",
+      "shortDescription": "プロダクトメモ、インシデント、アーキテクチャ文を Mermaid に変換します。",
+      "seoTitle": "テキストから Mermaid - DiagramPreview",
+      "seoDescription": "プロダクトメモ、インシデント、アーキテクチャ文を Mermaid に変換します。",
+      "keywords": [
+        "text-to-mermaid",
+        "ai diagram generator",
+        "text to mermaid",
+        "mermaid ai"
+      ],
+      "h1": "テキストから Mermaid",
+      "intro": "要件、メモ、プロセス説明を貼り付けて Mermaid に変換します。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "図表リクエスト",
+      "outputLabel": "Mermaid プレビュー",
+      "placeholder": "作りたい図を説明...",
+      "emptyPreview": "要件、メモ、プロセス説明を貼り付けて Mermaid に変換します。",
+      "samples": {
+        "requirements": {
+          "label": "Requirements",
+          "diagramType": "flowchart",
+          "prompt": "Users paste diagram code, the app validates syntax, renders a preview, allows export, and suggests related tools."
+        },
+        "incident": {
+          "label": "Incident",
+          "diagramType": "sequenceDiagram",
+          "prompt": "A customer reports a broken export. Support checks logs, engineering reproduces, a fix is deployed, and support confirms resolution."
+        },
+        "architecture": {
+          "label": "Architecture",
+          "diagramType": "flowchart",
+          "prompt": "Browser sends source text to a Next.js API route. The API calls Gemini first, falls back to DeepSeek, then returns Mermaid code for browser preview."
+        }
+      },
+      "ai": {
+        "promptLabel": "図表リクエスト",
+        "promptPlaceholder": "作りたい図を説明...",
+        "existingCodeLabel": "既存の Mermaid コード",
+        "existingCodePlaceholder": "修正したい Mermaid を貼り付け...",
+        "diagramTypeLabel": "図表タイプ",
+        "generateButton": "図表を生成",
+        "generatedCodeLabel": "生成された Mermaid コード",
+        "previewLabel": "Mermaid プレビュー",
+        "providerLabel": "プロバイダー"
+      },
+      "howToUse": [
+        "自然言語で目的の図を説明します。",
+        "Mermaid タイプを選び AI でコードを生成します。",
+        "出力を確認し、必要に応じて編集して SVG/PNG をエクスポートします。"
+      ],
+      "useCases": [
+        "AI 図表ドラフト",
+        "テキストから Mermaid",
+        "Mermaid 修正"
+      ],
+      "faq": [
+        {
+          "question": "どの AI プロバイダーを使いますか？",
+          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        },
+        {
+          "question": "どの AI プロバイダーを使いますか？",
+          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        }
+      ],
+      "seoBody": [
+        "プロダクトメモ、インシデント、アーキテクチャ文を Mermaid に変換します。",
+        "要件、メモ、プロセス説明を貼り付けて Mermaid に変換します。",
+        "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+      ]
+    },
+    "mermaid-ai-fixer": {
+      "name": "Mermaid AI 修正",
+      "shortDescription": "壊れた Mermaid 構文を AI で修正し、読みやすくします。",
+      "seoTitle": "Mermaid AI 修正 - DiagramPreview",
+      "seoDescription": "壊れた Mermaid 構文を AI で修正し、読みやすくします。",
+      "keywords": [
+        "mermaid-ai-fixer",
+        "ai diagram generator",
+        "text to mermaid",
+        "mermaid ai"
+      ],
+      "h1": "Mermaid AI 修正",
+      "intro": "壊れた Mermaid と修正指示を貼り付けると、AI が修正済みコードを返します。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "図表リクエスト",
+      "outputLabel": "Mermaid プレビュー",
+      "placeholder": "作りたい図を説明...",
+      "emptyPreview": "壊れた Mermaid と修正指示を貼り付けると、AI が修正済みコードを返します。",
+      "samples": {
+        "brokenFlow": {
+          "label": "Broken flow",
+          "diagramType": "flowchart",
+          "prompt": "Fix the syntax and keep the same flow.",
+          "code": "flowchart TD\n  A[Start --> B{Ready?}\n  B -- yes --> C[Render]\n  B -- no --> D[Edit]"
+        },
+        "brokenSequence": {
+          "label": "Broken sequence",
+          "diagramType": "sequenceDiagram",
+          "prompt": "Fix this sequence diagram and keep the participants.",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  User->App: Paste source\n  App--User: Preview"
+        },
+        "brokenState": {
+          "label": "Broken state",
+          "diagramType": "stateDiagram-v2",
+          "prompt": "Fix this state diagram.",
+          "code": "stateDiagram-v2\n  [*] --> Editing\n  Editing -> Rendering\n  Rendering --> Ready\n  Rendering --> Error\n  Error -> Editing"
+        }
+      },
+      "ai": {
+        "promptLabel": "図表リクエスト",
+        "promptPlaceholder": "作りたい図を説明...",
+        "existingCodeLabel": "既存の Mermaid コード",
+        "existingCodePlaceholder": "修正したい Mermaid を貼り付け...",
+        "diagramTypeLabel": "図表タイプ",
+        "generateButton": "図表を生成",
+        "generatedCodeLabel": "生成された Mermaid コード",
+        "previewLabel": "Mermaid プレビュー",
+        "providerLabel": "プロバイダー"
+      },
+      "howToUse": [
+        "自然言語で目的の図を説明します。",
+        "Mermaid タイプを選び AI でコードを生成します。",
+        "出力を確認し、必要に応じて編集して SVG/PNG をエクスポートします。"
+      ],
+      "useCases": [
+        "AI 図表ドラフト",
+        "テキストから Mermaid",
+        "Mermaid 修正"
+      ],
+      "faq": [
+        {
+          "question": "どの AI プロバイダーを使いますか？",
+          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        },
+        {
+          "question": "どの AI プロバイダーを使いますか？",
+          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        }
+      ],
+      "seoBody": [
+        "壊れた Mermaid 構文を AI で修正し、読みやすくします。",
+        "壊れた Mermaid と修正指示を貼り付けると、AI が修正済みコードを返します。",
+        "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+      ]
+    },
+    "openapi-to-sequence": {
+      "name": "OpenAPI to Sequence Diagram",
+      "shortDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
+      "seoTitle": "OpenAPI to Sequence Diagram - DiagramPreview",
+      "seoDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
+      "keywords": [
+        "openapi-to-sequence",
+        "openapi to sequence diagram",
+        "diagram tool",
+        "DiagramPreview"
+      ],
+      "h1": "OpenAPI to Sequence Diagram",
+      "intro": "Paste OpenAPI JSON or YAML and turn API operations into a sequence diagram that explains request handling.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Export",
+        "SEO tool"
+      ],
+      "inputLabel": "OpenAPI input",
+      "outputLabel": "Sequence diagram",
+      "placeholder": "Paste OpenAPI JSON or YAML here...",
+      "emptyPreview": "Your API sequence diagram will appear here.",
+      "samples": {
+        "petstore": {
+          "label": "ペット API",
+          "code": "openapi: 3.0.3\ninfo:\n  title: Pet Store\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      summary: List pets\n    post:\n      summary: Create pet\n  /pets/{petId}:\n    get:\n      summary: Get pet details\n    delete:\n      summary: Delete pet"
+        },
+        "auth": {
+          "label": "認証 API",
+          "code": "openapi: 3.1.0\ninfo:\n  title: Auth Service\n  version: 1.0.0\npaths:\n  /login:\n    post:\n      summary: Validate credentials\n  /sessions/{id}:\n    get:\n      summary: Read session\n    delete:\n      summary: Revoke session"
+        },
+        "orders": {
+          "label": "注文 API",
+          "code": "openapi: 3.0.0\ninfo:\n  title: Orders\n  version: 1.0.0\npaths:\n  /orders:\n    post:\n      summary: Create order\n  /orders/{orderId}/pay:\n    post:\n      summary: Start payment\n  /orders/{orderId}/shipments:\n    get:\n      summary: List shipments"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Review the generated visualization.",
+        "Edit the input and export the rendered SVG or PNG when the diagram looks right."
+      ],
+      "useCases": [
+        "API documentation review",
+        "Backend onboarding",
+        "Endpoint flow explanation"
+      ],
+      "faq": [
+        {
+          "question": "Does this use AI?",
+          "answer": "No. This tool runs parsing and visualization locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
+        "Paste OpenAPI JSON or YAML and turn API operations into a sequence diagram that explains request handling.",
+        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+      ]
+    },
+    "sql-to-er-diagram": {
+      "name": "SQL to ER Diagram",
+      "shortDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
+      "seoTitle": "SQL to ER Diagram - DiagramPreview",
+      "seoDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
+      "keywords": [
+        "sql-to-er-diagram",
+        "sql to er diagram",
+        "diagram tool",
+        "DiagramPreview"
+      ],
+      "h1": "SQL to ER Diagram",
+      "intro": "Paste SQL DDL and visualize tables, columns, primary keys, and foreign key relationships as an ER diagram.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Export",
+        "SEO tool"
+      ],
+      "inputLabel": "SQL DDL input",
+      "outputLabel": "ER diagram",
+      "placeholder": "Paste CREATE TABLE statements here...",
+      "emptyPreview": "Your ER diagram will appear here.",
+      "samples": {
+        "commerce": {
+          "label": "コマース",
+          "code": "CREATE TABLE customers (\n  id INT PRIMARY KEY,\n  email VARCHAR(255) NOT NULL UNIQUE,\n  name VARCHAR(120)\n);\n\nCREATE TABLE orders (\n  id INT PRIMARY KEY,\n  customer_id INT NOT NULL REFERENCES customers(id),\n  status VARCHAR(40) NOT NULL,\n  total DECIMAL(10,2)\n);\n\nCREATE TABLE order_items (\n  id INT PRIMARY KEY,\n  order_id INT NOT NULL REFERENCES orders(id),\n  sku VARCHAR(80) NOT NULL,\n  quantity INT NOT NULL\n);"
+        },
+        "blog": {
+          "label": "ブログ",
+          "code": "CREATE TABLE authors (\n  id INTEGER PRIMARY KEY,\n  display_name TEXT NOT NULL\n);\n\nCREATE TABLE posts (\n  id INTEGER PRIMARY KEY,\n  author_id INTEGER REFERENCES authors(id),\n  slug TEXT NOT NULL UNIQUE,\n  title TEXT NOT NULL\n);\n\nCREATE TABLE comments (\n  id INTEGER PRIMARY KEY,\n  post_id INTEGER REFERENCES posts(id),\n  body TEXT NOT NULL\n);"
+        },
+        "billing": {
+          "label": "請求",
+          "code": "CREATE TABLE accounts (\n  id BIGINT PRIMARY KEY,\n  plan VARCHAR(40) NOT NULL\n);\n\nCREATE TABLE invoices (\n  id BIGINT PRIMARY KEY,\n  account_id BIGINT NOT NULL,\n  amount_cents INT NOT NULL,\n  FOREIGN KEY (account_id) REFERENCES accounts(id)\n);\n\nCREATE TABLE payments (\n  id BIGINT PRIMARY KEY,\n  invoice_id BIGINT NOT NULL REFERENCES invoices(id),\n  provider VARCHAR(40) NOT NULL\n);"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Review the generated visualization.",
+        "Edit the input and export the rendered SVG or PNG when the diagram looks right."
+      ],
+      "useCases": [
+        "Database documentation",
+        "Schema review",
+        "Data model onboarding"
+      ],
+      "faq": [
+        {
+          "question": "Does this use AI?",
+          "answer": "No. This tool runs parsing and visualization locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
+        "Paste SQL DDL and visualize tables, columns, primary keys, and foreign key relationships as an ER diagram.",
+        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+      ]
+    },
+    "json-schema-visualizer": {
+      "name": "JSON Schema Visualizer",
+      "shortDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
+      "seoTitle": "JSON Schema Visualizer - DiagramPreview",
+      "seoDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
+      "keywords": [
+        "json-schema-visualizer",
+        "json schema visualizer",
+        "diagram tool",
+        "DiagramPreview"
+      ],
+      "h1": "JSON Schema Visualizer",
+      "intro": "Paste JSON Schema and inspect a structured tree of properties, types, required fields, arrays, enums, and composition groups.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Export",
+        "SEO tool"
+      ],
+      "inputLabel": "JSON Schema input",
+      "outputLabel": "Schema tree",
+      "placeholder": "Paste JSON Schema here...",
+      "emptyPreview": "Your schema tree will appear here.",
+      "samples": {
+        "user": {
+          "label": "ユーザープロフィール",
+          "code": "{\n  \"title\": \"UserProfile\",\n  \"type\": \"object\",\n  \"required\": [\n    \"id\",\n    \"email\"\n  ],\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\"\n    },\n    \"email\": {\n      \"type\": \"string\",\n      \"format\": \"email\"\n    },\n    \"roles\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"settings\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"theme\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"light\",\n            \"dark\"\n          ]\n        }\n      }\n    }\n  }\n}"
+        },
+        "product": {
+          "label": "商品",
+          "code": "{\n  \"title\": \"Product\",\n  \"type\": \"object\",\n  \"required\": [\n    \"sku\",\n    \"name\",\n    \"price\"\n  ],\n  \"properties\": {\n    \"sku\": {\n      \"type\": \"string\"\n    },\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"price\": {\n      \"type\": \"number\"\n    },\n    \"tags\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"inventory\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"warehouse\": {\n          \"type\": \"string\"\n        },\n        \"quantity\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  }\n}"
+        },
+        "event": {
+          "label": "イベントペイロード",
+          "code": "{\n  \"title\": \"OrderEvent\",\n  \"type\": \"object\",\n  \"required\": [\n    \"type\",\n    \"createdAt\",\n    \"data\"\n  ],\n  \"properties\": {\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"order.created\",\n        \"order.paid\",\n        \"order.shipped\"\n      ]\n    },\n    \"createdAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"orderId\": {\n          \"type\": \"string\"\n        },\n        \"customerId\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Review the generated visualization.",
+        "Edit the input and export the rendered SVG or PNG when the diagram looks right."
+      ],
+      "useCases": [
+        "API contract review",
+        "Payload documentation",
+        "Schema debugging"
+      ],
+      "faq": [
+        {
+          "question": "Does this use AI?",
+          "answer": "No. This tool runs parsing and visualization locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Inspect JSON Schema properties, types, required fields, and composition groups.",
+        "Paste JSON Schema and inspect a structured tree of properties, types, required fields, arrays, enums, and composition groups.",
+        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+      ]
+    },
+    "architecture-diagram-generator": {
+      "name": "Architecture Diagram Generator",
+      "shortDescription": "Generate Mermaid architecture diagrams from product or system notes with AI.",
+      "seoTitle": "Architecture Diagram Generator - DiagramPreview",
+      "seoDescription": "Generate Mermaid architecture diagrams from product or system notes with AI.",
+      "keywords": [
+        "architecture-diagram-generator",
+        "architecture diagram generator",
+        "ai diagram generator",
+        "DiagramPreview"
+      ],
+      "h1": "Architecture Diagram Generator",
+      "intro": "Describe a system architecture and generate editable Mermaid diagrams for services, queues, databases, clients, and external integrations.",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "Diagram request",
+      "outputLabel": "Diagram preview",
+      "placeholder": "Describe the diagram you want...",
+      "emptyPreview": "Describe a system architecture and generate editable Mermaid diagrams for services, queues, databases, clients, and external integrations.",
+      "samples": {
+        "saas": {
+          "label": "SaaS architecture",
+          "diagramType": "flowchart",
+          "prompt": "Design a SaaS architecture with browser, CDN, Next.js app, API gateway, auth service, billing service, worker queue, PostgreSQL, Redis, object storage, and email provider."
+        },
+        "eventDriven": {
+          "label": "Event driven",
+          "diagramType": "flowchart",
+          "prompt": "Create an event-driven order platform with checkout API, order service, payment provider, event bus, inventory service, shipping service, analytics pipeline, and data warehouse."
+        },
+        "edge": {
+          "label": "Edge deployment",
+          "diagramType": "flowchart",
+          "prompt": "Show an edge image processing architecture with users, edge cache, upload API, job queue, image workers, object storage, metadata database, and webhook callbacks."
+        }
+      },
+      "ai": {
+        "promptLabel": "Diagram request",
+        "promptPlaceholder": "Describe the diagram you want...",
+        "existingCodeLabel": "Existing source",
+        "existingCodePlaceholder": "Paste existing source to improve...",
+        "diagramTypeLabel": "Diagram type",
+        "generateButton": "Generate diagram",
+        "generatedCodeLabel": "Generated code",
+        "previewLabel": "Diagram preview",
+        "providerLabel": "Provider"
+      },
+      "howToUse": [
+        "Describe the target diagram in plain language.",
+        "Choose a diagram type and generate code with AI.",
+        "Review the output, edit it if needed, then export or copy the source."
+      ],
+      "useCases": [
+        "Architecture documentation",
+        "System design drafts",
+        "Engineering planning"
+      ],
+      "faq": [
+        {
+          "question": "Which AI provider is used?",
+          "answer": "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+        },
+        {
+          "question": "Are API keys exposed to the browser?",
+          "answer": "No. API keys are read only on the server through environment variables."
+        }
+      ],
+      "seoBody": [
+        "Generate Mermaid architecture diagrams from product or system notes with AI.",
+        "Describe a system architecture and generate editable Mermaid diagrams for services, queues, databases, clients, and external integrations.",
+        "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+      ]
+    },
+    "ai-plantuml-generator": {
+      "name": "AI PlantUML Generator",
+      "shortDescription": "Generate PlantUML diagrams from natural language with Gemini and DeepSeek fallback.",
+      "seoTitle": "AI PlantUML Generator - DiagramPreview",
+      "seoDescription": "Generate PlantUML diagrams from natural language with Gemini and DeepSeek fallback.",
+      "keywords": [
+        "ai-plantuml-generator",
+        "ai plantuml generator",
+        "ai diagram generator",
+        "DiagramPreview"
+      ],
+      "h1": "AI PlantUML Generator",
+      "intro": "Describe a sequence, component, class, activity, use case, or state diagram and generate editable PlantUML source.",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "PlantUML"
+      ],
+      "inputLabel": "Diagram request",
+      "outputLabel": "Diagram preview",
+      "placeholder": "Describe the diagram you want...",
+      "emptyPreview": "Describe a sequence, component, class, activity, use case, or state diagram and generate editable PlantUML source.",
+      "samples": {
+        "sequence": {
+          "label": "Sequence",
+          "diagramType": "sequence",
+          "prompt": "Create a PlantUML sequence diagram for a user exporting a diagram as PNG: browser requests export, app renders SVG, conversion service creates PNG, and browser downloads the file."
+        },
+        "component": {
+          "label": "Component",
+          "diagramType": "component",
+          "prompt": "Create a PlantUML component diagram for DiagramPreview with web app, renderer modules, AI API route, Gemini provider, DeepSeek provider, and export utilities."
+        },
+        "activity": {
+          "label": "Activity",
+          "diagramType": "activity",
+          "prompt": "Create a PlantUML activity diagram for validating pasted diagram code, rendering a preview, showing errors, and exporting if successful."
+        }
+      },
+      "ai": {
+        "promptLabel": "Diagram request",
+        "promptPlaceholder": "Describe the diagram you want...",
+        "existingCodeLabel": "Existing source",
+        "existingCodePlaceholder": "Paste existing source to improve...",
+        "diagramTypeLabel": "Diagram type",
+        "generateButton": "Generate diagram",
+        "generatedCodeLabel": "Generated code",
+        "previewLabel": "Diagram preview",
+        "providerLabel": "Provider"
+      },
+      "howToUse": [
+        "Describe the target diagram in plain language.",
+        "Choose a diagram type and generate code with AI.",
+        "Review the output, edit it if needed, then export or copy the source."
+      ],
+      "useCases": [
+        "PlantUML sequence diagrams",
+        "Component diagrams",
+        "Activity and state diagrams"
+      ],
+      "faq": [
+        {
+          "question": "Which AI provider is used?",
+          "answer": "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+        },
+        {
+          "question": "Are API keys exposed to the browser?",
+          "answer": "No. API keys are read only on the server through environment variables."
+        }
+      ],
+      "seoBody": [
+        "Generate PlantUML diagrams from natural language with Gemini and DeepSeek fallback.",
+        "Describe a sequence, component, class, activity, use case, or state diagram and generate editable PlantUML source.",
+        "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+      ]
     }
   },
   "hubs": {

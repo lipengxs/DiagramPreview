@@ -2,12 +2,14 @@ import {
   Braces,
   Boxes,
   Code2,
+  Database,
   FileCode2,
   FileJson,
   FileText,
   GitBranch,
   GitFork,
   Network,
+  Sparkles,
   Route,
   Workflow
 } from "lucide-react";
@@ -22,7 +24,15 @@ export type ToolSlug =
   | "mind-map-preview"
   | "sequence-diagram-preview"
   | "json-to-diagram"
-  | "yaml-to-diagram";
+  | "yaml-to-diagram"
+  | "ai-diagram-generator"
+  | "text-to-mermaid"
+  | "mermaid-ai-fixer"
+  | "openapi-to-sequence"
+  | "sql-to-er-diagram"
+  | "json-schema-visualizer"
+  | "ai-plantuml-generator"
+  | "architecture-diagram-generator";
 
 export type ToolCategory = "preview" | "converter" | "developer" | "data";
 
@@ -46,11 +56,108 @@ export type ToolConfig = {
     | "drawio"
     | "mindmap"
     | "json"
-    | "yaml";
+    | "yaml"
+    | "openapi"
+    | "sql"
+    | "json-schema"
+    | "ai";
   sampleKeys: string[];
 };
 
 export const tools: ToolConfig[] = [
+  {
+    slug: "ai-diagram-generator",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Sparkles,
+    popular: true,
+    recentlyAdded: true,
+    priority: 98,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["system", "api", "product"]
+  },
+  {
+    slug: "text-to-mermaid",
+    category: "converter",
+    navGroup: "ai-diagram",
+    icon: Sparkles,
+    popular: true,
+    recentlyAdded: true,
+    priority: 96,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["requirements", "incident", "architecture"]
+  },
+  {
+    slug: "mermaid-ai-fixer",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Sparkles,
+    recentlyAdded: true,
+    priority: 94,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["brokenFlow", "brokenSequence", "brokenState"]
+  },
+  {
+    slug: "architecture-diagram-generator",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Boxes,
+    popular: true,
+    recentlyAdded: true,
+    priority: 92,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["saas", "eventDriven", "edge"]
+  },
+  {
+    slug: "ai-plantuml-generator",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Route,
+    recentlyAdded: true,
+    priority: 88,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["sequence", "component", "activity"]
+  },
+  {
+    slug: "openapi-to-sequence",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Workflow,
+    popular: true,
+    recentlyAdded: true,
+    priority: 78,
+    implemented: true,
+    renderer: "openapi",
+    sampleKeys: ["petstore", "auth", "orders"]
+  },
+  {
+    slug: "sql-to-er-diagram",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: Database,
+    popular: true,
+    recentlyAdded: true,
+    priority: 76,
+    implemented: true,
+    renderer: "sql",
+    sampleKeys: ["commerce", "blog", "billing"]
+  },
+  {
+    slug: "json-schema-visualizer",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileJson,
+    recentlyAdded: true,
+    priority: 64,
+    implemented: true,
+    renderer: "json-schema",
+    sampleKeys: ["user", "product", "event"]
+  },
   {
     slug: "mermaid-preview",
     category: "preview",

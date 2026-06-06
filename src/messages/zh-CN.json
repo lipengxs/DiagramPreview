@@ -716,6 +716,571 @@
         "它适合 CI workflow、Kubernetes manifest、静态站点配置和文档示例，因为这些内容非常依赖缩进。",
         "该工具和 JSON to Diagram 共享树状可视化逻辑，后续改进可以同时惠及两种数据格式。"
       ]
+    },
+    "ai-diagram-generator": {
+      "name": "AI 图表生成器",
+      "shortDescription": "用自然语言提示词生成 Mermaid 图表。",
+      "seoTitle": "AI 图表生成器 - DiagramPreview",
+      "seoDescription": "用自然语言提示词生成 Mermaid 图表。",
+      "keywords": [
+        "ai-diagram-generator",
+        "ai diagram generator",
+        "text to mermaid",
+        "mermaid ai"
+      ],
+      "h1": "AI 图表生成器",
+      "intro": "描述你想要的图表，选择 Mermaid 图表类型，让 AI 生成可编辑源码并实时预览。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "图表需求",
+      "outputLabel": "Mermaid 预览",
+      "placeholder": "描述你想生成的图表...",
+      "emptyPreview": "描述你想要的图表，选择 Mermaid 图表类型，让 AI 生成可编辑源码并实时预览。",
+      "samples": {
+        "system": {
+          "label": "System flow",
+          "diagramType": "flowchart",
+          "prompt": "Create a system architecture flow for a web app with browser, API gateway, auth service, billing service, queue, worker, database, and object storage."
+        },
+        "api": {
+          "label": "API flow",
+          "diagramType": "sequenceDiagram",
+          "prompt": "Create a sequence diagram for a client calling an API, API validating auth, reading database records, and returning JSON."
+        },
+        "product": {
+          "label": "Product journey",
+          "diagramType": "flowchart",
+          "prompt": "Create a product onboarding flow with signup, email verification, workspace creation, first diagram preview, export, and feedback."
+        }
+      },
+      "ai": {
+        "promptLabel": "图表需求",
+        "promptPlaceholder": "描述你想生成的图表...",
+        "existingCodeLabel": "已有 Mermaid 代码",
+        "existingCodePlaceholder": "粘贴要修复的 Mermaid 代码...",
+        "diagramTypeLabel": "图表类型",
+        "generateButton": "生成图表",
+        "generatedCodeLabel": "生成的 Mermaid 代码",
+        "previewLabel": "Mermaid 预览",
+        "providerLabel": "供应商"
+      },
+      "howToUse": [
+        "用自然语言描述目标图表。",
+        "选择 Mermaid 图表类型并调用 AI 生成代码。",
+        "检查 Mermaid 输出，必要时编辑，然后导出 SVG 或 PNG。"
+      ],
+      "useCases": [
+        "AI 图表草稿",
+        "文本转 Mermaid",
+        "Mermaid 语法修复"
+      ],
+      "faq": [
+        {
+          "question": "会使用哪个 AI 供应商？",
+          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        },
+        {
+          "question": "会使用哪个 AI 供应商？",
+          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        }
+      ],
+      "seoBody": [
+        "用自然语言提示词生成 Mermaid 图表。",
+        "描述你想要的图表，选择 Mermaid 图表类型，让 AI 生成可编辑源码并实时预览。",
+        "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+      ]
+    },
+    "text-to-mermaid": {
+      "name": "文本转 Mermaid",
+      "shortDescription": "把产品说明、事故记录和架构文本转换成 Mermaid 图表。",
+      "seoTitle": "文本转 Mermaid - DiagramPreview",
+      "seoDescription": "把产品说明、事故记录和架构文本转换成 Mermaid 图表。",
+      "keywords": [
+        "text-to-mermaid",
+        "ai diagram generator",
+        "text to mermaid",
+        "mermaid ai"
+      ],
+      "h1": "文本转 Mermaid",
+      "intro": "粘贴需求、笔记或流程描述，将普通文本转换成可预览和导出的 Mermaid 代码。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "图表需求",
+      "outputLabel": "Mermaid 预览",
+      "placeholder": "描述你想生成的图表...",
+      "emptyPreview": "粘贴需求、笔记或流程描述，将普通文本转换成可预览和导出的 Mermaid 代码。",
+      "samples": {
+        "requirements": {
+          "label": "Requirements",
+          "diagramType": "flowchart",
+          "prompt": "Users paste diagram code, the app validates syntax, renders a preview, allows export, and suggests related tools."
+        },
+        "incident": {
+          "label": "Incident",
+          "diagramType": "sequenceDiagram",
+          "prompt": "A customer reports a broken export. Support checks logs, engineering reproduces, a fix is deployed, and support confirms resolution."
+        },
+        "architecture": {
+          "label": "Architecture",
+          "diagramType": "flowchart",
+          "prompt": "Browser sends source text to a Next.js API route. The API calls Gemini first, falls back to DeepSeek, then returns Mermaid code for browser preview."
+        }
+      },
+      "ai": {
+        "promptLabel": "图表需求",
+        "promptPlaceholder": "描述你想生成的图表...",
+        "existingCodeLabel": "已有 Mermaid 代码",
+        "existingCodePlaceholder": "粘贴要修复的 Mermaid 代码...",
+        "diagramTypeLabel": "图表类型",
+        "generateButton": "生成图表",
+        "generatedCodeLabel": "生成的 Mermaid 代码",
+        "previewLabel": "Mermaid 预览",
+        "providerLabel": "供应商"
+      },
+      "howToUse": [
+        "用自然语言描述目标图表。",
+        "选择 Mermaid 图表类型并调用 AI 生成代码。",
+        "检查 Mermaid 输出，必要时编辑，然后导出 SVG 或 PNG。"
+      ],
+      "useCases": [
+        "AI 图表草稿",
+        "文本转 Mermaid",
+        "Mermaid 语法修复"
+      ],
+      "faq": [
+        {
+          "question": "会使用哪个 AI 供应商？",
+          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        },
+        {
+          "question": "会使用哪个 AI 供应商？",
+          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        }
+      ],
+      "seoBody": [
+        "把产品说明、事故记录和架构文本转换成 Mermaid 图表。",
+        "粘贴需求、笔记或流程描述，将普通文本转换成可预览和导出的 Mermaid 代码。",
+        "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+      ]
+    },
+    "mermaid-ai-fixer": {
+      "name": "Mermaid AI 修复器",
+      "shortDescription": "用 AI 修复 Mermaid 语法并提升图表可读性。",
+      "seoTitle": "Mermaid AI 修复器 - DiagramPreview",
+      "seoDescription": "用 AI 修复 Mermaid 语法并提升图表可读性。",
+      "keywords": [
+        "mermaid-ai-fixer",
+        "ai diagram generator",
+        "text to mermaid",
+        "mermaid ai"
+      ],
+      "h1": "Mermaid AI 修复器",
+      "intro": "粘贴有问题的 Mermaid 代码和修复要求，AI 会返回修正后的 Mermaid 源码。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "图表需求",
+      "outputLabel": "Mermaid 预览",
+      "placeholder": "描述你想生成的图表...",
+      "emptyPreview": "粘贴有问题的 Mermaid 代码和修复要求，AI 会返回修正后的 Mermaid 源码。",
+      "samples": {
+        "brokenFlow": {
+          "label": "Broken flow",
+          "diagramType": "flowchart",
+          "prompt": "Fix the syntax and keep the same flow.",
+          "code": "flowchart TD\n  A[Start --> B{Ready?}\n  B -- yes --> C[Render]\n  B -- no --> D[Edit]"
+        },
+        "brokenSequence": {
+          "label": "Broken sequence",
+          "diagramType": "sequenceDiagram",
+          "prompt": "Fix this sequence diagram and keep the participants.",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  User->App: Paste source\n  App--User: Preview"
+        },
+        "brokenState": {
+          "label": "Broken state",
+          "diagramType": "stateDiagram-v2",
+          "prompt": "Fix this state diagram.",
+          "code": "stateDiagram-v2\n  [*] --> Editing\n  Editing -> Rendering\n  Rendering --> Ready\n  Rendering --> Error\n  Error -> Editing"
+        }
+      },
+      "ai": {
+        "promptLabel": "图表需求",
+        "promptPlaceholder": "描述你想生成的图表...",
+        "existingCodeLabel": "已有 Mermaid 代码",
+        "existingCodePlaceholder": "粘贴要修复的 Mermaid 代码...",
+        "diagramTypeLabel": "图表类型",
+        "generateButton": "生成图表",
+        "generatedCodeLabel": "生成的 Mermaid 代码",
+        "previewLabel": "Mermaid 预览",
+        "providerLabel": "供应商"
+      },
+      "howToUse": [
+        "用自然语言描述目标图表。",
+        "选择 Mermaid 图表类型并调用 AI 生成代码。",
+        "检查 Mermaid 输出，必要时编辑，然后导出 SVG 或 PNG。"
+      ],
+      "useCases": [
+        "AI 图表草稿",
+        "文本转 Mermaid",
+        "Mermaid 语法修复"
+      ],
+      "faq": [
+        {
+          "question": "会使用哪个 AI 供应商？",
+          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        },
+        {
+          "question": "会使用哪个 AI 供应商？",
+          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        }
+      ],
+      "seoBody": [
+        "用 AI 修复 Mermaid 语法并提升图表可读性。",
+        "粘贴有问题的 Mermaid 代码和修复要求，AI 会返回修正后的 Mermaid 源码。",
+        "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+      ]
+    },
+    "openapi-to-sequence": {
+      "name": "OpenAPI 转序列图",
+      "shortDescription": "在本地把 OpenAPI paths 转成 Mermaid 序列图。",
+      "seoTitle": "OpenAPI 转序列图 - DiagramPreview",
+      "seoDescription": "在本地把 OpenAPI paths 转成 Mermaid 序列图。",
+      "keywords": [
+        "openapi-to-sequence",
+        "openapi 转序列图",
+        "diagram tool",
+        "DiagramPreview"
+      ],
+      "h1": "OpenAPI 转序列图",
+      "intro": "粘贴 OpenAPI JSON 或 YAML，把 API 操作转换为解释请求处理过程的序列图。",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Export",
+        "SEO tool"
+      ],
+      "inputLabel": "OpenAPI 输入",
+      "outputLabel": "序列图",
+      "placeholder": "在这里粘贴 OpenAPI JSON 或 YAML...",
+      "emptyPreview": "你的 API 序列图会显示在这里。",
+      "samples": {
+        "petstore": {
+          "label": "宠物 API",
+          "code": "openapi: 3.0.3\ninfo:\n  title: Pet Store\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      summary: List pets\n    post:\n      summary: Create pet\n  /pets/{petId}:\n    get:\n      summary: Get pet details\n    delete:\n      summary: Delete pet"
+        },
+        "auth": {
+          "label": "认证 API",
+          "code": "openapi: 3.1.0\ninfo:\n  title: Auth Service\n  version: 1.0.0\npaths:\n  /login:\n    post:\n      summary: Validate credentials\n  /sessions/{id}:\n    get:\n      summary: Read session\n    delete:\n      summary: Revoke session"
+        },
+        "orders": {
+          "label": "订单 API",
+          "code": "openapi: 3.0.0\ninfo:\n  title: Orders\n  version: 1.0.0\npaths:\n  /orders:\n    post:\n      summary: Create order\n  /orders/{orderId}/pay:\n    post:\n      summary: Start payment\n  /orders/{orderId}/shipments:\n    get:\n      summary: List shipments"
+        }
+      },
+      "howToUse": [
+        "把源文本粘贴到编辑器。",
+        "检查生成的可视化结果。",
+        "输入调整到满意后，导出 SVG 或 PNG。"
+      ],
+      "useCases": [
+        "API 文档评审",
+        "后端新人上手",
+        "接口流程说明"
+      ],
+      "faq": [
+        {
+          "question": "这个工具会用 AI 吗？",
+          "answer": "不会。解析和可视化在浏览器本地完成。"
+        }
+      ],
+      "seoBody": [
+        "在本地把 OpenAPI paths 转成 Mermaid 序列图。",
+        "粘贴 OpenAPI JSON 或 YAML，把 API 操作转换为解释请求处理过程的序列图。",
+        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+      ]
+    },
+    "sql-to-er-diagram": {
+      "name": "SQL 转 ER 图",
+      "shortDescription": "把 CREATE TABLE SQL 转成 Mermaid ER 图。",
+      "seoTitle": "SQL 转 ER 图 - DiagramPreview",
+      "seoDescription": "把 CREATE TABLE SQL 转成 Mermaid ER 图。",
+      "keywords": [
+        "sql-to-er-diagram",
+        "sql 转 er 图",
+        "diagram tool",
+        "DiagramPreview"
+      ],
+      "h1": "SQL 转 ER 图",
+      "intro": "粘贴 SQL DDL，可视化表、字段、主键和外键关系。",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Export",
+        "SEO tool"
+      ],
+      "inputLabel": "SQL DDL 输入",
+      "outputLabel": "ER 图",
+      "placeholder": "在这里粘贴 CREATE TABLE 语句...",
+      "emptyPreview": "你的 ER 图会显示在这里。",
+      "samples": {
+        "commerce": {
+          "label": "电商",
+          "code": "CREATE TABLE customers (\n  id INT PRIMARY KEY,\n  email VARCHAR(255) NOT NULL UNIQUE,\n  name VARCHAR(120)\n);\n\nCREATE TABLE orders (\n  id INT PRIMARY KEY,\n  customer_id INT NOT NULL REFERENCES customers(id),\n  status VARCHAR(40) NOT NULL,\n  total DECIMAL(10,2)\n);\n\nCREATE TABLE order_items (\n  id INT PRIMARY KEY,\n  order_id INT NOT NULL REFERENCES orders(id),\n  sku VARCHAR(80) NOT NULL,\n  quantity INT NOT NULL\n);"
+        },
+        "blog": {
+          "label": "博客",
+          "code": "CREATE TABLE authors (\n  id INTEGER PRIMARY KEY,\n  display_name TEXT NOT NULL\n);\n\nCREATE TABLE posts (\n  id INTEGER PRIMARY KEY,\n  author_id INTEGER REFERENCES authors(id),\n  slug TEXT NOT NULL UNIQUE,\n  title TEXT NOT NULL\n);\n\nCREATE TABLE comments (\n  id INTEGER PRIMARY KEY,\n  post_id INTEGER REFERENCES posts(id),\n  body TEXT NOT NULL\n);"
+        },
+        "billing": {
+          "label": "计费",
+          "code": "CREATE TABLE accounts (\n  id BIGINT PRIMARY KEY,\n  plan VARCHAR(40) NOT NULL\n);\n\nCREATE TABLE invoices (\n  id BIGINT PRIMARY KEY,\n  account_id BIGINT NOT NULL,\n  amount_cents INT NOT NULL,\n  FOREIGN KEY (account_id) REFERENCES accounts(id)\n);\n\nCREATE TABLE payments (\n  id BIGINT PRIMARY KEY,\n  invoice_id BIGINT NOT NULL REFERENCES invoices(id),\n  provider VARCHAR(40) NOT NULL\n);"
+        }
+      },
+      "howToUse": [
+        "把源文本粘贴到编辑器。",
+        "检查生成的可视化结果。",
+        "输入调整到满意后，导出 SVG 或 PNG。"
+      ],
+      "useCases": [
+        "数据库文档",
+        "Schema 评审",
+        "数据模型上手"
+      ],
+      "faq": [
+        {
+          "question": "这个工具会用 AI 吗？",
+          "answer": "不会。解析和可视化在浏览器本地完成。"
+        }
+      ],
+      "seoBody": [
+        "把 CREATE TABLE SQL 转成 Mermaid ER 图。",
+        "粘贴 SQL DDL，可视化表、字段、主键和外键关系。",
+        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+      ]
+    },
+    "json-schema-visualizer": {
+      "name": "JSON Schema 可视化",
+      "shortDescription": "查看 JSON Schema 属性、类型、必填字段和组合结构。",
+      "seoTitle": "JSON Schema 可视化 - DiagramPreview",
+      "seoDescription": "查看 JSON Schema 属性、类型、必填字段和组合结构。",
+      "keywords": [
+        "json-schema-visualizer",
+        "json schema 可视化",
+        "diagram tool",
+        "DiagramPreview"
+      ],
+      "h1": "JSON Schema 可视化",
+      "intro": "粘贴 JSON Schema，查看属性、类型、必填字段、数组、枚举和组合结构树。",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Export",
+        "SEO tool"
+      ],
+      "inputLabel": "JSON Schema 输入",
+      "outputLabel": "Schema 树",
+      "placeholder": "在这里粘贴 JSON Schema...",
+      "emptyPreview": "你的 Schema 树会显示在这里。",
+      "samples": {
+        "user": {
+          "label": "用户资料",
+          "code": "{\n  \"title\": \"UserProfile\",\n  \"type\": \"object\",\n  \"required\": [\n    \"id\",\n    \"email\"\n  ],\n  \"properties\": {\n    \"id\": {\n      \"type\": \"string\"\n    },\n    \"email\": {\n      \"type\": \"string\",\n      \"format\": \"email\"\n    },\n    \"roles\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"settings\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"theme\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"light\",\n            \"dark\"\n          ]\n        }\n      }\n    }\n  }\n}"
+        },
+        "product": {
+          "label": "产品",
+          "code": "{\n  \"title\": \"Product\",\n  \"type\": \"object\",\n  \"required\": [\n    \"sku\",\n    \"name\",\n    \"price\"\n  ],\n  \"properties\": {\n    \"sku\": {\n      \"type\": \"string\"\n    },\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"price\": {\n      \"type\": \"number\"\n    },\n    \"tags\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"inventory\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"warehouse\": {\n          \"type\": \"string\"\n        },\n        \"quantity\": {\n          \"type\": \"integer\"\n        }\n      }\n    }\n  }\n}"
+        },
+        "event": {
+          "label": "事件载荷",
+          "code": "{\n  \"title\": \"OrderEvent\",\n  \"type\": \"object\",\n  \"required\": [\n    \"type\",\n    \"createdAt\",\n    \"data\"\n  ],\n  \"properties\": {\n    \"type\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"order.created\",\n        \"order.paid\",\n        \"order.shipped\"\n      ]\n    },\n    \"createdAt\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"orderId\": {\n          \"type\": \"string\"\n        },\n        \"customerId\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "把源文本粘贴到编辑器。",
+        "检查生成的可视化结果。",
+        "输入调整到满意后，导出 SVG 或 PNG。"
+      ],
+      "useCases": [
+        "API 契约评审",
+        "载荷文档",
+        "Schema 调试"
+      ],
+      "faq": [
+        {
+          "question": "这个工具会用 AI 吗？",
+          "answer": "不会。解析和可视化在浏览器本地完成。"
+        }
+      ],
+      "seoBody": [
+        "查看 JSON Schema 属性、类型、必填字段和组合结构。",
+        "粘贴 JSON Schema，查看属性、类型、必填字段、数组、枚举和组合结构树。",
+        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+      ]
+    },
+    "architecture-diagram-generator": {
+      "name": "架构图生成器",
+      "shortDescription": "用 AI 从产品或系统说明生成 Mermaid 架构图。",
+      "seoTitle": "架构图生成器 - DiagramPreview",
+      "seoDescription": "用 AI 从产品或系统说明生成 Mermaid 架构图。",
+      "keywords": [
+        "architecture-diagram-generator",
+        "架构图生成器",
+        "ai diagram generator",
+        "DiagramPreview"
+      ],
+      "h1": "架构图生成器",
+      "intro": "描述系统架构，生成可编辑的 Mermaid 图，覆盖服务、队列、数据库、客户端和外部集成。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "Mermaid"
+      ],
+      "inputLabel": "图表需求",
+      "outputLabel": "图表预览",
+      "placeholder": "描述你想要的图表...",
+      "emptyPreview": "描述系统架构，生成可编辑的 Mermaid 图，覆盖服务、队列、数据库、客户端和外部集成。",
+      "samples": {
+        "saas": {
+          "label": "SaaS 架构",
+          "diagramType": "flowchart",
+          "prompt": "Design a SaaS architecture with browser, CDN, Next.js app, API gateway, auth service, billing service, worker queue, PostgreSQL, Redis, object storage, and email provider."
+        },
+        "eventDriven": {
+          "label": "事件驱动",
+          "diagramType": "flowchart",
+          "prompt": "Create an event-driven order platform with checkout API, order service, payment provider, event bus, inventory service, shipping service, analytics pipeline, and data warehouse."
+        },
+        "edge": {
+          "label": "边缘部署",
+          "diagramType": "flowchart",
+          "prompt": "Show an edge image processing architecture with users, edge cache, upload API, job queue, image workers, object storage, metadata database, and webhook callbacks."
+        }
+      },
+      "ai": {
+        "promptLabel": "图表需求",
+        "promptPlaceholder": "描述你想要的图表...",
+        "existingCodeLabel": "已有源码",
+        "existingCodePlaceholder": "粘贴需要改进的源码...",
+        "diagramTypeLabel": "图表类型",
+        "generateButton": "生成图表",
+        "generatedCodeLabel": "生成的代码",
+        "previewLabel": "图表预览",
+        "providerLabel": "Provider"
+      },
+      "howToUse": [
+        "用自然语言描述目标图表。",
+        "选择图表类型并用 AI 生成代码。",
+        "检查输出，必要时编辑，然后导出或复制源码。"
+      ],
+      "useCases": [
+        "架构文档",
+        "系统设计草稿",
+        "工程规划"
+      ],
+      "faq": [
+        {
+          "question": "使用哪个 AI 服务？",
+          "answer": "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+        },
+        {
+          "question": "API Key 会暴露给浏览器吗？",
+          "answer": "不会。密钥只通过服务端环境变量读取。"
+        }
+      ],
+      "seoBody": [
+        "用 AI 从产品或系统说明生成 Mermaid 架构图。",
+        "描述系统架构，生成可编辑的 Mermaid 图，覆盖服务、队列、数据库、客户端和外部集成。",
+        "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+      ]
+    },
+    "ai-plantuml-generator": {
+      "name": "AI PlantUML 生成器",
+      "shortDescription": "通过 Gemini 和 DeepSeek 兜底从自然语言生成 PlantUML。",
+      "seoTitle": "AI PlantUML 生成器 - DiagramPreview",
+      "seoDescription": "通过 Gemini 和 DeepSeek 兜底从自然语言生成 PlantUML。",
+      "keywords": [
+        "ai-plantuml-generator",
+        "ai plantuml 生成器",
+        "ai diagram generator",
+        "DiagramPreview"
+      ],
+      "h1": "AI PlantUML 生成器",
+      "intro": "描述序列图、组件图、类图、活动图、用例图或状态图，生成可编辑 PlantUML 源码。",
+      "badges": [
+        "AI",
+        "Gemini",
+        "DeepSeek fallback",
+        "PlantUML"
+      ],
+      "inputLabel": "图表需求",
+      "outputLabel": "图表预览",
+      "placeholder": "描述你想要的图表...",
+      "emptyPreview": "描述序列图、组件图、类图、活动图、用例图或状态图，生成可编辑 PlantUML 源码。",
+      "samples": {
+        "sequence": {
+          "label": "序列图",
+          "diagramType": "sequence",
+          "prompt": "Create a PlantUML sequence diagram for a user exporting a diagram as PNG: browser requests export, app renders SVG, conversion service creates PNG, and browser downloads the file."
+        },
+        "component": {
+          "label": "组件图",
+          "diagramType": "component",
+          "prompt": "Create a PlantUML component diagram for DiagramPreview with web app, renderer modules, AI API route, Gemini provider, DeepSeek provider, and export utilities."
+        },
+        "activity": {
+          "label": "活动图",
+          "diagramType": "activity",
+          "prompt": "Create a PlantUML activity diagram for validating pasted diagram code, rendering a preview, showing errors, and exporting if successful."
+        }
+      },
+      "ai": {
+        "promptLabel": "图表需求",
+        "promptPlaceholder": "描述你想要的图表...",
+        "existingCodeLabel": "已有源码",
+        "existingCodePlaceholder": "粘贴需要改进的源码...",
+        "diagramTypeLabel": "图表类型",
+        "generateButton": "生成图表",
+        "generatedCodeLabel": "生成的代码",
+        "previewLabel": "图表预览",
+        "providerLabel": "Provider"
+      },
+      "howToUse": [
+        "用自然语言描述目标图表。",
+        "选择图表类型并用 AI 生成代码。",
+        "检查输出，必要时编辑，然后导出或复制源码。"
+      ],
+      "useCases": [
+        "PlantUML 序列图",
+        "组件图",
+        "活动图和状态图"
+      ],
+      "faq": [
+        {
+          "question": "使用哪个 AI 服务？",
+          "answer": "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+        },
+        {
+          "question": "API Key 会暴露给浏览器吗？",
+          "answer": "不会。密钥只通过服务端环境变量读取。"
+        }
+      ],
+      "seoBody": [
+        "通过 Gemini 和 DeepSeek 兜底从自然语言生成 PlantUML。",
+        "描述序列图、组件图、类图、活动图、用例图或状态图，生成可编辑 PlantUML 源码。",
+        "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+      ]
     }
   },
   "hubs": {

@@ -217,6 +217,20 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
       const {parseDrawioSummary} = await import("@/lib/renderers/drawio");
       return {tree: parseDrawioSummary(source, copy.drawioSummary)};
     }
+    case "openapi": {
+      const {renderOpenApiSequence} = await import("@/lib/renderers/openapi");
+      const svg = await renderOpenApiSequence(source);
+      return {html: svg, svg};
+    }
+    case "sql": {
+      const {renderSqlErDiagram} = await import("@/lib/renderers/sql");
+      const svg = await renderSqlErDiagram(source);
+      return {html: svg, svg};
+    }
+    case "json-schema": {
+      const {parseJsonSchemaTree} = await import("@/lib/renderers/json-schema");
+      return {tree: parseJsonSchemaTree(source)};
+    }
     default:
       return {};
   }

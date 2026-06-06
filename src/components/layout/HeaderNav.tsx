@@ -13,7 +13,6 @@ export function HeaderNav() {
   return (
     <nav className="order-3 flex w-full gap-1 overflow-x-auto text-sm text-slate-300 md:order-none md:ml-5 md:w-auto md:flex-1">
       {headerNavItems.map((item) => {
-        const hub = toolHubs.find((candidate) => candidate.href === item.href);
         if (item.href === "/tools") {
           return <ToolsMegaMenu key={item.href} label={t(item.labelKey)} />;
         }
