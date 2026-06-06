@@ -13,16 +13,24 @@ export type AiToolRouteProps = {
   params: Promise<{locale: Locale}>;
 };
 
-const modes: Partial<Record<ToolSlug, "generate" | "text-to-mermaid" | "fix-mermaid" | "architecture" | "plantuml">> = {
+const modes: Partial<
+  Record<ToolSlug, "generate" | "text-to-mermaid" | "fix-mermaid" | "architecture" | "plantuml" | "drawio" | "grafana" | "prometheus">
+> = {
   "ai-diagram-generator": "generate",
   "text-to-mermaid": "text-to-mermaid",
   "mermaid-ai-fixer": "fix-mermaid",
   "architecture-diagram-generator": "architecture",
-  "ai-plantuml-generator": "plantuml"
+  "ai-plantuml-generator": "plantuml",
+  "ai-drawio-generator": "drawio",
+  "grafana-dashboard-generator": "grafana",
+  "prometheus-alert-rule-generator": "prometheus"
 };
 
-const outputLanguages: Partial<Record<ToolSlug, "mermaid" | "plantuml">> = {
-  "ai-plantuml-generator": "plantuml"
+const outputLanguages: Partial<Record<ToolSlug, "mermaid" | "plantuml" | "drawio" | "json" | "yaml">> = {
+  "ai-plantuml-generator": "plantuml",
+  "ai-drawio-generator": "drawio",
+  "grafana-dashboard-generator": "json",
+  "prometheus-alert-rule-generator": "yaml"
 };
 
 export function createAiToolMetadata(slug: ToolSlug) {
@@ -84,6 +92,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
           copyCode: t("common.actions.copyCode"),
           exportSvg: t("common.actions.exportSvg"),
           exportPng: t("common.actions.exportPng"),
+          downloadFile: t("common.actions.downloadFile"),
           error: t("common.workspace.renderError"),
           samples: t.raw(`tools.${slug}.samples`)
         }}

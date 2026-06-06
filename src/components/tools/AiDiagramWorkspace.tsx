@@ -9,8 +9,8 @@ import {renderMermaid} from "@/lib/renderers/mermaid";
 
 type AiDiagramWorkspaceProps = {
   slug: string;
-  mode: "generate" | "text-to-mermaid" | "fix-mermaid" | "architecture" | "plantuml";
-  outputLanguage?: "mermaid" | "plantuml";
+  mode: "generate" | "text-to-mermaid" | "fix-mermaid" | "architecture" | "plantuml" | "drawio" | "grafana" | "prometheus";
+  outputLanguage?: "mermaid" | "plantuml" | "drawio" | "json" | "yaml";
   copy: {
     promptLabel: string;
     promptPlaceholder: string;
@@ -25,6 +25,7 @@ type AiDiagramWorkspaceProps = {
     copyCode: string;
     exportSvg: string;
     exportPng: string;
+    downloadFile: string;
     error: string;
     samples: Record<string, {label: string; prompt: string; code?: string; diagramType?: string}>;
   };
@@ -33,10 +34,22 @@ type AiDiagramWorkspaceProps = {
 
 const diagramTypes = ["flowchart", "sequenceDiagram", "classDiagram", "stateDiagram-v2", "erDiagram", "gantt"];
 const plantUmlDiagramTypes = ["sequence", "component", "class", "activity", "usecase", "state"];
+const drawioDiagramTypes = ["architecture", "microservices", "cicd", "data-flow", "cloud", "deployment"];
+const grafanaDashboardTypes = ["prometheus", "loki", "node-exporter", "api-service", "kubernetes", "database"];
+const prometheusRuleTypes = ["api-service", "infrastructure", "kubernetes", "database", "queue", "slo"];
 
 export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy, sampleKeys}: AiDiagramWorkspaceProps) {
   const firstSample = copy.samples[sampleKeys[0]];
-  const availableDiagramTypes = outputLanguage === "plantuml" ? plantUmlDiagramTypes : diagramTypes;
+  const availableDiagramTypes =
+    outputLanguage === "plantuml"
+      ? plantUmlDiagramTypes
+      : outputLanguage === "drawio"
+        ? drawioDiagramTypes
+        : outputLanguage === "json"
+          ? grafanaDashboardTypes
+          : outputLanguage === "yaml"
+            ? prometheusRuleTypes
+            : diagramTypes;
   const [prompt, setPrompt] = useState(firstSample?.prompt ?? "");
   const [existingCode, setExistingCode] = useState(firstSample?.code ?? "");
   const [diagramType, setDiagramType] = useState(firstSample?.diagramType ?? availableDiagramTypes[0]);
@@ -66,6 +79,32 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
             setHtml("");
             setSvg("");
             setImageUrl(plantUmlSvgUrl(generatedCode));
+            setError("");
+          }
+          return;
+        }
+
+        if (outputLanguage === "drawio") {
+          const {previewDrawioAsSvg} = await import("@/lib/renderers/drawio-converters");
+          const result = previewDrawioAsSvg(generatedCode);
+          if (!cancelled) {
+            setHtml(result.svg);
+            setSvg(result.svg);
+            setImageUrl("");
+            setError("");
+          }
+          return;
+        }
+
+        if (outputLanguage === "json" || outputLanguage === "yaml") {
+          const nextHtml =
+            outputLanguage === "json"
+              ? renderJsonSummary(generatedCode)
+              : await renderYamlSummary(generatedCode);
+          if (!cancelled) {
+            setHtml(nextHtml);
+            setSvg("");
+            setImageUrl("");
             setError("");
           }
           return;
@@ -221,6 +260,10 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
               <ImageDown className="h-4 w-4" />
               {copy.exportPng}
             </Button>
+            <Button onClick={() => downloadText(fileNameFor(slug, outputLanguage), generatedCode, mimeFor(outputLanguage))} disabled={!generatedCode}>
+              <Download className="h-4 w-4" />
+              {copy.downloadFile}
+            </Button>
           </div>
 
           <label className="flex min-h-72 flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
@@ -264,4 +307,51 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
       </div>
     </section>
   );
+}
+
+function fileNameFor(slug: string, outputLanguage: NonNullable<AiDiagramWorkspaceProps["outputLanguage"]>) {
+  if (outputLanguage === "drawio") return `${slug}.drawio`;
+  if (outputLanguage === "json") return `${slug}.json`;
+  if (outputLanguage === "yaml") return `${slug}.yaml`;
+  if (outputLanguage === "plantuml") return `${slug}.puml`;
+  return `${slug}.mmd`;
+}
+
+function mimeFor(outputLanguage: NonNullable<AiDiagramWorkspaceProps["outputLanguage"]>) {
+  if (outputLanguage === "drawio") return "application/xml;charset=utf-8";
+  if (outputLanguage === "json") return "application/json;charset=utf-8";
+  if (outputLanguage === "yaml") return "application/yaml;charset=utf-8";
+  return "text/plain;charset=utf-8";
+}
+
+function renderJsonSummary(source: string) {
+  const parsed = JSON.parse(source) as Record<string, unknown>;
+  return renderObjectPreview("Grafana dashboard JSON", parsed);
+}
+
+async function renderYamlSummary(source: string) {
+  const yaml = await import("js-yaml");
+  const parsed = yaml.load(source) as Record<string, unknown>;
+  return renderObjectPreview("Prometheus alert rules YAML", parsed);
+}
+
+function renderObjectPreview(title: string, value: unknown) {
+  const summary = summarize(value);
+  return `<div class="grid gap-4"><div class="rounded-lg border border-slate-200 bg-white p-4"><div class="text-sm font-semibold text-slate-900">${escapeHtml(
+    title
+  )}</div><div class="mt-2 text-sm leading-6 text-slate-600">${escapeHtml(summary)}</div></div><pre class="overflow-auto rounded-lg border border-slate-200 bg-slate-950 p-4 text-xs leading-5 text-slate-100">${escapeHtml(
+    JSON.stringify(value, null, 2)
+  )}</pre></div>`;
+}
+
+function summarize(value: unknown) {
+  if (!value || typeof value !== "object") return "Generated source is valid and ready to download.";
+  const record = value as Record<string, unknown>;
+  if (Array.isArray(record.panels)) return `${record.panels.length} Grafana panels, title: ${String(record.title || "Untitled")}`;
+  if (Array.isArray(record.groups)) return `${record.groups.length} Prometheus rule groups generated.`;
+  return `Top-level keys: ${Object.keys(record).slice(0, 12).join(", ")}`;
+}
+
+function escapeHtml(value: string) {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }

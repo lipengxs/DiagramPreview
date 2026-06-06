@@ -32,7 +32,31 @@ export type ToolSlug =
   | "sql-to-er-diagram"
   | "json-schema-visualizer"
   | "ai-plantuml-generator"
-  | "architecture-diagram-generator";
+  | "architecture-diagram-generator"
+  | "ai-drawio-generator"
+  | "grafana-dashboard-generator"
+  | "prometheus-alert-rule-generator"
+  | "xml-to-diagram"
+  | "csv-to-diagram"
+  | "docker-compose-diagram"
+  | "kubernetes-manifest-visualizer"
+  | "package-json-dependency-diagram"
+  | "regex-railroad-diagram"
+  | "plantuml-to-drawio"
+  | "mermaid-to-drawio"
+  | "drawio-to-svg"
+  | "terraform-architecture-diagram"
+  | "github-actions-workflow-diagram"
+  | "dockerfile-visualizer"
+  | "helm-values-visualizer"
+  | "nginx-config-visualizer"
+  | "opentelemetry-trace-sequence"
+  | "log-to-sequence-diagram"
+  | "graphql-schema-visualizer"
+  | "protobuf-schema-visualizer"
+  | "asyncapi-event-flow-diagram"
+  | "dbml-to-er-diagram"
+  | "prisma-schema-diagram";
 
 export type ToolCategory = "preview" | "converter" | "developer" | "data";
 
@@ -60,6 +84,27 @@ export type ToolConfig = {
     | "openapi"
     | "sql"
     | "json-schema"
+    | "xml"
+    | "csv"
+    | "docker-compose"
+    | "kubernetes"
+    | "package-json"
+    | "regex"
+    | "plantuml-to-drawio"
+    | "mermaid-to-drawio"
+    | "drawio-svg"
+    | "terraform"
+    | "github-actions"
+    | "dockerfile"
+    | "helm-values"
+    | "nginx"
+    | "otel-trace"
+    | "log-sequence"
+    | "graphql"
+    | "protobuf"
+    | "asyncapi"
+    | "dbml"
+    | "prisma"
     | "ai";
   sampleKeys: string[];
 };
@@ -124,6 +169,42 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["sequence", "component", "activity"]
   },
   {
+    slug: "ai-drawio-generator",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Sparkles,
+    popular: true,
+    recentlyAdded: true,
+    priority: 86,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["microservices", "cicd", "dataFlow"]
+  },
+  {
+    slug: "grafana-dashboard-generator",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Sparkles,
+    popular: true,
+    recentlyAdded: true,
+    priority: 84,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["api", "nodeExporter", "loki"]
+  },
+  {
+    slug: "prometheus-alert-rule-generator",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Sparkles,
+    popular: true,
+    recentlyAdded: true,
+    priority: 83,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["api", "infrastructure", "kubernetes"]
+  },
+  {
     slug: "openapi-to-sequence",
     category: "developer",
     navGroup: "developer-diagrams",
@@ -134,6 +215,18 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "openapi",
     sampleKeys: ["petstore", "auth", "orders"]
+  },
+  {
+    slug: "plantuml-to-drawio",
+    category: "developer",
+    navGroup: "converters",
+    icon: Route,
+    popular: true,
+    recentlyAdded: true,
+    priority: 77,
+    implemented: true,
+    renderer: "plantuml-to-drawio",
+    sampleKeys: ["sequence", "component", "class"]
   },
   {
     slug: "sql-to-er-diagram",
@@ -157,6 +250,230 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "json-schema",
     sampleKeys: ["user", "product", "event"]
+  },
+  {
+    slug: "package-json-dependency-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: GitFork,
+    popular: true,
+    recentlyAdded: true,
+    priority: 74,
+    implemented: true,
+    renderer: "package-json",
+    sampleKeys: ["nextApp", "library", "monorepo"]
+  },
+  {
+    slug: "mermaid-to-drawio",
+    category: "developer",
+    navGroup: "converters",
+    icon: Workflow,
+    popular: true,
+    recentlyAdded: true,
+    priority: 71,
+    implemented: true,
+    renderer: "mermaid-to-drawio",
+    sampleKeys: ["flowchart", "sequence", "architecture"]
+  },
+  {
+    slug: "docker-compose-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Boxes,
+    popular: true,
+    recentlyAdded: true,
+    priority: 73,
+    implemented: true,
+    renderer: "docker-compose",
+    sampleKeys: ["webStack", "queue", "observability"]
+  },
+  {
+    slug: "terraform-architecture-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Boxes,
+    popular: true,
+    recentlyAdded: true,
+    priority: 68,
+    implemented: true,
+    renderer: "terraform",
+    sampleKeys: ["awsWeb", "gcpQueue", "modules"]
+  },
+  {
+    slug: "kubernetes-manifest-visualizer",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    recentlyAdded: true,
+    priority: 69,
+    implemented: true,
+    renderer: "kubernetes",
+    sampleKeys: ["deployment", "service", "ingress"]
+  },
+  {
+    slug: "github-actions-workflow-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: GitBranch,
+    recentlyAdded: true,
+    priority: 66,
+    implemented: true,
+    renderer: "github-actions",
+    sampleKeys: ["nodeCi", "dockerDeploy", "matrix"]
+  },
+  {
+    slug: "regex-railroad-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Route,
+    recentlyAdded: true,
+    priority: 67,
+    implemented: true,
+    renderer: "regex",
+    sampleKeys: ["email", "slug", "semver"]
+  },
+  {
+    slug: "dockerfile-visualizer",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Boxes,
+    recentlyAdded: true,
+    priority: 59,
+    implemented: true,
+    renderer: "dockerfile",
+    sampleKeys: ["node", "python", "multiStage"]
+  },
+  {
+    slug: "helm-values-visualizer",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Braces,
+    recentlyAdded: true,
+    priority: 57,
+    implemented: true,
+    renderer: "helm-values",
+    sampleKeys: ["webApp", "ingress", "resources"]
+  },
+  {
+    slug: "nginx-config-visualizer",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    recentlyAdded: true,
+    priority: 56,
+    implemented: true,
+    renderer: "nginx",
+    sampleKeys: ["reverseProxy", "loadBalance", "staticSite"]
+  },
+  {
+    slug: "opentelemetry-trace-sequence",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Workflow,
+    recentlyAdded: true,
+    priority: 55,
+    implemented: true,
+    renderer: "otel-trace",
+    sampleKeys: ["checkout", "login", "queue"]
+  },
+  {
+    slug: "log-to-sequence-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: FileText,
+    recentlyAdded: true,
+    priority: 54,
+    implemented: true,
+    renderer: "log-sequence",
+    sampleKeys: ["api", "payment", "incident"]
+  },
+  {
+    slug: "graphql-schema-visualizer",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileCode2,
+    recentlyAdded: true,
+    priority: 53,
+    implemented: true,
+    renderer: "graphql",
+    sampleKeys: ["commerce", "blog", "auth"]
+  },
+  {
+    slug: "protobuf-schema-visualizer",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileCode2,
+    recentlyAdded: true,
+    priority: 52,
+    implemented: true,
+    renderer: "protobuf",
+    sampleKeys: ["orders", "events", "service"]
+  },
+  {
+    slug: "asyncapi-event-flow-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Workflow,
+    recentlyAdded: true,
+    priority: 51,
+    implemented: true,
+    renderer: "asyncapi",
+    sampleKeys: ["orders", "iot", "payments"]
+  },
+  {
+    slug: "dbml-to-er-diagram",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: Database,
+    recentlyAdded: true,
+    priority: 50,
+    implemented: true,
+    renderer: "dbml",
+    sampleKeys: ["commerce", "blog", "saas"]
+  },
+  {
+    slug: "prisma-schema-diagram",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: Database,
+    recentlyAdded: true,
+    priority: 49,
+    implemented: true,
+    renderer: "prisma",
+    sampleKeys: ["blog", "shop", "auth"]
+  },
+  {
+    slug: "drawio-to-svg",
+    category: "developer",
+    navGroup: "converters",
+    icon: FileCode2,
+    recentlyAdded: true,
+    priority: 48,
+    implemented: true,
+    renderer: "drawio-svg",
+    sampleKeys: ["basic", "service", "flow"]
+  },
+  {
+    slug: "xml-to-diagram",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileCode2,
+    recentlyAdded: true,
+    priority: 63,
+    implemented: true,
+    renderer: "xml",
+    sampleKeys: ["rss", "svg", "config"]
+  },
+  {
+    slug: "csv-to-diagram",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileText,
+    recentlyAdded: true,
+    priority: 61,
+    implemented: true,
+    renderer: "csv",
+    sampleKeys: ["users", "metrics", "inventory"]
   },
   {
     slug: "mermaid-preview",

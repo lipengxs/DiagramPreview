@@ -29,6 +29,7 @@ export type ToolCopy = {
     exportSvg: string;
     exportPng: string;
     exportPdf: string;
+    downloadFile: string;
     clear: string;
     loadSample: string;
   };
@@ -70,6 +71,11 @@ type RenderState = {
   imageUrl?: string;
   tree?: TreeNode;
   svg?: string;
+  artifact?: {
+    filename: string;
+    mime: string;
+    content: string;
+  };
   error?: string;
 };
 
@@ -126,6 +132,7 @@ export function ToolShell({tool, copy}: ToolShellProps) {
   const canCopyHtml = Boolean(renderState.html);
   const canExportSvg = Boolean(renderState.svg);
   const canExportPng = Boolean(renderState.svg);
+  const canDownloadFile = Boolean(renderState.artifact);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -149,10 +156,15 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             canCopyHtml={canCopyHtml}
             canExportSvg={canExportSvg}
             canExportPng={canExportPng}
+            canDownloadFile={canDownloadFile}
             onCopyCode={() => void copyText(source)}
             onCopyHtml={() => void copyText(renderState.html ?? "")}
             onExportSvg={() => renderState.svg && downloadText(`${tool.slug}.svg`, renderState.svg, "image/svg+xml;charset=utf-8")}
             onExportPng={() => renderState.svg && void downloadSvgAsPng(renderState.svg, `${tool.slug}.png`)}
+            onDownloadFile={() =>
+              renderState.artifact &&
+              downloadText(renderState.artifact.filename, renderState.artifact.content, renderState.artifact.mime)
+            }
             onPrint={printPreview}
             onClear={() => setSource("")}
           />
@@ -234,7 +246,124 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
       const {parseJsonSchemaTree} = await import("@/lib/renderers/json-schema");
       return {tree: parseJsonSchemaTree(source)};
     }
+    case "xml": {
+      const {parseXmlTree} = await import("@/lib/renderers/xml");
+      return {tree: parseXmlTree(source)};
+    }
+    case "csv": {
+      const {parseCsvTree} = await import("@/lib/renderers/csv");
+      return {tree: parseCsvTree(source)};
+    }
+    case "docker-compose": {
+      const {renderDockerComposeDiagram} = await import("@/lib/renderers/docker-compose");
+      const svg = await renderDockerComposeDiagram(source);
+      return {html: svg, svg};
+    }
+    case "kubernetes": {
+      const {parseKubernetesManifestTree} = await import("@/lib/renderers/kubernetes");
+      return {tree: parseKubernetesManifestTree(source)};
+    }
+    case "package-json": {
+      const {renderPackageJsonDependencyDiagram} = await import("@/lib/renderers/package-json");
+      const svg = await renderPackageJsonDependencyDiagram(source);
+      return {html: svg, svg};
+    }
+    case "regex": {
+      const {renderRegexRailroad} = await import("@/lib/renderers/regex");
+      const svg = renderRegexRailroad(source);
+      return {html: svg, svg};
+    }
+    case "plantuml-to-drawio": {
+      const {convertPlantUmlToDrawio} = await import("@/lib/renderers/drawio-converters");
+      const result = convertPlantUmlToDrawio(source);
+      return {
+        html: result.svg,
+        svg: result.svg,
+        artifact: {filename: `${copyFileName("plantuml-diagram")}.drawio`, mime: "application/xml;charset=utf-8", content: result.xml}
+      };
+    }
+    case "mermaid-to-drawio": {
+      const {convertMermaidToDrawio} = await import("@/lib/renderers/drawio-converters");
+      const result = convertMermaidToDrawio(source);
+      return {
+        html: result.svg,
+        svg: result.svg,
+        artifact: {filename: `${copyFileName("mermaid-diagram")}.drawio`, mime: "application/xml;charset=utf-8", content: result.xml}
+      };
+    }
+    case "drawio-svg": {
+      const {previewDrawioAsSvg} = await import("@/lib/renderers/drawio-converters");
+      const result = previewDrawioAsSvg(source);
+      return {
+        html: result.svg,
+        svg: result.svg,
+        artifact: {filename: "diagram.drawio", mime: "application/xml;charset=utf-8", content: result.xml}
+      };
+    }
+    case "terraform": {
+      const {renderTerraformArchitecture} = await import("@/lib/renderers/developer-diagrams");
+      const svg = await renderTerraformArchitecture(source);
+      return {html: svg, svg};
+    }
+    case "github-actions": {
+      const {renderGithubActionsWorkflow} = await import("@/lib/renderers/developer-diagrams");
+      const svg = await renderGithubActionsWorkflow(source);
+      return {html: svg, svg};
+    }
+    case "dockerfile": {
+      const {renderDockerfile} = await import("@/lib/renderers/developer-diagrams");
+      const svg = await renderDockerfile(source);
+      return {html: svg, svg};
+    }
+    case "helm-values": {
+      const {parseHelmValues} = await import("@/lib/renderers/developer-diagrams");
+      return {tree: parseHelmValues(source)};
+    }
+    case "nginx": {
+      const {renderNginxConfig} = await import("@/lib/renderers/developer-diagrams");
+      const svg = await renderNginxConfig(source);
+      return {html: svg, svg};
+    }
+    case "otel-trace": {
+      const {renderOpenTelemetryTrace} = await import("@/lib/renderers/developer-diagrams");
+      const svg = await renderOpenTelemetryTrace(source);
+      return {html: svg, svg};
+    }
+    case "log-sequence": {
+      const {renderLogSequence} = await import("@/lib/renderers/developer-diagrams");
+      const svg = await renderLogSequence(source);
+      return {html: svg, svg};
+    }
+    case "graphql": {
+      const {renderGraphqlSchema} = await import("@/lib/renderers/schema-diagrams");
+      const svg = await renderGraphqlSchema(source);
+      return {html: svg, svg};
+    }
+    case "protobuf": {
+      const {renderProtobufSchema} = await import("@/lib/renderers/schema-diagrams");
+      const svg = await renderProtobufSchema(source);
+      return {html: svg, svg};
+    }
+    case "asyncapi": {
+      const {renderAsyncApiEventFlow} = await import("@/lib/renderers/schema-diagrams");
+      const svg = await renderAsyncApiEventFlow(source);
+      return {html: svg, svg};
+    }
+    case "dbml": {
+      const {renderDbmlErDiagram} = await import("@/lib/renderers/schema-diagrams");
+      const svg = await renderDbmlErDiagram(source);
+      return {html: svg, svg};
+    }
+    case "prisma": {
+      const {renderPrismaSchema} = await import("@/lib/renderers/schema-diagrams");
+      const svg = await renderPrismaSchema(source);
+      return {html: svg, svg};
+    }
     default:
       return {};
   }
+}
+
+function copyFileName(value: string) {
+  return value.replace(/[^\w-]/g, "-");
 }

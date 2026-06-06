@@ -2,7 +2,16 @@ import {NextResponse} from "next/server";
 import {generateDiagramWithFallback} from "@/lib/ai/providers";
 import type {AiDiagramMode} from "@/lib/ai/prompts";
 
-const modes: AiDiagramMode[] = ["generate", "text-to-mermaid", "fix-mermaid", "architecture", "plantuml"];
+const modes: AiDiagramMode[] = [
+  "generate",
+  "text-to-mermaid",
+  "fix-mermaid",
+  "architecture",
+  "plantuml",
+  "drawio",
+  "grafana",
+  "prometheus"
+];
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -45,7 +54,7 @@ function parseBody(body: unknown):
         diagramType: string;
         prompt: string;
         existingCode?: string;
-        outputLanguage?: "mermaid" | "plantuml";
+        outputLanguage?: "mermaid" | "plantuml" | "drawio" | "json" | "yaml";
       };
     }
   | {ok: false; error: string} {
@@ -58,7 +67,13 @@ function parseBody(body: unknown):
   const diagramType = typeof value.diagramType === "string" ? value.diagramType : "flowchart";
   const prompt = typeof value.prompt === "string" ? value.prompt.trim() : "";
   const existingCode = typeof value.existingCode === "string" ? value.existingCode : undefined;
-  const outputLanguage = value.outputLanguage === "plantuml" ? "plantuml" : "mermaid";
+  const outputLanguage =
+    value.outputLanguage === "plantuml" ||
+    value.outputLanguage === "drawio" ||
+    value.outputLanguage === "json" ||
+    value.outputLanguage === "yaml"
+      ? value.outputLanguage
+      : "mermaid";
 
   if (!modes.includes(mode as AiDiagramMode)) {
     return {ok: false, error: "Unsupported AI diagram mode."};

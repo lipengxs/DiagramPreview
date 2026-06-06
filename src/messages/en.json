@@ -22,7 +22,8 @@
       "exportPdf": "PDF",
       "loadSample": "Load sample",
       "clear": "Clear",
-      "openTool": "Open tool"
+      "openTool": "Open tool",
+      "downloadFile": "Download file"
     },
     "category": {
       "preview": "Preview tools",
@@ -75,6 +76,14 @@
     },
     "locale": {
       "label": "Language"
+    },
+    "toolMenu": {
+      "ai": "AI",
+      "preview": "Preview",
+      "drawio": "Draw.io",
+      "devops": "DevOps",
+      "data": "Data",
+      "code": "Code"
     }
   },
   "home": {
@@ -1280,6 +1289,1491 @@
         "Generate PlantUML diagrams from natural language with Gemini and DeepSeek fallback.",
         "Describe a sequence, component, class, activity, use case, or state diagram and generate editable PlantUML source.",
         "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+      ]
+    },
+    "xml-to-diagram": {
+      "name": "XML to Diagram",
+      "shortDescription": "Inspect XML documents as a readable tree for feeds, SVG snippets, configs, and integration payloads.",
+      "seoTitle": "XML to Diagram - DiagramPreview",
+      "seoDescription": "Inspect XML documents as a readable tree for feeds, SVG snippets, configs, and integration payloads.",
+      "keywords": [
+        "xml-to-diagram",
+        "xml to diagram",
+        "diagram tool",
+        "developer documentation"
+      ],
+      "h1": "XML to Diagram",
+      "intro": "Paste XML and turn nested elements, attributes, and text values into a structured tree for quick review.",
+      "badges": [
+        "Local preview",
+        "No AI",
+        "Export",
+        "Developer docs"
+      ],
+      "inputLabel": "XML input",
+      "outputLabel": "XML tree",
+      "placeholder": "Paste XML here...",
+      "emptyPreview": "Paste XML and turn nested elements, attributes, and text values into a structured tree for quick review.",
+      "samples": {
+        "rss": {
+          "label": "RSS feed",
+          "code": "<rss version=\"2.0\">\n  <channel>\n    <title>DiagramPreview</title>\n    <item>\n      <title>Mermaid Preview Guide</title>\n      <link>https://diagrampreview.com/blog/mermaid-preview-guide</link>\n    </item>\n  </channel>\n</rss>"
+        },
+        "svg": {
+          "label": "SVG snippet",
+          "code": "<svg width=\"120\" height=\"80\" viewBox=\"0 0 120 80\">\n  <rect x=\"10\" y=\"10\" width=\"100\" height=\"60\" rx=\"8\" />\n  <text x=\"60\" y=\"45\">Preview</text>\n</svg>"
+        },
+        "config": {
+          "label": "Config XML",
+          "code": "<config>\n  <site name=\"DiagramPreview\">\n    <locale>en</locale>\n    <locale>zh-CN</locale>\n  </site>\n</config>"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Load a sample when you need a starting point.",
+        "Review the generated visualization and export when useful."
+      ],
+      "useCases": [
+        "Developer documentation",
+        "Code review",
+        "AI-generated output validation"
+      ],
+      "faq": [
+        {
+          "question": "Does this tool use AI?",
+          "answer": "No. It parses and visualizes the source locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Inspect XML documents as a readable tree for feeds, SVG snippets, configs, and integration payloads.",
+        "Paste XML and turn nested elements, attributes, and text values into a structured tree for quick review.",
+        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+      ]
+    },
+    "csv-to-diagram": {
+      "name": "CSV to Diagram",
+      "shortDescription": "Preview CSV files as row and column trees for lightweight data inspection.",
+      "seoTitle": "CSV to Diagram - DiagramPreview",
+      "seoDescription": "Preview CSV files as row and column trees for lightweight data inspection.",
+      "keywords": [
+        "csv-to-diagram",
+        "csv to diagram",
+        "diagram tool",
+        "developer documentation"
+      ],
+      "h1": "CSV to Diagram",
+      "intro": "Paste CSV and inspect rows, headers, and cell values without opening a spreadsheet.",
+      "badges": [
+        "Local preview",
+        "No AI",
+        "Export",
+        "Developer docs"
+      ],
+      "inputLabel": "CSV input",
+      "outputLabel": "CSV tree",
+      "placeholder": "Paste CSV here...",
+      "emptyPreview": "Paste CSV and inspect rows, headers, and cell values without opening a spreadsheet.",
+      "samples": {
+        "users": {
+          "label": "Users",
+          "code": "id,email,role\n1,alice@example.com,admin\n2,bob@example.com,editor\n3,carol@example.com,viewer"
+        },
+        "metrics": {
+          "label": "Metrics",
+          "code": "date,visits,signups\n2026-06-01,1200,42\n2026-06-02,1380,51\n2026-06-03,1510,68"
+        },
+        "inventory": {
+          "label": "Inventory",
+          "code": "sku,name,stock\nDP-MERMAID,Mermaid preview,120\nDP-PLANTUML,PlantUML preview,86\nDP-AI,AI diagram,64"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Load a sample when you need a starting point.",
+        "Review the generated visualization and export when useful."
+      ],
+      "useCases": [
+        "Developer documentation",
+        "Code review",
+        "AI-generated output validation"
+      ],
+      "faq": [
+        {
+          "question": "Does this tool use AI?",
+          "answer": "No. It parses and visualizes the source locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Preview CSV files as row and column trees for lightweight data inspection.",
+        "Paste CSV and inspect rows, headers, and cell values without opening a spreadsheet.",
+        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+      ]
+    },
+    "docker-compose-diagram": {
+      "name": "Docker Compose Diagram",
+      "shortDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
+      "seoTitle": "Docker Compose Diagram - DiagramPreview",
+      "seoDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
+      "keywords": [
+        "docker-compose-diagram",
+        "docker compose diagram",
+        "diagram tool",
+        "developer documentation"
+      ],
+      "h1": "Docker Compose Diagram",
+      "intro": "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
+      "badges": [
+        "Local preview",
+        "No AI",
+        "Export",
+        "Developer docs"
+      ],
+      "inputLabel": "Docker Compose YAML",
+      "outputLabel": "Compose diagram",
+      "placeholder": "Paste docker-compose.yml here...",
+      "emptyPreview": "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
+      "samples": {
+        "webStack": {
+          "label": "Web stack",
+          "code": "services:\n  web:\n    image: node:22\n    depends_on:\n      - api\n    networks:\n      - app\n  api:\n    image: node:22\n    depends_on:\n      - db\n      - redis\n    networks:\n      - app\n  db:\n    image: postgres:16\n    networks:\n      - app\n  redis:\n    image: redis:7\n    networks:\n      - app\nnetworks:\n  app: {}"
+        },
+        "queue": {
+          "label": "Queue workers",
+          "code": "services:\n  api:\n    image: app-api\n    depends_on:\n      - queue\n  worker:\n    image: app-worker\n    depends_on:\n      - queue\n      - database\n  queue:\n    image: rabbitmq:3\n  database:\n    image: postgres:16"
+        },
+        "observability": {
+          "label": "Observability",
+          "code": "services:\n  app:\n    image: app\n    depends_on:\n      - prometheus\n  prometheus:\n    image: prom/prometheus\n  grafana:\n    image: grafana/grafana\n    depends_on:\n      - prometheus"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Load a sample when you need a starting point.",
+        "Review the generated visualization and export when useful."
+      ],
+      "useCases": [
+        "Developer documentation",
+        "Code review",
+        "AI-generated output validation"
+      ],
+      "faq": [
+        {
+          "question": "Does this tool use AI?",
+          "answer": "No. It parses and visualizes the source locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Convert Docker Compose services and dependencies into a readable architecture diagram.",
+        "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
+        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+      ]
+    },
+    "kubernetes-manifest-visualizer": {
+      "name": "Kubernetes Manifest Visualizer",
+      "shortDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
+      "seoTitle": "Kubernetes Manifest Visualizer - DiagramPreview",
+      "seoDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
+      "keywords": [
+        "kubernetes-manifest-visualizer",
+        "kubernetes manifest visualizer",
+        "diagram tool",
+        "developer documentation"
+      ],
+      "h1": "Kubernetes Manifest Visualizer",
+      "intro": "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
+      "badges": [
+        "Local preview",
+        "No AI",
+        "Export",
+        "Developer docs"
+      ],
+      "inputLabel": "Kubernetes YAML",
+      "outputLabel": "Manifest tree",
+      "placeholder": "Paste Kubernetes YAML here...",
+      "emptyPreview": "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
+      "samples": {
+        "deployment": {
+          "label": "Deployment",
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: diagram-preview\n  namespace: production\n  labels:\n    app: diagram-preview\nspec:\n  replicas: 3\n  selector:\n    matchLabels:\n      app: diagram-preview"
+        },
+        "service": {
+          "label": "Service",
+          "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: diagram-preview\n  labels:\n    app: diagram-preview\nspec:\n  type: ClusterIP\n  ports:\n    - port: 80\n      targetPort: 3000"
+        },
+        "ingress": {
+          "label": "Ingress",
+          "code": "apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: diagram-preview\nspec:\n  rules:\n    - host: diagrampreview.com\n      http:\n        paths:\n          - path: /\n            pathType: Prefix"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Load a sample when you need a starting point.",
+        "Review the generated visualization and export when useful."
+      ],
+      "useCases": [
+        "Developer documentation",
+        "Code review",
+        "AI-generated output validation"
+      ],
+      "faq": [
+        {
+          "question": "Does this tool use AI?",
+          "answer": "No. It parses and visualizes the source locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
+        "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
+        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+      ]
+    },
+    "package-json-dependency-diagram": {
+      "name": "package.json Dependency Diagram",
+      "shortDescription": "Visualize package.json dependencies, devDependencies, peerDependencies, and optionalDependencies.",
+      "seoTitle": "package.json Dependency Diagram - DiagramPreview",
+      "seoDescription": "Visualize package.json dependencies, devDependencies, peerDependencies, and optionalDependencies.",
+      "keywords": [
+        "package-json-dependency-diagram",
+        "package.json dependency diagram",
+        "diagram tool",
+        "developer documentation"
+      ],
+      "h1": "package.json Dependency Diagram",
+      "intro": "Paste package.json and generate a dependency diagram for documentation, review, or cleanup.",
+      "badges": [
+        "Local preview",
+        "No AI",
+        "Export",
+        "Developer docs"
+      ],
+      "inputLabel": "package.json input",
+      "outputLabel": "Dependency diagram",
+      "placeholder": "Paste package.json here...",
+      "emptyPreview": "Paste package.json and generate a dependency diagram for documentation, review, or cleanup.",
+      "samples": {
+        "nextApp": {
+          "label": "Next app",
+          "code": "{\n  \"name\": \"diagrampreview\",\n  \"dependencies\": {\n    \"next\": \"^15.5.19\",\n    \"react\": \"^19.2.7\",\n    \"mermaid\": \"^11.15.0\",\n    \"next-intl\": \"^4.13.0\"\n  },\n  \"devDependencies\": {\n    \"typescript\": \"^6.0.3\",\n    \"tailwindcss\": \"^3.4.19\"\n  }\n}"
+        },
+        "library": {
+          "label": "Library",
+          "code": "{\n  \"name\": \"diagram-utils\",\n  \"dependencies\": {\n    \"js-yaml\": \"^4.2.0\",\n    \"marked\": \"^18.0.5\"\n  },\n  \"peerDependencies\": {\n    \"react\": \">=18\"\n  }\n}"
+        },
+        "monorepo": {
+          "label": "Monorepo",
+          "code": "{\n  \"name\": \"workspace\",\n  \"dependencies\": {\n    \"turbo\": \"latest\"\n  },\n  \"devDependencies\": {\n    \"eslint\": \"^9.0.0\",\n    \"prettier\": \"^3.0.0\",\n    \"typescript\": \"^6.0.0\"\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Load a sample when you need a starting point.",
+        "Review the generated visualization and export when useful."
+      ],
+      "useCases": [
+        "Developer documentation",
+        "Code review",
+        "AI-generated output validation"
+      ],
+      "faq": [
+        {
+          "question": "Does this tool use AI?",
+          "answer": "No. It parses and visualizes the source locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Visualize package.json dependencies, devDependencies, peerDependencies, and optionalDependencies.",
+        "Paste package.json and generate a dependency diagram for documentation, review, or cleanup.",
+        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+      ]
+    },
+    "regex-railroad-diagram": {
+      "name": "Regex Railroad Diagram",
+      "shortDescription": "Turn regular expressions into simple railroad-style diagrams for documentation and code review.",
+      "seoTitle": "Regex Railroad Diagram - DiagramPreview",
+      "seoDescription": "Turn regular expressions into simple railroad-style diagrams for documentation and code review.",
+      "keywords": [
+        "regex-railroad-diagram",
+        "regex railroad diagram",
+        "diagram tool",
+        "developer documentation"
+      ],
+      "h1": "Regex Railroad Diagram",
+      "intro": "Paste a regex and preview a readable railroad-style breakdown of tokens, groups, and quantifiers.",
+      "badges": [
+        "Local preview",
+        "No AI",
+        "Export",
+        "Developer docs"
+      ],
+      "inputLabel": "Regex input",
+      "outputLabel": "Railroad diagram",
+      "placeholder": "Paste a regular expression here...",
+      "emptyPreview": "Paste a regex and preview a readable railroad-style breakdown of tokens, groups, and quantifiers.",
+      "samples": {
+        "email": {
+          "label": "Email",
+          "code": "^[\\w.-]+@[\\w.-]+\\.[A-Za-z]{2,}$"
+        },
+        "slug": {
+          "label": "Slug",
+          "code": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "semver": {
+          "label": "SemVer",
+          "code": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+        }
+      },
+      "howToUse": [
+        "Paste source text into the editor.",
+        "Load a sample when you need a starting point.",
+        "Review the generated visualization and export when useful."
+      ],
+      "useCases": [
+        "Developer documentation",
+        "Code review",
+        "AI-generated output validation"
+      ],
+      "faq": [
+        {
+          "question": "Does this tool use AI?",
+          "answer": "No. It parses and visualizes the source locally in the browser."
+        }
+      ],
+      "seoBody": [
+        "Turn regular expressions into simple railroad-style diagrams for documentation and code review.",
+        "Paste a regex and preview a readable railroad-style breakdown of tokens, groups, and quantifiers.",
+        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+      ]
+    },
+    "ai-drawio-generator": {
+      "name": "AI Draw.io Generator",
+      "shortDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "seoTitle": "AI Draw.io Generator Online - DiagramPreview",
+      "seoDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "keywords": [
+        "ai-drawio-generator",
+        "ai draw.io generator",
+        "ai draw.io generator"
+      ],
+      "h1": "AI Draw.io Generator",
+      "intro": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "badges": [
+        "AI generated",
+        "Preview",
+        "Download"
+      ],
+      "inputLabel": "Source code",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "microservices": {
+          "label": "Microservices",
+          "prompt": "Generate an editable draw.io diagram for a microservices checkout system with web app, API gateway, auth, order, payment, inventory, PostgreSQL, Redis, and Kafka.",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram id=\"sample\" name=\"Sample\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"60\" y=\"80\" width=\"140\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API Gateway\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"300\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"540\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" edge=\"1\" parent=\"1\" source=\"api\" target=\"db\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>",
+          "diagramType": "microservices"
+        },
+        "cicd": {
+          "label": "CI/CD",
+          "prompt": "Create a draw.io CI/CD pipeline diagram for GitHub Actions building Docker images and deploying to Kubernetes.",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram id=\"sample\" name=\"Sample\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"60\" y=\"80\" width=\"140\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API Gateway\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"300\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"540\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" edge=\"1\" parent=\"1\" source=\"api\" target=\"db\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>",
+          "diagramType": "cicd"
+        },
+        "dataFlow": {
+          "label": "Data flow",
+          "prompt": "Create a draw.io data flow diagram from mobile app events to Kafka, stream processor, warehouse, and BI dashboard.",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram id=\"sample\" name=\"Sample\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"60\" y=\"80\" width=\"140\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API Gateway\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"300\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"540\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" edge=\"1\" parent=\"1\" source=\"api\" target=\"db\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>",
+          "diagramType": "data-flow"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is AI Draw.io Generator for?",
+          "answer": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "AI Draw.io Generator is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ],
+      "ai": {
+        "promptLabel": "Generation request",
+        "promptPlaceholder": "Describe what you want to generate...",
+        "existingCodeLabel": "Existing source",
+        "existingCodePlaceholder": "Paste existing source to improve...",
+        "diagramTypeLabel": "Generation type",
+        "generateButton": "Generate",
+        "generatedCodeLabel": "Generated draw.io XML",
+        "previewLabel": "Preview",
+        "providerLabel": "Provider"
+      }
+    },
+    "grafana-dashboard-generator": {
+      "name": "Grafana Dashboard Generator",
+      "shortDescription": "Generate Grafana dashboard JSON for Prometheus, Loki, Node Exporter, API, and Kubernetes monitoring.",
+      "seoTitle": "Grafana Dashboard Generator Online - DiagramPreview",
+      "seoDescription": "Generate Grafana dashboard JSON for Prometheus, Loki, Node Exporter, API, and Kubernetes monitoring.",
+      "keywords": [
+        "grafana-dashboard-generator",
+        "grafana dashboard generator",
+        "grafana dashboard generator"
+      ],
+      "h1": "Grafana Dashboard Generator",
+      "intro": "Generate Grafana dashboard JSON for Prometheus, Loki, Node Exporter, API, and Kubernetes monitoring.",
+      "badges": [
+        "AI generated",
+        "Preview",
+        "Download"
+      ],
+      "inputLabel": "Source code",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "api": {
+          "label": "API service",
+          "prompt": "Generate a Grafana dashboard JSON for an API service with request rate, error rate, latency p95, saturation, and instance health panels.",
+          "code": "{\n  \"title\": \"API Service Overview\",\n  \"timezone\": \"browser\",\n  \"refresh\": \"30s\",\n  \"time\": {\n    \"from\": \"now-6h\",\n    \"to\": \"now\"\n  },\n  \"panels\": [\n    {\n      \"title\": \"Request rate\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 0,\n        \"y\": 0,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"sum(rate(http_requests_total[5m]))\"\n        }\n      ]\n    },\n    {\n      \"title\": \"Error rate\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 12,\n        \"y\": 0,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"sum(rate(http_requests_total{status=~\\\"5..\\\"}[5m])) / sum(rate(http_requests_total[5m]))\"\n        }\n      ]\n    },\n    {\n      \"title\": \"P95 latency\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 0,\n        \"y\": 8,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le))\"\n        }\n      ]\n    }\n  ],\n  \"templating\": {\n    \"list\": [\n      {\n        \"name\": \"service\",\n        \"type\": \"query\",\n        \"query\": \"label_values(up, job)\"\n      }\n    ]\n  }\n}",
+          "diagramType": "api-service"
+        },
+        "nodeExporter": {
+          "label": "Node Exporter",
+          "prompt": "Generate a Grafana dashboard JSON for Node Exporter CPU, memory, disk, network, and filesystem saturation.",
+          "code": "{\n  \"title\": \"API Service Overview\",\n  \"timezone\": \"browser\",\n  \"refresh\": \"30s\",\n  \"time\": {\n    \"from\": \"now-6h\",\n    \"to\": \"now\"\n  },\n  \"panels\": [\n    {\n      \"title\": \"Request rate\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 0,\n        \"y\": 0,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"sum(rate(http_requests_total[5m]))\"\n        }\n      ]\n    },\n    {\n      \"title\": \"Error rate\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 12,\n        \"y\": 0,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"sum(rate(http_requests_total{status=~\\\"5..\\\"}[5m])) / sum(rate(http_requests_total[5m]))\"\n        }\n      ]\n    },\n    {\n      \"title\": \"P95 latency\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 0,\n        \"y\": 8,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le))\"\n        }\n      ]\n    }\n  ],\n  \"templating\": {\n    \"list\": [\n      {\n        \"name\": \"service\",\n        \"type\": \"query\",\n        \"query\": \"label_values(up, job)\"\n      }\n    ]\n  }\n}",
+          "diagramType": "node-exporter"
+        },
+        "loki": {
+          "label": "Loki logs",
+          "prompt": "Generate a Grafana dashboard JSON for Loki logs with error logs, warning logs, top services, and log volume panels.",
+          "code": "{\n  \"title\": \"API Service Overview\",\n  \"timezone\": \"browser\",\n  \"refresh\": \"30s\",\n  \"time\": {\n    \"from\": \"now-6h\",\n    \"to\": \"now\"\n  },\n  \"panels\": [\n    {\n      \"title\": \"Request rate\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 0,\n        \"y\": 0,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"sum(rate(http_requests_total[5m]))\"\n        }\n      ]\n    },\n    {\n      \"title\": \"Error rate\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 12,\n        \"y\": 0,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"sum(rate(http_requests_total{status=~\\\"5..\\\"}[5m])) / sum(rate(http_requests_total[5m]))\"\n        }\n      ]\n    },\n    {\n      \"title\": \"P95 latency\",\n      \"type\": \"timeseries\",\n      \"gridPos\": {\n        \"x\": 0,\n        \"y\": 8,\n        \"w\": 12,\n        \"h\": 8\n      },\n      \"targets\": [\n        {\n          \"expr\": \"histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le))\"\n        }\n      ]\n    }\n  ],\n  \"templating\": {\n    \"list\": [\n      {\n        \"name\": \"service\",\n        \"type\": \"query\",\n        \"query\": \"label_values(up, job)\"\n      }\n    ]\n  }\n}",
+          "diagramType": "loki"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Grafana Dashboard Generator for?",
+          "answer": "Generate Grafana dashboard JSON for Prometheus, Loki, Node Exporter, API, and Kubernetes monitoring."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Grafana Dashboard Generator is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ],
+      "ai": {
+        "promptLabel": "Generation request",
+        "promptPlaceholder": "Describe what you want to generate...",
+        "existingCodeLabel": "Existing source",
+        "existingCodePlaceholder": "Paste existing source to improve...",
+        "diagramTypeLabel": "Generation type",
+        "generateButton": "Generate",
+        "generatedCodeLabel": "Generated JSON",
+        "previewLabel": "Preview",
+        "providerLabel": "Provider"
+      }
+    },
+    "prometheus-alert-rule-generator": {
+      "name": "Prometheus Alert Rule Generator",
+      "shortDescription": "Generate Prometheus alert rules YAML for APIs, infrastructure, Kubernetes, databases, and queues.",
+      "seoTitle": "Prometheus Alert Rule Generator Online - DiagramPreview",
+      "seoDescription": "Generate Prometheus alert rules YAML for APIs, infrastructure, Kubernetes, databases, and queues.",
+      "keywords": [
+        "prometheus-alert-rule-generator",
+        "prometheus alert rule generator",
+        "prometheus alert rule generator"
+      ],
+      "h1": "Prometheus Alert Rule Generator",
+      "intro": "Generate Prometheus alert rules YAML for APIs, infrastructure, Kubernetes, databases, and queues.",
+      "badges": [
+        "AI generated",
+        "Preview",
+        "Download"
+      ],
+      "inputLabel": "Source code",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "api": {
+          "label": "API alerts",
+          "prompt": "Generate Prometheus alert rules for API error rate, p95 latency, traffic drop, and instance down.",
+          "code": "groups:\n  - name: api-service.rules\n    rules:\n      - alert: HighApiErrorRate\n        expr: sum(rate(http_requests_total{status=~\"5..\"}[5m])) / sum(rate(http_requests_total[5m])) > 0.05\n        for: 10m\n        labels:\n          severity: warning\n        annotations:\n          summary: API error rate is above 5%\n      - alert: HighApiLatencyP95\n        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1\n        for: 10m\n        labels:\n          severity: critical\n        annotations:\n          summary: API p95 latency is above 1s",
+          "diagramType": "api-service"
+        },
+        "infrastructure": {
+          "label": "Infrastructure",
+          "prompt": "Generate Prometheus alert rules for CPU, memory, disk, filesystem, and node exporter instance health.",
+          "code": "groups:\n  - name: api-service.rules\n    rules:\n      - alert: HighApiErrorRate\n        expr: sum(rate(http_requests_total{status=~\"5..\"}[5m])) / sum(rate(http_requests_total[5m])) > 0.05\n        for: 10m\n        labels:\n          severity: warning\n        annotations:\n          summary: API error rate is above 5%\n      - alert: HighApiLatencyP95\n        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1\n        for: 10m\n        labels:\n          severity: critical\n        annotations:\n          summary: API p95 latency is above 1s",
+          "diagramType": "infrastructure"
+        },
+        "kubernetes": {
+          "label": "Kubernetes",
+          "prompt": "Generate Prometheus alert rules for Kubernetes pod crash loop, deployment replicas unavailable, node pressure, and API server errors.",
+          "code": "groups:\n  - name: api-service.rules\n    rules:\n      - alert: HighApiErrorRate\n        expr: sum(rate(http_requests_total{status=~\"5..\"}[5m])) / sum(rate(http_requests_total[5m])) > 0.05\n        for: 10m\n        labels:\n          severity: warning\n        annotations:\n          summary: API error rate is above 5%\n      - alert: HighApiLatencyP95\n        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1\n        for: 10m\n        labels:\n          severity: critical\n        annotations:\n          summary: API p95 latency is above 1s",
+          "diagramType": "kubernetes"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Prometheus Alert Rule Generator for?",
+          "answer": "Generate Prometheus alert rules YAML for APIs, infrastructure, Kubernetes, databases, and queues."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Prometheus Alert Rule Generator is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ],
+      "ai": {
+        "promptLabel": "Generation request",
+        "promptPlaceholder": "Describe what you want to generate...",
+        "existingCodeLabel": "Existing source",
+        "existingCodePlaceholder": "Paste existing source to improve...",
+        "diagramTypeLabel": "Generation type",
+        "generateButton": "Generate",
+        "generatedCodeLabel": "Generated YAML",
+        "previewLabel": "Preview",
+        "providerLabel": "Provider"
+      }
+    },
+    "plantuml-to-drawio": {
+      "name": "PlantUML to Draw.io",
+      "shortDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "seoTitle": "PlantUML to Draw.io Online - DiagramPreview",
+      "seoDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "keywords": [
+        "plantuml-to-drawio",
+        "plantuml to draw.io",
+        "plantuml to draw.io"
+      ],
+      "h1": "PlantUML to Draw.io",
+      "intro": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "PlantUML source",
+      "outputLabel": "Draw.io preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "sequence": {
+          "label": "Sequence",
+          "code": "@startuml\nparticipant User\nparticipant App\nparticipant API\nUser -> App: Submit request\nApp -> API: Validate and persist\nAPI --> App: Result\nApp --> User: Done\n@enduml"
+        },
+        "component": {
+          "label": "Component",
+          "code": "@startuml\ncomponent Web\ncomponent API\ndatabase PostgreSQL\nqueue Kafka\nWeb --> API: HTTPS\nAPI --> PostgreSQL: SQL\nAPI --> Kafka: events\n@enduml"
+        },
+        "class": {
+          "label": "Class",
+          "code": "@startuml\nclass User\nclass Order\nclass Payment\nUser --> Order\nOrder --> Payment\n@enduml"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is PlantUML to Draw.io for?",
+          "answer": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "PlantUML to Draw.io is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "mermaid-to-drawio": {
+      "name": "Mermaid to Draw.io",
+      "shortDescription": "Convert common Mermaid flowcharts and sequence diagrams into editable draw.io XML with SVG preview.",
+      "seoTitle": "Mermaid to Draw.io Online - DiagramPreview",
+      "seoDescription": "Convert common Mermaid flowcharts and sequence diagrams into editable draw.io XML with SVG preview.",
+      "keywords": [
+        "mermaid-to-drawio",
+        "mermaid to draw.io",
+        "mermaid to draw.io"
+      ],
+      "h1": "Mermaid to Draw.io",
+      "intro": "Convert common Mermaid flowcharts and sequence diagrams into editable draw.io XML with SVG preview.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Mermaid source",
+      "outputLabel": "Draw.io preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "flowchart": {
+          "label": "Flowchart",
+          "code": "flowchart LR\n  User[User] --> App[Web App]\n  App --> API[API Gateway]\n  API --> DB[(Database)]"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "sequenceDiagram\n  User->>App: Open page\n  App->>API: Load data\n  API-->>App: JSON\n  App-->>User: Render"
+        },
+        "architecture": {
+          "label": "Architecture",
+          "code": "flowchart TB\n  Client --> CDN\n  CDN --> Web\n  Web --> API\n  API --> Redis\n  API --> PostgreSQL"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Mermaid to Draw.io for?",
+          "answer": "Convert common Mermaid flowcharts and sequence diagrams into editable draw.io XML with SVG preview."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Mermaid to Draw.io is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "drawio-to-svg": {
+      "name": "Draw.io to SVG Preview",
+      "shortDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "seoTitle": "Draw.io to SVG Preview Online - DiagramPreview",
+      "seoDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "keywords": [
+        "drawio-to-svg",
+        "draw.io to svg preview",
+        "draw.io to svg preview"
+      ],
+      "h1": "Draw.io to SVG Preview",
+      "intro": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Draw.io XML",
+      "outputLabel": "SVG preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "basic": {
+          "label": "Basic",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram id=\"sample\" name=\"Sample\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"60\" y=\"80\" width=\"140\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API Gateway\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"300\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"540\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" edge=\"1\" parent=\"1\" source=\"api\" target=\"db\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "service": {
+          "label": "Service map",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram id=\"sample\" name=\"Sample\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"60\" y=\"80\" width=\"140\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API Gateway\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"300\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"540\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" edge=\"1\" parent=\"1\" source=\"api\" target=\"db\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "flow": {
+          "label": "Flow",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram id=\"sample\" name=\"Sample\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"60\" y=\"80\" width=\"140\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API Gateway\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"300\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"540\" y=\"80\" width=\"150\" height=\"56\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" edge=\"1\" parent=\"1\" source=\"api\" target=\"db\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Draw.io to SVG Preview for?",
+          "answer": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Draw.io to SVG Preview is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "terraform-architecture-diagram": {
+      "name": "Terraform Architecture Diagram",
+      "shortDescription": "Visualize Terraform resource blocks and references as a software architecture diagram.",
+      "seoTitle": "Terraform Architecture Diagram Online - DiagramPreview",
+      "seoDescription": "Visualize Terraform resource blocks and references as a software architecture diagram.",
+      "keywords": [
+        "terraform-architecture-diagram",
+        "terraform architecture diagram",
+        "terraform architecture diagram"
+      ],
+      "h1": "Terraform Architecture Diagram",
+      "intro": "Visualize Terraform resource blocks and references as a software architecture diagram.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Terraform HCL",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "awsWeb": {
+          "label": "AWS web",
+          "code": "resource \"aws_lb\" \"app\" {}\nresource \"aws_ecs_service\" \"api\" {\n  load_balancer { target_group_arn = aws_lb.app.arn }\n}\nresource \"aws_rds_cluster\" \"main\" {}"
+        },
+        "gcpQueue": {
+          "label": "GCP queue",
+          "code": "resource \"google_cloud_run_service\" \"api\" {}\nresource \"google_pubsub_topic\" \"events\" {}\nresource \"google_bigquery_dataset\" \"warehouse\" {}"
+        },
+        "modules": {
+          "label": "Modules",
+          "code": "resource \"aws_vpc\" \"main\" {}\nresource \"aws_subnet\" \"private\" { vpc_id = aws_vpc.main.id }\nresource \"aws_db_instance\" \"postgres\" {}"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Terraform Architecture Diagram for?",
+          "answer": "Visualize Terraform resource blocks and references as a software architecture diagram."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Terraform Architecture Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "github-actions-workflow-diagram": {
+      "name": "GitHub Actions Workflow Diagram",
+      "shortDescription": "Turn GitHub Actions YAML jobs, needs, and steps into a readable workflow diagram.",
+      "seoTitle": "GitHub Actions Workflow Diagram Online - DiagramPreview",
+      "seoDescription": "Turn GitHub Actions YAML jobs, needs, and steps into a readable workflow diagram.",
+      "keywords": [
+        "github-actions-workflow-diagram",
+        "github actions workflow diagram",
+        "github actions workflow diagram"
+      ],
+      "h1": "GitHub Actions Workflow Diagram",
+      "intro": "Turn GitHub Actions YAML jobs, needs, and steps into a readable workflow diagram.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Workflow YAML",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "nodeCi": {
+          "label": "Node CI",
+          "code": "name: CI\non: [push]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Install\n        run: npm ci\n      - name: Test\n        run: npm test\n  build:\n    needs: test\n    runs-on: ubuntu-latest\n    steps:\n      - name: Build\n        run: npm run build"
+        },
+        "dockerDeploy": {
+          "label": "Docker deploy",
+          "code": "jobs:\n  build:\n    steps:\n      - name: Build image\n        run: docker build .\n  deploy:\n    needs: build\n    steps:\n      - name: Deploy\n        run: kubectl apply -f k8s/"
+        },
+        "matrix": {
+          "label": "Matrix",
+          "code": "jobs:\n  test:\n    strategy:\n      matrix:\n        node: [20, 22]\n    steps:\n      - run: npm test"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is GitHub Actions Workflow Diagram for?",
+          "answer": "Turn GitHub Actions YAML jobs, needs, and steps into a readable workflow diagram."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "GitHub Actions Workflow Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "dockerfile-visualizer": {
+      "name": "Dockerfile Visualizer",
+      "shortDescription": "Visualize Dockerfile build stages and instructions as a step-by-step diagram.",
+      "seoTitle": "Dockerfile Visualizer Online - DiagramPreview",
+      "seoDescription": "Visualize Dockerfile build stages and instructions as a step-by-step diagram.",
+      "keywords": [
+        "dockerfile-visualizer",
+        "dockerfile visualizer",
+        "dockerfile visualizer"
+      ],
+      "h1": "Dockerfile Visualizer",
+      "intro": "Visualize Dockerfile build stages and instructions as a step-by-step diagram.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Dockerfile",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "node": {
+          "label": "Node",
+          "code": "FROM node:22-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci\nCOPY . .\nRUN npm run build\nEXPOSE 3000\nCMD [\"npm\",\"start\"]"
+        },
+        "python": {
+          "label": "Python",
+          "code": "FROM python:3.12-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nCMD [\"python\",\"app.py\"]"
+        },
+        "multiStage": {
+          "label": "Multi-stage",
+          "code": "FROM node:22 AS build\nWORKDIR /app\nCOPY . .\nRUN npm run build\nFROM nginx:alpine\nCOPY --from=build /app/dist /usr/share/nginx/html"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Dockerfile Visualizer for?",
+          "answer": "Visualize Dockerfile build stages and instructions as a step-by-step diagram."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Dockerfile Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "helm-values-visualizer": {
+      "name": "Helm Values Visualizer",
+      "shortDescription": "Inspect Helm values.yaml as an expandable structure for chart review and documentation.",
+      "seoTitle": "Helm Values Visualizer Online - DiagramPreview",
+      "seoDescription": "Inspect Helm values.yaml as an expandable structure for chart review and documentation.",
+      "keywords": [
+        "helm-values-visualizer",
+        "helm values visualizer",
+        "helm values visualizer"
+      ],
+      "h1": "Helm Values Visualizer",
+      "intro": "Inspect Helm values.yaml as an expandable structure for chart review and documentation.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "values.yaml",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "webApp": {
+          "label": "Web app",
+          "code": "replicaCount: 3\nimage:\n  repository: example/api\n  tag: latest\nservice:\n  type: ClusterIP\n  port: 80"
+        },
+        "ingress": {
+          "label": "Ingress",
+          "code": "ingress:\n  enabled: true\n  className: nginx\n  hosts:\n    - host: app.example.com\n      paths:\n        - path: /\n          pathType: Prefix"
+        },
+        "resources": {
+          "label": "Resources",
+          "code": "resources:\n  limits:\n    cpu: 500m\n    memory: 512Mi\n  requests:\n    cpu: 100m\n    memory: 128Mi"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Helm Values Visualizer for?",
+          "answer": "Inspect Helm values.yaml as an expandable structure for chart review and documentation."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Helm Values Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "nginx-config-visualizer": {
+      "name": "Nginx Config Visualizer",
+      "shortDescription": "Visualize nginx server, location, proxy_pass, and upstream relationships.",
+      "seoTitle": "Nginx Config Visualizer Online - DiagramPreview",
+      "seoDescription": "Visualize nginx server, location, proxy_pass, and upstream relationships.",
+      "keywords": [
+        "nginx-config-visualizer",
+        "nginx config visualizer",
+        "nginx config visualizer"
+      ],
+      "h1": "Nginx Config Visualizer",
+      "intro": "Visualize nginx server, location, proxy_pass, and upstream relationships.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "nginx.conf",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "reverseProxy": {
+          "label": "Reverse proxy",
+          "code": "server {\n  server_name api.example.com;\n  location / {\n    proxy_pass http://api_backend;\n  }\n}\nupstream api_backend {\n  server api-1:8080;\n  server api-2:8080;\n}"
+        },
+        "loadBalance": {
+          "label": "Load balance",
+          "code": "upstream web {\n  server web-1:3000;\n  server web-2:3000;\n}\nserver {\n  server_name example.com;\n  location / { proxy_pass http://web; }\n}"
+        },
+        "staticSite": {
+          "label": "Static site",
+          "code": "server {\n  server_name docs.example.com;\n  location / {\n    root /usr/share/nginx/html;\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Nginx Config Visualizer for?",
+          "answer": "Visualize nginx server, location, proxy_pass, and upstream relationships."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Nginx Config Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "opentelemetry-trace-sequence": {
+      "name": "OpenTelemetry Trace to Sequence",
+      "shortDescription": "Convert OpenTelemetry spans JSON into a Mermaid sequence diagram for request flow review.",
+      "seoTitle": "OpenTelemetry Trace to Sequence Online - DiagramPreview",
+      "seoDescription": "Convert OpenTelemetry spans JSON into a Mermaid sequence diagram for request flow review.",
+      "keywords": [
+        "opentelemetry-trace-sequence",
+        "opentelemetry trace to sequence",
+        "opentelemetry trace to sequence"
+      ],
+      "h1": "OpenTelemetry Trace to Sequence",
+      "intro": "Convert OpenTelemetry spans JSON into a Mermaid sequence diagram for request flow review.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "OpenTelemetry spans JSON",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "checkout": {
+          "label": "Checkout",
+          "code": "{\n  \"spans\": [\n    {\n      \"name\": \"POST /checkout\",\n      \"serviceName\": \"api\",\n      \"parentService\": \"client\"\n    },\n    {\n      \"name\": \"Reserve inventory\",\n      \"serviceName\": \"inventory\",\n      \"parentService\": \"api\"\n    },\n    {\n      \"name\": \"Charge payment\",\n      \"serviceName\": \"payment\",\n      \"parentService\": \"api\"\n    }\n  ]\n}"
+        },
+        "login": {
+          "label": "Login",
+          "code": "{\n  \"spans\": [\n    {\n      \"name\": \"POST /login\",\n      \"serviceName\": \"web\",\n      \"parentService\": \"client\"\n    },\n    {\n      \"name\": \"Validate token\",\n      \"serviceName\": \"auth\",\n      \"parentService\": \"web\"\n    }\n  ]\n}"
+        },
+        "queue": {
+          "label": "Queue",
+          "code": "{\n  \"spans\": [\n    {\n      \"name\": \"Publish event\",\n      \"serviceName\": \"api\",\n      \"parentService\": \"client\"\n    },\n    {\n      \"name\": \"Consume event\",\n      \"serviceName\": \"worker\",\n      \"parentService\": \"api\"\n    }\n  ]\n}"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is OpenTelemetry Trace to Sequence for?",
+          "answer": "Convert OpenTelemetry spans JSON into a Mermaid sequence diagram for request flow review."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "OpenTelemetry Trace to Sequence is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "log-to-sequence-diagram": {
+      "name": "Log to Sequence Diagram",
+      "shortDescription": "Turn simple service call logs into a Mermaid sequence diagram.",
+      "seoTitle": "Log to Sequence Diagram Online - DiagramPreview",
+      "seoDescription": "Turn simple service call logs into a Mermaid sequence diagram.",
+      "keywords": [
+        "log-to-sequence-diagram",
+        "log to sequence diagram",
+        "log to sequence diagram"
+      ],
+      "h1": "Log to Sequence Diagram",
+      "intro": "Turn simple service call logs into a Mermaid sequence diagram.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Service logs",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "api": {
+          "label": "API",
+          "code": "client -> web: GET /orders\nweb -> api: fetch orders\napi -> database: SELECT orders\ndatabase -> api: rows\napi -> web: JSON"
+        },
+        "payment": {
+          "label": "Payment",
+          "code": "checkout -> payment: create intent\npayment -> bank: authorize\nbank -> payment: approved\npayment -> checkout: paid"
+        },
+        "incident": {
+          "label": "Incident",
+          "code": "api -> auth: validate token\nauth -> api: timeout\napi -> retry: retry request\nretry -> auth: validate token"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Log to Sequence Diagram for?",
+          "answer": "Turn simple service call logs into a Mermaid sequence diagram."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Log to Sequence Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "graphql-schema-visualizer": {
+      "name": "GraphQL Schema Visualizer",
+      "shortDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "seoTitle": "GraphQL Schema Visualizer Online - DiagramPreview",
+      "seoDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "keywords": [
+        "graphql-schema-visualizer",
+        "graphql schema visualizer",
+        "graphql schema visualizer"
+      ],
+      "h1": "GraphQL Schema Visualizer",
+      "intro": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "GraphQL schema",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "commerce": {
+          "label": "Commerce",
+          "code": "type User {\n  id: ID!\n  orders: [Order!]!\n}\ntype Order {\n  id: ID!\n  user: User!\n  total: Float!\n}"
+        },
+        "blog": {
+          "label": "Blog",
+          "code": "type Post { id: ID! title: String! author: User! }\ntype User { id: ID! name: String! posts: [Post!]! }"
+        },
+        "auth": {
+          "label": "Auth",
+          "code": "type Session { id: ID! user: User! }\ntype User { id: ID! email: String! }\ninput LoginInput { email: String! password: String! }"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is GraphQL Schema Visualizer for?",
+          "answer": "Visualize GraphQL types, inputs, interfaces, fields, and relationships."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "GraphQL Schema Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "protobuf-schema-visualizer": {
+      "name": "Protobuf Schema Visualizer",
+      "shortDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "seoTitle": "Protobuf Schema Visualizer Online - DiagramPreview",
+      "seoDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "keywords": [
+        "protobuf-schema-visualizer",
+        "protobuf schema visualizer",
+        "protobuf schema visualizer"
+      ],
+      "h1": "Protobuf Schema Visualizer",
+      "intro": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Protobuf schema",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "orders": {
+          "label": "Orders",
+          "code": "syntax = \"proto3\";\nmessage Order {\n  string id = 1;\n  User user = 2;\n  repeated Item items = 3;\n}\nmessage User { string id = 1; string email = 2; }\nmessage Item { string sku = 1; int32 quantity = 2; }"
+        },
+        "events": {
+          "label": "Events",
+          "code": "message Event { string id = 1; string type = 2; Payload payload = 3; }\nmessage Payload { string json = 1; }"
+        },
+        "service": {
+          "label": "Service",
+          "code": "service OrderService { rpc GetOrder (GetOrderRequest) returns (Order); }\nmessage GetOrderRequest { string id = 1; }\nmessage Order { string id = 1; }"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Protobuf Schema Visualizer for?",
+          "answer": "Visualize protobuf messages, fields, and message references as a class diagram."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Protobuf Schema Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "asyncapi-event-flow-diagram": {
+      "name": "AsyncAPI Event Flow Diagram",
+      "shortDescription": "Convert AsyncAPI channels into producer, channel, and consumer event flow diagrams.",
+      "seoTitle": "AsyncAPI Event Flow Diagram Online - DiagramPreview",
+      "seoDescription": "Convert AsyncAPI channels into producer, channel, and consumer event flow diagrams.",
+      "keywords": [
+        "asyncapi-event-flow-diagram",
+        "asyncapi event flow diagram",
+        "asyncapi event flow diagram"
+      ],
+      "h1": "AsyncAPI Event Flow Diagram",
+      "intro": "Convert AsyncAPI channels into producer, channel, and consumer event flow diagrams.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "AsyncAPI YAML",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "orders": {
+          "label": "Orders",
+          "code": "asyncapi: 3.0.0\nchannels:\n  order.created:\n    address: order.created\n    messages:\n      OrderCreated:\n        payload:\n          type: object"
+        },
+        "iot": {
+          "label": "IoT",
+          "code": "channels:\n  device.telemetry:\n    address: device.telemetry\n    messages:\n      Telemetry:\n        payload:\n          type: object"
+        },
+        "payments": {
+          "label": "Payments",
+          "code": "channels:\n  payment.authorized:\n    address: payment.authorized\n  payment.failed:\n    address: payment.failed"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is AsyncAPI Event Flow Diagram for?",
+          "answer": "Convert AsyncAPI channels into producer, channel, and consumer event flow diagrams."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "AsyncAPI Event Flow Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "dbml-to-er-diagram": {
+      "name": "DBML to ER Diagram",
+      "shortDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "seoTitle": "DBML to ER Diagram Online - DiagramPreview",
+      "seoDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "keywords": [
+        "dbml-to-er-diagram",
+        "dbml to er diagram",
+        "dbml to er diagram"
+      ],
+      "h1": "DBML to ER Diagram",
+      "intro": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "DBML source",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "commerce": {
+          "label": "Commerce",
+          "code": "Table users {\n  id int [pk]\n  email varchar\n}\nTable orders {\n  id int [pk]\n  user_id int\n}\nRef: orders.user_id > users.id"
+        },
+        "blog": {
+          "label": "Blog",
+          "code": "Table authors { id int [pk] name varchar }\nTable posts { id int [pk] author_id int title varchar }\nRef: posts.author_id > authors.id"
+        },
+        "saas": {
+          "label": "SaaS",
+          "code": "Table accounts { id int [pk] name varchar }\nTable members { id int [pk] account_id int email varchar }\nRef: members.account_id > accounts.id"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is DBML to ER Diagram for?",
+          "answer": "Convert DBML table definitions and refs into a Mermaid ER diagram."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "DBML to ER Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
+      ]
+    },
+    "prisma-schema-diagram": {
+      "name": "Prisma Schema Diagram",
+      "shortDescription": "Convert Prisma model blocks into an ER-style schema diagram.",
+      "seoTitle": "Prisma Schema Diagram Online - DiagramPreview",
+      "seoDescription": "Convert Prisma model blocks into an ER-style schema diagram.",
+      "keywords": [
+        "prisma-schema-diagram",
+        "prisma schema diagram",
+        "prisma schema diagram"
+      ],
+      "h1": "Prisma Schema Diagram",
+      "intro": "Convert Prisma model blocks into an ER-style schema diagram.",
+      "badges": [
+        "Live preview",
+        "Export",
+        "Developer tool"
+      ],
+      "inputLabel": "Prisma schema",
+      "outputLabel": "Rendered preview",
+      "placeholder": "Paste source here...",
+      "emptyPreview": "The preview will appear here.",
+      "samples": {
+        "blog": {
+          "label": "Blog",
+          "code": "model User {\n  id Int @id\n  email String\n  posts Post[]\n}\nmodel Post {\n  id Int @id\n  title String\n  author User @relation(fields: [authorId], references: [id])\n  authorId Int\n}"
+        },
+        "shop": {
+          "label": "Shop",
+          "code": "model Product { id Int @id name String orders Order[] }\nmodel Order { id Int @id product Product @relation(fields: [productId], references: [id]) productId Int }"
+        },
+        "auth": {
+          "label": "Auth",
+          "code": "model User { id Int @id email String sessions Session[] }\nmodel Session { id Int @id user User @relation(fields: [userId], references: [id]) userId Int }"
+        }
+      },
+      "howToUse": [
+        "Paste source or load a sample.",
+        "Review the rendered preview or structured output.",
+        "Copy code, export images, or download generated files."
+      ],
+      "useCases": [
+        "AI-generated diagram validation",
+        "Developer docs and README workflows",
+        "Architecture, monitoring, and config review"
+      ],
+      "faq": [
+        {
+          "question": "What is Prisma Schema Diagram for?",
+          "answer": "Convert Prisma model blocks into an ER-style schema diagram."
+        },
+        {
+          "question": "Does it require an account?",
+          "answer": "No. The tool page can be used directly in the browser."
+        }
+      ],
+      "seoBody": [
+        "Prisma Schema Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
+        "It helps convert source text, config, or AI output into a previewable and exportable result."
       ]
     }
   },

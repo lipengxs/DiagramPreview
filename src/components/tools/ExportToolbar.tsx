@@ -10,6 +10,7 @@ type ExportToolbarProps = {
     exportSvg: string;
     exportPng: string;
     exportPdf: string;
+    downloadFile?: string;
     clear: string;
   };
   canExportSvg: boolean;
@@ -19,6 +20,8 @@ type ExportToolbarProps = {
   onCopyHtml: () => void;
   onExportSvg: () => void;
   onExportPng: () => void;
+  canDownloadFile?: boolean;
+  onDownloadFile?: () => void;
   onPrint: () => void;
   onClear: () => void;
 };
@@ -32,6 +35,8 @@ export function ExportToolbar({
   onCopyHtml,
   onExportSvg,
   onExportPng,
+  canDownloadFile,
+  onDownloadFile,
   onPrint,
   onClear
 }: ExportToolbarProps) {
@@ -53,6 +58,12 @@ export function ExportToolbar({
         <ImageDown className="h-4 w-4" />
         {actions.exportPng}
       </Button>
+      {actions.downloadFile && onDownloadFile ? (
+        <Button onClick={onDownloadFile} disabled={!canDownloadFile}>
+          <FileDown className="h-4 w-4" />
+          {actions.downloadFile}
+        </Button>
+      ) : null}
       <Button onClick={onPrint}>
         <Printer className="h-4 w-4" />
         {actions.exportPdf}

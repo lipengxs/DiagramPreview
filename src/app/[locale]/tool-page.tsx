@@ -63,6 +63,7 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
       exportSvg: t("common.actions.exportSvg"),
       exportPng: t("common.actions.exportPng"),
       exportPdf: t("common.actions.exportPdf"),
+      downloadFile: t("common.actions.downloadFile"),
       clear: t("common.actions.clear"),
       loadSample: t("common.actions.loadSample")
     },
