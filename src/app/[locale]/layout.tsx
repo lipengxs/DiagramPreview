@@ -1,6 +1,8 @@
 import {NextIntlClientProvider, hasLocale} from "next-intl";
 import {getMessages, setRequestLocale} from "next-intl/server";
+import type {Metadata} from "next";
 import {notFound} from "next/navigation";
+import Script from "next/script";
 import type {ReactNode} from "react";
 import "../globals.css";
 import {SiteFooter} from "@/components/layout/SiteFooter";
@@ -11,6 +13,13 @@ import type {Locale} from "@/config/locales";
 type LocaleLayoutProps = {
   children: ReactNode;
   params: Promise<{locale: string}>;
+};
+
+export const metadata: Metadata = {
+  other: {
+    "msvalidate.01": "B362957FC36C5EDDD6079B6D78330424",
+    "yandex-verification": "22f9962285cc97be"
+  }
 };
 
 export function generateStaticParams() {
@@ -35,6 +44,15 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
           <main>{children}</main>
           <SiteFooter />
         </NextIntlClientProvider>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-ED9W50FK0X" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ED9W50FK0X');
+          `}
+        </Script>
       </body>
     </html>
   );
