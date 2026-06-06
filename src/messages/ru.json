@@ -1,0 +1,1155 @@
+{
+  "common": {
+    "brand": "DiagramPreview",
+    "nav": {
+      "previewTools": "Инструменты просмотра",
+      "converters": "Конвертеры",
+      "aiDiagram": "AI-диаграммы",
+      "developerDiagrams": "Диаграммы для разработчиков",
+      "blog": "Блог",
+      "tools": "Инструменты",
+      "dataVisualizers": "Визуализация данных",
+      "viewAll": "Смотреть все"
+    },
+    "actions": {
+      "github": "GitHub",
+      "feedback": "Обратная связь",
+      "search": "Поиск",
+      "copyCode": "Копировать код",
+      "copyHtml": "Копировать HTML",
+      "exportSvg": "SVG",
+      "exportPng": "PNG",
+      "exportPdf": "PDF",
+      "loadSample": "Загрузить пример",
+      "clear": "Очистить",
+      "openTool": "Открыть инструмент"
+    },
+    "category": {
+      "preview": "Инструменты просмотра",
+      "converter": "Конвертеры",
+      "developer": "Диаграммы для разработчиков",
+      "data": "Визуализация данных"
+    },
+    "workspace": {
+      "input": "Ввод",
+      "output": "Предпросмотр",
+      "settings": "Настройки",
+      "theme": "Тема",
+      "layout": "Макет",
+      "zoom": "Масштаб",
+      "background": "Фон",
+      "samples": "Примеры",
+      "ready": "Готово",
+      "rendering": "Рендеринг",
+      "renderError": "Не удалось отрисовать диаграмму. Проверьте синтаксис и попробуйте снова.",
+      "fallbackTitle": "Предпросмотр готовится",
+      "fallbackBody": "Этот workspace уже подключен к структуре сайта. Отдельный рендерер будет добавлен на следующем этапе.",
+      "treeHint": "Объекты и массивы раскрываются в читаемое дерево.",
+      "themeLight": "Светлая",
+      "layoutSplit": "Разделенный",
+      "zoomDefault": "100%",
+      "backgroundWhite": "Белый",
+      "drawioPages": "Страницы",
+      "drawioObjects": "Объекты",
+      "drawioPageNames": "Имена страниц",
+      "drawioDefaultPage": "Страница",
+      "none": "Нет"
+    },
+    "seoSections": {
+      "howToUse": "Как использовать",
+      "useCases": "Сценарии",
+      "relatedTools": "Похожие инструменты",
+      "faq": "FAQ"
+    },
+    "footer": {
+      "summary": "Быстрые онлайн-инструменты для просмотра и конвертации диаграмм в технической документации, архитектурных заметках, спецификациях и AI-процессах.",
+      "popularTools": "Популярные инструменты",
+      "categories": "Категории",
+      "resources": "Ресурсы",
+      "languages": "Языки",
+      "legal": "Правовая информация",
+      "privacy": "Конфиденциальность",
+      "terms": "Условия",
+      "changelog": "История изменений",
+      "docs": "Документация"
+    },
+    "locale": {
+      "label": "Язык"
+    }
+  },
+  "home": {
+    "metadata": {
+      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
+      "description": "Просматривайте и конвертируйте Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, YAML и диаграммы для разработчиков онлайн.",
+      "keywords": [
+        "diagram preview",
+        "mermaid preview",
+        "plantuml preview",
+        "graphviz online",
+        "markdown preview"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Онлайн-workspace для предпросмотра диаграмм",
+      "h1": "Diagram Preview Tools for Developers",
+      "subtitle": "Просматривайте Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps и диаграммы для разработчиков онлайн.",
+      "searchPlaceholder": "Искать инструменты диаграмм..."
+    },
+    "sections": {
+      "popular": "Популярные инструменты",
+      "categories": "Категории инструментов",
+      "recent": "Недавно добавлено",
+      "why": "Почему DiagramPreview",
+      "faq": "FAQ"
+    },
+    "why": [
+      "Use one focused workspace for text diagrams, documentation previews, and file-based diagram formats.",
+      "Most rendering runs in the browser, keeping drafts fast while reducing unnecessary round trips.",
+      "Every tool has its own URL, metadata, related tools, and export actions so it can grow as a search-friendly utility."
+    ],
+    "faq": [
+      {
+        "question": "What can DiagramPreview render?",
+        "answer": "The first release focuses on Mermaid, PlantUML, Markdown, Graphviz, JSON, YAML, and structured preview pages for the remaining diagram formats."
+      },
+      {
+        "question": "Do diagrams upload to a server?",
+        "answer": "Browser-first tools render locally when possible. PlantUML uses a server URL in the first version so the renderer can be replaced later."
+      },
+      {
+        "question": "Can I export diagrams?",
+        "answer": "Supported renderers expose SVG, PNG, copy, and print-style PDF actions from the workspace toolbar."
+      }
+    ]
+  },
+  "tools": {
+    "mermaid-preview": {
+      "name": "Предпросмотр Mermaid",
+      "shortDescription": "Предпросмотр Mermaid в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Предпросмотр Mermaid онлайн - DiagramPreview",
+      "seoDescription": "Используйте Предпросмотр Mermaid, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "mermaid preview",
+        "mermaid editor online",
+        "mermaid live preview"
+      ],
+      "h1": "Предпросмотр Mermaid",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Предпросмотр Mermaid для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "Live SVG",
+        "Browser renderer",
+        "Export PNG"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Предпросмотр Mermaid здесь...",
+      "emptyPreview": "Предпросмотр Предпросмотр Mermaid появится здесь.",
+      "samples": {
+        "flowchart": {
+          "label": "Flowchart",
+          "code": "flowchart TD\n  A[Start] --> B{Ready?}\n  B -- Yes --> C[Preview diagram]\n  B -- No --> D[Edit source]\n  D --> B\n  C --> E[Export]"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant API\n  User->>App: Paste diagram\n  App->>API: Validate request\n  API-->>App: OK\n  App-->>User: Render preview"
+        },
+        "class": {
+          "label": "Class",
+          "code": "classDiagram\n  class Diagram {\n    +string source\n    +render()\n    +exportSvg()\n  }\n  class MermaidDiagram\n  Diagram <|-- MermaidDiagram"
+        },
+        "state": {
+          "label": "State",
+          "code": "stateDiagram-v2\n  [*] --> Editing\n  Editing --> Rendering\n  Rendering --> Ready\n  Rendering --> Error\n  Error --> Editing\n  Ready --> Exported"
+        },
+        "gantt": {
+          "label": "Gantt",
+          "code": "gantt\n  title Release plan\n  dateFormat  YYYY-MM-DD\n  section Build\n  Scaffold app :done, a1, 2026-06-01, 2d\n  Tool preview :active, a2, after a1, 4d\n  SEO pages :a3, after a2, 2d"
+        },
+        "er": {
+          "label": "ER diagram",
+          "code": "erDiagram\n  USER ||--o{ DIAGRAM : creates\n  DIAGRAM ||--o{ EXPORT : produces\n  USER {\n    string id\n    string email\n  }\n  DIAGRAM {\n    string type\n    string source\n  }"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Предпросмотр Mermaid работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Предпросмотр Mermaid помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "plantuml-preview": {
+      "name": "Предпросмотр PlantUML",
+      "shortDescription": "Предпросмотр PlantUML в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Предпросмотр PlantUML онлайн - DiagramPreview",
+      "seoDescription": "Используйте Предпросмотр PlantUML, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "plantuml preview",
+        "plantuml online editor",
+        "plantuml viewer"
+      ],
+      "h1": "Предпросмотр PlantUML",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Предпросмотр PlantUML для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "Server SVG",
+        "Text diagrams",
+        "Export ready"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Предпросмотр PlantUML здесь...",
+      "emptyPreview": "Предпросмотр Предпросмотр PlantUML появится здесь.",
+      "samples": {
+        "sequence": {
+          "label": "Sequence",
+          "code": "@startuml\nactor User\nparticipant App\nparticipant Service\nUser -> App: Submit diagram\nApp -> Service: Render\nService --> App: SVG\nApp --> User: Preview\n@enduml"
+        },
+        "class": {
+          "label": "Class",
+          "code": "@startuml\nclass Diagram {\n  +source: string\n  +render(): SVG\n}\nclass PlantUMLDiagram\nDiagram <|-- PlantUMLDiagram\n@enduml"
+        },
+        "usecase": {
+          "label": "Use case",
+          "code": "@startuml\nleft to right direction\nactor Developer\nrectangle DiagramPreview {\n  Developer -- (Preview PlantUML)\n  Developer -- (Export SVG)\n}\n@enduml"
+        },
+        "activity": {
+          "label": "Activity",
+          "code": "@startuml\nstart\n:Paste source;\nif (Valid?) then (yes)\n  :Render preview;\nelse (no)\n  :Show error;\nendif\nstop\n@enduml"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Предпросмотр PlantUML работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Предпросмотр PlantUML помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "markdown-preview": {
+      "name": "Предпросмотр Markdown",
+      "shortDescription": "Предпросмотр Markdown в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Предпросмотр Markdown онлайн - DiagramPreview",
+      "seoDescription": "Используйте Предпросмотр Markdown, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "markdown preview",
+        "markdown diagram preview",
+        "markdown mermaid preview"
+      ],
+      "h1": "Предпросмотр Markdown",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Предпросмотр Markdown для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "GFM",
+        "Mermaid blocks",
+        "Copy HTML"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Предпросмотр Markdown здесь...",
+      "emptyPreview": "Предпросмотр Предпросмотр Markdown появится здесь.",
+      "samples": {
+        "docs": {
+          "label": "Docs",
+          "code": "# API Notes\n\nUse this document to describe a workflow.\n\n- Fast preview\n- Diagram support\n- Export actions\n\n```ts\nconst ready = true;\n```"
+        },
+        "mermaid": {
+          "label": "Mermaid block",
+          "code": "# Checkout flow\n\n```mermaid\nsequenceDiagram\n  participant Buyer\n  participant Store\n  Buyer->>Store: Place order\n  Store-->>Buyer: Confirmation\n```\n\nThe diagram is rendered inside the Markdown preview."
+        },
+        "release": {
+          "label": "Release notes",
+          "code": "# Release notes\n\n## Added\n\n- Mermaid preview\n- PlantUML preview\n- Markdown preview\n\n## Fixed\n\n- Cleaner export toolbar"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Предпросмотр Markdown работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Предпросмотр Markdown помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "graphviz-preview": {
+      "name": "Предпросмотр Graphviz DOT",
+      "shortDescription": "Предпросмотр Graphviz DOT в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Предпросмотр Graphviz DOT онлайн - DiagramPreview",
+      "seoDescription": "Используйте Предпросмотр Graphviz DOT, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "graphviz preview",
+        "dot preview online",
+        "graphviz viewer"
+      ],
+      "h1": "Предпросмотр Graphviz DOT",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Предпросмотр Graphviz DOT для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "DOT",
+        "Browser SVG",
+        "Dependency graphs"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Предпросмотр Graphviz DOT здесь...",
+      "emptyPreview": "Предпросмотр Предпросмотр Graphviz DOT появится здесь.",
+      "samples": {
+        "digraph": {
+          "label": "Digraph",
+          "code": "digraph G {\n  rankdir=LR;\n  Start -> Parse -> Render -> Export;\n  Render -> Error;\n  Error -> Parse;\n}"
+        },
+        "dependency": {
+          "label": "Dependency graph",
+          "code": "digraph dependencies {\n  node [shape=box, style=rounded];\n  app -> ui;\n  app -> renderers;\n  renderers -> mermaid;\n  renderers -> graphviz;\n}"
+        },
+        "state": {
+          "label": "State graph",
+          "code": "digraph states {\n  node [shape=circle];\n  editing -> rendering;\n  rendering -> ready;\n  rendering -> failed;\n  failed -> editing;\n}"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Предпросмотр Graphviz DOT работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Предпросмотр Graphviz DOT помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "d2-preview": {
+      "name": "Предпросмотр D2",
+      "shortDescription": "Предпросмотр D2 в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Предпросмотр D2 онлайн - DiagramPreview",
+      "seoDescription": "Используйте Предпросмотр D2, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "d2 preview",
+        "d2 diagram online",
+        "d2 viewer"
+      ],
+      "h1": "Предпросмотр D2",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Предпросмотр D2 для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "D2",
+        "Architecture",
+        "Preview workspace"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Предпросмотр D2 здесь...",
+      "emptyPreview": "Предпросмотр Предпросмотр D2 появится здесь.",
+      "samples": {
+        "architecture": {
+          "label": "Architecture",
+          "code": "client -> gateway -> api\napi -> database\napi -> queue"
+        },
+        "service": {
+          "label": "Service map",
+          "code": "web: Web app\napi: API service\ndb: Database\nweb -> api -> db"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "user -> app: request\napp -> api: fetch\napi -> app: response"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Предпросмотр D2 работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Предпросмотр D2 помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "drawio-preview": {
+      "name": "Просмотр Draw.io",
+      "shortDescription": "Просмотр Draw.io в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Просмотр Draw.io онлайн - DiagramPreview",
+      "seoDescription": "Используйте Просмотр Draw.io, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "draw.io viewer",
+        "diagrams.net viewer",
+        "drawio preview"
+      ],
+      "h1": "Просмотр Draw.io",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Просмотр Draw.io для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "draw.io",
+        "XML",
+        "Viewer"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Просмотр Draw.io здесь...",
+      "emptyPreview": "Предпросмотр Просмотр Draw.io появится здесь.",
+      "samples": {
+        "xml": {
+          "label": "XML",
+          "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Просмотр Draw.io работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Просмотр Draw.io помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "mind-map-preview": {
+      "name": "Предпросмотр mind map",
+      "shortDescription": "Предпросмотр mind map в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Предпросмотр mind map онлайн - DiagramPreview",
+      "seoDescription": "Используйте Предпросмотр mind map, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "mind map preview",
+        "markdown mind map",
+        "text to mind map"
+      ],
+      "h1": "Предпросмотр mind map",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Предпросмотр mind map для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "Mind map",
+        "Markdown outline",
+        "Tree layout"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Предпросмотр mind map здесь...",
+      "emptyPreview": "Предпросмотр Предпросмотр mind map появится здесь.",
+      "samples": {
+        "outline": {
+          "label": "Outline",
+          "code": "# Product plan\n## Research\n## Build\n### Preview tools\n### Export actions\n## Launch"
+        },
+        "product": {
+          "label": "Product",
+          "code": "DiagramPreview\n  Preview tools\n  Converters\n  SEO pages\n  Export actions"
+        },
+        "research": {
+          "label": "Research",
+          "code": "Research\n  Users\n    Developers\n    Product managers\n  Inputs\n    Markdown\n    Mermaid"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Предпросмотр mind map работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Предпросмотр mind map помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "sequence-diagram-preview": {
+      "name": "Предпросмотр sequence diagram",
+      "shortDescription": "Предпросмотр sequence diagram в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "Предпросмотр sequence diagram онлайн - DiagramPreview",
+      "seoDescription": "Используйте Предпросмотр sequence diagram, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "sequence diagram preview",
+        "text sequence diagram",
+        "online sequence diagram"
+      ],
+      "h1": "Предпросмотр sequence diagram",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте Предпросмотр sequence diagram для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "Sequence",
+        "Mermaid",
+        "API flows"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое Предпросмотр sequence diagram здесь...",
+      "emptyPreview": "Предпросмотр Предпросмотр sequence diagram появится здесь.",
+      "samples": {
+        "api": {
+          "label": "API call",
+          "code": "sequenceDiagram\n  participant Client\n  participant API\n  participant DB\n  Client->>API: GET /diagrams\n  API->>DB: Query diagrams\n  DB-->>API: Rows\n  API-->>Client: JSON"
+        },
+        "login": {
+          "label": "Login flow",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant Auth\n  User->>App: Enter credentials\n  App->>Auth: Verify\n  Auth-->>App: Token\n  App-->>User: Dashboard"
+        },
+        "payment": {
+          "label": "Payment flow",
+          "code": "sequenceDiagram\n  participant Buyer\n  participant Store\n  participant PSP\n  Buyer->>Store: Checkout\n  Store->>PSP: Create payment\n  PSP-->>Store: Confirmed\n  Store-->>Buyer: Receipt"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "Предпросмотр sequence diagram работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "Предпросмотр sequence diagram помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "json-to-diagram": {
+      "name": "JSON в диаграмму",
+      "shortDescription": "JSON в диаграмму в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "JSON в диаграмму онлайн - DiagramPreview",
+      "seoDescription": "Используйте JSON в диаграмму, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "json to diagram",
+        "json tree diagram",
+        "json visualizer"
+      ],
+      "h1": "JSON в диаграмму",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте JSON в диаграмму для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "JSON",
+        "Tree diagram",
+        "Validation"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое JSON в диаграмму здесь...",
+      "emptyPreview": "Предпросмотр JSON в диаграмму появится здесь.",
+      "samples": {
+        "api": {
+          "label": "API response",
+          "code": "{\"user\":{\"id\":\"u_123\",\"name\":\"Ada\"},\"projects\":[{\"name\":\"Docs\",\"status\":\"active\"},{\"name\":\"Diagrams\",\"status\":\"draft\"}]}"
+        },
+        "package": {
+          "label": "Package",
+          "code": "{\"scripts\":{\"dev\":\"next dev\",\"build\":\"next build\"},\"dependencies\":{\"next\":\"15\",\"react\":\"19\"}}"
+        },
+        "config": {
+          "label": "Config",
+          "code": "{\"theme\":\"light\",\"export\":{\"svg\":true,\"png\":true},\"locales\":[\"en\",\"zh-CN\",\"ja\"]}"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "JSON в диаграмму работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "JSON в диаграмму помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    },
+    "yaml-to-diagram": {
+      "name": "YAML в диаграмму",
+      "shortDescription": "YAML в диаграмму в онлайн-workspace с примерами, проверкой и экспортом.",
+      "seoTitle": "YAML в диаграмму онлайн - DiagramPreview",
+      "seoDescription": "Используйте YAML в диаграмму, чтобы просматривать и проверять диаграммы онлайн с примерами, понятными ошибками и экспортом.",
+      "keywords": [
+        "yaml to diagram",
+        "yaml visualizer",
+        "yaml tree viewer"
+      ],
+      "h1": "YAML в диаграмму",
+      "intro": "Вставьте или напишите содержимое в профессиональном workspace и используйте YAML в диаграмму для проверки диаграмм, документов или структур данных.",
+      "badges": [
+        "YAML",
+        "Tree viewer",
+        "Config"
+      ],
+      "inputLabel": "Ввод",
+      "outputLabel": "Результат",
+      "placeholder": "Вставьте содержимое YAML в диаграмму здесь...",
+      "emptyPreview": "Предпросмотр YAML в диаграмму появится здесь.",
+      "samples": {
+        "workflow": {
+          "label": "Workflow",
+          "code": "name: preview\nsteps:\n  - install\n  - build\n  - verify"
+        },
+        "kubernetes": {
+          "label": "Kubernetes",
+          "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: diagram-preview\nspec:\n  ports:\n    - port: 80"
+        },
+        "config": {
+          "label": "Config",
+          "code": "site:\n  name: DiagramPreview\n  locales:\n    - en\n    - zh-CN\nexports:\n  svg: true\n  png: true"
+        }
+      },
+      "howToUse": [
+        "Вставьте или напишите исходное содержимое.",
+        "Загрузите пример, если нужен быстрый старт.",
+        "Проверьте предпросмотр, затем скопируйте или экспортируйте результат."
+      ],
+      "useCases": [
+        "Техническая документация",
+        "Архитектурные заметки",
+        "Проверка контента, созданного AI"
+      ],
+      "faq": [
+        {
+          "question": "YAML в диаграмму работает онлайн?",
+          "answer": "Да. Эта страница использует браузерный workspace DiagramPreview."
+        },
+        {
+          "question": "Можно экспортировать результат?",
+          "answer": "Поддерживаемые рендереры предлагают SVG, PNG, копирование и PDF через печать."
+        }
+      ],
+      "seoBody": [
+        "YAML в диаграмму помогает разработчикам, PM и техническим авторам быстро проверять диаграммы и структурированный контент.",
+        "Workspace показывает источник и предпросмотр рядом, чтобы до публикации заметить проблемы синтаксиса, иерархии или макета.",
+        "У каждого инструмента есть собственный URL, metadata, FAQ и связанные ссылки, чтобы он развивался как полезная поисковая страница."
+      ]
+    }
+  },
+  "hubs": {
+    "common": {
+      "eyebrow": "Каталог инструментов",
+      "availableTools": "Доступные инструменты",
+      "plannedTools": "Планируемые инструменты"
+    },
+    "tools": {
+      "title": "Все инструменты диаграмм",
+      "description": "Просматривайте инструменты DiagramPreview по формату, workflow и типу диаграммы.",
+      "keywords": [
+        "diagram tools",
+        "tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "SQL ER Diagram",
+        "Regex Railroad Diagram",
+        "Text to Diagram"
+      ]
+    },
+    "preview-tools": {
+      "title": "Инструменты предпросмотра",
+      "description": "Предпросматривайте текстовые и файловые диаграммы онлайн в фокусированных браузерных workspace.",
+      "keywords": [
+        "diagram tools",
+        "preview-tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "DBML Preview",
+        "Regex Railroad Diagram"
+      ]
+    },
+    "converters": {
+      "title": "Конвертеры диаграмм",
+      "description": "Преобразуйте структурированный текст и данные в читаемые диаграммы и экспортируемые превью.",
+      "keywords": [
+        "diagram tools",
+        "converters",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Mermaid to SVG",
+        "PlantUML to SVG",
+        "Diagram to PNG"
+      ]
+    },
+    "developer-diagrams": {
+      "title": "Диаграммы для разработчиков",
+      "description": "Создавайте диаграммы для архитектуры, API-flow, зависимостей и инженерной документации.",
+      "keywords": [
+        "diagram tools",
+        "developer-diagrams",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Architecture Diagram Preview",
+        "Flowchart Preview",
+        "SQL ER Diagram"
+      ]
+    },
+    "data-visualizers": {
+      "title": "Визуализация данных",
+      "description": "Проверяйте JSON, YAML и структурированные данные как читаемые деревья и диаграммы.",
+      "keywords": [
+        "diagram tools",
+        "data-visualizers",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Visualizer",
+        "SQL Schema Visualizer",
+        "Package Dependency Visualizer"
+      ]
+    },
+    "ai-diagram": {
+      "title": "AI-инструменты диаграмм",
+      "description": "Проверяйте, уточняйте и экспортируйте AI-диаграммы с text-first инструментами.",
+      "keywords": [
+        "diagram tools",
+        "ai-diagram",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "AI Diagram Generator",
+        "Prompt to Mermaid",
+        "Text to Architecture Diagram"
+      ]
+    }
+  },
+  "blog": {
+    "common": {
+      "relatedTools": "Похожие инструменты"
+    },
+    "index": {
+      "eyebrow": "Блог DiagramPreview",
+      "title": "Гайды по диаграммам для разработчиков",
+      "description": "Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+      "seoTitle": "Гайды по диаграммам для разработчиков - DiagramPreview",
+      "keywords": [
+        "diagram blog",
+        "developer diagrams",
+        "diagram guides"
+      ]
+    },
+    "posts": {
+      "mermaid-preview-guide": {
+        "title": "Гид по предпросмотру Mermaid",
+        "seoTitle": "Гид по предпросмотру Mermaid - DiagramPreview",
+        "description": "Гид по предпросмотру Mermaid：Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "excerpt": "Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "readingTime": "5 min",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "mermaid-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "Рекомендации по workflow",
+            "paragraphs": [
+              "DiagramPreview держит исходный текст, предпросмотр, связанные инструменты и экспорт в одном workspace. Это удобно для технической документации, архитектурных заметок и проверки AI-контента.",
+              "Начните с примера, меняйте источник небольшими шагами и проверяйте предпросмотр перед экспортом."
+            ]
+          },
+          {
+            "heading": "Проверка перед публикацией",
+            "paragraphs": [
+              "Сохраняйте исходный текст вместе с экспортированным файлом, чтобы будущие изменения было проще ревьюить.",
+              "Если диаграмма получена от AI, проверьте имена, направление, группировку и технический смысл."
+            ]
+          }
+        ]
+      },
+      "plantuml-online-preview-workflow": {
+        "title": "Workflow онлайн-предпросмотра PlantUML",
+        "seoTitle": "Workflow онлайн-предпросмотра PlantUML - DiagramPreview",
+        "description": "Workflow онлайн-предпросмотра PlantUML：Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "excerpt": "Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "readingTime": "5 min",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "plantuml-online-preview-workflow"
+        ],
+        "sections": [
+          {
+            "heading": "Рекомендации по workflow",
+            "paragraphs": [
+              "DiagramPreview держит исходный текст, предпросмотр, связанные инструменты и экспорт в одном workspace. Это удобно для технической документации, архитектурных заметок и проверки AI-контента.",
+              "Начните с примера, меняйте источник небольшими шагами и проверяйте предпросмотр перед экспортом."
+            ]
+          },
+          {
+            "heading": "Проверка перед публикацией",
+            "paragraphs": [
+              "Сохраняйте исходный текст вместе с экспортированным файлом, чтобы будущие изменения было проще ревьюить.",
+              "Если диаграмма получена от AI, проверьте имена, направление, группировку и технический смысл."
+            ]
+          }
+        ]
+      },
+      "markdown-mermaid-documentation": {
+        "title": "Документация Markdown с Mermaid",
+        "seoTitle": "Документация Markdown с Mermaid - DiagramPreview",
+        "description": "Документация Markdown с Mermaid：Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "excerpt": "Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "readingTime": "5 min",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "markdown-mermaid-documentation"
+        ],
+        "sections": [
+          {
+            "heading": "Рекомендации по workflow",
+            "paragraphs": [
+              "DiagramPreview держит исходный текст, предпросмотр, связанные инструменты и экспорт в одном workspace. Это удобно для технической документации, архитектурных заметок и проверки AI-контента.",
+              "Начните с примера, меняйте источник небольшими шагами и проверяйте предпросмотр перед экспортом."
+            ]
+          },
+          {
+            "heading": "Проверка перед публикацией",
+            "paragraphs": [
+              "Сохраняйте исходный текст вместе с экспортированным файлом, чтобы будущие изменения было проще ревьюить.",
+              "Если диаграмма получена от AI, проверьте имена, направление, группировку и технический смысл."
+            ]
+          }
+        ]
+      },
+      "graphviz-dot-dependency-graphs": {
+        "title": "Графы зависимостей Graphviz DOT",
+        "seoTitle": "Графы зависимостей Graphviz DOT - DiagramPreview",
+        "description": "Графы зависимостей Graphviz DOT：Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "excerpt": "Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "readingTime": "5 min",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "graphviz-dot-dependency-graphs"
+        ],
+        "sections": [
+          {
+            "heading": "Рекомендации по workflow",
+            "paragraphs": [
+              "DiagramPreview держит исходный текст, предпросмотр, связанные инструменты и экспорт в одном workspace. Это удобно для технической документации, архитектурных заметок и проверки AI-контента.",
+              "Начните с примера, меняйте источник небольшими шагами и проверяйте предпросмотр перед экспортом."
+            ]
+          },
+          {
+            "heading": "Проверка перед публикацией",
+            "paragraphs": [
+              "Сохраняйте исходный текст вместе с экспортированным файлом, чтобы будущие изменения было проще ревьюить.",
+              "Если диаграмма получена от AI, проверьте имена, направление, группировку и технический смысл."
+            ]
+          }
+        ]
+      },
+      "json-yaml-diagram-visualization": {
+        "title": "Визуализация JSON и YAML",
+        "seoTitle": "Визуализация JSON и YAML - DiagramPreview",
+        "description": "Визуализация JSON и YAML：Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "excerpt": "Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "readingTime": "5 min",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "json-yaml-diagram-visualization"
+        ],
+        "sections": [
+          {
+            "heading": "Рекомендации по workflow",
+            "paragraphs": [
+              "DiagramPreview держит исходный текст, предпросмотр, связанные инструменты и экспорт в одном workspace. Это удобно для технической документации, архитектурных заметок и проверки AI-контента.",
+              "Начните с примера, меняйте источник небольшими шагами и проверяйте предпросмотр перед экспортом."
+            ]
+          },
+          {
+            "heading": "Проверка перед публикацией",
+            "paragraphs": [
+              "Сохраняйте исходный текст вместе с экспортированным файлом, чтобы будущие изменения было проще ревьюить.",
+              "Если диаграмма получена от AI, проверьте имена, направление, группировку и технический смысл."
+            ]
+          }
+        ]
+      },
+      "drawio-file-preview-guide": {
+        "title": "Гид по предпросмотру файлов Draw.io",
+        "seoTitle": "Гид по предпросмотру файлов Draw.io - DiagramPreview",
+        "description": "Гид по предпросмотру файлов Draw.io：Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "excerpt": "Практические материалы о предпросмотре, конвертации, экспорте и документировании диаграмм онлайн.",
+        "readingTime": "5 min",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "drawio-file-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "Рекомендации по workflow",
+            "paragraphs": [
+              "DiagramPreview держит исходный текст, предпросмотр, связанные инструменты и экспорт в одном workspace. Это удобно для технической документации, архитектурных заметок и проверки AI-контента.",
+              "Начните с примера, меняйте источник небольшими шагами и проверяйте предпросмотр перед экспортом."
+            ]
+          },
+          {
+            "heading": "Проверка перед публикацией",
+            "paragraphs": [
+              "Сохраняйте исходный текст вместе с экспортированным файлом, чтобы будущие изменения было проще ревьюить.",
+              "Если диаграмма получена от AI, проверьте имена, направление, группировку и технический смысл."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "staticPages": {
+    "common": {
+      "eyebrow": "DiagramPreview"
+    },
+    "about": {
+      "title": "About",
+      "seoTitle": "About DiagramPreview",
+      "description": "DiagramPreview is an online diagram preview and conversion workspace for developers, product teams, architects, and technical writers.",
+      "keywords": [
+        "about DiagramPreview",
+        "diagram preview tools"
+      ],
+      "sections": [
+        {
+          "heading": "What DiagramPreview is",
+          "paragraphs": [
+            "DiagramPreview helps people turn text, structured data, and diagram files into visual previews that are easier to inspect, share, and export.",
+            "The site is built for Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, YAML, and future developer diagram formats."
+          ]
+        },
+        {
+          "heading": "How the product is designed",
+          "paragraphs": [
+            "The first screen focuses on tools, search, and categories instead of a marketing-only landing page. Each tool has its own URL, metadata, related links, FAQ, and export workflow."
+          ]
+        }
+      ]
+    },
+    "help-center": {
+      "title": "Help Center",
+      "seoTitle": "DiagramPreview Help Center",
+      "description": "Find help for using DiagramPreview tools, previews, exports, and common diagram workflows.",
+      "keywords": [
+        "DiagramPreview help",
+        "diagram export help"
+      ],
+      "sections": [
+        {
+          "heading": "Using tools",
+          "paragraphs": [
+            "Open a tool, paste source content, choose an example when useful, and review the preview pane for output or syntax errors.",
+            "Supported tools expose copy, SVG, PNG, and print-style PDF actions when the renderer can provide them."
+          ]
+        },
+        {
+          "heading": "Troubleshooting",
+          "paragraphs": [
+            "If a diagram does not render, reduce the source to a smaller example, check the syntax for the format, and then add sections back gradually.",
+            "For PlantUML, the first version uses a PlantUML server URL, so network access to that endpoint may affect previews."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "seoTitle": "Contact DiagramPreview",
+      "description": "Contact DiagramPreview for feedback, support, partnerships, and product questions.",
+      "keywords": [
+        "contact DiagramPreview",
+        "DiagramPreview feedback"
+      ],
+      "sections": [
+        {
+          "heading": "Email",
+          "paragraphs": [
+            "For feedback, write to feedback@diagrampreview.com. For general contact, write to hello@diagrampreview.com."
+          ]
+        },
+        {
+          "heading": "What to include",
+          "paragraphs": [
+            "Please include the tool URL, the diagram format, a short description of the issue, and whether the problem affects preview, export, localization, or SEO content."
+          ]
+        }
+      ]
+    },
+    "privacy-policy": {
+      "title": "Privacy Policy",
+      "seoTitle": "DiagramPreview Privacy Policy",
+      "description": "Privacy information for DiagramPreview users.",
+      "keywords": [
+        "DiagramPreview privacy",
+        "privacy policy"
+      ],
+      "sections": [
+        {
+          "heading": "Data handling",
+          "paragraphs": [
+            "DiagramPreview is designed as a browser-first tool site. Where possible, rendering happens in the browser rather than requiring diagram content to be sent to a backend.",
+            "Some third-party rendering approaches, such as the first PlantUML server URL implementation, may request a remote preview image."
+          ]
+        },
+        {
+          "heading": "Contact",
+          "paragraphs": [
+            "For privacy questions, contact hello@diagrampreview.com. This page is a practical product policy page and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    },
+    "terms-of-use": {
+      "title": "Terms of Use",
+      "seoTitle": "DiagramPreview Terms of Use",
+      "description": "Terms for using DiagramPreview tools and content.",
+      "keywords": [
+        "DiagramPreview terms",
+        "terms of use"
+      ],
+      "sections": [
+        {
+          "heading": "Use of the service",
+          "paragraphs": [
+            "DiagramPreview provides online tools for previewing, converting, and exporting diagrams. You are responsible for the content you paste, upload, preview, or export.",
+            "Do not use the service to process content you are not allowed to use or share."
+          ]
+        },
+        {
+          "heading": "No warranty",
+          "paragraphs": [
+            "The tools are provided as-is. Renderers, exports, examples, and documentation may change as the product evolves.",
+            "This page is a practical starting point and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    }
+  }
+}

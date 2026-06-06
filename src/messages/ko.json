@@ -1,0 +1,1155 @@
+{
+  "common": {
+    "brand": "DiagramPreview",
+    "nav": {
+      "previewTools": "미리보기 도구",
+      "converters": "변환 도구",
+      "aiDiagram": "AI 다이어그램",
+      "developerDiagrams": "개발자 다이어그램",
+      "blog": "블로그",
+      "tools": "도구",
+      "dataVisualizers": "데이터 시각화",
+      "viewAll": "전체 보기"
+    },
+    "actions": {
+      "github": "GitHub",
+      "feedback": "피드백",
+      "search": "검색",
+      "copyCode": "코드 복사",
+      "copyHtml": "HTML 복사",
+      "exportSvg": "SVG",
+      "exportPng": "PNG",
+      "exportPdf": "PDF",
+      "loadSample": "예제 불러오기",
+      "clear": "지우기",
+      "openTool": "도구 열기"
+    },
+    "category": {
+      "preview": "미리보기 도구",
+      "converter": "변환 도구",
+      "developer": "개발자 다이어그램",
+      "data": "데이터 시각화"
+    },
+    "workspace": {
+      "input": "입력",
+      "output": "미리보기",
+      "settings": "설정",
+      "theme": "테마",
+      "layout": "레이아웃",
+      "zoom": "확대/축소",
+      "background": "배경",
+      "samples": "예제",
+      "ready": "준비됨",
+      "rendering": "렌더링 중",
+      "renderError": "다이어그램을 렌더링할 수 없습니다. 문법을 확인하고 다시 시도하세요.",
+      "fallbackTitle": "미리보기 준비 중",
+      "fallbackBody": "이 작업 영역은 사이트 구조에 연결되어 있습니다. 전용 렌더러는 다음 단계에서 추가됩니다.",
+      "treeHint": "객체와 배열은 읽기 쉬운 트리로 펼쳐집니다.",
+      "themeLight": "라이트",
+      "layoutSplit": "분할",
+      "zoomDefault": "100%",
+      "backgroundWhite": "흰색",
+      "drawioPages": "페이지",
+      "drawioObjects": "객체",
+      "drawioPageNames": "페이지 이름",
+      "drawioDefaultPage": "페이지",
+      "none": "없음"
+    },
+    "seoSections": {
+      "howToUse": "사용 방법",
+      "useCases": "사용 사례",
+      "relatedTools": "관련 도구",
+      "faq": "FAQ"
+    },
+    "footer": {
+      "summary": "개발 문서, 아키텍처 노트, 제품 사양, AI 워크플로를 위한 빠른 온라인 다이어그램 미리보기 및 변환 도구입니다.",
+      "popularTools": "인기 도구",
+      "categories": "카테고리",
+      "resources": "리소스",
+      "languages": "언어",
+      "legal": "법률",
+      "privacy": "개인정보",
+      "terms": "약관",
+      "changelog": "변경 내역",
+      "docs": "문서"
+    },
+    "locale": {
+      "label": "언어"
+    }
+  },
+  "home": {
+    "metadata": {
+      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
+      "description": "Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, 마인드맵, JSON, YAML 및 개발자 다이어그램을 온라인으로 미리보고 변환하세요.",
+      "keywords": [
+        "diagram preview",
+        "mermaid preview",
+        "plantuml preview",
+        "graphviz online",
+        "markdown preview"
+      ]
+    },
+    "hero": {
+      "eyebrow": "온라인 다이어그램 미리보기 작업 영역",
+      "h1": "Diagram Preview Tools for Developers",
+      "subtitle": "Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, 마인드맵 및 개발자 다이어그램을 온라인으로 미리보세요.",
+      "searchPlaceholder": "다이어그램 도구 검색..."
+    },
+    "sections": {
+      "popular": "인기 도구",
+      "categories": "도구 카테고리",
+      "recent": "최근 추가",
+      "why": "DiagramPreview를 선택하는 이유",
+      "faq": "FAQ"
+    },
+    "why": [
+      "Use one focused workspace for text diagrams, documentation previews, and file-based diagram formats.",
+      "Most rendering runs in the browser, keeping drafts fast while reducing unnecessary round trips.",
+      "Every tool has its own URL, metadata, related tools, and export actions so it can grow as a search-friendly utility."
+    ],
+    "faq": [
+      {
+        "question": "What can DiagramPreview render?",
+        "answer": "The first release focuses on Mermaid, PlantUML, Markdown, Graphviz, JSON, YAML, and structured preview pages for the remaining diagram formats."
+      },
+      {
+        "question": "Do diagrams upload to a server?",
+        "answer": "Browser-first tools render locally when possible. PlantUML uses a server URL in the first version so the renderer can be replaced later."
+      },
+      {
+        "question": "Can I export diagrams?",
+        "answer": "Supported renderers expose SVG, PNG, copy, and print-style PDF actions from the workspace toolbar."
+      }
+    ]
+  },
+  "tools": {
+    "mermaid-preview": {
+      "name": "Mermaid 미리보기",
+      "shortDescription": "Mermaid 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "Mermaid 미리보기 온라인 - DiagramPreview",
+      "seoDescription": "Mermaid 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "mermaid preview",
+        "mermaid editor online",
+        "mermaid live preview"
+      ],
+      "h1": "Mermaid 미리보기",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 Mermaid 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "Live SVG",
+        "Browser renderer",
+        "Export PNG"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "Mermaid 미리보기 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "Mermaid 미리보기 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "flowchart": {
+          "label": "Flowchart",
+          "code": "flowchart TD\n  A[Start] --> B{Ready?}\n  B -- Yes --> C[Preview diagram]\n  B -- No --> D[Edit source]\n  D --> B\n  C --> E[Export]"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant API\n  User->>App: Paste diagram\n  App->>API: Validate request\n  API-->>App: OK\n  App-->>User: Render preview"
+        },
+        "class": {
+          "label": "Class",
+          "code": "classDiagram\n  class Diagram {\n    +string source\n    +render()\n    +exportSvg()\n  }\n  class MermaidDiagram\n  Diagram <|-- MermaidDiagram"
+        },
+        "state": {
+          "label": "State",
+          "code": "stateDiagram-v2\n  [*] --> Editing\n  Editing --> Rendering\n  Rendering --> Ready\n  Rendering --> Error\n  Error --> Editing\n  Ready --> Exported"
+        },
+        "gantt": {
+          "label": "Gantt",
+          "code": "gantt\n  title Release plan\n  dateFormat  YYYY-MM-DD\n  section Build\n  Scaffold app :done, a1, 2026-06-01, 2d\n  Tool preview :active, a2, after a1, 4d\n  SEO pages :a3, after a2, 2d"
+        },
+        "er": {
+          "label": "ER diagram",
+          "code": "erDiagram\n  USER ||--o{ DIAGRAM : creates\n  DIAGRAM ||--o{ EXPORT : produces\n  USER {\n    string id\n    string email\n  }\n  DIAGRAM {\n    string type\n    string source\n  }"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "Mermaid 미리보기을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "Mermaid 미리보기은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "plantuml-preview": {
+      "name": "PlantUML 미리보기",
+      "shortDescription": "PlantUML 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "PlantUML 미리보기 온라인 - DiagramPreview",
+      "seoDescription": "PlantUML 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "plantuml preview",
+        "plantuml online editor",
+        "plantuml viewer"
+      ],
+      "h1": "PlantUML 미리보기",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 PlantUML 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "Server SVG",
+        "Text diagrams",
+        "Export ready"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "PlantUML 미리보기 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "PlantUML 미리보기 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "sequence": {
+          "label": "Sequence",
+          "code": "@startuml\nactor User\nparticipant App\nparticipant Service\nUser -> App: Submit diagram\nApp -> Service: Render\nService --> App: SVG\nApp --> User: Preview\n@enduml"
+        },
+        "class": {
+          "label": "Class",
+          "code": "@startuml\nclass Diagram {\n  +source: string\n  +render(): SVG\n}\nclass PlantUMLDiagram\nDiagram <|-- PlantUMLDiagram\n@enduml"
+        },
+        "usecase": {
+          "label": "Use case",
+          "code": "@startuml\nleft to right direction\nactor Developer\nrectangle DiagramPreview {\n  Developer -- (Preview PlantUML)\n  Developer -- (Export SVG)\n}\n@enduml"
+        },
+        "activity": {
+          "label": "Activity",
+          "code": "@startuml\nstart\n:Paste source;\nif (Valid?) then (yes)\n  :Render preview;\nelse (no)\n  :Show error;\nendif\nstop\n@enduml"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "PlantUML 미리보기을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "PlantUML 미리보기은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "markdown-preview": {
+      "name": "Markdown 미리보기",
+      "shortDescription": "Markdown 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "Markdown 미리보기 온라인 - DiagramPreview",
+      "seoDescription": "Markdown 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "markdown preview",
+        "markdown diagram preview",
+        "markdown mermaid preview"
+      ],
+      "h1": "Markdown 미리보기",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 Markdown 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "GFM",
+        "Mermaid blocks",
+        "Copy HTML"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "Markdown 미리보기 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "Markdown 미리보기 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "docs": {
+          "label": "Docs",
+          "code": "# API Notes\n\nUse this document to describe a workflow.\n\n- Fast preview\n- Diagram support\n- Export actions\n\n```ts\nconst ready = true;\n```"
+        },
+        "mermaid": {
+          "label": "Mermaid block",
+          "code": "# Checkout flow\n\n```mermaid\nsequenceDiagram\n  participant Buyer\n  participant Store\n  Buyer->>Store: Place order\n  Store-->>Buyer: Confirmation\n```\n\nThe diagram is rendered inside the Markdown preview."
+        },
+        "release": {
+          "label": "Release notes",
+          "code": "# Release notes\n\n## Added\n\n- Mermaid preview\n- PlantUML preview\n- Markdown preview\n\n## Fixed\n\n- Cleaner export toolbar"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "Markdown 미리보기을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "Markdown 미리보기은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "graphviz-preview": {
+      "name": "Graphviz DOT 미리보기",
+      "shortDescription": "Graphviz DOT 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "Graphviz DOT 미리보기 온라인 - DiagramPreview",
+      "seoDescription": "Graphviz DOT 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "graphviz preview",
+        "dot preview online",
+        "graphviz viewer"
+      ],
+      "h1": "Graphviz DOT 미리보기",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 Graphviz DOT 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "DOT",
+        "Browser SVG",
+        "Dependency graphs"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "Graphviz DOT 미리보기 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "Graphviz DOT 미리보기 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "digraph": {
+          "label": "Digraph",
+          "code": "digraph G {\n  rankdir=LR;\n  Start -> Parse -> Render -> Export;\n  Render -> Error;\n  Error -> Parse;\n}"
+        },
+        "dependency": {
+          "label": "Dependency graph",
+          "code": "digraph dependencies {\n  node [shape=box, style=rounded];\n  app -> ui;\n  app -> renderers;\n  renderers -> mermaid;\n  renderers -> graphviz;\n}"
+        },
+        "state": {
+          "label": "State graph",
+          "code": "digraph states {\n  node [shape=circle];\n  editing -> rendering;\n  rendering -> ready;\n  rendering -> failed;\n  failed -> editing;\n}"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "Graphviz DOT 미리보기을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "Graphviz DOT 미리보기은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "d2-preview": {
+      "name": "D2 미리보기",
+      "shortDescription": "D2 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "D2 미리보기 온라인 - DiagramPreview",
+      "seoDescription": "D2 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "d2 preview",
+        "d2 diagram online",
+        "d2 viewer"
+      ],
+      "h1": "D2 미리보기",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 D2 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "D2",
+        "Architecture",
+        "Preview workspace"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "D2 미리보기 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "D2 미리보기 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "architecture": {
+          "label": "Architecture",
+          "code": "client -> gateway -> api\napi -> database\napi -> queue"
+        },
+        "service": {
+          "label": "Service map",
+          "code": "web: Web app\napi: API service\ndb: Database\nweb -> api -> db"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "user -> app: request\napp -> api: fetch\napi -> app: response"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "D2 미리보기을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "D2 미리보기은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "drawio-preview": {
+      "name": "Draw.io 뷰어",
+      "shortDescription": "Draw.io 뷰어을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "Draw.io 뷰어 온라인 - DiagramPreview",
+      "seoDescription": "Draw.io 뷰어로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "draw.io viewer",
+        "diagrams.net viewer",
+        "drawio preview"
+      ],
+      "h1": "Draw.io 뷰어",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 Draw.io 뷰어으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "draw.io",
+        "XML",
+        "Viewer"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "Draw.io 뷰어 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "Draw.io 뷰어 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "xml": {
+          "label": "XML",
+          "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "Draw.io 뷰어을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "Draw.io 뷰어은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "mind-map-preview": {
+      "name": "마인드맵 미리보기",
+      "shortDescription": "마인드맵 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "마인드맵 미리보기 온라인 - DiagramPreview",
+      "seoDescription": "마인드맵 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "mind map preview",
+        "markdown mind map",
+        "text to mind map"
+      ],
+      "h1": "마인드맵 미리보기",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 마인드맵 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "Mind map",
+        "Markdown outline",
+        "Tree layout"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "마인드맵 미리보기 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "마인드맵 미리보기 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "outline": {
+          "label": "Outline",
+          "code": "# Product plan\n## Research\n## Build\n### Preview tools\n### Export actions\n## Launch"
+        },
+        "product": {
+          "label": "Product",
+          "code": "DiagramPreview\n  Preview tools\n  Converters\n  SEO pages\n  Export actions"
+        },
+        "research": {
+          "label": "Research",
+          "code": "Research\n  Users\n    Developers\n    Product managers\n  Inputs\n    Markdown\n    Mermaid"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "마인드맵 미리보기을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "마인드맵 미리보기은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "sequence-diagram-preview": {
+      "name": "시퀀스 다이어그램 미리보기",
+      "shortDescription": "시퀀스 다이어그램 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "시퀀스 다이어그램 미리보기 온라인 - DiagramPreview",
+      "seoDescription": "시퀀스 다이어그램 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "sequence diagram preview",
+        "text sequence diagram",
+        "online sequence diagram"
+      ],
+      "h1": "시퀀스 다이어그램 미리보기",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 시퀀스 다이어그램 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "Sequence",
+        "Mermaid",
+        "API flows"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "시퀀스 다이어그램 미리보기 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "시퀀스 다이어그램 미리보기 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "api": {
+          "label": "API call",
+          "code": "sequenceDiagram\n  participant Client\n  participant API\n  participant DB\n  Client->>API: GET /diagrams\n  API->>DB: Query diagrams\n  DB-->>API: Rows\n  API-->>Client: JSON"
+        },
+        "login": {
+          "label": "Login flow",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant Auth\n  User->>App: Enter credentials\n  App->>Auth: Verify\n  Auth-->>App: Token\n  App-->>User: Dashboard"
+        },
+        "payment": {
+          "label": "Payment flow",
+          "code": "sequenceDiagram\n  participant Buyer\n  participant Store\n  participant PSP\n  Buyer->>Store: Checkout\n  Store->>PSP: Create payment\n  PSP-->>Store: Confirmed\n  Store-->>Buyer: Receipt"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "시퀀스 다이어그램 미리보기을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "시퀀스 다이어그램 미리보기은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "json-to-diagram": {
+      "name": "JSON을 다이어그램으로",
+      "shortDescription": "JSON을 다이어그램으로을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "JSON을 다이어그램으로 온라인 - DiagramPreview",
+      "seoDescription": "JSON을 다이어그램으로로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "json to diagram",
+        "json tree diagram",
+        "json visualizer"
+      ],
+      "h1": "JSON을 다이어그램으로",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 JSON을 다이어그램으로으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "JSON",
+        "Tree diagram",
+        "Validation"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "JSON을 다이어그램으로 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "JSON을 다이어그램으로 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "api": {
+          "label": "API response",
+          "code": "{\"user\":{\"id\":\"u_123\",\"name\":\"Ada\"},\"projects\":[{\"name\":\"Docs\",\"status\":\"active\"},{\"name\":\"Diagrams\",\"status\":\"draft\"}]}"
+        },
+        "package": {
+          "label": "Package",
+          "code": "{\"scripts\":{\"dev\":\"next dev\",\"build\":\"next build\"},\"dependencies\":{\"next\":\"15\",\"react\":\"19\"}}"
+        },
+        "config": {
+          "label": "Config",
+          "code": "{\"theme\":\"light\",\"export\":{\"svg\":true,\"png\":true},\"locales\":[\"en\",\"zh-CN\",\"ja\"]}"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "JSON을 다이어그램으로을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "JSON을 다이어그램으로은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    },
+    "yaml-to-diagram": {
+      "name": "YAML을 다이어그램으로",
+      "shortDescription": "YAML을 다이어그램으로을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
+      "seoTitle": "YAML을 다이어그램으로 온라인 - DiagramPreview",
+      "seoDescription": "YAML을 다이어그램으로로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "keywords": [
+        "yaml to diagram",
+        "yaml visualizer",
+        "yaml tree viewer"
+      ],
+      "h1": "YAML을 다이어그램으로",
+      "intro": "전문 작업 영역에 내용을 붙여 넣고 YAML을 다이어그램으로으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
+      "badges": [
+        "YAML",
+        "Tree viewer",
+        "Config"
+      ],
+      "inputLabel": "입력",
+      "outputLabel": "결과",
+      "placeholder": "YAML을 다이어그램으로 내용을 여기에 붙여 넣으세요...",
+      "emptyPreview": "YAML을 다이어그램으로 미리보기가 여기에 표시됩니다.",
+      "samples": {
+        "workflow": {
+          "label": "Workflow",
+          "code": "name: preview\nsteps:\n  - install\n  - build\n  - verify"
+        },
+        "kubernetes": {
+          "label": "Kubernetes",
+          "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: diagram-preview\nspec:\n  ports:\n    - port: 80"
+        },
+        "config": {
+          "label": "Config",
+          "code": "site:\n  name: DiagramPreview\n  locales:\n    - en\n    - zh-CN\nexports:\n  svg: true\n  png: true"
+        }
+      },
+      "howToUse": [
+        "원본 내용을 붙여 넣거나 작성합니다.",
+        "빠르게 시작하려면 예제를 불러옵니다.",
+        "미리보기를 확인한 뒤 복사하거나 내보냅니다."
+      ],
+      "useCases": [
+        "기술 문서",
+        "아키텍처 노트",
+        "AI 생성 콘텐츠 검토"
+      ],
+      "faq": [
+        {
+          "question": "YAML을 다이어그램으로을 온라인에서 사용할 수 있나요?",
+          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+        },
+        {
+          "question": "결과를 내보낼 수 있나요?",
+          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+        }
+      ],
+      "seoBody": [
+        "YAML을 다이어그램으로은 개발자, PM, 기술 작성자가 다이어그램과 구조화된 콘텐츠를 빠르게 검토하도록 돕습니다.",
+        "작업 영역은 원본과 미리보기를 나란히 보여 주어 게시 전 문법, 계층, 레이아웃 문제를 찾기 쉽게 합니다.",
+        "각 도구는 독립 URL, metadata, FAQ, 관련 도구 링크를 갖추어 검색 가능한 유틸리티 페이지로 성장할 수 있습니다."
+      ]
+    }
+  },
+  "hubs": {
+    "common": {
+      "eyebrow": "도구 디렉터리",
+      "availableTools": "사용 가능한 도구",
+      "plannedTools": "예정된 도구"
+    },
+    "tools": {
+      "title": "모든 다이어그램 도구",
+      "description": "형식, 워크플로, 다이어그램 유형별로 DiagramPreview 도구를 탐색하세요.",
+      "keywords": [
+        "diagram tools",
+        "tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "SQL ER Diagram",
+        "Regex Railroad Diagram",
+        "Text to Diagram"
+      ]
+    },
+    "preview-tools": {
+      "title": "미리보기 도구",
+      "description": "텍스트 및 파일 기반 다이어그램을 집중형 브라우저 작업 영역에서 미리보세요.",
+      "keywords": [
+        "diagram tools",
+        "preview-tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "DBML Preview",
+        "Regex Railroad Diagram"
+      ]
+    },
+    "converters": {
+      "title": "다이어그램 변환 도구",
+      "description": "구조화된 텍스트와 데이터를 읽기 쉬운 다이어그램과 내보낼 수 있는 미리보기로 변환하세요.",
+      "keywords": [
+        "diagram tools",
+        "converters",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Mermaid to SVG",
+        "PlantUML to SVG",
+        "Diagram to PNG"
+      ]
+    },
+    "developer-diagrams": {
+      "title": "개발자 다이어그램",
+      "description": "아키텍처, API 흐름, 의존성, 엔지니어링 문서를 위한 다이어그램을 만드세요.",
+      "keywords": [
+        "diagram tools",
+        "developer-diagrams",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Architecture Diagram Preview",
+        "Flowchart Preview",
+        "SQL ER Diagram"
+      ]
+    },
+    "data-visualizers": {
+      "title": "데이터 시각화",
+      "description": "JSON, YAML 및 구조화된 데이터를 읽기 쉬운 트리와 다이어그램으로 확인하세요.",
+      "keywords": [
+        "diagram tools",
+        "data-visualizers",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Visualizer",
+        "SQL Schema Visualizer",
+        "Package Dependency Visualizer"
+      ]
+    },
+    "ai-diagram": {
+      "title": "AI 다이어그램 도구",
+      "description": "AI 생성 다이어그램을 text-first 도구로 검토, 다듬기, 내보내기하세요.",
+      "keywords": [
+        "diagram tools",
+        "ai-diagram",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "AI Diagram Generator",
+        "Prompt to Mermaid",
+        "Text to Architecture Diagram"
+      ]
+    }
+  },
+  "blog": {
+    "common": {
+      "relatedTools": "관련 도구"
+    },
+    "index": {
+      "eyebrow": "DiagramPreview 블로그",
+      "title": "개발자를 위한 다이어그램 가이드",
+      "description": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+      "seoTitle": "개발자를 위한 다이어그램 가이드 - DiagramPreview",
+      "keywords": [
+        "diagram blog",
+        "developer diagrams",
+        "diagram guides"
+      ]
+    },
+    "posts": {
+      "mermaid-preview-guide": {
+        "title": "Mermaid 미리보기 가이드",
+        "seoTitle": "Mermaid 미리보기 가이드 - DiagramPreview",
+        "description": "Mermaid 미리보기 가이드：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "readingTime": "5분 읽기",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "mermaid-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "워크플로 권장 사항",
+            "paragraphs": [
+              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
+              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 확인",
+            "paragraphs": [
+              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
+              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+            ]
+          }
+        ]
+      },
+      "plantuml-online-preview-workflow": {
+        "title": "PlantUML 온라인 미리보기 워크플로",
+        "seoTitle": "PlantUML 온라인 미리보기 워크플로 - DiagramPreview",
+        "description": "PlantUML 온라인 미리보기 워크플로：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "readingTime": "5분 읽기",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "plantuml-online-preview-workflow"
+        ],
+        "sections": [
+          {
+            "heading": "워크플로 권장 사항",
+            "paragraphs": [
+              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
+              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 확인",
+            "paragraphs": [
+              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
+              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+            ]
+          }
+        ]
+      },
+      "markdown-mermaid-documentation": {
+        "title": "Markdown와 Mermaid 문서화",
+        "seoTitle": "Markdown와 Mermaid 문서화 - DiagramPreview",
+        "description": "Markdown와 Mermaid 문서화：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "readingTime": "5분 읽기",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "markdown-mermaid-documentation"
+        ],
+        "sections": [
+          {
+            "heading": "워크플로 권장 사항",
+            "paragraphs": [
+              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
+              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 확인",
+            "paragraphs": [
+              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
+              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+            ]
+          }
+        ]
+      },
+      "graphviz-dot-dependency-graphs": {
+        "title": "Graphviz DOT 의존성 그래프",
+        "seoTitle": "Graphviz DOT 의존성 그래프 - DiagramPreview",
+        "description": "Graphviz DOT 의존성 그래프：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "readingTime": "5분 읽기",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "graphviz-dot-dependency-graphs"
+        ],
+        "sections": [
+          {
+            "heading": "워크플로 권장 사항",
+            "paragraphs": [
+              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
+              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 확인",
+            "paragraphs": [
+              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
+              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+            ]
+          }
+        ]
+      },
+      "json-yaml-diagram-visualization": {
+        "title": "JSON 및 YAML 다이어그램 시각화",
+        "seoTitle": "JSON 및 YAML 다이어그램 시각화 - DiagramPreview",
+        "description": "JSON 및 YAML 다이어그램 시각화：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "readingTime": "5분 읽기",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "json-yaml-diagram-visualization"
+        ],
+        "sections": [
+          {
+            "heading": "워크플로 권장 사항",
+            "paragraphs": [
+              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
+              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 확인",
+            "paragraphs": [
+              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
+              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+            ]
+          }
+        ]
+      },
+      "drawio-file-preview-guide": {
+        "title": "Draw.io 파일 미리보기 가이드",
+        "seoTitle": "Draw.io 파일 미리보기 가이드 - DiagramPreview",
+        "description": "Draw.io 파일 미리보기 가이드：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
+        "readingTime": "5분 읽기",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "drawio-file-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "워크플로 권장 사항",
+            "paragraphs": [
+              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
+              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 확인",
+            "paragraphs": [
+              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
+              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "staticPages": {
+    "common": {
+      "eyebrow": "DiagramPreview"
+    },
+    "about": {
+      "title": "About",
+      "seoTitle": "About DiagramPreview",
+      "description": "DiagramPreview is an online diagram preview and conversion workspace for developers, product teams, architects, and technical writers.",
+      "keywords": [
+        "about DiagramPreview",
+        "diagram preview tools"
+      ],
+      "sections": [
+        {
+          "heading": "What DiagramPreview is",
+          "paragraphs": [
+            "DiagramPreview helps people turn text, structured data, and diagram files into visual previews that are easier to inspect, share, and export.",
+            "The site is built for Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, YAML, and future developer diagram formats."
+          ]
+        },
+        {
+          "heading": "How the product is designed",
+          "paragraphs": [
+            "The first screen focuses on tools, search, and categories instead of a marketing-only landing page. Each tool has its own URL, metadata, related links, FAQ, and export workflow."
+          ]
+        }
+      ]
+    },
+    "help-center": {
+      "title": "Help Center",
+      "seoTitle": "DiagramPreview Help Center",
+      "description": "Find help for using DiagramPreview tools, previews, exports, and common diagram workflows.",
+      "keywords": [
+        "DiagramPreview help",
+        "diagram export help"
+      ],
+      "sections": [
+        {
+          "heading": "Using tools",
+          "paragraphs": [
+            "Open a tool, paste source content, choose an example when useful, and review the preview pane for output or syntax errors.",
+            "Supported tools expose copy, SVG, PNG, and print-style PDF actions when the renderer can provide them."
+          ]
+        },
+        {
+          "heading": "Troubleshooting",
+          "paragraphs": [
+            "If a diagram does not render, reduce the source to a smaller example, check the syntax for the format, and then add sections back gradually.",
+            "For PlantUML, the first version uses a PlantUML server URL, so network access to that endpoint may affect previews."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "seoTitle": "Contact DiagramPreview",
+      "description": "Contact DiagramPreview for feedback, support, partnerships, and product questions.",
+      "keywords": [
+        "contact DiagramPreview",
+        "DiagramPreview feedback"
+      ],
+      "sections": [
+        {
+          "heading": "Email",
+          "paragraphs": [
+            "For feedback, write to feedback@diagrampreview.com. For general contact, write to hello@diagrampreview.com."
+          ]
+        },
+        {
+          "heading": "What to include",
+          "paragraphs": [
+            "Please include the tool URL, the diagram format, a short description of the issue, and whether the problem affects preview, export, localization, or SEO content."
+          ]
+        }
+      ]
+    },
+    "privacy-policy": {
+      "title": "Privacy Policy",
+      "seoTitle": "DiagramPreview Privacy Policy",
+      "description": "Privacy information for DiagramPreview users.",
+      "keywords": [
+        "DiagramPreview privacy",
+        "privacy policy"
+      ],
+      "sections": [
+        {
+          "heading": "Data handling",
+          "paragraphs": [
+            "DiagramPreview is designed as a browser-first tool site. Where possible, rendering happens in the browser rather than requiring diagram content to be sent to a backend.",
+            "Some third-party rendering approaches, such as the first PlantUML server URL implementation, may request a remote preview image."
+          ]
+        },
+        {
+          "heading": "Contact",
+          "paragraphs": [
+            "For privacy questions, contact hello@diagrampreview.com. This page is a practical product policy page and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    },
+    "terms-of-use": {
+      "title": "Terms of Use",
+      "seoTitle": "DiagramPreview Terms of Use",
+      "description": "Terms for using DiagramPreview tools and content.",
+      "keywords": [
+        "DiagramPreview terms",
+        "terms of use"
+      ],
+      "sections": [
+        {
+          "heading": "Use of the service",
+          "paragraphs": [
+            "DiagramPreview provides online tools for previewing, converting, and exporting diagrams. You are responsible for the content you paste, upload, preview, or export.",
+            "Do not use the service to process content you are not allowed to use or share."
+          ]
+        },
+        {
+          "heading": "No warranty",
+          "paragraphs": [
+            "The tools are provided as-is. Renderers, exports, examples, and documentation may change as the product evolves.",
+            "This page is a practical starting point and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    }
+  }
+}

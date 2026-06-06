@@ -1,0 +1,13 @@
+export function downloadText(filename: string, text: string, mimeType: string) {
+  const blob = new Blob([text], {type: mimeType});
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  anchor.click();
+  URL.revokeObjectURL(url);
+}
+
+export function copyText(text: string) {
+  return navigator.clipboard.writeText(text);
+}

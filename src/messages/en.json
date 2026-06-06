@@ -1,0 +1,1173 @@
+{
+  "common": {
+    "brand": "DiagramPreview",
+    "nav": {
+      "previewTools": "Preview Tools",
+      "converters": "Converters",
+      "aiDiagram": "AI Diagram",
+      "developerDiagrams": "Developer Diagrams",
+      "blog": "Blog",
+      "tools": "Tools",
+      "dataVisualizers": "Data Visualizers",
+      "viewAll": "View all"
+    },
+    "actions": {
+      "github": "GitHub",
+      "feedback": "Feedback",
+      "search": "Search",
+      "copyCode": "Copy code",
+      "copyHtml": "Copy HTML",
+      "exportSvg": "SVG",
+      "exportPng": "PNG",
+      "exportPdf": "PDF",
+      "loadSample": "Load sample",
+      "clear": "Clear",
+      "openTool": "Open tool"
+    },
+    "category": {
+      "preview": "Preview tools",
+      "converter": "Converters",
+      "developer": "Developer diagrams",
+      "data": "Data visualizers"
+    },
+    "workspace": {
+      "input": "Input",
+      "output": "Preview",
+      "settings": "Settings",
+      "theme": "Theme",
+      "layout": "Layout",
+      "zoom": "Zoom",
+      "background": "Background",
+      "samples": "Examples",
+      "ready": "Ready",
+      "rendering": "Rendering",
+      "renderError": "The diagram could not be rendered. Check the syntax and try again.",
+      "fallbackTitle": "Preview coming online",
+      "fallbackBody": "This workspace is wired into the site structure. A dedicated renderer will be added in the next build stage.",
+      "treeHint": "Objects and arrays are expanded into a readable diagram tree.",
+      "themeLight": "Light",
+      "layoutSplit": "Split",
+      "zoomDefault": "100%",
+      "backgroundWhite": "White",
+      "drawioPages": "Pages",
+      "drawioObjects": "Objects",
+      "drawioPageNames": "Page names",
+      "drawioDefaultPage": "Page",
+      "none": "None"
+    },
+    "seoSections": {
+      "howToUse": "How to use",
+      "useCases": "Common use cases",
+      "relatedTools": "Related tools",
+      "faq": "FAQ"
+    },
+    "footer": {
+      "summary": "Fast online diagram preview and conversion tools for developer documentation, architecture notes, product specs, and AI workflows.",
+      "popularTools": "Popular tools",
+      "categories": "Categories",
+      "resources": "Resources",
+      "languages": "Languages",
+      "legal": "Legal",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "changelog": "Changelog",
+      "docs": "Docs"
+    },
+    "locale": {
+      "label": "Language"
+    }
+  },
+  "home": {
+    "metadata": {
+      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
+      "description": "Preview and convert Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, YAML and developer diagrams online.",
+      "keywords": [
+        "diagram preview",
+        "mermaid preview",
+        "plantuml preview",
+        "graphviz online",
+        "markdown preview"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Online diagram preview workspace",
+      "h1": "Diagram Preview Tools for Developers",
+      "subtitle": "Preview Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps and developer diagrams online.",
+      "searchPlaceholder": "Search diagram tools..."
+    },
+    "sections": {
+      "popular": "Popular Tools",
+      "categories": "Tool Categories",
+      "recent": "Recently Added",
+      "why": "Why DiagramPreview",
+      "faq": "FAQ"
+    },
+    "why": [
+      "Use one focused workspace for text diagrams, documentation previews, and file-based diagram formats.",
+      "Most rendering runs in the browser, keeping drafts fast while reducing unnecessary round trips.",
+      "Every tool has its own URL, metadata, related tools, and export actions so it can grow as a search-friendly utility."
+    ],
+    "faq": [
+      {
+        "question": "What can DiagramPreview render?",
+        "answer": "The first release focuses on Mermaid, PlantUML, Markdown, Graphviz, JSON, YAML, and structured preview pages for the remaining diagram formats."
+      },
+      {
+        "question": "Do diagrams upload to a server?",
+        "answer": "Browser-first tools render locally when possible. PlantUML uses a server URL in the first version so the renderer can be replaced later."
+      },
+      {
+        "question": "Can I export diagrams?",
+        "answer": "Supported renderers expose SVG, PNG, copy, and print-style PDF actions from the workspace toolbar."
+      }
+    ]
+  },
+  "tools": {
+    "mermaid-preview": {
+      "name": "Mermaid Preview",
+      "shortDescription": "Live Mermaid editor with SVG preview and export actions.",
+      "seoTitle": "Mermaid Preview Online - Mermaid Editor and Live SVG Viewer",
+      "seoDescription": "Preview Mermaid diagrams online with a live editor, example templates, SVG export, PNG export, and copy actions.",
+      "keywords": [
+        "mermaid preview",
+        "mermaid editor online",
+        "mermaid live preview"
+      ],
+      "h1": "Mermaid Preview",
+      "intro": "Write Mermaid syntax and preview flowcharts, sequence diagrams, classes, states, Gantt charts, and ER diagrams in a focused browser workspace.",
+      "badges": [
+        "Live SVG",
+        "Browser renderer",
+        "Export PNG"
+      ],
+      "inputLabel": "Mermaid code",
+      "outputLabel": "Rendered diagram",
+      "placeholder": "Paste Mermaid code here...",
+      "emptyPreview": "Your Mermaid diagram will appear here.",
+      "samples": {
+        "flowchart": {
+          "label": "Flowchart",
+          "code": "flowchart TD\n  A[Start] --> B{Ready?}\n  B -- Yes --> C[Preview diagram]\n  B -- No --> D[Edit source]\n  D --> B\n  C --> E[Export]"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant API\n  User->>App: Paste diagram\n  App->>API: Validate request\n  API-->>App: OK\n  App-->>User: Render preview"
+        },
+        "class": {
+          "label": "Class",
+          "code": "classDiagram\n  class Diagram {\n    +string source\n    +render()\n    +exportSvg()\n  }\n  class MermaidDiagram\n  Diagram <|-- MermaidDiagram"
+        },
+        "state": {
+          "label": "State",
+          "code": "stateDiagram-v2\n  [*] --> Editing\n  Editing --> Rendering\n  Rendering --> Ready\n  Rendering --> Error\n  Error --> Editing\n  Ready --> Exported"
+        },
+        "gantt": {
+          "label": "Gantt",
+          "code": "gantt\n  title Release plan\n  dateFormat  YYYY-MM-DD\n  section Build\n  Scaffold app :done, a1, 2026-06-01, 2d\n  Tool preview :active, a2, after a1, 4d\n  SEO pages :a3, after a2, 2d"
+        },
+        "er": {
+          "label": "ER diagram",
+          "code": "erDiagram\n  USER ||--o{ DIAGRAM : creates\n  DIAGRAM ||--o{ EXPORT : produces\n  USER {\n    string id\n    string email\n  }\n  DIAGRAM {\n    string type\n    string source\n  }"
+        }
+      },
+      "howToUse": [
+        "Paste Mermaid syntax into the editor.",
+        "Pick a sample when you need a quick starting point.",
+        "Export the rendered SVG or PNG when the preview looks right."
+      ],
+      "useCases": [
+        "Architecture notes",
+        "Product flow documentation",
+        "AI generated diagram review"
+      ],
+      "faq": [
+        {
+          "question": "Does this Mermaid preview run locally?",
+          "answer": "Yes. Mermaid rendering is dynamically loaded in the browser for this tool page."
+        },
+        {
+          "question": "Which Mermaid diagram types are supported?",
+          "answer": "The editor includes samples for flowchart, sequence, class, state, Gantt, and ER diagrams."
+        }
+      ],
+      "seoBody": [
+        "Mermaid Preview is built for developers and technical writers who need a fast way to check diagram syntax while writing documentation. The workspace keeps source code and visual output side by side so you can spot layout issues before committing changes.",
+        "The renderer is loaded on the tool page instead of the home page. That keeps the landing experience quick while still giving the Mermaid editor real SVG output, export actions, and clear syntax errors.",
+        "Use this page for README diagrams, architecture notes, product specs, incident reports, and AI-generated diagrams that need human review before publishing."
+      ]
+    },
+    "plantuml-preview": {
+      "name": "PlantUML Preview",
+      "shortDescription": "Preview PlantUML diagrams from text using a replaceable server renderer.",
+      "seoTitle": "PlantUML Preview Online - PlantUML Editor and Viewer",
+      "seoDescription": "Preview PlantUML sequence, class, use case, and activity diagrams online from plain text.",
+      "keywords": [
+        "plantuml preview",
+        "plantuml online editor",
+        "plantuml viewer"
+      ],
+      "h1": "PlantUML Preview",
+      "intro": "Paste PlantUML text and generate a shareable SVG preview through the PlantUML server URL format.",
+      "badges": [
+        "Server SVG",
+        "Text diagrams",
+        "Export ready"
+      ],
+      "inputLabel": "PlantUML text",
+      "outputLabel": "PlantUML preview",
+      "placeholder": "Paste PlantUML text here...",
+      "emptyPreview": "Your PlantUML preview will appear here.",
+      "samples": {
+        "sequence": {
+          "label": "Sequence",
+          "code": "@startuml\nactor User\nparticipant App\nparticipant Service\nUser -> App: Submit diagram\nApp -> Service: Render\nService --> App: SVG\nApp --> User: Preview\n@enduml"
+        },
+        "class": {
+          "label": "Class",
+          "code": "@startuml\nclass Diagram {\n  +source: string\n  +render(): SVG\n}\nclass PlantUMLDiagram\nDiagram <|-- PlantUMLDiagram\n@enduml"
+        },
+        "usecase": {
+          "label": "Use case",
+          "code": "@startuml\nleft to right direction\nactor Developer\nrectangle DiagramPreview {\n  Developer -- (Preview PlantUML)\n  Developer -- (Export SVG)\n}\n@enduml"
+        },
+        "activity": {
+          "label": "Activity",
+          "code": "@startuml\nstart\n:Paste source;\nif (Valid?) then (yes)\n  :Render preview;\nelse (no)\n  :Show error;\nendif\nstop\n@enduml"
+        }
+      },
+      "howToUse": [
+        "Paste a complete PlantUML document.",
+        "Choose a sample for common diagram styles.",
+        "Use the rendered SVG preview in documentation workflows."
+      ],
+      "useCases": [
+        "Sequence diagrams",
+        "UML class sketches",
+        "Use case diagrams"
+      ],
+      "faq": [
+        {
+          "question": "How does PlantUML rendering work?",
+          "answer": "The first release encodes the PlantUML source and displays the SVG generated by the PlantUML server."
+        },
+        {
+          "question": "Can the renderer be replaced later?",
+          "answer": "Yes. The PlantUML URL builder is isolated behind a renderer module."
+        }
+      ],
+      "seoBody": [
+        "PlantUML Preview helps teams review UML-style diagrams without leaving the browser. It is useful for sequence flows, classes, activities, and use case diagrams that belong beside engineering documents.",
+        "The first version uses the standard PlantUML server URL approach. The encoding logic is isolated so a later local or private renderer can replace it without changing the page contract.",
+        "Because the editor uses plain text, diagrams can move cleanly between code review, wikis, issue trackers, and exported SVG assets."
+      ]
+    },
+    "markdown-preview": {
+      "name": "Markdown Preview",
+      "shortDescription": "Preview Markdown with Mermaid code block rendering.",
+      "seoTitle": "Markdown Preview Online - Markdown and Mermaid Diagram Viewer",
+      "seoDescription": "Preview Markdown online with support for fenced Mermaid diagrams, HTML copy, and export actions.",
+      "keywords": [
+        "markdown preview",
+        "markdown diagram preview",
+        "markdown mermaid preview"
+      ],
+      "h1": "Markdown Preview",
+      "intro": "Preview technical Markdown and render Mermaid fenced code blocks directly inside the document output.",
+      "badges": [
+        "GFM",
+        "Mermaid blocks",
+        "Copy HTML"
+      ],
+      "inputLabel": "Markdown source",
+      "outputLabel": "Rendered document",
+      "placeholder": "Paste Markdown here...",
+      "emptyPreview": "Your Markdown preview will appear here.",
+      "samples": {
+        "docs": {
+          "label": "Docs",
+          "code": "# API Notes\n\nUse this document to describe a workflow.\n\n- Fast preview\n- Diagram support\n- Export actions\n\n```ts\nconst ready = true;\n```"
+        },
+        "mermaid": {
+          "label": "Mermaid block",
+          "code": "# Checkout flow\n\n```mermaid\nsequenceDiagram\n  participant Buyer\n  participant Store\n  Buyer->>Store: Place order\n  Store-->>Buyer: Confirmation\n```\n\nThe diagram is rendered inside the Markdown preview."
+        },
+        "release": {
+          "label": "Release notes",
+          "code": "# Release notes\n\n## Added\n\n- Mermaid preview\n- PlantUML preview\n- Markdown preview\n\n## Fixed\n\n- Cleaner export toolbar"
+        }
+      },
+      "howToUse": [
+        "Paste Markdown into the editor.",
+        "Add Mermaid fenced blocks when a diagram belongs in the document.",
+        "Copy HTML or export the rendered result."
+      ],
+      "useCases": [
+        "README previews",
+        "Technical docs",
+        "AI generated Markdown review"
+      ],
+      "faq": [
+        {
+          "question": "Can Mermaid be rendered inside Markdown?",
+          "answer": "Yes. Fenced code blocks marked as mermaid are converted into SVG diagrams."
+        },
+        {
+          "question": "Can I copy the generated HTML?",
+          "answer": "Yes. Use the copy action from the toolbar after the preview renders."
+        }
+      ],
+      "seoBody": [
+        "Markdown Preview is designed for technical content where prose and diagrams live together. It helps writers check headings, lists, code blocks, and Mermaid diagrams before publishing to a repository or documentation site.",
+        "The preview supports GitHub-flavored Markdown and renders Mermaid fences as SVG, making it practical for README files, architecture decision records, and product specifications.",
+        "Use the copy and export actions when you need to move rendered content into another writing or review workflow."
+      ]
+    },
+    "graphviz-preview": {
+      "name": "Graphviz DOT Preview",
+      "shortDescription": "Render DOT graphs into SVG directly in the browser.",
+      "seoTitle": "Graphviz DOT Preview Online - DOT Viewer and SVG Renderer",
+      "seoDescription": "Preview Graphviz DOT diagrams online with browser SVG rendering, examples, and export actions.",
+      "keywords": [
+        "graphviz preview",
+        "dot preview online",
+        "graphviz viewer"
+      ],
+      "h1": "Graphviz DOT Preview",
+      "intro": "Write DOT syntax and preview dependency graphs, state graphs, and directed diagrams as SVG.",
+      "badges": [
+        "DOT",
+        "Browser SVG",
+        "Dependency graphs"
+      ],
+      "inputLabel": "DOT source",
+      "outputLabel": "Graphviz preview",
+      "placeholder": "Paste DOT source here...",
+      "emptyPreview": "Your Graphviz diagram will appear here.",
+      "samples": {
+        "digraph": {
+          "label": "Digraph",
+          "code": "digraph G {\n  rankdir=LR;\n  Start -> Parse -> Render -> Export;\n  Render -> Error;\n  Error -> Parse;\n}"
+        },
+        "dependency": {
+          "label": "Dependency graph",
+          "code": "digraph dependencies {\n  node [shape=box, style=rounded];\n  app -> ui;\n  app -> renderers;\n  renderers -> mermaid;\n  renderers -> graphviz;\n}"
+        },
+        "state": {
+          "label": "State graph",
+          "code": "digraph states {\n  node [shape=circle];\n  editing -> rendering;\n  rendering -> ready;\n  rendering -> failed;\n  failed -> editing;\n}"
+        }
+      },
+      "howToUse": [
+        "Paste DOT syntax into the editor.",
+        "Use samples for directed graphs or dependency maps.",
+        "Export the SVG when the graph is ready."
+      ],
+      "useCases": [
+        "Dependency maps",
+        "Compiler graphs",
+        "State transitions"
+      ],
+      "faq": [
+        {
+          "question": "Does Graphviz run in the browser?",
+          "answer": "Yes. This page dynamically loads a WebAssembly-backed Viz renderer."
+        },
+        {
+          "question": "Can I export the graph?",
+          "answer": "Rendered SVG can be downloaded or converted to PNG from the toolbar."
+        }
+      ],
+      "seoBody": [
+        "Graphviz DOT Preview gives developers a quick way to turn DOT source into visual graphs. It is especially useful for dependency structures, directed workflows, state machines, and generated graph output.",
+        "The renderer loads only on the Graphviz page and returns SVG in the browser. That keeps the home page lightweight while still supporting real DOT rendering when the tool is opened.",
+        "Use it when inspecting build graphs, package relationships, state transitions, and architecture sketches that are easier to maintain as text."
+      ]
+    },
+    "d2-preview": {
+      "name": "D2 Preview",
+      "shortDescription": "Structured D2 workspace prepared for the upcoming renderer.",
+      "seoTitle": "D2 Preview Online - D2 Diagram Viewer",
+      "seoDescription": "Preview D2 diagram text online in a developer-focused diagram workspace.",
+      "keywords": [
+        "d2 preview",
+        "d2 diagram online",
+        "d2 viewer"
+      ],
+      "h1": "D2 Preview",
+      "intro": "Draft D2 diagram text in the shared DiagramPreview workspace while the dedicated renderer is prepared.",
+      "badges": [
+        "D2",
+        "Architecture",
+        "Preview workspace"
+      ],
+      "inputLabel": "D2 source",
+      "outputLabel": "D2 preview",
+      "placeholder": "Paste D2 diagram text here...",
+      "emptyPreview": "The D2 preview renderer is coming online.",
+      "samples": {
+        "architecture": {
+          "label": "Architecture",
+          "code": "client -> gateway -> api\napi -> database\napi -> queue"
+        },
+        "service": {
+          "label": "Service map",
+          "code": "web: Web app\napi: API service\ndb: Database\nweb -> api -> db"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "user -> app: request\napp -> api: fetch\napi -> app: response"
+        }
+      },
+      "howToUse": [
+        "Paste D2 text into the editor.",
+        "Use samples to structure architecture notes.",
+        "Return after the renderer module is enabled for SVG output."
+      ],
+      "useCases": [
+        "Architecture sketches",
+        "Service maps",
+        "System diagrams"
+      ],
+      "faq": [
+        {
+          "question": "Is D2 rendering enabled?",
+          "answer": "The route and workspace are ready. The dedicated renderer is planned for the next build stage."
+        }
+      ],
+      "seoBody": [
+        "D2 Preview is prepared as part of the DiagramPreview tool family so D2 diagrams can share the same editor, metadata, export patterns, and related tool navigation.",
+        "The first build wires the page into the site structure and sample system. A dedicated renderer can be added behind the same workspace without changing the public URL.",
+        "This page is intended for architecture sketches, service maps, and text-first system diagrams."
+      ]
+    },
+    "drawio-preview": {
+      "name": "Draw.io Viewer",
+      "shortDescription": "Inspect draw.io and diagrams.net XML files in a preview workspace.",
+      "seoTitle": "Draw.io Viewer Online - diagrams.net XML Preview",
+      "seoDescription": "Open draw.io or diagrams.net XML content online and inspect file structure, pages, and objects.",
+      "keywords": [
+        "draw.io viewer",
+        "diagrams.net viewer",
+        "drawio preview"
+      ],
+      "h1": "Draw.io Viewer",
+      "intro": "Paste draw.io XML to inspect diagram file structure before full rendering support is enabled.",
+      "badges": [
+        "draw.io",
+        "XML",
+        "Viewer"
+      ],
+      "inputLabel": "draw.io XML",
+      "outputLabel": "File summary",
+      "placeholder": "Paste draw.io XML here...",
+      "emptyPreview": "A draw.io file summary will appear here.",
+      "samples": {
+        "xml": {
+          "label": "XML",
+          "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+        }
+      },
+      "howToUse": [
+        "Paste .drawio or diagrams.net XML.",
+        "Review the file summary.",
+        "Use the route as the foundation for future full rendering."
+      ],
+      "useCases": [
+        "draw.io inspection",
+        "XML checks",
+        "Diagram migration"
+      ],
+      "faq": [
+        {
+          "question": "Does this render complex draw.io files?",
+          "answer": "The first version focuses on structure inspection and a clean preview placeholder."
+        }
+      ],
+      "seoBody": [
+        "Draw.io Viewer is built for users who need to inspect diagrams.net XML files inside a broader diagram tool site.",
+        "Complex draw.io rendering requires specialized handling, so the first build focuses on route structure, file input, and summary-oriented preview behavior.",
+        "The page is useful as a stable URL for future draw.io rendering and conversion features."
+      ]
+    },
+    "mind-map-preview": {
+      "name": "Mind Map Preview",
+      "shortDescription": "Turn Markdown headings or indented text into a mind map workspace.",
+      "seoTitle": "Mind Map Preview Online - Markdown Mind Map Tool",
+      "seoDescription": "Preview mind maps online from Markdown headings or indented outline text.",
+      "keywords": [
+        "mind map preview",
+        "markdown mind map",
+        "text to mind map"
+      ],
+      "h1": "Mind Map Preview",
+      "intro": "Draft outlines that can become compact or tree-style mind maps in the shared preview workspace.",
+      "badges": [
+        "Mind map",
+        "Markdown outline",
+        "Tree layout"
+      ],
+      "inputLabel": "Outline text",
+      "outputLabel": "Mind map preview",
+      "placeholder": "Paste Markdown headings or indented text here...",
+      "emptyPreview": "Your mind map preview will appear here.",
+      "samples": {
+        "outline": {
+          "label": "Outline",
+          "code": "# Product plan\n## Research\n## Build\n### Preview tools\n### Export actions\n## Launch"
+        },
+        "product": {
+          "label": "Product",
+          "code": "DiagramPreview\n  Preview tools\n  Converters\n  SEO pages\n  Export actions"
+        },
+        "research": {
+          "label": "Research",
+          "code": "Research\n  Users\n    Developers\n    Product managers\n  Inputs\n    Markdown\n    Mermaid"
+        }
+      },
+      "howToUse": [
+        "Paste an outline.",
+        "Keep hierarchy clear with headings or indentation.",
+        "Use the page as the future SVG export workspace."
+      ],
+      "useCases": [
+        "Research outlines",
+        "Product planning",
+        "AI brainstorming review"
+      ],
+      "faq": [
+        {
+          "question": "What input formats are planned?",
+          "answer": "Markdown headings and indented outline text are the first planned formats."
+        }
+      ],
+      "seoBody": [
+        "Mind Map Preview helps convert structured text into visual planning diagrams. It is aimed at product planning, research synthesis, and AI-assisted brainstorming workflows.",
+        "The route is present in the first build so it can share navigation, metadata, and search discovery with the rest of the tool site.",
+        "A dedicated mind map renderer can later plug into the same editor and export toolbar."
+      ]
+    },
+    "sequence-diagram-preview": {
+      "name": "Sequence Diagram Preview",
+      "shortDescription": "Preview sequence diagrams from Mermaid sequenceDiagram syntax.",
+      "seoTitle": "Sequence Diagram Preview Online - Text Sequence Diagram Tool",
+      "seoDescription": "Create and preview online sequence diagrams from text using Mermaid sequenceDiagram syntax.",
+      "keywords": [
+        "sequence diagram preview",
+        "text sequence diagram",
+        "online sequence diagram"
+      ],
+      "h1": "Sequence Diagram Preview",
+      "intro": "Use Mermaid sequenceDiagram syntax to preview API calls, login flows, payments, and service interactions.",
+      "badges": [
+        "Sequence",
+        "Mermaid",
+        "API flows"
+      ],
+      "inputLabel": "Sequence diagram text",
+      "outputLabel": "Rendered sequence",
+      "placeholder": "Paste sequenceDiagram text here...",
+      "emptyPreview": "Your sequence diagram will appear here.",
+      "samples": {
+        "api": {
+          "label": "API call",
+          "code": "sequenceDiagram\n  participant Client\n  participant API\n  participant DB\n  Client->>API: GET /diagrams\n  API->>DB: Query diagrams\n  DB-->>API: Rows\n  API-->>Client: JSON"
+        },
+        "login": {
+          "label": "Login flow",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant Auth\n  User->>App: Enter credentials\n  App->>Auth: Verify\n  Auth-->>App: Token\n  App-->>User: Dashboard"
+        },
+        "payment": {
+          "label": "Payment flow",
+          "code": "sequenceDiagram\n  participant Buyer\n  participant Store\n  participant PSP\n  Buyer->>Store: Checkout\n  Store->>PSP: Create payment\n  PSP-->>Store: Confirmed\n  Store-->>Buyer: Receipt"
+        }
+      },
+      "howToUse": [
+        "Paste Mermaid sequenceDiagram syntax.",
+        "Start from API, login, or payment samples.",
+        "Export the rendered SVG or PNG."
+      ],
+      "useCases": [
+        "API documentation",
+        "Auth flows",
+        "Payment flows"
+      ],
+      "faq": [
+        {
+          "question": "Which syntax does this tool use?",
+          "answer": "It uses Mermaid sequenceDiagram syntax and the Mermaid browser renderer."
+        }
+      ],
+      "seoBody": [
+        "Sequence Diagram Preview is a focused editor for message flows between users, apps, services, databases, and external systems.",
+        "Because it uses Mermaid sequenceDiagram syntax, the source can live naturally in Markdown files, code review comments, and architecture notes.",
+        "Use the page for API call flows, login journeys, payment systems, and AI-generated interaction diagrams."
+      ]
+    },
+    "json-to-diagram": {
+      "name": "JSON to Diagram",
+      "shortDescription": "Visualize JSON as a readable object and array tree.",
+      "seoTitle": "JSON to Diagram Online - JSON Tree Visualizer",
+      "seoDescription": "Convert JSON into an online tree diagram with syntax validation and readable object structure.",
+      "keywords": [
+        "json to diagram",
+        "json tree diagram",
+        "json visualizer"
+      ],
+      "h1": "JSON to Diagram",
+      "intro": "Paste JSON and inspect nested objects and arrays as a structured tree diagram.",
+      "badges": [
+        "JSON",
+        "Tree diagram",
+        "Validation"
+      ],
+      "inputLabel": "JSON input",
+      "outputLabel": "JSON tree",
+      "placeholder": "Paste JSON here...",
+      "emptyPreview": "Your JSON tree will appear here.",
+      "samples": {
+        "api": {
+          "label": "API response",
+          "code": "{\"user\":{\"id\":\"u_123\",\"name\":\"Ada\"},\"projects\":[{\"name\":\"Docs\",\"status\":\"active\"},{\"name\":\"Diagrams\",\"status\":\"draft\"}]}"
+        },
+        "package": {
+          "label": "Package",
+          "code": "{\"scripts\":{\"dev\":\"next dev\",\"build\":\"next build\"},\"dependencies\":{\"next\":\"15\",\"react\":\"19\"}}"
+        },
+        "config": {
+          "label": "Config",
+          "code": "{\"theme\":\"light\",\"export\":{\"svg\":true,\"png\":true},\"locales\":[\"en\",\"zh-CN\",\"ja\"]}"
+        }
+      },
+      "howToUse": [
+        "Paste valid JSON.",
+        "Read the generated tree from root to leaves.",
+        "Fix syntax errors shown in the preview pane."
+      ],
+      "useCases": [
+        "API response inspection",
+        "Config review",
+        "AI output validation"
+      ],
+      "faq": [
+        {
+          "question": "Does the JSON parser validate syntax?",
+          "answer": "Yes. Invalid JSON produces a clear preview error instead of a broken page."
+        }
+      ],
+      "seoBody": [
+        "JSON to Diagram turns nested JSON into a readable tree so developers can inspect API responses, configuration files, generated data, and AI output more quickly.",
+        "The tool keeps the raw JSON beside the visual structure. That makes it easier to find deep keys, array shapes, and unexpected values without losing the original source.",
+        "Use it when reviewing API contracts, debugging payloads, or explaining data structures to teammates."
+      ]
+    },
+    "yaml-to-diagram": {
+      "name": "YAML to Diagram",
+      "shortDescription": "Visualize YAML documents as readable tree diagrams.",
+      "seoTitle": "YAML to Diagram Online - YAML Tree Visualizer",
+      "seoDescription": "Convert YAML into an online tree diagram with syntax validation and readable hierarchy.",
+      "keywords": [
+        "yaml to diagram",
+        "yaml visualizer",
+        "yaml tree viewer"
+      ],
+      "h1": "YAML to Diagram",
+      "intro": "Paste YAML and inspect configuration hierarchy as a structured tree diagram.",
+      "badges": [
+        "YAML",
+        "Tree viewer",
+        "Config"
+      ],
+      "inputLabel": "YAML input",
+      "outputLabel": "YAML tree",
+      "placeholder": "Paste YAML here...",
+      "emptyPreview": "Your YAML tree will appear here.",
+      "samples": {
+        "workflow": {
+          "label": "Workflow",
+          "code": "name: preview\nsteps:\n  - install\n  - build\n  - verify"
+        },
+        "kubernetes": {
+          "label": "Kubernetes",
+          "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: diagram-preview\nspec:\n  ports:\n    - port: 80"
+        },
+        "config": {
+          "label": "Config",
+          "code": "site:\n  name: DiagramPreview\n  locales:\n    - en\n    - zh-CN\nexports:\n  svg: true\n  png: true"
+        }
+      },
+      "howToUse": [
+        "Paste YAML into the editor.",
+        "Inspect the generated hierarchy.",
+        "Use syntax errors to fix invalid indentation or values."
+      ],
+      "useCases": [
+        "CI config review",
+        "Kubernetes YAML inspection",
+        "Documentation examples"
+      ],
+      "faq": [
+        {
+          "question": "Does YAML share logic with JSON diagrams?",
+          "answer": "Yes. YAML is parsed first and then visualized through the same tree model."
+        }
+      ],
+      "seoBody": [
+        "YAML to Diagram helps make configuration files easier to read by turning nested values into a structured tree.",
+        "It is useful for CI workflows, Kubernetes manifests, static site config, and documentation examples where indentation matters.",
+        "The tool shares tree visualization logic with JSON to Diagram so future improvements can benefit both data formats."
+      ]
+    }
+  },
+  "hubs": {
+    "common": {
+      "eyebrow": "Tool directory",
+      "availableTools": "Available tools",
+      "plannedTools": "Planned tools"
+    },
+    "tools": {
+      "title": "All Diagram Tools",
+      "description": "Browse every DiagramPreview tool by format, workflow, and diagram type.",
+      "keywords": [
+        "diagram tools",
+        "tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "SQL ER Diagram",
+        "Regex Railroad Diagram",
+        "Text to Diagram"
+      ]
+    },
+    "preview-tools": {
+      "title": "Preview Tools",
+      "description": "Preview text and file-based diagrams online with focused browser workspaces.",
+      "keywords": [
+        "diagram tools",
+        "preview-tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "DBML Preview",
+        "Regex Railroad Diagram"
+      ]
+    },
+    "converters": {
+      "title": "Diagram Converters",
+      "description": "Convert structured text and data into readable diagrams and exportable previews.",
+      "keywords": [
+        "diagram tools",
+        "converters",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Mermaid to SVG",
+        "PlantUML to SVG",
+        "Diagram to PNG"
+      ]
+    },
+    "developer-diagrams": {
+      "title": "Developer Diagrams",
+      "description": "Create diagrams for architecture notes, API flows, dependency maps, and engineering docs.",
+      "keywords": [
+        "diagram tools",
+        "developer-diagrams",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Architecture Diagram Preview",
+        "Flowchart Preview",
+        "SQL ER Diagram"
+      ]
+    },
+    "data-visualizers": {
+      "title": "Data Visualizers",
+      "description": "Inspect JSON, YAML, and structured data as readable trees and diagrams.",
+      "keywords": [
+        "diagram tools",
+        "data-visualizers",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Visualizer",
+        "SQL Schema Visualizer",
+        "Package Dependency Visualizer"
+      ]
+    },
+    "ai-diagram": {
+      "title": "AI Diagram Tools",
+      "description": "Review, refine, and export AI-generated diagrams with text-first tools.",
+      "keywords": [
+        "diagram tools",
+        "ai-diagram",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "AI Diagram Generator",
+        "Prompt to Mermaid",
+        "Text to Architecture Diagram"
+      ]
+    }
+  },
+  "blog": {
+    "common": {
+      "relatedTools": "Related tools"
+    },
+    "index": {
+      "eyebrow": "DiagramPreview Blog",
+      "title": "Diagram guides for developers",
+      "description": "Practical guides for previewing, converting, exporting, and documenting diagrams online.",
+      "seoTitle": "Diagram guides for developers - DiagramPreview",
+      "keywords": [
+        "diagram blog",
+        "developer diagrams",
+        "diagram guides"
+      ]
+    },
+    "posts": {
+      "mermaid-preview-guide": {
+        "title": "Mermaid Preview Guide",
+        "seoTitle": "Mermaid Preview Guide - DiagramPreview",
+        "description": "Learn how to use Mermaid Preview workflows in DiagramPreview with practical examples, export notes, and documentation tips.",
+        "excerpt": "A practical guide to using mermaid preview guide in a developer documentation workflow.",
+        "readingTime": "5 min read",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "mermaid-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "When this workflow helps",
+            "paragraphs": [
+              "Text-first diagrams are easiest to maintain when the source stays close to the documentation. A browser preview step helps catch syntax issues, layout surprises, and export problems before the diagram reaches a README, product spec, or architecture note.",
+              "DiagramPreview is organized around that workflow: paste source, preview output, inspect errors, and export the result when the diagram is ready."
+            ]
+          },
+          {
+            "heading": "How to preview effectively",
+            "paragraphs": [
+              "Start from a small sample, then add structure in short passes. For generated diagrams, review labels, direction, and grouping before polishing visual details.",
+              "Use the related tool links to move between formats. Mermaid, PlantUML, Graphviz, Markdown, JSON, YAML, and draw.io each fit a different documentation job."
+            ]
+          },
+          {
+            "heading": "Export and publish notes",
+            "paragraphs": [
+              "SVG is usually the best export for documentation because it stays sharp at every size. PNG is useful for chat tools, slides, and systems that do not embed SVG safely.",
+              "Keep the original text source with the exported image. That makes future edits reviewable and keeps diagrams from becoming one-off screenshots."
+            ]
+          }
+        ]
+      },
+      "plantuml-online-preview-workflow": {
+        "title": "PlantUML Online Preview Workflow",
+        "seoTitle": "PlantUML Online Preview Workflow - DiagramPreview",
+        "description": "Learn how to use PlantUML Online Preview Workflow workflows in DiagramPreview with practical examples, export notes, and documentation tips.",
+        "excerpt": "A practical guide to using plantuml online preview workflow in a developer documentation workflow.",
+        "readingTime": "5 min read",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "plantuml-online-preview-workflow"
+        ],
+        "sections": [
+          {
+            "heading": "When this workflow helps",
+            "paragraphs": [
+              "Text-first diagrams are easiest to maintain when the source stays close to the documentation. A browser preview step helps catch syntax issues, layout surprises, and export problems before the diagram reaches a README, product spec, or architecture note.",
+              "DiagramPreview is organized around that workflow: paste source, preview output, inspect errors, and export the result when the diagram is ready."
+            ]
+          },
+          {
+            "heading": "How to preview effectively",
+            "paragraphs": [
+              "Start from a small sample, then add structure in short passes. For generated diagrams, review labels, direction, and grouping before polishing visual details.",
+              "Use the related tool links to move between formats. Mermaid, PlantUML, Graphviz, Markdown, JSON, YAML, and draw.io each fit a different documentation job."
+            ]
+          },
+          {
+            "heading": "Export and publish notes",
+            "paragraphs": [
+              "SVG is usually the best export for documentation because it stays sharp at every size. PNG is useful for chat tools, slides, and systems that do not embed SVG safely.",
+              "Keep the original text source with the exported image. That makes future edits reviewable and keeps diagrams from becoming one-off screenshots."
+            ]
+          }
+        ]
+      },
+      "markdown-mermaid-documentation": {
+        "title": "Markdown and Mermaid Documentation",
+        "seoTitle": "Markdown and Mermaid Documentation - DiagramPreview",
+        "description": "Learn how to use Markdown and Mermaid Documentation workflows in DiagramPreview with practical examples, export notes, and documentation tips.",
+        "excerpt": "A practical guide to using markdown and mermaid documentation in a developer documentation workflow.",
+        "readingTime": "5 min read",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "markdown-mermaid-documentation"
+        ],
+        "sections": [
+          {
+            "heading": "When this workflow helps",
+            "paragraphs": [
+              "Text-first diagrams are easiest to maintain when the source stays close to the documentation. A browser preview step helps catch syntax issues, layout surprises, and export problems before the diagram reaches a README, product spec, or architecture note.",
+              "DiagramPreview is organized around that workflow: paste source, preview output, inspect errors, and export the result when the diagram is ready."
+            ]
+          },
+          {
+            "heading": "How to preview effectively",
+            "paragraphs": [
+              "Start from a small sample, then add structure in short passes. For generated diagrams, review labels, direction, and grouping before polishing visual details.",
+              "Use the related tool links to move between formats. Mermaid, PlantUML, Graphviz, Markdown, JSON, YAML, and draw.io each fit a different documentation job."
+            ]
+          },
+          {
+            "heading": "Export and publish notes",
+            "paragraphs": [
+              "SVG is usually the best export for documentation because it stays sharp at every size. PNG is useful for chat tools, slides, and systems that do not embed SVG safely.",
+              "Keep the original text source with the exported image. That makes future edits reviewable and keeps diagrams from becoming one-off screenshots."
+            ]
+          }
+        ]
+      },
+      "graphviz-dot-dependency-graphs": {
+        "title": "Graphviz DOT Dependency Graphs",
+        "seoTitle": "Graphviz DOT Dependency Graphs - DiagramPreview",
+        "description": "Learn how to use Graphviz DOT Dependency Graphs workflows in DiagramPreview with practical examples, export notes, and documentation tips.",
+        "excerpt": "A practical guide to using graphviz dot dependency graphs in a developer documentation workflow.",
+        "readingTime": "5 min read",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "graphviz-dot-dependency-graphs"
+        ],
+        "sections": [
+          {
+            "heading": "When this workflow helps",
+            "paragraphs": [
+              "Text-first diagrams are easiest to maintain when the source stays close to the documentation. A browser preview step helps catch syntax issues, layout surprises, and export problems before the diagram reaches a README, product spec, or architecture note.",
+              "DiagramPreview is organized around that workflow: paste source, preview output, inspect errors, and export the result when the diagram is ready."
+            ]
+          },
+          {
+            "heading": "How to preview effectively",
+            "paragraphs": [
+              "Start from a small sample, then add structure in short passes. For generated diagrams, review labels, direction, and grouping before polishing visual details.",
+              "Use the related tool links to move between formats. Mermaid, PlantUML, Graphviz, Markdown, JSON, YAML, and draw.io each fit a different documentation job."
+            ]
+          },
+          {
+            "heading": "Export and publish notes",
+            "paragraphs": [
+              "SVG is usually the best export for documentation because it stays sharp at every size. PNG is useful for chat tools, slides, and systems that do not embed SVG safely.",
+              "Keep the original text source with the exported image. That makes future edits reviewable and keeps diagrams from becoming one-off screenshots."
+            ]
+          }
+        ]
+      },
+      "json-yaml-diagram-visualization": {
+        "title": "JSON and YAML Diagram Visualization",
+        "seoTitle": "JSON and YAML Diagram Visualization - DiagramPreview",
+        "description": "Learn how to use JSON and YAML Diagram Visualization workflows in DiagramPreview with practical examples, export notes, and documentation tips.",
+        "excerpt": "A practical guide to using json and yaml diagram visualization in a developer documentation workflow.",
+        "readingTime": "5 min read",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "json-yaml-diagram-visualization"
+        ],
+        "sections": [
+          {
+            "heading": "When this workflow helps",
+            "paragraphs": [
+              "Text-first diagrams are easiest to maintain when the source stays close to the documentation. A browser preview step helps catch syntax issues, layout surprises, and export problems before the diagram reaches a README, product spec, or architecture note.",
+              "DiagramPreview is organized around that workflow: paste source, preview output, inspect errors, and export the result when the diagram is ready."
+            ]
+          },
+          {
+            "heading": "How to preview effectively",
+            "paragraphs": [
+              "Start from a small sample, then add structure in short passes. For generated diagrams, review labels, direction, and grouping before polishing visual details.",
+              "Use the related tool links to move between formats. Mermaid, PlantUML, Graphviz, Markdown, JSON, YAML, and draw.io each fit a different documentation job."
+            ]
+          },
+          {
+            "heading": "Export and publish notes",
+            "paragraphs": [
+              "SVG is usually the best export for documentation because it stays sharp at every size. PNG is useful for chat tools, slides, and systems that do not embed SVG safely.",
+              "Keep the original text source with the exported image. That makes future edits reviewable and keeps diagrams from becoming one-off screenshots."
+            ]
+          }
+        ]
+      },
+      "drawio-file-preview-guide": {
+        "title": "Draw.io File Preview Guide",
+        "seoTitle": "Draw.io File Preview Guide - DiagramPreview",
+        "description": "Learn how to use Draw.io File Preview workflows in DiagramPreview with practical examples, export notes, and documentation tips.",
+        "excerpt": "A practical guide to using draw.io file preview guide in a developer documentation workflow.",
+        "readingTime": "5 min read",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "drawio-file-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "When this workflow helps",
+            "paragraphs": [
+              "Text-first diagrams are easiest to maintain when the source stays close to the documentation. A browser preview step helps catch syntax issues, layout surprises, and export problems before the diagram reaches a README, product spec, or architecture note.",
+              "DiagramPreview is organized around that workflow: paste source, preview output, inspect errors, and export the result when the diagram is ready."
+            ]
+          },
+          {
+            "heading": "How to preview effectively",
+            "paragraphs": [
+              "Start from a small sample, then add structure in short passes. For generated diagrams, review labels, direction, and grouping before polishing visual details.",
+              "Use the related tool links to move between formats. Mermaid, PlantUML, Graphviz, Markdown, JSON, YAML, and draw.io each fit a different documentation job."
+            ]
+          },
+          {
+            "heading": "Export and publish notes",
+            "paragraphs": [
+              "SVG is usually the best export for documentation because it stays sharp at every size. PNG is useful for chat tools, slides, and systems that do not embed SVG safely.",
+              "Keep the original text source with the exported image. That makes future edits reviewable and keeps diagrams from becoming one-off screenshots."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "staticPages": {
+    "common": {
+      "eyebrow": "DiagramPreview"
+    },
+    "about": {
+      "title": "About",
+      "seoTitle": "About DiagramPreview",
+      "description": "DiagramPreview is an online diagram preview and conversion workspace for developers, product teams, architects, and technical writers.",
+      "keywords": [
+        "about DiagramPreview",
+        "diagram preview tools"
+      ],
+      "sections": [
+        {
+          "heading": "What DiagramPreview is",
+          "paragraphs": [
+            "DiagramPreview helps people turn text, structured data, and diagram files into visual previews that are easier to inspect, share, and export.",
+            "The site is built for Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, YAML, and future developer diagram formats."
+          ]
+        },
+        {
+          "heading": "How the product is designed",
+          "paragraphs": [
+            "The first screen focuses on tools, search, and categories instead of a marketing-only landing page. Each tool has its own URL, metadata, related links, FAQ, and export workflow."
+          ]
+        }
+      ]
+    },
+    "help-center": {
+      "title": "Help Center",
+      "seoTitle": "DiagramPreview Help Center",
+      "description": "Find help for using DiagramPreview tools, previews, exports, and common diagram workflows.",
+      "keywords": [
+        "DiagramPreview help",
+        "diagram export help"
+      ],
+      "sections": [
+        {
+          "heading": "Using tools",
+          "paragraphs": [
+            "Open a tool, paste source content, choose an example when useful, and review the preview pane for output or syntax errors.",
+            "Supported tools expose copy, SVG, PNG, and print-style PDF actions when the renderer can provide them."
+          ]
+        },
+        {
+          "heading": "Troubleshooting",
+          "paragraphs": [
+            "If a diagram does not render, reduce the source to a smaller example, check the syntax for the format, and then add sections back gradually.",
+            "For PlantUML, the first version uses a PlantUML server URL, so network access to that endpoint may affect previews."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "seoTitle": "Contact DiagramPreview",
+      "description": "Contact DiagramPreview for feedback, support, partnerships, and product questions.",
+      "keywords": [
+        "contact DiagramPreview",
+        "DiagramPreview feedback"
+      ],
+      "sections": [
+        {
+          "heading": "Email",
+          "paragraphs": [
+            "For feedback, write to feedback@diagrampreview.com. For general contact, write to hello@diagrampreview.com."
+          ]
+        },
+        {
+          "heading": "What to include",
+          "paragraphs": [
+            "Please include the tool URL, the diagram format, a short description of the issue, and whether the problem affects preview, export, localization, or SEO content."
+          ]
+        }
+      ]
+    },
+    "privacy-policy": {
+      "title": "Privacy Policy",
+      "seoTitle": "DiagramPreview Privacy Policy",
+      "description": "Privacy information for DiagramPreview users.",
+      "keywords": [
+        "DiagramPreview privacy",
+        "privacy policy"
+      ],
+      "sections": [
+        {
+          "heading": "Data handling",
+          "paragraphs": [
+            "DiagramPreview is designed as a browser-first tool site. Where possible, rendering happens in the browser rather than requiring diagram content to be sent to a backend.",
+            "Some third-party rendering approaches, such as the first PlantUML server URL implementation, may request a remote preview image."
+          ]
+        },
+        {
+          "heading": "Contact",
+          "paragraphs": [
+            "For privacy questions, contact hello@diagrampreview.com. This page is a practical product policy page and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    },
+    "terms-of-use": {
+      "title": "Terms of Use",
+      "seoTitle": "DiagramPreview Terms of Use",
+      "description": "Terms for using DiagramPreview tools and content.",
+      "keywords": [
+        "DiagramPreview terms",
+        "terms of use"
+      ],
+      "sections": [
+        {
+          "heading": "Use of the service",
+          "paragraphs": [
+            "DiagramPreview provides online tools for previewing, converting, and exporting diagrams. You are responsible for the content you paste, upload, preview, or export.",
+            "Do not use the service to process content you are not allowed to use or share."
+          ]
+        },
+        {
+          "heading": "No warranty",
+          "paragraphs": [
+            "The tools are provided as-is. Renderers, exports, examples, and documentation may change as the product evolves.",
+            "This page is a practical starting point and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "diagrampreview",
+  "version": "1.0.0",
+  "description": "Online diagram preview and conversion tools for Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, and YAML.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lipengxs/DiagramPreview.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lipengxs/DiagramPreview/issues"
+  },
+  "homepage": "https://github.com/lipengxs/DiagramPreview#readme",
+  "dependencies": {
+    "@radix-ui/react-dropdown-menu": "^2.1.17",
+    "@viz-js/viz": "^3.27.0",
+    "clsx": "^2.1.1",
+    "js-yaml": "^4.2.0",
+    "lucide-react": "^1.17.0",
+    "marked": "^18.0.5",
+    "mermaid": "^11.15.0",
+    "next": "^15.5.19",
+    "next-intl": "^4.13.0",
+    "plantuml-encoder": "^1.4.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.9.2",
+    "@types/plantuml-encoder": "^1.4.2",
+    "@types/react": "^19.2.16",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.5.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.7",
+    "png-to-ico": "^3.0.1",
+    "postcss": "^8.5.15",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^6.0.3"
+  }
+}

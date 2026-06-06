@@ -1,0 +1,1155 @@
+{
+  "common": {
+    "brand": "DiagramPreview",
+    "nav": {
+      "previewTools": "預覽工具",
+      "converters": "轉換工具",
+      "aiDiagram": "AI 圖表",
+      "developerDiagrams": "開發者圖表",
+      "blog": "部落格",
+      "tools": "工具",
+      "dataVisualizers": "資料視覺化",
+      "viewAll": "查看全部"
+    },
+    "actions": {
+      "github": "GitHub",
+      "feedback": "回饋",
+      "search": "搜尋",
+      "copyCode": "複製程式碼",
+      "copyHtml": "複製 HTML",
+      "exportSvg": "SVG",
+      "exportPng": "PNG",
+      "exportPdf": "PDF",
+      "loadSample": "載入範例",
+      "clear": "清空",
+      "openTool": "開啟工具"
+    },
+    "category": {
+      "preview": "預覽工具",
+      "converter": "轉換工具",
+      "developer": "開發者圖表",
+      "data": "資料視覺化"
+    },
+    "workspace": {
+      "input": "輸入",
+      "output": "預覽",
+      "settings": "設定",
+      "theme": "主題",
+      "layout": "版面",
+      "zoom": "縮放",
+      "background": "背景",
+      "samples": "範例",
+      "ready": "就緒",
+      "rendering": "渲染中",
+      "renderError": "圖表無法渲染，請檢查語法後再試。",
+      "fallbackTitle": "預覽能力建置中",
+      "fallbackBody": "此工具頁已接入站點結構，專用渲染器會在下一階段補齊。",
+      "treeHint": "物件和陣列會展開成可讀的樹狀圖。",
+      "themeLight": "淺色",
+      "layoutSplit": "左右分欄",
+      "zoomDefault": "100%",
+      "backgroundWhite": "白色",
+      "drawioPages": "頁面",
+      "drawioObjects": "物件",
+      "drawioPageNames": "頁面名稱",
+      "drawioDefaultPage": "頁面",
+      "none": "無"
+    },
+    "seoSections": {
+      "howToUse": "使用方法",
+      "useCases": "常見場景",
+      "relatedTools": "相關工具",
+      "faq": "常見問題"
+    },
+    "footer": {
+      "summary": "面向開發文件、架構說明、產品規格和 AI 工作流的線上圖表預覽與轉換工具。",
+      "popularTools": "熱門工具",
+      "categories": "分類",
+      "resources": "資源",
+      "languages": "語言",
+      "legal": "法律",
+      "privacy": "隱私",
+      "terms": "條款",
+      "changelog": "更新日誌",
+      "docs": "文件"
+    },
+    "locale": {
+      "label": "語言"
+    }
+  },
+  "home": {
+    "metadata": {
+      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
+      "description": "線上預覽和轉換 Mermaid、PlantUML、Markdown、Graphviz、D2、draw.io、心智圖、JSON、YAML 和開發者圖表。",
+      "keywords": [
+        "diagram preview",
+        "mermaid preview",
+        "plantuml preview",
+        "graphviz online",
+        "markdown preview"
+      ]
+    },
+    "hero": {
+      "eyebrow": "線上圖表預覽工作區",
+      "h1": "Diagram Preview Tools for Developers",
+      "subtitle": "線上預覽 Mermaid、PlantUML、Markdown、Graphviz、D2、draw.io、心智圖和開發者圖表。",
+      "searchPlaceholder": "搜尋圖表工具..."
+    },
+    "sections": {
+      "popular": "熱門工具",
+      "categories": "工具分類",
+      "recent": "最近新增",
+      "why": "為什麼選擇 DiagramPreview",
+      "faq": "常見問題"
+    },
+    "why": [
+      "Use one focused workspace for text diagrams, documentation previews, and file-based diagram formats.",
+      "Most rendering runs in the browser, keeping drafts fast while reducing unnecessary round trips.",
+      "Every tool has its own URL, metadata, related tools, and export actions so it can grow as a search-friendly utility."
+    ],
+    "faq": [
+      {
+        "question": "What can DiagramPreview render?",
+        "answer": "The first release focuses on Mermaid, PlantUML, Markdown, Graphviz, JSON, YAML, and structured preview pages for the remaining diagram formats."
+      },
+      {
+        "question": "Do diagrams upload to a server?",
+        "answer": "Browser-first tools render locally when possible. PlantUML uses a server URL in the first version so the renderer can be replaced later."
+      },
+      {
+        "question": "Can I export diagrams?",
+        "answer": "Supported renderers expose SVG, PNG, copy, and print-style PDF actions from the workspace toolbar."
+      }
+    ]
+  },
+  "tools": {
+    "mermaid-preview": {
+      "name": "Mermaid Preview",
+      "shortDescription": "Mermaid Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "Mermaid Preview Online - DiagramPreview",
+      "seoDescription": "使用 Mermaid Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "mermaid preview",
+        "mermaid editor online",
+        "mermaid live preview"
+      ],
+      "h1": "Mermaid Preview",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Mermaid Preview 檢查圖表、文件或資料結構。",
+      "badges": [
+        "Live SVG",
+        "Browser renderer",
+        "Export PNG"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 Mermaid Preview 內容...",
+      "emptyPreview": "Mermaid Preview 的預覽結果會顯示在這裡。",
+      "samples": {
+        "flowchart": {
+          "label": "Flowchart",
+          "code": "flowchart TD\n  A[Start] --> B{Ready?}\n  B -- Yes --> C[Preview diagram]\n  B -- No --> D[Edit source]\n  D --> B\n  C --> E[Export]"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant API\n  User->>App: Paste diagram\n  App->>API: Validate request\n  API-->>App: OK\n  App-->>User: Render preview"
+        },
+        "class": {
+          "label": "Class",
+          "code": "classDiagram\n  class Diagram {\n    +string source\n    +render()\n    +exportSvg()\n  }\n  class MermaidDiagram\n  Diagram <|-- MermaidDiagram"
+        },
+        "state": {
+          "label": "State",
+          "code": "stateDiagram-v2\n  [*] --> Editing\n  Editing --> Rendering\n  Rendering --> Ready\n  Rendering --> Error\n  Error --> Editing\n  Ready --> Exported"
+        },
+        "gantt": {
+          "label": "Gantt",
+          "code": "gantt\n  title Release plan\n  dateFormat  YYYY-MM-DD\n  section Build\n  Scaffold app :done, a1, 2026-06-01, 2d\n  Tool preview :active, a2, after a1, 4d\n  SEO pages :a3, after a2, 2d"
+        },
+        "er": {
+          "label": "ER diagram",
+          "code": "erDiagram\n  USER ||--o{ DIAGRAM : creates\n  DIAGRAM ||--o{ EXPORT : produces\n  USER {\n    string id\n    string email\n  }\n  DIAGRAM {\n    string type\n    string source\n  }"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "Mermaid Preview 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "Mermaid Preview 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "plantuml-preview": {
+      "name": "PlantUML Preview",
+      "shortDescription": "PlantUML Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "PlantUML Preview Online - DiagramPreview",
+      "seoDescription": "使用 PlantUML Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "plantuml preview",
+        "plantuml online editor",
+        "plantuml viewer"
+      ],
+      "h1": "PlantUML Preview",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 PlantUML Preview 檢查圖表、文件或資料結構。",
+      "badges": [
+        "Server SVG",
+        "Text diagrams",
+        "Export ready"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 PlantUML Preview 內容...",
+      "emptyPreview": "PlantUML Preview 的預覽結果會顯示在這裡。",
+      "samples": {
+        "sequence": {
+          "label": "Sequence",
+          "code": "@startuml\nactor User\nparticipant App\nparticipant Service\nUser -> App: Submit diagram\nApp -> Service: Render\nService --> App: SVG\nApp --> User: Preview\n@enduml"
+        },
+        "class": {
+          "label": "Class",
+          "code": "@startuml\nclass Diagram {\n  +source: string\n  +render(): SVG\n}\nclass PlantUMLDiagram\nDiagram <|-- PlantUMLDiagram\n@enduml"
+        },
+        "usecase": {
+          "label": "Use case",
+          "code": "@startuml\nleft to right direction\nactor Developer\nrectangle DiagramPreview {\n  Developer -- (Preview PlantUML)\n  Developer -- (Export SVG)\n}\n@enduml"
+        },
+        "activity": {
+          "label": "Activity",
+          "code": "@startuml\nstart\n:Paste source;\nif (Valid?) then (yes)\n  :Render preview;\nelse (no)\n  :Show error;\nendif\nstop\n@enduml"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "PlantUML Preview 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "PlantUML Preview 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "markdown-preview": {
+      "name": "Markdown Preview",
+      "shortDescription": "Markdown Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "Markdown Preview Online - DiagramPreview",
+      "seoDescription": "使用 Markdown Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "markdown preview",
+        "markdown diagram preview",
+        "markdown mermaid preview"
+      ],
+      "h1": "Markdown Preview",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Markdown Preview 檢查圖表、文件或資料結構。",
+      "badges": [
+        "GFM",
+        "Mermaid blocks",
+        "Copy HTML"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 Markdown Preview 內容...",
+      "emptyPreview": "Markdown Preview 的預覽結果會顯示在這裡。",
+      "samples": {
+        "docs": {
+          "label": "Docs",
+          "code": "# API Notes\n\nUse this document to describe a workflow.\n\n- Fast preview\n- Diagram support\n- Export actions\n\n```ts\nconst ready = true;\n```"
+        },
+        "mermaid": {
+          "label": "Mermaid block",
+          "code": "# Checkout flow\n\n```mermaid\nsequenceDiagram\n  participant Buyer\n  participant Store\n  Buyer->>Store: Place order\n  Store-->>Buyer: Confirmation\n```\n\nThe diagram is rendered inside the Markdown preview."
+        },
+        "release": {
+          "label": "Release notes",
+          "code": "# Release notes\n\n## Added\n\n- Mermaid preview\n- PlantUML preview\n- Markdown preview\n\n## Fixed\n\n- Cleaner export toolbar"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "Markdown Preview 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "Markdown Preview 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "graphviz-preview": {
+      "name": "Graphviz DOT Preview",
+      "shortDescription": "Graphviz DOT Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "Graphviz DOT Preview Online - DiagramPreview",
+      "seoDescription": "使用 Graphviz DOT Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "graphviz preview",
+        "dot preview online",
+        "graphviz viewer"
+      ],
+      "h1": "Graphviz DOT Preview",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Graphviz DOT Preview 檢查圖表、文件或資料結構。",
+      "badges": [
+        "DOT",
+        "Browser SVG",
+        "Dependency graphs"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 Graphviz DOT Preview 內容...",
+      "emptyPreview": "Graphviz DOT Preview 的預覽結果會顯示在這裡。",
+      "samples": {
+        "digraph": {
+          "label": "Digraph",
+          "code": "digraph G {\n  rankdir=LR;\n  Start -> Parse -> Render -> Export;\n  Render -> Error;\n  Error -> Parse;\n}"
+        },
+        "dependency": {
+          "label": "Dependency graph",
+          "code": "digraph dependencies {\n  node [shape=box, style=rounded];\n  app -> ui;\n  app -> renderers;\n  renderers -> mermaid;\n  renderers -> graphviz;\n}"
+        },
+        "state": {
+          "label": "State graph",
+          "code": "digraph states {\n  node [shape=circle];\n  editing -> rendering;\n  rendering -> ready;\n  rendering -> failed;\n  failed -> editing;\n}"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "Graphviz DOT Preview 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "Graphviz DOT Preview 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "d2-preview": {
+      "name": "D2 Preview",
+      "shortDescription": "D2 Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "D2 Preview Online - DiagramPreview",
+      "seoDescription": "使用 D2 Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "d2 preview",
+        "d2 diagram online",
+        "d2 viewer"
+      ],
+      "h1": "D2 Preview",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 D2 Preview 檢查圖表、文件或資料結構。",
+      "badges": [
+        "D2",
+        "Architecture",
+        "Preview workspace"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 D2 Preview 內容...",
+      "emptyPreview": "D2 Preview 的預覽結果會顯示在這裡。",
+      "samples": {
+        "architecture": {
+          "label": "Architecture",
+          "code": "client -> gateway -> api\napi -> database\napi -> queue"
+        },
+        "service": {
+          "label": "Service map",
+          "code": "web: Web app\napi: API service\ndb: Database\nweb -> api -> db"
+        },
+        "sequence": {
+          "label": "Sequence",
+          "code": "user -> app: request\napp -> api: fetch\napi -> app: response"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "D2 Preview 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "D2 Preview 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "drawio-preview": {
+      "name": "Draw.io Viewer",
+      "shortDescription": "Draw.io Viewer 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "Draw.io Viewer Online - DiagramPreview",
+      "seoDescription": "使用 Draw.io Viewer 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "draw.io viewer",
+        "diagrams.net viewer",
+        "drawio preview"
+      ],
+      "h1": "Draw.io Viewer",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Draw.io Viewer 檢查圖表、文件或資料結構。",
+      "badges": [
+        "draw.io",
+        "XML",
+        "Viewer"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 Draw.io Viewer 內容...",
+      "emptyPreview": "Draw.io Viewer 的預覽結果會顯示在這裡。",
+      "samples": {
+        "xml": {
+          "label": "XML",
+          "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "Draw.io Viewer 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "Draw.io Viewer 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "mind-map-preview": {
+      "name": "Mind Map Preview",
+      "shortDescription": "Mind Map Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "Mind Map Preview Online - DiagramPreview",
+      "seoDescription": "使用 Mind Map Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "mind map preview",
+        "markdown mind map",
+        "text to mind map"
+      ],
+      "h1": "Mind Map Preview",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Mind Map Preview 檢查圖表、文件或資料結構。",
+      "badges": [
+        "Mind map",
+        "Markdown outline",
+        "Tree layout"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 Mind Map Preview 內容...",
+      "emptyPreview": "Mind Map Preview 的預覽結果會顯示在這裡。",
+      "samples": {
+        "outline": {
+          "label": "Outline",
+          "code": "# Product plan\n## Research\n## Build\n### Preview tools\n### Export actions\n## Launch"
+        },
+        "product": {
+          "label": "Product",
+          "code": "DiagramPreview\n  Preview tools\n  Converters\n  SEO pages\n  Export actions"
+        },
+        "research": {
+          "label": "Research",
+          "code": "Research\n  Users\n    Developers\n    Product managers\n  Inputs\n    Markdown\n    Mermaid"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "Mind Map Preview 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "Mind Map Preview 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "sequence-diagram-preview": {
+      "name": "Sequence Diagram Preview",
+      "shortDescription": "Sequence Diagram Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "Sequence Diagram Preview Online - DiagramPreview",
+      "seoDescription": "使用 Sequence Diagram Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "sequence diagram preview",
+        "text sequence diagram",
+        "online sequence diagram"
+      ],
+      "h1": "Sequence Diagram Preview",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Sequence Diagram Preview 檢查圖表、文件或資料結構。",
+      "badges": [
+        "Sequence",
+        "Mermaid",
+        "API flows"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 Sequence Diagram Preview 內容...",
+      "emptyPreview": "Sequence Diagram Preview 的預覽結果會顯示在這裡。",
+      "samples": {
+        "api": {
+          "label": "API call",
+          "code": "sequenceDiagram\n  participant Client\n  participant API\n  participant DB\n  Client->>API: GET /diagrams\n  API->>DB: Query diagrams\n  DB-->>API: Rows\n  API-->>Client: JSON"
+        },
+        "login": {
+          "label": "Login flow",
+          "code": "sequenceDiagram\n  participant User\n  participant App\n  participant Auth\n  User->>App: Enter credentials\n  App->>Auth: Verify\n  Auth-->>App: Token\n  App-->>User: Dashboard"
+        },
+        "payment": {
+          "label": "Payment flow",
+          "code": "sequenceDiagram\n  participant Buyer\n  participant Store\n  participant PSP\n  Buyer->>Store: Checkout\n  Store->>PSP: Create payment\n  PSP-->>Store: Confirmed\n  Store-->>Buyer: Receipt"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "Sequence Diagram Preview 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "Sequence Diagram Preview 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "json-to-diagram": {
+      "name": "JSON to Diagram",
+      "shortDescription": "JSON to Diagram 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "JSON to Diagram Online - DiagramPreview",
+      "seoDescription": "使用 JSON to Diagram 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "json to diagram",
+        "json tree diagram",
+        "json visualizer"
+      ],
+      "h1": "JSON to Diagram",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 JSON to Diagram 檢查圖表、文件或資料結構。",
+      "badges": [
+        "JSON",
+        "Tree diagram",
+        "Validation"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 JSON to Diagram 內容...",
+      "emptyPreview": "JSON to Diagram 的預覽結果會顯示在這裡。",
+      "samples": {
+        "api": {
+          "label": "API response",
+          "code": "{\"user\":{\"id\":\"u_123\",\"name\":\"Ada\"},\"projects\":[{\"name\":\"Docs\",\"status\":\"active\"},{\"name\":\"Diagrams\",\"status\":\"draft\"}]}"
+        },
+        "package": {
+          "label": "Package",
+          "code": "{\"scripts\":{\"dev\":\"next dev\",\"build\":\"next build\"},\"dependencies\":{\"next\":\"15\",\"react\":\"19\"}}"
+        },
+        "config": {
+          "label": "Config",
+          "code": "{\"theme\":\"light\",\"export\":{\"svg\":true,\"png\":true},\"locales\":[\"en\",\"zh-CN\",\"ja\"]}"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "JSON to Diagram 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "JSON to Diagram 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    },
+    "yaml-to-diagram": {
+      "name": "YAML to Diagram",
+      "shortDescription": "YAML to Diagram 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
+      "seoTitle": "YAML to Diagram Online - DiagramPreview",
+      "seoDescription": "使用 YAML to Diagram 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "keywords": [
+        "yaml to diagram",
+        "yaml visualizer",
+        "yaml tree viewer"
+      ],
+      "h1": "YAML to Diagram",
+      "intro": "在專業工具工作區中編寫或貼上內容，立即使用 YAML to Diagram 檢查圖表、文件或資料結構。",
+      "badges": [
+        "YAML",
+        "Tree viewer",
+        "Config"
+      ],
+      "inputLabel": "輸入內容",
+      "outputLabel": "預覽結果",
+      "placeholder": "在這裡貼上 YAML to Diagram 內容...",
+      "emptyPreview": "YAML to Diagram 的預覽結果會顯示在這裡。",
+      "samples": {
+        "workflow": {
+          "label": "Workflow",
+          "code": "name: preview\nsteps:\n  - install\n  - build\n  - verify"
+        },
+        "kubernetes": {
+          "label": "Kubernetes",
+          "code": "apiVersion: v1\nkind: Service\nmetadata:\n  name: diagram-preview\nspec:\n  ports:\n    - port: 80"
+        },
+        "config": {
+          "label": "Config",
+          "code": "site:\n  name: DiagramPreview\n  locales:\n    - en\n    - zh-CN\nexports:\n  svg: true\n  png: true"
+        }
+      },
+      "howToUse": [
+        "貼上或編寫原始內容。",
+        "需要起步模板時選擇範例。",
+        "檢查預覽結果，然後複製或匯出。"
+      ],
+      "useCases": [
+        "技術文件",
+        "架構說明",
+        "AI 生成內容複核"
+      ],
+      "faq": [
+        {
+          "question": "YAML to Diagram 可以線上使用嗎？",
+          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+        },
+        {
+          "question": "可以匯出結果嗎？",
+          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+        }
+      ],
+      "seoBody": [
+        "YAML to Diagram 適合需要快速檢查圖表或結構化內容的開發者、產品經理和技術寫作者。",
+        "工作區將原始內容和預覽結果放在同一頁，方便在發布前發現語法、層級或布局問題。",
+        "此工具頁具備獨立 URL、metadata、FAQ 和相關工具入口，適合長期沉澱為可搜尋的工具頁。"
+      ]
+    }
+  },
+  "hubs": {
+    "common": {
+      "eyebrow": "工具目錄",
+      "availableTools": "可用工具",
+      "plannedTools": "規劃工具"
+    },
+    "tools": {
+      "title": "全部圖表工具",
+      "description": "按格式、工作流和圖表類型瀏覽 DiagramPreview 工具。",
+      "keywords": [
+        "diagram tools",
+        "tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "SQL ER Diagram",
+        "Regex Railroad Diagram",
+        "Text to Diagram"
+      ]
+    },
+    "preview-tools": {
+      "title": "預覽工具",
+      "description": "線上預覽文字和檔案型圖表，使用專注的瀏覽器工作區。",
+      "keywords": [
+        "diagram tools",
+        "preview-tools",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Diagram",
+        "DBML Preview",
+        "Regex Railroad Diagram"
+      ]
+    },
+    "converters": {
+      "title": "圖表轉換工具",
+      "description": "把結構化文字和資料轉換成可讀圖表與可匯出預覽。",
+      "keywords": [
+        "diagram tools",
+        "converters",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Mermaid to SVG",
+        "PlantUML to SVG",
+        "Diagram to PNG"
+      ]
+    },
+    "developer-diagrams": {
+      "title": "開發者圖表",
+      "description": "為架構說明、API 流程、依賴圖和工程文件建立圖表。",
+      "keywords": [
+        "diagram tools",
+        "developer-diagrams",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "Architecture Diagram Preview",
+        "Flowchart Preview",
+        "SQL ER Diagram"
+      ]
+    },
+    "data-visualizers": {
+      "title": "資料視覺化",
+      "description": "把 JSON、YAML 和結構化資料檢查成可讀樹狀圖。",
+      "keywords": [
+        "diagram tools",
+        "data-visualizers",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "OpenAPI Visualizer",
+        "SQL Schema Visualizer",
+        "Package Dependency Visualizer"
+      ]
+    },
+    "ai-diagram": {
+      "title": "AI 圖表工具",
+      "description": "複核、調整並匯出 AI 生成的文字圖表。",
+      "keywords": [
+        "diagram tools",
+        "ai-diagram",
+        "DiagramPreview"
+      ],
+      "planned": [
+        "AI Diagram Generator",
+        "Prompt to Mermaid",
+        "Text to Architecture Diagram"
+      ]
+    }
+  },
+  "blog": {
+    "common": {
+      "relatedTools": "相關工具"
+    },
+    "index": {
+      "eyebrow": "DiagramPreview 部落格",
+      "title": "面向開發者的圖表指南",
+      "description": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+      "seoTitle": "面向開發者的圖表指南 - DiagramPreview",
+      "keywords": [
+        "diagram blog",
+        "developer diagrams",
+        "diagram guides"
+      ]
+    },
+    "posts": {
+      "mermaid-preview-guide": {
+        "title": "Mermaid 線上預覽指南",
+        "seoTitle": "Mermaid 線上預覽指南 - DiagramPreview",
+        "description": "Mermaid 線上預覽指南：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "readingTime": "5 分钟阅读",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "mermaid-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "工作流建議",
+            "paragraphs": [
+              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
+              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+            ]
+          },
+          {
+            "heading": "發布前檢查",
+            "paragraphs": [
+              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
+              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+            ]
+          }
+        ]
+      },
+      "plantuml-online-preview-workflow": {
+        "title": "PlantUML 線上預覽工作流",
+        "seoTitle": "PlantUML 線上預覽工作流 - DiagramPreview",
+        "description": "PlantUML 線上預覽工作流：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "readingTime": "5 分钟阅读",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "plantuml-online-preview-workflow"
+        ],
+        "sections": [
+          {
+            "heading": "工作流建議",
+            "paragraphs": [
+              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
+              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+            ]
+          },
+          {
+            "heading": "發布前檢查",
+            "paragraphs": [
+              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
+              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+            ]
+          }
+        ]
+      },
+      "markdown-mermaid-documentation": {
+        "title": "Markdown 與 Mermaid 文件實踐",
+        "seoTitle": "Markdown 與 Mermaid 文件實踐 - DiagramPreview",
+        "description": "Markdown 與 Mermaid 文件實踐：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "readingTime": "5 分钟阅读",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "markdown-mermaid-documentation"
+        ],
+        "sections": [
+          {
+            "heading": "工作流建議",
+            "paragraphs": [
+              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
+              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+            ]
+          },
+          {
+            "heading": "發布前檢查",
+            "paragraphs": [
+              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
+              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+            ]
+          }
+        ]
+      },
+      "graphviz-dot-dependency-graphs": {
+        "title": "Graphviz DOT 依賴圖指南",
+        "seoTitle": "Graphviz DOT 依賴圖指南 - DiagramPreview",
+        "description": "Graphviz DOT 依賴圖指南：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "readingTime": "5 分钟阅读",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "graphviz-dot-dependency-graphs"
+        ],
+        "sections": [
+          {
+            "heading": "工作流建議",
+            "paragraphs": [
+              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
+              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+            ]
+          },
+          {
+            "heading": "發布前檢查",
+            "paragraphs": [
+              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
+              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+            ]
+          }
+        ]
+      },
+      "json-yaml-diagram-visualization": {
+        "title": "JSON 與 YAML 圖表視覺化",
+        "seoTitle": "JSON 與 YAML 圖表視覺化 - DiagramPreview",
+        "description": "JSON 與 YAML 圖表視覺化：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "readingTime": "5 分钟阅读",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "json-yaml-diagram-visualization"
+        ],
+        "sections": [
+          {
+            "heading": "工作流建議",
+            "paragraphs": [
+              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
+              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+            ]
+          },
+          {
+            "heading": "發布前檢查",
+            "paragraphs": [
+              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
+              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+            ]
+          }
+        ]
+      },
+      "drawio-file-preview-guide": {
+        "title": "Draw.io 檔案預覽指南",
+        "seoTitle": "Draw.io 檔案預覽指南 - DiagramPreview",
+        "description": "Draw.io 檔案預覽指南：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
+        "readingTime": "5 分钟阅读",
+        "keywords": [
+          "diagram preview",
+          "developer diagrams",
+          "online diagram tools",
+          "drawio-file-preview-guide"
+        ],
+        "sections": [
+          {
+            "heading": "工作流建議",
+            "paragraphs": [
+              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
+              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+            ]
+          },
+          {
+            "heading": "發布前檢查",
+            "paragraphs": [
+              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
+              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "staticPages": {
+    "common": {
+      "eyebrow": "DiagramPreview"
+    },
+    "about": {
+      "title": "About",
+      "seoTitle": "About DiagramPreview",
+      "description": "DiagramPreview is an online diagram preview and conversion workspace for developers, product teams, architects, and technical writers.",
+      "keywords": [
+        "about DiagramPreview",
+        "diagram preview tools"
+      ],
+      "sections": [
+        {
+          "heading": "What DiagramPreview is",
+          "paragraphs": [
+            "DiagramPreview helps people turn text, structured data, and diagram files into visual previews that are easier to inspect, share, and export.",
+            "The site is built for Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, YAML, and future developer diagram formats."
+          ]
+        },
+        {
+          "heading": "How the product is designed",
+          "paragraphs": [
+            "The first screen focuses on tools, search, and categories instead of a marketing-only landing page. Each tool has its own URL, metadata, related links, FAQ, and export workflow."
+          ]
+        }
+      ]
+    },
+    "help-center": {
+      "title": "Help Center",
+      "seoTitle": "DiagramPreview Help Center",
+      "description": "Find help for using DiagramPreview tools, previews, exports, and common diagram workflows.",
+      "keywords": [
+        "DiagramPreview help",
+        "diagram export help"
+      ],
+      "sections": [
+        {
+          "heading": "Using tools",
+          "paragraphs": [
+            "Open a tool, paste source content, choose an example when useful, and review the preview pane for output or syntax errors.",
+            "Supported tools expose copy, SVG, PNG, and print-style PDF actions when the renderer can provide them."
+          ]
+        },
+        {
+          "heading": "Troubleshooting",
+          "paragraphs": [
+            "If a diagram does not render, reduce the source to a smaller example, check the syntax for the format, and then add sections back gradually.",
+            "For PlantUML, the first version uses a PlantUML server URL, so network access to that endpoint may affect previews."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "seoTitle": "Contact DiagramPreview",
+      "description": "Contact DiagramPreview for feedback, support, partnerships, and product questions.",
+      "keywords": [
+        "contact DiagramPreview",
+        "DiagramPreview feedback"
+      ],
+      "sections": [
+        {
+          "heading": "Email",
+          "paragraphs": [
+            "For feedback, write to feedback@diagrampreview.com. For general contact, write to hello@diagrampreview.com."
+          ]
+        },
+        {
+          "heading": "What to include",
+          "paragraphs": [
+            "Please include the tool URL, the diagram format, a short description of the issue, and whether the problem affects preview, export, localization, or SEO content."
+          ]
+        }
+      ]
+    },
+    "privacy-policy": {
+      "title": "Privacy Policy",
+      "seoTitle": "DiagramPreview Privacy Policy",
+      "description": "Privacy information for DiagramPreview users.",
+      "keywords": [
+        "DiagramPreview privacy",
+        "privacy policy"
+      ],
+      "sections": [
+        {
+          "heading": "Data handling",
+          "paragraphs": [
+            "DiagramPreview is designed as a browser-first tool site. Where possible, rendering happens in the browser rather than requiring diagram content to be sent to a backend.",
+            "Some third-party rendering approaches, such as the first PlantUML server URL implementation, may request a remote preview image."
+          ]
+        },
+        {
+          "heading": "Contact",
+          "paragraphs": [
+            "For privacy questions, contact hello@diagrampreview.com. This page is a practical product policy page and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    },
+    "terms-of-use": {
+      "title": "Terms of Use",
+      "seoTitle": "DiagramPreview Terms of Use",
+      "description": "Terms for using DiagramPreview tools and content.",
+      "keywords": [
+        "DiagramPreview terms",
+        "terms of use"
+      ],
+      "sections": [
+        {
+          "heading": "Use of the service",
+          "paragraphs": [
+            "DiagramPreview provides online tools for previewing, converting, and exporting diagrams. You are responsible for the content you paste, upload, preview, or export.",
+            "Do not use the service to process content you are not allowed to use or share."
+          ]
+        },
+        {
+          "heading": "No warranty",
+          "paragraphs": [
+            "The tools are provided as-is. Renderers, exports, examples, and documentation may change as the product evolves.",
+            "This page is a practical starting point and should be reviewed by legal counsel before commercial launch."
+          ]
+        }
+      ]
+    }
+  }
+}
