@@ -16,6 +16,13 @@ Best angle:
 - 大模型只给代码，不给稳定预览。
 - 真正放进 README、PRD、技术方案前，还需要渲染、修语法、导出 SVG/PNG。
 
+Title style:
+
+- AI 把 Mermaid 写出来了，但我还得自己找地方预览
+- 写 README/技术方案时被 Mermaid 预览折腾烦了，做了个小工具
+- 大模型很会生成图表代码，但不会帮你确认能不能渲染
+- 分享一个自用小工具：AI 生成图表后，一键预览和导出
+
 Suggested nodes:
 
 - `分享创造`
@@ -37,9 +44,10 @@ Best format:
 - Practical article.
 - Include one workflow example: AI prompt -> Mermaid output -> preview -> export.
 
-Title:
+Title style:
 
-- AI 生成 Mermaid 后，如何预览、修复并导出到技术文档？
+- AI 生成 Mermaid 后怎么确认能渲染？我的预览和导出工作流
+- 从 AI 生成 Mermaid 到放进 README：预览、修复、导出怎么做
 
 Tips:
 
@@ -145,6 +153,11 @@ Audience: highly technical readers.
 Best format:
 
 - Show HN.
+
+Title style:
+
+- Show HN: LLMs generate diagrams. I built the missing preview step
+- Show HN: From AI-generated Mermaid to docs-ready SVG/PNG
 
 Tips:
 

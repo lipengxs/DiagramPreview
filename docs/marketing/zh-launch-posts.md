@@ -12,9 +12,11 @@ Suggested screenshots:
 
 ### Title Options
 
-- 做了一个在线图表预览工具：主要解决 AI 生成 Mermaid/PlantUML 后没法直接预览的问题
-- 分享一个小工具：把 AI 生成的 Mermaid、PlantUML、OpenAPI、SQL 直接预览成图
-- AI 现在很会写 Mermaid，但预览和导出还是麻烦，所以做了 DiagramPreview
+- AI 把 Mermaid 写出来了，但我还得自己找地方预览
+- 写 README/技术方案时被 Mermaid 预览折腾烦了，做了个小工具
+- 大模型很会生成图表代码，但不会帮你确认能不能渲染
+- 分享一个自用小工具：AI 生成图表后，一键预览和导出
+- 给经常写技术文档的同学做了个图表预览工具，求建议
 
 ### Post
 
@@ -22,7 +24,9 @@ Suggested screenshots:
 
 https://diagrampreview.com
 
-起因是我现在写技术文档时，经常让大模型生成 Mermaid、PlantUML、架构图、OpenAPI 流程、SQL ER 图之类的文本。但大模型通常只给代码，不提供稳定的预览、导出、语法修复和多格式工作流。
+起因是我最近写 README、技术方案和接口文档时，经常让大模型生成 Mermaid、PlantUML、架构图、OpenAPI 流程、SQL ER 图之类的文本。
+
+AI 生成初稿确实很快，但有个步骤一直很烦：它通常只给代码，不帮你确认能不能渲染。很多时候复制到文档里才发现 Mermaid 报错，或者 PlantUML 图看起来不对，还要再找工具预览、修语法、导出图片。
 
 所以我把这个中间步骤做成了一个在线工具站：
 
@@ -33,6 +37,8 @@ https://diagrampreview.com
 - Docker Compose、Kubernetes Manifest、package.json 依赖图
 - SVG / PNG / PDF 导出
 - 不需要登录，浏览器里直接用
+
+普通预览类工具主要在浏览器里处理。AI 生成类工具会调用后端接口，所以不要把私有代码、密钥、内部架构细节直接丢进去。
 
 我的主要使用场景是：
 
@@ -51,15 +57,17 @@ https://diagrampreview.com
 
 ## 掘金
 
-### Title
+### Title Options
 
-AI 生成 Mermaid 后，如何预览、修复并导出到技术文档？
+- AI 生成 Mermaid 后怎么确认能渲染？我的预览和导出工作流
+- 从 AI 生成 Mermaid 到放进 README：预览、修复、导出怎么做
+- 大模型生成图表代码之后，还差一个在线预览和导出步骤
 
 ### Post
 
 现在很多人写技术文档时，会先让 AI 生成 Mermaid、PlantUML、架构图说明、OpenAPI 调用流程、SQL ER 图，甚至 Docker Compose 和 Kubernetes 关系图。
 
-这个流程很爽，但有一个问题一直存在：AI 给你的通常只是代码。
+这个流程很爽，但有一个问题一直存在：AI 给你的通常只是代码，不是可直接放进文档的图片或可编辑文件。
 
 比如它可以生成一段 Mermaid：
 
@@ -107,8 +115,9 @@ https://diagrampreview.com
 ### Title Options
 
 - Mermaid 在线预览与导出：AI 生成流程图后的完整工作流
-- PlantUML、Mermaid、SQL ER 图在线预览工具整理
-- 技术文档图表怎么做：从 AI 生成到 SVG/PNG 导出
+- AI 生成 Mermaid 后怎么预览？从图表代码到 SVG/PNG 导出
+- PlantUML、Mermaid、SQL ER、OpenAPI 在线预览工具整理
+- 技术文档图表怎么做：从 AI 生成到 README/方案文档
 
 ### Post
 
@@ -153,7 +162,9 @@ https://diagrampreview.com
 
 ### Question Angle
 
-AI 生成流程图后如何预览和导出？
+- AI 生成流程图后如何预览和导出？
+- AI 生成的 Mermaid 经常渲染失败怎么办？
+- 写技术文档时，Mermaid/PlantUML 图表怎么做比较省事？
 
 ### Answer
 
@@ -173,9 +184,11 @@ https://diagrampreview.com
 
 ## 开源中国
 
-### Title
+### Title Options
 
-分享一个面向开发者的在线图表预览工具：DiagramPreview
+- 分享一个面向开发者文档场景的在线图表预览工具
+- AI 生成 Mermaid/PlantUML 后，用这个小工具先预览再导出
+- 做了个开发者图表工具站，支持 Mermaid、PlantUML、OpenAPI、SQL ER 等
 
 ### Post
 

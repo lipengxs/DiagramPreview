@@ -6,9 +6,9 @@ These channels are easier to start with than Reddit-style communities. The safes
 
 | Channel | Link | Best Format | Suggested Angle | Notes |
 | --- | --- | --- | --- | --- |
-| V2EX | https://www.v2ex.com | Side project feedback post | AI 生成 Mermaid 很常见，但缺少在线预览和导出 | Programmer-heavy. Use sincere tone and ask for feedback. |
-| 掘金 | https://juejin.cn | Article or 沸点 | AI 生成技术图表后的预览工作流 | Good for frontend/backend/devtool audiences. |
-| 博客园 | https://www.cnblogs.com | Technical article | Mermaid/PlantUML/文档图表工具合集 | Good indexing and long-tail SEO. |
+| V2EX | https://www.v2ex.com | Side project feedback post | AI 把 Mermaid 写出来了，但还得自己找地方预览 | Programmer-heavy. Use sincere tone and ask for feedback. |
+| 掘金 | https://juejin.cn | Article or 沸点 | AI 生成 Mermaid 后怎么确认能渲染 | Good for frontend/backend/devtool audiences. |
+| 博客园 | https://www.cnblogs.com | Technical article | AI 生成图表到 README/方案文档的工作流 | Good indexing and long-tail SEO. |
 | SegmentFault | https://segmentfault.com | Technical article | 技术文档里的图表预览与导出 | Keep it tutorial-style. |
 | CSDN | https://www.csdn.net | Blog post | 在线 Mermaid/PlantUML/SQL ER 工具 | Easy indexing. Use SEO keyword titles. |
 | 知乎 | https://www.zhihu.com | Answer or article | AI 生成流程图如何预览/导出 | Write as workflow advice, not product pitch. |
@@ -20,9 +20,9 @@ These channels are easier to start with than Reddit-style communities. The safes
 
 | Channel | Link | Best Format | Suggested Angle | Notes |
 | --- | --- | --- | --- | --- |
-| Dev.to | https://dev.to | Tutorial post | Previewing AI-generated Mermaid and PlantUML diagrams | Low barrier, friendly to tutorials. |
-| Hashnode | https://hashnode.com | Tutorial post | From prompt to previewable architecture diagram | Good for developer blogs. |
-| Medium | https://medium.com | Blog post | The missing preview step in AI-generated diagrams | More editorial, weaker developer feedback. |
+| Dev.to | https://dev.to | Tutorial post | Preview AI-generated Mermaid and PlantUML before adding them to docs | Low barrier, friendly to tutorials. |
+| Hashnode | https://hashnode.com | Tutorial post | From prompt to docs-ready architecture diagram | Good for developer blogs. |
+| Medium | https://medium.com | Blog post | AI can write Mermaid. Your docs still need a rendered diagram. | More editorial, weaker developer feedback. |
 | Indie Hackers | https://www.indiehackers.com | Build-in-public post | Built a diagram preview toolbox for AI documentation | Ask for feedback, not votes. |
 | Hacker News Show HN | https://news.ycombinator.com/show | Show HN | A no-signup diagram preview toolbox for AI-generated docs | Higher standards, but direct and simple. |
 | Product Hunt | https://www.producthunt.com | Product launch | Developer productivity / AI documentation tool | Needs screenshots, tagline, and first comment. |

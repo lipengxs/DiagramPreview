@@ -18,13 +18,15 @@ Use these local screenshots when publishing:
 
 ### Title Options
 
-- AI 很会写 Mermaid，但预览、修复和导出还是要单独解决
-- 分享一个开发者图表工具站：补上 AI 生成图表后的预览和导出环节
-- 做了一个 DiagramPreview：把 AI 生成的图表文本变成可预览、可导出的结果
+- AI 把 Mermaid 写出来了，但我还得自己找地方预览
+- 写 README/技术方案时被 Mermaid 预览折腾烦了，做了个小工具
+- 大模型很会生成图表代码，但不会帮你确认能不能渲染
+- 分享一个自用工具：AI 生成图表后，一键预览、修语法、导出
+- 做了个给程序员写文档用的图表工具：粘贴、预览、导出
 
 ### Body
 
-最近写技术文档时，我越来越常让 AI 生成图表：
+最近写 README、技术方案和接口文档时，我越来越常让 AI 生成图表：
 
 - Mermaid 流程图、时序图、ER 图
 - PlantUML 时序图、组件图、类图
@@ -35,7 +37,7 @@ Use these local screenshots when publishing:
 - Prometheus alert rules
 - draw.io / diagrams.net 可编辑图
 
-但这里有一个很实际的问题：大模型通常只给代码，不提供稳定的预览、修复、导出和多格式转换工作流。
+但这里有一个很实际的问题：大模型通常只给代码，不提供稳定的预览、修复、导出和多格式转换工作流。很多时候是它写完 Mermaid，我复制到文档里才发现渲染不了。
 
 比如 AI 可以写出 Mermaid，但你还要找地方渲染；它可以生成 PlantUML，但放进文档前还要确认图是否正确；它可以生成 Grafana JSON 或 Prometheus YAML，但你仍然要检查结构能不能用。
 
@@ -89,9 +91,11 @@ https://diagrampreview.com
 
 ### Title Options
 
-- The missing preview step for AI-generated diagrams
-- I built DiagramPreview to preview, fix, and export AI-generated technical diagrams
-- From LLM-generated Mermaid to previewable docs: DiagramPreview
+- LLMs generate diagrams. They still do not preview them.
+- I built the missing preview/export step for AI-generated diagrams
+- From AI-generated Mermaid to something you can actually put in docs
+- A no-signup toolbox for previewing Mermaid, PlantUML, OpenAPI, SQL, and DevOps diagrams
+- Paste diagram text, preview it, fix it, export it
 
 ### Body
 
@@ -106,7 +110,7 @@ LLMs are very good at generating technical diagram source now:
 - Prometheus alert rules
 - editable draw.io / diagrams.net XML
 
-But there is still a practical gap: the model gives you text, not a reliable preview/export workflow.
+But there is still a practical gap: the model gives you text, not a reliable preview/export workflow. It can draft Mermaid quickly, but you still need to know whether that Mermaid actually renders before you put it in a README or design doc.
 
 That means you still need to validate the diagram, fix syntax issues, and export something usable before adding it to a README, design doc, PRD, architecture proposal, or incident review.
 

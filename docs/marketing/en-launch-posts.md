@@ -12,9 +12,10 @@ Suggested screenshots:
 
 ### Title Options
 
-- Show HN: DiagramPreview - preview and export AI-generated diagrams
-- Show HN: A no-signup diagram preview toolbox for AI-generated docs
-- Show HN: Paste Mermaid, PlantUML, OpenAPI, SQL, Docker Compose, Kubernetes, and export diagrams
+- Show HN: LLMs generate diagrams. I built the missing preview step
+- Show HN: DiagramPreview - paste Mermaid/PlantUML/OpenAPI/SQL and export diagrams
+- Show HN: A no-signup toolbox for previewing AI-generated technical diagrams
+- Show HN: From AI-generated Mermaid to docs-ready SVG/PNG
 
 ### Post
 
@@ -22,7 +23,7 @@ I built DiagramPreview:
 
 https://diagrampreview.com
 
-The problem I kept running into: LLMs are good at generating Mermaid, PlantUML, architecture notes, OpenAPI flows, SQL schemas, Docker Compose snippets, and Kubernetes manifests, but they usually do not provide a reliable preview/export workflow.
+The problem I kept running into: LLMs are good at generating Mermaid, PlantUML, architecture notes, OpenAPI flows, SQL schemas, Docker Compose snippets, and Kubernetes manifests, but they usually stop at text. You still need to check whether the diagram renders and export it before it belongs in real docs.
 
 DiagramPreview is meant to be the missing step between “AI generated some diagram text” and “this is ready for a README, design doc, PRD, or engineering proposal.”
 
@@ -56,9 +57,11 @@ I would love feedback from developers who write documentation, architecture note
 
 ## Dev.to / Hashnode
 
-### Title
+### Title Options
 
-Previewing AI-generated Mermaid and PlantUML diagrams before adding them to docs
+- Preview AI-generated Mermaid and PlantUML before adding them to docs
+- How I turn LLM-generated Mermaid into docs-ready diagrams
+- A practical workflow for AI-generated diagrams: preview, fix, export
 
 ### Post
 
@@ -89,9 +92,11 @@ The goal is not to replace AI. It is to make AI-generated diagram output easier 
 
 ## Indie Hackers
 
-### Title
+### Title Options
 
-I built a small diagram preview toolbox for AI-generated technical docs
+- I built a small diagram preview toolbox because LLMs stop at text
+- Turning a repeated AI documentation workflow into a small developer tool
+- Building DiagramPreview: preview, fix, and export AI-generated diagrams
 
 ### Post
 
@@ -109,9 +114,11 @@ I am still early and looking for feedback on which formats to support next. I am
 
 ## Medium
 
-### Title
+### Title Options
 
-The missing preview step in AI-generated diagrams
+- The missing preview step in AI-generated diagrams
+- AI can write Mermaid. Your docs still need a rendered diagram.
+- From generated diagram text to documentation-ready visuals
 
 ### Post
 
