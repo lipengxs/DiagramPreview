@@ -129,33 +129,35 @@ export function ToolShell({tool, copy}: ToolShellProps) {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <div className="grid gap-4">
-        <ExportToolbar
-          actions={copy.actions}
-          canCopyHtml={canCopyHtml}
-          canExportSvg={canExportSvg}
-          canExportPng={canExportPng}
-          onCopyCode={() => void copyText(source)}
-          onCopyHtml={() => void copyText(renderState.html ?? "")}
-          onExportSvg={() => renderState.svg && downloadText(`${tool.slug}.svg`, renderState.svg, "image/svg+xml;charset=utf-8")}
-          onExportPng={() => renderState.svg && void downloadSvgAsPng(renderState.svg, `${tool.slug}.png`)}
-          onPrint={printPreview}
-          onClear={() => setSource("")}
-        />
-        <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-3">
-          <span className="text-sm font-semibold text-slate-700">{copy.samplesTitle}</span>
-          {sampleButtons.map(([key, sample]) => (
-            <button
-              key={key}
-              className="rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-primary hover:bg-blue-50 hover:text-primary"
-              onClick={() => setSource(sample.code)}
-              type="button"
-            >
-              {sample.label}
-            </button>
-          ))}
+      <div className="grid gap-5">
+        <div className="grid gap-3 lg:grid-cols-[1fr_auto] lg:items-start">
+          <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
+            <span className="text-sm font-semibold text-slate-700">{copy.samplesTitle}</span>
+            {sampleButtons.map(([key, sample]) => (
+              <button
+                key={key}
+                className="h-9 rounded-md border border-slate-200 px-3 text-sm font-medium text-slate-700 transition hover:border-primary hover:bg-blue-50 hover:text-primary"
+                onClick={() => setSource(sample.code)}
+                type="button"
+              >
+                {sample.label}
+              </button>
+            ))}
+          </div>
+          <ExportToolbar
+            actions={copy.actions}
+            canCopyHtml={canCopyHtml}
+            canExportSvg={canExportSvg}
+            canExportPng={canExportPng}
+            onCopyCode={() => void copyText(source)}
+            onCopyHtml={() => void copyText(renderState.html ?? "")}
+            onExportSvg={() => renderState.svg && downloadText(`${tool.slug}.svg`, renderState.svg, "image/svg+xml;charset=utf-8")}
+            onExportPng={() => renderState.svg && void downloadSvgAsPng(renderState.svg, `${tool.slug}.png`)}
+            onPrint={printPreview}
+            onClear={() => setSource("")}
+          />
         </div>
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid gap-5">
           <CodeEditor label={copy.inputLabel} value={source} placeholder={copy.placeholder} onChange={setSource} />
           <PreviewPane
             label={copy.outputLabel}
@@ -166,6 +168,7 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             imageUrl={renderState.imageUrl}
             tree={renderState.tree}
             fallback={fallback}
+            className="min-h-[560px] border-slate-300"
           />
         </div>
         <ToolSettings labels={copy.settings} />

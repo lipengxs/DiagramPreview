@@ -5,11 +5,12 @@ type CodeEditorProps = {
   value: string;
   placeholder: string;
   onChange: (value: string) => void;
+  minHeightClassName?: string;
 };
 
-export function CodeEditor({label, value, placeholder, onChange}: CodeEditorProps) {
+export function CodeEditor({label, value, placeholder, onChange, minHeightClassName = "min-h-[320px]"}: CodeEditorProps) {
   return (
-    <label className="flex min-h-[420px] flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
+    <label className={`flex ${minHeightClassName} flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-950`}>
       <span className="border-b border-slate-800 px-4 py-3 text-sm font-semibold text-slate-200">{label}</span>
       <textarea
         value={value}

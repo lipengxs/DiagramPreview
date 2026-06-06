@@ -133,13 +133,13 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <div className="grid gap-4">
-        <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-3">
+      <div className="grid gap-5">
+        <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
           <span className="text-sm font-semibold text-slate-700">Examples</span>
           {sampleButtons.map(([key, sample]) => (
             <button
               key={key}
-              className="rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition hover:border-primary hover:bg-blue-50 hover:text-primary"
+              className="h-9 rounded-md border border-slate-200 px-3 text-sm font-medium text-slate-700 transition hover:border-primary hover:bg-blue-50 hover:text-primary"
               type="button"
               onClick={() => {
                 setPrompt(sample.prompt);
@@ -155,9 +155,9 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
           ))}
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="grid gap-4">
-            <div className="rounded-lg border border-slate-200 bg-white p-4">
+        <div className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="grid gap-4 lg:grid-cols-[280px_1fr]">
+            <div>
               <label className="text-sm font-semibold text-ink" htmlFor={`${slug}-diagram-type`}>
                 {copy.diagramTypeLabel}
               </label>
@@ -165,7 +165,7 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
                 id={`${slug}-diagram-type`}
                 value={diagramType}
                 onChange={(event) => setDiagramType(event.target.value)}
-                className="mt-2 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-ink outline-none focus:ring-2 focus:ring-primary"
+                className="mt-2 h-10 w-full rounded-md border border-slate-200 bg-white px-3 text-sm text-ink outline-none focus:ring-2 focus:ring-primary"
               >
                 {availableDiagramTypes.map((type) => (
                   <option key={type} value={type}>
@@ -200,62 +200,64 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
               </label>
             ) : null}
 
-            <Button variant="primary" onClick={generate} disabled={loading}>
+            <Button variant="primary" className="w-full sm:w-auto" onClick={generate} disabled={loading}>
               {loading ? <Sparkles className="h-4 w-4 animate-pulse" /> : <WandSparkles className="h-4 w-4" />}
               {copy.generateButton}
             </Button>
           </div>
+        </div>
 
-          <div className="grid gap-4">
-            <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-2">
-              <Button onClick={() => void copyText(generatedCode)} disabled={!generatedCode}>
-                <Copy className="h-4 w-4" />
-                {copy.copyCode}
-              </Button>
-              <Button onClick={() => svg && downloadText(`${slug}.svg`, svg, "image/svg+xml;charset=utf-8")} disabled={!svg}>
-                <Download className="h-4 w-4" />
-                {copy.exportSvg}
-              </Button>
-              <Button onClick={() => svg && void downloadSvgAsPng(svg, `${slug}.png`)} disabled={!svg}>
-                <ImageDown className="h-4 w-4" />
-                {copy.exportPng}
-              </Button>
+        <div className="grid gap-4">
+          <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-2 shadow-sm">
+            <Button onClick={() => void copyText(generatedCode)} disabled={!generatedCode}>
+              <Copy className="h-4 w-4" />
+              {copy.copyCode}
+            </Button>
+            <Button onClick={() => svg && downloadText(`${slug}.svg`, svg, "image/svg+xml;charset=utf-8")} disabled={!svg}>
+              <Download className="h-4 w-4" />
+              {copy.exportSvg}
+            </Button>
+            <Button onClick={() => svg && void downloadSvgAsPng(svg, `${slug}.png`)} disabled={!svg}>
+              <ImageDown className="h-4 w-4" />
+              {copy.exportPng}
+            </Button>
+          </div>
+
+          <label className="flex min-h-72 flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
+            <span className="border-b border-slate-800 px-4 py-3 text-sm font-semibold text-slate-200">
+              {copy.generatedCodeLabel}
+            </span>
+            <textarea
+              value={generatedCode}
+              onChange={(event) => setGeneratedCode(event.target.value)}
+              spellCheck={false}
+              className="min-h-0 flex-1 resize-none bg-slate-950 p-4 font-mono text-sm leading-6 text-slate-100 outline-none placeholder:text-slate-500"
+            />
+          </label>
+
+          <div className="flex min-h-[560px] flex-col overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm">
+            <div className="flex items-center justify-between gap-3 border-b border-slate-200 px-4 py-3">
+              <span className="text-sm font-semibold text-ink">{copy.previewLabel}</span>
               {provider ? (
-                <span className="ml-auto rounded-md bg-blue-50 px-2 py-1 text-xs font-semibold text-primary">
+                <span className="rounded-md bg-blue-50 px-2 py-1 text-xs font-semibold text-primary">
                   {copy.providerLabel}: {provider}
                 </span>
               ) : null}
             </div>
-
-            <label className="flex min-h-64 flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
-              <span className="border-b border-slate-800 px-4 py-3 text-sm font-semibold text-slate-200">
-                {copy.generatedCodeLabel}
-              </span>
-              <textarea
-                value={generatedCode}
-                onChange={(event) => setGeneratedCode(event.target.value)}
-                spellCheck={false}
-                className="min-h-0 flex-1 resize-none bg-slate-950 p-4 font-mono text-sm leading-6 text-slate-100 outline-none placeholder:text-slate-500"
-              />
-            </label>
-
-            <div className="flex min-h-80 flex-col overflow-hidden rounded-lg border border-slate-200 bg-white">
-              <div className="border-b border-slate-200 px-4 py-3 text-sm font-semibold text-ink">{copy.previewLabel}</div>
-              <div className="min-h-0 flex-1 overflow-auto p-4">
-                {error ? (
-                  <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700">{error}</div>
-                ) : imageUrl ? (
-                  <div className="flex h-full min-h-64 items-center justify-center">
-                    <img src={imageUrl} alt={copy.previewLabel} className="max-h-full max-w-full" />
-                  </div>
-                ) : html ? (
-                  <div className="diagram-preview-output" dangerouslySetInnerHTML={{__html: html}} />
-                ) : (
-                  <div className="flex h-full min-h-64 items-center justify-center rounded-md border border-dashed border-slate-300 bg-surface p-6 text-center text-sm text-slate-500">
-                    {copy.emptyPreview}
-                  </div>
-                )}
-              </div>
+            <div className="min-h-0 flex-1 overflow-auto bg-gradient-to-b from-white to-surface p-4">
+              {error ? (
+                <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700">{error}</div>
+              ) : imageUrl ? (
+                <div className="flex h-full min-h-[480px] items-center justify-center">
+                  <img src={imageUrl} alt={copy.previewLabel} className="max-h-full max-w-full" />
+                </div>
+              ) : html ? (
+                <div className="diagram-preview-output" dangerouslySetInnerHTML={{__html: html}} />
+              ) : (
+                <div className="flex h-full min-h-[480px] items-center justify-center rounded-md border border-dashed border-slate-300 bg-white p-6 text-center text-sm text-slate-500">
+                  {copy.emptyPreview}
+                </div>
+              )}
             </div>
           </div>
         </div>
