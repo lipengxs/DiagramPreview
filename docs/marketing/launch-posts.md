@@ -8,6 +8,7 @@ This folder splits the launch and comment materials into smaller files so each c
 - [low-barrier-channels.md](./low-barrier-channels.md): low-friction websites and where to post.
 - [zh-launch-posts.md](./zh-launch-posts.md): Chinese launch posts for V2EX, 掘金, 博客园, SegmentFault, CSDN, 知乎, 开源中国.
 - [en-launch-posts.md](./en-launch-posts.md): English launch posts for Hacker News, Dev.to, Hashnode, Indie Hackers, Medium, Product Hunt.
+- [recommended-posts.md](./recommended-posts.md): ready-to-publish Chinese and English posts with screenshot references.
 - [comment-templates.md](./comment-templates.md): natural comment templates for Chinese and English communities.
 - [platform-playbook.md](./platform-playbook.md): channel-specific posting strategy and anti-spam notes.
 - [next-tool-ideas.md](./next-tool-ideas.md): future tool ideas that fit the current site theme.

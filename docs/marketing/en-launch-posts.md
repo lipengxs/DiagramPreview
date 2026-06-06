@@ -1,5 +1,13 @@
 # English Launch Posts
 
+Recommended polished version with screenshots: [recommended-posts.md](./recommended-posts.md).
+
+Suggested screenshots:
+
+![AI Draw.io Generator](./images/desktop-ai-drawio-generator.png)
+
+![Mermaid Preview](./images/desktop-mermaid-preview.png)
+
 ## Hacker News Show HN
 
 ### Title Options

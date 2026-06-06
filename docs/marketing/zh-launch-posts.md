@@ -1,5 +1,13 @@
 # Chinese Launch Posts
 
+Recommended polished version with screenshots: [recommended-posts.md](./recommended-posts.md).
+
+Suggested screenshots:
+
+![AI Draw.io Generator](./images/desktop-ai-drawio-generator.png)
+
+![DevOps menu](./images/desktop-header-devops-menu.png)
+
 ## V2EX
 
 ### Title Options
