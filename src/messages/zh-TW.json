@@ -1371,7 +1371,7 @@
       ]
     },
     "data-visualizers": {
-      "title": "資料視覺化",
+      "title": "資料與 Schema 工具",
       "description": "把 JSON、YAML 和結構化資料檢查成可讀樹狀圖。",
       "keywords": [
         "diagram tools",

@@ -16,7 +16,6 @@ export type ToolHub = {
 
 export const headerNavItems: NavItem[] = [
   {href: "/tools", labelKey: "common.nav.tools"},
-  {href: "/ai-diagram", labelKey: "common.nav.aiDiagram"},
   {href: "/blog", labelKey: "common.nav.blog"}
 ];
 
@@ -29,20 +28,20 @@ export const toolHubs: ToolHub[] = [
     keywordsKey: "hubs.tools.keywords"
   },
   {
+    slug: "ai-diagram",
+    href: "/ai-diagram",
+    navGroup: "ai-diagram",
+    titleKey: "hubs.ai-diagram.title",
+    descriptionKey: "hubs.ai-diagram.description",
+    keywordsKey: "hubs.ai-diagram.keywords"
+  },
+  {
     slug: "preview-tools",
     href: "/preview-tools",
     navGroup: "preview-tools",
     titleKey: "hubs.preview-tools.title",
     descriptionKey: "hubs.preview-tools.description",
     keywordsKey: "hubs.preview-tools.keywords"
-  },
-  {
-    slug: "converters",
-    href: "/converters",
-    navGroup: "converters",
-    titleKey: "hubs.converters.title",
-    descriptionKey: "hubs.converters.description",
-    keywordsKey: "hubs.converters.keywords"
   },
   {
     slug: "developer-diagrams",
@@ -61,12 +60,12 @@ export const toolHubs: ToolHub[] = [
     keywordsKey: "hubs.data-visualizers.keywords"
   },
   {
-    slug: "ai-diagram",
-    href: "/ai-diagram",
-    navGroup: "ai-diagram",
-    titleKey: "hubs.ai-diagram.title",
-    descriptionKey: "hubs.ai-diagram.description",
-    keywordsKey: "hubs.ai-diagram.keywords"
+    slug: "converters",
+    href: "/converters",
+    navGroup: "converters",
+    titleKey: "hubs.converters.title",
+    descriptionKey: "hubs.converters.description",
+    keywordsKey: "hubs.converters.keywords"
   }
 ];
 

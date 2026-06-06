@@ -1371,7 +1371,7 @@
       ]
     },
     "data-visualizers": {
-      "title": "Datenvisualisierung",
+      "title": "Daten- und Schema-Tools",
       "description": "Prüfe JSON, YAML und strukturierte Daten als lesbare Bäume und Diagramme.",
       "keywords": [
         "diagram tools",

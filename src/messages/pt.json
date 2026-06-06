@@ -1371,7 +1371,7 @@
       ]
     },
     "data-visualizers": {
-      "title": "Visualizadores de dados",
+      "title": "Ferramentas de dados e schema",
       "description": "Inspecione JSON, YAML e dados estruturados como árvores e diagramas legíveis.",
       "keywords": [
         "diagram tools",

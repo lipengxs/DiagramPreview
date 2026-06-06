@@ -1371,7 +1371,7 @@
       ]
     },
     "data-visualizers": {
-      "title": "데이터 시각화",
+      "title": "데이터 및 스키마 도구",
       "description": "JSON, YAML 및 구조화된 데이터를 읽기 쉬운 트리와 다이어그램으로 확인하세요.",
       "keywords": [
         "diagram tools",

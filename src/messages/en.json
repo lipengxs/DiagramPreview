@@ -1347,7 +1347,7 @@
       ]
     },
     "data-visualizers": {
-      "title": "Data Visualizers",
+      "title": "Data & Schema Tools",
       "description": "Inspect JSON, YAML, and structured data as readable trees and diagrams.",
       "keywords": [
         "diagram tools",

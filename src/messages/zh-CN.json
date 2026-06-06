@@ -1347,7 +1347,7 @@
       ]
     },
     "data-visualizers": {
-      "title": "数据可视化",
+      "title": "数据与 Schema 工具",
       "description": "把 JSON、YAML 和结构化数据检查成可读树状图。",
       "keywords": [
         "diagram tools",

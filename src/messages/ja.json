@@ -1371,7 +1371,7 @@
       ]
     },
     "data-visualizers": {
-      "title": "データ可視化",
+      "title": "データとスキーマツール",
       "description": "JSON、YAML、構造化データを読みやすいツリーや図表として確認します。",
       "keywords": [
         "diagram tools",

@@ -1,7 +1,7 @@
 "use client";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import {ChevronDown, Grid2X2, PanelsTopLeft} from "lucide-react";
+import {ChevronDown, PanelsTopLeft} from "lucide-react";
 import {useTranslations} from "next-intl";
 import {headerNavItems, toolHubs, type ToolHub} from "@/config/navigation";
 import {sortedTools, type ToolConfig} from "@/config/tools";
@@ -58,13 +58,6 @@ function ToolsMegaMenu({label}: {label: string}) {
               <ToolGroup key={hub.slug} hub={hub} />
             ))}
           </div>
-          <DropdownMenu.Separator className="my-2 h-px bg-slate-200" />
-          <DropdownMenu.Item asChild>
-            <Link href="/tools" className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 outline-none hover:bg-slate-100">
-              <Grid2X2 className="h-4 w-4 text-primary" />
-              {t("hubs.tools.title")}
-            </Link>
-          </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
