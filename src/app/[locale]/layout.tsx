@@ -18,7 +18,8 @@ type LocaleLayoutProps = {
 export const metadata: Metadata = {
   other: {
     "msvalidate.01": "B362957FC36C5EDDD6079B6D78330424",
-    "yandex-verification": "22f9962285cc97be"
+    "yandex-verification": "22f9962285cc97be",
+    "baidu-site-verification": "codeva-H4REFzrHP4"
   }
 };
 

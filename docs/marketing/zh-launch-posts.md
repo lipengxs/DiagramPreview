@@ -219,21 +219,74 @@ https://diagrampreview.com
 - 分享一个面向开发者文档场景的在线图表预览工具
 - AI 生成 Mermaid/PlantUML 后，用这个小工具先预览再导出
 - 做了个开发者图表工具站，支持 Mermaid、PlantUML、OpenAPI、SQL ER 等
+- 从 AI 生成图表代码到放进 README：预览、修复、导出完整工作流
+- 写技术文档时，Mermaid/PlantUML/OpenAPI 在线预览与导出工具整理
 
 ### Post
 
-最近做了一个在线工具站 DiagramPreview：
+最近写 README、技术方案、接口文档和运维说明时，我越来越常让 AI 生成各类图表和配置文本：
+
+- Mermaid 流程图、时序图、ER 图
+- PlantUML 时序图、组件图、类图
+- OpenAPI 接口调用流程
+- SQL ER 图
+- Docker Compose / Kubernetes / Terraform 架构关系
+- Grafana dashboard JSON
+- draw.io / diagrams.net 可编辑图
+
+大模型生成初稿确实很快，但有一个步骤一直很烦：它通常只给代码，不帮你确认能不能渲染。很多时候复制到文档里才发现 Mermaid 语法报错，或者 PlantUML 图看起来不对，还要再找工具预览、修语法、导出图片。
+
+所以我做了一个在线工具站 DiagramPreview：
 
 https://diagrampreview.com
 
-效果图：
+它想解决的是 AI 输出和正式文档之间的这一段：
+
+1. 让 AI 或自己先生成图表/配置文本。
+2. 粘贴到 DiagramPreview 里在线预览。
+3. 如果语法有问题，修复或继续让 AI 改。
+4. 导出 SVG、PNG、PDF，或者下载 `.drawio`、`.json`、`.yaml` 等文件，放进 README、技术方案、PRD 或博客。
+
+先看几个实际页面效果：
+
+![Mermaid Preview](https://diagrampreview.com/marketing/images/desktop-mermaid-preview.png)
 
 ![AI Draw.io Generator](https://diagrampreview.com/marketing/images/desktop-ai-drawio-generator.png)
 
 ![DevOps menu](https://diagrampreview.com/marketing/images/desktop-header-devops-menu.png)
 
-主要面向开发者文档场景，解决 AI 生成 Mermaid、PlantUML、OpenAPI、SQL ER、Docker Compose、Kubernetes 等文本之后缺少预览和导出的问题。
+目前工具按场景分成几类：
 
-目前支持 Mermaid、PlantUML、Graphviz、D2、Markdown、JSON/YAML/XML/CSV 可视化、JSON Schema、SQL ER、OpenAPI 时序图、Docker Compose Diagram、Kubernetes Manifest Visualizer、package.json Dependency Diagram 等。
+- **AI**：AI Diagram Generator、AI Draw.io、Text to Mermaid、Mermaid AI Fixer、Architecture Diagram
+- **预览**：Mermaid、PlantUML、Markdown、Graphviz、D2、Sequence、Mind Map
+- **Draw.io**：PlantUML to Draw.io、Mermaid to Draw.io、Draw.io to SVG
+- **DevOps**：Grafana Dashboard、Prometheus Alert、Docker Compose、Kubernetes、Terraform、GitHub Actions、Dockerfile、Helm、Nginx、OpenTelemetry
+- **数据**：SQL ER、JSON Schema、JSON、YAML、XML、CSV、GraphQL、Protobuf、AsyncAPI、DBML、Prisma
+- **代码**：OpenAPI Sequence、package.json Dependencies、Regex Railroad
 
-不需要登录，浏览器里直接使用。欢迎试用，也欢迎反馈还应该支持哪些开发者常用格式。
+如果是 DevOps / 监控类文档，也可以用 Grafana Dashboard Generator 生成 JSON 后继续编辑：
+
+![Grafana Dashboard Generator](https://diagrampreview.com/marketing/images/desktop-grafana-dashboard-generator.png)
+
+我自己的使用场景主要是：
+
+- 写 README、技术方案、PRD、接口文档前先验证图表能否渲染。
+- 用 AI 生成第一版 Mermaid / PlantUML / draw.io，再在浏览器里确认。
+- 把 OpenAPI、SQL、K8s、Docker Compose、Terraform 等工程文本快速转成更容易讨论的图。
+- 生成 Grafana dashboard JSON 或 Prometheus alert rules，再拿去继续调整。
+
+DiagramPreview 不是想替代 AI，而是补上「AI 生成之后，正式文档之前」的预览、校验和导出步骤。
+
+**使用方式**：不需要登录，浏览器里直接使用。普通预览类工具主要在浏览器本地处理；AI 生成类工具会调用后端接口，所以不要把私有代码、密钥、内部架构细节直接丢进去。
+
+如果你也经常写技术文档、架构说明、接口方案、运维监控文档，可以试一下。也欢迎反馈还应该补哪些格式，比如 DBML、Terraform 更深度可视化、Grafana Dashboard 模板等。
+
+适合搜索的关键词：
+
+- Mermaid 在线预览
+- PlantUML 在线预览
+- Mermaid 导出 SVG
+- PlantUML 导出 PNG
+- SQL ER 图在线生成
+- OpenAPI 时序图
+- AI 生成流程图预览
