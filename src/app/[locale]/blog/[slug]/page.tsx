@@ -37,7 +37,15 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
   const post = getBlogPost(slug);
   if (!post) notFound();
   const t = await getTranslations({locale});
-  const sections = t.raw(`blog.posts.${post.slug}.sections`) as Array<{heading: string; paragraphs: string[]}>;
+  const sections = t.raw(`blog.posts.${post.slug}.sections`) as Array<{
+    heading: string;
+    paragraphs: string[];
+    image?: {
+      src: string;
+      alt: string;
+      caption?: string;
+    };
+  }>;
   const relatedTools = tools.filter((tool) => post.tools.includes(tool.slug));
 
   return (
@@ -65,6 +73,16 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+              {section.image ? (
+                <figure className="mt-5 overflow-hidden rounded-lg border border-slate-200 bg-surface">
+                  <img src={section.image.src} alt={section.image.alt} className="aspect-[16/9] w-full object-cover" />
+                  {section.image.caption ? (
+                    <figcaption className="border-t border-slate-200 px-4 py-3 text-sm leading-6 text-slate-500">
+                      {section.image.caption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ) : null}
             </section>
           ))}
         </div>

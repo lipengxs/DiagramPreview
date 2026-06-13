@@ -2799,6 +2799,359 @@
         "Prisma Schema 圖 面向开发者文档、AI 生成图表校验和工程配置可视化场景。",
         "它可以帮助你把文本源、配置或 AI 输出转换成更容易检查和导出的结果。"
       ]
+    },
+    "cron-expression-visualizer": {
+      "name": "Cron 表達式視覺化",
+      "shortDescription": "Cron 表達式視覺化：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "seoTitle": "Cron 表達式視覺化 - DiagramPreview",
+      "seoDescription": "Cron 表達式視覺化：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "keywords": [
+        "Cron 表達式視覺化",
+        "Cron expression",
+        "DiagramPreview"
+      ],
+      "h1": "Cron 表達式視覺化",
+      "intro": "Cron 表達式視覺化：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "產生結果會顯示在這裡。",
+      "samples": {
+        "daily": {
+          "label": "Daily 09:00",
+          "code": "0 9 * * *"
+        },
+        "weekday": {
+          "label": "Weekday API sync",
+          "code": "30 8 * * 1-5"
+        },
+        "quarterHourly": {
+          "label": "Every 15 minutes",
+          "code": "*/15 * * * *"
+        }
+      },
+      "howToUse": [
+        "範例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以搭配 AI 產生內容使用嗎？",
+          "answer": "可以。先用 AI 產生初稿，再在這裡預覽、檢查並調整，最後放入文件。"
+        }
+      ],
+      "seoBody": [
+        "這個工具適合開發者文件、架構說明、維運 runbook、API 規格與 AI 產生圖表後的檢查流程。",
+        "可以從範例開始，替換成自己的來源，並把輸出結果和原始文字放在一起，方便後續審查與修改。",
+        "正式發布時優先匯出 SVG 或 PNG，同時把來源文字保留在 repository 中，避免圖表變成難維護的截圖。"
+      ],
+      "inputLabel": "Cron expression",
+      "outputLabel": "預覽",
+      "placeholder": "描述服務、工作流、資料流或文件場景..."
+    },
+    "jwt-decoder-diagram": {
+      "name": "JWT 解碼圖",
+      "shortDescription": "JWT 解碼圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "seoTitle": "JWT 解碼圖 - DiagramPreview",
+      "seoDescription": "JWT 解碼圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "keywords": [
+        "JWT 解碼圖",
+        "JWT token",
+        "DiagramPreview"
+      ],
+      "h1": "JWT 解碼圖",
+      "intro": "JWT 解碼圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "產生結果會顯示在這裡。",
+      "samples": {
+        "accessToken": {
+          "label": "Access token",
+          "code": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzEyMyIsInNjb3BlIjoicmVhZDpvcmRlcnMgd3JpdGU6Y2FydHMiLCJpc3MiOiJodHRwczovL2F1dGguZXhhbXBsZS5jb20iLCJhdWQiOiJhcGkiLCJleHAiOjE4OTM0NTYwMDB9.demo-signature"
+        },
+        "idToken": {
+          "label": "ID token",
+          "code": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzQ1NiIsImVtYWlsIjoiZGV2QGV4YW1wbGUuY29tIiwibmFtZSI6IkRpYWdyYW0gVXNlciIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJleHAiOjE4OTM0NTYwMDB9.demo-signature"
+        },
+        "serviceToken": {
+          "label": "Service token",
+          "code": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3b3JrZXI6YmlsbGluZyIsInNlcnZpY2UiOiJiaWxsaW5nLXdvcmtlciIsInJvbGUiOiJwdWJsaXNoZXIiLCJleHAiOjE4OTM0NTYwMDB9.demo-signature"
+        }
+      },
+      "howToUse": [
+        "範例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以搭配 AI 產生內容使用嗎？",
+          "answer": "可以。先用 AI 產生初稿，再在這裡預覽、檢查並調整，最後放入文件。"
+        }
+      ],
+      "seoBody": [
+        "這個工具適合開發者文件、架構說明、維運 runbook、API 規格與 AI 產生圖表後的檢查流程。",
+        "可以從範例開始，替換成自己的來源，並把輸出結果和原始文字放在一起，方便後續審查與修改。",
+        "正式發布時優先匯出 SVG 或 PNG，同時把來源文字保留在 repository 中，避免圖表變成難維護的截圖。"
+      ],
+      "inputLabel": "JWT token",
+      "outputLabel": "預覽",
+      "placeholder": "描述服務、工作流、資料流或文件場景..."
+    },
+    "api-error-flow-diagram": {
+      "name": "API 錯誤流程圖",
+      "shortDescription": "API 錯誤流程圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "seoTitle": "API 錯誤流程圖 - DiagramPreview",
+      "seoDescription": "API 錯誤流程圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "keywords": [
+        "API 錯誤流程圖",
+        "API error rows",
+        "DiagramPreview"
+      ],
+      "h1": "API 錯誤流程圖",
+      "intro": "API 錯誤流程圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "產生結果會顯示在這裡。",
+      "samples": {
+        "checkout": {
+          "label": "Checkout API",
+          "code": "400 | Invalid cart payload | Return validation details\n401 | Missing access token | Ask client to authenticate\n409 | Inventory changed | Refresh cart and retry\n422 | Payment method rejected | Ask user to update payment method\n500 | Provider timeout | Retry with idempotency key"
+        },
+        "auth": {
+          "label": "Auth API",
+          "code": "400 | Password policy failed | Show policy requirements\n401 | Wrong credentials | Return generic login error\n403 | Account locked | Start recovery flow\n429 | Too many attempts | Apply cooldown"
+        },
+        "rateLimit": {
+          "label": "Rate limit",
+          "code": "429 | Request burst exceeded | Return Retry-After header\n503 | Global throttle enabled | Route to degraded mode\n500 | Quota store unavailable | Fail closed for write endpoints"
+        }
+      },
+      "howToUse": [
+        "範例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以搭配 AI 產生內容使用嗎？",
+          "answer": "可以。先用 AI 產生初稿，再在這裡預覽、檢查並調整，最後放入文件。"
+        }
+      ],
+      "seoBody": [
+        "這個工具適合開發者文件、架構說明、維運 runbook、API 規格與 AI 產生圖表後的檢查流程。",
+        "可以從範例開始，替換成自己的來源，並把輸出結果和原始文字放在一起，方便後續審查與修改。",
+        "正式發布時優先匯出 SVG 或 PNG，同時把來源文字保留在 repository 中，避免圖表變成難維護的截圖。"
+      ],
+      "inputLabel": "API error rows",
+      "outputLabel": "預覽",
+      "placeholder": "描述服務、工作流、資料流或文件場景..."
+    },
+    "kubernetes-service-topology-diagram": {
+      "name": "Kubernetes 服務拓撲圖",
+      "shortDescription": "Kubernetes 服務拓撲圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "seoTitle": "Kubernetes 服務拓撲圖 - DiagramPreview",
+      "seoDescription": "Kubernetes 服務拓撲圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "keywords": [
+        "Kubernetes 服務拓撲圖",
+        "Kubernetes topology",
+        "DiagramPreview"
+      ],
+      "h1": "Kubernetes 服務拓撲圖",
+      "intro": "Kubernetes 服務拓撲圖：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "產生結果會顯示在這裡。",
+      "samples": {
+        "webApp": {
+          "label": "Web app",
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: web\nspec:\n  selector:\n    matchLabels:\n      app: web\n  template:\n    metadata:\n      labels:\n        app: web\n    spec:\n      containers:\n        - name: web\n          image: example/web:1.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: web\nspec:\n  selector:\n    app: web\n  ports:\n    - port: 80\n      targetPort: 3000"
+        },
+        "ingress": {
+          "label": "Ingress routing",
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: web\nspec:\n  selector:\n    matchLabels:\n      app: web\n  template:\n    metadata:\n      labels:\n        app: web\n    spec:\n      containers:\n        - name: web\n          image: example/web:1.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: web\nspec:\n  selector:\n    app: web\n  ports:\n    - port: 80\n      targetPort: 3000\n---\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: web\nspec:\n  rules:\n    - host: app.example.com\n      http:\n        paths:\n          - path: /\n            pathType: Prefix\n            backend:\n              service:\n                name: web\n                port:\n                  number: 80"
+        },
+        "workers": {
+          "label": "Workers",
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: worker\nspec:\n  template:\n    metadata:\n      labels:\n        app: worker\n    spec:\n      containers:\n        - name: worker\n          image: example/worker:1.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: worker-metrics\nspec:\n  selector:\n    app: worker\n  ports:\n    - name: metrics\n      port: 9100"
+        }
+      },
+      "howToUse": [
+        "範例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以搭配 AI 產生內容使用嗎？",
+          "answer": "可以。先用 AI 產生初稿，再在這裡預覽、檢查並調整，最後放入文件。"
+        }
+      ],
+      "seoBody": [
+        "這個工具適合開發者文件、架構說明、維運 runbook、API 規格與 AI 產生圖表後的檢查流程。",
+        "可以從範例開始，替換成自己的來源，並把輸出結果和原始文字放在一起，方便後續審查與修改。",
+        "正式發布時優先匯出 SVG 或 PNG，同時把來源文字保留在 repository 中，避免圖表變成難維護的截圖。"
+      ],
+      "inputLabel": "Kubernetes topology",
+      "outputLabel": "預覽",
+      "placeholder": "描述服務、工作流、資料流或文件場景..."
+    },
+    "ci-cd-pipeline-generator": {
+      "name": "CI/CD 流水線產生器",
+      "shortDescription": "CI/CD 流水線產生器：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "seoTitle": "CI/CD 流水線產生器 - DiagramPreview",
+      "seoDescription": "CI/CD 流水線產生器：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "keywords": [
+        "CI/CD 流水線產生器",
+        "CI/CD pipeline",
+        "DiagramPreview"
+      ],
+      "h1": "CI/CD 流水線產生器",
+      "intro": "CI/CD 流水線產生器：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "產生結果會顯示在這裡。",
+      "samples": {
+        "github": {
+          "label": "GitHub Actions",
+          "code": "name: ci\non: [push]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Install\n        run: npm ci\n      - name: Test\n        run: npm test\n  build:\n    needs: test\n    runs-on: ubuntu-latest\n    steps:\n      - name: Build image\n        run: docker build -t app .\n  deploy:\n    needs: build\n    runs-on: ubuntu-latest\n    steps:\n      - name: Deploy\n        run: ./deploy.sh"
+        },
+        "gitlab": {
+          "label": "GitLab CI",
+          "code": "stages:\n  - test\n  - build\n  - deploy\nunit_tests:\n  stage: test\n  script:\n    - npm test\nbuild_image:\n  stage: build\n  script:\n    - docker build -t app .\nproduction:\n  stage: deploy\n  script:\n    - ./deploy.sh"
+        },
+        "release": {
+          "label": "Release steps",
+          "code": "checkout\ninstall dependencies\nrun unit tests\nbuild docker image\npush image\ndeploy canary\nrun smoke tests\npromote production"
+        }
+      },
+      "howToUse": [
+        "範例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以搭配 AI 產生內容使用嗎？",
+          "answer": "可以。先用 AI 產生初稿，再在這裡預覽、檢查並調整，最後放入文件。"
+        }
+      ],
+      "seoBody": [
+        "這個工具適合開發者文件、架構說明、維運 runbook、API 規格與 AI 產生圖表後的檢查流程。",
+        "可以從範例開始，替換成自己的來源，並把輸出結果和原始文字放在一起，方便後續審查與修改。",
+        "正式發布時優先匯出 SVG 或 PNG，同時把來源文字保留在 repository 中，避免圖表變成難維護的截圖。"
+      ],
+      "inputLabel": "CI/CD pipeline",
+      "outputLabel": "預覽",
+      "placeholder": "描述服務、工作流、資料流或文件場景..."
+    },
+    "observability-pack-generator": {
+      "name": "可觀測性套件產生器",
+      "shortDescription": "可觀測性套件產生器：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "seoTitle": "可觀測性套件產生器 - DiagramPreview",
+      "seoDescription": "可觀測性套件產生器：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "keywords": [
+        "可觀測性套件產生器",
+        null,
+        "DiagramPreview"
+      ],
+      "h1": "可觀測性套件產生器",
+      "intro": "可觀測性套件產生器：用於開發者文件的線上預覽、校驗與匯出工具。",
+      "badges": [
+        "AI",
+        "YAML",
+        "Export"
+      ],
+      "emptyPreview": "產生結果會顯示在這裡。",
+      "samples": {
+        "api": {
+          "label": "API service",
+          "prompt": "Generate an observability pack for a checkout API with p95 latency, error rate, saturation, Redis dependency, and payment provider failures.",
+          "diagramType": "api-service"
+        },
+        "kubernetes": {
+          "label": "Kubernetes app",
+          "prompt": "Create an observability pack for a Kubernetes web app with ingress, deployment replicas, pod restarts, CPU, memory, logs, and SLO burn alerts.",
+          "diagramType": "kubernetes"
+        },
+        "worker": {
+          "label": "Queue worker",
+          "prompt": "Generate dashboards and alerts for an order worker that consumes Kafka, writes PostgreSQL, and must monitor lag, retries, dead letters, and processing time.",
+          "diagramType": "worker"
+        }
+      },
+      "howToUse": [
+        "範例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以搭配 AI 產生內容使用嗎？",
+          "answer": "可以。先用 AI 產生初稿，再在這裡預覽、檢查並調整，最後放入文件。"
+        }
+      ],
+      "seoBody": [
+        "這個工具適合開發者文件、架構說明、維運 runbook、API 規格與 AI 產生圖表後的檢查流程。",
+        "可以從範例開始，替換成自己的來源，並把輸出結果和原始文字放在一起，方便後續審查與修改。",
+        "正式發布時優先匯出 SVG 或 PNG，同時把來源文字保留在 repository 中，避免圖表變成難維護的截圖。"
+      ],
+      "ai": {
+        "promptLabel": "描述你想產生的圖表或觀測包。",
+        "promptPlaceholder": "描述服務、工作流、資料流或文件場景...",
+        "existingCodeLabel": "既有原始碼",
+        "existingCodePlaceholder": "貼上既有圖表或設定來源...",
+        "diagramTypeLabel": "情境",
+        "generateButton": "產生",
+        "generatedCodeLabel": "產生來源",
+        "previewLabel": "預覽",
+        "providerLabel": "提供者"
+      }
     }
   },
   "hubs": {
@@ -3079,6 +3432,654 @@
             "paragraphs": [
               "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
               "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+            ]
+          }
+        ]
+      },
+      "chatgpt-mermaid-preview-workflow": {
+        "title": "如何預覽 ChatGPT 產生的 Mermaid 圖表",
+        "seoTitle": "如何預覽 ChatGPT 產生的 Mermaid 圖表 - DiagramPreview",
+        "description": "围绕 Mermaid Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 Mermaid Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "ChatGPT Mermaid preview",
+          "AI generated Mermaid",
+          "Mermaid diagram preview"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 Mermaid Preview 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 How to preview Mermaid diagrams generated by ChatGPT，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/chatgpt-mermaid-preview-workflow.png",
+              "alt": "如何預覽 ChatGPT 產生的 Mermaid 圖表",
+              "caption": "Mermaid Preview 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "mermaid-vs-plantuml-technical-docs": {
+        "title": "Mermaid vs PlantUML：技術文件該選哪個？",
+        "seoTitle": "Mermaid vs PlantUML：技術文件該選哪個？ - DiagramPreview",
+        "description": "围绕 Mermaid and PlantUML Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 Mermaid and PlantUML Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "Mermaid vs PlantUML",
+          "technical documentation diagrams",
+          "diagram syntax comparison"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 Mermaid and PlantUML Preview 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 Mermaid vs PlantUML: which one should you use for technical docs?，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/mermaid-vs-plantuml-technical-docs.png",
+              "alt": "Mermaid vs PlantUML：技術文件該選哪個？",
+              "caption": "Mermaid and PlantUML Preview 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "plantuml-to-drawio-editable-diagram": {
+        "title": "如何把 PlantUML 轉成可編輯 draw.io 圖",
+        "seoTitle": "如何把 PlantUML 轉成可編輯 draw.io 圖 - DiagramPreview",
+        "description": "围绕 PlantUML to Draw.io 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 PlantUML to Draw.io 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "PlantUML to draw.io",
+          "editable diagrams.net XML",
+          "convert PlantUML diagram"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 PlantUML to Draw.io 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 How to convert PlantUML to editable draw.io diagrams，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/plantuml-to-drawio-editable-diagram.png",
+              "alt": "如何把 PlantUML 轉成可編輯 draw.io 圖",
+              "caption": "PlantUML to Draw.io 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "ai-drawio-diagram-generator-guide": {
+        "title": "如何用 AI 產生可編輯 draw.io 圖表",
+        "seoTitle": "如何用 AI 產生可編輯 draw.io 圖表 - DiagramPreview",
+        "description": "围绕 AI Draw.io Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 AI Draw.io Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "AI draw.io generator",
+          "editable architecture diagram",
+          "diagrams.net XML AI"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 AI Draw.io Generator 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 How to generate editable draw.io diagrams with AI，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/ai-drawio-diagram-generator-guide.png",
+              "alt": "如何用 AI 產生可編輯 draw.io 圖表",
+              "caption": "AI Draw.io Generator 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "kubernetes-manifest-visualization-guide": {
+        "title": "如何線上視覺化 Kubernetes Manifest",
+        "seoTitle": "如何線上視覺化 Kubernetes Manifest - DiagramPreview",
+        "description": "围绕 Kubernetes Manifest Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 Kubernetes Manifest Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "Kubernetes manifest visualizer",
+          "Kubernetes service topology",
+          "Kubernetes YAML diagram"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 Kubernetes Manifest Visualizer 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 How to visualize Kubernetes manifests online，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/kubernetes-manifest-visualization-guide.png",
+              "alt": "如何線上視覺化 Kubernetes Manifest",
+              "caption": "Kubernetes Manifest Visualizer 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "docker-compose-architecture-diagram-guide": {
+        "title": "如何把 Docker Compose 轉成架構圖",
+        "seoTitle": "如何把 Docker Compose 轉成架構圖 - DiagramPreview",
+        "description": "围绕 Docker Compose Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 Docker Compose Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "Docker Compose diagram",
+          "container architecture diagram",
+          "docker compose visualizer"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 Docker Compose Diagram 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 How to turn Docker Compose into an architecture diagram，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/docker-compose-architecture-diagram-guide.png",
+              "alt": "如何把 Docker Compose 轉成架構圖",
+              "caption": "Docker Compose Diagram 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "ai-grafana-dashboard-json-guide": {
+        "title": "如何用 AI 產生 Grafana Dashboard JSON",
+        "seoTitle": "如何用 AI 產生 Grafana Dashboard JSON - DiagramPreview",
+        "description": "围绕 Grafana Dashboard Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 Grafana Dashboard Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "AI Grafana dashboard generator",
+          "Grafana dashboard JSON",
+          "Prometheus dashboard AI"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 Grafana Dashboard Generator 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 How to generate Grafana dashboard JSON with AI，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/ai-grafana-dashboard-json-guide.png",
+              "alt": "如何用 AI 產生 Grafana Dashboard JSON",
+              "caption": "Grafana Dashboard Generator 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "prometheus-alert-rules-api-latency-error-rate": {
+        "title": "API 延遲和錯誤率的 Prometheus 告警規則範例",
+        "seoTitle": "API 延遲和錯誤率的 Prometheus 告警規則範例 - DiagramPreview",
+        "description": "围绕 Prometheus Alert Rule Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 Prometheus Alert Rule Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "Prometheus alert rules examples",
+          "API latency alert",
+          "error rate alert PromQL"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 Prometheus Alert Rule Generator 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 Prometheus alert rules examples for API latency and error rate，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/prometheus-alert-rules-api-latency-error-rate.png",
+              "alt": "API 延遲和錯誤率的 Prometheus 告警規則範例",
+              "caption": "Prometheus Alert Rule Generator 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "openapi-to-sequence-diagram-guide": {
+        "title": "OpenAPI 轉時序圖：把介面流程視覺化",
+        "seoTitle": "OpenAPI 轉時序圖：把介面流程視覺化 - DiagramPreview",
+        "description": "围绕 OpenAPI to Sequence Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 OpenAPI to Sequence Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "OpenAPI sequence diagram",
+          "Swagger sequence diagram",
+          "API flow documentation"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 OpenAPI to Sequence Diagram 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 OpenAPI to sequence diagram: document API flows visually，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/openapi-to-sequence-diagram-guide.png",
+              "alt": "OpenAPI 轉時序圖：把介面流程視覺化",
+              "caption": "OpenAPI to Sequence Diagram 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "sql-to-er-diagram-online-guide": {
+        "title": "SQL 轉 ER 圖：從建表語句到資料庫文件",
+        "seoTitle": "SQL 轉 ER 圖：從建表語句到資料庫文件 - DiagramPreview",
+        "description": "围绕 SQL to ER Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 SQL to ER Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "SQL to ER diagram online",
+          "database schema diagram",
+          "ER diagram generator"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 SQL to ER Diagram 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 SQL to ER diagram online: from schema to database docs，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/sql-to-er-diagram-online-guide.png",
+              "alt": "SQL 轉 ER 圖：從建表語句到資料庫文件",
+              "caption": "SQL to ER Diagram 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "json-schema-visualizer-api-payloads": {
+        "title": "JSON Schema 視覺化：理解複雜 API Payload",
+        "seoTitle": "JSON Schema 視覺化：理解複雜 API Payload - DiagramPreview",
+        "description": "围绕 JSON Schema Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 JSON Schema Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "JSON Schema visualizer",
+          "API payload diagram",
+          "nested JSON schema"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 JSON Schema Visualizer 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 JSON Schema visualizer: understand nested API payloads，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/json-schema-visualizer-api-payloads.png",
+              "alt": "JSON Schema 視覺化：理解複雜 API Payload",
+              "caption": "JSON Schema Visualizer 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "cron-expression-visualizer-guide": {
+        "title": "Cron 表達式視覺化：不用猜也能看懂排程",
+        "seoTitle": "Cron 表達式視覺化：不用猜也能看懂排程 - DiagramPreview",
+        "description": "围绕 Cron Expression Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "excerpt": "围绕 Cron Expression Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
+        "readingTime": "7 分钟阅读",
+        "keywords": [
+          "cron expression visualizer",
+          "cron schedule explainer",
+          "cron diagram"
+        ],
+        "sections": [
+          {
+            "heading": "这个长尾场景为什么有价值",
+            "paragraphs": [
+              "很多开发者现在会让 AI 先生成 Cron Expression Visualizer 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
+              "这篇文章聚焦 Cron expression visualizer: explain schedules without guessing，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
+            ],
+            "image": {
+              "src": "/blog/cron-expression-visualizer-guide.png",
+              "alt": "Cron 表達式視覺化：不用猜也能看懂排程",
+              "caption": "Cron Expression Visualizer 工作流预览图"
+            }
+          },
+          {
+            "heading": "推荐工作流",
+            "paragraphs": [
+              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
+              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+            ]
+          },
+          {
+            "heading": "常见错误和检查点",
+            "paragraphs": [
+              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
+              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+            ]
+          },
+          {
+            "heading": "什么时候用相关工具",
+            "paragraphs": [
+              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
+              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
+              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
             ]
           }
         ]

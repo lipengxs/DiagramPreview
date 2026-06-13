@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <rect x="0" y="0" width="1200" height="150" fill="#1d4ed8"/>
+  <rect x="0" y="525" width="1200" height="150" fill="#ea580c" opacity="0.92"/>
+  <g transform="translate(80 210)">
+    <rect x="0" y="0" width="1040" height="255" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="44" y="72" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#1d4ed8">DiagramPreview Guide</text>
+    <text x="44" y="135" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800" fill="#0f172a">Mermaid vs PlantUML: which one</text><text x="44" y="193" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800" fill="#0f172a">should you use for technical docs?</text>
+  </g>
+  <g transform="translate(80 72)">
+    <rect x="0" y="0" width="260" height="48" rx="8" fill="#ffffff" opacity="0.96"/>
+    <text x="22" y="31" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#1d4ed8">Mermaid and PlantUML Preview</text>
+  </g>
+  <g transform="translate(830 542)" fill="#ffffff" font-family="Inter, Arial, sans-serif">
+    <text x="0" y="0" font-size="24" font-weight="800">Preview · Fix · Export</text>
+    <text x="0" y="42" font-size="18" opacity="0.86">diagrampreview.com</text>
+  </g>
+</svg>

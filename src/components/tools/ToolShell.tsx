@@ -359,6 +359,31 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
       const svg = await renderPrismaSchema(source);
       return {html: svg, svg};
     }
+    case "cron": {
+      const {renderCronExpression} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderCronExpression(source);
+      return {html: svg, svg};
+    }
+    case "jwt": {
+      const {renderJwtDecoderDiagram} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderJwtDecoderDiagram(source);
+      return {html: svg, svg};
+    }
+    case "api-error-flow": {
+      const {renderApiErrorFlow} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderApiErrorFlow(source);
+      return {html: svg, svg};
+    }
+    case "kubernetes-topology": {
+      const {renderKubernetesServiceTopology} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderKubernetesServiceTopology(source);
+      return {html: svg, svg};
+    }
+    case "cicd-pipeline": {
+      const {renderCiCdPipeline} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderCiCdPipeline(source);
+      return {html: svg, svg};
+    }
     default:
       return {};
   }

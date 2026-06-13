@@ -14,7 +14,18 @@ export type AiToolRouteProps = {
 };
 
 const modes: Partial<
-  Record<ToolSlug, "generate" | "text-to-mermaid" | "fix-mermaid" | "architecture" | "plantuml" | "drawio" | "grafana" | "prometheus">
+  Record<
+    ToolSlug,
+    | "generate"
+    | "text-to-mermaid"
+    | "fix-mermaid"
+    | "architecture"
+    | "plantuml"
+    | "drawio"
+    | "grafana"
+    | "prometheus"
+    | "observability"
+  >
 > = {
   "ai-diagram-generator": "generate",
   "text-to-mermaid": "text-to-mermaid",
@@ -23,14 +34,16 @@ const modes: Partial<
   "ai-plantuml-generator": "plantuml",
   "ai-drawio-generator": "drawio",
   "grafana-dashboard-generator": "grafana",
-  "prometheus-alert-rule-generator": "prometheus"
+  "prometheus-alert-rule-generator": "prometheus",
+  "observability-pack-generator": "observability"
 };
 
 const outputLanguages: Partial<Record<ToolSlug, "mermaid" | "plantuml" | "drawio" | "json" | "yaml">> = {
   "ai-plantuml-generator": "plantuml",
   "ai-drawio-generator": "drawio",
   "grafana-dashboard-generator": "json",
-  "prometheus-alert-rule-generator": "yaml"
+  "prometheus-alert-rule-generator": "yaml",
+  "observability-pack-generator": "yaml"
 };
 
 export function createAiToolMetadata(slug: ToolSlug) {

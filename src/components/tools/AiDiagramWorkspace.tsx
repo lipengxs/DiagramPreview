@@ -9,7 +9,16 @@ import {renderMermaid} from "@/lib/renderers/mermaid";
 
 type AiDiagramWorkspaceProps = {
   slug: string;
-  mode: "generate" | "text-to-mermaid" | "fix-mermaid" | "architecture" | "plantuml" | "drawio" | "grafana" | "prometheus";
+  mode:
+    | "generate"
+    | "text-to-mermaid"
+    | "fix-mermaid"
+    | "architecture"
+    | "plantuml"
+    | "drawio"
+    | "grafana"
+    | "prometheus"
+    | "observability";
   outputLanguage?: "mermaid" | "plantuml" | "drawio" | "json" | "yaml";
   copy: {
     promptLabel: string;
@@ -37,6 +46,7 @@ const plantUmlDiagramTypes = ["sequence", "component", "class", "activity", "use
 const drawioDiagramTypes = ["architecture", "microservices", "cicd", "data-flow", "cloud", "deployment"];
 const grafanaDashboardTypes = ["prometheus", "loki", "node-exporter", "api-service", "kubernetes", "database"];
 const prometheusRuleTypes = ["api-service", "infrastructure", "kubernetes", "database", "queue", "slo"];
+const observabilityPackTypes = ["api-service", "kubernetes", "worker", "database", "queue", "slo"];
 
 export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy, sampleKeys}: AiDiagramWorkspaceProps) {
   const firstSample = copy.samples[sampleKeys[0]];
@@ -45,10 +55,12 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
       ? plantUmlDiagramTypes
       : outputLanguage === "drawio"
         ? drawioDiagramTypes
-        : outputLanguage === "json"
-          ? grafanaDashboardTypes
-          : outputLanguage === "yaml"
-            ? prometheusRuleTypes
+          : outputLanguage === "json"
+            ? grafanaDashboardTypes
+            : outputLanguage === "yaml"
+            ? mode === "observability"
+              ? observabilityPackTypes
+              : prometheusRuleTypes
             : diagramTypes;
   const [prompt, setPrompt] = useState(firstSample?.prompt ?? "");
   const [existingCode, setExistingCode] = useState(firstSample?.code ?? "");

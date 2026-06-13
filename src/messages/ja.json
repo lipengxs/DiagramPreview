@@ -2799,6 +2799,359 @@
         "Prisma Schema Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
         "It helps convert source text, config, or AI output into a previewable and exportable result."
       ]
+    },
+    "cron-expression-visualizer": {
+      "name": "Cron 式ビジュアライザー",
+      "shortDescription": "Cron 式ビジュアライザー: Visualize cron fields, schedule intent, and documentation notes.",
+      "seoTitle": "Cron 式ビジュアライザー - DiagramPreview",
+      "seoDescription": "Cron 式ビジュアライザー: Visualize cron fields, schedule intent, and documentation notes.",
+      "keywords": [
+        "Cron 式ビジュアライザー",
+        "Cron expression",
+        "DiagramPreview"
+      ],
+      "h1": "Cron 式ビジュアライザー",
+      "intro": "Cron 式ビジュアライザー: Visualize cron fields, schedule intent, and documentation notes.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "生成結果がここに表示されます。",
+      "samples": {
+        "daily": {
+          "label": "Daily 09:00",
+          "code": "0 9 * * *"
+        },
+        "weekday": {
+          "label": "Weekday API sync",
+          "code": "30 8 * * 1-5"
+        },
+        "quarterHourly": {
+          "label": "Every 15 minutes",
+          "code": "*/15 * * * *"
+        }
+      },
+      "howToUse": [
+        "例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "AI 生成コンテンツと一緒に使えますか？",
+          "answer": "はい。AI で下書きを作り、ここでプレビューして調整してからドキュメントに公開できます。"
+        }
+      ],
+      "seoBody": [
+        "開発者ドキュメント、アーキテクチャメモ、runbook、API 仕様、AI 生成図の確認に使えます。",
+        "例から始め、自分のソースに置き換え、出力と元テキストを一緒に確認できるようにします。",
+        "本番ドキュメントでは SVG や PNG をエクスポートし、元ソースもリポジトリに残しましょう。"
+      ],
+      "inputLabel": "Cron expression",
+      "outputLabel": "プレビュー",
+      "placeholder": "サービス、ワークフロー、データフロー、ドキュメントの場面を説明..."
+    },
+    "jwt-decoder-diagram": {
+      "name": "JWT デコーダー図",
+      "shortDescription": "JWT デコーダー図: Decode JWT header, payload, signature, and claims into a readable diagram.",
+      "seoTitle": "JWT デコーダー図 - DiagramPreview",
+      "seoDescription": "JWT デコーダー図: Decode JWT header, payload, signature, and claims into a readable diagram.",
+      "keywords": [
+        "JWT デコーダー図",
+        "JWT token",
+        "DiagramPreview"
+      ],
+      "h1": "JWT デコーダー図",
+      "intro": "JWT デコーダー図: Decode JWT header, payload, signature, and claims into a readable diagram.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "生成結果がここに表示されます。",
+      "samples": {
+        "accessToken": {
+          "label": "Access token",
+          "code": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzEyMyIsInNjb3BlIjoicmVhZDpvcmRlcnMgd3JpdGU6Y2FydHMiLCJpc3MiOiJodHRwczovL2F1dGguZXhhbXBsZS5jb20iLCJhdWQiOiJhcGkiLCJleHAiOjE4OTM0NTYwMDB9.demo-signature"
+        },
+        "idToken": {
+          "label": "ID token",
+          "code": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzQ1NiIsImVtYWlsIjoiZGV2QGV4YW1wbGUuY29tIiwibmFtZSI6IkRpYWdyYW0gVXNlciIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJleHAiOjE4OTM0NTYwMDB9.demo-signature"
+        },
+        "serviceToken": {
+          "label": "Service token",
+          "code": "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3b3JrZXI6YmlsbGluZyIsInNlcnZpY2UiOiJiaWxsaW5nLXdvcmtlciIsInJvbGUiOiJwdWJsaXNoZXIiLCJleHAiOjE4OTM0NTYwMDB9.demo-signature"
+        }
+      },
+      "howToUse": [
+        "例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "AI 生成コンテンツと一緒に使えますか？",
+          "answer": "はい。AI で下書きを作り、ここでプレビューして調整してからドキュメントに公開できます。"
+        }
+      ],
+      "seoBody": [
+        "開発者ドキュメント、アーキテクチャメモ、runbook、API 仕様、AI 生成図の確認に使えます。",
+        "例から始め、自分のソースに置き換え、出力と元テキストを一緒に確認できるようにします。",
+        "本番ドキュメントでは SVG や PNG をエクスポートし、元ソースもリポジトリに残しましょう。"
+      ],
+      "inputLabel": "JWT token",
+      "outputLabel": "プレビュー",
+      "placeholder": "サービス、ワークフロー、データフロー、ドキュメントの場面を説明..."
+    },
+    "api-error-flow-diagram": {
+      "name": "API エラーフロー図",
+      "shortDescription": "API エラーフロー図: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "seoTitle": "API エラーフロー図 - DiagramPreview",
+      "seoDescription": "API エラーフロー図: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "keywords": [
+        "API エラーフロー図",
+        "API error rows",
+        "DiagramPreview"
+      ],
+      "h1": "API エラーフロー図",
+      "intro": "API エラーフロー図: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "生成結果がここに表示されます。",
+      "samples": {
+        "checkout": {
+          "label": "Checkout API",
+          "code": "400 | Invalid cart payload | Return validation details\n401 | Missing access token | Ask client to authenticate\n409 | Inventory changed | Refresh cart and retry\n422 | Payment method rejected | Ask user to update payment method\n500 | Provider timeout | Retry with idempotency key"
+        },
+        "auth": {
+          "label": "Auth API",
+          "code": "400 | Password policy failed | Show policy requirements\n401 | Wrong credentials | Return generic login error\n403 | Account locked | Start recovery flow\n429 | Too many attempts | Apply cooldown"
+        },
+        "rateLimit": {
+          "label": "Rate limit",
+          "code": "429 | Request burst exceeded | Return Retry-After header\n503 | Global throttle enabled | Route to degraded mode\n500 | Quota store unavailable | Fail closed for write endpoints"
+        }
+      },
+      "howToUse": [
+        "例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "AI 生成コンテンツと一緒に使えますか？",
+          "answer": "はい。AI で下書きを作り、ここでプレビューして調整してからドキュメントに公開できます。"
+        }
+      ],
+      "seoBody": [
+        "開発者ドキュメント、アーキテクチャメモ、runbook、API 仕様、AI 生成図の確認に使えます。",
+        "例から始め、自分のソースに置き換え、出力と元テキストを一緒に確認できるようにします。",
+        "本番ドキュメントでは SVG や PNG をエクスポートし、元ソースもリポジトリに残しましょう。"
+      ],
+      "inputLabel": "API error rows",
+      "outputLabel": "プレビュー",
+      "placeholder": "サービス、ワークフロー、データフロー、ドキュメントの場面を説明..."
+    },
+    "kubernetes-service-topology-diagram": {
+      "name": "Kubernetes サービストポロジー図",
+      "shortDescription": "Kubernetes サービストポロジー図: Visualize Ingress, Service, Deployment, and Pod relationships from Kubernetes YAML.",
+      "seoTitle": "Kubernetes サービストポロジー図 - DiagramPreview",
+      "seoDescription": "Kubernetes サービストポロジー図: Visualize Ingress, Service, Deployment, and Pod relationships from Kubernetes YAML.",
+      "keywords": [
+        "Kubernetes サービストポロジー図",
+        "Kubernetes topology",
+        "DiagramPreview"
+      ],
+      "h1": "Kubernetes サービストポロジー図",
+      "intro": "Kubernetes サービストポロジー図: Visualize Ingress, Service, Deployment, and Pod relationships from Kubernetes YAML.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "生成結果がここに表示されます。",
+      "samples": {
+        "webApp": {
+          "label": "Web app",
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: web\nspec:\n  selector:\n    matchLabels:\n      app: web\n  template:\n    metadata:\n      labels:\n        app: web\n    spec:\n      containers:\n        - name: web\n          image: example/web:1.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: web\nspec:\n  selector:\n    app: web\n  ports:\n    - port: 80\n      targetPort: 3000"
+        },
+        "ingress": {
+          "label": "Ingress routing",
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: web\nspec:\n  selector:\n    matchLabels:\n      app: web\n  template:\n    metadata:\n      labels:\n        app: web\n    spec:\n      containers:\n        - name: web\n          image: example/web:1.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: web\nspec:\n  selector:\n    app: web\n  ports:\n    - port: 80\n      targetPort: 3000\n---\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: web\nspec:\n  rules:\n    - host: app.example.com\n      http:\n        paths:\n          - path: /\n            pathType: Prefix\n            backend:\n              service:\n                name: web\n                port:\n                  number: 80"
+        },
+        "workers": {
+          "label": "Workers",
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: worker\nspec:\n  template:\n    metadata:\n      labels:\n        app: worker\n    spec:\n      containers:\n        - name: worker\n          image: example/worker:1.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: worker-metrics\nspec:\n  selector:\n    app: worker\n  ports:\n    - name: metrics\n      port: 9100"
+        }
+      },
+      "howToUse": [
+        "例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "AI 生成コンテンツと一緒に使えますか？",
+          "answer": "はい。AI で下書きを作り、ここでプレビューして調整してからドキュメントに公開できます。"
+        }
+      ],
+      "seoBody": [
+        "開発者ドキュメント、アーキテクチャメモ、runbook、API 仕様、AI 生成図の確認に使えます。",
+        "例から始め、自分のソースに置き換え、出力と元テキストを一緒に確認できるようにします。",
+        "本番ドキュメントでは SVG や PNG をエクスポートし、元ソースもリポジトリに残しましょう。"
+      ],
+      "inputLabel": "Kubernetes topology",
+      "outputLabel": "プレビュー",
+      "placeholder": "サービス、ワークフロー、データフロー、ドキュメントの場面を説明..."
+    },
+    "ci-cd-pipeline-generator": {
+      "name": "CI/CD パイプライン生成",
+      "shortDescription": "CI/CD パイプライン生成: Generate a pipeline diagram from GitHub Actions, GitLab CI, or simple step lists.",
+      "seoTitle": "CI/CD パイプライン生成 - DiagramPreview",
+      "seoDescription": "CI/CD パイプライン生成: Generate a pipeline diagram from GitHub Actions, GitLab CI, or simple step lists.",
+      "keywords": [
+        "CI/CD パイプライン生成",
+        "CI/CD pipeline",
+        "DiagramPreview"
+      ],
+      "h1": "CI/CD パイプライン生成",
+      "intro": "CI/CD パイプライン生成: Generate a pipeline diagram from GitHub Actions, GitLab CI, or simple step lists.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "emptyPreview": "生成結果がここに表示されます。",
+      "samples": {
+        "github": {
+          "label": "GitHub Actions",
+          "code": "name: ci\non: [push]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Install\n        run: npm ci\n      - name: Test\n        run: npm test\n  build:\n    needs: test\n    runs-on: ubuntu-latest\n    steps:\n      - name: Build image\n        run: docker build -t app .\n  deploy:\n    needs: build\n    runs-on: ubuntu-latest\n    steps:\n      - name: Deploy\n        run: ./deploy.sh"
+        },
+        "gitlab": {
+          "label": "GitLab CI",
+          "code": "stages:\n  - test\n  - build\n  - deploy\nunit_tests:\n  stage: test\n  script:\n    - npm test\nbuild_image:\n  stage: build\n  script:\n    - docker build -t app .\nproduction:\n  stage: deploy\n  script:\n    - ./deploy.sh"
+        },
+        "release": {
+          "label": "Release steps",
+          "code": "checkout\ninstall dependencies\nrun unit tests\nbuild docker image\npush image\ndeploy canary\nrun smoke tests\npromote production"
+        }
+      },
+      "howToUse": [
+        "例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "AI 生成コンテンツと一緒に使えますか？",
+          "answer": "はい。AI で下書きを作り、ここでプレビューして調整してからドキュメントに公開できます。"
+        }
+      ],
+      "seoBody": [
+        "開発者ドキュメント、アーキテクチャメモ、runbook、API 仕様、AI 生成図の確認に使えます。",
+        "例から始め、自分のソースに置き換え、出力と元テキストを一緒に確認できるようにします。",
+        "本番ドキュメントでは SVG や PNG をエクスポートし、元ソースもリポジトリに残しましょう。"
+      ],
+      "inputLabel": "CI/CD pipeline",
+      "outputLabel": "プレビュー",
+      "placeholder": "サービス、ワークフロー、データフロー、ドキュメントの場面を説明..."
+    },
+    "observability-pack-generator": {
+      "name": "Observability パック生成",
+      "shortDescription": "Observability パック生成: Generate Grafana dashboard YAML, Prometheus rules, Mermaid architecture, and a runbook checklist with AI.",
+      "seoTitle": "Observability パック生成 - DiagramPreview",
+      "seoDescription": "Observability パック生成: Generate Grafana dashboard YAML, Prometheus rules, Mermaid architecture, and a runbook checklist with AI.",
+      "keywords": [
+        "Observability パック生成",
+        null,
+        "DiagramPreview"
+      ],
+      "h1": "Observability パック生成",
+      "intro": "Observability パック生成: Generate Grafana dashboard YAML, Prometheus rules, Mermaid architecture, and a runbook checklist with AI.",
+      "badges": [
+        "AI",
+        "YAML",
+        "Export"
+      ],
+      "emptyPreview": "生成結果がここに表示されます。",
+      "samples": {
+        "api": {
+          "label": "API service",
+          "prompt": "Generate an observability pack for a checkout API with p95 latency, error rate, saturation, Redis dependency, and payment provider failures.",
+          "diagramType": "api-service"
+        },
+        "kubernetes": {
+          "label": "Kubernetes app",
+          "prompt": "Create an observability pack for a Kubernetes web app with ingress, deployment replicas, pod restarts, CPU, memory, logs, and SLO burn alerts.",
+          "diagramType": "kubernetes"
+        },
+        "worker": {
+          "label": "Queue worker",
+          "prompt": "Generate dashboards and alerts for an order worker that consumes Kafka, writes PostgreSQL, and must monitor lag, retries, dead letters, and processing time.",
+          "diagramType": "worker"
+        }
+      },
+      "howToUse": [
+        "例: choose a starter example or paste your own source.",
+        "Review the generated preview and adjust labels, conditions, or configuration details.",
+        "Copy the source or export the rendered result when it is ready for documentation."
+      ],
+      "useCases": [
+        "README and engineering design docs",
+        "Architecture reviews and API documentation",
+        "AI-generated diagram validation before publishing"
+      ],
+      "faq": [
+        {
+          "question": "AI 生成コンテンツと一緒に使えますか？",
+          "answer": "はい。AI で下書きを作り、ここでプレビューして調整してからドキュメントに公開できます。"
+        }
+      ],
+      "seoBody": [
+        "開発者ドキュメント、アーキテクチャメモ、runbook、API 仕様、AI 生成図の確認に使えます。",
+        "例から始め、自分のソースに置き換え、出力と元テキストを一緒に確認できるようにします。",
+        "本番ドキュメントでは SVG や PNG をエクスポートし、元ソースもリポジトリに残しましょう。"
+      ],
+      "ai": {
+        "promptLabel": "生成したい図やパックを説明してください。",
+        "promptPlaceholder": "サービス、ワークフロー、データフロー、ドキュメントの場面を説明...",
+        "existingCodeLabel": "既存ソース",
+        "existingCodePlaceholder": "既存の図や設定を貼り付け...",
+        "diagramTypeLabel": "シナリオ",
+        "generateButton": "生成",
+        "generatedCodeLabel": "生成ソース",
+        "previewLabel": "プレビュー",
+        "providerLabel": "プロバイダー"
+      }
     }
   },
   "hubs": {
@@ -3079,6 +3432,654 @@
             "paragraphs": [
               "後から編集しやすいように、元のテキストソースをエクスポート画像と一緒に残します。",
               "AI 生成の図表では、名前、方向、グルーピング、技術的な意味を確認します。"
+            ]
+          }
+        ]
+      },
+      "chatgpt-mermaid-preview-workflow": {
+        "title": "ガイド: How to preview Mermaid diagrams generated by ChatGPT",
+        "seoTitle": "ガイド: How to preview Mermaid diagrams generated by ChatGPT - DiagramPreview",
+        "description": "A long-tail guide for Mermaid Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for Mermaid Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "ChatGPT Mermaid preview",
+          "AI generated Mermaid",
+          "Mermaid diagram preview"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft Mermaid Preview content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on How to preview Mermaid diagrams generated by ChatGPT. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/chatgpt-mermaid-preview-workflow.png",
+              "alt": "ガイド: How to preview Mermaid diagrams generated by ChatGPT",
+              "caption": "Mermaid Preview workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "mermaid-vs-plantuml-technical-docs": {
+        "title": "ガイド: Mermaid vs PlantUML: which one should you use for technical docs?",
+        "seoTitle": "ガイド: Mermaid vs PlantUML: which one should you use for technical docs? - DiagramPreview",
+        "description": "A long-tail guide for Mermaid and PlantUML Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for Mermaid and PlantUML Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "Mermaid vs PlantUML",
+          "technical documentation diagrams",
+          "diagram syntax comparison"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft Mermaid and PlantUML Preview content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on Mermaid vs PlantUML: which one should you use for technical docs?. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/mermaid-vs-plantuml-technical-docs.png",
+              "alt": "ガイド: Mermaid vs PlantUML: which one should you use for technical docs?",
+              "caption": "Mermaid and PlantUML Preview workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "plantuml-to-drawio-editable-diagram": {
+        "title": "ガイド: How to convert PlantUML to editable draw.io diagrams",
+        "seoTitle": "ガイド: How to convert PlantUML to editable draw.io diagrams - DiagramPreview",
+        "description": "A long-tail guide for PlantUML to Draw.io: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for PlantUML to Draw.io: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "PlantUML to draw.io",
+          "editable diagrams.net XML",
+          "convert PlantUML diagram"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft PlantUML to Draw.io content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on How to convert PlantUML to editable draw.io diagrams. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/plantuml-to-drawio-editable-diagram.png",
+              "alt": "ガイド: How to convert PlantUML to editable draw.io diagrams",
+              "caption": "PlantUML to Draw.io workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "ai-drawio-diagram-generator-guide": {
+        "title": "ガイド: How to generate editable draw.io diagrams with AI",
+        "seoTitle": "ガイド: How to generate editable draw.io diagrams with AI - DiagramPreview",
+        "description": "A long-tail guide for AI Draw.io Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for AI Draw.io Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "AI draw.io generator",
+          "editable architecture diagram",
+          "diagrams.net XML AI"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft AI Draw.io Generator content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on How to generate editable draw.io diagrams with AI. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/ai-drawio-diagram-generator-guide.png",
+              "alt": "ガイド: How to generate editable draw.io diagrams with AI",
+              "caption": "AI Draw.io Generator workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "kubernetes-manifest-visualization-guide": {
+        "title": "ガイド: How to visualize Kubernetes manifests online",
+        "seoTitle": "ガイド: How to visualize Kubernetes manifests online - DiagramPreview",
+        "description": "A long-tail guide for Kubernetes Manifest Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for Kubernetes Manifest Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "Kubernetes manifest visualizer",
+          "Kubernetes service topology",
+          "Kubernetes YAML diagram"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft Kubernetes Manifest Visualizer content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on How to visualize Kubernetes manifests online. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/kubernetes-manifest-visualization-guide.png",
+              "alt": "ガイド: How to visualize Kubernetes manifests online",
+              "caption": "Kubernetes Manifest Visualizer workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "docker-compose-architecture-diagram-guide": {
+        "title": "ガイド: How to turn Docker Compose into an architecture diagram",
+        "seoTitle": "ガイド: How to turn Docker Compose into an architecture diagram - DiagramPreview",
+        "description": "A long-tail guide for Docker Compose Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for Docker Compose Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "Docker Compose diagram",
+          "container architecture diagram",
+          "docker compose visualizer"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft Docker Compose Diagram content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on How to turn Docker Compose into an architecture diagram. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/docker-compose-architecture-diagram-guide.png",
+              "alt": "ガイド: How to turn Docker Compose into an architecture diagram",
+              "caption": "Docker Compose Diagram workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "ai-grafana-dashboard-json-guide": {
+        "title": "ガイド: How to generate Grafana dashboard JSON with AI",
+        "seoTitle": "ガイド: How to generate Grafana dashboard JSON with AI - DiagramPreview",
+        "description": "A long-tail guide for Grafana Dashboard Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for Grafana Dashboard Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "AI Grafana dashboard generator",
+          "Grafana dashboard JSON",
+          "Prometheus dashboard AI"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft Grafana Dashboard Generator content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on How to generate Grafana dashboard JSON with AI. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/ai-grafana-dashboard-json-guide.png",
+              "alt": "ガイド: How to generate Grafana dashboard JSON with AI",
+              "caption": "Grafana Dashboard Generator workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "prometheus-alert-rules-api-latency-error-rate": {
+        "title": "ガイド: Prometheus alert rules examples for API latency and error rate",
+        "seoTitle": "ガイド: Prometheus alert rules examples for API latency and error rate - DiagramPreview",
+        "description": "A long-tail guide for Prometheus Alert Rule Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for Prometheus Alert Rule Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "Prometheus alert rules examples",
+          "API latency alert",
+          "error rate alert PromQL"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft Prometheus Alert Rule Generator content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on Prometheus alert rules examples for API latency and error rate. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/prometheus-alert-rules-api-latency-error-rate.png",
+              "alt": "ガイド: Prometheus alert rules examples for API latency and error rate",
+              "caption": "Prometheus Alert Rule Generator workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "openapi-to-sequence-diagram-guide": {
+        "title": "ガイド: OpenAPI to sequence diagram: document API flows visually",
+        "seoTitle": "ガイド: OpenAPI to sequence diagram: document API flows visually - DiagramPreview",
+        "description": "A long-tail guide for OpenAPI to Sequence Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for OpenAPI to Sequence Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "OpenAPI sequence diagram",
+          "Swagger sequence diagram",
+          "API flow documentation"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft OpenAPI to Sequence Diagram content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on OpenAPI to sequence diagram: document API flows visually. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/openapi-to-sequence-diagram-guide.png",
+              "alt": "ガイド: OpenAPI to sequence diagram: document API flows visually",
+              "caption": "OpenAPI to Sequence Diagram workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "sql-to-er-diagram-online-guide": {
+        "title": "ガイド: SQL to ER diagram online: from schema to database docs",
+        "seoTitle": "ガイド: SQL to ER diagram online: from schema to database docs - DiagramPreview",
+        "description": "A long-tail guide for SQL to ER Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for SQL to ER Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "SQL to ER diagram online",
+          "database schema diagram",
+          "ER diagram generator"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft SQL to ER Diagram content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on SQL to ER diagram online: from schema to database docs. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/sql-to-er-diagram-online-guide.png",
+              "alt": "ガイド: SQL to ER diagram online: from schema to database docs",
+              "caption": "SQL to ER Diagram workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "json-schema-visualizer-api-payloads": {
+        "title": "ガイド: JSON Schema visualizer: understand nested API payloads",
+        "seoTitle": "ガイド: JSON Schema visualizer: understand nested API payloads - DiagramPreview",
+        "description": "A long-tail guide for JSON Schema Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for JSON Schema Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "JSON Schema visualizer",
+          "API payload diagram",
+          "nested JSON schema"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft JSON Schema Visualizer content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on JSON Schema visualizer: understand nested API payloads. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/json-schema-visualizer-api-payloads.png",
+              "alt": "ガイド: JSON Schema visualizer: understand nested API payloads",
+              "caption": "JSON Schema Visualizer workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "cron-expression-visualizer-guide": {
+        "title": "ガイド: Cron expression visualizer: explain schedules without guessing",
+        "seoTitle": "ガイド: Cron expression visualizer: explain schedules without guessing - DiagramPreview",
+        "description": "A long-tail guide for Cron Expression Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "excerpt": "A long-tail guide for Cron Expression Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
+        "readingTime": "7 min read",
+        "keywords": [
+          "cron expression visualizer",
+          "cron schedule explainer",
+          "cron diagram"
+        ],
+        "sections": [
+          {
+            "heading": "Why this long-tail workflow matters",
+            "paragraphs": [
+              "Many developers now ask AI to draft Cron Expression Visualizer content, but the result still needs preview, validation, and export before it belongs in a README, design doc, or runbook. That handoff step determines whether the diagram renders and whether teammates can review it.",
+              "This guide focuses on Cron expression visualizer: explain schedules without guessing. It turns the search intent into practical steps: what to paste, what to inspect, what usually breaks, and how to publish the result."
+            ],
+            "image": {
+              "src": "/blog/cron-expression-visualizer-guide.png",
+              "alt": "ガイド: Cron expression visualizer: explain schedules without guessing",
+              "caption": "Cron Expression Visualizer workflow preview"
+            }
+          },
+          {
+            "heading": "Recommended workflow",
+            "paragraphs": [
+              "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
+              "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
+            ]
+          },
+          {
+            "heading": "Common mistakes and checks",
+            "paragraphs": [
+              "The common problem is rarely that the tool cannot draw. It is usually unclear input: long labels, missing relationships, multiple environments in one config, or small syntax errors from an AI draft.",
+              "Before publishing, check three things: the diagram explains the context on its own, the exported SVG or PNG remains clear, and the source text is stored with the documentation so future edits are reviewable."
+            ]
+          },
+          {
+            "heading": "When to use related tools",
+            "paragraphs": [
+              "Use preview tools when you need to validate syntax quickly. Use Developer Diagrams when the source is configuration or code. Use AI Diagram Tools when you want a first draft that still needs human review.",
+              "DiagramPreview gives each workflow its own URL, examples, export actions, and related tools, so a specific documentation problem can become a repeatable and searchable workflow."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
+              "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
             ]
           }
         ]

@@ -94,6 +94,7 @@ const toolMenuSections: ToolMenuSection[] = [
     slugs: [
       "ai-diagram-generator",
       "ai-drawio-generator",
+      "observability-pack-generator",
       "text-to-mermaid",
       "mermaid-ai-fixer",
       "architecture-diagram-generator",
@@ -127,6 +128,8 @@ const toolMenuSections: ToolMenuSection[] = [
     slugs: [
       "grafana-dashboard-generator",
       "prometheus-alert-rule-generator",
+      "kubernetes-service-topology-diagram",
+      "ci-cd-pipeline-generator",
       "docker-compose-diagram",
       "kubernetes-manifest-visualizer",
       "terraform-architecture-diagram",
@@ -160,7 +163,14 @@ const toolMenuSections: ToolMenuSection[] = [
     id: "code",
     labelKey: "common.toolMenu.code",
     href: "/developer-diagrams",
-    slugs: ["openapi-to-sequence", "package-json-dependency-diagram", "regex-railroad-diagram"]
+    slugs: [
+      "openapi-to-sequence",
+      "api-error-flow-diagram",
+      "cron-expression-visualizer",
+      "jwt-decoder-diagram",
+      "package-json-dependency-diagram",
+      "regex-railroad-diagram"
+    ]
   }
 ];
 

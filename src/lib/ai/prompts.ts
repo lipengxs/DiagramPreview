@@ -6,7 +6,8 @@ export type AiDiagramMode =
   | "plantuml"
   | "drawio"
   | "grafana"
-  | "prometheus";
+  | "prometheus"
+  | "observability";
 export type AiOutputLanguage = "mermaid" | "plantuml" | "drawio" | "json" | "yaml";
 
 export type AiDiagramRequest = {
@@ -134,6 +135,21 @@ export function buildDiagramPrompt(input: AiDiagramRequest) {
       `Alert scenario: ${input.diagramType}.`,
       "Use groups, rules, alert, expr, for, labels, and annotations.",
       "Include practical alerts for latency, error rate, saturation, instance health, CPU, memory, disk, Kubernetes, or queue lag when relevant.",
+      ...baseRules,
+      "User request:",
+      input.prompt
+    ].join("\n");
+  }
+
+  if (input.mode === "observability") {
+    return [
+      "Generate a complete observability starter pack from the user's request.",
+      `Observability scenario: ${input.diagramType}.`,
+      "Return one YAML document with top-level keys: overview, mermaidArchitecture, grafanaDashboard, prometheusRuleGroups, runbookChecklist.",
+      "grafanaDashboard must be importable Grafana dashboard JSON expressed as YAML.",
+      "prometheusRuleGroups must follow Prometheus alerting rule structure with groups and rules.",
+      "mermaidArchitecture must be valid Mermaid flowchart source as a block scalar.",
+      "Include practical API latency, error rate, saturation, uptime, Kubernetes, queue, and log-based signals when relevant.",
       ...baseRules,
       "User request:",
       input.prompt

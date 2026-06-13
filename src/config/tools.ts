@@ -8,9 +8,11 @@ import {
   FileText,
   GitBranch,
   GitFork,
+  KeyRound,
   Network,
   Sparkles,
   Route,
+  Timer,
   Workflow
 } from "lucide-react";
 
@@ -56,7 +58,13 @@ export type ToolSlug =
   | "protobuf-schema-visualizer"
   | "asyncapi-event-flow-diagram"
   | "dbml-to-er-diagram"
-  | "prisma-schema-diagram";
+  | "prisma-schema-diagram"
+  | "cron-expression-visualizer"
+  | "jwt-decoder-diagram"
+  | "api-error-flow-diagram"
+  | "kubernetes-service-topology-diagram"
+  | "ci-cd-pipeline-generator"
+  | "observability-pack-generator";
 
 export type ToolCategory = "preview" | "converter" | "developer" | "data";
 
@@ -105,6 +113,11 @@ export type ToolConfig = {
     | "asyncapi"
     | "dbml"
     | "prisma"
+    | "cron"
+    | "jwt"
+    | "api-error-flow"
+    | "kubernetes-topology"
+    | "cicd-pipeline"
     | "ai";
   sampleKeys: string[];
 };
@@ -205,6 +218,18 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["api", "infrastructure", "kubernetes"]
   },
   {
+    slug: "observability-pack-generator",
+    category: "developer",
+    navGroup: "ai-diagram",
+    icon: Sparkles,
+    popular: true,
+    recentlyAdded: true,
+    priority: 82,
+    implemented: true,
+    renderer: "ai",
+    sampleKeys: ["api", "kubernetes", "worker"]
+  },
+  {
     slug: "openapi-to-sequence",
     category: "developer",
     navGroup: "developer-diagrams",
@@ -215,6 +240,18 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "openapi",
     sampleKeys: ["petstore", "auth", "orders"]
+  },
+  {
+    slug: "api-error-flow-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Workflow,
+    popular: true,
+    recentlyAdded: true,
+    priority: 79,
+    implemented: true,
+    renderer: "api-error-flow",
+    sampleKeys: ["checkout", "auth", "rateLimit"]
   },
   {
     slug: "plantuml-to-drawio",
@@ -311,6 +348,18 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["deployment", "service", "ingress"]
   },
   {
+    slug: "kubernetes-service-topology-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    popular: true,
+    recentlyAdded: true,
+    priority: 68,
+    implemented: true,
+    renderer: "kubernetes-topology",
+    sampleKeys: ["webApp", "ingress", "workers"]
+  },
+  {
     slug: "github-actions-workflow-diagram",
     category: "developer",
     navGroup: "developer-diagrams",
@@ -322,6 +371,18 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["nodeCi", "dockerDeploy", "matrix"]
   },
   {
+    slug: "ci-cd-pipeline-generator",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: GitBranch,
+    popular: true,
+    recentlyAdded: true,
+    priority: 65,
+    implemented: true,
+    renderer: "cicd-pipeline",
+    sampleKeys: ["github", "gitlab", "release"]
+  },
+  {
     slug: "regex-railroad-diagram",
     category: "developer",
     navGroup: "developer-diagrams",
@@ -331,6 +392,30 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "regex",
     sampleKeys: ["email", "slug", "semver"]
+  },
+  {
+    slug: "cron-expression-visualizer",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Timer,
+    popular: true,
+    recentlyAdded: true,
+    priority: 64,
+    implemented: true,
+    renderer: "cron",
+    sampleKeys: ["daily", "weekday", "quarterHourly"]
+  },
+  {
+    slug: "jwt-decoder-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: KeyRound,
+    popular: true,
+    recentlyAdded: true,
+    priority: 62,
+    implemented: true,
+    renderer: "jwt",
+    sampleKeys: ["accessToken", "idToken", "serviceToken"]
   },
   {
     slug: "dockerfile-visualizer",
