@@ -3152,6 +3152,348 @@
         "previewLabel": "Предпросмотр",
         "providerLabel": "Провайдер"
       }
+    },
+    "postman-collection-sequence-diagram": {
+      "name": "Postman Collection в sequence diagram",
+      "shortDescription": "Postman Collection в sequence diagram: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "seoTitle": "Postman Collection в sequence diagram - DiagramPreview",
+      "seoDescription": "Postman Collection в sequence diagram: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "keywords": [
+        "Postman Collection в sequence diagram",
+        "Postman collection JSON",
+        "developer diagrams"
+      ],
+      "h1": "Postman Collection в sequence diagram",
+      "intro": "Postman Collection в sequence diagram: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "Postman collection JSON",
+      "outputLabel": "Предпросмотр",
+      "placeholder": "Вставьте исходный текст...",
+      "emptyPreview": "Диаграмма появится здесь.",
+      "samples": {
+        "orders": {
+          "label": "Orders collection",
+          "code": "{\n  \"info\": {\n    \"name\": \"Orders API\"\n  },\n  \"item\": [\n    {\n      \"name\": \"Create order\",\n      \"request\": {\n        \"method\": \"POST\",\n        \"url\": {\n          \"raw\": \"https://api.example.com/orders\",\n          \"host\": [\n            \"api\",\n            \"example\",\n            \"com\"\n          ],\n          \"path\": [\n            \"orders\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"Get order\",\n      \"request\": {\n        \"method\": \"GET\",\n        \"url\": {\n          \"raw\": \"https://api.example.com/orders/{{orderId}}\",\n          \"host\": [\n            \"api\",\n            \"example\",\n            \"com\"\n          ],\n          \"path\": [\n            \"orders\",\n            \"{{orderId}}\"\n          ]\n        }\n      }\n    }\n  ]\n}"
+        },
+        "auth": {
+          "label": "Auth collection",
+          "code": "{\n  \"info\": {\n    \"name\": \"Auth API\"\n  },\n  \"item\": [\n    {\n      \"name\": \"Login\",\n      \"request\": {\n        \"method\": \"POST\",\n        \"url\": \"https://auth.example.com/login\"\n      }\n    },\n    {\n      \"name\": \"Refresh token\",\n      \"request\": {\n        \"method\": \"POST\",\n        \"url\": \"https://auth.example.com/token/refresh\"\n      }\n    },\n    {\n      \"name\": \"Profile\",\n      \"request\": {\n        \"method\": \"GET\",\n        \"url\": \"https://api.example.com/me\"\n      }\n    }\n  ]\n}"
+        },
+        "workspace": {
+          "label": "Workspace APIs",
+          "code": "{\n  \"info\": {\n    \"name\": \"Workspace\"\n  },\n  \"item\": [\n    {\n      \"name\": \"Projects\",\n      \"item\": [\n        {\n          \"name\": \"List projects\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": \"https://api.example.com/projects\"\n          }\n        },\n        {\n          \"name\": \"Create project\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": \"https://api.example.com/projects\"\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Members\",\n      \"item\": [\n        {\n          \"name\": \"Invite member\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": \"https://api.example.com/members/invite\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+        }
+      },
+      "howToUse": [
+        "Примеры: choose an example or paste your own Postman collection JSON.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "Можно использовать ИИ-сгенерированный или production-like источник?",
+          "answer": "Да, но удалите секреты, токены, приватные хосты и данные клиентов перед вставкой."
+        }
+      ],
+      "seoBody": [
+        "Инструмент превращает исходный текст разработчика в визуальное объяснение для документации, тикетов и архитектурных заметок.",
+        "Начните с малого примера, проверьте связи, затем вставляйте более крупный источник.",
+        "Храните исходный текст рядом с SVG или PNG, чтобы диаграммы оставались редактируемыми."
+      ]
+    },
+    "har-file-sequence-diagram": {
+      "name": "HAR файл в sequence diagram",
+      "shortDescription": "HAR файл в sequence diagram: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "seoTitle": "HAR файл в sequence diagram - DiagramPreview",
+      "seoDescription": "HAR файл в sequence diagram: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "keywords": [
+        "HAR файл в sequence diagram",
+        "HAR JSON",
+        "developer diagrams"
+      ],
+      "h1": "HAR файл в sequence diagram",
+      "intro": "HAR файл в sequence diagram: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "HAR JSON",
+      "outputLabel": "Предпросмотр",
+      "placeholder": "Вставьте исходный текст...",
+      "emptyPreview": "Диаграмма появится здесь.",
+      "samples": {
+        "checkout": {
+          "label": "Checkout HAR",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"time\": 86,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://app.example.com/checkout\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 142,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/cart/validate\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 238,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/orders\"\n        },\n        \"response\": {\n          \"status\": 201\n        }\n      },\n      {\n        \"time\": 96,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/orders/123\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      }\n    ]\n  }\n}"
+        },
+        "assets": {
+          "label": "Assets waterfall",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"time\": 34,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.js\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 25,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.css\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 82,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/bootstrap\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      }\n    ]\n  }\n}"
+        },
+        "apiDebug": {
+          "label": "API debug",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"time\": 188,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/login\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 73,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/me\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 421,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/billing\"\n        },\n        \"response\": {\n          \"status\": 500\n        }\n      }\n    ]\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "Примеры: choose an example or paste your own HAR JSON.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "Можно использовать ИИ-сгенерированный или production-like источник?",
+          "answer": "Да, но удалите секреты, токены, приватные хосты и данные клиентов перед вставкой."
+        }
+      ],
+      "seoBody": [
+        "Инструмент превращает исходный текст разработчика в визуальное объяснение для документации, тикетов и архитектурных заметок.",
+        "Начните с малого примера, проверьте связи, затем вставляйте более крупный источник.",
+        "Храните исходный текст рядом с SVG или PNG, чтобы диаграммы оставались редактируемыми."
+      ]
+    },
+    "typescript-interface-visualizer": {
+      "name": "Визуализатор TypeScript interface",
+      "shortDescription": "Визуализатор TypeScript interface: Visualize TypeScript interfaces, type aliases, fields, and references for API and SDK docs.",
+      "seoTitle": "Визуализатор TypeScript interface - DiagramPreview",
+      "seoDescription": "Визуализатор TypeScript interface: Visualize TypeScript interfaces, type aliases, fields, and references for API and SDK docs.",
+      "keywords": [
+        "Визуализатор TypeScript interface",
+        "TypeScript interfaces",
+        "developer diagrams"
+      ],
+      "h1": "Визуализатор TypeScript interface",
+      "intro": "Визуализатор TypeScript interface: Visualize TypeScript interfaces, type aliases, fields, and references for API and SDK docs.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "TypeScript interfaces",
+      "outputLabel": "Предпросмотр",
+      "placeholder": "Вставьте исходный текст...",
+      "emptyPreview": "Диаграмма появится здесь.",
+      "samples": {
+        "apiResponse": {
+          "label": "API response",
+          "code": "export interface ApiResponse<T> {\n  requestId: string;\n  data: T;\n  error?: ApiError;\n}\n\nexport interface ApiError {\n  code: string;\n  message: string;\n  retryable: boolean;\n}"
+        },
+        "checkout": {
+          "label": "Checkout types",
+          "code": "export interface CheckoutRequest {\n  cartId: string;\n  paymentMethodId: string;\n  shippingAddress: Address;\n}\n\nexport interface Address {\n  line1: string;\n  city: string;\n  country: string;\n  postalCode?: string;\n}"
+        },
+        "sdk": {
+          "label": "SDK options",
+          "code": "export type ClientOptions = {\n  baseUrl: string;\n  timeoutMs?: number;\n  retries?: number;\n  auth: AuthOptions;\n}\n\nexport type AuthOptions = {\n  token: string;\n  refreshToken?: string;\n}"
+        }
+      },
+      "howToUse": [
+        "Примеры: choose an example or paste your own TypeScript interfaces.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "Можно использовать ИИ-сгенерированный или production-like источник?",
+          "answer": "Да, но удалите секреты, токены, приватные хосты и данные клиентов перед вставкой."
+        }
+      ],
+      "seoBody": [
+        "Инструмент превращает исходный текст разработчика в визуальное объяснение для документации, тикетов и архитектурных заметок.",
+        "Начните с малого примера, проверьте связи, затем вставляйте более крупный источник.",
+        "Храните исходный текст рядом с SVG или PNG, чтобы диаграммы оставались редактируемыми."
+      ]
+    },
+    "zod-schema-visualizer": {
+      "name": "Визуализатор Zod schema",
+      "shortDescription": "Визуализатор Zod schema: Visualize Zod object schemas, validators, and validation documentation structure.",
+      "seoTitle": "Визуализатор Zod schema - DiagramPreview",
+      "seoDescription": "Визуализатор Zod schema: Visualize Zod object schemas, validators, and validation documentation structure.",
+      "keywords": [
+        "Визуализатор Zod schema",
+        "Zod schemas",
+        "developer diagrams"
+      ],
+      "h1": "Визуализатор Zod schema",
+      "intro": "Визуализатор Zod schema: Visualize Zod object schemas, validators, and validation documentation structure.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "Zod schemas",
+      "outputLabel": "Предпросмотр",
+      "placeholder": "Вставьте исходный текст...",
+      "emptyPreview": "Диаграмма появится здесь.",
+      "samples": {
+        "user": {
+          "label": "User schema",
+          "code": "const UserSchema = z.object({\n  id: z.string().uuid(),\n  email: z.string().email(),\n  name: z.string().min(1),\n  roles: z.array(z.string()),\n  active: z.boolean().default(true),\n})"
+        },
+        "checkout": {
+          "label": "Checkout schema",
+          "code": "const CheckoutSchema = z.object({\n  cartId: z.string().min(1),\n  paymentMethodId: z.string(),\n  couponCode: z.string().optional(),\n  savePaymentMethod: z.boolean().default(false),\n})"
+        },
+        "env": {
+          "label": "Env schema",
+          "code": "const EnvSchema = z.object({\n  NODE_ENV: z.enum([\"development\", \"production\"]),\n  DATABASE_URL: z.string().url(),\n  REDIS_URL: z.string().url().optional(),\n  PORT: z.coerce.number().default(3000),\n})"
+        }
+      },
+      "howToUse": [
+        "Примеры: choose an example or paste your own Zod schemas.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "Можно использовать ИИ-сгенерированный или production-like источник?",
+          "answer": "Да, но удалите секреты, токены, приватные хосты и данные клиентов перед вставкой."
+        }
+      ],
+      "seoBody": [
+        "Инструмент превращает исходный текст разработчика в визуальное объяснение для документации, тикетов и архитектурных заметок.",
+        "Начните с малого примера, проверьте связи, затем вставляйте более крупный источник.",
+        "Храните исходный текст рядом с SVG или PNG, чтобы диаграммы оставались редактируемыми."
+      ]
+    },
+    "cloudformation-template-diagram": {
+      "name": "Диаграмма шаблона CloudFormation",
+      "shortDescription": "Диаграмма шаблона CloudFormation: Visualize AWS CloudFormation resources and references from template YAML or JSON.",
+      "seoTitle": "Диаграмма шаблона CloudFormation - DiagramPreview",
+      "seoDescription": "Диаграмма шаблона CloudFormation: Visualize AWS CloudFormation resources and references from template YAML or JSON.",
+      "keywords": [
+        "Диаграмма шаблона CloudFormation",
+        "CloudFormation YAML or JSON",
+        "developer diagrams"
+      ],
+      "h1": "Диаграмма шаблона CloudFormation",
+      "intro": "Диаграмма шаблона CloudFormation: Visualize AWS CloudFormation resources and references from template YAML or JSON.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "CloudFormation YAML or JSON",
+      "outputLabel": "Предпросмотр",
+      "placeholder": "Вставьте исходный текст...",
+      "emptyPreview": "Диаграмма появится здесь.",
+      "samples": {
+        "serverless": {
+          "label": "Serverless API",
+          "code": "Resources:\n  ApiGateway:\n    Type: AWS::ApiGatewayV2::Api\n    Properties:\n      Name: OrdersApi\n  OrdersFunction:\n    Type: AWS::Lambda::Function\n    Properties:\n      Handler: index.handler\n      Runtime: nodejs20.x\n  OrdersTable:\n    Type: AWS::DynamoDB::Table\n    Properties:\n      TableName: orders\n  ApiIntegration:\n    Type: AWS::ApiGatewayV2::Integration\n    Properties:\n      ApiId:\n        Ref: ApiGateway\n      IntegrationUri:\n        Ref: OrdersFunction"
+        },
+        "webApp": {
+          "label": "Web app",
+          "code": "Resources:\n  LoadBalancer:\n    Type: AWS::ElasticLoadBalancingV2::LoadBalancer\n  WebTargetGroup:\n    Type: AWS::ElasticLoadBalancingV2::TargetGroup\n  WebService:\n    Type: AWS::ECS::Service\n    Properties:\n      LoadBalancers:\n        - TargetGroupArn:\n            Ref: WebTargetGroup\n  Database:\n    Type: AWS::RDS::DBInstance"
+        },
+        "network": {
+          "label": "Network stack",
+          "code": "Resources:\n  Vpc:\n    Type: AWS::EC2::VPC\n  PublicSubnet:\n    Type: AWS::EC2::Subnet\n    Properties:\n      VpcId:\n        Ref: Vpc\n  PrivateSubnet:\n    Type: AWS::EC2::Subnet\n    Properties:\n      VpcId:\n        Ref: Vpc\n  NatGateway:\n    Type: AWS::EC2::NatGateway"
+        }
+      },
+      "howToUse": [
+        "Примеры: choose an example or paste your own CloudFormation YAML or JSON.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "Можно использовать ИИ-сгенерированный или production-like источник?",
+          "answer": "Да, но удалите секреты, токены, приватные хосты и данные клиентов перед вставкой."
+        }
+      ],
+      "seoBody": [
+        "Инструмент превращает исходный текст разработчика в визуальное объяснение для документации, тикетов и архитектурных заметок.",
+        "Начните с малого примера, проверьте связи, затем вставляйте более крупный источник.",
+        "Храните исходный текст рядом с SVG или PNG, чтобы диаграммы оставались редактируемыми."
+      ]
+    },
+    "c4-model-diagram-generator": {
+      "name": "Генератор C4 model диаграмм",
+      "shortDescription": "Генератор C4 model диаграмм: Generate C4-style system context, container, and component diagrams from simple text.",
+      "seoTitle": "Генератор C4 model диаграмм - DiagramPreview",
+      "seoDescription": "Генератор C4 model диаграмм: Generate C4-style system context, container, and component diagrams from simple text.",
+      "keywords": [
+        "Генератор C4 model диаграмм",
+        "C4 model text",
+        "developer diagrams"
+      ],
+      "h1": "Генератор C4 model диаграмм",
+      "intro": "Генератор C4 model диаграмм: Generate C4-style system context, container, and component diagrams from simple text.",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "C4 model text",
+      "outputLabel": "Предпросмотр",
+      "placeholder": "Вставьте исходный текст...",
+      "emptyPreview": "Диаграмма появится здесь.",
+      "samples": {
+        "context": {
+          "label": "System context",
+          "code": "Person(user, \"Customer\")\nSystem(web, \"Web application\")\nSystem(payment, \"Payment provider\")\nRel(user, web, \"Places orders\")\nRel(web, payment, \"Charges card\")"
+        },
+        "container": {
+          "label": "Container view",
+          "code": "Person(user, \"Customer\")\nContainer(spa, \"Single page app\")\nContainer(api, \"Orders API\")\nDatabase(db, \"PostgreSQL\")\nQueue(queue, \"Order events\")\nRel(user, spa, \"Uses\")\nRel(spa, api, \"HTTPS\")\nRel(api, db, \"Reads/Writes\")\nRel(api, queue, \"Publishes\")"
+        },
+        "component": {
+          "label": "Component view",
+          "code": "Container(api, \"Orders API\")\nComponent(controller, \"OrderController\")\nComponent(service, \"OrderService\")\nComponent(repo, \"OrderRepository\")\nDatabase(db, \"PostgreSQL\")\nRel(controller, service, \"Calls\")\nRel(service, repo, \"Persists\")\nRel(repo, db, \"SQL\")"
+        }
+      },
+      "howToUse": [
+        "Примеры: choose an example or paste your own C4 model text.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "Можно использовать ИИ-сгенерированный или production-like источник?",
+          "answer": "Да, но удалите секреты, токены, приватные хосты и данные клиентов перед вставкой."
+        }
+      ],
+      "seoBody": [
+        "Инструмент превращает исходный текст разработчика в визуальное объяснение для документации, тикетов и архитектурных заметок.",
+        "Начните с малого примера, проверьте связи, затем вставляйте более крупный источник.",
+        "Храните исходный текст рядом с SVG или PNG, чтобы диаграммы оставались редактируемыми."
+      ]
     }
   },
   "hubs": {
@@ -4080,6 +4422,654 @@
             "paragraphs": [
               "SVG is usually best for blogs, READMEs, and internal docs. PNG is safer for chat tools and slide decks. For editable formats such as draw.io or Grafana JSON, keep both the source artifact and a preview image.",
               "If the content came from AI, treat it as a draft rather than a final answer. Preview, repair, then export. That sequence prevents broken diagrams and misleading architecture notes from reaching production documentation."
+            ]
+          }
+        ]
+      },
+      "postman-collection-to-sequence-diagram": {
+        "title": "Гайд: Postman collection to sequence diagram",
+        "seoTitle": "Гайд: Postman collection to sequence diagram - DiagramPreview",
+        "description": "A practical long-tail guide for Postman Collection to Sequence Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for Postman Collection to Sequence Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "Postman collection sequence diagram",
+          "visualize Postman collection",
+          "API request flow"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on Postman collection to sequence diagram. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/postman-collection-to-sequence-diagram.png",
+              "alt": "Гайд: Postman collection to sequence diagram",
+              "caption": "Postman Collection to Sequence Diagram visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "har-file-to-sequence-diagram-api-debugging": {
+        "title": "Гайд: HAR file to sequence diagram for API debugging",
+        "seoTitle": "Гайд: HAR file to sequence diagram for API debugging - DiagramPreview",
+        "description": "A practical long-tail guide for HAR File to Sequence Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for HAR File to Sequence Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "HAR sequence diagram",
+          "HAR API debugging",
+          "browser network diagram"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on HAR file to sequence diagram for API debugging. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/har-file-to-sequence-diagram-api-debugging.png",
+              "alt": "Гайд: HAR file to sequence diagram for API debugging",
+              "caption": "HAR File to Sequence Diagram visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "typescript-interface-to-diagram-api-docs": {
+        "title": "Гайд: TypeScript interface to diagram for API docs",
+        "seoTitle": "Гайд: TypeScript interface to diagram for API docs - DiagramPreview",
+        "description": "A practical long-tail guide for TypeScript Interface Visualizer with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for TypeScript Interface Visualizer with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "TypeScript interface diagram",
+          "API docs TypeScript types",
+          "visualize TypeScript interface"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on TypeScript interface to diagram for API docs. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/typescript-interface-to-diagram-api-docs.png",
+              "alt": "Гайд: TypeScript interface to diagram for API docs",
+              "caption": "TypeScript Interface Visualizer visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "zod-schema-visualizer-validation-docs": {
+        "title": "Гайд: Zod schema visualizer for validation docs",
+        "seoTitle": "Гайд: Zod schema visualizer for validation docs - DiagramPreview",
+        "description": "A practical long-tail guide for Zod Schema Visualizer with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for Zod Schema Visualizer with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "Zod schema visualizer",
+          "validation schema diagram",
+          "Zod documentation"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on Zod schema visualizer for validation docs. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/zod-schema-visualizer-validation-docs.png",
+              "alt": "Гайд: Zod schema visualizer for validation docs",
+              "caption": "Zod Schema Visualizer visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "json-schema-vs-zod-vs-typescript": {
+        "title": "Гайд: JSON Schema vs Zod vs TypeScript types",
+        "seoTitle": "Гайд: JSON Schema vs Zod vs TypeScript types - DiagramPreview",
+        "description": "A practical long-tail guide for Schema Visualizers with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for Schema Visualizers with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "JSON Schema vs Zod",
+          "Zod vs TypeScript",
+          "schema documentation"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on JSON Schema vs Zod vs TypeScript types. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/json-schema-vs-zod-vs-typescript.png",
+              "alt": "Гайд: JSON Schema vs Zod vs TypeScript types",
+              "caption": "Schema Visualizers visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "cloudformation-template-visualizer-guide": {
+        "title": "Гайд: CloudFormation template visualizer guide",
+        "seoTitle": "Гайд: CloudFormation template visualizer guide - DiagramPreview",
+        "description": "A practical long-tail guide for CloudFormation Template Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for CloudFormation Template Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "CloudFormation template visualizer",
+          "AWS architecture diagram",
+          "CloudFormation diagram"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on CloudFormation template visualizer guide. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/cloudformation-template-visualizer-guide.png",
+              "alt": "Гайд: CloudFormation template visualizer guide",
+              "caption": "CloudFormation Template Diagram visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "terraform-vs-cloudformation-architecture-diagrams": {
+        "title": "Гайд: Terraform vs CloudFormation architecture diagrams",
+        "seoTitle": "Гайд: Terraform vs CloudFormation architecture diagrams - DiagramPreview",
+        "description": "A practical long-tail guide for Terraform and CloudFormation Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for Terraform and CloudFormation Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "Terraform vs CloudFormation",
+          "IaC architecture diagram",
+          "cloud architecture documentation"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on Terraform vs CloudFormation architecture diagrams. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/terraform-vs-cloudformation-architecture-diagrams.png",
+              "alt": "Гайд: Terraform vs CloudFormation architecture diagrams",
+              "caption": "Terraform and CloudFormation Diagrams visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "c4-model-diagrams-software-architecture": {
+        "title": "Гайд: C4 model diagrams for software architecture",
+        "seoTitle": "Гайд: C4 model diagrams for software architecture - DiagramPreview",
+        "description": "A practical long-tail guide for C4 Model Diagram Generator with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for C4 Model Diagram Generator with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "C4 model diagram",
+          "software architecture documentation",
+          "system context diagram"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on C4 model diagrams for software architecture. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/c4-model-diagrams-software-architecture.png",
+              "alt": "Гайд: C4 model diagrams for software architecture",
+              "caption": "C4 Model Diagram Generator visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "api-error-flow-documentation-guide": {
+        "title": "Гайд: How to document API error flows visually",
+        "seoTitle": "Гайд: How to document API error flows visually - DiagramPreview",
+        "description": "A practical long-tail guide for API Error Flow Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for API Error Flow Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "API error flow diagram",
+          "API error documentation",
+          "HTTP status flow"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on How to document API error flows visually. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/api-error-flow-documentation-guide.png",
+              "alt": "Гайд: How to document API error flows visually",
+              "caption": "API Error Flow Diagram visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "browser-network-requests-sequence-diagram": {
+        "title": "Гайд: How to turn browser network requests into sequence diagrams",
+        "seoTitle": "Гайд: How to turn browser network requests into sequence diagrams - DiagramPreview",
+        "description": "A practical long-tail guide for HAR File to Sequence Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for HAR File to Sequence Diagram with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "browser network sequence diagram",
+          "network requests diagram",
+          "HAR visualization"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on How to turn browser network requests into sequence diagrams. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/browser-network-requests-sequence-diagram.png",
+              "alt": "Гайд: How to turn browser network requests into sequence diagrams",
+              "caption": "HAR File to Sequence Diagram visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "frontend-api-debugging-har-sequence": {
+        "title": "Гайд: Frontend API debugging workflow with HAR and sequence diagrams",
+        "seoTitle": "Гайд: Frontend API debugging workflow with HAR and sequence diagrams - DiagramPreview",
+        "description": "A practical long-tail guide for HAR and Postman Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for HAR and Postman Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "frontend API debugging",
+          "HAR sequence diagram",
+          "Postman API workflow"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on Frontend API debugging workflow with HAR and sequence diagrams. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/frontend-api-debugging-har-sequence.png",
+              "alt": "Гайд: Frontend API debugging workflow with HAR and sequence diagrams",
+              "caption": "HAR and Postman Diagrams visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "architecture-documentation-checklist-ai-diagrams": {
+        "title": "Гайд: Architecture documentation checklist for AI-generated diagrams",
+        "seoTitle": "Гайд: Architecture documentation checklist for AI-generated diagrams - DiagramPreview",
+        "description": "A practical long-tail guide for C4 and AI Diagram Tools with example input, visualization checks, common mistakes, and publishing notes.",
+        "excerpt": "A practical long-tail guide for C4 and AI Diagram Tools with example input, visualization checks, common mistakes, and publishing notes.",
+        "readingTime": "8 min read",
+        "keywords": [
+          "architecture documentation checklist",
+          "AI generated architecture diagram",
+          "software diagram review"
+        ],
+        "sections": [
+          {
+            "heading": "Why this workflow deserves its own tool",
+            "paragraphs": [
+              "Many teams already have Postman collections, HAR files, TypeScript types, Zod schemas, CloudFormation templates, or C4 text. Those sources are useful, but they are often hard to review visually.",
+              "This guide focuses on Architecture documentation checklist for AI-generated diagrams. The goal is not to replace the source format, but to turn it into a diagram that can be checked, exported, and maintained with documentation."
+            ],
+            "image": {
+              "src": "/blog/architecture-documentation-checklist-ai-diagrams.png",
+              "alt": "Гайд: Architecture documentation checklist for AI-generated diagrams",
+              "caption": "C4 and AI Diagram Tools visualization workflow"
+            }
+          },
+          {
+            "heading": "Example input",
+            "paragraphs": [
+              "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
+              "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
+            ]
+          },
+          {
+            "heading": "What to check in the preview",
+            "paragraphs": [
+              "First, check whether node names are short and accurate. Second, verify that arrows match real calls, dependencies, or resource references. Third, look for missing error paths, external systems, databases, and queues.",
+              "If the diagram is too large, split it into smaller views: request flow, data structure, deployment topology, monitoring, and alerts can be maintained separately."
+            ]
+          },
+          {
+            "heading": "Common mistakes",
+            "paragraphs": [
+              "The most common mistake is putting too much context into one diagram. A diagram should answer a focused question: who calls whom, which field belongs to which type, or which resource depends on another.",
+              "Another mistake is exporting an image without keeping the source. Save both the source text and SVG/PNG so future changes remain reviewable."
+            ]
+          },
+          {
+            "heading": "Publishing notes",
+            "paragraphs": [
+              "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
+              "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
             ]
           }
         ]

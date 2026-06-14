@@ -41,6 +41,38 @@ Use these local screenshots when publishing:
 
 比如 AI 可以写出 Mermaid，但你还要找地方渲染；它可以生成 PlantUML，但放进文档前还要确认图是否正确；它可以生成 Grafana JSON 或 Prometheus YAML，但你仍然要检查结构能不能用。
 
+一个很典型的 AI 输出是这样的：
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant User
+  participant Web
+  participant API
+  participant DB
+  User->>Web: Submit order
+  Web->>API: POST /orders
+  API->>DB: Insert order
+  DB-->>API: order_id
+  API-->>Web: 201 Created
+  Web-->>User: Show confirmation
+```
+
+或者监控文档里会出现这种 Prometheus 规则：
+
+```yaml
+groups:
+  - name: api.rules
+    rules:
+      - alert: HighApiLatency
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1
+        for: 10m
+        labels:
+          severity: warning
+```
+
+这些代码本身是有用的，但发布前还缺几步：确认能渲染、检查语义、修掉语法小问题、导出图片或保留可编辑源文件。
+
 所以我做了 DiagramPreview：
 
 https://diagrampreview.com
@@ -140,6 +172,33 @@ The current tools are grouped by use case:
 - DevOps: Grafana, Prometheus, Docker Compose, Kubernetes, Terraform, GitHub Actions, Dockerfile, Helm, Nginx, OpenTelemetry, Log to Sequence
 - Data: SQL ER, JSON Schema, JSON, YAML, XML, CSV, GraphQL, Protobuf, AsyncAPI, DBML, Prisma
 - Code: OpenAPI Sequence, package.json Dependencies, Regex Railroad
+
+Here is the kind of source I usually want to validate before it reaches a README:
+
+```mermaid
+flowchart LR
+  Client --> Gateway
+  Gateway --> Auth
+  Gateway --> Orders
+  Orders --> PostgreSQL
+  Orders --> Kafka
+  Kafka --> Worker
+```
+
+And for observability docs, the same problem appears with alerting rules:
+
+```yaml
+groups:
+  - name: api.rules
+    rules:
+      - alert: HighApiErrorRate
+        expr: sum(rate(http_requests_total{status=~"5.."}[5m])) / sum(rate(http_requests_total[5m])) > 0.05
+        for: 10m
+        labels:
+          severity: warning
+```
+
+The useful workflow is not “AI writes final documentation.” It is closer to: generate a draft, preview it, fix it, export it, and keep the source next to the final image.
 
 Tool menu:
 

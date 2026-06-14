@@ -64,7 +64,13 @@ export type ToolSlug =
   | "api-error-flow-diagram"
   | "kubernetes-service-topology-diagram"
   | "ci-cd-pipeline-generator"
-  | "observability-pack-generator";
+  | "observability-pack-generator"
+  | "postman-collection-sequence-diagram"
+  | "har-file-sequence-diagram"
+  | "typescript-interface-visualizer"
+  | "zod-schema-visualizer"
+  | "cloudformation-template-diagram"
+  | "c4-model-diagram-generator";
 
 export type ToolCategory = "preview" | "converter" | "developer" | "data";
 
@@ -118,6 +124,12 @@ export type ToolConfig = {
     | "api-error-flow"
     | "kubernetes-topology"
     | "cicd-pipeline"
+    | "postman"
+    | "har"
+    | "typescript"
+    | "zod"
+    | "cloudformation"
+    | "c4"
     | "ai";
   sampleKeys: string[];
 };
@@ -254,6 +266,30 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["checkout", "auth", "rateLimit"]
   },
   {
+    slug: "postman-collection-sequence-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Workflow,
+    popular: true,
+    recentlyAdded: true,
+    priority: 81,
+    implemented: true,
+    renderer: "postman",
+    sampleKeys: ["orders", "auth", "workspace"]
+  },
+  {
+    slug: "har-file-sequence-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    popular: true,
+    recentlyAdded: true,
+    priority: 80,
+    implemented: true,
+    renderer: "har",
+    sampleKeys: ["checkout", "assets", "apiDebug"]
+  },
+  {
     slug: "plantuml-to-drawio",
     category: "developer",
     navGroup: "converters",
@@ -337,6 +373,18 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["awsWeb", "gcpQueue", "modules"]
   },
   {
+    slug: "cloudformation-template-diagram",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Boxes,
+    popular: true,
+    recentlyAdded: true,
+    priority: 72,
+    implemented: true,
+    renderer: "cloudformation",
+    sampleKeys: ["serverless", "webApp", "network"]
+  },
+  {
     slug: "kubernetes-manifest-visualizer",
     category: "developer",
     navGroup: "developer-diagrams",
@@ -381,6 +429,18 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "cicd-pipeline",
     sampleKeys: ["github", "gitlab", "release"]
+  },
+  {
+    slug: "c4-model-diagram-generator",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Boxes,
+    popular: true,
+    recentlyAdded: true,
+    priority: 63,
+    implemented: true,
+    renderer: "c4",
+    sampleKeys: ["context", "container", "component"]
   },
   {
     slug: "regex-railroad-diagram",
@@ -482,6 +542,30 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "graphql",
     sampleKeys: ["commerce", "blog", "auth"]
+  },
+  {
+    slug: "typescript-interface-visualizer",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileCode2,
+    popular: true,
+    recentlyAdded: true,
+    priority: 55,
+    implemented: true,
+    renderer: "typescript",
+    sampleKeys: ["apiResponse", "checkout", "sdk"]
+  },
+  {
+    slug: "zod-schema-visualizer",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileCode2,
+    popular: true,
+    recentlyAdded: true,
+    priority: 54,
+    implemented: true,
+    renderer: "zod",
+    sampleKeys: ["user", "checkout", "env"]
   },
   {
     slug: "protobuf-schema-visualizer",

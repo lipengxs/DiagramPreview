@@ -16,7 +16,19 @@ export type BlogSlug =
   | "openapi-to-sequence-diagram-guide"
   | "sql-to-er-diagram-online-guide"
   | "json-schema-visualizer-api-payloads"
-  | "cron-expression-visualizer-guide";
+  | "cron-expression-visualizer-guide"
+  | "postman-collection-to-sequence-diagram"
+  | "har-file-to-sequence-diagram-api-debugging"
+  | "typescript-interface-to-diagram-api-docs"
+  | "zod-schema-visualizer-validation-docs"
+  | "json-schema-vs-zod-vs-typescript"
+  | "cloudformation-template-visualizer-guide"
+  | "terraform-vs-cloudformation-architecture-diagrams"
+  | "c4-model-diagrams-software-architecture"
+  | "api-error-flow-documentation-guide"
+  | "browser-network-requests-sequence-diagram"
+  | "frontend-api-debugging-har-sequence"
+  | "architecture-documentation-checklist-ai-diagrams";
 
 export type BlogPostConfig = {
   slug: BlogSlug;
@@ -133,6 +145,78 @@ export const blogPosts: BlogPostConfig[] = [
     image: "/blog/cron-expression-visualizer-guide.png",
     date: "2026-06-12",
     tools: ["cron-expression-visualizer", "github-actions-workflow-diagram"]
+  },
+  {
+    slug: "postman-collection-to-sequence-diagram",
+    image: "/blog/postman-collection-to-sequence-diagram.png",
+    date: "2026-06-14",
+    tools: ["postman-collection-sequence-diagram", "openapi-to-sequence"]
+  },
+  {
+    slug: "har-file-to-sequence-diagram-api-debugging",
+    image: "/blog/har-file-to-sequence-diagram-api-debugging.png",
+    date: "2026-06-14",
+    tools: ["har-file-sequence-diagram", "log-to-sequence-diagram"]
+  },
+  {
+    slug: "typescript-interface-to-diagram-api-docs",
+    image: "/blog/typescript-interface-to-diagram-api-docs.png",
+    date: "2026-06-14",
+    tools: ["typescript-interface-visualizer", "json-schema-visualizer"]
+  },
+  {
+    slug: "zod-schema-visualizer-validation-docs",
+    image: "/blog/zod-schema-visualizer-validation-docs.png",
+    date: "2026-06-14",
+    tools: ["zod-schema-visualizer", "typescript-interface-visualizer"]
+  },
+  {
+    slug: "json-schema-vs-zod-vs-typescript",
+    image: "/blog/json-schema-vs-zod-vs-typescript.png",
+    date: "2026-06-14",
+    tools: ["json-schema-visualizer", "zod-schema-visualizer", "typescript-interface-visualizer"]
+  },
+  {
+    slug: "cloudformation-template-visualizer-guide",
+    image: "/blog/cloudformation-template-visualizer-guide.png",
+    date: "2026-06-14",
+    tools: ["cloudformation-template-diagram", "terraform-architecture-diagram"]
+  },
+  {
+    slug: "terraform-vs-cloudformation-architecture-diagrams",
+    image: "/blog/terraform-vs-cloudformation-architecture-diagrams.png",
+    date: "2026-06-14",
+    tools: ["terraform-architecture-diagram", "cloudformation-template-diagram"]
+  },
+  {
+    slug: "c4-model-diagrams-software-architecture",
+    image: "/blog/c4-model-diagrams-software-architecture.png",
+    date: "2026-06-14",
+    tools: ["c4-model-diagram-generator", "architecture-diagram-generator"]
+  },
+  {
+    slug: "api-error-flow-documentation-guide",
+    image: "/blog/api-error-flow-documentation-guide.png",
+    date: "2026-06-14",
+    tools: ["api-error-flow-diagram", "openapi-to-sequence"]
+  },
+  {
+    slug: "browser-network-requests-sequence-diagram",
+    image: "/blog/browser-network-requests-sequence-diagram.png",
+    date: "2026-06-14",
+    tools: ["har-file-sequence-diagram", "openapi-to-sequence"]
+  },
+  {
+    slug: "frontend-api-debugging-har-sequence",
+    image: "/blog/frontend-api-debugging-har-sequence.png",
+    date: "2026-06-14",
+    tools: ["har-file-sequence-diagram", "postman-collection-sequence-diagram"]
+  },
+  {
+    slug: "architecture-documentation-checklist-ai-diagrams",
+    image: "/blog/architecture-documentation-checklist-ai-diagrams.png",
+    date: "2026-06-14",
+    tools: ["c4-model-diagram-generator", "ai-diagram-generator", "mermaid-preview"]
   }
 ];
 

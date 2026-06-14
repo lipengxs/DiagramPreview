@@ -3152,6 +3152,348 @@
         "previewLabel": "預覽",
         "providerLabel": "提供者"
       }
+    },
+    "postman-collection-sequence-diagram": {
+      "name": "Postman Collection 轉時序圖",
+      "shortDescription": "Postman Collection 轉時序圖：把 Postman Collection JSON 轉成介面调用时序圖，适合 API 文档和调试复盘。",
+      "seoTitle": "Postman Collection 轉時序圖 - DiagramPreview",
+      "seoDescription": "Postman Collection 轉時序圖：把 Postman Collection JSON 轉成介面调用时序圖，适合 API 文档和调试复盘。",
+      "keywords": [
+        "Postman Collection 轉時序圖",
+        "Postman collection JSON",
+        "developer diagrams"
+      ],
+      "h1": "Postman Collection 轉時序圖",
+      "intro": "Postman Collection 轉時序圖：把 Postman Collection JSON 轉成介面调用时序圖，适合 API 文档和调试复盘。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "Postman collection JSON",
+      "outputLabel": "預覽",
+      "placeholder": "在這裡貼上來源...",
+      "emptyPreview": "渲染後的圖會顯示在這裡。",
+      "samples": {
+        "orders": {
+          "label": "Orders collection",
+          "code": "{\n  \"info\": {\n    \"name\": \"Orders API\"\n  },\n  \"item\": [\n    {\n      \"name\": \"Create order\",\n      \"request\": {\n        \"method\": \"POST\",\n        \"url\": {\n          \"raw\": \"https://api.example.com/orders\",\n          \"host\": [\n            \"api\",\n            \"example\",\n            \"com\"\n          ],\n          \"path\": [\n            \"orders\"\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"Get order\",\n      \"request\": {\n        \"method\": \"GET\",\n        \"url\": {\n          \"raw\": \"https://api.example.com/orders/{{orderId}}\",\n          \"host\": [\n            \"api\",\n            \"example\",\n            \"com\"\n          ],\n          \"path\": [\n            \"orders\",\n            \"{{orderId}}\"\n          ]\n        }\n      }\n    }\n  ]\n}"
+        },
+        "auth": {
+          "label": "Auth collection",
+          "code": "{\n  \"info\": {\n    \"name\": \"Auth API\"\n  },\n  \"item\": [\n    {\n      \"name\": \"Login\",\n      \"request\": {\n        \"method\": \"POST\",\n        \"url\": \"https://auth.example.com/login\"\n      }\n    },\n    {\n      \"name\": \"Refresh token\",\n      \"request\": {\n        \"method\": \"POST\",\n        \"url\": \"https://auth.example.com/token/refresh\"\n      }\n    },\n    {\n      \"name\": \"Profile\",\n      \"request\": {\n        \"method\": \"GET\",\n        \"url\": \"https://api.example.com/me\"\n      }\n    }\n  ]\n}"
+        },
+        "workspace": {
+          "label": "Workspace APIs",
+          "code": "{\n  \"info\": {\n    \"name\": \"Workspace\"\n  },\n  \"item\": [\n    {\n      \"name\": \"Projects\",\n      \"item\": [\n        {\n          \"name\": \"List projects\",\n          \"request\": {\n            \"method\": \"GET\",\n            \"url\": \"https://api.example.com/projects\"\n          }\n        },\n        {\n          \"name\": \"Create project\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": \"https://api.example.com/projects\"\n          }\n        }\n      ]\n    },\n    {\n      \"name\": \"Members\",\n      \"item\": [\n        {\n          \"name\": \"Invite member\",\n          \"request\": {\n            \"method\": \"POST\",\n            \"url\": \"https://api.example.com/members/invite\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+        }
+      },
+      "howToUse": [
+        "範例: choose an example or paste your own Postman collection JSON.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
+          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+        }
+      ],
+      "seoBody": [
+        "這個工具可以把既有開發者來源轉成更容易審查的視覺化說明，適合文件、工單和架構討論。",
+        "建議先用小範例確認關係，再貼上更大的來源，避免一次輸入太複雜。",
+        "匯出 SVG 或 PNG 後，也建議把來源文字和圖片一起保留，方便後續修改。"
+      ]
+    },
+    "har-file-sequence-diagram": {
+      "name": "HAR 檔案轉時序圖",
+      "shortDescription": "HAR 檔案轉時序圖：把瀏覽器 HAR 檔案轉成请求时序圖，适合前端介面调试和性能排查。",
+      "seoTitle": "HAR 檔案轉時序圖 - DiagramPreview",
+      "seoDescription": "HAR 檔案轉時序圖：把瀏覽器 HAR 檔案轉成请求时序圖，适合前端介面调试和性能排查。",
+      "keywords": [
+        "HAR 檔案轉時序圖",
+        "HAR JSON",
+        "developer diagrams"
+      ],
+      "h1": "HAR 檔案轉時序圖",
+      "intro": "HAR 檔案轉時序圖：把瀏覽器 HAR 檔案轉成请求时序圖，适合前端介面调试和性能排查。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "HAR JSON",
+      "outputLabel": "預覽",
+      "placeholder": "在這裡貼上來源...",
+      "emptyPreview": "渲染後的圖會顯示在這裡。",
+      "samples": {
+        "checkout": {
+          "label": "Checkout HAR",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"time\": 86,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://app.example.com/checkout\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 142,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/cart/validate\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 238,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/orders\"\n        },\n        \"response\": {\n          \"status\": 201\n        }\n      },\n      {\n        \"time\": 96,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/orders/123\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      }\n    ]\n  }\n}"
+        },
+        "assets": {
+          "label": "Assets waterfall",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"time\": 34,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.js\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 25,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.css\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 82,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/bootstrap\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      }\n    ]\n  }\n}"
+        },
+        "apiDebug": {
+          "label": "API debug",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"time\": 188,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/login\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 73,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/me\"\n        },\n        \"response\": {\n          \"status\": 200\n        }\n      },\n      {\n        \"time\": 421,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/billing\"\n        },\n        \"response\": {\n          \"status\": 500\n        }\n      }\n    ]\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "範例: choose an example or paste your own HAR JSON.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
+          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+        }
+      ],
+      "seoBody": [
+        "這個工具可以把既有開發者來源轉成更容易審查的視覺化說明，適合文件、工單和架構討論。",
+        "建議先用小範例確認關係，再貼上更大的來源，避免一次輸入太複雜。",
+        "匯出 SVG 或 PNG 後，也建議把來源文字和圖片一起保留，方便後續修改。"
+      ]
+    },
+    "typescript-interface-visualizer": {
+      "name": "TypeScript Interface 視覺化",
+      "shortDescription": "TypeScript Interface 視覺化：把 TypeScript interface/type 轉成欄位结构圖，适合 SDK 和 API 型別文档。",
+      "seoTitle": "TypeScript Interface 視覺化 - DiagramPreview",
+      "seoDescription": "TypeScript Interface 視覺化：把 TypeScript interface/type 轉成欄位结构圖，适合 SDK 和 API 型別文档。",
+      "keywords": [
+        "TypeScript Interface 視覺化",
+        "TypeScript interfaces",
+        "developer diagrams"
+      ],
+      "h1": "TypeScript Interface 視覺化",
+      "intro": "TypeScript Interface 視覺化：把 TypeScript interface/type 轉成欄位结构圖，适合 SDK 和 API 型別文档。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "TypeScript interfaces",
+      "outputLabel": "預覽",
+      "placeholder": "在這裡貼上來源...",
+      "emptyPreview": "渲染後的圖會顯示在這裡。",
+      "samples": {
+        "apiResponse": {
+          "label": "API response",
+          "code": "export interface ApiResponse<T> {\n  requestId: string;\n  data: T;\n  error?: ApiError;\n}\n\nexport interface ApiError {\n  code: string;\n  message: string;\n  retryable: boolean;\n}"
+        },
+        "checkout": {
+          "label": "Checkout types",
+          "code": "export interface CheckoutRequest {\n  cartId: string;\n  paymentMethodId: string;\n  shippingAddress: Address;\n}\n\nexport interface Address {\n  line1: string;\n  city: string;\n  country: string;\n  postalCode?: string;\n}"
+        },
+        "sdk": {
+          "label": "SDK options",
+          "code": "export type ClientOptions = {\n  baseUrl: string;\n  timeoutMs?: number;\n  retries?: number;\n  auth: AuthOptions;\n}\n\nexport type AuthOptions = {\n  token: string;\n  refreshToken?: string;\n}"
+        }
+      },
+      "howToUse": [
+        "範例: choose an example or paste your own TypeScript interfaces.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
+          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+        }
+      ],
+      "seoBody": [
+        "這個工具可以把既有開發者來源轉成更容易審查的視覺化說明，適合文件、工單和架構討論。",
+        "建議先用小範例確認關係，再貼上更大的來源，避免一次輸入太複雜。",
+        "匯出 SVG 或 PNG 後，也建議把來源文字和圖片一起保留，方便後續修改。"
+      ]
+    },
+    "zod-schema-visualizer": {
+      "name": "Zod Schema 視覺化",
+      "shortDescription": "Zod Schema 視覺化：把 Zod object schema 轉成驗證结构圖，适合表单、介面和設定驗證文档。",
+      "seoTitle": "Zod Schema 視覺化 - DiagramPreview",
+      "seoDescription": "Zod Schema 視覺化：把 Zod object schema 轉成驗證结构圖，适合表单、介面和設定驗證文档。",
+      "keywords": [
+        "Zod Schema 視覺化",
+        "Zod schemas",
+        "developer diagrams"
+      ],
+      "h1": "Zod Schema 視覺化",
+      "intro": "Zod Schema 視覺化：把 Zod object schema 轉成驗證结构圖，适合表单、介面和設定驗證文档。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "Zod schemas",
+      "outputLabel": "預覽",
+      "placeholder": "在這裡貼上來源...",
+      "emptyPreview": "渲染後的圖會顯示在這裡。",
+      "samples": {
+        "user": {
+          "label": "User schema",
+          "code": "const UserSchema = z.object({\n  id: z.string().uuid(),\n  email: z.string().email(),\n  name: z.string().min(1),\n  roles: z.array(z.string()),\n  active: z.boolean().default(true),\n})"
+        },
+        "checkout": {
+          "label": "Checkout schema",
+          "code": "const CheckoutSchema = z.object({\n  cartId: z.string().min(1),\n  paymentMethodId: z.string(),\n  couponCode: z.string().optional(),\n  savePaymentMethod: z.boolean().default(false),\n})"
+        },
+        "env": {
+          "label": "Env schema",
+          "code": "const EnvSchema = z.object({\n  NODE_ENV: z.enum([\"development\", \"production\"]),\n  DATABASE_URL: z.string().url(),\n  REDIS_URL: z.string().url().optional(),\n  PORT: z.coerce.number().default(3000),\n})"
+        }
+      },
+      "howToUse": [
+        "範例: choose an example or paste your own Zod schemas.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
+          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+        }
+      ],
+      "seoBody": [
+        "這個工具可以把既有開發者來源轉成更容易審查的視覺化說明，適合文件、工單和架構討論。",
+        "建議先用小範例確認關係，再貼上更大的來源，避免一次輸入太複雜。",
+        "匯出 SVG 或 PNG 後，也建議把來源文字和圖片一起保留，方便後續修改。"
+      ]
+    },
+    "cloudformation-template-diagram": {
+      "name": "CloudFormation 範本架構圖",
+      "shortDescription": "CloudFormation 範本架構圖：把 AWS CloudFormation 範本轉成资源关系圖，适合云架构和 IaC 文档。",
+      "seoTitle": "CloudFormation 範本架構圖 - DiagramPreview",
+      "seoDescription": "CloudFormation 範本架構圖：把 AWS CloudFormation 範本轉成资源关系圖，适合云架构和 IaC 文档。",
+      "keywords": [
+        "CloudFormation 範本架構圖",
+        "CloudFormation YAML or JSON",
+        "developer diagrams"
+      ],
+      "h1": "CloudFormation 範本架構圖",
+      "intro": "CloudFormation 範本架構圖：把 AWS CloudFormation 範本轉成资源关系圖，适合云架构和 IaC 文档。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "CloudFormation YAML or JSON",
+      "outputLabel": "預覽",
+      "placeholder": "在這裡貼上來源...",
+      "emptyPreview": "渲染後的圖會顯示在這裡。",
+      "samples": {
+        "serverless": {
+          "label": "Serverless API",
+          "code": "Resources:\n  ApiGateway:\n    Type: AWS::ApiGatewayV2::Api\n    Properties:\n      Name: OrdersApi\n  OrdersFunction:\n    Type: AWS::Lambda::Function\n    Properties:\n      Handler: index.handler\n      Runtime: nodejs20.x\n  OrdersTable:\n    Type: AWS::DynamoDB::Table\n    Properties:\n      TableName: orders\n  ApiIntegration:\n    Type: AWS::ApiGatewayV2::Integration\n    Properties:\n      ApiId:\n        Ref: ApiGateway\n      IntegrationUri:\n        Ref: OrdersFunction"
+        },
+        "webApp": {
+          "label": "Web app",
+          "code": "Resources:\n  LoadBalancer:\n    Type: AWS::ElasticLoadBalancingV2::LoadBalancer\n  WebTargetGroup:\n    Type: AWS::ElasticLoadBalancingV2::TargetGroup\n  WebService:\n    Type: AWS::ECS::Service\n    Properties:\n      LoadBalancers:\n        - TargetGroupArn:\n            Ref: WebTargetGroup\n  Database:\n    Type: AWS::RDS::DBInstance"
+        },
+        "network": {
+          "label": "Network stack",
+          "code": "Resources:\n  Vpc:\n    Type: AWS::EC2::VPC\n  PublicSubnet:\n    Type: AWS::EC2::Subnet\n    Properties:\n      VpcId:\n        Ref: Vpc\n  PrivateSubnet:\n    Type: AWS::EC2::Subnet\n    Properties:\n      VpcId:\n        Ref: Vpc\n  NatGateway:\n    Type: AWS::EC2::NatGateway"
+        }
+      },
+      "howToUse": [
+        "範例: choose an example or paste your own CloudFormation YAML or JSON.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
+          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+        }
+      ],
+      "seoBody": [
+        "這個工具可以把既有開發者來源轉成更容易審查的視覺化說明，適合文件、工單和架構討論。",
+        "建議先用小範例確認關係，再貼上更大的來源，避免一次輸入太複雜。",
+        "匯出 SVG 或 PNG 後，也建議把來源文字和圖片一起保留，方便後續修改。"
+      ]
+    },
+    "c4-model-diagram-generator": {
+      "name": "C4 模型圖產生器",
+      "shortDescription": "C4 模型圖產生器：用简单 C4 文本生成 System Context、Container 和 Component 圖。",
+      "seoTitle": "C4 模型圖產生器 - DiagramPreview",
+      "seoDescription": "C4 模型圖產生器：用简单 C4 文本生成 System Context、Container 和 Component 圖。",
+      "keywords": [
+        "C4 模型圖產生器",
+        "C4 model text",
+        "developer diagrams"
+      ],
+      "h1": "C4 模型圖產生器",
+      "intro": "C4 模型圖產生器：用简单 C4 文本生成 System Context、Container 和 Component 圖。",
+      "badges": [
+        "Live preview",
+        "Browser workflow",
+        "Export SVG"
+      ],
+      "inputLabel": "C4 model text",
+      "outputLabel": "預覽",
+      "placeholder": "在這裡貼上來源...",
+      "emptyPreview": "渲染後的圖會顯示在這裡。",
+      "samples": {
+        "context": {
+          "label": "System context",
+          "code": "Person(user, \"Customer\")\nSystem(web, \"Web application\")\nSystem(payment, \"Payment provider\")\nRel(user, web, \"Places orders\")\nRel(web, payment, \"Charges card\")"
+        },
+        "container": {
+          "label": "Container view",
+          "code": "Person(user, \"Customer\")\nContainer(spa, \"Single page app\")\nContainer(api, \"Orders API\")\nDatabase(db, \"PostgreSQL\")\nQueue(queue, \"Order events\")\nRel(user, spa, \"Uses\")\nRel(spa, api, \"HTTPS\")\nRel(api, db, \"Reads/Writes\")\nRel(api, queue, \"Publishes\")"
+        },
+        "component": {
+          "label": "Component view",
+          "code": "Container(api, \"Orders API\")\nComponent(controller, \"OrderController\")\nComponent(service, \"OrderService\")\nComponent(repo, \"OrderRepository\")\nDatabase(db, \"PostgreSQL\")\nRel(controller, service, \"Calls\")\nRel(service, repo, \"Persists\")\nRel(repo, db, \"SQL\")"
+        }
+      },
+      "howToUse": [
+        "範例: choose an example or paste your own C4 model text.",
+        "Review the rendered relationships, field names, resource references, or request order.",
+        "Export the SVG/PNG or keep the source with your documentation."
+      ],
+      "useCases": [
+        "API documentation and debugging",
+        "Architecture and platform docs",
+        "AI-generated draft review before publishing"
+      ],
+      "faq": [
+        {
+          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
+          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+        }
+      ],
+      "seoBody": [
+        "這個工具可以把既有開發者來源轉成更容易審查的視覺化說明，適合文件、工單和架構討論。",
+        "建議先用小範例確認關係，再貼上更大的來源，避免一次輸入太複雜。",
+        "匯出 SVG 或 PNG 後，也建議把來源文字和圖片一起保留，方便後續修改。"
+      ]
     }
   },
   "hubs": {
@@ -4080,6 +4422,654 @@
             "paragraphs": [
               "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
               "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+            ]
+          }
+        ]
+      },
+      "postman-collection-to-sequence-diagram": {
+        "title": "Postman Collection 轉时序圖：把介面集合变成调用流程",
+        "seoTitle": "Postman Collection 轉时序圖：把介面集合变成调用流程 - DiagramPreview",
+        "description": "围绕 Postman Collection to Sequence Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 Postman Collection to Sequence Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "Postman collection sequence diagram",
+          "visualize Postman collection",
+          "API request flow"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 Postman collection to sequence diagram 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/postman-collection-to-sequence-diagram.png",
+              "alt": "Postman Collection 轉时序圖：把介面集合变成调用流程",
+              "caption": "Postman Collection to Sequence Diagram 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "har-file-to-sequence-diagram-api-debugging": {
+        "title": "HAR 檔案轉时序圖：前端介面调试和文档化",
+        "seoTitle": "HAR 檔案轉时序圖：前端介面调试和文档化 - DiagramPreview",
+        "description": "围绕 HAR File to Sequence Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 HAR File to Sequence Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "HAR sequence diagram",
+          "HAR API debugging",
+          "browser network diagram"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 HAR file to sequence diagram for API debugging 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/har-file-to-sequence-diagram-api-debugging.png",
+              "alt": "HAR 檔案轉时序圖：前端介面调试和文档化",
+              "caption": "HAR File to Sequence Diagram 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "typescript-interface-to-diagram-api-docs": {
+        "title": "TypeScript Interface 轉结构圖：让 API 型別文档更清楚",
+        "seoTitle": "TypeScript Interface 轉结构圖：让 API 型別文档更清楚 - DiagramPreview",
+        "description": "围绕 TypeScript Interface Visualizer 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 TypeScript Interface Visualizer 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "TypeScript interface diagram",
+          "API docs TypeScript types",
+          "visualize TypeScript interface"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 TypeScript interface to diagram for API docs 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/typescript-interface-to-diagram-api-docs.png",
+              "alt": "TypeScript Interface 轉结构圖：让 API 型別文档更清楚",
+              "caption": "TypeScript Interface Visualizer 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "zod-schema-visualizer-validation-docs": {
+        "title": "Zod Schema 視覺化：把校验规则写进文档",
+        "seoTitle": "Zod Schema 視覺化：把校验规则写进文档 - DiagramPreview",
+        "description": "围绕 Zod Schema Visualizer 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 Zod Schema Visualizer 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "Zod schema visualizer",
+          "validation schema diagram",
+          "Zod documentation"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 Zod schema visualizer for validation docs 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/zod-schema-visualizer-validation-docs.png",
+              "alt": "Zod Schema 視覺化：把校验规则写进文档",
+              "caption": "Zod Schema Visualizer 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "json-schema-vs-zod-vs-typescript": {
+        "title": "JSON Schema、Zod、TypeScript 型別文档怎么选",
+        "seoTitle": "JSON Schema、Zod、TypeScript 型別文档怎么选 - DiagramPreview",
+        "description": "围绕 Schema Visualizers 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 Schema Visualizers 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "JSON Schema vs Zod",
+          "Zod vs TypeScript",
+          "schema documentation"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 JSON Schema vs Zod vs TypeScript types 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/json-schema-vs-zod-vs-typescript.png",
+              "alt": "JSON Schema、Zod、TypeScript 型別文档怎么选",
+              "caption": "Schema Visualizers 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "cloudformation-template-visualizer-guide": {
+        "title": "CloudFormation 範本視覺化：从 YAML 到 AWS 架构圖",
+        "seoTitle": "CloudFormation 範本視覺化：从 YAML 到 AWS 架构圖 - DiagramPreview",
+        "description": "围绕 CloudFormation Template Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 CloudFormation Template Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "CloudFormation template visualizer",
+          "AWS architecture diagram",
+          "CloudFormation diagram"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 CloudFormation template visualizer guide 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/cloudformation-template-visualizer-guide.png",
+              "alt": "CloudFormation 範本視覺化：从 YAML 到 AWS 架构圖",
+              "caption": "CloudFormation Template Diagram 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "terraform-vs-cloudformation-architecture-diagrams": {
+        "title": "Terraform vs CloudFormation：IaC 架构圖怎么做",
+        "seoTitle": "Terraform vs CloudFormation：IaC 架构圖怎么做 - DiagramPreview",
+        "description": "围绕 Terraform and CloudFormation Diagrams 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 Terraform and CloudFormation Diagrams 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "Terraform vs CloudFormation",
+          "IaC architecture diagram",
+          "cloud architecture documentation"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 Terraform vs CloudFormation architecture diagrams 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/terraform-vs-cloudformation-architecture-diagrams.png",
+              "alt": "Terraform vs CloudFormation：IaC 架构圖怎么做",
+              "caption": "Terraform and CloudFormation Diagrams 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "c4-model-diagrams-software-architecture": {
+        "title": "C4 模型圖：软件架构文档的 System、Container、Component",
+        "seoTitle": "C4 模型圖：软件架构文档的 System、Container、Component - DiagramPreview",
+        "description": "围绕 C4 Model Diagram Generator 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 C4 Model Diagram Generator 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "C4 model diagram",
+          "software architecture documentation",
+          "system context diagram"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 C4 model diagrams for software architecture 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/c4-model-diagrams-software-architecture.png",
+              "alt": "C4 模型圖：软件架构文档的 System、Container、Component",
+              "caption": "C4 Model Diagram Generator 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "api-error-flow-documentation-guide": {
+        "title": "如何把 API 錯誤处理流程画清楚",
+        "seoTitle": "如何把 API 錯誤处理流程画清楚 - DiagramPreview",
+        "description": "围绕 API Error Flow Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 API Error Flow Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "API error flow diagram",
+          "API error documentation",
+          "HTTP status flow"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 How to document API error flows visually 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/api-error-flow-documentation-guide.png",
+              "alt": "如何把 API 錯誤处理流程画清楚",
+              "caption": "API Error Flow Diagram 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "browser-network-requests-sequence-diagram": {
+        "title": "如何把瀏覽器 Network 请求轉成时序圖",
+        "seoTitle": "如何把瀏覽器 Network 请求轉成时序圖 - DiagramPreview",
+        "description": "围绕 HAR File to Sequence Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 HAR File to Sequence Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "browser network sequence diagram",
+          "network requests diagram",
+          "HAR visualization"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 How to turn browser network requests into sequence diagrams 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/browser-network-requests-sequence-diagram.png",
+              "alt": "如何把瀏覽器 Network 请求轉成时序圖",
+              "caption": "HAR File to Sequence Diagram 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "frontend-api-debugging-har-sequence": {
+        "title": "前端介面调试：HAR 檔案和时序圖工作流",
+        "seoTitle": "前端介面调试：HAR 檔案和时序圖工作流 - DiagramPreview",
+        "description": "围绕 HAR and Postman Diagrams 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 HAR and Postman Diagrams 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "frontend API debugging",
+          "HAR sequence diagram",
+          "Postman API workflow"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 Frontend API debugging workflow with HAR and sequence diagrams 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/frontend-api-debugging-har-sequence.png",
+              "alt": "前端介面调试：HAR 檔案和时序圖工作流",
+              "caption": "HAR and Postman Diagrams 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "architecture-documentation-checklist-ai-diagrams": {
+        "title": "AI 生成架构圖后的文档檢查清单",
+        "seoTitle": "AI 生成架构圖后的文档檢查清单 - DiagramPreview",
+        "description": "围绕 C4 and AI Diagram Tools 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "excerpt": "围绕 C4 and AI Diagram Tools 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
+        "readingTime": "8 分钟阅读",
+        "keywords": [
+          "architecture documentation checklist",
+          "AI generated architecture diagram",
+          "software diagram review"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这个场景值得单独做成工具",
+            "paragraphs": [
+              "很多开发者已经有 Postman、HAR、TypeScript、Zod、CloudFormation 或 C4 文本，但这些内容通常只适合机器或作者本人阅读。把它们转成图，可以让接口评审、架构讨论和故障复盘更直观。",
+              "这篇文章围绕 Architecture documentation checklist for AI-generated diagrams 展开，重点不是重新发明格式，而是把已有源码变成可以检查、导出和长期维护的文档资产。"
+            ],
+            "image": {
+              "src": "/blog/architecture-documentation-checklist-ai-diagrams.png",
+              "alt": "AI 生成架构圖后的文档檢查清单",
+              "caption": "C4 and AI Diagram Tools 的可视化工作流封面"
+            }
+          },
+          {
+            "heading": "示例输入",
+            "paragraphs": [
+              "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
+              "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
+            ]
+          },
+          {
+            "heading": "预览时应该检查什么",
+            "paragraphs": [
+              "第一，看节点命名是否短而准确。第二，看关系方向是否符合真实调用、依赖或资源引用。第三，看错误分支、外部系统、数据库和队列是否遗漏。",
+              "如果图表太大，优先拆成多个局部图：接口请求链路、数据结构、部署拓扑、监控和告警可以分别维护。"
+            ]
+          },
+          {
+            "heading": "常见问题",
+            "paragraphs": [
+              "最常见的问题是把太多上下文塞进一个图里。图表不是知识库全文，它应该回答一个明确问题：谁调用谁、哪个字段属于哪个类型、哪个资源依赖哪个资源。",
+              "另一个问题是只导出图片不保留源文件。推荐同时保存源文本和 SVG/PNG，这样后续变更能走代码评审。"
+            ]
+          },
+          {
+            "heading": "发布建议",
+            "paragraphs": [
+              "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
+              "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
             ]
           }
         ]

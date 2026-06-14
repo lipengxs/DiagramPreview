@@ -79,6 +79,54 @@ But there is still a practical gap in the workflow:
 - You often need to fix small syntax errors.
 - You need SVG/PNG/PDF export before adding it to a README, design doc, or proposal.
 
+For example, an LLM can generate a Mermaid sequence diagram like this:
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant User
+  participant Web
+  participant API
+  participant DB
+  User->>Web: Submit checkout
+  Web->>API: POST /orders
+  API->>DB: Create order
+  DB-->>API: order_id
+  API-->>Web: 201 Created
+  Web-->>User: Show confirmation
+```
+
+That is a good draft, but I still want to check whether it renders, whether the labels are readable, and whether the exported SVG looks clean in the final document.
+
+The same thing happens with API and DevOps docs. The source might be YAML instead of Mermaid:
+
+```yaml
+paths:
+  /orders:
+    post:
+      summary: Create order
+      responses:
+        "201":
+          description: Order created
+        "401":
+          description: Missing or invalid token
+        "422":
+          description: Invalid order payload
+```
+
+Or a Prometheus alert rule:
+
+```yaml
+groups:
+  - name: api.rules
+    rules:
+      - alert: HighApiErrorRate
+        expr: sum(rate(http_requests_total{status=~"5.."}[5m])) / sum(rate(http_requests_total[5m])) > 0.05
+        for: 10m
+        labels:
+          severity: warning
+```
+
 I built DiagramPreview to cover that missing step:
 
 https://diagrampreview.com
@@ -94,6 +142,20 @@ The workflow is simple:
 3. Preview the rendered output.
 4. Fix syntax issues if needed.
 5. Export it for documentation.
+
+I also like keeping both the source and the rendered output in the repository:
+
+```text
+docs/
+  architecture/
+    checkout-sequence.mmd
+    checkout-sequence.svg
+  observability/
+    api-alert-rules.yaml
+    api-dashboard.json
+```
+
+That way the diagram remains editable instead of becoming a one-off screenshot.
 
 It currently supports Mermaid, PlantUML, Graphviz, D2, Markdown with Mermaid, OpenAPI to sequence diagrams, SQL to ER diagrams, JSON/YAML/XML/CSV visualizers, JSON Schema, Docker Compose, Kubernetes manifests, package.json dependencies, and regex railroad diagrams.
 
@@ -150,6 +212,40 @@ AI has made it much easier to generate technical diagrams. A model can draft Mer
 But AI-generated diagram text still needs a practical handoff step before it becomes usable documentation.
 
 You need to preview it. You need to catch syntax errors. You need to export it as SVG, PNG, or PDF. Sometimes you need to turn it into an editable artifact that fits an existing documentation workflow.
+
+Here is a simple example. This Mermaid source is useful, but it is not “done” until someone checks the rendered output:
+
+```mermaid
+flowchart TD
+  Browser --> CDN
+  CDN --> Web
+  Web --> API
+  API --> Redis
+  API --> PostgreSQL
+  API --> Queue
+  Queue --> Worker
+```
+
+For infrastructure docs, the input may be Docker Compose:
+
+```yaml
+services:
+  web:
+    image: example/web:1.0
+    depends_on:
+      - api
+  api:
+    image: example/api:1.0
+    depends_on:
+      - postgres
+      - redis
+  postgres:
+    image: postgres:16
+  redis:
+    image: redis:7
+```
+
+In both cases, the important step is the same: turn text into a preview, inspect the relationships, then export or keep the editable source.
 
 That is the gap DiagramPreview is designed for:
 

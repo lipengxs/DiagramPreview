@@ -70,6 +70,7 @@ I would treat AI-generated diagrams as drafts. Let the model create the Mermaid/
 
 - Only comment when the discussion naturally matches the tool.
 - Rewrite the first sentence for the exact thread.
+- Keep code examples for full blog posts. In comments, answer the thread first and link only when it helps.
 - Avoid phrases like “best tool”, “must try”, “100% free forever”, or “please support”.
 - Do not post the same URL repeatedly in the same community on the same day.
 - In V2EX, ask for feedback and mention it is your own small tool.

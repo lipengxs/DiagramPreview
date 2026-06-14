@@ -384,6 +384,36 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
       const svg = await renderCiCdPipeline(source);
       return {html: svg, svg};
     }
+    case "postman": {
+      const {renderPostmanCollectionSequence} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderPostmanCollectionSequence(source);
+      return {html: svg, svg};
+    }
+    case "har": {
+      const {renderHarSequence} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderHarSequence(source);
+      return {html: svg, svg};
+    }
+    case "typescript": {
+      const {renderTypeScriptInterface} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderTypeScriptInterface(source);
+      return {html: svg, svg};
+    }
+    case "zod": {
+      const {renderZodSchema} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderZodSchema(source);
+      return {html: svg, svg};
+    }
+    case "cloudformation": {
+      const {renderCloudFormationTemplate} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderCloudFormationTemplate(source);
+      return {html: svg, svg};
+    }
+    case "c4": {
+      const {renderC4Model} = await import("@/lib/renderers/growth-tools");
+      const svg = await renderC4Model(source);
+      return {html: svg, svg};
+    }
     default:
       return {};
   }
