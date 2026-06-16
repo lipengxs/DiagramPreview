@@ -163,10 +163,11 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
         })
       });
 
-      const data = (await response.json()) as {code?: string; provider?: string; error?: string};
+      const responseText = await response.text();
+      const data = parseGenerateResponse(responseText);
 
       if (!response.ok || !data.code) {
-        throw new Error(data.error || copy.error);
+        throw new Error(data.error || responseText || copy.error);
       }
 
       setGeneratedCode(data.code);
@@ -334,6 +335,14 @@ function mimeFor(outputLanguage: NonNullable<AiDiagramWorkspaceProps["outputLang
   if (outputLanguage === "json") return "application/json;charset=utf-8";
   if (outputLanguage === "yaml") return "application/yaml;charset=utf-8";
   return "text/plain;charset=utf-8";
+}
+
+function parseGenerateResponse(value: string) {
+  try {
+    return JSON.parse(value) as {code?: string; provider?: string; error?: string};
+  } catch {
+    return {error: value};
+  }
 }
 
 function renderJsonSummary(source: string) {

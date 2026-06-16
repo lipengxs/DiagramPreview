@@ -765,8 +765,8 @@
       "intro": "作りたい図を説明し、Mermaid タイプを選ぶと、AI が編集可能なコードとプレビューを生成します。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "図表リクエスト",
@@ -814,17 +814,17 @@
       "faq": [
         {
           "question": "どの AI プロバイダーを使いますか？",
-          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         },
         {
           "question": "どの AI プロバイダーを使いますか？",
-          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         }
       ],
       "seoBody": [
         "自然言語プロンプトから Mermaid 図表を生成します。",
         "作りたい図を説明し、Mermaid タイプを選ぶと、AI が編集可能なコードとプレビューを生成します。",
-        "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
       ]
     },
     "text-to-mermaid": {
@@ -842,8 +842,8 @@
       "intro": "要件、メモ、プロセス説明を貼り付けて Mermaid に変換します。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "図表リクエスト",
@@ -864,7 +864,7 @@
         "architecture": {
           "label": "Architecture",
           "diagramType": "flowchart",
-          "prompt": "Browser sends source text to a Next.js API route. The API calls Gemini first, falls back to DeepSeek, then returns Mermaid code for browser preview."
+          "prompt": "Browser sends source text to a Next.js API route. The API calls DeepSeek, then returns Mermaid code for browser preview."
         }
       },
       "ai": {
@@ -891,17 +891,17 @@
       "faq": [
         {
           "question": "どの AI プロバイダーを使いますか？",
-          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         },
         {
           "question": "どの AI プロバイダーを使いますか？",
-          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         }
       ],
       "seoBody": [
         "プロダクトメモ、インシデント、アーキテクチャ文を Mermaid に変換します。",
         "要件、メモ、プロセス説明を貼り付けて Mermaid に変換します。",
-        "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
       ]
     },
     "mermaid-ai-fixer": {
@@ -919,8 +919,8 @@
       "intro": "壊れた Mermaid と修正指示を貼り付けると、AI が修正済みコードを返します。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "図表リクエスト",
@@ -971,17 +971,17 @@
       "faq": [
         {
           "question": "どの AI プロバイダーを使いますか？",
-          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         },
         {
           "question": "どの AI プロバイダーを使いますか？",
-          "answer": "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         }
       ],
       "seoBody": [
         "壊れた Mermaid 構文を AI で修正し、読みやすくします。",
         "壊れた Mermaid と修正指示を貼り付けると、AI が修正済みコードを返します。",
-        "サーバーはまず Gemini を試し、利用不可、制限、未設定の場合は DeepSeek にフォールバックします。"
+        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
       ]
     },
     "openapi-to-sequence": {
@@ -1176,8 +1176,8 @@
       "intro": "Describe a system architecture and generate editable Mermaid diagrams for services, queues, databases, clients, and external integrations.",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "Diagram request",
@@ -1225,7 +1225,7 @@
       "faq": [
         {
           "question": "Which AI provider is used?",
-          "answer": "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         },
         {
           "question": "Are API keys exposed to the browser?",
@@ -1235,14 +1235,14 @@
       "seoBody": [
         "Generate Mermaid architecture diagrams from product or system notes with AI.",
         "Describe a system architecture and generate editable Mermaid diagrams for services, queues, databases, clients, and external integrations.",
-        "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
       ]
     },
     "ai-plantuml-generator": {
       "name": "AI PlantUML Generator",
-      "shortDescription": "Generate PlantUML diagrams from natural language with Gemini and DeepSeek fallback.",
+      "shortDescription": "Generate PlantUML diagrams from natural language with DeepSeek.",
       "seoTitle": "AI PlantUML Generator - DiagramPreview",
-      "seoDescription": "Generate PlantUML diagrams from natural language with Gemini and DeepSeek fallback.",
+      "seoDescription": "Generate PlantUML diagrams from natural language with DeepSeek.",
       "keywords": [
         "ai-plantuml-generator",
         "ai plantuml generator",
@@ -1253,8 +1253,8 @@
       "intro": "Describe a sequence, component, class, activity, use case, or state diagram and generate editable PlantUML source.",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "PlantUML"
       ],
       "inputLabel": "Diagram request",
@@ -1270,7 +1270,7 @@
         "component": {
           "label": "Component",
           "diagramType": "component",
-          "prompt": "Create a PlantUML component diagram for DiagramPreview with web app, renderer modules, AI API route, Gemini provider, DeepSeek provider, and export utilities."
+          "prompt": "Create a PlantUML component diagram for DiagramPreview with web app, renderer modules, AI API route, DeepSeek provider, local fallback provider, and export utilities."
         },
         "activity": {
           "label": "Activity",
@@ -1302,7 +1302,7 @@
       "faq": [
         {
           "question": "Which AI provider is used?",
-          "answer": "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
         },
         {
           "question": "Are API keys exposed to the browser?",
@@ -1310,9 +1310,9 @@
         }
       ],
       "seoBody": [
-        "Generate PlantUML diagrams from natural language with Gemini and DeepSeek fallback.",
+        "Generate PlantUML diagrams from natural language with DeepSeek.",
         "Describe a sequence, component, class, activity, use case, or state diagram and generate editable PlantUML source.",
-        "The server tries Gemini first and falls back to DeepSeek when Gemini is unavailable, rate-limited, or not configured."
+        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
       ]
     },
     "xml-to-diagram": {

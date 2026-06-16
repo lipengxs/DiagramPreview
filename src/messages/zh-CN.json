@@ -741,8 +741,8 @@
       "intro": "描述你想要的图表，选择 Mermaid 图表类型，让 AI 生成可编辑源码并实时预览。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "图表需求",
@@ -790,17 +790,17 @@
       "faq": [
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         },
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         }
       ],
       "seoBody": [
         "用自然语言提示词生成 Mermaid 图表。",
         "描述你想要的图表，选择 Mermaid 图表类型，让 AI 生成可编辑源码并实时预览。",
-        "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
       ]
     },
     "text-to-mermaid": {
@@ -818,8 +818,8 @@
       "intro": "粘贴需求、笔记或流程描述，将普通文本转换成可预览和导出的 Mermaid 代码。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "图表需求",
@@ -840,7 +840,7 @@
         "architecture": {
           "label": "Architecture",
           "diagramType": "flowchart",
-          "prompt": "Browser sends source text to a Next.js API route. The API calls Gemini first, falls back to DeepSeek, then returns Mermaid code for browser preview."
+          "prompt": "Browser sends source text to a Next.js API route. The API calls DeepSeek, then returns Mermaid code for browser preview."
         }
       },
       "ai": {
@@ -867,17 +867,17 @@
       "faq": [
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         },
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         }
       ],
       "seoBody": [
         "把产品说明、事故记录和架构文本转换成 Mermaid 图表。",
         "粘贴需求、笔记或流程描述，将普通文本转换成可预览和导出的 Mermaid 代码。",
-        "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
       ]
     },
     "mermaid-ai-fixer": {
@@ -895,8 +895,8 @@
       "intro": "粘贴有问题的 Mermaid 代码和修复要求，AI 会返回修正后的 Mermaid 源码。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "图表需求",
@@ -947,17 +947,17 @@
       "faq": [
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         },
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         }
       ],
       "seoBody": [
         "用 AI 修复 Mermaid 语法并提升图表可读性。",
         "粘贴有问题的 Mermaid 代码和修复要求，AI 会返回修正后的 Mermaid 源码。",
-        "服务端优先调用 Gemini；当 Gemini 不可用、限流或未配置时，会回退到 DeepSeek。"
+        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
       ]
     },
     "openapi-to-sequence": {
@@ -1152,8 +1152,8 @@
       "intro": "描述系统架构，生成可编辑的 Mermaid 图，覆盖服务、队列、数据库、客户端和外部集成。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "Mermaid"
       ],
       "inputLabel": "图表需求",
@@ -1201,7 +1201,7 @@
       "faq": [
         {
           "question": "使用哪个 AI 服务？",
-          "answer": "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         },
         {
           "question": "API Key 会暴露给浏览器吗？",
@@ -1211,14 +1211,14 @@
       "seoBody": [
         "用 AI 从产品或系统说明生成 Mermaid 架构图。",
         "描述系统架构，生成可编辑的 Mermaid 图，覆盖服务、队列、数据库、客户端和外部集成。",
-        "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
       ]
     },
     "ai-plantuml-generator": {
       "name": "AI PlantUML 生成器",
-      "shortDescription": "通过 Gemini 和 DeepSeek 兜底从自然语言生成 PlantUML。",
+      "shortDescription": "通过 DeepSeek 从自然语言生成 PlantUML。",
       "seoTitle": "AI PlantUML 生成器 - DiagramPreview",
-      "seoDescription": "通过 Gemini 和 DeepSeek 兜底从自然语言生成 PlantUML。",
+      "seoDescription": "通过 DeepSeek 从自然语言生成 PlantUML。",
       "keywords": [
         "ai-plantuml-generator",
         "ai plantuml 生成器",
@@ -1229,8 +1229,8 @@
       "intro": "描述序列图、组件图、类图、活动图、用例图或状态图，生成可编辑 PlantUML 源码。",
       "badges": [
         "AI",
-        "Gemini",
-        "DeepSeek fallback",
+        "DeepSeek",
+        "Local fallback",
         "PlantUML"
       ],
       "inputLabel": "图表需求",
@@ -1246,7 +1246,7 @@
         "component": {
           "label": "组件图",
           "diagramType": "component",
-          "prompt": "Create a PlantUML component diagram for DiagramPreview with web app, renderer modules, AI API route, Gemini provider, DeepSeek provider, and export utilities."
+          "prompt": "Create a PlantUML component diagram for DiagramPreview with web app, renderer modules, AI API route, DeepSeek provider, local fallback provider, and export utilities."
         },
         "activity": {
           "label": "活动图",
@@ -1278,7 +1278,7 @@
       "faq": [
         {
           "question": "使用哪个 AI 服务？",
-          "answer": "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         },
         {
           "question": "API Key 会暴露给浏览器吗？",
@@ -1286,9 +1286,9 @@
         }
       ],
       "seoBody": [
-        "通过 Gemini 和 DeepSeek 兜底从自然语言生成 PlantUML。",
+        "通过 DeepSeek 从自然语言生成 PlantUML。",
         "描述序列图、组件图、类图、活动图、用例图或状态图，生成可编辑 PlantUML 源码。",
-        "服务端会先尝试 Gemini，Gemini 不可用、限流或未配置时回退到 DeepSeek。"
+        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
       ]
     },
     "xml-to-diagram": {

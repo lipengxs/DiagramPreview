@@ -10,26 +10,46 @@ const modes: AiDiagramMode[] = [
   "plantuml",
   "drawio",
   "grafana",
-  "prometheus"
+  "prometheus",
+  "observability"
 ];
 
 export async function POST(request: Request) {
+  const startedAt = Date.now();
+  const requestId = crypto.randomUUID();
   let body: unknown;
 
   try {
     body = await request.json();
   } catch {
+    console.warn("ai.generate.invalid_json", {requestId});
     return NextResponse.json({error: "Invalid JSON request body."}, {status: 400});
   }
 
   const input = parseBody(body);
   if (!input.ok) {
+    console.warn("ai.generate.invalid_request", {requestId, error: input.error});
     return NextResponse.json({error: input.error}, {status: 400});
   }
+
+  console.info("ai.generate.start", {
+    requestId,
+    mode: input.value.mode,
+    outputLanguage: input.value.outputLanguage,
+    diagramType: input.value.diagramType,
+    promptLength: input.value.prompt.length,
+    hasExistingCode: Boolean(input.value.existingCode?.trim())
+  });
 
   const {result, errors} = await generateDiagramWithFallback(input.value);
 
   if (!result) {
+    console.error("ai.generate.failed", {
+      requestId,
+      durationMs: Date.now() - startedAt,
+      errors: errors.map(summarizeProviderError)
+    });
+
     return NextResponse.json(
       {
         error: "No AI provider could generate a diagram.",
@@ -38,6 +58,14 @@ export async function POST(request: Request) {
       {status: 503}
     );
   }
+
+  console.info("ai.generate.success", {
+    requestId,
+    provider: result.provider,
+    durationMs: Date.now() - startedAt,
+    codeLength: result.code.length,
+    fallbackErrors: errors.map(summarizeProviderError)
+  });
 
   return NextResponse.json({
     provider: result.provider,
@@ -97,4 +125,19 @@ function parseBody(body: unknown):
       outputLanguage
     }
   };
+}
+
+function summarizeProviderError(error: {provider: string; status?: number; message: string}) {
+  return {
+    provider: error.provider,
+    status: error.status,
+    message: sanitizeLogMessage(error.message)
+  };
+}
+
+function sanitizeLogMessage(value: string) {
+  return value
+    .replace(/Bearer\s+[A-Za-z0-9._-]+/g, "Bearer [redacted]")
+    .replace(/key=([^&\s]+)/g, "key=[redacted]")
+    .slice(0, 1000);
 }

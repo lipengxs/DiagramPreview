@@ -5,7 +5,7 @@ DiagramPreview is a global developer toolbox for previewing, fixing, converting,
 ## What It Does
 
 - Preview Mermaid, PlantUML, Graphviz, D2, Markdown with Mermaid, and draw.io XML.
-- Generate AI diagrams with Gemini first and DeepSeek fallback.
+- Generate AI diagrams with DeepSeek, plus a local template fallback when the provider is unavailable.
 - Convert PlantUML and Mermaid into editable draw.io / diagrams.net XML.
 - Generate Grafana dashboard JSON and Prometheus alert rule YAML.
 - Visualize OpenAPI, SQL, Docker Compose, Kubernetes, Terraform, GitHub Actions, Dockerfile, Helm values, Nginx, OpenTelemetry traces, logs, JSON, YAML, XML, CSV, JSON Schema, GraphQL, Protobuf, AsyncAPI, DBML, Prisma, package.json, regex, mind maps, and sequence diagrams.
@@ -29,7 +29,7 @@ Header navigation is organized into short, direct menu groups:
 - next-intl with locale-prefixed routes
 - Tailwind CSS
 - Mermaid, PlantUML encoder, Viz.js, js-yaml, marked
-- Gemini and DeepSeek server-side AI providers
+- DeepSeek server-side AI provider
 
 ## Local Development
 
@@ -55,12 +55,9 @@ Copy `.env.example` to `.env.local` and configure provider keys as needed:
 cp .env.example .env.local
 ```
 
-AI generation uses Gemini first, then falls back to DeepSeek:
+AI generation uses DeepSeek:
 
 ```env
-GEMINI_API_KEY=
-GEMINI_MODEL=gemini-2.5-flash
-
 DEEPSEEK_API_KEY=
 DEEPSEEK_MODEL=deepseek-chat
 DEEPSEEK_BASE_URL=https://api.deepseek.com/chat/completions
