@@ -3,6 +3,7 @@ node_modules/
 out/
 dist/
 coverage/
+.idea/
 
 .DS_Store
 *.tsbuildinfo

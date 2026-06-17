@@ -70,7 +70,21 @@ export type ToolSlug =
   | "typescript-interface-visualizer"
   | "zod-schema-visualizer"
   | "cloudformation-template-diagram"
-  | "c4-model-diagram-generator";
+  | "c4-model-diagram-generator"
+  | "har-file-viewer"
+  | "svg-code-preview-editor"
+  | "open-graph-preview-debugger"
+  | "json-schema-form-preview"
+  | "jsonpath-tester"
+  | "nginx-location-tester"
+  | "jq-filter-tester"
+  | "xpath-tester"
+  | "yaml-path-tester"
+  | "toml-visualizer"
+  | "env-diff-checker"
+  | "robots-txt-tester"
+  | "sitemap-xml-viewer"
+  | "http-header-parser";
 
 export type ToolCategory = "preview" | "converter" | "developer" | "data";
 
@@ -130,6 +144,20 @@ export type ToolConfig = {
     | "zod"
     | "cloudformation"
     | "c4"
+    | "har-timeline"
+    | "svg-preview"
+    | "open-graph"
+    | "json-schema-form"
+    | "jsonpath"
+    | "nginx-location"
+    | "jq-filter"
+    | "xpath"
+    | "yaml-path"
+    | "toml"
+    | "env-diff"
+    | "robots-txt"
+    | "sitemap-xml"
+    | "http-headers"
     | "ai";
   sampleKeys: string[];
 };
@@ -290,6 +318,18 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["checkout", "assets", "apiDebug"]
   },
   {
+    slug: "har-file-viewer",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    popular: true,
+    recentlyAdded: true,
+    priority: 80,
+    implemented: true,
+    renderer: "har-timeline",
+    sampleKeys: ["checkout", "slowApi", "thirdParty"]
+  },
+  {
     slug: "plantuml-to-drawio",
     category: "developer",
     navGroup: "converters",
@@ -323,6 +363,77 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "json-schema",
     sampleKeys: ["user", "product", "event"]
+  },
+  {
+    slug: "json-schema-form-preview",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileJson,
+    popular: true,
+    recentlyAdded: true,
+    priority: 64,
+    implemented: true,
+    renderer: "json-schema-form",
+    sampleKeys: ["signup", "checkout", "settings"]
+  },
+  {
+    slug: "jsonpath-tester",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileJson,
+    popular: true,
+    recentlyAdded: true,
+    priority: 62,
+    implemented: true,
+    renderer: "jsonpath",
+    sampleKeys: ["users", "orders", "metrics"]
+  },
+  {
+    slug: "jq-filter-tester",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileJson,
+    popular: true,
+    recentlyAdded: true,
+    priority: 63,
+    implemented: true,
+    renderer: "jq-filter",
+    sampleKeys: ["emails", "orders", "map"]
+  },
+  {
+    slug: "xpath-tester",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileCode2,
+    popular: true,
+    recentlyAdded: true,
+    priority: 62,
+    implemented: true,
+    renderer: "xpath",
+    sampleKeys: ["rss", "html", "namespaces"]
+  },
+  {
+    slug: "yaml-path-tester",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: Braces,
+    popular: true,
+    recentlyAdded: true,
+    priority: 61,
+    implemented: true,
+    renderer: "yaml-path",
+    sampleKeys: ["kubernetes", "githubActions", "helm"]
+  },
+  {
+    slug: "toml-visualizer",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileCode2,
+    recentlyAdded: true,
+    priority: 60,
+    implemented: true,
+    renderer: "toml",
+    sampleKeys: ["pyproject", "cargo", "config"]
   },
   {
     slug: "package-json-dependency-diagram",
@@ -511,6 +622,42 @@ export const tools: ToolConfig[] = [
     sampleKeys: ["reverseProxy", "loadBalance", "staticSite"]
   },
   {
+    slug: "nginx-location-tester",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    popular: true,
+    recentlyAdded: true,
+    priority: 56,
+    implemented: true,
+    renderer: "nginx-location",
+    sampleKeys: ["api", "assets", "fallback"]
+  },
+  {
+    slug: "env-diff-checker",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: KeyRound,
+    popular: true,
+    recentlyAdded: true,
+    priority: 58,
+    implemented: true,
+    renderer: "env-diff",
+    sampleKeys: ["missing", "docker", "production"]
+  },
+  {
+    slug: "http-header-parser",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    popular: true,
+    recentlyAdded: true,
+    priority: 57,
+    implemented: true,
+    renderer: "http-headers",
+    sampleKeys: ["security", "cors", "cache"]
+  },
+  {
     slug: "opentelemetry-trace-sequence",
     category: "developer",
     navGroup: "developer-diagrams",
@@ -676,6 +823,54 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "markdown",
     sampleKeys: ["docs", "mermaid", "release"]
+  },
+  {
+    slug: "svg-code-preview-editor",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: FileCode2,
+    popular: true,
+    recentlyAdded: true,
+    priority: 84,
+    implemented: true,
+    renderer: "svg-preview",
+    sampleKeys: ["icon", "chart", "dataUri"]
+  },
+  {
+    slug: "open-graph-preview-debugger",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: FileText,
+    popular: true,
+    recentlyAdded: true,
+    priority: 82,
+    implemented: true,
+    renderer: "open-graph",
+    sampleKeys: ["article", "tool", "product"]
+  },
+  {
+    slug: "robots-txt-tester",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: FileText,
+    popular: true,
+    recentlyAdded: true,
+    priority: 81,
+    implemented: true,
+    renderer: "robots-txt",
+    sampleKeys: ["blog", "private", "sitemap"]
+  },
+  {
+    slug: "sitemap-xml-viewer",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: FileCode2,
+    popular: true,
+    recentlyAdded: true,
+    priority: 80,
+    implemented: true,
+    renderer: "sitemap-xml",
+    sampleKeys: ["basic", "hreflang", "index"]
   },
   {
     slug: "graphviz-preview",

@@ -28,7 +28,21 @@ export type BlogSlug =
   | "api-error-flow-documentation-guide"
   | "browser-network-requests-sequence-diagram"
   | "frontend-api-debugging-har-sequence"
-  | "architecture-documentation-checklist-ai-diagrams";
+  | "architecture-documentation-checklist-ai-diagrams"
+  | "har-file-viewer-api-waterfall-debugging"
+  | "svg-code-preview-editor-clean-export"
+  | "open-graph-preview-debugger-social-cards"
+  | "json-schema-form-preview-guide"
+  | "jsonpath-tester-api-response-debugging"
+  | "nginx-location-tester-routing-debug"
+  | "ai-generated-code-preview-debugging-workflow"
+  | "api-debugging-preview-har-postman-openapi"
+  | "schema-preview-workflow-json-schema-zod-typescript"
+  | "social-card-svg-preview-publishing-workflow"
+  | "jq-vs-jsonpath-api-debugging-workflow"
+  | "xpath-xml-api-debugging-guide"
+  | "config-preview-env-yaml-toml-before-deploy"
+  | "technical-seo-preview-robots-sitemap-open-graph";
 
 export type BlogPostConfig = {
   slug: BlogSlug;
@@ -217,6 +231,90 @@ export const blogPosts: BlogPostConfig[] = [
     image: "/blog/architecture-documentation-checklist-ai-diagrams.png",
     date: "2026-06-14",
     tools: ["c4-model-diagram-generator", "ai-diagram-generator", "mermaid-preview"]
+  },
+  {
+    slug: "har-file-viewer-api-waterfall-debugging",
+    image: "/blog/har-file-viewer-api-waterfall-debugging.png",
+    date: "2026-06-16",
+    tools: ["har-file-viewer", "har-file-sequence-diagram", "postman-collection-sequence-diagram"]
+  },
+  {
+    slug: "svg-code-preview-editor-clean-export",
+    image: "/blog/svg-code-preview-editor-clean-export.png",
+    date: "2026-06-16",
+    tools: ["svg-code-preview-editor", "drawio-to-svg", "markdown-preview"]
+  },
+  {
+    slug: "open-graph-preview-debugger-social-cards",
+    image: "/blog/open-graph-preview-debugger-social-cards.png",
+    date: "2026-06-16",
+    tools: ["open-graph-preview-debugger", "svg-code-preview-editor"]
+  },
+  {
+    slug: "json-schema-form-preview-guide",
+    image: "/blog/json-schema-form-preview-guide.png",
+    date: "2026-06-16",
+    tools: ["json-schema-form-preview", "json-schema-visualizer", "zod-schema-visualizer"]
+  },
+  {
+    slug: "jsonpath-tester-api-response-debugging",
+    image: "/blog/jsonpath-tester-api-response-debugging.png",
+    date: "2026-06-16",
+    tools: ["jsonpath-tester", "json-to-diagram", "openapi-to-sequence"]
+  },
+  {
+    slug: "nginx-location-tester-routing-debug",
+    image: "/blog/nginx-location-tester-routing-debug.png",
+    date: "2026-06-16",
+    tools: ["nginx-location-tester", "nginx-config-visualizer", "docker-compose-diagram"]
+  },
+  {
+    slug: "ai-generated-code-preview-debugging-workflow",
+    image: "/blog/ai-generated-code-preview-debugging-workflow.png",
+    date: "2026-06-16",
+    tools: ["svg-code-preview-editor", "jsonpath-tester", "nginx-location-tester"]
+  },
+  {
+    slug: "api-debugging-preview-har-postman-openapi",
+    image: "/blog/api-debugging-preview-har-postman-openapi.png",
+    date: "2026-06-16",
+    tools: ["har-file-viewer", "postman-collection-sequence-diagram", "openapi-to-sequence"]
+  },
+  {
+    slug: "schema-preview-workflow-json-schema-zod-typescript",
+    image: "/blog/schema-preview-workflow-json-schema-zod-typescript.png",
+    date: "2026-06-16",
+    tools: ["json-schema-form-preview", "json-schema-visualizer", "typescript-interface-visualizer"]
+  },
+  {
+    slug: "social-card-svg-preview-publishing-workflow",
+    image: "/blog/social-card-svg-preview-publishing-workflow.png",
+    date: "2026-06-16",
+    tools: ["open-graph-preview-debugger", "svg-code-preview-editor", "markdown-preview"]
+  },
+  {
+    slug: "jq-vs-jsonpath-api-debugging-workflow",
+    image: "/blog/jq-vs-jsonpath-api-debugging-workflow.png",
+    date: "2026-06-16",
+    tools: ["jq-filter-tester", "jsonpath-tester", "json-to-diagram"]
+  },
+  {
+    slug: "xpath-xml-api-debugging-guide",
+    image: "/blog/xpath-xml-api-debugging-guide.png",
+    date: "2026-06-16",
+    tools: ["xpath-tester", "xml-to-diagram", "sitemap-xml-viewer"]
+  },
+  {
+    slug: "config-preview-env-yaml-toml-before-deploy",
+    image: "/blog/config-preview-env-yaml-toml-before-deploy.png",
+    date: "2026-06-16",
+    tools: ["env-diff-checker", "yaml-path-tester", "toml-visualizer"]
+  },
+  {
+    slug: "technical-seo-preview-robots-sitemap-open-graph",
+    image: "/blog/technical-seo-preview-robots-sitemap-open-graph.png",
+    date: "2026-06-16",
+    tools: ["robots-txt-tester", "sitemap-xml-viewer", "open-graph-preview-debugger"]
   }
 ];
 

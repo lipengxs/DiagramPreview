@@ -394,6 +394,76 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
       const svg = await renderHarSequence(source);
       return {html: svg, svg};
     }
+    case "har-timeline": {
+      const {renderHarTimeline} = await import("@/lib/renderers/growth-tools");
+      const html = renderHarTimeline(source);
+      return {html};
+    }
+    case "svg-preview": {
+      const {renderSvgPreview} = await import("@/lib/renderers/growth-tools");
+      const result = renderSvgPreview(source);
+      return {html: result.html, svg: result.svg};
+    }
+    case "open-graph": {
+      const {renderOpenGraphPreview} = await import("@/lib/renderers/growth-tools");
+      const html = renderOpenGraphPreview(source);
+      return {html};
+    }
+    case "json-schema-form": {
+      const {renderJsonSchemaFormPreview} = await import("@/lib/renderers/growth-tools");
+      const html = renderJsonSchemaFormPreview(source);
+      return {html};
+    }
+    case "jsonpath": {
+      const {renderJsonPathTester} = await import("@/lib/renderers/growth-tools");
+      const html = renderJsonPathTester(source);
+      return {html};
+    }
+    case "nginx-location": {
+      const {renderNginxLocationTester} = await import("@/lib/renderers/growth-tools");
+      const html = renderNginxLocationTester(source);
+      return {html};
+    }
+    case "jq-filter": {
+      const {renderJqFilterTester} = await import("@/lib/renderers/growth-tools");
+      const html = renderJqFilterTester(source);
+      return {html};
+    }
+    case "xpath": {
+      const {renderXPathTester} = await import("@/lib/renderers/growth-tools");
+      const html = renderXPathTester(source);
+      return {html};
+    }
+    case "yaml-path": {
+      const {renderYamlPathTester} = await import("@/lib/renderers/growth-tools");
+      const html = renderYamlPathTester(source);
+      return {html};
+    }
+    case "toml": {
+      const {renderTomlVisualizer} = await import("@/lib/renderers/growth-tools");
+      const html = renderTomlVisualizer(source);
+      return {html};
+    }
+    case "env-diff": {
+      const {renderEnvDiffChecker} = await import("@/lib/renderers/growth-tools");
+      const html = renderEnvDiffChecker(source);
+      return {html};
+    }
+    case "robots-txt": {
+      const {renderRobotsTxtTester} = await import("@/lib/renderers/growth-tools");
+      const html = renderRobotsTxtTester(source);
+      return {html};
+    }
+    case "sitemap-xml": {
+      const {renderSitemapXmlViewer} = await import("@/lib/renderers/growth-tools");
+      const html = renderSitemapXmlViewer(source);
+      return {html};
+    }
+    case "http-headers": {
+      const {renderHttpHeaderParser} = await import("@/lib/renderers/growth-tools");
+      const html = renderHttpHeaderParser(source);
+      return {html};
+    }
     case "typescript": {
       const {renderTypeScriptInterface} = await import("@/lib/renderers/growth-tools");
       const svg = await renderTypeScriptInterface(source);

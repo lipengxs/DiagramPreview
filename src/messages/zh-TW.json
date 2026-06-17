@@ -3494,6 +3494,986 @@
         "建議先用小範例確認關係，再貼上更大的來源，避免一次輸入太複雜。",
         "匯出 SVG 或 PNG 後，也建議把來源文字和圖片一起保留，方便後續修改。"
       ]
+    },
+    "har-file-viewer": {
+      "name": "HAR 檔案瀑布流檢視器",
+      "shortDescription": "預覽 HAR 請求時間線、狀態碼、最慢請求和主機分布。",
+      "seoTitle": "HAR 檔案瀑布流檢視器 - DiagramPreview",
+      "seoDescription": "預覽 HAR 請求時間線、狀態碼、最慢請求和主機分布。",
+      "keywords": [
+        "har file viewer",
+        "har waterfall analyzer",
+        "http archive viewer",
+        "api request timeline",
+        "HAR 檔案瀑布流檢視器",
+        "DiagramPreview"
+      ],
+      "h1": "HAR 檔案瀑布流檢視器",
+      "intro": "貼上HAR 檔案瀑布流檢視器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "可匯出",
+        "除錯友好"
+      ],
+      "inputLabel": "HAR 檔案瀑布流檢視器输入",
+      "outputLabel": "HAR 檔案瀑布流檢視器结果",
+      "placeholder": "貼上HAR 檔案瀑布流檢視器到這裡...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "checkout": {
+          "label": "結帳 HAR",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"startedDateTime\": \"2026-06-16T10:00:00.000Z\",\n        \"time\": 82,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://app.example.com/checkout\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"text/html\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 55,\n          \"receive\": 12\n        }\n      },\n      {\n        \"time\": 146,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/cart/validate\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 118,\n          \"receive\": 16\n        }\n      },\n      {\n        \"time\": 312,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/orders\"\n        },\n        \"response\": {\n          \"status\": 201,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 280,\n          \"receive\": 20\n        }\n      }\n    ]\n  }\n}"
+        },
+        "slowApi": {
+          "label": "慢 API",
+          "code": "{\n  \"log\": {\n    \"entries\": [\n      {\n        \"time\": 1280,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/reports/monthly\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 1210,\n          \"receive\": 46\n        }\n      },\n      {\n        \"time\": 94,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/me\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 70,\n          \"receive\": 12\n        }\n      },\n      {\n        \"time\": 520,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/search\"\n        },\n        \"response\": {\n          \"status\": 429,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 498,\n          \"receive\": 11\n        }\n      }\n    ]\n  }\n}"
+        },
+        "thirdParty": {
+          "label": "第三方資源",
+          "code": "{\n  \"log\": {\n    \"entries\": [\n      {\n        \"time\": 42,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.css\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"text/css\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 21,\n          \"receive\": 9\n        }\n      },\n      {\n        \"time\": 76,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.js\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/javascript\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 44,\n          \"receive\": 18\n        }\n      },\n      {\n        \"time\": 430,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://analytics.example.net/tag.js\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/javascript\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 390,\n          \"receive\": 22\n        }\n      }\n    ]\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "先貼上一個聚焦的小範例，不要一開始就放完整正式檔案。",
+        "載入範例了解輸入格式，再替換成自己的內容。",
+        "檢查預覽中的缺失分支、慢請求、無效選擇器或不清楚標籤。",
+        "結果確認後複製原始碼，或匯出生成的預覽產物。"
+      ],
+      "useCases": [
+        "在提交文件前除錯 AI 生成的腳本和設定片段。",
+        "把瀏覽器、API、路由、Schema 或發布元資訊變成可快速 review 的介面。",
+        "為 README、Issue、內部文件和發布記錄生成輕量截圖。"
+      ],
+      "faq": [
+        {
+          "question": "這個工具會把原始碼送到 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機完成預覽。"
+        },
+        {
+          "question": "解析器等同完整正式編譯器嗎？",
+          "answer": "不是。它優先覆蓋常見預覽和除錯場景，原始碼仍應作為最終依據。"
+        },
+        {
+          "question": "適合檢查 AI 生成的內容嗎？",
+          "answer": "適合。它用來在大模型生成文字後，快速發現結構、預覽和路由上的明顯問題。"
+        }
+      ],
+      "seoBody": [
+        "HAR 檔案瀑布流檢視器面向需要快速预览脚本、配置和可视化源码的开发者。它不会替代正式测试，但能把文本变成更容易 review 的界面。",
+        "很多 AI 工具可以生成配置、SVG、JSONPath、Nginx 片段或 Schema，但通常不给稳定预览。这个页面补上了生成后的检查步骤。",
+        "建议把原始输入和导出的预览一起放进 PR、Issue 或文档，这样团队能同时看到源码和效果。"
+      ]
+    },
+    "svg-code-preview-editor": {
+      "name": "SVG 程式碼預覽編輯器",
+      "shortDescription": "貼上 SVG 標記或 data URI，安全預覽並匯出清理後的 SVG。",
+      "seoTitle": "SVG 程式碼預覽編輯器 - DiagramPreview",
+      "seoDescription": "貼上 SVG 標記或 data URI，安全預覽並匯出清理後的 SVG。",
+      "keywords": [
+        "svg code preview",
+        "online svg editor preview",
+        "svg data uri preview",
+        "clean svg export",
+        "SVG 程式碼預覽編輯器",
+        "DiagramPreview"
+      ],
+      "h1": "SVG 程式碼預覽編輯器",
+      "intro": "貼上SVG 程式碼預覽編輯器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "可匯出",
+        "除錯友好"
+      ],
+      "inputLabel": "SVG 程式碼預覽編輯器输入",
+      "outputLabel": "SVG 程式碼預覽編輯器结果",
+      "placeholder": "貼上SVG 程式碼預覽編輯器到這裡...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "icon": {
+          "label": "圖示 SVG",
+          "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\"><rect width=\"120\" height=\"120\" rx=\"24\" fill=\"#2563eb\"/><path d=\"M34 66h24V34h28v52H34z\" fill=\"white\"/><path d=\"M46 78h52\" stroke=\"#bfdbfe\" stroke-width=\"10\" stroke-linecap=\"round\"/></svg>"
+        },
+        "chart": {
+          "label": "迷你圖表",
+          "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 220\"><rect width=\"420\" height=\"220\" rx=\"16\" fill=\"#f8fafc\"/><path d=\"M56 170 138 118 214 142 294 72 362 92\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"294\" cy=\"72\" r=\"12\" fill=\"#16a34a\"/><text x=\"56\" y=\"42\" font-family=\"Arial\" font-size=\"22\" font-weight=\"700\" fill=\"#0f172a\">Preview traffic</text></svg>"
+        },
+        "dataUri": {
+          "label": "Data URI SVG",
+          "code": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20240%20120%22%3E%3Crect%20width%3D%22240%22%20height%3D%22120%22%20rx%3D%2218%22%20fill%3D%22%230f172a%22/%3E%3Ctext%20x%3D%2224%22%20y%3D%2268%22%20font-size%3D%2228%22%20font-family%3D%22Arial%22%20fill%3D%22white%22%3ESVG%20Preview%3C/text%3E%3C/svg%3E"
+        }
+      },
+      "howToUse": [
+        "先貼上一個聚焦的小範例，不要一開始就放完整正式檔案。",
+        "載入範例了解輸入格式，再替換成自己的內容。",
+        "檢查預覽中的缺失分支、慢請求、無效選擇器或不清楚標籤。",
+        "結果確認後複製原始碼，或匯出生成的預覽產物。"
+      ],
+      "useCases": [
+        "在提交文件前除錯 AI 生成的腳本和設定片段。",
+        "把瀏覽器、API、路由、Schema 或發布元資訊變成可快速 review 的介面。",
+        "為 README、Issue、內部文件和發布記錄生成輕量截圖。"
+      ],
+      "faq": [
+        {
+          "question": "這個工具會把原始碼送到 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機完成預覽。"
+        },
+        {
+          "question": "解析器等同完整正式編譯器嗎？",
+          "answer": "不是。它優先覆蓋常見預覽和除錯場景，原始碼仍應作為最終依據。"
+        },
+        {
+          "question": "適合檢查 AI 生成的內容嗎？",
+          "answer": "適合。它用來在大模型生成文字後，快速發現結構、預覽和路由上的明顯問題。"
+        }
+      ],
+      "seoBody": [
+        "SVG 程式碼預覽編輯器面向需要快速预览脚本、配置和可视化源码的开发者。它不会替代正式测试，但能把文本变成更容易 review 的界面。",
+        "很多 AI 工具可以生成配置、SVG、JSONPath、Nginx 片段或 Schema，但通常不给稳定预览。这个页面补上了生成后的检查步骤。",
+        "建议把原始输入和导出的预览一起放进 PR、Issue 或文档，这样团队能同时看到源码和效果。"
+      ]
+    },
+    "open-graph-preview-debugger": {
+      "name": "Open Graph 預覽除錯器",
+      "shortDescription": "預覽 og:title、og:description、og:image、Twitter Card 和社群分享卡片。",
+      "seoTitle": "Open Graph 預覽除錯器 - DiagramPreview",
+      "seoDescription": "預覽 og:title、og:description、og:image、Twitter Card 和社群分享卡片。",
+      "keywords": [
+        "open graph preview",
+        "og image debugger",
+        "twitter card preview",
+        "social share preview",
+        "Open Graph 預覽除錯器",
+        "DiagramPreview"
+      ],
+      "h1": "Open Graph 預覽除錯器",
+      "intro": "貼上Open Graph 預覽除錯器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "可匯出",
+        "除錯友好"
+      ],
+      "inputLabel": "Open Graph 預覽除錯器输入",
+      "outputLabel": "Open Graph 預覽除錯器结果",
+      "placeholder": "貼上Open Graph 預覽除錯器到這裡...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "article": {
+          "label": "文章標籤",
+          "code": "<title>Debug HAR waterfalls before blaming the backend</title>\n<meta property=\"og:title\" content=\"Debug HAR waterfalls before blaming the backend\" />\n<meta property=\"og:description\" content=\"A practical guide to reading HAR timelines, slow requests, and API failures.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/har-file-viewer-api-waterfall-debugging.png\" />\n<meta property=\"og:url\" content=\"https://diagrampreview.com/en/blog/har-file-viewer-api-waterfall-debugging\" />"
+        },
+        "tool": {
+          "label": "工具頁標籤",
+          "code": "og:title: SVG Code Preview Editor\nog:description: Paste raw SVG, inspect the rendered output, and export a cleaned SVG.\nog:image: https://diagrampreview.com/blog/svg-code-preview-editor-clean-export.png\nog:url: https://diagrampreview.com/en/svg-code-preview-editor\nog:site_name: DiagramPreview"
+        },
+        "product": {
+          "label": "產品頁",
+          "code": "<meta name=\"twitter:title\" content=\"Preview developer scripts before you ship docs\" />\n<meta name=\"twitter:description\" content=\"DiagramPreview turns Mermaid, SVG, HAR, JSONPath, Nginx and schema text into visual previews.\" />\n<meta name=\"twitter:image\" content=\"https://diagrampreview.com/og.png\" />"
+        }
+      },
+      "howToUse": [
+        "先貼上一個聚焦的小範例，不要一開始就放完整正式檔案。",
+        "載入範例了解輸入格式，再替換成自己的內容。",
+        "檢查預覽中的缺失分支、慢請求、無效選擇器或不清楚標籤。",
+        "結果確認後複製原始碼，或匯出生成的預覽產物。"
+      ],
+      "useCases": [
+        "在提交文件前除錯 AI 生成的腳本和設定片段。",
+        "把瀏覽器、API、路由、Schema 或發布元資訊變成可快速 review 的介面。",
+        "為 README、Issue、內部文件和發布記錄生成輕量截圖。"
+      ],
+      "faq": [
+        {
+          "question": "這個工具會把原始碼送到 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機完成預覽。"
+        },
+        {
+          "question": "解析器等同完整正式編譯器嗎？",
+          "answer": "不是。它優先覆蓋常見預覽和除錯場景，原始碼仍應作為最終依據。"
+        },
+        {
+          "question": "適合檢查 AI 生成的內容嗎？",
+          "answer": "適合。它用來在大模型生成文字後，快速發現結構、預覽和路由上的明顯問題。"
+        }
+      ],
+      "seoBody": [
+        "Open Graph 預覽除錯器面向需要快速预览脚本、配置和可视化源码的开发者。它不会替代正式测试，但能把文本变成更容易 review 的界面。",
+        "很多 AI 工具可以生成配置、SVG、JSONPath、Nginx 片段或 Schema，但通常不给稳定预览。这个页面补上了生成后的检查步骤。",
+        "建议把原始输入和导出的预览一起放进 PR、Issue 或文档，这样团队能同时看到源码和效果。"
+      ]
+    },
+    "json-schema-form-preview": {
+      "name": "JSON Schema 表單預覽",
+      "shortDescription": "把 JSON Schema 的屬性、必填項、列舉和格式轉成表單預覽。",
+      "seoTitle": "JSON Schema 表單預覽 - DiagramPreview",
+      "seoDescription": "把 JSON Schema 的屬性、必填項、列舉和格式轉成表單預覽。",
+      "keywords": [
+        "json schema form preview",
+        "json schema to form",
+        "schema form generator preview",
+        "api form preview",
+        "JSON Schema 表單預覽",
+        "DiagramPreview"
+      ],
+      "h1": "JSON Schema 表單預覽",
+      "intro": "貼上JSON Schema 表單預覽相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "可匯出",
+        "除錯友好"
+      ],
+      "inputLabel": "JSON Schema 表單預覽输入",
+      "outputLabel": "JSON Schema 表單預覽结果",
+      "placeholder": "貼上JSON Schema 表單預覽到這裡...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "signup": {
+          "label": "註冊表單",
+          "code": "{\n  \"title\": \"SignupForm\",\n  \"type\": \"object\",\n  \"required\": [\n    \"email\",\n    \"password\"\n  ],\n  \"properties\": {\n    \"email\": {\n      \"type\": \"string\",\n      \"format\": \"email\",\n      \"description\": \"User email address\"\n    },\n    \"password\": {\n      \"type\": \"string\",\n      \"description\": \"Password or magic-link token\"\n    },\n    \"plan\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"free\",\n        \"team\",\n        \"enterprise\"\n      ],\n      \"description\": \"Billing plan\"\n    },\n    \"newsletter\": {\n      \"type\": \"boolean\",\n      \"description\": \"Allow product updates\"\n    }\n  }\n}"
+        },
+        "checkout": {
+          "label": "結帳 form",
+          "code": "{\n  \"title\": \"Checkout\",\n  \"type\": \"object\",\n  \"required\": [\n    \"cardholder\",\n    \"amount\"\n  ],\n  \"properties\": {\n    \"cardholder\": {\n      \"type\": \"string\"\n    },\n    \"amount\": {\n      \"type\": \"number\",\n      \"description\": \"Payment amount in USD\"\n    },\n    \"currency\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"USD\",\n        \"EUR\",\n        \"JPY\"\n      ]\n    },\n    \"items\": {\n      \"type\": \"array\",\n      \"description\": \"Line items\"\n    }\n  }\n}"
+        },
+        "settings": {
+          "label": "設定表單",
+          "code": "{\n  \"title\": \"WorkspaceSettings\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"workspaceName\": {\n      \"type\": \"string\"\n    },\n    \"retentionDays\": {\n      \"type\": \"integer\",\n      \"default\": 30\n    },\n    \"region\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"us-east\",\n        \"eu-west\",\n        \"ap-southeast\"\n      ]\n    },\n    \"auditLog\": {\n      \"type\": \"boolean\"\n    }\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "先貼上一個聚焦的小範例，不要一開始就放完整正式檔案。",
+        "載入範例了解輸入格式，再替換成自己的內容。",
+        "檢查預覽中的缺失分支、慢請求、無效選擇器或不清楚標籤。",
+        "結果確認後複製原始碼，或匯出生成的預覽產物。"
+      ],
+      "useCases": [
+        "在提交文件前除錯 AI 生成的腳本和設定片段。",
+        "把瀏覽器、API、路由、Schema 或發布元資訊變成可快速 review 的介面。",
+        "為 README、Issue、內部文件和發布記錄生成輕量截圖。"
+      ],
+      "faq": [
+        {
+          "question": "這個工具會把原始碼送到 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機完成預覽。"
+        },
+        {
+          "question": "解析器等同完整正式編譯器嗎？",
+          "answer": "不是。它優先覆蓋常見預覽和除錯場景，原始碼仍應作為最終依據。"
+        },
+        {
+          "question": "適合檢查 AI 生成的內容嗎？",
+          "answer": "適合。它用來在大模型生成文字後，快速發現結構、預覽和路由上的明顯問題。"
+        }
+      ],
+      "seoBody": [
+        "JSON Schema 表單預覽面向需要快速预览脚本、配置和可视化源码的开发者。它不会替代正式测试，但能把文本变成更容易 review 的界面。",
+        "很多 AI 工具可以生成配置、SVG、JSONPath、Nginx 片段或 Schema，但通常不给稳定预览。这个页面补上了生成后的检查步骤。",
+        "建议把原始输入和导出的预览一起放进 PR、Issue 或文档，这样团队能同时看到源码和效果。"
+      ]
+    },
+    "jsonpath-tester": {
+      "name": "JSONPath 測試器",
+      "shortDescription": "針對 API 回應執行常見 JSONPath 表達式，並查看匹配值。",
+      "seoTitle": "JSONPath 測試器 - DiagramPreview",
+      "seoDescription": "針對 API 回應執行常見 JSONPath 表達式，並查看匹配值。",
+      "keywords": [
+        "jsonpath tester",
+        "jsonpath online",
+        "json path evaluator",
+        "api response jsonpath",
+        "JSONPath 測試器",
+        "DiagramPreview"
+      ],
+      "h1": "JSONPath 測試器",
+      "intro": "貼上JSONPath 測試器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "可匯出",
+        "除錯友好"
+      ],
+      "inputLabel": "JSONPath 測試器输入",
+      "outputLabel": "JSONPath 測試器结果",
+      "placeholder": "貼上JSONPath 測試器到這裡...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "users": {
+          "label": "使用者信箱",
+          "code": "$.users[*].email\n---\n{\n  \"users\": [\n    {\"id\": 1, \"email\": \"ada@example.com\", \"role\": \"admin\"},\n    {\"id\": 2, \"email\": \"lin@example.com\", \"role\": \"viewer\"}\n  ]\n}"
+        },
+        "orders": {
+          "label": "首筆訂單總額",
+          "code": "$.orders[0].total\n---\n{\n  \"orders\": [\n    {\"id\": \"ord_1\", \"total\": 49.9},\n    {\"id\": \"ord_2\", \"total\": 19.5}\n  ]\n}"
+        },
+        "metrics": {
+          "label": "遞迴耗時",
+          "code": "$..durationMs\n---\n{\n  \"trace\": {\n    \"durationMs\": 340,\n    \"spans\": [{\"name\": \"api\", \"durationMs\": 120}, {\"name\": \"db\", \"durationMs\": 180}]\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "先貼上一個聚焦的小範例，不要一開始就放完整正式檔案。",
+        "載入範例了解輸入格式，再替換成自己的內容。",
+        "檢查預覽中的缺失分支、慢請求、無效選擇器或不清楚標籤。",
+        "結果確認後複製原始碼，或匯出生成的預覽產物。"
+      ],
+      "useCases": [
+        "在提交文件前除錯 AI 生成的腳本和設定片段。",
+        "把瀏覽器、API、路由、Schema 或發布元資訊變成可快速 review 的介面。",
+        "為 README、Issue、內部文件和發布記錄生成輕量截圖。"
+      ],
+      "faq": [
+        {
+          "question": "這個工具會把原始碼送到 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機完成預覽。"
+        },
+        {
+          "question": "解析器等同完整正式編譯器嗎？",
+          "answer": "不是。它優先覆蓋常見預覽和除錯場景，原始碼仍應作為最終依據。"
+        },
+        {
+          "question": "適合檢查 AI 生成的內容嗎？",
+          "answer": "適合。它用來在大模型生成文字後，快速發現結構、預覽和路由上的明顯問題。"
+        }
+      ],
+      "seoBody": [
+        "JSONPath 測試器面向需要快速预览脚本、配置和可视化源码的开发者。它不会替代正式测试，但能把文本变成更容易 review 的界面。",
+        "很多 AI 工具可以生成配置、SVG、JSONPath、Nginx 片段或 Schema，但通常不给稳定预览。这个页面补上了生成后的检查步骤。",
+        "建议把原始输入和导出的预览一起放进 PR、Issue 或文档，这样团队能同时看到源码和效果。"
+      ]
+    },
+    "nginx-location-tester": {
+      "name": "Nginx Location 匹配測試器",
+      "shortDescription": "測試 Nginx exact、prefix、^~ 和 regex location 的匹配優先級。",
+      "seoTitle": "Nginx Location 匹配測試器 - DiagramPreview",
+      "seoDescription": "測試 Nginx exact、prefix、^~ 和 regex location 的匹配優先級。",
+      "keywords": [
+        "nginx location tester",
+        "nginx location matching",
+        "nginx regex location precedence",
+        "nginx routing debug",
+        "Nginx Location 匹配測試器",
+        "DiagramPreview"
+      ],
+      "h1": "Nginx Location 匹配測試器",
+      "intro": "貼上Nginx Location 匹配測試器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "可匯出",
+        "除錯友好"
+      ],
+      "inputLabel": "Nginx Location 匹配測試器输入",
+      "outputLabel": "Nginx Location 匹配測試器结果",
+      "placeholder": "貼上Nginx Location 匹配測試器到這裡...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "api": {
+          "label": "API 路由",
+          "code": "URI: /api/users/42\n---\nserver {\n  location = /health { return 200; }\n  location ^~ /api/ { proxy_pass http://api; }\n  location ~ \\.(js|css)$ { root /assets; }\n  location / { try_files $uri /index.html; }\n}"
+        },
+        "assets": {
+          "label": "資源正則",
+          "code": "URI: /static/app.css\n---\nserver {\n  location /static/ { root /var/www; }\n  location ~* \\.(png|jpg|css|js)$ { expires 7d; }\n  location / { proxy_pass http://web; }\n}"
+        },
+        "fallback": {
+          "label": "SPA 回退",
+          "code": "URI: /dashboard/settings\n---\nserver {\n  location = /robots.txt { root /public; }\n  location /api/ { proxy_pass http://api; }\n  location / { try_files $uri /index.html; }\n}"
+        }
+      },
+      "howToUse": [
+        "先貼上一個聚焦的小範例，不要一開始就放完整正式檔案。",
+        "載入範例了解輸入格式，再替換成自己的內容。",
+        "檢查預覽中的缺失分支、慢請求、無效選擇器或不清楚標籤。",
+        "結果確認後複製原始碼，或匯出生成的預覽產物。"
+      ],
+      "useCases": [
+        "在提交文件前除錯 AI 生成的腳本和設定片段。",
+        "把瀏覽器、API、路由、Schema 或發布元資訊變成可快速 review 的介面。",
+        "為 README、Issue、內部文件和發布記錄生成輕量截圖。"
+      ],
+      "faq": [
+        {
+          "question": "這個工具會把原始碼送到 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機完成預覽。"
+        },
+        {
+          "question": "解析器等同完整正式編譯器嗎？",
+          "answer": "不是。它優先覆蓋常見預覽和除錯場景，原始碼仍應作為最終依據。"
+        },
+        {
+          "question": "適合檢查 AI 生成的內容嗎？",
+          "answer": "適合。它用來在大模型生成文字後，快速發現結構、預覽和路由上的明顯問題。"
+        }
+      ],
+      "seoBody": [
+        "Nginx Location 匹配測試器面向需要快速预览脚本、配置和可视化源码的开发者。它不会替代正式测试，但能把文本变成更容易 review 的界面。",
+        "很多 AI 工具可以生成配置、SVG、JSONPath、Nginx 片段或 Schema，但通常不给稳定预览。这个页面补上了生成后的检查步骤。",
+        "建议把原始输入和导出的预览一起放进 PR、Issue 或文档，这样团队能同时看到源码和效果。"
+      ]
+    },
+    "jq-filter-tester": {
+      "name": "jq 過濾器測試器",
+      "shortDescription": "針對 JSON 執行常見 jq 風格過濾器，並預覽過濾結果。",
+      "seoTitle": "jq 過濾器測試器 - DiagramPreview",
+      "seoDescription": "針對 JSON 執行常見 jq 風格過濾器，並預覽過濾結果。",
+      "keywords": [
+        "jq filter tester",
+        "jq online",
+        "json filter preview",
+        "api response jq",
+        "jq 過濾器測試器",
+        "DiagramPreview"
+      ],
+      "h1": "jq 過濾器測試器",
+      "intro": "貼上jq 過濾器測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": "jq 過濾器測試器输入",
+      "outputLabel": "jq 過濾器測試器结果",
+      "placeholder": "貼上jq 過濾器測試器内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "emails": {
+          "label": "Extract emails",
+          "code": " .users[].email\n---\n{\n  \"users\": [\n    {\"id\": 1, \"email\": \"ada@example.com\"},\n    {\"id\": 2, \"email\": \"lin@example.com\"}\n  ]\n}"
+        },
+        "orders": {
+          "label": "First order total",
+          "code": ".orders[0].total\n---\n{\"orders\":[{\"id\":\"ord_1\",\"total\":49.9},{\"id\":\"ord_2\",\"total\":19.5}]}"
+        },
+        "map": {
+          "label": "Map field",
+          "code": "map(.name)\n---\n[{\"name\":\"api\"},{\"name\":\"worker\"},{\"name\":\"web\"}]"
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        "jq 過濾器測試器面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
+    },
+    "xpath-tester": {
+      "name": "XPath 測試器",
+      "shortDescription": "針對 XML 或 HTML 測試 XPath 表達式，並查看匹配節點。",
+      "seoTitle": "XPath 測試器 - DiagramPreview",
+      "seoDescription": "針對 XML 或 HTML 測試 XPath 表達式，並查看匹配節點。",
+      "keywords": [
+        "xpath tester",
+        "xml xpath online",
+        "html xpath tester",
+        "xml node matcher",
+        "XPath 測試器",
+        "DiagramPreview"
+      ],
+      "h1": "XPath 測試器",
+      "intro": "貼上XPath 測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": "XPath 測試器输入",
+      "outputLabel": "XPath 測試器结果",
+      "placeholder": "貼上XPath 測試器内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "rss": {
+          "label": "RSS titles",
+          "code": "//item/title\n---\n<rss><channel><item><title>Release notes</title></item><item><title>API guide</title></item></channel></rss>"
+        },
+        "html": {
+          "label": "HTML links",
+          "code": "//a/@href\n---\n<html><body><a href=\"/docs\">Docs</a><a href=\"/tools\">Tools</a></body></html>"
+        },
+        "namespaces": {
+          "label": "Simple XML",
+          "code": "//book[@category=\"api\"]/title\n---\n<catalog><book category=\"api\"><title>OpenAPI Guide</title></book><book category=\"ops\"><title>Nginx Notes</title></book></catalog>"
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        "XPath 測試器面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
+    },
+    "yaml-path-tester": {
+      "name": "YAML Path 測試器",
+      "shortDescription": "預覽 Kubernetes、Helm、GitHub Actions 和設定檔中的 YAML 路徑。",
+      "seoTitle": "YAML Path 測試器 - DiagramPreview",
+      "seoDescription": "預覽 Kubernetes、Helm、GitHub Actions 和設定檔中的 YAML 路徑。",
+      "keywords": [
+        "yaml path tester",
+        "yaml path online",
+        "kubernetes yaml path",
+        "helm values path",
+        "YAML Path 測試器",
+        "DiagramPreview"
+      ],
+      "h1": "YAML Path 測試器",
+      "intro": "貼上YAML Path 測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": "YAML Path 測試器输入",
+      "outputLabel": "YAML Path 測試器结果",
+      "placeholder": "貼上YAML Path 測試器内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "kubernetes": {
+          "label": "Kubernetes image",
+          "code": "spec.template.spec.containers[0].image\n---\napiVersion: apps/v1\nkind: Deployment\nspec:\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/api:1.4.2"
+        },
+        "githubActions": {
+          "label": "Workflow branch",
+          "code": "on.push.branches[0]\n---\nname: CI\non:\n  push:\n    branches:\n      - main\njobs:\n  test:\n    runs-on: ubuntu-latest"
+        },
+        "helm": {
+          "label": "Helm CPU limit",
+          "code": "resources.limits.cpu\n---\nreplicaCount: 3\nresources:\n  limits:\n    cpu: 500m\n    memory: 512Mi"
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        "YAML Path 測試器面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
+    },
+    "toml-visualizer": {
+      "name": "TOML 視覺化預覽",
+      "shortDescription": "查看 pyproject、Cargo 和應用設定中的 TOML section、key 和 value。",
+      "seoTitle": "TOML 視覺化預覽 - DiagramPreview",
+      "seoDescription": "查看 pyproject、Cargo 和應用設定中的 TOML section、key 和 value。",
+      "keywords": [
+        "toml visualizer",
+        "pyproject toml viewer",
+        "cargo toml preview",
+        "toml parser online",
+        "TOML 視覺化預覽",
+        "DiagramPreview"
+      ],
+      "h1": "TOML 視覺化預覽",
+      "intro": "貼上TOML 視覺化預覽相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": "TOML 視覺化預覽输入",
+      "outputLabel": "TOML 視覺化預覽结果",
+      "placeholder": "貼上TOML 視覺化預覽内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "pyproject": {
+          "label": "pyproject.toml",
+          "code": "[project]\nname = \"demo\"\nversion = \"0.1.0\"\n\n[tool.pytest.ini_options]\naddopts = \"-q\""
+        },
+        "cargo": {
+          "label": "Cargo.toml",
+          "code": "[package]\nname = \"diagram-preview\"\nversion = \"0.1.0\"\nedition = \"2021\"\n\n[dependencies]\nserde = \"1\""
+        },
+        "config": {
+          "label": "App config",
+          "code": "title = \"Preview\"\n\n[server]\nport = 3000\nworkers = 4\n\n[features]\nsearch = true"
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        "TOML 視覺化預覽面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
+    },
+    "env-diff-checker": {
+      "name": ".env 差異檢查器",
+      "shortDescription": "比對 .env 與 .env.example，找出缺失、空值或重複變數。",
+      "seoTitle": ".env 差異檢查器 - DiagramPreview",
+      "seoDescription": "比對 .env 與 .env.example，找出缺失、空值或重複變數。",
+      "keywords": [
+        "env diff checker",
+        "env example checker",
+        "missing env variables",
+        "dotenv compare",
+        ".env 差異檢查器",
+        "DiagramPreview"
+      ],
+      "h1": ".env 差異檢查器",
+      "intro": "貼上.env 差異檢查器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": ".env 差異檢查器输入",
+      "outputLabel": ".env 差異檢查器结果",
+      "placeholder": "貼上.env 差異檢查器内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "missing": {
+          "label": "Missing variable",
+          "code": "DATABASE_URL=postgres://local\nNEXT_PUBLIC_SITE_URL=http://localhost:3000\n---\nDATABASE_URL=\nNEXT_PUBLIC_SITE_URL=\nOPENAI_API_KEY="
+        },
+        "docker": {
+          "label": "Docker env",
+          "code": "NODE_ENV=production\nREDIS_URL=redis://redis:6379\n---\nNODE_ENV=\nREDIS_URL=\nSENTRY_DSN="
+        },
+        "production": {
+          "label": "Production check",
+          "code": "API_BASE_URL=https://api.example.com\nSTRIPE_SECRET_KEY=\n---\nAPI_BASE_URL=\nSTRIPE_SECRET_KEY=\nWEBHOOK_SECRET="
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        ".env 差異檢查器面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
+    },
+    "robots-txt-tester": {
+      "name": "robots.txt 測試器",
+      "shortDescription": "針對目標 URL 測試 robots.txt 的 Allow 與 Disallow 規則。",
+      "seoTitle": "robots.txt 測試器 - DiagramPreview",
+      "seoDescription": "針對目標 URL 測試 robots.txt 的 Allow 與 Disallow 規則。",
+      "keywords": [
+        "robots txt tester",
+        "robots allow disallow tester",
+        "robots.txt preview",
+        "googlebot robots tester",
+        "robots.txt 測試器",
+        "DiagramPreview"
+      ],
+      "h1": "robots.txt 測試器",
+      "intro": "貼上robots.txt 測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": "robots.txt 測試器输入",
+      "outputLabel": "robots.txt 測試器结果",
+      "placeholder": "貼上robots.txt 測試器内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "blog": {
+          "label": "Blog allowed",
+          "code": "URL: https://example.com/blog/har-guide\n---\nUser-agent: *\nDisallow: /admin/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml"
+        },
+        "private": {
+          "label": "Private blocked",
+          "code": "URL: https://example.com/private/report\n---\nUser-agent: *\nDisallow: /private/\nAllow: /private/public/"
+        },
+        "sitemap": {
+          "label": "Sitemap rule",
+          "code": "URL: /tools/jsonpath-tester\n---\nUser-agent: *\nDisallow: /api/\nAllow: /tools/\nSitemap: https://example.com/sitemap.xml"
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        "robots.txt 測試器面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
+    },
+    "sitemap-xml-viewer": {
+      "name": "Sitemap XML 檢視器",
+      "shortDescription": "預覽 sitemap XML 的 URL、索引、重複項、lastmod 和 hreflang。",
+      "seoTitle": "Sitemap XML 檢視器 - DiagramPreview",
+      "seoDescription": "預覽 sitemap XML 的 URL、索引、重複項、lastmod 和 hreflang。",
+      "keywords": [
+        "sitemap xml viewer",
+        "sitemap validator preview",
+        "hreflang sitemap checker",
+        "sitemap url count",
+        "Sitemap XML 檢視器",
+        "DiagramPreview"
+      ],
+      "h1": "Sitemap XML 檢視器",
+      "intro": "貼上Sitemap XML 檢視器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": "Sitemap XML 檢視器输入",
+      "outputLabel": "Sitemap XML 檢視器结果",
+      "placeholder": "貼上Sitemap XML 檢視器内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "basic": {
+          "label": "Basic sitemap",
+          "code": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://example.com/en</loc><lastmod>2026-06-16</lastmod></url><url><loc>https://example.com/en/tools</loc></url></urlset>"
+        },
+        "hreflang": {
+          "label": "Hreflang sitemap",
+          "code": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\"><url><loc>https://example.com/en/jsonpath-tester</loc><xhtml:link rel=\"alternate\" hreflang=\"zh-CN\" href=\"https://example.com/zh-CN/jsonpath-tester\" /></url></urlset>"
+        },
+        "index": {
+          "label": "Sitemap index",
+          "code": "<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><sitemap><loc>https://example.com/sitemap-tools.xml</loc></sitemap><sitemap><loc>https://example.com/sitemap-blog.xml</loc></sitemap></sitemapindex>"
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        "Sitemap XML 檢視器面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
+    },
+    "http-header-parser": {
+      "name": "HTTP 回應標頭解析器",
+      "shortDescription": "解析 HTTP 回應標頭，並檢查快取、CORS、Content-Type 和安全提示。",
+      "seoTitle": "HTTP 回應標頭解析器 - DiagramPreview",
+      "seoDescription": "解析 HTTP 回應標頭，並檢查快取、CORS、Content-Type 和安全提示。",
+      "keywords": [
+        "http header parser",
+        "security header checker",
+        "cors header preview",
+        "cache control analyzer",
+        "HTTP 回應標頭解析器",
+        "DiagramPreview"
+      ],
+      "h1": "HTTP 回應標頭解析器",
+      "intro": "貼上HTTP 回應標頭解析器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "badges": [
+        "無需 AI",
+        "本機預覽",
+        "除錯友好",
+        "可匯出"
+      ],
+      "inputLabel": "HTTP 回應標頭解析器输入",
+      "outputLabel": "HTTP 回應標頭解析器结果",
+      "placeholder": "貼上HTTP 回應標頭解析器内容到这里...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "security": {
+          "label": "Security headers",
+          "code": "HTTP/2 200\ncontent-type: text/html; charset=utf-8\ncache-control: public, max-age=3600\nstrict-transport-security: max-age=31536000; includeSubDomains\ncontent-security-policy: default-src 'self'"
+        },
+        "cors": {
+          "label": "CORS response",
+          "code": "HTTP/1.1 204 No Content\naccess-control-allow-origin: https://app.example.com\naccess-control-allow-methods: GET, POST, OPTIONS\ncontent-type: application/json"
+        },
+        "cache": {
+          "label": "Cache policy",
+          "code": "HTTP/1.1 200 OK\ncontent-type: application/javascript\ncache-control: public, max-age=31536000, immutable\netag: \"app-v42\""
+        }
+      },
+      "howToUse": [
+        "第一行放表達式或目標 URL；需要同時輸入原始碼的工具，用 --- 分隔原始碼。",
+        "先載入範例了解輸入格式，再替換成自己的 JSON、XML、YAML、TOML、.env、robots.txt、sitemap 或回應標頭。",
+        "複製到文件或 PR 前，檢查匹配值、警告、重複 key、阻止路徑或安全回應標頭提示。",
+        "建議把原始碼和截圖一起保留，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "不用開多個工具，就能除錯 API 回應、XML feed、部署設定、SEO 檔案和 HTTP 回應。",
+        "在 AI 生成片段進入 README、正式設定或客服回覆前先驗證。",
+        "為 Issue、發布記錄、內部文件和技術文章生成聚焦截圖。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。當前支援的解析路徑都在瀏覽器本機執行。"
+        },
+        {
+          "question": "它能替代 jq、Nginx、Search Console 或正式解析器嗎？",
+          "answer": "不能。它是面向常見場景的快速預覽和除錯介面，最終仍應以原工具或正式執行環境為準。"
+        },
+        {
+          "question": "為什麼有些工具用 --- 分隔？",
+          "answer": "這樣可以把表達式、URL 或對比目標和被檢查的原始碼分開。"
+        }
+      ],
+      "seoBody": [
+        "HTTP 回應標頭解析器面向需要快速检查脚本、配置和数据结构的开发者。它把源码变成可读的预览结果，减少来回复制到多个工具的时间。",
+        "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
+        "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
+      ]
     }
   },
   "hubs": {
@@ -5070,6 +6050,806 @@
             "paragraphs": [
               "README、博客和内部文档通常优先使用 SVG；聊天工具和演示文稿可以使用 PNG。对于可编辑或可导入格式，建议把源文件放在 docs 或 architecture 目录下。",
               "如果输入来自 AI，先把它当成草稿。通过预览检查语法、关系和命名，再导出用于正式文档的图片。"
+            ]
+          }
+        ]
+      },
+      "har-file-viewer-api-waterfall-debugging": {
+        "title": "別再猜後端慢不慢：先讀懂 HAR 瀑布流",
+        "seoTitle": "別再猜後端慢不慢：先讀懂 HAR 瀑布流 - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 HAR File Viewer, HAR sequence diagrams, and Postman collections，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 HAR File Viewer, HAR sequence diagrams, and Postman collections，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "HAR waterfall debugging",
+          "HAR file viewer",
+          "API latency analysis"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "別再猜後端慢不慢：先讀懂 HAR 瀑布流 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/har-file-viewer-api-waterfall-debugging.png",
+              "alt": "別再猜後端慢不慢：先讀懂 HAR 瀑布流",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "{\n  \"log\": {\n    \"entries\": [\n      {\"time\": 1280, \"request\": {\"method\": \"GET\", \"url\": \"https://api.example.com/reports\"}, \"response\": {\"status\": 200}}\n    ]\n  }\n}",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "svg-code-preview-editor-clean-export": {
+        "title": "像開發者一樣預覽 SVG，而不是只看設計交付圖",
+        "seoTitle": "像開發者一樣預覽 SVG，而不是只看設計交付圖 - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 SVG preview, data URI decoding, and clean export，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 SVG preview, data URI decoding, and clean export，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "svg code preview",
+          "svg editor preview",
+          "svg data uri"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "像開發者一樣預覽 SVG，而不是只看設計交付圖 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/svg-code-preview-editor-clean-export.png",
+              "alt": "像開發者一樣預覽 SVG，而不是只看設計交付圖",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "<svg viewBox=\"0 0 120 120\"><rect width=\"120\" height=\"120\" rx=\"20\" fill=\"#2563eb\"/></svg>",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "open-graph-preview-debugger-social-cards": {
+        "title": "技術文章發出去前，先確認社群卡片是否可信",
+        "seoTitle": "技術文章發出去前，先確認社群卡片是否可信 - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 Open Graph preview and SVG cover checks，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 Open Graph preview and SVG cover checks，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "open graph preview",
+          "og image debugger",
+          "twitter card preview"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "技術文章發出去前，先確認社群卡片是否可信 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/open-graph-preview-debugger-social-cards.png",
+              "alt": "技術文章發出去前，先確認社群卡片是否可信",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "<meta property=\"og:title\" content=\"Debug HAR waterfalls before blaming the backend\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/har-file-viewer-api-waterfall-debugging.png\" />",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "json-schema-form-preview-guide": {
+        "title": "前端開工前，先把 JSON Schema 變成表單預覽",
+        "seoTitle": "前端開工前，先把 JSON Schema 變成表單預覽 - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 JSON Schema form preview, schema tree, and Zod comparison，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 JSON Schema form preview, schema tree, and Zod comparison，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "json schema form preview",
+          "json schema to form",
+          "api form design"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "前端開工前，先把 JSON Schema 變成表單預覽 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/json-schema-form-preview-guide.png",
+              "alt": "前端開工前，先把 JSON Schema 變成表單預覽",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "{\n  \"type\": \"object\",\n  \"required\": [\"email\"],\n  \"properties\": {\"email\": {\"type\": \"string\", \"format\": \"email\"}}\n}",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "jsonpath-tester-api-response-debugging": {
+        "title": "用 JSONPath 除錯 API 回應，不必讀完整 payload",
+        "seoTitle": "用 JSONPath 除錯 API 回應，不必讀完整 payload - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 JSONPath tester and JSON tree preview，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 JSONPath tester and JSON tree preview，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "jsonpath tester",
+          "api response debugging",
+          "json path evaluator"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "用 JSONPath 除錯 API 回應，不必讀完整 payload 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/jsonpath-tester-api-response-debugging.png",
+              "alt": "用 JSONPath 除錯 API 回應，不必讀完整 payload",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "$.users[*].email\n---\n{\"users\":[{\"email\":\"ada@example.com\"},{\"email\":\"lin@example.com\"}]}",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "nginx-location-tester-routing-debug": {
+        "title": "Nginx location 很簡單，直到 regex 加進來",
+        "seoTitle": "Nginx location 很簡單，直到 regex 加進來 - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 Nginx location tester and config visualizer，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 Nginx location tester and config visualizer，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "nginx location tester",
+          "nginx location matching",
+          "nginx routing debug"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "Nginx location 很簡單，直到 regex 加進來 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/nginx-location-tester-routing-debug.png",
+              "alt": "Nginx location 很簡單，直到 regex 加進來",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "URI: /api/users/42\n---\nlocation = /health { return 200; }\nlocation ^~ /api/ { proxy_pass http://api; }\nlocation ~ \\.(js|css)$ { root /assets; }",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "ai-generated-code-preview-debugging-workflow": {
+        "title": "AI 能生成腳本，但你仍然需要一個預覽除錯閉環",
+        "seoTitle": "AI 能生成腳本，但你仍然需要一個預覽除錯閉環 - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 SVG, JSONPath, Nginx, schema, and HAR preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 SVG, JSONPath, Nginx, schema, and HAR preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "AI generated code preview",
+          "script preview tools",
+          "developer preview workflow"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "AI 能生成腳本，但你仍然需要一個預覽除錯閉環 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/ai-generated-code-preview-debugging-workflow.png",
+              "alt": "AI 能生成腳本，但你仍然需要一個預覽除錯閉環",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "Prompt -> Generated config -> Local preview -> Fix obvious mismatch -> Commit source and screenshot",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "api-debugging-preview-har-postman-openapi": {
+        "title": "實用 API 除錯鏈路：OpenAPI、Postman，再到 HAR",
+        "seoTitle": "實用 API 除錯鏈路：OpenAPI、Postman，再到 HAR - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 OpenAPI sequence, Postman sequence, and HAR waterfall tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 OpenAPI sequence, Postman sequence, and HAR waterfall tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "api debugging workflow",
+          "openapi sequence diagram",
+          "postman har debugging"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "實用 API 除錯鏈路：OpenAPI、Postman，再到 HAR 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/api-debugging-preview-har-postman-openapi.png",
+              "alt": "實用 API 除錯鏈路：OpenAPI、Postman，再到 HAR",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "OpenAPI contract\n  -> Postman collection\n  -> Browser HAR\n  -> sequence + waterfall review",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "schema-preview-workflow-json-schema-zod-typescript": {
+        "title": "Schema 預覽工作流：TypeScript、Zod 與 JSON Schema 如何配合",
+        "seoTitle": "Schema 預覽工作流：TypeScript、Zod 與 JSON Schema 如何配合 - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 TypeScript, Zod, JSON Schema, and form preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 TypeScript, Zod, JSON Schema, and form preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "schema preview workflow",
+          "json schema zod typescript",
+          "api schema documentation"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "Schema 預覽工作流：TypeScript、Zod 與 JSON Schema 如何配合 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/schema-preview-workflow-json-schema-zod-typescript.png",
+              "alt": "Schema 預覽工作流：TypeScript、Zod 與 JSON Schema 如何配合",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "type User = { id: string; email: string }\nconst UserSchema = z.object({ id: z.string(), email: z.string().email() })",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "social-card-svg-preview-publishing-workflow": {
+        "title": "發布技術文件前，先預覽社群卡片和 SVG",
+        "seoTitle": "發布技術文件前，先預覽社群卡片和 SVG - DiagramPreview",
+        "description": "一篇面向开发者预览工具的长尾指南，结合 Open Graph, SVG, and Markdown preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 Open Graph, SVG, and Markdown preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
+        "readingTime": "9 分鐘閱讀",
+        "keywords": [
+          "technical blog publishing checklist",
+          "open graph svg preview",
+          "markdown preview workflow"
+        ],
+        "sections": [
+          {
+            "heading": "為什麼需要單獨的預覽步驟",
+            "paragraphs": [
+              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
+              "發布技術文件前，先預覽社群卡片和 SVG 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+            ],
+            "image": {
+              "src": "/blog/social-card-svg-preview-publishing-workflow.png",
+              "alt": "發布技術文件前，先預覽社群卡片和 SVG",
+              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+            }
+          },
+          {
+            "heading": "範例輸入",
+            "paragraphs": [
+              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
+              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "1. Preview Markdown\n2. Preview SVG cover\n3. Validate og:title and og:image\n4. Publish and submit sitemap",
+              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+            }
+          },
+          {
+            "heading": "重點檢查什麼",
+            "paragraphs": [
+              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
+              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+            ]
+          },
+          {
+            "heading": "實用工作流",
+            "paragraphs": [
+              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
+              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+            ]
+          },
+          {
+            "heading": "發布建議",
+            "paragraphs": [
+              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
+              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+            ]
+          }
+        ]
+      },
+      "jq-vs-jsonpath-api-debugging-workflow": {
+        "title": "jq vs JSONPath：實用 API 回應除錯工作流",
+        "seoTitle": "jq vs JSONPath：實用 API 回應除錯工作流 - DiagramPreview",
+        "description": "这是一篇围绕 jq Filter Tester, JSONPath Tester, and JSON tree preview 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "excerpt": "这是一篇围绕 jq Filter Tester, JSONPath Tester, and JSON tree preview 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "readingTime": "10 分鐘閱讀",
+        "keywords": [
+          "jq vs JSONPath",
+          "api response debugging",
+          "json filter tester"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这类预览工具值得做",
+            "paragraphs": [
+              "很多开发者搜索的不是笼统的 diagram，而是 jq filter、XPath、.env diff、robots.txt tester 这类具体问题。它们搜索意图强，用户希望马上粘贴源码得到答案。",
+              "这类页面适合作为工具站的 P0 长尾入口：工具页解决“马上用”，博客解决“为什么这么调试、怎么避免踩坑”。"
+            ],
+            "image": {
+              "src": "/blog/jq-vs-jsonpath-api-debugging-workflow.png",
+              "alt": "jq vs JSONPath：實用 API 回應除錯工作流",
+              "caption": "配图展示源码、预览结果和检查重点在同一上下文中。"
+            }
+          },
+          {
+            "heading": "可以直接复制的示例",
+            "paragraphs": [
+              "建议从一个最小片段开始，而不是一上来粘贴完整生产文件。小输入更容易看出表达式是否写错、路径是否命中、配置是否缺变量。",
+              "下面的片段可以直接放进对应工具测试，再逐步替换成真实项目输入。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "jq: .users[].email\nJSONPath: $.users[*].email\n\n{ \"users\": [{\"email\":\"ada@example.com\"}] }",
+              "caption": "先让预览跑通，再扩大输入范围。"
+            }
+          },
+          {
+            "heading": "检查清单",
+            "paragraphs": [
+              "先看结果是否为空，再看是否命中了错误的节点、字段或路径。对于配置类工具，要特别注意空值、缺失变量、重复 key 和生产环境默认值。",
+              "对于 SEO 文件，除了语法，还要检查 robots 是否阻止了目标 URL、sitemap 是否有重复 URL、Open Graph 图片是否能被稳定访问。"
+            ]
+          },
+          {
+            "heading": "发布和 SEO 建议",
+            "paragraphs": [
+              "博客不要写成“这是一个在线工具”的薄页面。更好的写法是放真实片段、错误案例、对比说明和截图，让读者觉得这是一篇调试经验。",
+              "工具页和博客页要互相链接：工具页承接高意图关键词，博客页承接教程型关键词。这样比一口气批量生成大量短文更稳。"
+            ]
+          }
+        ]
+      },
+      "xpath-xml-api-debugging-guide": {
+        "title": "XPath 與 XML 除錯：feed、API 與 sitemap 檔案怎麼查",
+        "seoTitle": "XPath 與 XML 除錯：feed、API 與 sitemap 檔案怎麼查 - DiagramPreview",
+        "description": "这是一篇围绕 XPath Tester, XML preview, and Sitemap XML Viewer 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "excerpt": "这是一篇围绕 XPath Tester, XML preview, and Sitemap XML Viewer 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "readingTime": "10 分鐘閱讀",
+        "keywords": [
+          "xpath xml debugging",
+          "xpath tester",
+          "xml api debugging"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这类预览工具值得做",
+            "paragraphs": [
+              "很多开发者搜索的不是笼统的 diagram，而是 jq filter、XPath、.env diff、robots.txt tester 这类具体问题。它们搜索意图强，用户希望马上粘贴源码得到答案。",
+              "这类页面适合作为工具站的 P0 长尾入口：工具页解决“马上用”，博客解决“为什么这么调试、怎么避免踩坑”。"
+            ],
+            "image": {
+              "src": "/blog/xpath-xml-api-debugging-guide.png",
+              "alt": "XPath 與 XML 除錯：feed、API 與 sitemap 檔案怎麼查",
+              "caption": "配图展示源码、预览结果和检查重点在同一上下文中。"
+            }
+          },
+          {
+            "heading": "可以直接复制的示例",
+            "paragraphs": [
+              "建议从一个最小片段开始，而不是一上来粘贴完整生产文件。小输入更容易看出表达式是否写错、路径是否命中、配置是否缺变量。",
+              "下面的片段可以直接放进对应工具测试，再逐步替换成真实项目输入。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "//item/title\n---\n<rss><channel><item><title>API release</title></item></channel></rss>",
+              "caption": "先让预览跑通，再扩大输入范围。"
+            }
+          },
+          {
+            "heading": "检查清单",
+            "paragraphs": [
+              "先看结果是否为空，再看是否命中了错误的节点、字段或路径。对于配置类工具，要特别注意空值、缺失变量、重复 key 和生产环境默认值。",
+              "对于 SEO 文件，除了语法，还要检查 robots 是否阻止了目标 URL、sitemap 是否有重复 URL、Open Graph 图片是否能被稳定访问。"
+            ]
+          },
+          {
+            "heading": "发布和 SEO 建议",
+            "paragraphs": [
+              "博客不要写成“这是一个在线工具”的薄页面。更好的写法是放真实片段、错误案例、对比说明和截图，让读者觉得这是一篇调试经验。",
+              "工具页和博客页要互相链接：工具页承接高意图关键词，博客页承接教程型关键词。这样比一口气批量生成大量短文更稳。"
+            ]
+          }
+        ]
+      },
+      "config-preview-env-yaml-toml-before-deploy": {
+        "title": "部署出問題前，先預覽 .env、YAML 和 TOML 設定",
+        "seoTitle": "部署出問題前，先預覽 .env、YAML 和 TOML 設定 - DiagramPreview",
+        "description": "这是一篇围绕 .env Diff Checker, YAML Path Tester, and TOML Visualizer 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "excerpt": "这是一篇围绕 .env Diff Checker, YAML Path Tester, and TOML Visualizer 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "readingTime": "10 分鐘閱讀",
+        "keywords": [
+          "env diff checker",
+          "yaml path tester",
+          "toml visualizer",
+          "config preview"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这类预览工具值得做",
+            "paragraphs": [
+              "很多开发者搜索的不是笼统的 diagram，而是 jq filter、XPath、.env diff、robots.txt tester 这类具体问题。它们搜索意图强，用户希望马上粘贴源码得到答案。",
+              "这类页面适合作为工具站的 P0 长尾入口：工具页解决“马上用”，博客解决“为什么这么调试、怎么避免踩坑”。"
+            ],
+            "image": {
+              "src": "/blog/config-preview-env-yaml-toml-before-deploy.png",
+              "alt": "部署出問題前，先預覽 .env、YAML 和 TOML 設定",
+              "caption": "配图展示源码、预览结果和检查重点在同一上下文中。"
+            }
+          },
+          {
+            "heading": "可以直接复制的示例",
+            "paragraphs": [
+              "建议从一个最小片段开始，而不是一上来粘贴完整生产文件。小输入更容易看出表达式是否写错、路径是否命中、配置是否缺变量。",
+              "下面的片段可以直接放进对应工具测试，再逐步替换成真实项目输入。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "DATABASE_URL=postgres://local\n---\nDATABASE_URL=\nOPENAI_API_KEY=\n\nspec.template.spec.containers[0].image",
+              "caption": "先让预览跑通，再扩大输入范围。"
+            }
+          },
+          {
+            "heading": "检查清单",
+            "paragraphs": [
+              "先看结果是否为空，再看是否命中了错误的节点、字段或路径。对于配置类工具，要特别注意空值、缺失变量、重复 key 和生产环境默认值。",
+              "对于 SEO 文件，除了语法，还要检查 robots 是否阻止了目标 URL、sitemap 是否有重复 URL、Open Graph 图片是否能被稳定访问。"
+            ]
+          },
+          {
+            "heading": "发布和 SEO 建议",
+            "paragraphs": [
+              "博客不要写成“这是一个在线工具”的薄页面。更好的写法是放真实片段、错误案例、对比说明和截图，让读者觉得这是一篇调试经验。",
+              "工具页和博客页要互相链接：工具页承接高意图关键词，博客页承接教程型关键词。这样比一口气批量生成大量短文更稳。"
+            ]
+          }
+        ]
+      },
+      "technical-seo-preview-robots-sitemap-open-graph": {
+        "title": "技術 SEO 預覽工作流：robots.txt、sitemap.xml 與 Open Graph",
+        "seoTitle": "技術 SEO 預覽工作流：robots.txt、sitemap.xml 與 Open Graph - DiagramPreview",
+        "description": "这是一篇围绕 robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "excerpt": "这是一篇围绕 robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
+        "readingTime": "10 分鐘閱讀",
+        "keywords": [
+          "technical seo preview",
+          "robots txt tester",
+          "sitemap xml viewer",
+          "open graph preview"
+        ],
+        "sections": [
+          {
+            "heading": "为什么这类预览工具值得做",
+            "paragraphs": [
+              "很多开发者搜索的不是笼统的 diagram，而是 jq filter、XPath、.env diff、robots.txt tester 这类具体问题。它们搜索意图强，用户希望马上粘贴源码得到答案。",
+              "这类页面适合作为工具站的 P0 长尾入口：工具页解决“马上用”，博客解决“为什么这么调试、怎么避免踩坑”。"
+            ],
+            "image": {
+              "src": "/blog/technical-seo-preview-robots-sitemap-open-graph.png",
+              "alt": "技術 SEO 預覽工作流：robots.txt、sitemap.xml 與 Open Graph",
+              "caption": "配图展示源码、预览结果和检查重点在同一上下文中。"
+            }
+          },
+          {
+            "heading": "可以直接复制的示例",
+            "paragraphs": [
+              "建议从一个最小片段开始，而不是一上来粘贴完整生产文件。小输入更容易看出表达式是否写错、路径是否命中、配置是否缺变量。",
+              "下面的片段可以直接放进对应工具测试，再逐步替换成真实项目输入。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "URL: https://example.com/blog/post\n---\nUser-agent: *\nDisallow: /admin/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
+              "caption": "先让预览跑通，再扩大输入范围。"
+            }
+          },
+          {
+            "heading": "检查清单",
+            "paragraphs": [
+              "先看结果是否为空，再看是否命中了错误的节点、字段或路径。对于配置类工具，要特别注意空值、缺失变量、重复 key 和生产环境默认值。",
+              "对于 SEO 文件，除了语法，还要检查 robots 是否阻止了目标 URL、sitemap 是否有重复 URL、Open Graph 图片是否能被稳定访问。"
+            ]
+          },
+          {
+            "heading": "发布和 SEO 建议",
+            "paragraphs": [
+              "博客不要写成“这是一个在线工具”的薄页面。更好的写法是放真实片段、错误案例、对比说明和截图，让读者觉得这是一篇调试经验。",
+              "工具页和博客页要互相链接：工具页承接高意图关键词，博客页承接教程型关键词。这样比一口气批量生成大量短文更稳。"
             ]
           }
         ]

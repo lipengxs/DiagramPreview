@@ -40,6 +40,11 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
   const sections = t.raw(`blog.posts.${post.slug}.sections`) as Array<{
     heading: string;
     paragraphs: string[];
+    code?: {
+      language: string;
+      content: string;
+      caption?: string;
+    };
     image?: {
       src: string;
       alt: string;
@@ -79,6 +84,21 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
                   {section.image.caption ? (
                     <figcaption className="border-t border-slate-200 px-4 py-3 text-sm leading-6 text-slate-500">
                       {section.image.caption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ) : null}
+              {section.code ? (
+                <figure className="mt-5 overflow-hidden rounded-lg border border-slate-800 bg-slate-950">
+                  <div className="border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    {section.code.language}
+                  </div>
+                  <pre className="overflow-auto p-4 text-sm leading-7 text-slate-100">
+                    <code>{section.code.content}</code>
+                  </pre>
+                  {section.code.caption ? (
+                    <figcaption className="border-t border-slate-800 px-4 py-3 text-sm leading-6 text-slate-400">
+                      {section.code.caption}
                     </figcaption>
                   ) : null}
                 </figure>

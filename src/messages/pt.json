@@ -3494,6 +3494,986 @@
         "Comece com um exemplo pequeno, valide as relações e só então cole uma fonte maior.",
         "Guarde a fonte junto com SVG ou PNG exportado para manter o diagrama editável."
       ]
+    },
+    "har-file-viewer": {
+      "name": "Visualizador de arquivo HAR",
+      "shortDescription": "Visualizador de arquivo HAR: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "seoTitle": "Visualizador de arquivo HAR - DiagramPreview",
+      "seoDescription": "Visualizador de arquivo HAR: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "keywords": [
+        "har file viewer",
+        "har waterfall analyzer",
+        "http archive viewer",
+        "api request timeline",
+        "Visualizador de arquivo HAR",
+        "DiagramPreview"
+      ],
+      "h1": "Visualizador de arquivo HAR",
+      "intro": "Cole visualizador de arquivo har source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "badges": [
+        "Sem IA",
+        "Prévia local",
+        "Exportar",
+        "Depuração"
+      ],
+      "inputLabel": "HAR JSON",
+      "outputLabel": "HAR waterfall preview",
+      "placeholder": "Paste HAR JSON here...",
+      "emptyPreview": "Your HAR timeline will appear here.",
+      "samples": {
+        "checkout": {
+          "label": "Checkout HAR",
+          "code": "{\n  \"log\": {\n    \"version\": \"1.2\",\n    \"creator\": {\n      \"name\": \"DiagramPreview\"\n    },\n    \"entries\": [\n      {\n        \"startedDateTime\": \"2026-06-16T10:00:00.000Z\",\n        \"time\": 82,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://app.example.com/checkout\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"text/html\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 55,\n          \"receive\": 12\n        }\n      },\n      {\n        \"time\": 146,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/cart/validate\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 118,\n          \"receive\": 16\n        }\n      },\n      {\n        \"time\": 312,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/orders\"\n        },\n        \"response\": {\n          \"status\": 201,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 280,\n          \"receive\": 20\n        }\n      }\n    ]\n  }\n}"
+        },
+        "slowApi": {
+          "label": "Slow API",
+          "code": "{\n  \"log\": {\n    \"entries\": [\n      {\n        \"time\": 1280,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/reports/monthly\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 1210,\n          \"receive\": 46\n        }\n      },\n      {\n        \"time\": 94,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://api.example.com/me\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 70,\n          \"receive\": 12\n        }\n      },\n      {\n        \"time\": 520,\n        \"request\": {\n          \"method\": \"POST\",\n          \"url\": \"https://api.example.com/search\"\n        },\n        \"response\": {\n          \"status\": 429,\n          \"content\": {\n            \"mimeType\": \"application/json\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 498,\n          \"receive\": 11\n        }\n      }\n    ]\n  }\n}"
+        },
+        "thirdParty": {
+          "label": "Third-party assets",
+          "code": "{\n  \"log\": {\n    \"entries\": [\n      {\n        \"time\": 42,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.css\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"text/css\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 21,\n          \"receive\": 9\n        }\n      },\n      {\n        \"time\": 76,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://cdn.example.com/app.js\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/javascript\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 44,\n          \"receive\": 18\n        }\n      },\n      {\n        \"time\": 430,\n        \"request\": {\n          \"method\": \"GET\",\n          \"url\": \"https://analytics.example.net/tag.js\"\n        },\n        \"response\": {\n          \"status\": 200,\n          \"content\": {\n            \"mimeType\": \"application/javascript\"\n          }\n        },\n        \"timings\": {\n          \"wait\": 390,\n          \"receive\": 22\n        }\n      }\n    ]\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "Cole primeiro uma amostra pequena e focada.",
+        "Abra um exemplo para entender o formato esperado.",
+        "Revise ramificações ausentes, requisições lentas, seletores inválidos e rótulos confusos.",
+        "Copie a fonte ou exporte o artefato quando a prévia estiver pronta."
+      ],
+      "useCases": [
+        "Depurar trechos gerados por IA antes de documentar.",
+        "Transformar API, rotas, schema e metadados em uma superfície visual de revisão.",
+        "Criar capturas para README, issues e documentação interna."
+      ],
+      "faq": [
+        {
+          "question": "O código é enviado para IA?",
+          "answer": "Não. A prévia suportada roda localmente no navegador."
+        },
+        {
+          "question": "É um compilador completo?",
+          "answer": "Não. O foco é prévia e depuração comum; mantenha a fonte original."
+        },
+        {
+          "question": "Funciona com saída de IA?",
+          "answer": "Sim. Ajuda a validar estrutura e preview depois da geração."
+        }
+      ],
+      "seoBody": [
+        "Visualizador de arquivo HAR is built for developers who need a fast preview surface for scripts, configuration, API artifacts, and visual source formats.",
+        "AI tools can generate text, but they often skip the preview loop. This page helps you inspect the generated source before it reaches a README, issue, or production config.",
+        "Keep the original source alongside the exported preview so teammates can review both the text and the rendered result."
+      ]
+    },
+    "svg-code-preview-editor": {
+      "name": "Editor de prévia SVG",
+      "shortDescription": "Editor de prévia SVG: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "seoTitle": "Editor de prévia SVG - DiagramPreview",
+      "seoDescription": "Editor de prévia SVG: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "keywords": [
+        "svg code preview",
+        "online svg editor preview",
+        "svg data uri preview",
+        "clean svg export",
+        "Editor de prévia SVG",
+        "DiagramPreview"
+      ],
+      "h1": "Editor de prévia SVG",
+      "intro": "Cole editor de prévia svg source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "badges": [
+        "Sem IA",
+        "Prévia local",
+        "Exportar",
+        "Depuração"
+      ],
+      "inputLabel": "SVG source",
+      "outputLabel": "SVG preview",
+      "placeholder": "Paste raw SVG or data:image/svg+xml here...",
+      "emptyPreview": "Your SVG preview will appear here.",
+      "samples": {
+        "icon": {
+          "label": "Icon SVG",
+          "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 120 120\"><rect width=\"120\" height=\"120\" rx=\"24\" fill=\"#2563eb\"/><path d=\"M34 66h24V34h28v52H34z\" fill=\"white\"/><path d=\"M46 78h52\" stroke=\"#bfdbfe\" stroke-width=\"10\" stroke-linecap=\"round\"/></svg>"
+        },
+        "chart": {
+          "label": "Mini chart",
+          "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 220\"><rect width=\"420\" height=\"220\" rx=\"16\" fill=\"#f8fafc\"/><path d=\"M56 170 138 118 214 142 294 72 362 92\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"10\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"294\" cy=\"72\" r=\"12\" fill=\"#16a34a\"/><text x=\"56\" y=\"42\" font-family=\"Arial\" font-size=\"22\" font-weight=\"700\" fill=\"#0f172a\">Preview traffic</text></svg>"
+        },
+        "dataUri": {
+          "label": "Data URI SVG",
+          "code": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20240%20120%22%3E%3Crect%20width%3D%22240%22%20height%3D%22120%22%20rx%3D%2218%22%20fill%3D%22%230f172a%22/%3E%3Ctext%20x%3D%2224%22%20y%3D%2268%22%20font-size%3D%2228%22%20font-family%3D%22Arial%22%20fill%3D%22white%22%3ESVG%20Preview%3C/text%3E%3C/svg%3E"
+        }
+      },
+      "howToUse": [
+        "Cole primeiro uma amostra pequena e focada.",
+        "Abra um exemplo para entender o formato esperado.",
+        "Revise ramificações ausentes, requisições lentas, seletores inválidos e rótulos confusos.",
+        "Copie a fonte ou exporte o artefato quando a prévia estiver pronta."
+      ],
+      "useCases": [
+        "Depurar trechos gerados por IA antes de documentar.",
+        "Transformar API, rotas, schema e metadados em uma superfície visual de revisão.",
+        "Criar capturas para README, issues e documentação interna."
+      ],
+      "faq": [
+        {
+          "question": "O código é enviado para IA?",
+          "answer": "Não. A prévia suportada roda localmente no navegador."
+        },
+        {
+          "question": "É um compilador completo?",
+          "answer": "Não. O foco é prévia e depuração comum; mantenha a fonte original."
+        },
+        {
+          "question": "Funciona com saída de IA?",
+          "answer": "Sim. Ajuda a validar estrutura e preview depois da geração."
+        }
+      ],
+      "seoBody": [
+        "Editor de prévia SVG is built for developers who need a fast preview surface for scripts, configuration, API artifacts, and visual source formats.",
+        "AI tools can generate text, but they often skip the preview loop. This page helps you inspect the generated source before it reaches a README, issue, or production config.",
+        "Keep the original source alongside the exported preview so teammates can review both the text and the rendered result."
+      ]
+    },
+    "open-graph-preview-debugger": {
+      "name": "Depurador Open Graph",
+      "shortDescription": "Depurador Open Graph: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "seoTitle": "Depurador Open Graph - DiagramPreview",
+      "seoDescription": "Depurador Open Graph: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "keywords": [
+        "open graph preview",
+        "og image debugger",
+        "twitter card preview",
+        "social share preview",
+        "Depurador Open Graph",
+        "DiagramPreview"
+      ],
+      "h1": "Depurador Open Graph",
+      "intro": "Cole depurador open graph source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "badges": [
+        "Sem IA",
+        "Prévia local",
+        "Exportar",
+        "Depuração"
+      ],
+      "inputLabel": "Meta tags or key-value lines",
+      "outputLabel": "Social card preview",
+      "placeholder": "Paste HTML meta tags or og:title lines here...",
+      "emptyPreview": "Your social preview will appear here.",
+      "samples": {
+        "article": {
+          "label": "Article tags",
+          "code": "<title>Debug HAR waterfalls before blaming the backend</title>\n<meta property=\"og:title\" content=\"Debug HAR waterfalls before blaming the backend\" />\n<meta property=\"og:description\" content=\"A practical guide to reading HAR timelines, slow requests, and API failures.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/har-file-viewer-api-waterfall-debugging.png\" />\n<meta property=\"og:url\" content=\"https://diagrampreview.com/en/blog/har-file-viewer-api-waterfall-debugging\" />"
+        },
+        "tool": {
+          "label": "Tool page tags",
+          "code": "og:title: SVG Code Preview Editor\nog:description: Paste raw SVG, inspect the rendered output, and export a cleaned SVG.\nog:image: https://diagrampreview.com/blog/svg-code-preview-editor-clean-export.png\nog:url: https://diagrampreview.com/en/svg-code-preview-editor\nog:site_name: DiagramPreview"
+        },
+        "product": {
+          "label": "Product page",
+          "code": "<meta name=\"twitter:title\" content=\"Preview developer scripts before you ship docs\" />\n<meta name=\"twitter:description\" content=\"DiagramPreview turns Mermaid, SVG, HAR, JSONPath, Nginx and schema text into visual previews.\" />\n<meta name=\"twitter:image\" content=\"https://diagrampreview.com/og.png\" />"
+        }
+      },
+      "howToUse": [
+        "Cole primeiro uma amostra pequena e focada.",
+        "Abra um exemplo para entender o formato esperado.",
+        "Revise ramificações ausentes, requisições lentas, seletores inválidos e rótulos confusos.",
+        "Copie a fonte ou exporte o artefato quando a prévia estiver pronta."
+      ],
+      "useCases": [
+        "Depurar trechos gerados por IA antes de documentar.",
+        "Transformar API, rotas, schema e metadados em uma superfície visual de revisão.",
+        "Criar capturas para README, issues e documentação interna."
+      ],
+      "faq": [
+        {
+          "question": "O código é enviado para IA?",
+          "answer": "Não. A prévia suportada roda localmente no navegador."
+        },
+        {
+          "question": "É um compilador completo?",
+          "answer": "Não. O foco é prévia e depuração comum; mantenha a fonte original."
+        },
+        {
+          "question": "Funciona com saída de IA?",
+          "answer": "Sim. Ajuda a validar estrutura e preview depois da geração."
+        }
+      ],
+      "seoBody": [
+        "Depurador Open Graph is built for developers who need a fast preview surface for scripts, configuration, API artifacts, and visual source formats.",
+        "AI tools can generate text, but they often skip the preview loop. This page helps you inspect the generated source before it reaches a README, issue, or production config.",
+        "Keep the original source alongside the exported preview so teammates can review both the text and the rendered result."
+      ]
+    },
+    "json-schema-form-preview": {
+      "name": "Prévia de formulário JSON Schema",
+      "shortDescription": "Prévia de formulário JSON Schema: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "seoTitle": "Prévia de formulário JSON Schema - DiagramPreview",
+      "seoDescription": "Prévia de formulário JSON Schema: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "keywords": [
+        "json schema form preview",
+        "json schema to form",
+        "schema form generator preview",
+        "api form preview",
+        "Prévia de formulário JSON Schema",
+        "DiagramPreview"
+      ],
+      "h1": "Prévia de formulário JSON Schema",
+      "intro": "Cole prévia de formulário json schema source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "badges": [
+        "Sem IA",
+        "Prévia local",
+        "Exportar",
+        "Depuração"
+      ],
+      "inputLabel": "JSON Schema",
+      "outputLabel": "Form preview",
+      "placeholder": "Paste JSON Schema here...",
+      "emptyPreview": "Your generated form preview will appear here.",
+      "samples": {
+        "signup": {
+          "label": "Signup form",
+          "code": "{\n  \"title\": \"SignupForm\",\n  \"type\": \"object\",\n  \"required\": [\n    \"email\",\n    \"password\"\n  ],\n  \"properties\": {\n    \"email\": {\n      \"type\": \"string\",\n      \"format\": \"email\",\n      \"description\": \"User email address\"\n    },\n    \"password\": {\n      \"type\": \"string\",\n      \"description\": \"Password or magic-link token\"\n    },\n    \"plan\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"free\",\n        \"team\",\n        \"enterprise\"\n      ],\n      \"description\": \"Billing plan\"\n    },\n    \"newsletter\": {\n      \"type\": \"boolean\",\n      \"description\": \"Allow product updates\"\n    }\n  }\n}"
+        },
+        "checkout": {
+          "label": "Checkout form",
+          "code": "{\n  \"title\": \"Checkout\",\n  \"type\": \"object\",\n  \"required\": [\n    \"cardholder\",\n    \"amount\"\n  ],\n  \"properties\": {\n    \"cardholder\": {\n      \"type\": \"string\"\n    },\n    \"amount\": {\n      \"type\": \"number\",\n      \"description\": \"Payment amount in USD\"\n    },\n    \"currency\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"USD\",\n        \"EUR\",\n        \"JPY\"\n      ]\n    },\n    \"items\": {\n      \"type\": \"array\",\n      \"description\": \"Line items\"\n    }\n  }\n}"
+        },
+        "settings": {
+          "label": "Settings form",
+          "code": "{\n  \"title\": \"WorkspaceSettings\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"workspaceName\": {\n      \"type\": \"string\"\n    },\n    \"retentionDays\": {\n      \"type\": \"integer\",\n      \"default\": 30\n    },\n    \"region\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"us-east\",\n        \"eu-west\",\n        \"ap-southeast\"\n      ]\n    },\n    \"auditLog\": {\n      \"type\": \"boolean\"\n    }\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "Cole primeiro uma amostra pequena e focada.",
+        "Abra um exemplo para entender o formato esperado.",
+        "Revise ramificações ausentes, requisições lentas, seletores inválidos e rótulos confusos.",
+        "Copie a fonte ou exporte o artefato quando a prévia estiver pronta."
+      ],
+      "useCases": [
+        "Depurar trechos gerados por IA antes de documentar.",
+        "Transformar API, rotas, schema e metadados em uma superfície visual de revisão.",
+        "Criar capturas para README, issues e documentação interna."
+      ],
+      "faq": [
+        {
+          "question": "O código é enviado para IA?",
+          "answer": "Não. A prévia suportada roda localmente no navegador."
+        },
+        {
+          "question": "É um compilador completo?",
+          "answer": "Não. O foco é prévia e depuração comum; mantenha a fonte original."
+        },
+        {
+          "question": "Funciona com saída de IA?",
+          "answer": "Sim. Ajuda a validar estrutura e preview depois da geração."
+        }
+      ],
+      "seoBody": [
+        "Prévia de formulário JSON Schema is built for developers who need a fast preview surface for scripts, configuration, API artifacts, and visual source formats.",
+        "AI tools can generate text, but they often skip the preview loop. This page helps you inspect the generated source before it reaches a README, issue, or production config.",
+        "Keep the original source alongside the exported preview so teammates can review both the text and the rendered result."
+      ]
+    },
+    "jsonpath-tester": {
+      "name": "Testador JSONPath",
+      "shortDescription": "Testador JSONPath: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "seoTitle": "Testador JSONPath - DiagramPreview",
+      "seoDescription": "Testador JSONPath: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "keywords": [
+        "jsonpath tester",
+        "jsonpath online",
+        "json path evaluator",
+        "api response jsonpath",
+        "Testador JSONPath",
+        "DiagramPreview"
+      ],
+      "h1": "Testador JSONPath",
+      "intro": "Cole testador jsonpath source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "badges": [
+        "Sem IA",
+        "Prévia local",
+        "Exportar",
+        "Depuração"
+      ],
+      "inputLabel": "JSONPath expression and JSON",
+      "outputLabel": "Matched values",
+      "placeholder": "Paste JSONPath, then ---, then JSON...",
+      "emptyPreview": "Your JSONPath matches will appear here.",
+      "samples": {
+        "users": {
+          "label": "User emails",
+          "code": "$.users[*].email\n---\n{\n  \"users\": [\n    {\"id\": 1, \"email\": \"ada@example.com\", \"role\": \"admin\"},\n    {\"id\": 2, \"email\": \"lin@example.com\", \"role\": \"viewer\"}\n  ]\n}"
+        },
+        "orders": {
+          "label": "First order total",
+          "code": "$.orders[0].total\n---\n{\n  \"orders\": [\n    {\"id\": \"ord_1\", \"total\": 49.9},\n    {\"id\": \"ord_2\", \"total\": 19.5}\n  ]\n}"
+        },
+        "metrics": {
+          "label": "Recursive duration",
+          "code": "$..durationMs\n---\n{\n  \"trace\": {\n    \"durationMs\": 340,\n    \"spans\": [{\"name\": \"api\", \"durationMs\": 120}, {\"name\": \"db\", \"durationMs\": 180}]\n  }\n}"
+        }
+      },
+      "howToUse": [
+        "Cole primeiro uma amostra pequena e focada.",
+        "Abra um exemplo para entender o formato esperado.",
+        "Revise ramificações ausentes, requisições lentas, seletores inválidos e rótulos confusos.",
+        "Copie a fonte ou exporte o artefato quando a prévia estiver pronta."
+      ],
+      "useCases": [
+        "Depurar trechos gerados por IA antes de documentar.",
+        "Transformar API, rotas, schema e metadados em uma superfície visual de revisão.",
+        "Criar capturas para README, issues e documentação interna."
+      ],
+      "faq": [
+        {
+          "question": "O código é enviado para IA?",
+          "answer": "Não. A prévia suportada roda localmente no navegador."
+        },
+        {
+          "question": "É um compilador completo?",
+          "answer": "Não. O foco é prévia e depuração comum; mantenha a fonte original."
+        },
+        {
+          "question": "Funciona com saída de IA?",
+          "answer": "Sim. Ajuda a validar estrutura e preview depois da geração."
+        }
+      ],
+      "seoBody": [
+        "Testador JSONPath is built for developers who need a fast preview surface for scripts, configuration, API artifacts, and visual source formats.",
+        "AI tools can generate text, but they often skip the preview loop. This page helps you inspect the generated source before it reaches a README, issue, or production config.",
+        "Keep the original source alongside the exported preview so teammates can review both the text and the rendered result."
+      ]
+    },
+    "nginx-location-tester": {
+      "name": "Testador de location Nginx",
+      "shortDescription": "Testador de location Nginx: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "seoTitle": "Testador de location Nginx - DiagramPreview",
+      "seoDescription": "Testador de location Nginx: Pré-visualize e depure esta fonte em uma superfície local para documentação técnica.",
+      "keywords": [
+        "nginx location tester",
+        "nginx location matching",
+        "nginx regex location precedence",
+        "nginx routing debug",
+        "Testador de location Nginx",
+        "DiagramPreview"
+      ],
+      "h1": "Testador de location Nginx",
+      "intro": "Cole testador de location nginx source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "badges": [
+        "Sem IA",
+        "Prévia local",
+        "Exportar",
+        "Depuração"
+      ],
+      "inputLabel": "URI and Nginx config",
+      "outputLabel": "Matched location",
+      "placeholder": "Add URI: /path, then paste Nginx location blocks...",
+      "emptyPreview": "The matched location will appear here.",
+      "samples": {
+        "api": {
+          "label": "API route",
+          "code": "URI: /api/users/42\n---\nserver {\n  location = /health { return 200; }\n  location ^~ /api/ { proxy_pass http://api; }\n  location ~ \\.(js|css)$ { root /assets; }\n  location / { try_files $uri /index.html; }\n}"
+        },
+        "assets": {
+          "label": "Asset regex",
+          "code": "URI: /static/app.css\n---\nserver {\n  location /static/ { root /var/www; }\n  location ~* \\.(png|jpg|css|js)$ { expires 7d; }\n  location / { proxy_pass http://web; }\n}"
+        },
+        "fallback": {
+          "label": "SPA fallback",
+          "code": "URI: /dashboard/settings\n---\nserver {\n  location = /robots.txt { root /public; }\n  location /api/ { proxy_pass http://api; }\n  location / { try_files $uri /index.html; }\n}"
+        }
+      },
+      "howToUse": [
+        "Cole primeiro uma amostra pequena e focada.",
+        "Abra um exemplo para entender o formato esperado.",
+        "Revise ramificações ausentes, requisições lentas, seletores inválidos e rótulos confusos.",
+        "Copie a fonte ou exporte o artefato quando a prévia estiver pronta."
+      ],
+      "useCases": [
+        "Depurar trechos gerados por IA antes de documentar.",
+        "Transformar API, rotas, schema e metadados em uma superfície visual de revisão.",
+        "Criar capturas para README, issues e documentação interna."
+      ],
+      "faq": [
+        {
+          "question": "O código é enviado para IA?",
+          "answer": "Não. A prévia suportada roda localmente no navegador."
+        },
+        {
+          "question": "É um compilador completo?",
+          "answer": "Não. O foco é prévia e depuração comum; mantenha a fonte original."
+        },
+        {
+          "question": "Funciona com saída de IA?",
+          "answer": "Sim. Ajuda a validar estrutura e preview depois da geração."
+        }
+      ],
+      "seoBody": [
+        "Testador de location Nginx is built for developers who need a fast preview surface for scripts, configuration, API artifacts, and visual source formats.",
+        "AI tools can generate text, but they often skip the preview loop. This page helps you inspect the generated source before it reaches a README, issue, or production config.",
+        "Keep the original source alongside the exported preview so teammates can review both the text and the rendered result."
+      ]
+    },
+    "jq-filter-tester": {
+      "name": "Testador de filtro jq",
+      "shortDescription": "Testador de filtro jq: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Testador de filtro jq - DiagramPreview",
+      "seoDescription": "Testador de filtro jq: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "jq filter tester",
+        "jq online",
+        "json filter preview",
+        "api response jq",
+        "Testador de filtro jq",
+        "DiagramPreview"
+      ],
+      "h1": "Testador de filtro jq",
+      "intro": "Paste testador de filtro jq source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": "jq filter and JSON",
+      "outputLabel": "Filtered JSON",
+      "placeholder": "Paste jq filter and JSON here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "emails": {
+          "label": "Extract emails",
+          "code": " .users[].email\n---\n{\n  \"users\": [\n    {\"id\": 1, \"email\": \"ada@example.com\"},\n    {\"id\": 2, \"email\": \"lin@example.com\"}\n  ]\n}"
+        },
+        "orders": {
+          "label": "First order total",
+          "code": ".orders[0].total\n---\n{\"orders\":[{\"id\":\"ord_1\",\"total\":49.9},{\"id\":\"ord_2\",\"total\":19.5}]}"
+        },
+        "map": {
+          "label": "Map field",
+          "code": "map(.name)\n---\n[{\"name\":\"api\"},{\"name\":\"worker\"},{\"name\":\"web\"}]"
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Testador de filtro jq is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
+    },
+    "xpath-tester": {
+      "name": "Testador XPath",
+      "shortDescription": "Testador XPath: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Testador XPath - DiagramPreview",
+      "seoDescription": "Testador XPath: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "xpath tester",
+        "xml xpath online",
+        "html xpath tester",
+        "xml node matcher",
+        "Testador XPath",
+        "DiagramPreview"
+      ],
+      "h1": "Testador XPath",
+      "intro": "Paste testador xpath source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": "XPath and XML/HTML",
+      "outputLabel": "Matched nodes",
+      "placeholder": "Paste XPath and XML/HTML here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "rss": {
+          "label": "RSS titles",
+          "code": "//item/title\n---\n<rss><channel><item><title>Release notes</title></item><item><title>API guide</title></item></channel></rss>"
+        },
+        "html": {
+          "label": "HTML links",
+          "code": "//a/@href\n---\n<html><body><a href=\"/docs\">Docs</a><a href=\"/tools\">Tools</a></body></html>"
+        },
+        "namespaces": {
+          "label": "Simple XML",
+          "code": "//book[@category=\"api\"]/title\n---\n<catalog><book category=\"api\"><title>OpenAPI Guide</title></book><book category=\"ops\"><title>Nginx Notes</title></book></catalog>"
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Testador XPath is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
+    },
+    "yaml-path-tester": {
+      "name": "Testador YAML Path",
+      "shortDescription": "Testador YAML Path: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Testador YAML Path - DiagramPreview",
+      "seoDescription": "Testador YAML Path: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "yaml path tester",
+        "yaml path online",
+        "kubernetes yaml path",
+        "helm values path",
+        "Testador YAML Path",
+        "DiagramPreview"
+      ],
+      "h1": "Testador YAML Path",
+      "intro": "Paste testador yaml path source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": "YAML path and YAML",
+      "outputLabel": "Matched YAML values",
+      "placeholder": "Paste YAML path and YAML here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "kubernetes": {
+          "label": "Kubernetes image",
+          "code": "spec.template.spec.containers[0].image\n---\napiVersion: apps/v1\nkind: Deployment\nspec:\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/api:1.4.2"
+        },
+        "githubActions": {
+          "label": "Workflow branch",
+          "code": "on.push.branches[0]\n---\nname: CI\non:\n  push:\n    branches:\n      - main\njobs:\n  test:\n    runs-on: ubuntu-latest"
+        },
+        "helm": {
+          "label": "Helm CPU limit",
+          "code": "resources.limits.cpu\n---\nreplicaCount: 3\nresources:\n  limits:\n    cpu: 500m\n    memory: 512Mi"
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Testador YAML Path is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
+    },
+    "toml-visualizer": {
+      "name": "Visualizador TOML",
+      "shortDescription": "Visualizador TOML: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Visualizador TOML - DiagramPreview",
+      "seoDescription": "Visualizador TOML: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "toml visualizer",
+        "pyproject toml viewer",
+        "cargo toml preview",
+        "toml parser online",
+        "Visualizador TOML",
+        "DiagramPreview"
+      ],
+      "h1": "Visualizador TOML",
+      "intro": "Paste visualizador toml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": "TOML source",
+      "outputLabel": "TOML structure",
+      "placeholder": "Paste TOML source here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "pyproject": {
+          "label": "pyproject.toml",
+          "code": "[project]\nname = \"demo\"\nversion = \"0.1.0\"\n\n[tool.pytest.ini_options]\naddopts = \"-q\""
+        },
+        "cargo": {
+          "label": "Cargo.toml",
+          "code": "[package]\nname = \"diagram-preview\"\nversion = \"0.1.0\"\nedition = \"2021\"\n\n[dependencies]\nserde = \"1\""
+        },
+        "config": {
+          "label": "App config",
+          "code": "title = \"Preview\"\n\n[server]\nport = 3000\nworkers = 4\n\n[features]\nsearch = true"
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Visualizador TOML is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
+    },
+    "env-diff-checker": {
+      "name": "Comparador .env",
+      "shortDescription": "Comparador .env: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Comparador .env - DiagramPreview",
+      "seoDescription": "Comparador .env: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "env diff checker",
+        "env example checker",
+        "missing env variables",
+        "dotenv compare",
+        "Comparador .env",
+        "DiagramPreview"
+      ],
+      "h1": "Comparador .env",
+      "intro": "Paste comparador .env source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": ".env and .env.example",
+      "outputLabel": "Environment diff",
+      "placeholder": "Paste .env and .env.example here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "missing": {
+          "label": "Missing variable",
+          "code": "DATABASE_URL=postgres://local\nNEXT_PUBLIC_SITE_URL=http://localhost:3000\n---\nDATABASE_URL=\nNEXT_PUBLIC_SITE_URL=\nOPENAI_API_KEY="
+        },
+        "docker": {
+          "label": "Docker env",
+          "code": "NODE_ENV=production\nREDIS_URL=redis://redis:6379\n---\nNODE_ENV=\nREDIS_URL=\nSENTRY_DSN="
+        },
+        "production": {
+          "label": "Production check",
+          "code": "API_BASE_URL=https://api.example.com\nSTRIPE_SECRET_KEY=\n---\nAPI_BASE_URL=\nSTRIPE_SECRET_KEY=\nWEBHOOK_SECRET="
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Comparador .env is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
+    },
+    "robots-txt-tester": {
+      "name": "Testador robots.txt",
+      "shortDescription": "Testador robots.txt: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Testador robots.txt - DiagramPreview",
+      "seoDescription": "Testador robots.txt: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "robots txt tester",
+        "robots allow disallow tester",
+        "robots.txt preview",
+        "googlebot robots tester",
+        "Testador robots.txt",
+        "DiagramPreview"
+      ],
+      "h1": "Testador robots.txt",
+      "intro": "Paste testador robots.txt source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": "URL and robots.txt",
+      "outputLabel": "Robots decision",
+      "placeholder": "Paste URL and robots.txt here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "blog": {
+          "label": "Blog allowed",
+          "code": "URL: https://example.com/blog/har-guide\n---\nUser-agent: *\nDisallow: /admin/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml"
+        },
+        "private": {
+          "label": "Private blocked",
+          "code": "URL: https://example.com/private/report\n---\nUser-agent: *\nDisallow: /private/\nAllow: /private/public/"
+        },
+        "sitemap": {
+          "label": "Sitemap rule",
+          "code": "URL: /tools/jsonpath-tester\n---\nUser-agent: *\nDisallow: /api/\nAllow: /tools/\nSitemap: https://example.com/sitemap.xml"
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Testador robots.txt is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
+    },
+    "sitemap-xml-viewer": {
+      "name": "Visualizador Sitemap XML",
+      "shortDescription": "Visualizador Sitemap XML: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Visualizador Sitemap XML - DiagramPreview",
+      "seoDescription": "Visualizador Sitemap XML: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "sitemap xml viewer",
+        "sitemap validator preview",
+        "hreflang sitemap checker",
+        "sitemap url count",
+        "Visualizador Sitemap XML",
+        "DiagramPreview"
+      ],
+      "h1": "Visualizador Sitemap XML",
+      "intro": "Paste visualizador sitemap xml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": "Sitemap XML",
+      "outputLabel": "Sitemap preview",
+      "placeholder": "Paste Sitemap XML here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "basic": {
+          "label": "Basic sitemap",
+          "code": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://example.com/en</loc><lastmod>2026-06-16</lastmod></url><url><loc>https://example.com/en/tools</loc></url></urlset>"
+        },
+        "hreflang": {
+          "label": "Hreflang sitemap",
+          "code": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\"><url><loc>https://example.com/en/jsonpath-tester</loc><xhtml:link rel=\"alternate\" hreflang=\"zh-CN\" href=\"https://example.com/zh-CN/jsonpath-tester\" /></url></urlset>"
+        },
+        "index": {
+          "label": "Sitemap index",
+          "code": "<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><sitemap><loc>https://example.com/sitemap-tools.xml</loc></sitemap><sitemap><loc>https://example.com/sitemap-blog.xml</loc></sitemap></sitemapindex>"
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Visualizador Sitemap XML is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
+    },
+    "http-header-parser": {
+      "name": "Parser de headers HTTP",
+      "shortDescription": "Parser de headers HTTP: Pré-visualize e depure esta fonte localmente.",
+      "seoTitle": "Parser de headers HTTP - DiagramPreview",
+      "seoDescription": "Parser de headers HTTP: Pré-visualize e depure esta fonte localmente.",
+      "keywords": [
+        "http header parser",
+        "security header checker",
+        "cors header preview",
+        "cache control analyzer",
+        "Parser de headers HTTP",
+        "DiagramPreview"
+      ],
+      "h1": "Parser de headers HTTP",
+      "intro": "Paste parser de headers http source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "badges": [
+        "No AI",
+        "Local preview",
+        "Debugging",
+        "Export"
+      ],
+      "inputLabel": "HTTP response headers",
+      "outputLabel": "Header analysis",
+      "placeholder": "Paste HTTP response headers here...",
+      "emptyPreview": "Your preview will appear here.",
+      "samples": {
+        "security": {
+          "label": "Security headers",
+          "code": "HTTP/2 200\ncontent-type: text/html; charset=utf-8\ncache-control: public, max-age=3600\nstrict-transport-security: max-age=31536000; includeSubDomains\ncontent-security-policy: default-src 'self'"
+        },
+        "cors": {
+          "label": "CORS response",
+          "code": "HTTP/1.1 204 No Content\naccess-control-allow-origin: https://app.example.com\naccess-control-allow-methods: GET, POST, OPTIONS\ncontent-type: application/json"
+        },
+        "cache": {
+          "label": "Cache policy",
+          "code": "HTTP/1.1 200 OK\ncontent-type: application/javascript\ncache-control: public, max-age=31536000, immutable\netag: \"app-v42\""
+        }
+      },
+      "howToUse": [
+        "Paste the expression or target URL on the first line, then add --- and the source document when the tool expects both.",
+        "Load a sample first to learn the input shape, then replace it with your own JSON, XML, YAML, TOML, .env, robots.txt, sitemap, or headers.",
+        "Review the matched values, warnings, duplicate keys, blocked paths, or security header notes before copying the result into docs or a PR.",
+        "Keep the original source beside screenshots so teammates can reproduce the preview later."
+      ],
+      "useCases": [
+        "Debug API responses, XML feeds, deployment configs, SEO files, and HTTP responses without opening several separate tools.",
+        "Validate AI-generated snippets before they become README examples, production configuration, or support answers.",
+        "Create focused screenshots for issues, release notes, internal docs, and technical blog posts."
+      ],
+      "faq": [
+        {
+          "question": "Does this send my source to a backend or AI service?",
+          "answer": "No. These previewers run locally in the browser for the supported parsing path."
+        },
+        {
+          "question": "Is this a complete replacement for jq, Nginx, Google Search Console, or a production parser?",
+          "answer": "No. It is a fast preview and debugging surface for common cases. Keep the original tool or production runtime as the final authority."
+        },
+        {
+          "question": "Why does the input use --- in some tools?",
+          "answer": "It keeps the expression, URL, or comparison target separate from the document being inspected."
+        }
+      ],
+      "seoBody": [
+        "Parser de headers HTTP is a focused preview utility for developers who need to inspect scripts, configuration, and structured data quickly.",
+        "It is especially useful after AI generation: generate the first draft, preview the behavior, fix obvious issues, then publish the source and screenshot together.",
+        "The first version covers common debugging cases and does not replace the original production parser for every edge case."
+      ]
     }
   },
   "hubs": {
@@ -5070,6 +6050,806 @@
             "paragraphs": [
               "Use SVG for READMEs, blogs, and internal docs when possible. Use PNG for chat tools and slide decks. For editable or importable formats, keep the source under docs or architecture directories.",
               "If the input came from AI, treat it as a draft. Preview syntax, relationships, and naming before exporting an image for production documentation."
+            ]
+          }
+        ]
+      },
+      "har-file-viewer-api-waterfall-debugging": {
+        "title": "Stop guessing: read a HAR waterfall before blaming the backend",
+        "seoTitle": "Stop guessing: read a HAR waterfall before blaming the backend - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines HAR File Viewer, HAR sequence diagrams, and Postman collections with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines HAR File Viewer, HAR sequence diagrams, and Postman collections with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "HAR waterfall debugging",
+          "HAR file viewer",
+          "API latency analysis"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Stop guessing: read a HAR waterfall before blaming the backend focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/har-file-viewer-api-waterfall-debugging.png",
+              "alt": "Stop guessing: read a HAR waterfall before blaming the backend",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "{\n  \"log\": {\n    \"entries\": [\n      {\"time\": 1280, \"request\": {\"method\": \"GET\", \"url\": \"https://api.example.com/reports\"}, \"response\": {\"status\": 200}}\n    ]\n  }\n}",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "svg-code-preview-editor-clean-export": {
+        "title": "Preview SVG code like a developer, not like a design handoff",
+        "seoTitle": "Preview SVG code like a developer, not like a design handoff - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines SVG preview, data URI decoding, and clean export with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines SVG preview, data URI decoding, and clean export with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "svg code preview",
+          "svg editor preview",
+          "svg data uri"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Preview SVG code like a developer, not like a design handoff focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/svg-code-preview-editor-clean-export.png",
+              "alt": "Preview SVG code like a developer, not like a design handoff",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "<svg viewBox=\"0 0 120 120\"><rect width=\"120\" height=\"120\" rx=\"20\" fill=\"#2563eb\"/></svg>",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "open-graph-preview-debugger-social-cards": {
+        "title": "Your blog post has one second to look trustworthy in a social card",
+        "seoTitle": "Your blog post has one second to look trustworthy in a social card - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines Open Graph preview and SVG cover checks with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines Open Graph preview and SVG cover checks with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "open graph preview",
+          "og image debugger",
+          "twitter card preview"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Your blog post has one second to look trustworthy in a social card focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/open-graph-preview-debugger-social-cards.png",
+              "alt": "Your blog post has one second to look trustworthy in a social card",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "<meta property=\"og:title\" content=\"Debug HAR waterfalls before blaming the backend\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/har-file-viewer-api-waterfall-debugging.png\" />",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "json-schema-form-preview-guide": {
+        "title": "Turn JSON Schema into a form preview before frontend work starts",
+        "seoTitle": "Turn JSON Schema into a form preview before frontend work starts - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines JSON Schema form preview, schema tree, and Zod comparison with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines JSON Schema form preview, schema tree, and Zod comparison with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "json schema form preview",
+          "json schema to form",
+          "api form design"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Turn JSON Schema into a form preview before frontend work starts focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/json-schema-form-preview-guide.png",
+              "alt": "Turn JSON Schema into a form preview before frontend work starts",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "{\n  \"type\": \"object\",\n  \"required\": [\"email\"],\n  \"properties\": {\"email\": {\"type\": \"string\", \"format\": \"email\"}}\n}",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "jsonpath-tester-api-response-debugging": {
+        "title": "Use JSONPath to debug API responses without reading the whole payload",
+        "seoTitle": "Use JSONPath to debug API responses without reading the whole payload - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines JSONPath tester and JSON tree preview with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines JSONPath tester and JSON tree preview with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "jsonpath tester",
+          "api response debugging",
+          "json path evaluator"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Use JSONPath to debug API responses without reading the whole payload focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/jsonpath-tester-api-response-debugging.png",
+              "alt": "Use JSONPath to debug API responses without reading the whole payload",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "$.users[*].email\n---\n{\"users\":[{\"email\":\"ada@example.com\"},{\"email\":\"lin@example.com\"}]}",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "nginx-location-tester-routing-debug": {
+        "title": "Nginx location matching is simple until regex enters the room",
+        "seoTitle": "Nginx location matching is simple until regex enters the room - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines Nginx location tester and config visualizer with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines Nginx location tester and config visualizer with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "nginx location tester",
+          "nginx location matching",
+          "nginx routing debug"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Nginx location matching is simple until regex enters the room focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/nginx-location-tester-routing-debug.png",
+              "alt": "Nginx location matching is simple until regex enters the room",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "URI: /api/users/42\n---\nlocation = /health { return 200; }\nlocation ^~ /api/ { proxy_pass http://api; }\nlocation ~ \\.(js|css)$ { root /assets; }",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "ai-generated-code-preview-debugging-workflow": {
+        "title": "AI can generate the script, but you still need a preview loop",
+        "seoTitle": "AI can generate the script, but you still need a preview loop - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines SVG, JSONPath, Nginx, schema, and HAR preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines SVG, JSONPath, Nginx, schema, and HAR preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "AI generated code preview",
+          "script preview tools",
+          "developer preview workflow"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "AI can generate the script, but you still need a preview loop focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/ai-generated-code-preview-debugging-workflow.png",
+              "alt": "AI can generate the script, but you still need a preview loop",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "Prompt -> Generated config -> Local preview -> Fix obvious mismatch -> Commit source and screenshot",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "api-debugging-preview-har-postman-openapi": {
+        "title": "A practical API debugging loop: OpenAPI, Postman, then HAR",
+        "seoTitle": "A practical API debugging loop: OpenAPI, Postman, then HAR - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines OpenAPI sequence, Postman sequence, and HAR waterfall tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines OpenAPI sequence, Postman sequence, and HAR waterfall tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "api debugging workflow",
+          "openapi sequence diagram",
+          "postman har debugging"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "A practical API debugging loop: OpenAPI, Postman, then HAR focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/api-debugging-preview-har-postman-openapi.png",
+              "alt": "A practical API debugging loop: OpenAPI, Postman, then HAR",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "OpenAPI contract\n  -> Postman collection\n  -> Browser HAR\n  -> sequence + waterfall review",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "schema-preview-workflow-json-schema-zod-typescript": {
+        "title": "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts",
+        "seoTitle": "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines TypeScript, Zod, JSON Schema, and form preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines TypeScript, Zod, JSON Schema, and form preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "schema preview workflow",
+          "json schema zod typescript",
+          "api schema documentation"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/schema-preview-workflow-json-schema-zod-typescript.png",
+              "alt": "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "type User = { id: string; email: string }\nconst UserSchema = z.object({ id: z.string(), email: z.string().email() })",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "social-card-svg-preview-publishing-workflow": {
+        "title": "Before publishing technical docs, preview the card and the SVG",
+        "seoTitle": "Before publishing technical docs, preview the card and the SVG - DiagramPreview",
+        "description": "A long-tail developer preview guide that combines Open Graph, SVG, and Markdown preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "excerpt": "A long-tail developer preview guide that combines Open Graph, SVG, and Markdown preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
+        "readingTime": "9 min de leitura",
+        "keywords": [
+          "technical blog publishing checklist",
+          "open graph svg preview",
+          "markdown preview workflow"
+        ],
+        "sections": [
+          {
+            "heading": "Por que adicionar uma etapa de prévia",
+            "paragraphs": [
+              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
+              "Before publishing technical docs, preview the card and the SVG focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+            ],
+            "image": {
+              "src": "/blog/social-card-svg-preview-publishing-workflow.png",
+              "alt": "Before publishing technical docs, preview the card and the SVG",
+              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+            }
+          },
+          {
+            "heading": "Entrada de exemplo",
+            "paragraphs": [
+              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
+              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "1. Preview Markdown\n2. Preview SVG cover\n3. Validate og:title and og:image\n4. Publish and submit sitemap",
+              "caption": "Keep the snippet and preview together so later review has both source and effect."
+            }
+          },
+          {
+            "heading": "O que inspecionar",
+            "paragraphs": [
+              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
+              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+            ]
+          },
+          {
+            "heading": "Fluxo prático",
+            "paragraphs": [
+              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
+              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+            ]
+          },
+          {
+            "heading": "Notas de publicação",
+            "paragraphs": [
+              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
+              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+            ]
+          }
+        ]
+      },
+      "jq-vs-jsonpath-api-debugging-workflow": {
+        "title": "jq vs JSONPath: a practical API response debugging workflow",
+        "seoTitle": "jq vs JSONPath: a practical API response debugging workflow - DiagramPreview",
+        "description": "A practical long-tail guide around jq Filter Tester, JSONPath Tester, and JSON tree preview, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "excerpt": "A practical long-tail guide around jq Filter Tester, JSONPath Tester, and JSON tree preview, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "readingTime": "10 min read",
+        "keywords": [
+          "jq vs JSONPath",
+          "api response debugging",
+          "json filter tester"
+        ],
+        "sections": [
+          {
+            "heading": "Why these preview tools deserve their own workflow",
+            "paragraphs": [
+              "Many developers do not search for a generic diagram tool. They search for concrete tasks such as jq filter tester, XPath tester, .env diff checker, or robots.txt tester.",
+              "These pages work well as P0 long-tail entry points: the tool solves the immediate task, while the article explains the debugging workflow and the mistakes to avoid."
+            ],
+            "image": {
+              "src": "/blog/jq-vs-jsonpath-api-debugging-workflow.png",
+              "alt": "jq vs JSONPath: a practical API response debugging workflow",
+              "caption": "The visual keeps source, preview result, and inspection focus in one context."
+            }
+          },
+          {
+            "heading": "Copyable example",
+            "paragraphs": [
+              "Start with a minimal snippet rather than a full production file. Small input makes it easier to see whether the expression, path, config key, or SEO directive is wrong.",
+              "The snippet below can be pasted into the matching tool and then replaced with real project input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "jq: .users[].email\nJSONPath: $.users[*].email\n\n{ \"users\": [{\"email\":\"ada@example.com\"}] }",
+              "caption": "Get the preview working first, then expand the input."
+            }
+          },
+          {
+            "heading": "Inspection checklist",
+            "paragraphs": [
+              "First check whether the result is empty, then whether it matched the wrong node, field, or path. For configuration tools, pay special attention to empty values, missing variables, duplicate keys, and production defaults.",
+              "For SEO files, syntax is only the first layer. Check whether robots.txt blocks the target URL, whether sitemap XML has duplicate URLs, and whether Open Graph images are stable."
+            ]
+          },
+          {
+            "heading": "Publishing and SEO notes",
+            "paragraphs": [
+              "Do not turn the article into a thin “this is an online tool” page. Add real snippets, mistake cases, comparisons, and screenshots so it reads like a debugging note.",
+              "Cross-link tools and articles: tool pages capture high-intent keywords, while articles capture tutorial keywords. This is healthier than generating many thin one-tool posts."
+            ]
+          }
+        ]
+      },
+      "xpath-xml-api-debugging-guide": {
+        "title": "XPath and XML debugging for feeds, APIs, and sitemap files",
+        "seoTitle": "XPath and XML debugging for feeds, APIs, and sitemap files - DiagramPreview",
+        "description": "A practical long-tail guide around XPath Tester, XML preview, and Sitemap XML Viewer, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "excerpt": "A practical long-tail guide around XPath Tester, XML preview, and Sitemap XML Viewer, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "readingTime": "10 min read",
+        "keywords": [
+          "xpath xml debugging",
+          "xpath tester",
+          "xml api debugging"
+        ],
+        "sections": [
+          {
+            "heading": "Why these preview tools deserve their own workflow",
+            "paragraphs": [
+              "Many developers do not search for a generic diagram tool. They search for concrete tasks such as jq filter tester, XPath tester, .env diff checker, or robots.txt tester.",
+              "These pages work well as P0 long-tail entry points: the tool solves the immediate task, while the article explains the debugging workflow and the mistakes to avoid."
+            ],
+            "image": {
+              "src": "/blog/xpath-xml-api-debugging-guide.png",
+              "alt": "XPath and XML debugging for feeds, APIs, and sitemap files",
+              "caption": "The visual keeps source, preview result, and inspection focus in one context."
+            }
+          },
+          {
+            "heading": "Copyable example",
+            "paragraphs": [
+              "Start with a minimal snippet rather than a full production file. Small input makes it easier to see whether the expression, path, config key, or SEO directive is wrong.",
+              "The snippet below can be pasted into the matching tool and then replaced with real project input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "//item/title\n---\n<rss><channel><item><title>API release</title></item></channel></rss>",
+              "caption": "Get the preview working first, then expand the input."
+            }
+          },
+          {
+            "heading": "Inspection checklist",
+            "paragraphs": [
+              "First check whether the result is empty, then whether it matched the wrong node, field, or path. For configuration tools, pay special attention to empty values, missing variables, duplicate keys, and production defaults.",
+              "For SEO files, syntax is only the first layer. Check whether robots.txt blocks the target URL, whether sitemap XML has duplicate URLs, and whether Open Graph images are stable."
+            ]
+          },
+          {
+            "heading": "Publishing and SEO notes",
+            "paragraphs": [
+              "Do not turn the article into a thin “this is an online tool” page. Add real snippets, mistake cases, comparisons, and screenshots so it reads like a debugging note.",
+              "Cross-link tools and articles: tool pages capture high-intent keywords, while articles capture tutorial keywords. This is healthier than generating many thin one-tool posts."
+            ]
+          }
+        ]
+      },
+      "config-preview-env-yaml-toml-before-deploy": {
+        "title": "Preview .env, YAML, and TOML config before deployment breaks",
+        "seoTitle": "Preview .env, YAML, and TOML config before deployment breaks - DiagramPreview",
+        "description": "A practical long-tail guide around .env Diff Checker, YAML Path Tester, and TOML Visualizer, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "excerpt": "A practical long-tail guide around .env Diff Checker, YAML Path Tester, and TOML Visualizer, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "readingTime": "10 min read",
+        "keywords": [
+          "env diff checker",
+          "yaml path tester",
+          "toml visualizer",
+          "config preview"
+        ],
+        "sections": [
+          {
+            "heading": "Why these preview tools deserve their own workflow",
+            "paragraphs": [
+              "Many developers do not search for a generic diagram tool. They search for concrete tasks such as jq filter tester, XPath tester, .env diff checker, or robots.txt tester.",
+              "These pages work well as P0 long-tail entry points: the tool solves the immediate task, while the article explains the debugging workflow and the mistakes to avoid."
+            ],
+            "image": {
+              "src": "/blog/config-preview-env-yaml-toml-before-deploy.png",
+              "alt": "Preview .env, YAML, and TOML config before deployment breaks",
+              "caption": "The visual keeps source, preview result, and inspection focus in one context."
+            }
+          },
+          {
+            "heading": "Copyable example",
+            "paragraphs": [
+              "Start with a minimal snippet rather than a full production file. Small input makes it easier to see whether the expression, path, config key, or SEO directive is wrong.",
+              "The snippet below can be pasted into the matching tool and then replaced with real project input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "DATABASE_URL=postgres://local\n---\nDATABASE_URL=\nOPENAI_API_KEY=\n\nspec.template.spec.containers[0].image",
+              "caption": "Get the preview working first, then expand the input."
+            }
+          },
+          {
+            "heading": "Inspection checklist",
+            "paragraphs": [
+              "First check whether the result is empty, then whether it matched the wrong node, field, or path. For configuration tools, pay special attention to empty values, missing variables, duplicate keys, and production defaults.",
+              "For SEO files, syntax is only the first layer. Check whether robots.txt blocks the target URL, whether sitemap XML has duplicate URLs, and whether Open Graph images are stable."
+            ]
+          },
+          {
+            "heading": "Publishing and SEO notes",
+            "paragraphs": [
+              "Do not turn the article into a thin “this is an online tool” page. Add real snippets, mistake cases, comparisons, and screenshots so it reads like a debugging note.",
+              "Cross-link tools and articles: tool pages capture high-intent keywords, while articles capture tutorial keywords. This is healthier than generating many thin one-tool posts."
+            ]
+          }
+        ]
+      },
+      "technical-seo-preview-robots-sitemap-open-graph": {
+        "title": "Technical SEO preview workflow: robots.txt, sitemap.xml, and Open Graph",
+        "seoTitle": "Technical SEO preview workflow: robots.txt, sitemap.xml, and Open Graph - DiagramPreview",
+        "description": "A practical long-tail guide around robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "excerpt": "A practical long-tail guide around robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
+        "readingTime": "10 min read",
+        "keywords": [
+          "technical seo preview",
+          "robots txt tester",
+          "sitemap xml viewer",
+          "open graph preview"
+        ],
+        "sections": [
+          {
+            "heading": "Why these preview tools deserve their own workflow",
+            "paragraphs": [
+              "Many developers do not search for a generic diagram tool. They search for concrete tasks such as jq filter tester, XPath tester, .env diff checker, or robots.txt tester.",
+              "These pages work well as P0 long-tail entry points: the tool solves the immediate task, while the article explains the debugging workflow and the mistakes to avoid."
+            ],
+            "image": {
+              "src": "/blog/technical-seo-preview-robots-sitemap-open-graph.png",
+              "alt": "Technical SEO preview workflow: robots.txt, sitemap.xml, and Open Graph",
+              "caption": "The visual keeps source, preview result, and inspection focus in one context."
+            }
+          },
+          {
+            "heading": "Copyable example",
+            "paragraphs": [
+              "Start with a minimal snippet rather than a full production file. Small input makes it easier to see whether the expression, path, config key, or SEO directive is wrong.",
+              "The snippet below can be pasted into the matching tool and then replaced with real project input."
+            ],
+            "code": {
+              "language": "text",
+              "content": "URL: https://example.com/blog/post\n---\nUser-agent: *\nDisallow: /admin/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
+              "caption": "Get the preview working first, then expand the input."
+            }
+          },
+          {
+            "heading": "Inspection checklist",
+            "paragraphs": [
+              "First check whether the result is empty, then whether it matched the wrong node, field, or path. For configuration tools, pay special attention to empty values, missing variables, duplicate keys, and production defaults.",
+              "For SEO files, syntax is only the first layer. Check whether robots.txt blocks the target URL, whether sitemap XML has duplicate URLs, and whether Open Graph images are stable."
+            ]
+          },
+          {
+            "heading": "Publishing and SEO notes",
+            "paragraphs": [
+              "Do not turn the article into a thin “this is an online tool” page. Add real snippets, mistake cases, comparisons, and screenshots so it reads like a debugging note.",
+              "Cross-link tools and articles: tool pages capture high-intent keywords, while articles capture tutorial keywords. This is healthier than generating many thin one-tool posts."
             ]
           }
         ]
