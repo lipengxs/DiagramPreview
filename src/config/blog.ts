@@ -278,19 +278,19 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "api-debugging-preview-har-postman-openapi",
     image: "/blog/api-debugging-preview-har-postman-openapi.png",
     date: "2026-06-16",
-    tools: ["har-file-viewer", "postman-collection-sequence-diagram", "openapi-to-sequence"]
+    tools: ["openapi-to-sequence", "postman-collection-sequence-diagram", "har-file-viewer", "har-file-sequence-diagram", "jq-filter-tester", "jsonpath-tester", "http-header-parser"]
   },
   {
     slug: "schema-preview-workflow-json-schema-zod-typescript",
     image: "/blog/schema-preview-workflow-json-schema-zod-typescript.png",
     date: "2026-06-16",
-    tools: ["json-schema-form-preview", "json-schema-visualizer", "typescript-interface-visualizer"]
+    tools: ["typescript-interface-visualizer", "zod-schema-visualizer", "json-schema-visualizer", "json-schema-form-preview", "graphql-schema-visualizer", "protobuf-schema-visualizer"]
   },
   {
     slug: "social-card-svg-preview-publishing-workflow",
     image: "/blog/social-card-svg-preview-publishing-workflow.png",
     date: "2026-06-16",
-    tools: ["open-graph-preview-debugger", "svg-code-preview-editor", "markdown-preview"]
+    tools: ["markdown-preview", "svg-code-preview-editor", "open-graph-preview-debugger", "sitemap-xml-viewer", "robots-txt-tester"]
   },
   {
     slug: "jq-vs-jsonpath-api-debugging-workflow",
@@ -308,13 +308,13 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "config-preview-env-yaml-toml-before-deploy",
     image: "/blog/config-preview-env-yaml-toml-before-deploy.png",
     date: "2026-06-16",
-    tools: ["env-diff-checker", "yaml-path-tester", "toml-visualizer"]
+    tools: ["env-diff-checker", "yaml-path-tester", "toml-visualizer", "nginx-location-tester", "nginx-config-visualizer", "http-header-parser"]
   },
   {
     slug: "technical-seo-preview-robots-sitemap-open-graph",
     image: "/blog/technical-seo-preview-robots-sitemap-open-graph.png",
     date: "2026-06-16",
-    tools: ["robots-txt-tester", "sitemap-xml-viewer", "open-graph-preview-debugger"]
+    tools: ["robots-txt-tester", "sitemap-xml-viewer", "open-graph-preview-debugger", "svg-code-preview-editor", "markdown-preview"]
   }
 ];
 

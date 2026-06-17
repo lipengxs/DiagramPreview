@@ -6444,178 +6444,249 @@
         ]
       },
       "api-debugging-preview-har-postman-openapi": {
-        "title": "实用 API 调试链路：OpenAPI、Postman，再到 HAR",
-        "seoTitle": "实用 API 调试链路：OpenAPI、Postman，再到 HAR - DiagramPreview",
-        "description": "一篇面向开发者预览工具的长尾指南，结合 OpenAPI sequence, Postman sequence, and HAR waterfall tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
-        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 OpenAPI sequence, Postman sequence, and HAR waterfall tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
-        "readingTime": "9 分钟阅读",
+        "title": "实用 API 调试闭环：OpenAPI、Postman、HAR、jq 与 JSONPath",
+        "seoTitle": "实用 API 调试闭环：OpenAPI、Postman、HAR、jq 与 JSONPath - DiagramPreview",
+        "description": "一篇更完整的 API 调试教程，串起 OpenAPI 时序预览、Postman 请求顺序、HAR 瀑布流、jq/JSONPath 字段提取和 HTTP 响应头检查。",
+        "excerpt": "一篇更完整的 API 调试教程，串起 OpenAPI 时序预览、Postman 请求顺序、HAR 瀑布流、jq/JSONPath 字段提取和 HTTP 响应头检查。",
+        "readingTime": "14 分钟阅读",
         "keywords": [
-          "api debugging workflow",
-          "openapi sequence diagram",
-          "postman har debugging"
+          "API 调试流程",
+          "HAR 瀑布流调试",
+          "Postman 时序图",
+          "jq JSONPath API 响应"
         ],
         "sections": [
           {
-            "heading": "为什么需要单独的预览步骤",
+            "heading": "真实问题不是一个图能解决的",
             "paragraphs": [
-              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
-              "实用 API 调试链路：OpenAPI、Postman，再到 HAR 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+              "API 问题通常不只存在于一个文件里。OpenAPI 契约写的是一种行为，Postman 集合里可能是另一种请求顺序，浏览器 HAR 又暴露了慢请求、重定向或第三方脚本。",
+              "所以这篇文章应该像一条调试链路，而不是单纯介绍某个在线工具：先看契约，再看请求顺序，再看浏览器网络瀑布流，最后用 jq 或 JSONPath 提取证据。"
             ],
             "image": {
-              "src": "/blog/api-debugging-preview-har-postman-openapi.png",
-              "alt": "实用 API 调试链路：OpenAPI、Postman，再到 HAR",
-              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+              "src": "/blog/demos/api-debugging-har-waterfall-demo.png",
+              "alt": "API 调试闭环示意图",
+              "caption": "把契约、请求顺序、HAR 时间线、响应字段和 Header 检查放在同一个调试上下文里。"
             }
           },
           {
-            "heading": "示例输入",
+            "heading": "Demo 1：先从 OpenAPI 契约确认分支",
             "paragraphs": [
-              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
-              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+              "很多线上问题不是 200 分支没写，而是 401、409、422、429 这些错误分支没人维护。先粘贴一个小的 OpenAPI 片段，比直接丢整个 spec 更容易定位。",
+              "预览时重点看：接口是否有关键错误响应、错误码是否和前端处理一致、是否遗漏重试或幂等分支。"
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "paths:\n  /orders:\n    post:\n      summary: Create order\n      responses:\n        \"201\":\n          description: Created\n        \"409\":\n          description: Duplicate payment intent\n        \"422\":\n          description: Invalid cart state",
+              "caption": "用 OpenAPI 预览先确认契约里的成功和失败分支。"
+            }
+          },
+          {
+            "heading": "Demo 2：用 Postman 集合检查真实请求顺序",
+            "paragraphs": [
+              "Postman 集合更接近人工测试路径。契约可能是对的，但集合可能还在调用旧接口，或者漏了购物车校验、鉴权刷新这类中间步骤。",
+              "这个 demo 的目标不是画漂亮图，而是快速回答：请求顺序是否符合真实产品流程。"
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"item\": [\n    {\"name\": \"Login\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/auth/login\"}},\n    {\"name\": \"Validate cart\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/cart/validate\"}},\n    {\"name\": \"Create order\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/orders\"}}\n  ]\n}",
+              "caption": "Postman 转时序图适合检查集合是否已经过期。"
+            }
+          },
+          {
+            "heading": "Demo 3：HAR 里看慢请求和第三方影响",
+            "paragraphs": [
+              "HAR 是浏览器视角的事实记录。它能告诉你：页面慢到底是接口慢、静态资源慢、第三方脚本慢，还是某个 4xx/5xx 被前端吞掉了。",
+              "建议先截取最慢的几条 entry 做预览，而不是把完整生产 HAR 丢进 Issue。"
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"log\": {\n    \"entries\": [\n      {\"time\": 92, \"request\": {\"method\": \"GET\", \"url\": \"https://app.example.com/checkout\"}, \"response\": {\"status\": 200}},\n      {\"time\": 1280, \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/orders\"}, \"response\": {\"status\": 201}},\n      {\"time\": 430, \"request\": {\"method\": \"GET\", \"url\": \"https://analytics.example.net/tag.js\"}, \"response\": {\"status\": 200}}\n    ]\n  }\n}",
+              "caption": "HAR 预览应该让慢请求、状态码和 host 分布一眼可见。"
+            }
+          },
+          {
+            "heading": "Demo 4：用 jq 和 JSONPath 提取证据字段",
+            "paragraphs": [
+              "响应体很大时，不要让读者翻完整 payload。用 jq 或 JSONPath 抽出错误码、订单 ID、duration、retryCount 这些关键字段。",
+              "jq 更适合转换 JSON，JSONPath 更像选择器，适合写进测试、监控和文档示例。"
             ],
             "code": {
               "language": "text",
-              "content": "OpenAPI contract\n  -> Postman collection\n  -> Browser HAR\n  -> sequence + waterfall review",
-              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+              "content": "jq: .errors[].code\nJSONPath: $.errors[*].code\n\n{\n  \"errors\": [\n    {\"code\": \"CART_EXPIRED\", \"message\": \"Cart was updated\"},\n    {\"code\": \"PAYMENT_RETRY_REQUIRED\", \"message\": \"Retry with a new intent\"}\n  ]\n}",
+              "caption": "把 jq 和 JSONPath 并排展示，比只放工具链接更像真正的调试教程。"
             }
           },
           {
-            "heading": "重点检查什么",
+            "heading": "这条链路能发现哪些常见坑",
             "paragraphs": [
-              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
-              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+              "Postman 集合仍然调用废弃接口；OpenAPI 只写了 201 和 500，却漏了前端每天遇到的 409；HAR 显示后端其实很快，真正慢的是第三方脚本；响应头缓存策略导致浏览器一直拿旧 schema。",
+              "这些具体错误案例，才是博客内容和普通工具页拉开差距的地方。"
             ]
           },
           {
-            "heading": "实用工作流",
+            "heading": "发布调试记录前的 checklist",
             "paragraphs": [
-              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
-              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
-            ]
-          },
-          {
-            "heading": "发布建议",
-            "paragraphs": [
-              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
-              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+              "至少保留一个契约片段、一个请求顺序截图、一个 HAR 时间线截图、一个字段提取示例。说明数据来自本地、测试环境还是生产环境。",
+              "截图用于快速阅读，源码用于复现。两者一起放进 PR、Issue 或博客里，可信度会高很多。"
             ]
           }
         ]
       },
       "schema-preview-workflow-json-schema-zod-typescript": {
-        "title": "Schema 预览工作流：TypeScript、Zod 与 JSON Schema 如何配合",
-        "seoTitle": "Schema 预览工作流：TypeScript、Zod 与 JSON Schema 如何配合 - DiagramPreview",
-        "description": "一篇面向开发者预览工具的长尾指南，结合 TypeScript, Zod, JSON Schema, and form preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
-        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 TypeScript, Zod, JSON Schema, and form preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
-        "readingTime": "9 分钟阅读",
+        "title": "Schema 预览工作流：TypeScript、Zod、JSON Schema 与表单预览",
+        "seoTitle": "Schema 预览工作流：TypeScript、Zod、JSON Schema 与表单预览 - DiagramPreview",
+        "description": "一篇更完整的 Schema 文档教程，覆盖 TypeScript 类型、Zod 运行时校验、JSON Schema 契约、表单预览和常见不一致案例。",
+        "excerpt": "一篇更完整的 Schema 文档教程，覆盖 TypeScript 类型、Zod 运行时校验、JSON Schema 契约、表单预览和常见不一致案例。",
+        "readingTime": "14 分钟阅读",
         "keywords": [
-          "schema preview workflow",
-          "json schema zod typescript",
-          "api schema documentation"
+          "Schema 预览工作流",
+          "JSON Schema Zod TypeScript",
+          "JSON Schema 表单预览"
         ],
         "sections": [
           {
-            "heading": "为什么需要单独的预览步骤",
+            "heading": "为什么 Schema 文档容易过期",
             "paragraphs": [
-              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
-              "Schema 预览工作流：TypeScript、Zod 与 JSON Schema 如何配合 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+              "Schema 文档经常漂移，因为不同团队使用不同事实来源。后端可能维护 JSON Schema，前端写 TypeScript，运行时校验在 Zod，产品和测试更关心表单到底长什么样。",
+              "所以这篇文章不应该只介绍某一种格式，而应该展示如何把这些层串起来对比。"
             ],
             "image": {
-              "src": "/blog/schema-preview-workflow-json-schema-zod-typescript.png",
-              "alt": "Schema 预览工作流：TypeScript、Zod 与 JSON Schema 如何配合",
-              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+              "src": "/blog/demos/schema-form-preview-demo.png",
+              "alt": "Schema 到表单预览工作流",
+              "caption": "有价值的不是某一种格式，而是从类型、运行时校验、契约到表单预览的一条链路。"
             }
           },
           {
-            "heading": "示例输入",
+            "heading": "Demo 1：TypeScript 表达开发者意图",
             "paragraphs": [
-              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
-              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+              "TypeScript 对前端和 SDK 开发者最友好，可以快速看出可选字段、嵌套模型和命名约定。",
+              "但 TypeScript 本身不验证运行时输入，所以它更像开发者意图，不应该单独当作 API 契约。"
             ],
             "code": {
-              "language": "text",
-              "content": "type User = { id: string; email: string }\nconst UserSchema = z.object({ id: z.string(), email: z.string().email() })",
-              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+              "language": "ts",
+              "content": "export interface UserProfile {\n  id: string;\n  email: string;\n  role?: \"admin\" | \"viewer\";\n  settings: {\n    theme: \"light\" | \"dark\";\n    weeklyDigest: boolean;\n  };\n}",
+              "caption": "先预览 interface，可以让读者快速理解字段层级。"
             }
           },
           {
-            "heading": "重点检查什么",
+            "heading": "Demo 2：Zod 体现运行时行为",
             "paragraphs": [
-              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
-              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+              "Zod 关注运行时：必填、邮箱格式、默认值、转换和错误消息都在这里发生。真实用户输入也是在这一层失败。",
+              "当 Zod 和 TypeScript 不一致时，预览工具应该帮助你提前发现。"
+            ],
+            "code": {
+              "language": "ts",
+              "content": "const UserProfileSchema = z.object({\n  id: z.string().uuid(),\n  email: z.string().email(),\n  role: z.enum([\"admin\", \"viewer\"]).default(\"viewer\"),\n  settings: z.object({\n    theme: z.enum([\"light\", \"dark\"]),\n    weeklyDigest: z.boolean()\n  })\n});",
+              "caption": "Zod 预览适合检查默认值、枚举和运行时校验规则。"
+            }
+          },
+          {
+            "heading": "Demo 3：JSON Schema 用于契约和表单预览",
+            "paragraphs": [
+              "JSON Schema 更适合跨语言共享，可以用于 API 文档、校验器、生成表单和示例。",
+              "表单预览很重要，因为产品、测试和非前端同学可以直接检查必填项、枚举和描述，而不用读原始 JSON。"
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"title\": \"UserProfile\",\n  \"type\": \"object\",\n  \"required\": [\"id\", \"email\", \"settings\"],\n  \"properties\": {\n    \"email\": {\"type\": \"string\", \"format\": \"email\"},\n    \"role\": {\"type\": \"string\", \"enum\": [\"admin\", \"viewer\"]},\n    \"settings\": {\"type\": \"object\"}\n  }\n}",
+              "caption": "JSON Schema 表单预览能把契约细节变成可 review 的界面。"
+            }
+          },
+          {
+            "heading": "常见不一致案例",
+            "paragraphs": [
+              "TypeScript 里是可选字段，但 JSON Schema 里是 required；Zod 有默认值，但 OpenAPI 示例没写；表单预览是下拉框，真实 UI 却允许自由输入；文档写了嵌套对象，运行时却没有校验。",
+              "这些具体案例会让文章更像经验总结，而不是工具介绍。"
             ]
           },
           {
-            "heading": "实用工作流",
+            "heading": "Schema review checklist",
             "paragraphs": [
-              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
-              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
-            ]
-          },
-          {
-            "heading": "发布建议",
-            "paragraphs": [
-              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
-              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+              "检查 required、enum、nullable、default、嵌套对象、数组 item 类型和错误消息。然后至少生成一个表单预览和一个非法 payload 示例。",
+              "如果这是公开 API 的契约变更，建议在 release note 里放一张预览截图，让 reviewer 能快速扫到变化。"
             ]
           }
         ]
       },
       "social-card-svg-preview-publishing-workflow": {
-        "title": "发布技术文档前，先预览社交卡片和 SVG",
-        "seoTitle": "发布技术文档前，先预览社交卡片和 SVG - DiagramPreview",
-        "description": "一篇面向开发者预览工具的长尾指南，结合 Open Graph, SVG, and Markdown preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
-        "excerpt": "一篇面向开发者预览工具的长尾指南，结合 Open Graph, SVG, and Markdown preview tools，用真实片段说明如何检查 AI 生成内容、API 调试材料和发布前预览。",
-        "readingTime": "9 分钟阅读",
+        "title": "发布技术文档前，先预览 Markdown、SVG、Open Graph 和截图",
+        "seoTitle": "发布技术文档前，先预览 Markdown、SVG、Open Graph 和截图 - DiagramPreview",
+        "description": "一篇技术文章发布前 checklist，覆盖 Markdown 预览、SVG 封面检查、Open Graph 卡片、截图、代码示例和常见发布错误。",
+        "excerpt": "一篇技术文章发布前 checklist，覆盖 Markdown 预览、SVG 封面检查、Open Graph 卡片、截图、代码示例和常见发布错误。",
+        "readingTime": "14 分钟阅读",
         "keywords": [
-          "technical blog publishing checklist",
-          "open graph svg preview",
-          "markdown preview workflow"
+          "技术博客发布 checklist",
+          "Open Graph SVG 预览",
+          "Markdown 预览工作流"
         ],
         "sections": [
           {
-            "heading": "为什么需要单独的预览步骤",
+            "heading": "发布质量也是产品质量的一部分",
             "paragraphs": [
-              "现在很多内容来自 AI、接口导出、浏览器 DevTools 或基础设施配置。问题不在于能不能生成，而在于生成后是否能快速看出它是否正确。",
-              "发布技术文档前，先预览社交卡片和 SVG 关注的是把文本源码放进一个更容易检查的预览界面。你不需要先搭完整环境，也不用把每个片段都复制到多个工具里来回验证。"
+              "一篇技术文章即使内容正确，也可能因为代码块换行难看、封面图不清楚、Open Graph 标题被截断、截图没有展示有效结果而表现很差。",
+              "这条工作流把发布当成预览问题：先预览 Markdown，再检查 SVG 封面，再看 Open Graph，最后补真实截图。"
             ],
             "image": {
-              "src": "/blog/social-card-svg-preview-publishing-workflow.png",
-              "alt": "发布技术文档前，先预览社交卡片和 SVG",
-              "caption": "预览工具让源码、效果图和调试判断放在同一个上下文里。"
+              "src": "/blog/demos/publishing-preview-demo.png",
+              "alt": "技术文章发布前预览工作流",
+              "caption": "发布前预览应该覆盖正文、封面、社交卡片和最终截图。"
             }
           },
           {
-            "heading": "示例输入",
+            "heading": "Demo 1：Markdown 里必须有真实代码",
             "paragraphs": [
-              "建议从最小可复现片段开始。比如一个 HAR entry、一段 SVG、一个 JSONPath 表达式、一组 og meta 标签，或者几条 Nginx location。小输入更容易定位解析问题。",
-              "下面的片段不是为了覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。确认逻辑后，再逐步扩大输入范围。"
+              "不要只写营销文案。每篇教程至少放一个读者可以直接复制到工具里的代码片段。",
+              "Markdown 预览能提前发现标题层级、代码块、表格和链接问题。"
             ],
             "code": {
-              "language": "text",
-              "content": "1. Preview Markdown\n2. Preview SVG cover\n3. Validate og:title and og:image\n4. Publish and submit sitemap",
-              "caption": "把代码片段和预览结果一起保留，后续 review 更清楚。"
+              "language": "markdown",
+              "content": "## Debug a JSON response with jq\n\n```text\n.users[].email\n---\n{\"users\":[{\"email\":\"ada@example.com\"}]}\n```\n\nExpected result: one email string in the preview output.",
+              "caption": "有用的文章应该说明运行 demo 后读者会看到什么。"
             }
           },
           {
-            "heading": "重点检查什么",
+            "heading": "Demo 2：预览 SVG 封面源码",
             "paragraphs": [
-              "第一步看结构是否符合预期：请求顺序、字段层级、匹配规则、卡片标题和图片是否明显错位。第二步看异常：慢请求、4xx/5xx、空匹配、无效 SVG 或 fallback 路由。",
-              "如果结果过大，不要强行做成一个全景图。把它拆成请求流、Schema、路由、发布预览和监控视图，会比一个巨大的万能页面更适合 SEO 和用户理解。"
+              "生成 SVG 封面很方便，但也可能出现文字断行、对比度不够、viewBox 太大或带有不安全脚本。发布前要先预览和清理。",
+              "如果 SVG 只是中间产物，博客和社交卡片建议使用导出的 PNG。"
+            ],
+            "code": {
+              "language": "svg",
+              "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 630\">\n  <rect width=\"1200\" height=\"630\" rx=\"32\" fill=\"#0f172a\"/>\n  <text x=\"80\" y=\"170\" font-size=\"64\" fill=\"white\">jq vs JSONPath</text>\n  <text x=\"80\" y=\"250\" font-size=\"32\" fill=\"#bfdbfe\">API response debugging workflow</text>\n</svg>",
+              "caption": "用 Open Graph 同比例预览封面，能提前发现裁切和排版问题。"
+            }
+          },
+          {
+            "heading": "Demo 3：检查 Open Graph 卡片",
+            "paragraphs": [
+              "社交卡片应该描述这篇教程，而不是只写网站名称。图片 URL 也必须是平台可抓取的绝对地址。",
+              "发到开发者社区、newsletter 或产品更新页之前，先预览卡片。"
+            ],
+            "code": {
+              "language": "html",
+              "content": "<meta property=\"og:title\" content=\"jq vs JSONPath: API response debugging workflow\" />\n<meta property=\"og:description\" content=\"Copyable jq and JSONPath demos for inspecting large API payloads.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/jq-vs-jsonpath-api-debugging-workflow.png\" />",
+              "caption": "具体的 OG 文案通常比泛泛的产品口号更有效。"
+            }
+          },
+          {
+            "heading": "Demo 4：加入一张能证明工具可用的截图",
+            "paragraphs": [
+              "生成封面不够。正文里至少要有一张 demo 图或截图，展示左侧源码、右侧预览结果。",
+              "对开发者来说，这张图回答的是：我粘贴这段代码后会发生什么。"
             ]
           },
           {
-            "heading": "实用工作流",
+            "heading": "常见错误",
             "paragraphs": [
-              "一个稳定流程是：先让 AI 或现有工具生成初稿，再把初稿放进对应预览器，然后根据预览反馈修正源码。最后把源码、截图和导出产物一起放进文档或 PR。",
-              "这类页面的搜索价值来自“具体问题 + 可立即验证”。用户搜索的往往不是泛泛的 diagram，而是 HAR waterfall、JSONPath tester、Nginx location matching、OG preview 这样的细问题。"
+              "封面图看不出文章主题；代码示例无法运行；没有写预期输出；链接到首页而不是具体工具页；OG 图片还是本地地址。",
+              "修掉这些问题，文章才更像文档，而不是广告。"
             ]
           },
           {
-            "heading": "发布建议",
+            "heading": "最终发布 checklist",
             "paragraphs": [
-              "发布时不要只放一句“在线工具”。更好的写法是说明输入长什么样、预览能发现什么问题、哪些边界需要原工具或生产环境确认。",
-              "如果文章面向 V2EX、独立开发者社区或技术群，尽量把它写成调试经验，而不是硬广告。代码片段、错误案例和截图比口号更容易获得反馈。"
+              "预览 Markdown，运行代码示例，预览 SVG 或生成图，检查 Open Graph，确认图片 URL 可访问，并链接到具体工具页。",
+              "发布后，用一两条聚焦的推广文案解释调试问题，不要到处发同一段泛泛广告。"
             ]
           }
         ]
@@ -6725,107 +6796,174 @@
         ]
       },
       "config-preview-env-yaml-toml-before-deploy": {
-        "title": "部署出问题前，先预览 .env、YAML 和 TOML 配置",
-        "seoTitle": "部署出问题前，先预览 .env、YAML 和 TOML 配置 - DiagramPreview",
-        "description": "这是一篇围绕 .env Diff Checker, YAML Path Tester, and TOML Visualizer 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
-        "excerpt": "这是一篇围绕 .env Diff Checker, YAML Path Tester, and TOML Visualizer 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
-        "readingTime": "10 分钟阅读",
+        "title": "部署出问题前，先预览 .env、YAML、TOML 和 Nginx 配置",
+        "seoTitle": "部署出问题前，先预览 .env、YAML、TOML 和 Nginx 配置 - DiagramPreview",
+        "description": "一篇面向部署前检查的配置预览教程，覆盖 .env 差异、YAML 路径、TOML 结构、Nginx location 匹配和生产事故常见错误。",
+        "excerpt": "一篇面向部署前检查的配置预览教程，覆盖 .env 差异、YAML 路径、TOML 结构、Nginx location 匹配和生产事故常见错误。",
+        "readingTime": "14 分钟阅读",
         "keywords": [
-          "env diff checker",
-          "yaml path tester",
-          "toml visualizer",
-          "config preview"
+          "env 差异检查",
+          "YAML Path 测试",
+          "TOML 可视化",
+          "Nginx location 匹配"
         ],
         "sections": [
           {
-            "heading": "为什么这类预览工具值得做",
+            "heading": "配置问题预览成本低，线上代价高",
             "paragraphs": [
-              "很多开发者搜索的不是笼统的 diagram，而是 jq filter、XPath、.env diff、robots.txt tester 这类具体问题。它们搜索意图强，用户希望马上粘贴源码得到答案。",
-              "这类页面适合作为工具站的 P0 长尾入口：工具页解决“马上用”，博客解决“为什么这么调试、怎么避免踩坑”。"
+              "配置问题在 code review 里看起来很小，但上线后代价很高。少一个环境变量、镜像 tag 还是 latest、TOML 默认值不对、Nginx location 匹配错，都可能让发布翻车。",
+              "所以配置类博客不能只说“这是一个工具”，而要展示部署前怎么把这些文件串起来检查。"
             ],
             "image": {
-              "src": "/blog/config-preview-env-yaml-toml-before-deploy.png",
-              "alt": "部署出问题前，先预览 .env、YAML 和 TOML 配置",
-              "caption": "配图展示源码、预览结果和检查重点在同一上下文中。"
+              "src": "/blog/demos/config-preview-deploy-demo.png",
+              "alt": "部署前配置预览",
+              "caption": "实用的部署前检查应该把 .env 差异、YAML 路径、TOML 结构和 Nginx 路由匹配放在一起。"
             }
           },
           {
-            "heading": "可以直接复制的示例",
+            "heading": "Demo 1：对比 .env 和 .env.example",
             "paragraphs": [
-              "建议从一个最小片段开始，而不是一上来粘贴完整生产文件。小输入更容易看出表达式是否写错、路径是否命中、配置是否缺变量。",
-              "下面的片段可以直接放进对应工具测试，再逐步替换成真实项目输入。"
+              "最直接的收益是检查运行环境变量和 example 是否一致。缺失 key 很明显，但空值和重复 key 同样危险。",
+              "这个 demo 能发现常见上线问题：example 里写了变量，但真实环境没配置。"
             ],
             "code": {
-              "language": "text",
-              "content": "DATABASE_URL=postgres://local\n---\nDATABASE_URL=\nOPENAI_API_KEY=\n\nspec.template.spec.containers[0].image",
-              "caption": "先让预览跑通，再扩大输入范围。"
+              "language": "dotenv",
+              "content": "DATABASE_URL=postgres://local\nNEXT_PUBLIC_SITE_URL=https://example.com\nSTRIPE_SECRET_KEY=\n---\nDATABASE_URL=\nNEXT_PUBLIC_SITE_URL=\nSTRIPE_SECRET_KEY=\nWEBHOOK_SECRET=",
+              "caption": "这里应该提示 WEBHOOK_SECRET 缺失，并提示 STRIPE_SECRET_KEY 为空。"
             }
           },
           {
-            "heading": "检查清单",
+            "heading": "Demo 2：只检查真正会部署的 YAML 值",
             "paragraphs": [
-              "先看结果是否为空，再看是否命中了错误的节点、字段或路径。对于配置类工具，要特别注意空值、缺失变量、重复 key 和生产环境默认值。",
-              "对于 SEO 文件，除了语法，还要检查 robots 是否阻止了目标 URL、sitemap 是否有重复 URL、Open Graph 图片是否能被稳定访问。"
+              "Kubernetes、Helm、GitHub Actions 文件通常很长。YAML Path 预览适合问一个具体问题：这次部署到底用哪个 image、branch、CPU limit 或 secret name。",
+              "当 review 关注一个生产值时，这比展示完整 YAML 树更有效。"
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "spec.template.spec.containers[0].image\n---\napiVersion: apps/v1\nkind: Deployment\nspec:\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/api:latest",
+              "caption": "如果生产还在用 latest，应该在发布前明确标出来。"
+            }
+          },
+          {
+            "heading": "Demo 3：检查 TOML section 和默认值",
+            "paragraphs": [
+              "TOML 常见于 pyproject、Cargo、应用配置和内部工具。它可读性不错，但生产默认值仍然可能不合适。",
+              "结构预览可以让 reviewer 快速扫 section、key 和 value，不需要先理解完整应用。"
+            ],
+            "code": {
+              "language": "toml",
+              "content": "[server]\nport = 3000\nworkers = 1\n\n[features]\nsearch = true\nnew_checkout = false",
+              "caption": "文章里要解释哪些 TOML 值是安全默认值，哪些需要按环境复核。"
+            }
+          },
+          {
+            "heading": "Demo 4：测试 Nginx location 匹配",
+            "paragraphs": [
+              "Nginx 路由 bug 容易漏，因为 exact、prefix、^~、regex 的优先级不同。配置看起来对，但实际可能命中另一个 block。",
+              "部署 rewrite 或 proxy 规则前，应该把目标 URI 和相关 location block 单独拿出来预览。"
+            ],
+            "code": {
+              "language": "nginx",
+              "content": "URI: /api/users/42\n---\nlocation = /health { return 200; }\nlocation ^~ /api/ { proxy_pass http://api; }\nlocation ~ \\.(js|css)$ { root /assets; }\nlocation / { try_files $uri /index.html; }",
+              "caption": "预期应命中 ^~ /api/，而不是 fallback location。"
+            }
+          },
+          {
+            "heading": "这份 checklist 能发现什么",
+            "paragraphs": [
+              "secret 在 example 里有，但真实环境没有；部署镜像仍然使用 latest；TOML worker 数本地够用但生产不够；regex route 抢走 prefix route 的流量；缓存响应头让客户端一直保留旧 bundle。",
+              "这些具体错误会让文章像发布经验，而不是普通工具介绍。"
             ]
           },
           {
-            "heading": "发布和 SEO 建议",
+            "heading": "什么时候不能只依赖预览",
             "paragraphs": [
-              "博客不要写成“这是一个在线工具”的薄页面。更好的写法是放真实片段、错误案例、对比说明和截图，让读者觉得这是一篇调试经验。",
-              "工具页和博客页要互相链接：工具页承接高意图关键词，博客页承接教程型关键词。这样比一口气批量生成大量短文更稳。"
+              "预览不能替代 staging 部署、secret 扫描或真实健康检查。它的价值是提前发现明显不一致。",
+              "最终发布仍然要看真实环境变量、已部署 manifest、Nginx reload 校验和应用日志。"
             ]
           }
         ]
       },
       "technical-seo-preview-robots-sitemap-open-graph": {
-        "title": "技术 SEO 预览工作流：robots.txt、sitemap.xml 与 Open Graph",
-        "seoTitle": "技术 SEO 预览工作流：robots.txt、sitemap.xml 与 Open Graph - DiagramPreview",
-        "description": "这是一篇围绕 robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
-        "excerpt": "这是一篇围绕 robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger 的实用长尾教程，包含真实代码片段、检查步骤和适合发布前使用的预览工作流。",
-        "readingTime": "10 分钟阅读",
+        "title": "技术 SEO 预览工作流：robots.txt、sitemap.xml、Open Graph 和 SVG 封面",
+        "seoTitle": "技术 SEO 预览工作流：robots.txt、sitemap.xml、Open Graph 和 SVG 封面 - DiagramPreview",
+        "description": "一篇技术 SEO 预览教程，覆盖 robots.txt 规则、sitemap XML、hreflang、Open Graph 卡片、SVG 封面和发布前检查。",
+        "excerpt": "一篇技术 SEO 预览教程，覆盖 robots.txt 规则、sitemap XML、hreflang、Open Graph 卡片、SVG 封面和发布前检查。",
+        "readingTime": "14 分钟阅读",
         "keywords": [
-          "technical seo preview",
-          "robots txt tester",
-          "sitemap xml viewer",
-          "open graph preview"
+          "技术 SEO 预览",
+          "robots.txt 测试器",
+          "sitemap XML 查看器",
+          "Open Graph 预览"
         ],
         "sections": [
           {
-            "heading": "为什么这类预览工具值得做",
+            "heading": "技术 SEO 文件也需要预览",
             "paragraphs": [
-              "很多开发者搜索的不是笼统的 diagram，而是 jq filter、XPath、.env diff、robots.txt tester 这类具体问题。它们搜索意图强，用户希望马上粘贴源码得到答案。",
-              "这类页面适合作为工具站的 P0 长尾入口：工具页解决“马上用”，博客解决“为什么这么调试、怎么避免踩坑”。"
+              "很小的技术 SEO 文件也可能造成很大的收录问题。robots.txt 一条规则可能挡住整个目录，sitemap 可能重复提交大量 URL，Open Graph 图片可能在真正分享后才发现不可用。",
+              "所以这篇文章应该展示完整发布流程：robots 规则检查、sitemap 检查、Open Graph 预览、SVG 封面预览和上线前 checklist。"
             ],
             "image": {
-              "src": "/blog/technical-seo-preview-robots-sitemap-open-graph.png",
-              "alt": "技术 SEO 预览工作流：robots.txt、sitemap.xml 与 Open Graph",
-              "caption": "配图展示源码、预览结果和检查重点在同一上下文中。"
+              "src": "/blog/demos/technical-seo-preview-demo.png",
+              "alt": "技术 SEO 预览工作流",
+              "caption": "技术 SEO 预览要把抓取规则、sitemap 质量、社交卡片和封面图放到同一条发布链路里。"
             }
           },
           {
-            "heading": "可以直接复制的示例",
+            "heading": "Demo 1：用目标 URL 测试 robots.txt",
             "paragraphs": [
-              "建议从一个最小片段开始，而不是一上来粘贴完整生产文件。小输入更容易看出表达式是否写错、路径是否命中、配置是否缺变量。",
-              "下面的片段可以直接放进对应工具测试，再逐步替换成真实项目输入。"
+              "不要只把 robots.txt 当文本看。拿一个你希望收录的具体 URL，测试最长匹配的 Allow 或 Disallow 是否允许它。",
+              "新增私有后台、API 路由、测试环境路径或自动生成博客目录后，这一步尤其重要。"
             ],
             "code": {
               "language": "text",
-              "content": "URL: https://example.com/blog/post\n---\nUser-agent: *\nDisallow: /admin/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
-              "caption": "先让预览跑通，再扩大输入范围。"
+              "content": "URL: https://example.com/blog/jq-vs-jsonpath-api-debugging-workflow\n---\nUser-agent: *\nDisallow: /admin/\nDisallow: /api/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
+              "caption": "预期结果是 /blog 允许收录，同时 /admin 和 /api 仍然阻止。"
             }
           },
           {
-            "heading": "检查清单",
+            "heading": "Demo 2：检查 sitemap URL 和多语言 alternate",
             "paragraphs": [
-              "先看结果是否为空，再看是否命中了错误的节点、字段或路径。对于配置类工具，要特别注意空值、缺失变量、重复 key 和生产环境默认值。",
-              "对于 SEO 文件，除了语法，还要检查 robots 是否阻止了目标 URL、sitemap 是否有重复 URL、Open Graph 图片是否能被稳定访问。"
+              "sitemap 预览不只是 XML 校验。它应该展示 URL 数量、重复 URL、lastmod、sitemap index 和 hreflang alternate。",
+              "对于多语言工具站，hreflang alternate 和 URL 数量一样重要。alternate 错误会给搜索引擎传递混乱信号。"
+            ],
+            "code": {
+              "language": "xml",
+              "content": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n  <url>\n    <loc>https://example.com/en/jq-filter-tester</loc>\n    <xhtml:link rel=\"alternate\" hreflang=\"zh-CN\" href=\"https://example.com/zh-CN/jq-filter-tester\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"ja\" href=\"https://example.com/ja/jq-filter-tester\" />\n  </url>\n</urlset>",
+              "caption": "文章里应该解释 URL 数量、alternate、重复 URL 和 lastmod 质量。"
+            }
+          },
+          {
+            "heading": "Demo 3：分享前预览 Open Graph",
+            "paragraphs": [
+              "Open Graph 很容易出问题：HTML 看起来对，但图片太大、被阻止、发生跳转，或者视觉上不清楚。",
+              "发布前预览 title、description、image、url、site name，比手动扫 meta 标签更有效。"
+            ],
+            "code": {
+              "language": "html",
+              "content": "<meta property=\"og:title\" content=\"jq vs JSONPath: API response debugging workflow\" />\n<meta property=\"og:description\" content=\"A practical guide with jq filters, JSONPath selectors, and copyable API payload demos.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/jq-vs-jsonpath-api-debugging-workflow.png\" />\n<meta property=\"og:url\" content=\"https://diagrampreview.com/en/blog/jq-vs-jsonpath-api-debugging-workflow\" />",
+              "caption": "OG 卡片应该描述真实教程，而不是只写产品名。"
+            }
+          },
+          {
+            "heading": "Demo 4：检查 SVG 封面和导出图",
+            "paragraphs": [
+              "生成的封面图和 SVG 片段也应该在发布前预览。文字断行、对比度太低、脚本、尺寸过大，都会让文章看起来不可信。",
+              "SVG 适合检查代码生成的图，PNG 更适合发到不稳定支持 SVG 的平台。"
             ]
           },
           {
-            "heading": "发布和 SEO 建议",
+            "heading": "常见 SEO 预览错误",
             "paragraphs": [
-              "博客不要写成“这是一个在线工具”的薄页面。更好的写法是放真实片段、错误案例、对比说明和截图，让读者觉得这是一篇调试经验。",
-              "工具页和博客页要互相链接：工具页承接高意图关键词，博客页承接教程型关键词。这样比一口气批量生成大量短文更稳。"
+              "没检查重复 URL 就提交 sitemap；本来想阻止 /api/，结果误伤 /api-docs/；社交卡片图片还是本地 URL；新增多语言工具页后忘了 hreflang；批量加博客但没有从相关工具页链接过去。",
+              "这些具体错误比“SEO 很重要”更有价值，读者可以马上对照自己的网站检查。"
+            ]
+          },
+          {
+            "heading": "发布 checklist",
+            "paragraphs": [
+              "用精确 URL 检查 robots.txt，检查 sitemap 数量和 alternate，预览 Open Graph，确认图片 URL 可访问，并确认文章链接到了相关工具页。",
+              "发布后，只把足够有用、能独立解决问题的页面提交 sitemap 或 IndexNow。"
             ]
           }
         ]

@@ -6486,129 +6486,176 @@
         ]
       },
       "api-debugging-preview-har-postman-openapi": {
-        "title": "A practical API debugging loop: OpenAPI, Postman, then HAR",
-        "seoTitle": "A practical API debugging loop: OpenAPI, Postman, then HAR - DiagramPreview",
-        "description": "A long-tail developer preview guide that combines OpenAPI sequence, Postman sequence, and HAR waterfall tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
-        "excerpt": "A long-tail developer preview guide that combines OpenAPI sequence, Postman sequence, and HAR waterfall tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
-        "readingTime": "9 min read",
+        "title": "A practical API debugging loop: OpenAPI, Postman, HAR, jq, and JSONPath",
+        "seoTitle": "A practical API debugging loop: OpenAPI, Postman, HAR, jq, and JSONPath - DiagramPreview",
+        "description": "A hands-on API debugging workflow with OpenAPI sequence previews, Postman request order checks, HAR waterfalls, jq filters, JSONPath extraction, and HTTP header review.",
+        "excerpt": "A hands-on API debugging workflow with OpenAPI sequence previews, Postman request order checks, HAR waterfalls, jq filters, JSONPath extraction, and HTTP header review.",
+        "readingTime": "14 min read",
         "keywords": [
           "api debugging workflow",
-          "openapi sequence diagram",
-          "postman har debugging"
+          "har waterfall debugging",
+          "postman sequence diagram",
+          "jq jsonpath api response"
         ],
         "sections": [
           {
-            "heading": "Why this deserves a preview step",
+            "heading": "The real debugging problem",
             "paragraphs": [
-              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
-              "A practical API debugging loop: OpenAPI, Postman, then HAR focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+              "API bugs rarely live in one file. The OpenAPI contract says one thing, the Postman collection sends another order of requests, the browser HAR shows a slow third-party call, and the frontend only reports a vague timeout.",
+              "A useful API debugging article should not stop at a sequence diagram. It should show how to move from contract, to request collection, to browser traffic, to response filtering, then to the final note you put in an issue or PR."
             ],
             "image": {
-              "src": "/blog/api-debugging-preview-har-postman-openapi.png",
-              "alt": "A practical API debugging loop: OpenAPI, Postman, then HAR",
-              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+              "src": "/blog/demos/api-debugging-har-waterfall-demo.png",
+              "alt": "API debugging loop from OpenAPI to HAR waterfall",
+              "caption": "A stronger API debugging workflow connects contract, request order, HAR timing, jq extraction, JSONPath checks, and response headers."
             }
           },
           {
-            "heading": "Example input",
+            "heading": "Demo 1: start from the OpenAPI contract",
             "paragraphs": [
-              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
-              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+              "Begin with the route contract because it tells you which happy path and error path should exist. In many incidents, the missing part is not the 200 response, but the undocumented 401, 409, 422, or 429 branch.",
+              "Paste a small OpenAPI fragment first. If the preview is readable, expand to the endpoint group instead of the whole API spec."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "paths:\n  /orders:\n    post:\n      summary: Create order\n      responses:\n        \"201\":\n          description: Created\n        \"409\":\n          description: Duplicate payment intent\n        \"422\":\n          description: Invalid cart state",
+              "caption": "Use the OpenAPI preview to verify whether the documented error branches match what the frontend actually handles."
+            }
+          },
+          {
+            "heading": "Demo 2: compare the Postman request order",
+            "paragraphs": [
+              "Postman collections are useful because they show the order people actually run during manual testing. A contract can be correct while the collection is stale.",
+              "The preview should answer a simple question: does the collection call auth, cart validation, order creation, and order status in the same order as the product flow?"
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"item\": [\n    {\"name\": \"Login\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/auth/login\"}},\n    {\"name\": \"Validate cart\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/cart/validate\"}},\n    {\"name\": \"Create order\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/orders\"}}\n  ]\n}",
+              "caption": "A request-order preview often reveals stale collections before anyone digs through network logs."
+            }
+          },
+          {
+            "heading": "Demo 3: use HAR to find the expensive request",
+            "paragraphs": [
+              "The HAR file is where the browser tells the truth. It shows redirects, static assets, third-party scripts, status codes, and wait time in the same timeline.",
+              "Do not paste the whole production HAR into a ticket first. Extract the slowest three or four entries, preview them, and use that screenshot as the first debugging artifact."
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"log\": {\n    \"entries\": [\n      {\"time\": 92, \"request\": {\"method\": \"GET\", \"url\": \"https://app.example.com/checkout\"}, \"response\": {\"status\": 200}},\n      {\"time\": 1280, \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/orders\"}, \"response\": {\"status\": 201}},\n      {\"time\": 430, \"request\": {\"method\": \"GET\", \"url\": \"https://analytics.example.net/tag.js\"}, \"response\": {\"status\": 200}}\n    ]\n  }\n}",
+              "caption": "The HAR viewer should make slow requests and third-party timing visible without opening DevTools again."
+            }
+          },
+          {
+            "heading": "Demo 4: extract evidence with jq and JSONPath",
+            "paragraphs": [
+              "Once the payload is large, screenshots become noisy. Use jq or JSONPath to extract the fields that matter: IDs, status values, errors, duration, or retry count.",
+              "Use jq when you want to transform JSON. Use JSONPath when you want a selector-style expression that maps nicely to API testing, monitoring, and documentation examples."
             ],
             "code": {
               "language": "text",
-              "content": "OpenAPI contract\n  -> Postman collection\n  -> Browser HAR\n  -> sequence + waterfall review",
-              "caption": "Keep the snippet and preview together so later review has both source and effect."
+              "content": "jq: .errors[].code\nJSONPath: $.errors[*].code\n\n{\n  \"errors\": [\n    {\"code\": \"CART_EXPIRED\", \"message\": \"Cart was updated\"},\n    {\"code\": \"PAYMENT_RETRY_REQUIRED\", \"message\": \"Retry with a new intent\"}\n  ]\n}",
+              "caption": "Putting jq and JSONPath side by side gives readers a reusable debugging pattern, not just a tool link."
             }
           },
           {
-            "heading": "What to inspect",
+            "heading": "Common mistakes this workflow catches",
             "paragraphs": [
-              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
-              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+              "The Postman collection still calls a deprecated endpoint. The OpenAPI file documents 201 and 500 but not the 409 branch the frontend sees every day. The HAR waterfall shows that the backend is fast but a third-party script blocks the page. The HTTP response has cache headers that make an old schema stick in the browser.",
+              "These are the details that make the article useful. A generic diagram article would miss them."
             ]
           },
           {
-            "heading": "Practical workflow",
+            "heading": "Checklist before you publish the debugging note",
             "paragraphs": [
-              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
-              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
-            ]
-          },
-          {
-            "heading": "Publishing notes",
-            "paragraphs": [
-              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
-              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+              "Include one contract snippet, one request-order screenshot, one HAR timing screenshot, and one filtered response example. Mention which environment produced the data and whether the result is from local, staging, or production.",
+              "Keep raw source beside the preview. The screenshot helps readers scan, but the source lets another developer reproduce the result."
             ]
           }
         ]
       },
       "schema-preview-workflow-json-schema-zod-typescript": {
-        "title": "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts",
-        "seoTitle": "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts - DiagramPreview",
-        "description": "A long-tail developer preview guide that combines TypeScript, Zod, JSON Schema, and form preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
-        "excerpt": "A long-tail developer preview guide that combines TypeScript, Zod, JSON Schema, and form preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
-        "readingTime": "9 min read",
+        "title": "Schema preview workflow: TypeScript, Zod, JSON Schema, and form previews",
+        "seoTitle": "Schema preview workflow: TypeScript, Zod, JSON Schema, and form previews - DiagramPreview",
+        "description": "A deeper schema documentation workflow with TypeScript interfaces, Zod runtime validation, JSON Schema contracts, generated form previews, and common mismatch examples.",
+        "excerpt": "A deeper schema documentation workflow with TypeScript interfaces, Zod runtime validation, JSON Schema contracts, generated form previews, and common mismatch examples.",
+        "readingTime": "14 min read",
         "keywords": [
           "schema preview workflow",
           "json schema zod typescript",
-          "api schema documentation"
+          "json schema form preview"
         ],
         "sections": [
           {
-            "heading": "Why this deserves a preview step",
+            "heading": "Why schema docs get stale",
             "paragraphs": [
-              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
-              "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+              "Schema documentation often drifts because different teams use different sources of truth. Backend teams may publish JSON Schema, frontend teams may use TypeScript interfaces, runtime validation may live in Zod, and product people usually need to see the form behavior.",
+              "A stronger article should show how to compare those layers instead of pretending one format solves everything."
             ],
             "image": {
-              "src": "/blog/schema-preview-workflow-json-schema-zod-typescript.png",
-              "alt": "Schema preview workflow: TypeScript for devs, Zod for runtime, JSON Schema for contracts",
-              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+              "src": "/blog/demos/schema-form-preview-demo.png",
+              "alt": "Schema workflow preview from TypeScript to form",
+              "caption": "The useful workflow is not one schema format. It is a chain from developer types to runtime validation, contract docs, and form preview."
             }
           },
           {
-            "heading": "Example input",
+            "heading": "Demo 1: TypeScript interface for developer intent",
             "paragraphs": [
-              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
-              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+              "TypeScript is usually the easiest format for frontend and SDK developers to read. It communicates optional fields, nested models, and naming conventions quickly.",
+              "The risk is that TypeScript alone does not validate runtime input. Treat it as developer intent, not an API contract by itself."
             ],
             "code": {
-              "language": "text",
-              "content": "type User = { id: string; email: string }\nconst UserSchema = z.object({ id: z.string(), email: z.string().email() })",
-              "caption": "Keep the snippet and preview together so later review has both source and effect."
+              "language": "ts",
+              "content": "export interface UserProfile {\n  id: string;\n  email: string;\n  role?: \"admin\" | \"viewer\";\n  settings: {\n    theme: \"light\" | \"dark\";\n    weeklyDigest: boolean;\n  };\n}",
+              "caption": "Previewing the interface helps readers see nested structure before discussing runtime validation."
             }
           },
           {
-            "heading": "What to inspect",
+            "heading": "Demo 2: Zod for runtime behavior",
             "paragraphs": [
-              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
-              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+              "Zod adds runtime behavior: required fields, email validation, defaults, transformations, and custom error messages. This is where real user input can fail.",
+              "When Zod and TypeScript disagree, the preview should make the mismatch visible before it becomes a bug report."
+            ],
+            "code": {
+              "language": "ts",
+              "content": "const UserProfileSchema = z.object({\n  id: z.string().uuid(),\n  email: z.string().email(),\n  role: z.enum([\"admin\", \"viewer\"]).default(\"viewer\"),\n  settings: z.object({\n    theme: z.enum([\"light\", \"dark\"]),\n    weeklyDigest: z.boolean()\n  })\n});",
+              "caption": "Zod preview is useful when runtime defaults or validators are not obvious from TypeScript alone."
+            }
+          },
+          {
+            "heading": "Demo 3: JSON Schema for contracts and generated forms",
+            "paragraphs": [
+              "JSON Schema is easier to share across languages and tools. It can power API docs, validators, generated forms, and examples.",
+              "The form preview is important because product and QA can review required fields, enums, and descriptions without reading the raw schema."
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"title\": \"UserProfile\",\n  \"type\": \"object\",\n  \"required\": [\"id\", \"email\", \"settings\"],\n  \"properties\": {\n    \"email\": {\"type\": \"string\", \"format\": \"email\"},\n    \"role\": {\"type\": \"string\", \"enum\": [\"admin\", \"viewer\"]},\n    \"settings\": {\"type\": \"object\"}\n  }\n}",
+              "caption": "A JSON Schema form preview turns contract details into something non-specialists can review."
+            }
+          },
+          {
+            "heading": "Common mismatches to call out",
+            "paragraphs": [
+              "A field is optional in TypeScript but required in JSON Schema. Zod adds a default value that the OpenAPI examples never mention. The generated form shows a dropdown, but the UI implementation accepts free text. A nested object is documented but never validated at runtime.",
+              "These examples make the article practical because readers can compare them with their own codebase."
             ]
           },
           {
-            "heading": "Practical workflow",
+            "heading": "Recommended schema review checklist",
             "paragraphs": [
-              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
-              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
-            ]
-          },
-          {
-            "heading": "Publishing notes",
-            "paragraphs": [
-              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
-              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+              "Check required fields, enum values, nullable fields, default values, nested objects, array item types, and error messages. Then generate at least one form preview and one invalid payload example.",
+              "If the schema is public API surface, keep a screenshot of the visual preview in the release note so reviewers can scan the change quickly."
             ]
           }
         ]
       },
       "social-card-svg-preview-publishing-workflow": {
-        "title": "Before publishing technical docs, preview the card and the SVG",
-        "seoTitle": "Before publishing technical docs, preview the card and the SVG - DiagramPreview",
-        "description": "A long-tail developer preview guide that combines Open Graph, SVG, and Markdown preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
-        "excerpt": "A long-tail developer preview guide that combines Open Graph, SVG, and Markdown preview tools with realistic snippets for checking AI-generated output, API debugging material, and publishing previews.",
-        "readingTime": "9 min read",
+        "title": "Before publishing technical docs, preview Markdown, SVG, Open Graph, and screenshots",
+        "seoTitle": "Before publishing technical docs, preview Markdown, SVG, Open Graph, and screenshots - DiagramPreview",
+        "description": "A publishing checklist for technical articles with Markdown previews, SVG cover checks, Open Graph cards, screenshots, code examples, and common launch mistakes.",
+        "excerpt": "A publishing checklist for technical articles with Markdown previews, SVG cover checks, Open Graph cards, screenshots, code examples, and common launch mistakes.",
+        "readingTime": "14 min read",
         "keywords": [
           "technical blog publishing checklist",
           "open graph svg preview",
@@ -6616,48 +6663,72 @@
         ],
         "sections": [
           {
-            "heading": "Why this deserves a preview step",
+            "heading": "Publishing quality is part of product quality",
             "paragraphs": [
-              "Many developer artifacts now come from AI prompts, browser DevTools exports, API contracts, or infrastructure configuration. The hard part is not generating text; it is seeing whether the generated text behaves the way you expect.",
-              "Before publishing technical docs, preview the card and the SVG focuses on turning source text into a preview surface. You can inspect structure, routing, metadata, or timing without setting up a full environment first."
+              "A technical article can be correct and still fail if the code block wraps badly, the cover image looks vague, the Open Graph title is truncated, or the screenshot does not show the useful output.",
+              "This workflow treats publishing as a preview problem: Markdown first, SVG cover second, Open Graph third, final screenshot last."
             ],
             "image": {
-              "src": "/blog/social-card-svg-preview-publishing-workflow.png",
-              "alt": "Before publishing technical docs, preview the card and the SVG",
-              "caption": "Preview tools keep source, rendered output, and debugging judgment in the same context."
+              "src": "/blog/demos/publishing-preview-demo.png",
+              "alt": "Technical publishing preview workflow",
+              "caption": "A publishing preview checks the article, cover, social card, and final screenshot before promotion."
             }
           },
           {
-            "heading": "Example input",
+            "heading": "Demo 1: preview Markdown with real code",
             "paragraphs": [
-              "Start with the smallest reproducible snippet: one HAR entry, one SVG, one JSONPath expression, a few Open Graph tags, or a compact Nginx location block. Small input makes parser problems easier to isolate.",
-              "The snippet below is intentionally small. It should produce an observable preview immediately, then you can expand toward production input."
+              "Do not publish a tutorial with only marketing copy. Add code that someone can paste into the tool immediately.",
+              "Markdown preview helps catch headings, code fences, tables, and inline links before the article becomes public."
             ],
             "code": {
-              "language": "text",
-              "content": "1. Preview Markdown\n2. Preview SVG cover\n3. Validate og:title and og:image\n4. Publish and submit sitemap",
-              "caption": "Keep the snippet and preview together so later review has both source and effect."
+              "language": "markdown",
+              "content": "## Debug a JSON response with jq\n\n```text\n.users[].email\n---\n{\"users\":[{\"email\":\"ada@example.com\"}]}\n```\n\nExpected result: one email string in the preview output.",
+              "caption": "A useful article explains what the reader should see after running the demo."
             }
           },
           {
-            "heading": "What to inspect",
+            "heading": "Demo 2: preview SVG cover code",
             "paragraphs": [
-              "First check whether the structure matches your expectation: request order, field hierarchy, routing precedence, card title, and preview image. Then look for anomalies such as slow requests, 4xx/5xx responses, empty matches, invalid SVG, or fallback routes.",
-              "If the preview grows too large, split it into focused views. Request flow, schema, routing, publishing preview, and monitoring are easier to rank and easier to understand as separate pages."
+              "Generated SVG covers are convenient, but they can include broken text, bad contrast, large viewBox values, or unsafe script tags. Preview and clean them before export.",
+              "If the SVG is used only as an intermediate asset, export a PNG for the blog and social card."
+            ],
+            "code": {
+              "language": "svg",
+              "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 630\">\n  <rect width=\"1200\" height=\"630\" rx=\"32\" fill=\"#0f172a\"/>\n  <text x=\"80\" y=\"170\" font-size=\"64\" fill=\"white\">jq vs JSONPath</text>\n  <text x=\"80\" y=\"250\" font-size=\"32\" fill=\"#bfdbfe\">API response debugging workflow</text>\n</svg>",
+              "caption": "Preview the cover at the same aspect ratio used by Open Graph."
+            }
+          },
+          {
+            "heading": "Demo 3: check the Open Graph card",
+            "paragraphs": [
+              "The card should describe the tutorial, not only the website. It should also use a stable absolute image URL that the platform can fetch.",
+              "Preview the card before sharing on developer communities, newsletters, and product update pages."
+            ],
+            "code": {
+              "language": "html",
+              "content": "<meta property=\"og:title\" content=\"jq vs JSONPath: API response debugging workflow\" />\n<meta property=\"og:description\" content=\"Copyable jq and JSONPath demos for inspecting large API payloads.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/jq-vs-jsonpath-api-debugging-workflow.png\" />",
+              "caption": "Specific OG copy tends to perform better than generic product slogans."
+            }
+          },
+          {
+            "heading": "Demo 4: add one screenshot that proves the tool works",
+            "paragraphs": [
+              "A generated cover is not enough. Add at least one in-article screenshot or demo image that shows the source on one side and the preview result on the other.",
+              "For developer readers, this image answers the question: what happens if I paste the snippet?"
             ]
           },
           {
-            "heading": "Practical workflow",
+            "heading": "Mistakes to avoid",
             "paragraphs": [
-              "A reliable loop is: generate or export the first draft, paste it into the matching preview tool, fix the source based on preview feedback, then publish the source, screenshot, and exported artifact together.",
-              "The search value comes from specific, verifiable problems. People often search for HAR waterfall, JSONPath tester, Nginx location matching, or OG preview rather than a generic diagram tool."
+              "Using a cover image that does not show the actual subject. Publishing a code example that cannot run. Forgetting to include the expected output. Linking to the homepage instead of the specific tool. Using an OG image URL that only works locally.",
+              "Fixing these mistakes makes the article feel like documentation, not an advertisement."
             ]
           },
           {
-            "heading": "Publishing notes",
+            "heading": "Final publishing checklist",
             "paragraphs": [
-              "When publishing, avoid describing the page as just an online tool. Explain the input shape, the bugs the preview can reveal, and the boundaries that still require the original tool or production environment.",
-              "For developer communities, write it as a debugging note instead of an ad. Snippets, mistakes, and screenshots earn more useful feedback than slogans."
+              "Preview Markdown, run the code sample, preview SVG or generated image, preview Open Graph, verify the image URL, and link to the specific tool page.",
+              "After publishing, use one or two focused promotion posts that explain the debugging problem. Do not post the same generic advertisement everywhere."
             ]
           }
         ]
@@ -6767,64 +6838,100 @@
         ]
       },
       "config-preview-env-yaml-toml-before-deploy": {
-        "title": "Preview .env, YAML, and TOML config before deployment breaks",
-        "seoTitle": "Preview .env, YAML, and TOML config before deployment breaks - DiagramPreview",
-        "description": "A practical long-tail guide around .env Diff Checker, YAML Path Tester, and TOML Visualizer, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
-        "excerpt": "A practical long-tail guide around .env Diff Checker, YAML Path Tester, and TOML Visualizer, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
-        "readingTime": "10 min read",
+        "title": "Preview .env, YAML, TOML, and Nginx config before deployment breaks",
+        "seoTitle": "Preview .env, YAML, TOML, and Nginx config before deployment breaks - DiagramPreview",
+        "description": "A deployment-focused configuration preview guide with .env diff checks, YAML path lookups, TOML structure review, Nginx location matching, and production mistake examples.",
+        "excerpt": "A deployment-focused configuration preview guide with .env diff checks, YAML path lookups, TOML structure review, Nginx location matching, and production mistake examples.",
+        "readingTime": "14 min read",
         "keywords": [
           "env diff checker",
           "yaml path tester",
           "toml visualizer",
-          "config preview"
+          "nginx location matching"
         ],
         "sections": [
           {
-            "heading": "Why these preview tools deserve their own workflow",
+            "heading": "Config bugs are cheap to preview and expensive to deploy",
             "paragraphs": [
-              "Many developers do not search for a generic diagram tool. They search for concrete tasks such as jq filter tester, XPath tester, .env diff checker, or robots.txt tester.",
-              "These pages work well as P0 long-tail entry points: the tool solves the immediate task, while the article explains the debugging workflow and the mistakes to avoid."
+              "Configuration problems often look small in code review and expensive in production. One missing environment variable, one stale image tag, one TOML default, or one Nginx location rule can break a release.",
+              "A good config article should show readers how to preview those files together before deployment, not after the incident starts."
             ],
             "image": {
-              "src": "/blog/config-preview-env-yaml-toml-before-deploy.png",
-              "alt": "Preview .env, YAML, and TOML config before deployment breaks",
-              "caption": "The visual keeps source, preview result, and inspection focus in one context."
+              "src": "/blog/demos/config-preview-deploy-demo.png",
+              "alt": "Config preview before deployment",
+              "caption": "A practical deployment check combines .env diff, YAML path lookup, TOML review, and Nginx route matching."
             }
           },
           {
-            "heading": "Copyable example",
+            "heading": "Demo 1: compare .env and .env.example",
             "paragraphs": [
-              "Start with a minimal snippet rather than a full production file. Small input makes it easier to see whether the expression, path, config key, or SEO directive is wrong.",
-              "The snippet below can be pasted into the matching tool and then replaced with real project input."
+              "The fastest win is checking whether runtime variables match the example file. Missing keys are obvious, but empty production values and duplicate keys are just as dangerous.",
+              "This demo catches a common launch problem: the example file documents a variable that the actual environment never sets."
             ],
             "code": {
-              "language": "text",
-              "content": "DATABASE_URL=postgres://local\n---\nDATABASE_URL=\nOPENAI_API_KEY=\n\nspec.template.spec.containers[0].image",
-              "caption": "Get the preview working first, then expand the input."
+              "language": "dotenv",
+              "content": "DATABASE_URL=postgres://local\nNEXT_PUBLIC_SITE_URL=https://example.com\nSTRIPE_SECRET_KEY=\n---\nDATABASE_URL=\nNEXT_PUBLIC_SITE_URL=\nSTRIPE_SECRET_KEY=\nWEBHOOK_SECRET=",
+              "caption": "The .env diff should flag WEBHOOK_SECRET as missing and STRIPE_SECRET_KEY as empty."
             }
           },
           {
-            "heading": "Inspection checklist",
+            "heading": "Demo 2: inspect the exact YAML value you deploy",
             "paragraphs": [
-              "First check whether the result is empty, then whether it matched the wrong node, field, or path. For configuration tools, pay special attention to empty values, missing variables, duplicate keys, and production defaults.",
-              "For SEO files, syntax is only the first layer. Check whether robots.txt blocks the target URL, whether sitemap XML has duplicate URLs, and whether Open Graph images are stable."
+              "Kubernetes, Helm, and GitHub Actions files are usually too large to inspect line by line. A YAML path preview lets you ask one focused question: which image, branch, CPU limit, or secret name will this deploy use?",
+              "This is more useful than a generic YAML tree when the review is about one production value."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "spec.template.spec.containers[0].image\n---\napiVersion: apps/v1\nkind: Deployment\nspec:\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/api:latest",
+              "caption": "If production still points at latest, call that out before the release."
+            }
+          },
+          {
+            "heading": "Demo 3: review TOML sections and defaults",
+            "paragraphs": [
+              "TOML often hides in pyproject, Cargo, config files, and internal tools. It is readable, but defaults can still be wrong for production.",
+              "A structure preview helps reviewers scan sections, keys, and values without learning the whole application."
+            ],
+            "code": {
+              "language": "toml",
+              "content": "[server]\nport = 3000\nworkers = 1\n\n[features]\nsearch = true\nnew_checkout = false",
+              "caption": "The article should explain which TOML values are safe defaults and which need environment-specific review."
+            }
+          },
+          {
+            "heading": "Demo 4: test Nginx location matching",
+            "paragraphs": [
+              "Nginx routing bugs are easy to miss because exact, prefix, ^~, and regex locations have different precedence. A route can look correct in the file and still match a different block.",
+              "Preview the target URI and the relevant location blocks before deploying a rewrite or proxy rule."
+            ],
+            "code": {
+              "language": "nginx",
+              "content": "URI: /api/users/42\n---\nlocation = /health { return 200; }\nlocation ^~ /api/ { proxy_pass http://api; }\nlocation ~ \\.(js|css)$ { root /assets; }\nlocation / { try_files $uri /index.html; }",
+              "caption": "The expected result is ^~ /api/, not the fallback location."
+            }
+          },
+          {
+            "heading": "Mistakes this checklist catches",
+            "paragraphs": [
+              "A secret is documented but not present. A deployment uses latest instead of an immutable image tag. A TOML worker count is safe locally but too low in production. A regex route steals traffic from a prefix route. Cache headers make clients keep a stale bundle.",
+              "Those concrete failures make the article useful for readers who are preparing a release."
             ]
           },
           {
-            "heading": "Publishing and SEO notes",
+            "heading": "When not to rely on the preview alone",
             "paragraphs": [
-              "Do not turn the article into a thin “this is an online tool” page. Add real snippets, mistake cases, comparisons, and screenshots so it reads like a debugging note.",
-              "Cross-link tools and articles: tool pages capture high-intent keywords, while articles capture tutorial keywords. This is healthier than generating many thin one-tool posts."
+              "Do not use a preview as a replacement for staging deployment, secret scanning, or runtime health checks. The preview is for catching obvious mismatches early.",
+              "The final release check should still include real environment variables, deployed manifests, Nginx reload validation, and application logs."
             ]
           }
         ]
       },
       "technical-seo-preview-robots-sitemap-open-graph": {
-        "title": "Technical SEO preview workflow: robots.txt, sitemap.xml, and Open Graph",
-        "seoTitle": "Technical SEO preview workflow: robots.txt, sitemap.xml, and Open Graph - DiagramPreview",
-        "description": "A practical long-tail guide around robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
-        "excerpt": "A practical long-tail guide around robots.txt Tester, Sitemap XML Viewer, and Open Graph Preview Debugger, with real snippets, inspection steps, and a preview workflow before publishing or deployment.",
-        "readingTime": "10 min read",
+        "title": "Technical SEO preview workflow: robots.txt, sitemap.xml, Open Graph, and SVG covers",
+        "seoTitle": "Technical SEO preview workflow: robots.txt, sitemap.xml, Open Graph, and SVG covers - DiagramPreview",
+        "description": "A technical SEO preview guide for checking robots.txt rules, sitemap XML quality, hreflang alternates, Open Graph cards, SVG covers, and publish-ready screenshots.",
+        "excerpt": "A technical SEO preview guide for checking robots.txt rules, sitemap XML quality, hreflang alternates, Open Graph cards, SVG covers, and publish-ready screenshots.",
+        "readingTime": "14 min read",
         "keywords": [
           "technical seo preview",
           "robots txt tester",
@@ -6833,41 +6940,72 @@
         ],
         "sections": [
           {
-            "heading": "Why these preview tools deserve their own workflow",
+            "heading": "Technical SEO files need previews too",
             "paragraphs": [
-              "Many developers do not search for a generic diagram tool. They search for concrete tasks such as jq filter tester, XPath tester, .env diff checker, or robots.txt tester.",
-              "These pages work well as P0 long-tail entry points: the tool solves the immediate task, while the article explains the debugging workflow and the mistakes to avoid."
+              "Small technical SEO files can create large indexing problems. A robots.txt rule can block a whole section, a sitemap can duplicate thousands of URLs, and an Open Graph image can fail silently until the page is already shared.",
+              "A strong article should show the publish workflow: robots rule check, sitemap inspection, Open Graph preview, SVG cover review, then final launch checks."
             ],
             "image": {
-              "src": "/blog/technical-seo-preview-robots-sitemap-open-graph.png",
-              "alt": "Technical SEO preview workflow: robots.txt, sitemap.xml, and Open Graph",
-              "caption": "The visual keeps source, preview result, and inspection focus in one context."
+              "src": "/blog/demos/technical-seo-preview-demo.png",
+              "alt": "Technical SEO preview workflow",
+              "caption": "The technical SEO preview workflow connects crawl rules, sitemap quality, social cards, and generated cover images."
             }
           },
           {
-            "heading": "Copyable example",
+            "heading": "Demo 1: test one URL against robots.txt",
             "paragraphs": [
-              "Start with a minimal snippet rather than a full production file. Small input makes it easier to see whether the expression, path, config key, or SEO directive is wrong.",
-              "The snippet below can be pasted into the matching tool and then replaced with real project input."
+              "Do not review robots.txt only as text. Pick the exact URL you want indexed and test whether the longest matching Allow or Disallow rule permits it.",
+              "This is especially important after adding private dashboards, API routes, staging paths, or generated blog directories."
             ],
             "code": {
               "language": "text",
-              "content": "URL: https://example.com/blog/post\n---\nUser-agent: *\nDisallow: /admin/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
-              "caption": "Get the preview working first, then expand the input."
+              "content": "URL: https://example.com/blog/jq-vs-jsonpath-api-debugging-workflow\n---\nUser-agent: *\nDisallow: /admin/\nDisallow: /api/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
+              "caption": "The expected result is allowed for /blog while /admin and /api stay blocked."
             }
           },
           {
-            "heading": "Inspection checklist",
+            "heading": "Demo 2: inspect sitemap URLs and alternates",
             "paragraphs": [
-              "First check whether the result is empty, then whether it matched the wrong node, field, or path. For configuration tools, pay special attention to empty values, missing variables, duplicate keys, and production defaults.",
-              "For SEO files, syntax is only the first layer. Check whether robots.txt blocks the target URL, whether sitemap XML has duplicate URLs, and whether Open Graph images are stable."
+              "A sitemap preview should show counts, duplicates, lastmod values, sitemap indexes, and hreflang alternates. The goal is not just validating XML. The goal is seeing whether the sitemap matches the site architecture.",
+              "For a multilingual tool site, hreflang alternates are as important as URL count. Broken alternates can send search engines mixed signals."
+            ],
+            "code": {
+              "language": "xml",
+              "content": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n  <url>\n    <loc>https://example.com/en/jq-filter-tester</loc>\n    <xhtml:link rel=\"alternate\" hreflang=\"zh-CN\" href=\"https://example.com/zh-CN/jq-filter-tester\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"ja\" href=\"https://example.com/ja/jq-filter-tester\" />\n  </url>\n</urlset>",
+              "caption": "The sitemap article should explain URL count, alternates, duplicate URLs, and lastmod quality."
+            }
+          },
+          {
+            "heading": "Demo 3: preview Open Graph before sharing",
+            "paragraphs": [
+              "Open Graph issues are easy to miss because the HTML can look correct while the image URL is too large, blocked, redirected, or visually unclear.",
+              "Preview title, description, image, URL, and site name before posting a launch note. This is more useful than checking meta tags manually."
+            ],
+            "code": {
+              "language": "html",
+              "content": "<meta property=\"og:title\" content=\"jq vs JSONPath: API response debugging workflow\" />\n<meta property=\"og:description\" content=\"A practical guide with jq filters, JSONPath selectors, and copyable API payload demos.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/jq-vs-jsonpath-api-debugging-workflow.png\" />\n<meta property=\"og:url\" content=\"https://diagrampreview.com/en/blog/jq-vs-jsonpath-api-debugging-workflow\" />",
+              "caption": "The OG card should describe the real tutorial, not just the product name."
+            }
+          },
+          {
+            "heading": "Demo 4: inspect SVG cover images",
+            "paragraphs": [
+              "Generated cover images and SVG snippets should be previewed before publishing. Broken text, invisible contrast, scripts, or huge dimensions can make a good article look untrustworthy.",
+              "Use SVG preview for code-generated covers and keep PNG exports for platforms that do not handle SVG well."
             ]
           },
           {
-            "heading": "Publishing and SEO notes",
+            "heading": "Common SEO preview mistakes",
             "paragraphs": [
-              "Do not turn the article into a thin “this is an online tool” page. Add real snippets, mistake cases, comparisons, and screenshots so it reads like a debugging note.",
-              "Cross-link tools and articles: tool pages capture high-intent keywords, while articles capture tutorial keywords. This is healthier than generating many thin one-tool posts."
+              "Submitting a sitemap before checking duplicate URLs. Blocking /api/ and accidentally blocking /api-docs/. Publishing social cards with a local image URL. Forgetting hreflang alternates for new localized tool pages. Adding many blog pages but not linking them from relevant tools.",
+              "These are practical mistakes that a reader can immediately compare with their own site."
+            ]
+          },
+          {
+            "heading": "Launch checklist",
+            "paragraphs": [
+              "Check robots.txt for the exact URL, inspect sitemap count and alternates, preview Open Graph, verify image URLs, and confirm the article links to the relevant tool pages.",
+              "After publishing, submit the sitemap or IndexNow only for pages that are useful enough to stand on their own."
             ]
           }
         ]
