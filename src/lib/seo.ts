@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {locales, type Locale} from "@/config/locales";
+import {indexableLocales, type Locale} from "@/config/locales";
 import {siteConfig} from "@/config/site";
 import {ToolSlug} from "@/config/tools";
 import {absoluteUrl, toolPath} from "./paths";
@@ -13,11 +13,13 @@ export type SeoInput = {
 };
 
 export function buildMetadata({locale, path, title, description, keywords = []}: SeoInput): Metadata {
-  const canonical = absoluteUrl(path);
+  const isIndexableLocale = indexableLocales.includes(locale);
+  const canonicalPath = isIndexableLocale ? path : path.replace(`/${locale}`, `/${indexableLocales[0]}`);
+  const canonical = absoluteUrl(canonicalPath);
   const languageAlternates = Object.fromEntries(
-    locales.map((candidate) => [
+    indexableLocales.map((candidate) => [
       candidate,
-      absoluteUrl(path.replace(`/${locale}`, `/${candidate}`))
+      absoluteUrl(canonicalPath.replace(`/${indexableLocales[0]}`, `/${candidate}`))
     ])
   );
 
@@ -38,6 +40,15 @@ export function buildMetadata({locale, path, title, description, keywords = []}:
       canonical,
       languages: languageAlternates
     },
+    robots: isIndexableLocale
+      ? {
+          index: true,
+          follow: true
+        }
+      : {
+          index: false,
+          follow: true
+        },
     openGraph: {
       title,
       description,
@@ -58,7 +69,7 @@ export function buildMetadata({locale, path, title, description, keywords = []}:
       card: "summary_large_image",
       title,
       description,
-      creator: siteConfig.twitterHandle
+      ...(siteConfig.twitterHandle ? {creator: siteConfig.twitterHandle} : {})
     }
   };
 }

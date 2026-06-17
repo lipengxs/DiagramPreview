@@ -7650,23 +7650,31 @@
     "about": {
       "title": "About",
       "seoTitle": "About DiagramPreview",
-      "description": "DiagramPreview is an online diagram preview and conversion workspace for developers, product teams, architects, and technical writers.",
+      "description": "DiagramPreview is an online diagram preview and conversion workspace maintained for developers, product teams, architects, and technical writers.",
       "keywords": [
         "about DiagramPreview",
         "diagram preview tools"
       ],
       "sections": [
         {
-          "heading": "What DiagramPreview is",
+          "heading": "What DiagramPreview is for",
           "paragraphs": [
-            "DiagramPreview helps people turn text, structured data, and diagram files into visual previews that are easier to inspect, share, and export.",
-            "The site is built for Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps, JSON, YAML, and future developer diagram formats."
+            "DiagramPreview helps people turn text, structured data, and diagram files into visual previews that are easier to inspect, share, and export. The core audience is developers and technical teams who need to check diagrams before they land in documentation, tickets, pull requests, architecture notes, or incident reports.",
+            "The workspace supports Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io XML, mind maps, JSON, YAML, OpenAPI, SQL, Kubernetes, Docker Compose, GitHub Actions, and other developer-oriented formats. Each tool keeps the source visible next to the preview so the result can be reviewed instead of treated as a black box."
           ]
         },
         {
-          "heading": "How the product is designed",
+          "heading": "How the product is maintained",
           "paragraphs": [
-            "The first screen focuses on tools, search, and categories instead of a marketing-only landing page. Each tool has its own URL, metadata, related links, FAQ, and export workflow."
+            "The site is maintained as a practical browser-first toolbox. Most renderers run locally in the browser where possible, while AI-assisted generators use a server-side API so provider keys are never exposed to visitors.",
+            "New tools are added when they solve a repeatable documentation or debugging workflow. Existing tools are checked for rendering errors, export behavior, sample quality, mobile layout, metadata, and whether the page explains limitations clearly enough for a first-time visitor."
+          ]
+        },
+        {
+          "heading": "Contact and issue reports",
+          "paragraphs": [
+            "For support, bug reports, partnership questions, or content corrections, contact zplviewercontact@gmail.com. Include the page URL, browser, input format, and a short reproduction example when the issue is related to preview or export behavior.",
+            "Last updated: June 18, 2026."
           ]
         }
       ]
@@ -7681,17 +7689,24 @@
       ],
       "sections": [
         {
-          "heading": "Using tools",
+          "heading": "Using the workspace",
           "paragraphs": [
-            "Open a tool, paste source content, choose an example when useful, and review the preview pane for output or syntax errors.",
-            "Supported tools expose copy, SVG, PNG, and print-style PDF actions when the renderer can provide them."
+            "Open a tool, paste source content, choose an example when useful, and review the preview pane for output or syntax errors. Most tools keep the input editable, so you can reduce a failing example, fix syntax, and re-render without leaving the page.",
+            "Supported renderers expose copy, SVG, PNG, PDF, or source-file download actions when the underlying format can provide them reliably. If an export button is disabled, the current renderer usually cannot provide that artifact for the selected input."
           ]
         },
         {
           "heading": "Troubleshooting",
           "paragraphs": [
-            "If a diagram does not render, reduce the source to a smaller example, check the syntax for the format, and then add sections back gradually.",
-            "For PlantUML, the first version uses a PlantUML server URL, so network access to that endpoint may affect previews."
+            "If a diagram does not render, reduce the source to a smaller example, check the syntax for the format, and then add sections back gradually. For Mermaid and PlantUML, start with the diagram header and two nodes or participants before restoring the full diagram.",
+            "For file-like formats such as OpenAPI, Kubernetes, Docker Compose, JSON Schema, or SQL, confirm that the pasted content is complete and valid before debugging the visualization. A missing quote, YAML indentation error, or partial schema can stop the preview before the diagram layer runs."
+          ]
+        },
+        {
+          "heading": "Getting help",
+          "paragraphs": [
+            "When reporting a problem, send the tool URL, the input format, whether the issue affects preview or export, and a minimal sample that reproduces the behavior. Avoid sending private credentials, production secrets, or customer data.",
+            "Support email: zplviewercontact@gmail.com."
           ]
         }
       ]
@@ -7708,13 +7723,22 @@
         {
           "heading": "Email",
           "paragraphs": [
-            "For feedback, write to feedback@diagrampreview.com. For general contact, write to hello@diagrampreview.com."
+            "For support, feedback, partnerships, content corrections, and product questions, write to zplviewercontact@gmail.com.",
+            "Use the same address for privacy, terms, bug reports, and AI generation questions so there is one consistent contact point across the site."
           ]
         },
         {
           "heading": "What to include",
           "paragraphs": [
-            "Please include the tool URL, the diagram format, a short description of the issue, and whether the problem affects preview, export, localization, or SEO content."
+            "Please include the tool URL, the diagram format, a short description of the issue, and whether the problem affects preview, export, localization, metadata, or generated content.",
+            "If the issue is about rendering, include a minimal input sample that reproduces the problem. If the issue is about account, billing, or a third-party provider, do not include API keys or secrets."
+          ]
+        },
+        {
+          "heading": "Response scope",
+          "paragraphs": [
+            "DiagramPreview is a self-serve web toolbox, so most support is handled by email and product updates. Reports that include a reproducible sample are much easier to verify and prioritize.",
+            "Last updated: June 18, 2026."
           ]
         }
       ]
@@ -7731,14 +7755,22 @@
         {
           "heading": "Data handling",
           "paragraphs": [
-            "DiagramPreview is designed as a browser-first tool site. Where possible, rendering happens in the browser rather than requiring diagram content to be sent to a backend.",
-            "Some third-party rendering approaches, such as the first PlantUML server URL implementation, may request a remote preview image."
+            "DiagramPreview is designed as a browser-first tool site. Where possible, rendering happens in the browser rather than requiring diagram content to be sent to a backend. This applies to many previewers, converters, structured-data visualizers, and export actions.",
+            "AI-assisted tools send the prompt and related diagram source to a server-side API so the selected provider can generate or repair diagram code. API keys are stored on the server and are not exposed to the browser."
+          ]
+        },
+        {
+          "heading": "Third-party services and logs",
+          "paragraphs": [
+            "Hosting, analytics, search indexing, and AI provider infrastructure may process standard technical metadata such as URL, timestamp, status code, user agent, region, and error details. These logs are used to operate the site, investigate failures, and improve reliability.",
+            "Do not paste private credentials, customer records, unreleased source code, or regulated personal data into any public web tool unless you have reviewed whether that use is appropriate for your organization."
           ]
         },
         {
           "heading": "Contact",
           "paragraphs": [
-            "For privacy questions, contact hello@diagrampreview.com. This page is a practical product policy page and should be reviewed by legal counsel before commercial launch."
+            "For privacy questions or removal requests, contact zplviewercontact@gmail.com.",
+            "Last updated: June 18, 2026."
           ]
         }
       ]
@@ -7755,15 +7787,22 @@
         {
           "heading": "Use of the service",
           "paragraphs": [
-            "DiagramPreview provides online tools for previewing, converting, and exporting diagrams. You are responsible for the content you paste, upload, preview, or export.",
-            "Do not use the service to process content you are not allowed to use or share."
+            "DiagramPreview provides online tools for previewing, converting, generating, and exporting diagrams and developer documentation artifacts. You are responsible for the content you paste, upload, preview, generate, or export.",
+            "Do not use the service to process content you are not allowed to use or share. Do not attempt to overload the service, bypass security controls, scrape at abusive rates, or submit content intended to disrupt rendering or provider infrastructure."
           ]
         },
         {
-          "heading": "No warranty",
+          "heading": "Generated and previewed content",
           "paragraphs": [
-            "The tools are provided as-is. Renderers, exports, examples, and documentation may change as the product evolves.",
-            "This page is a practical starting point and should be reviewed by legal counsel before commercial launch."
+            "Diagram previews, AI-generated diagrams, examples, and exported files should be reviewed before use in production documentation or operational workflows. Renderers and AI providers can make mistakes, omit details, or produce syntax that needs editing.",
+            "You are responsible for validating generated diagrams, alert rules, dashboard JSON, configuration snippets, and architecture descriptions before relying on them."
+          ]
+        },
+        {
+          "heading": "Availability and changes",
+          "paragraphs": [
+            "The tools are provided as-is. Renderers, exports, examples, provider integrations, and documentation may change as the product evolves.",
+            "For terms questions, contact zplviewercontact@gmail.com. Last updated: June 18, 2026."
           ]
         }
       ]

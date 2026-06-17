@@ -2,6 +2,8 @@ import {Link} from "@/i18n/navigation";
 import type {ReactNode} from "react";
 
 type ToolSeoSectionsProps = {
+  toolName: string;
+  toolDescription: string;
   howTitle: string;
   useCasesTitle: string;
   relatedTitle: string;
@@ -11,9 +13,19 @@ type ToolSeoSectionsProps = {
   relatedTools: Array<{slug: string; name: string; description: string}>;
   faq: Array<{question: string; answer: string}>;
   seoBody: string[];
+  sampleSummaries: string[];
+};
+
+type SampleValue = {
+  label?: string;
+  prompt?: string;
+  code?: string;
+  diagramType?: string;
 };
 
 export function ToolSeoSections({
+  toolName,
+  toolDescription,
   howTitle,
   useCasesTitle,
   relatedTitle,
@@ -22,7 +34,8 @@ export function ToolSeoSections({
   useCases,
   relatedTools,
   faq,
-  seoBody
+  seoBody,
+  sampleSummaries
 }: ToolSeoSectionsProps) {
   return (
     <section className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
@@ -74,6 +87,40 @@ export function ToolSeoSections({
           ))}
         </div>
       </div>
+      <InfoBlock title={`Review checklist for ${toolName}`}>
+        <div className="grid gap-3 text-sm leading-7 text-slate-600">
+          <p>
+            Use {toolName} when you need to inspect source content visually before it becomes documentation,
+            a pull request note, an incident write-up, or a handoff artifact. {toolDescription}
+          </p>
+          <p>
+            Before exporting, check that labels are readable, relationships match the source, generated examples do not
+            contain private data, and the preview still makes sense after you edit the input.
+          </p>
+        </div>
+      </InfoBlock>
+      <InfoBlock title="Limits and troubleshooting">
+        <div className="grid gap-3 text-sm leading-7 text-slate-600">
+          <p>
+            If the preview fails, reduce the input to the smallest complete example, confirm the format syntax, and then
+            add sections back one at a time. Many rendering failures come from partial files, indentation mistakes,
+            missing diagram headers, or copied snippets that depend on hidden context.
+          </p>
+          <p>
+            Treat the preview as a review surface rather than a source of truth. Generated diagrams, converted files,
+            dashboards, and rule examples should be checked before they are used in production documentation or operations.
+          </p>
+        </div>
+      </InfoBlock>
+      {sampleSummaries.length ? (
+        <InfoBlock title="Example inputs to test">
+          <ul className="grid gap-2 text-sm leading-7 text-slate-600">
+            {sampleSummaries.map((sample) => (
+              <li key={sample}>{sample}</li>
+            ))}
+          </ul>
+        </InfoBlock>
+      ) : null}
     </section>
   );
 }
@@ -85,4 +132,15 @@ function InfoBlock({title, children}: {title: string; children: ReactNode}) {
       {children}
     </div>
   );
+}
+
+export function summarizeToolSamples(samples: Record<string, SampleValue>, limit = 3) {
+  return Object.values(samples)
+    .slice(0, limit)
+    .map((sample) => {
+      const label = sample.label || "Sample";
+      const source = sample.prompt || sample.code || sample.diagramType || "";
+      const summary = source.replace(/\s+/g, " ").trim();
+      return summary ? `${label}: ${summary.slice(0, 180)}${summary.length > 180 ? "..." : ""}` : label;
+    });
 }

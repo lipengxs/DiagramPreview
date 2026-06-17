@@ -1,6 +1,6 @@
 import type {MetadataRoute} from "next";
 import {sitemapBlogPosts} from "@/config/blog";
-import {locales} from "@/config/locales";
+import {indexableLocales} from "@/config/locales";
 import {toolHubs} from "@/config/navigation";
 import {siteConfig} from "@/config/site";
 import {staticPageSlugs} from "@/config/static-pages";
@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const urls: MetadataRoute.Sitemap = [];
 
-  for (const locale of locales) {
+  for (const locale of indexableLocales) {
     urls.push({
       url: `${siteConfig.url}/${locale}`,
       lastModified: now,

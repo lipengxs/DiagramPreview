@@ -3,7 +3,7 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {AiDiagramWorkspace} from "@/components/tools/AiDiagramWorkspace";
 import {ToolHeader} from "@/components/tools/ToolHeader";
-import {ToolSeoSections} from "@/components/tools/ToolSeoSections";
+import {summarizeToolSamples, ToolSeoSections} from "@/components/tools/ToolSeoSections";
 import type {Locale} from "@/config/locales";
 import {getRelatedTools, getTool, type ToolSlug} from "@/config/tools";
 import {toolPath} from "@/lib/paths";
@@ -69,6 +69,10 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
 
   const t = await getTranslations({locale});
   const faq = t.raw(`tools.${slug}.faq`) as Array<{question: string; answer: string}>;
+  const samples = t.raw(`tools.${slug}.samples`) as Record<
+    string,
+    {label: string; prompt: string; code?: string; diagramType?: string}
+  >;
   const relatedTools = getRelatedTools(slug).map((related) => ({
     slug: related.slug,
     name: t(`tools.${related.slug}.name`),
@@ -107,10 +111,12 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
           exportPng: t("common.actions.exportPng"),
           downloadFile: t("common.actions.downloadFile"),
           error: t("common.workspace.renderError"),
-          samples: t.raw(`tools.${slug}.samples`)
+          samples
         }}
       />
       <ToolSeoSections
+        toolName={t(`tools.${slug}.name`)}
+        toolDescription={t(`tools.${slug}.shortDescription`)}
         howTitle={t("common.seoSections.howToUse")}
         useCasesTitle={t("common.seoSections.useCases")}
         relatedTitle={t("common.seoSections.relatedTools")}
@@ -120,6 +126,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
         relatedTools={relatedTools}
         faq={faq}
         seoBody={t.raw(`tools.${slug}.seoBody`)}
+        sampleSummaries={summarizeToolSamples(samples)}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(appJsonLd)}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(faqLd)}} />
