@@ -42,13 +42,18 @@ export type BlogSlug =
   | "jq-vs-jsonpath-api-debugging-workflow"
   | "xpath-xml-api-debugging-guide"
   | "config-preview-env-yaml-toml-before-deploy"
-  | "technical-seo-preview-robots-sitemap-open-graph";
+  | "technical-seo-preview-robots-sitemap-open-graph"
+  | "script-preview-debugging-html-css-json-base64";
+
+export type BlogPostTier = "core" | "supporting" | "merge";
 
 export type BlogPostConfig = {
   slug: BlogSlug;
   image: string;
   date: string;
   tools: string[];
+  tier?: BlogPostTier;
+  canonicalSlug?: BlogSlug;
 };
 
 export const blogPosts: BlogPostConfig[] = [
@@ -140,7 +145,9 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "openapi-to-sequence-diagram-guide",
     image: "/blog/openapi-to-sequence-diagram-guide.png",
     date: "2026-06-12",
-    tools: ["openapi-to-sequence", "api-error-flow-diagram"]
+    tools: ["openapi-to-sequence", "api-error-flow-diagram"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "sql-to-er-diagram-online-guide",
@@ -152,7 +159,9 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "json-schema-visualizer-api-payloads",
     image: "/blog/json-schema-visualizer-api-payloads.png",
     date: "2026-06-12",
-    tools: ["json-schema-visualizer", "json-to-diagram", "yaml-to-diagram"]
+    tools: ["json-schema-visualizer", "json-to-diagram", "yaml-to-diagram"],
+    tier: "merge",
+    canonicalSlug: "schema-preview-workflow-json-schema-zod-typescript"
   },
   {
     slug: "cron-expression-visualizer-guide",
@@ -164,31 +173,41 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "postman-collection-to-sequence-diagram",
     image: "/blog/postman-collection-to-sequence-diagram.png",
     date: "2026-06-14",
-    tools: ["postman-collection-sequence-diagram", "openapi-to-sequence"]
+    tools: ["postman-collection-sequence-diagram", "openapi-to-sequence"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "har-file-to-sequence-diagram-api-debugging",
     image: "/blog/har-file-to-sequence-diagram-api-debugging.png",
     date: "2026-06-14",
-    tools: ["har-file-sequence-diagram", "log-to-sequence-diagram"]
+    tools: ["har-file-sequence-diagram", "log-to-sequence-diagram"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "typescript-interface-to-diagram-api-docs",
     image: "/blog/typescript-interface-to-diagram-api-docs.png",
     date: "2026-06-14",
-    tools: ["typescript-interface-visualizer", "json-schema-visualizer"]
+    tools: ["typescript-interface-visualizer", "json-schema-visualizer"],
+    tier: "merge",
+    canonicalSlug: "schema-preview-workflow-json-schema-zod-typescript"
   },
   {
     slug: "zod-schema-visualizer-validation-docs",
     image: "/blog/zod-schema-visualizer-validation-docs.png",
     date: "2026-06-14",
-    tools: ["zod-schema-visualizer", "typescript-interface-visualizer"]
+    tools: ["zod-schema-visualizer", "typescript-interface-visualizer"],
+    tier: "merge",
+    canonicalSlug: "schema-preview-workflow-json-schema-zod-typescript"
   },
   {
     slug: "json-schema-vs-zod-vs-typescript",
     image: "/blog/json-schema-vs-zod-vs-typescript.png",
     date: "2026-06-14",
-    tools: ["json-schema-visualizer", "zod-schema-visualizer", "typescript-interface-visualizer"]
+    tools: ["json-schema-visualizer", "zod-schema-visualizer", "typescript-interface-visualizer"],
+    tier: "merge",
+    canonicalSlug: "schema-preview-workflow-json-schema-zod-typescript"
   },
   {
     slug: "cloudformation-template-visualizer-guide",
@@ -212,19 +231,25 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "api-error-flow-documentation-guide",
     image: "/blog/api-error-flow-documentation-guide.png",
     date: "2026-06-14",
-    tools: ["api-error-flow-diagram", "openapi-to-sequence"]
+    tools: ["api-error-flow-diagram", "openapi-to-sequence"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "browser-network-requests-sequence-diagram",
     image: "/blog/browser-network-requests-sequence-diagram.png",
     date: "2026-06-14",
-    tools: ["har-file-sequence-diagram", "openapi-to-sequence"]
+    tools: ["har-file-sequence-diagram", "openapi-to-sequence"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "frontend-api-debugging-har-sequence",
     image: "/blog/frontend-api-debugging-har-sequence.png",
     date: "2026-06-14",
-    tools: ["har-file-sequence-diagram", "postman-collection-sequence-diagram"]
+    tools: ["har-file-sequence-diagram", "postman-collection-sequence-diagram"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "architecture-documentation-checklist-ai-diagrams",
@@ -236,7 +261,9 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "har-file-viewer-api-waterfall-debugging",
     image: "/blog/har-file-viewer-api-waterfall-debugging.png",
     date: "2026-06-16",
-    tools: ["har-file-viewer", "har-file-sequence-diagram", "postman-collection-sequence-diagram"]
+    tools: ["har-file-viewer", "har-file-sequence-diagram", "postman-collection-sequence-diagram"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "svg-code-preview-editor-clean-export",
@@ -248,25 +275,33 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "open-graph-preview-debugger-social-cards",
     image: "/blog/open-graph-preview-debugger-social-cards.png",
     date: "2026-06-16",
-    tools: ["open-graph-preview-debugger", "svg-code-preview-editor"]
+    tools: ["open-graph-preview-debugger", "svg-code-preview-editor"],
+    tier: "merge",
+    canonicalSlug: "social-card-svg-preview-publishing-workflow"
   },
   {
     slug: "json-schema-form-preview-guide",
     image: "/blog/json-schema-form-preview-guide.png",
     date: "2026-06-16",
-    tools: ["json-schema-form-preview", "json-schema-visualizer", "zod-schema-visualizer"]
+    tools: ["json-schema-form-preview", "json-schema-visualizer", "zod-schema-visualizer"],
+    tier: "merge",
+    canonicalSlug: "schema-preview-workflow-json-schema-zod-typescript"
   },
   {
     slug: "jsonpath-tester-api-response-debugging",
     image: "/blog/jsonpath-tester-api-response-debugging.png",
     date: "2026-06-16",
-    tools: ["jsonpath-tester", "json-to-diagram", "openapi-to-sequence"]
+    tools: ["jsonpath-tester", "json-to-diagram", "openapi-to-sequence"],
+    tier: "merge",
+    canonicalSlug: "api-debugging-preview-har-postman-openapi"
   },
   {
     slug: "nginx-location-tester-routing-debug",
     image: "/blog/nginx-location-tester-routing-debug.png",
     date: "2026-06-16",
-    tools: ["nginx-location-tester", "nginx-config-visualizer", "docker-compose-diagram"]
+    tools: ["nginx-location-tester", "nginx-config-visualizer", "docker-compose-diagram"],
+    tier: "merge",
+    canonicalSlug: "config-preview-env-yaml-toml-before-deploy"
   },
   {
     slug: "ai-generated-code-preview-debugging-workflow",
@@ -278,19 +313,22 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "api-debugging-preview-har-postman-openapi",
     image: "/blog/api-debugging-preview-har-postman-openapi.png",
     date: "2026-06-16",
-    tools: ["openapi-to-sequence", "postman-collection-sequence-diagram", "har-file-viewer", "har-file-sequence-diagram", "jq-filter-tester", "jsonpath-tester", "http-header-parser"]
+    tools: ["openapi-to-sequence", "postman-collection-sequence-diagram", "har-file-viewer", "har-file-sequence-diagram", "jq-filter-tester", "jsonpath-tester", "http-header-parser"],
+    tier: "core"
   },
   {
     slug: "schema-preview-workflow-json-schema-zod-typescript",
     image: "/blog/schema-preview-workflow-json-schema-zod-typescript.png",
     date: "2026-06-16",
-    tools: ["typescript-interface-visualizer", "zod-schema-visualizer", "json-schema-visualizer", "json-schema-form-preview", "graphql-schema-visualizer", "protobuf-schema-visualizer"]
+    tools: ["typescript-interface-visualizer", "zod-schema-visualizer", "json-schema-visualizer", "json-schema-form-preview", "graphql-schema-visualizer", "protobuf-schema-visualizer"],
+    tier: "core"
   },
   {
     slug: "social-card-svg-preview-publishing-workflow",
     image: "/blog/social-card-svg-preview-publishing-workflow.png",
     date: "2026-06-16",
-    tools: ["markdown-preview", "svg-code-preview-editor", "open-graph-preview-debugger", "sitemap-xml-viewer", "robots-txt-tester"]
+    tools: ["markdown-preview", "svg-code-preview-editor", "open-graph-preview-debugger", "sitemap-xml-viewer", "robots-txt-tester"],
+    tier: "core"
   },
   {
     slug: "jq-vs-jsonpath-api-debugging-workflow",
@@ -308,16 +346,33 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "config-preview-env-yaml-toml-before-deploy",
     image: "/blog/config-preview-env-yaml-toml-before-deploy.png",
     date: "2026-06-16",
-    tools: ["env-diff-checker", "yaml-path-tester", "toml-visualizer", "nginx-location-tester", "nginx-config-visualizer", "http-header-parser"]
+    tools: ["env-diff-checker", "yaml-path-tester", "toml-visualizer", "nginx-location-tester", "nginx-config-visualizer", "http-header-parser"],
+    tier: "core"
   },
   {
     slug: "technical-seo-preview-robots-sitemap-open-graph",
     image: "/blog/technical-seo-preview-robots-sitemap-open-graph.png",
     date: "2026-06-16",
-    tools: ["robots-txt-tester", "sitemap-xml-viewer", "open-graph-preview-debugger", "svg-code-preview-editor", "markdown-preview"]
+    tools: ["robots-txt-tester", "sitemap-xml-viewer", "open-graph-preview-debugger", "svg-code-preview-editor", "markdown-preview"],
+    tier: "core"
+  },
+  {
+    slug: "script-preview-debugging-html-css-json-base64",
+    image: "/blog/script-preview-debugging-html-css-json-base64.svg",
+    date: "2026-06-17",
+    tools: ["html-preview-sandbox", "css-gradient-preview", "json-diff-viewer", "base64-image-preview", "curl-command-parser", "url-query-parser", "css-box-shadow-preview", "color-palette-preview"],
+    tier: "core"
   }
 ];
 
+export const visibleBlogPosts = blogPosts.filter((post) => post.tier !== "merge");
+
+export const sitemapBlogPosts = visibleBlogPosts;
+
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
+}
+
+export function getCanonicalBlogPost(post: BlogPostConfig) {
+  return post.canonicalSlug ? getBlogPost(post.canonicalSlug) : undefined;
 }

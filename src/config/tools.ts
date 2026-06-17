@@ -4,12 +4,15 @@ import {
   Code2,
   Database,
   FileCode2,
+  FileDiff,
   FileJson,
   FileText,
   GitBranch,
   GitFork,
+  Image,
   KeyRound,
   Network,
+  Palette,
   Sparkles,
   Route,
   Timer,
@@ -84,7 +87,15 @@ export type ToolSlug =
   | "env-diff-checker"
   | "robots-txt-tester"
   | "sitemap-xml-viewer"
-  | "http-header-parser";
+  | "http-header-parser"
+  | "html-preview-sandbox"
+  | "css-gradient-preview"
+  | "json-diff-viewer"
+  | "base64-image-preview"
+  | "curl-command-parser"
+  | "url-query-parser"
+  | "css-box-shadow-preview"
+  | "color-palette-preview";
 
 export type ToolCategory = "preview" | "converter" | "developer" | "data";
 
@@ -158,6 +169,14 @@ export type ToolConfig = {
     | "robots-txt"
     | "sitemap-xml"
     | "http-headers"
+    | "html-preview"
+    | "css-gradient"
+    | "json-diff"
+    | "base64-image"
+    | "curl-parser"
+    | "url-query"
+    | "css-shadow"
+    | "color-palette"
     | "ai";
   sampleKeys: string[];
 };
@@ -656,6 +675,100 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "http-headers",
     sampleKeys: ["security", "cors", "cache"]
+  },
+  {
+    slug: "html-preview-sandbox",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: FileCode2,
+    popular: true,
+    recentlyAdded: true,
+    priority: 68,
+    implemented: true,
+    renderer: "html-preview",
+    sampleKeys: ["landing", "email", "component"]
+  },
+  {
+    slug: "css-gradient-preview",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: Palette,
+    popular: true,
+    recentlyAdded: true,
+    priority: 67,
+    implemented: true,
+    renderer: "css-gradient",
+    sampleKeys: ["hero", "button", "mesh"]
+  },
+  {
+    slug: "json-diff-viewer",
+    category: "data",
+    navGroup: "data-visualizers",
+    icon: FileDiff,
+    popular: true,
+    recentlyAdded: true,
+    priority: 66,
+    implemented: true,
+    renderer: "json-diff",
+    sampleKeys: ["api", "config", "package"]
+  },
+  {
+    slug: "base64-image-preview",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: Image,
+    recentlyAdded: true,
+    priority: 65,
+    implemented: true,
+    renderer: "base64-image",
+    sampleKeys: ["png", "svg", "dataUri"]
+  },
+  {
+    slug: "css-box-shadow-preview",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: Palette,
+    popular: true,
+    recentlyAdded: true,
+    priority: 64,
+    implemented: true,
+    renderer: "css-shadow",
+    sampleKeys: ["card", "button", "modal"]
+  },
+  {
+    slug: "color-palette-preview",
+    category: "preview",
+    navGroup: "preview-tools",
+    icon: Palette,
+    popular: true,
+    recentlyAdded: true,
+    priority: 63,
+    implemented: true,
+    renderer: "color-palette",
+    sampleKeys: ["brand", "status", "tailwind"]
+  },
+  {
+    slug: "curl-command-parser",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Network,
+    popular: true,
+    recentlyAdded: true,
+    priority: 62,
+    implemented: true,
+    renderer: "curl-parser",
+    sampleKeys: ["postJson", "auth", "form"]
+  },
+  {
+    slug: "url-query-parser",
+    category: "developer",
+    navGroup: "developer-diagrams",
+    icon: Route,
+    recentlyAdded: true,
+    priority: 61,
+    implemented: true,
+    renderer: "url-query",
+    sampleKeys: ["utm", "api", "encoded"]
   },
   {
     slug: "opentelemetry-trace-sequence",

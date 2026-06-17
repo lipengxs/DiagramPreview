@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {CalendarDays} from "lucide-react";
-import {blogPosts, getBlogPost} from "@/config/blog";
+import {blogPosts, getBlogPost, getCanonicalBlogPost} from "@/config/blog";
 import type {Locale} from "@/config/locales";
 import {tools} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
@@ -21,14 +21,17 @@ export async function generateMetadata({params}: BlogPostPageProps): Promise<Met
   const post = getBlogPost(slug);
   if (!post) notFound();
   const t = await getTranslations({locale});
+  const canonicalPost = getCanonicalBlogPost(post);
 
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
-    path: `/${locale}/blog/${slug}`,
+    path: `/${locale}/blog/${canonicalPost?.slug ?? slug}`,
     title: t(`blog.posts.${post.slug}.seoTitle`),
     description: t(`blog.posts.${post.slug}.description`),
     keywords: t.raw(`blog.posts.${post.slug}.keywords`)
   });
+
+  return post.tier === "merge" ? {...metadata, robots: {index: false, follow: true}} : metadata;
 }
 
 export default async function BlogPostPage({params}: BlogPostPageProps) {
@@ -52,6 +55,8 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
     };
   }>;
   const relatedTools = tools.filter((tool) => post.tools.includes(tool.slug));
+  const canonicalPost = getCanonicalBlogPost(post);
+  const isChineseLocale = locale.startsWith("zh");
 
   return (
     <article className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
@@ -70,6 +75,19 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_280px]">
         <div className="rounded-lg border border-slate-200 bg-white p-6 sm:p-8">
+          {canonicalPost ? (
+            <div className="mb-8 rounded-lg border border-primary/25 bg-primary/5 p-4 text-sm leading-6 text-slate-700">
+              <p className="font-semibold text-ink">
+                {isChineseLocale ? "这篇文章已经合并到更完整的主题指南中。" : "This topic is now covered in a more complete workflow guide."}
+              </p>
+              <p className="mt-2">
+                {isChineseLocale ? "建议优先阅读：" : "Recommended primary article: "}
+                <Link href={`/blog/${canonicalPost.slug}`} className="font-semibold text-primary hover:underline">
+                  {t(`blog.posts.${canonicalPost.slug}.title`)}
+                </Link>
+              </p>
+            </div>
+          ) : null}
           {sections.map((section) => (
             <section key={section.heading} className="mb-8 last:mb-0">
               <h2 className="text-xl font-bold text-ink">{section.heading}</h2>

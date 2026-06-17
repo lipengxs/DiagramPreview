@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {CalendarDays} from "lucide-react";
-import {blogPosts} from "@/config/blog";
+import {visibleBlogPosts} from "@/config/blog";
 import type {Locale} from "@/config/locales";
 import {Link} from "@/i18n/navigation";
 import {buildMetadata} from "@/lib/seo";
@@ -36,7 +36,7 @@ export default async function BlogPage({params}: BlogPageProps) {
         <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">{t("blog.index.description")}</p>
       </section>
       <section className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {blogPosts.map((post) => (
+        {visibleBlogPosts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:border-primary hover:shadow-workspace">
             <img src={post.image} alt="" className="aspect-[16/9] w-full object-cover" />
             <div className="p-4">

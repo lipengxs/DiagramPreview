@@ -1,5 +1,5 @@
 import type {MetadataRoute} from "next";
-import {blogPosts} from "@/config/blog";
+import {sitemapBlogPosts} from "@/config/blog";
 import {locales} from "@/config/locales";
 import {toolHubs} from "@/config/navigation";
 import {siteConfig} from "@/config/site";
@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.72
     });
 
-    for (const post of blogPosts) {
+    for (const post of sitemapBlogPosts) {
       urls.push({
         url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
         lastModified: now,

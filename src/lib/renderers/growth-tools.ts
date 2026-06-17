@@ -562,6 +562,234 @@ export function renderHttpHeaderParser(source: string) {
   `);
 }
 
+export function renderHtmlPreviewSandbox(source: string) {
+  const document = normalizeHtmlDocument(source);
+  const warnings = analyzeHtmlPreview(document);
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("HTML size", `${formatBytes(document.length)}`)}
+        ${metricCard("Scripts blocked", String((document.match(/<script\b/gi) || []).length))}
+        ${metricCard("Inline handlers", String((document.match(/\son\w+=/gi) || []).length))}
+      </div>
+      <div class="dp-browser">
+        <div class="dp-browser-bar"><span></span><span></span><span></span><code>sandboxed preview</code></div>
+        <iframe sandbox="" srcdoc="${escapeAttribute(document)}" title="HTML preview sandbox"></iframe>
+      </div>
+      ${warnings.length ? `<h2>Preview notes</h2><ul class="dp-list">${warnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}
+      <h2>Source outline</h2>
+      <pre class="dp-code">${escapeHtml(extractHtmlOutline(document))}</pre>
+    </div>
+  `);
+}
+
+export function renderCssGradientPreview(source: string) {
+  const gradients = extractCssGradients(source);
+  if (!gradients.length) throw new Error("Paste a CSS gradient such as linear-gradient(135deg, #2563eb, #22c55e).");
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("Gradients", String(gradients.length))}
+        ${metricCard("Color stops", String(gradients.reduce((sum, gradient) => sum + gradient.colors.length, 0)))}
+      </div>
+      <div class="dp-gradient-grid">
+        ${gradients
+          .map(
+            (gradient, index) => `
+              <div class="dp-gradient-card">
+                <div class="dp-gradient-swatch" style="background:${escapeAttribute(gradient.value)}"></div>
+                <div class="dp-gradient-body">
+                  <strong>Gradient ${index + 1}</strong>
+                  <code>${escapeHtml(gradient.value)}</code>
+                  <div class="dp-color-row">${gradient.colors.map((color) => `<span style="background:${escapeAttribute(color)}" title="${escapeAttribute(color)}"></span>`).join("")}</div>
+                </div>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+      <h2>CSS snippet</h2>
+      <pre class="dp-code">${escapeHtml(gradients.map((gradient, index) => `.preview-${index + 1} {\n  background: ${gradient.value};\n}`).join("\n\n"))}</pre>
+    </div>
+  `);
+}
+
+export function renderJsonDiffViewer(source: string) {
+  const {left, right} = splitJsonDiffSource(source);
+  const before = JSON.parse(left);
+  const after = JSON.parse(right);
+  const rows = diffJsonValues(before, after);
+  const added = rows.filter((row) => row.type === "added").length;
+  const removed = rows.filter((row) => row.type === "removed").length;
+  const changed = rows.filter((row) => row.type === "changed").length;
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("Added", String(added))}
+        ${metricCard("Removed", String(removed))}
+        ${metricCard("Changed", String(changed))}
+        ${metricCard("Compared paths", String(rows.length))}
+      </div>
+      <h2>JSON diff</h2>
+      <table class="dp-table">
+        <thead><tr><th>Type</th><th>Path</th><th>Before</th><th>After</th></tr></thead>
+        <tbody>
+          ${
+            rows
+              .slice(0, 120)
+              .map(
+                (row) => `
+                  <tr>
+                    <td><span class="dp-pill ${row.type === "removed" ? "danger" : row.type === "changed" ? "warn" : ""}">${escapeHtml(row.type)}</span></td>
+                    <td><code>${escapeHtml(row.path)}</code></td>
+                    <td><code>${escapeHtml(formatJsonCell(row.before))}</code></td>
+                    <td><code>${escapeHtml(formatJsonCell(row.after))}</code></td>
+                  </tr>
+                `
+              )
+              .join("") || `<tr><td colspan="4">No differences found.</td></tr>`
+          }
+        </tbody>
+      </table>
+    </div>
+  `);
+}
+
+export function renderBase64ImagePreview(source: string) {
+  const image = normalizeBase64Image(source);
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("MIME type", escapeHtml(image.mime))}
+        ${metricCard("Encoded size", formatBytes(image.bytes))}
+        ${metricCard("Format", escapeHtml(image.mime.split("/")[1] || "image"))}
+      </div>
+      <div class="dp-image-frame">
+        <img src="${escapeAttribute(image.dataUrl)}" alt="Base64 preview" />
+      </div>
+      <h2>Data URL</h2>
+      <pre class="dp-code">${escapeHtml(image.dataUrl.slice(0, 2000))}${image.dataUrl.length > 2000 ? "\n..." : ""}</pre>
+      <p class="dp-note">Large Base64 images can make HTML, JSON, and CSS files harder to cache and review. Prefer external image files for production assets.</p>
+    </div>
+  `);
+}
+
+export function renderCurlCommandParser(source: string) {
+  const parsed = parseCurlCommand(source);
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("Method", escapeHtml(parsed.method))}
+        ${metricCard("Headers", String(parsed.headers.length))}
+        ${metricCard("Body bytes", formatBytes(parsed.body.length))}
+        ${metricCard("Query params", String(parsed.query.length))}
+      </div>
+      <div class="dp-result">
+        <span>Request URL</span>
+        <h2>${escapeHtml(parsed.url || "No URL found")}</h2>
+        <p>${escapeHtml(parsed.method)} request parsed from cURL command.</p>
+      </div>
+      <h2>Headers</h2>
+      ${keyValueTable(parsed.headers, "No headers found.")}
+      <h2>Query parameters</h2>
+      ${keyValueTable(parsed.query, "No query parameters found.")}
+      ${parsed.body ? `<h2>Request body</h2><pre class="dp-code">${escapeHtml(prettyBody(parsed.body))}</pre>` : ""}
+    </div>
+  `);
+}
+
+export function renderUrlQueryParser(source: string) {
+  const parsed = parseUrlInput(source);
+  const utm = parsed.params.filter(([key]) => key.toLowerCase().startsWith("utm_"));
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("Params", String(parsed.params.length))}
+        ${metricCard("UTM params", String(utm.length))}
+        ${metricCard("Host", escapeHtml(parsed.host || "-"))}
+        ${metricCard("Path", escapeHtml(parsed.path || "-"))}
+      </div>
+      <div class="dp-result">
+        <span>Decoded URL</span>
+        <h2>${escapeHtml(parsed.base)}</h2>
+        <p>${escapeHtml(parsed.hash ? `Hash: ${parsed.hash}` : "No hash fragment detected.")}</p>
+      </div>
+      <h2>Query parameters</h2>
+      ${keyValueTable(parsed.params, "No query parameters found.")}
+      ${utm.length ? `<h2>Campaign fields</h2>${keyValueTable(utm, "No UTM fields found.")}` : ""}
+    </div>
+  `);
+}
+
+export function renderCssBoxShadowPreview(source: string) {
+  const shadows = extractBoxShadows(source);
+  if (!shadows.length) throw new Error("Paste a CSS box-shadow value or a CSS rule containing box-shadow.");
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("Shadows", String(shadows.length))}
+        ${metricCard("Inset shadows", String(shadows.filter((shadow) => /\\binset\\b/i.test(shadow)).length))}
+      </div>
+      <div class="dp-shadow-grid">
+        ${shadows
+          .map(
+            (shadow, index) => `
+              <div class="dp-shadow-cell">
+                <div class="dp-shadow-demo" style="box-shadow:${escapeAttribute(shadow)}">Shadow ${index + 1}</div>
+                <code>${escapeHtml(shadow)}</code>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+      <h2>CSS snippet</h2>
+      <pre class="dp-code">${escapeHtml(shadows.map((shadow, index) => `.shadow-${index + 1} {\n  box-shadow: ${shadow};\n}`).join("\n\n"))}</pre>
+    </div>
+  `);
+}
+
+export function renderColorPalettePreview(source: string) {
+  const colors = extractPaletteColors(source);
+  if (!colors.length) throw new Error("Paste hex, rgb, hsl, or CSS variable colors.");
+  return previewHtml(`
+    <div class="dp-preview">
+      <div class="dp-grid">
+        ${metricCard("Colors", String(colors.length))}
+        ${metricCard("Pairs checked", String(Math.max(0, colors.length - 1)))}
+      </div>
+      <div class="dp-palette-grid">
+        ${colors
+          .map(
+            (color) => `
+              <div class="dp-palette-card">
+                <div class="dp-palette-swatch" style="background:${escapeAttribute(color.value)}"></div>
+                <div>
+                  <strong>${escapeHtml(color.name)}</strong>
+                  <code>${escapeHtml(color.value)}</code>
+                  <span>${escapeHtml(color.kind)}</span>
+                </div>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+      <h2>Adjacent contrast quick check</h2>
+      <table class="dp-table">
+        <thead><tr><th>Pair</th><th>Ratio</th><th>Note</th></tr></thead>
+        <tbody>
+          ${colors
+            .slice(0, -1)
+            .map((color, index) => {
+              const ratio = contrastRatio(color.value, colors[index + 1].value);
+              return `<tr><td><code>${escapeHtml(color.name)}</code> / <code>${escapeHtml(colors[index + 1].name)}</code></td><td>${ratio ? ratio.toFixed(2) : "-"}</td><td>${contrastNote(ratio)}</td></tr>`;
+            })
+            .join("") || `<tr><td colspan="3">Add at least two colors to compare contrast.</td></tr>`}
+        </tbody>
+      </table>
+    </div>
+  `);
+}
+
 export async function renderTypeScriptInterface(source: string) {
   const blocks = parseTypeScriptBlocks(source);
   if (!blocks.length) throw new Error("Paste TypeScript interface or type definitions.");
@@ -681,7 +909,31 @@ function previewHtml(body: string) {
       .dp-field input,.dp-field textarea,.dp-field select{width:100%;border:1px solid #cbd5e1;border-radius:7px;background:#f8fafc;padding:10px;color:#334155}
       .dp-required{margin-left:6px;color:#dc2626}
       .dp-note{border:1px solid #dbeafe;border-radius:8px;background:#eff6ff;padding:12px;color:#1e3a8a}
-      @media (max-width:720px){.dp-row{grid-template-columns:1fr}.dp-bar{width:100%}}
+      .dp-list{display:grid;gap:8px;margin:0;padding-left:20px;color:#475569}
+      .dp-browser{overflow:hidden;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
+      .dp-browser-bar{display:flex;align-items:center;gap:7px;border-bottom:1px solid #e2e8f0;background:#f8fafc;padding:10px}
+      .dp-browser-bar span{height:10px;width:10px;border-radius:999px;background:#ef4444}
+      .dp-browser-bar span:nth-child(2){background:#f59e0b}
+      .dp-browser-bar span:nth-child(3){background:#22c55e}
+      .dp-browser-bar code{margin-left:8px;color:#64748b}
+      .dp-browser iframe{display:block;height:420px;width:100%;border:0;background:#fff}
+      .dp-gradient-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+      .dp-gradient-card{overflow:hidden;border:1px solid #e2e8f0;border-radius:8px;background:#fff}
+      .dp-gradient-swatch{height:170px}
+      .dp-gradient-body{display:grid;gap:10px;padding:14px}
+      .dp-gradient-body code{overflow-wrap:anywhere;color:#475569}
+      .dp-color-row{display:flex;flex-wrap:wrap;gap:7px}
+      .dp-color-row span{height:24px;width:24px;border-radius:6px;border:1px solid rgba(15,23,42,.18)}
+      .dp-image-frame{display:grid;min-height:320px;place-items:center;border:1px solid #e2e8f0;border-radius:8px;background:linear-gradient(45deg,#f8fafc 25%,#eef2ff 25%,#eef2ff 50%,#f8fafc 50%,#f8fafc 75%,#eef2ff 75%);background-size:32px 32px;padding:20px}
+      .dp-image-frame img{max-height:520px;max-width:100%;border-radius:8px;box-shadow:0 12px 30px rgba(15,23,42,.14)}
+      .dp-shadow-grid,.dp-palette-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+      .dp-shadow-cell,.dp-palette-card{display:grid;gap:12px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;padding:14px}
+      .dp-shadow-demo{display:grid;min-height:140px;place-items:center;border-radius:14px;background:#fff;color:#0f172a;font-weight:800}
+      .dp-palette-swatch{height:110px;border-radius:8px;border:1px solid rgba(15,23,42,.12)}
+      .dp-palette-card strong,.dp-palette-card code,.dp-palette-card span{display:block}
+      .dp-palette-card code{margin-top:4px;color:#475569}
+      .dp-palette-card span{margin-top:4px;color:#64748b;font-size:12px}
+      @media (max-width:720px){.dp-row{grid-template-columns:1fr}.dp-bar{width:100%}.dp-browser iframe{height:340px}}
     </style>
     ${body}
   `;
@@ -1028,6 +1280,309 @@ function analyzeHttpHeaders(headers: Record<string, string>) {
     {name: "Content-Security-Policy", level: has("content-security-policy") ? "ok" : "warn", note: has("content-security-policy") ? "CSP is present." : "No CSP header detected."},
     {name: "CORS", level: has("access-control-allow-origin") ? "ok" : "warn", note: has("access-control-allow-origin") ? `Access-Control-Allow-Origin: ${headers["access-control-allow-origin"]}` : "No CORS allow-origin header."}
   ];
+}
+
+function normalizeHtmlDocument(source: string) {
+  const trimmed = source.trim();
+  if (!trimmed) throw new Error("Paste an HTML document, email template, or component snippet.");
+  const withoutScripts = trimmed.replace(/<script[\s\S]*?<\/script>/gi, "<!-- script removed in sandbox preview -->");
+  if (/<html[\s>]/i.test(withoutScripts)) return withoutScripts;
+  return `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body{font-family:Inter,Arial,sans-serif;margin:0;padding:24px;color:#0f172a;background:#f8fafc}
+      *{box-sizing:border-box}
+    </style>
+  </head>
+  <body>${withoutScripts}</body>
+</html>`;
+}
+
+function analyzeHtmlPreview(document: string) {
+  const warnings: string[] = [];
+  if (/<script\b/i.test(document)) warnings.push("Script tags were removed or blocked for the sandbox preview.");
+  if (/\son\w+=/i.test(document)) warnings.push("Inline event handlers are visible in source but cannot run in the sandbox preview.");
+  if (!/<meta\s+name=["']viewport["']/i.test(document)) warnings.push("No viewport meta tag detected. Mobile preview may differ from production.");
+  if (document.length > 50000) warnings.push("The snippet is large. Consider testing a smaller component first.");
+  return warnings;
+}
+
+function extractHtmlOutline(document: string) {
+  const tags = Array.from(document.matchAll(/<\/?([a-z][\w:-]*)\b[^>]*>/gi))
+    .map((match) => match[0])
+    .filter((tag) => !/^<\/?(meta|link|style|script)\b/i.test(tag))
+    .slice(0, 80);
+  return tags.join("\n") || "No visible HTML tags found.";
+}
+
+function extractCssGradients(source: string) {
+  return Array.from(source.matchAll(/(?:repeating-)?(?:linear|radial|conic)-gradient\((?:[^()]|\([^)]*\))*\)/gi))
+    .map((match) => {
+      const value = match[0].trim();
+      return {
+        value,
+        colors: extractCssColors(value)
+      };
+    })
+    .filter((gradient) => gradient.colors.length > 0);
+}
+
+function extractCssColors(value: string) {
+  const colors = new Set<string>();
+  for (const match of value.matchAll(/#[0-9a-f]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\)|\b(?:red|blue|green|white|black|transparent|orange|purple|pink|yellow|cyan|magenta|lime|teal|navy|gray|grey|slate)\b/gi)) {
+    colors.add(match[0]);
+  }
+  return Array.from(colors).slice(0, 12);
+}
+
+function splitJsonDiffSource(source: string) {
+  const parts = source.split(/\n---+\n/);
+  if (parts.length < 2) throw new Error("Paste the first JSON, then add --- on its own line, then paste the second JSON.");
+  return {left: parts[0].trim(), right: parts.slice(1).join("\n---\n").trim()};
+}
+
+function diffJsonValues(before: unknown, after: unknown, path = "$"): Array<{type: "added" | "removed" | "changed"; path: string; before?: unknown; after?: unknown}> {
+  if (isPlainObject(before) && isPlainObject(after)) {
+    const keys = Array.from(new Set([...Object.keys(before), ...Object.keys(after)])).sort();
+    return keys.flatMap((key) => {
+      const nextPath = `${path}.${key}`;
+      if (!(key in before)) return [{type: "added" as const, path: nextPath, after: after[key]}];
+      if (!(key in after)) return [{type: "removed" as const, path: nextPath, before: before[key]}];
+      return diffJsonValues(before[key], after[key], nextPath);
+    });
+  }
+  if (Array.isArray(before) && Array.isArray(after)) {
+    const length = Math.max(before.length, after.length);
+    return Array.from({length}).flatMap((_, index) => {
+      const nextPath = `${path}[${index}]`;
+      if (index >= before.length) return [{type: "added" as const, path: nextPath, after: after[index]}];
+      if (index >= after.length) return [{type: "removed" as const, path: nextPath, before: before[index]}];
+      return diffJsonValues(before[index], after[index], nextPath);
+    });
+  }
+  return JSON.stringify(before) === JSON.stringify(after) ? [] : [{type: "changed", path, before, after}];
+}
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value));
+}
+
+function formatJsonCell(value: unknown) {
+  if (value === undefined) return "";
+  const text = typeof value === "string" ? value : JSON.stringify(value);
+  return text.length > 160 ? `${text.slice(0, 157)}...` : text;
+}
+
+function normalizeBase64Image(source: string) {
+  const trimmed = source.trim();
+  if (!trimmed) throw new Error("Paste a Base64 image string or data:image URL.");
+  const dataUrlMatch = trimmed.match(/^data:(image\/[a-z0-9.+-]+);base64,([\s\S]+)$/i);
+  const mime = dataUrlMatch?.[1] || inferImageMime(trimmed);
+  const rawBase64 = (dataUrlMatch?.[2] || trimmed).replace(/\s/g, "");
+  if (!/^[A-Za-z0-9+/]+={0,2}$/.test(rawBase64)) throw new Error("The image payload does not look like valid Base64.");
+  const bytes = Math.floor((rawBase64.length * 3) / 4) - (rawBase64.endsWith("==") ? 2 : rawBase64.endsWith("=") ? 1 : 0);
+  return {
+    mime,
+    bytes,
+    dataUrl: `data:${mime};base64,${rawBase64}`
+  };
+}
+
+function inferImageMime(base64: string) {
+  if (base64.startsWith("iVBORw0KGgo")) return "image/png";
+  if (base64.startsWith("/9j/")) return "image/jpeg";
+  if (base64.startsWith("R0lGOD")) return "image/gif";
+  if (base64.startsWith("UklGR")) return "image/webp";
+  if (base64.startsWith("PHN2Zy") || base64.startsWith("PD94bW")) return "image/svg+xml";
+  return "image/png";
+}
+
+function formatBytes(bytes: number) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
+}
+
+function parseCurlCommand(source: string) {
+  const tokens = tokenizeShell(source.replace(/\\\r?\n/g, " "));
+  const headers: Array<[string, string]> = [];
+  let method = "";
+  let body = "";
+  let url = "";
+  for (let index = 0; index < tokens.length; index += 1) {
+    const token = tokens[index];
+    if (token === "curl") continue;
+    if (token === "-X" || token === "--request") {
+      method = (tokens[index + 1] || "").toUpperCase();
+      index += 1;
+      continue;
+    }
+    if (token === "-H" || token === "--header") {
+      const header = tokens[index + 1] || "";
+      const split = header.indexOf(":");
+      if (split > 0) headers.push([header.slice(0, split).trim(), header.slice(split + 1).trim()]);
+      index += 1;
+      continue;
+    }
+    if (["-d", "--data", "--data-raw", "--data-binary", "--data-urlencode"].includes(token)) {
+      body = tokens[index + 1] || "";
+      if (!method) method = "POST";
+      index += 1;
+      continue;
+    }
+    if (!token.startsWith("-") && /^https?:\/\//i.test(token)) url = token;
+  }
+  if (!url) throw new Error("Paste a cURL command with an http or https URL.");
+  const query = parseUrlInput(url).params;
+  return {method: method || "GET", url, headers, body, query};
+}
+
+function tokenizeShell(source: string) {
+  const tokens: string[] = [];
+  let current = "";
+  let quote: "'" | '"' | "" = "";
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (char === quote) quote = "";
+      else current += char;
+      continue;
+    }
+    if (char === "'" || char === '"') {
+      quote = char;
+      continue;
+    }
+    if (/\s/.test(char)) {
+      if (current) tokens.push(current);
+      current = "";
+      continue;
+    }
+    current += char;
+  }
+  if (current) tokens.push(current);
+  return tokens;
+}
+
+function prettyBody(body: string) {
+  try {
+    return JSON.stringify(JSON.parse(body), null, 2);
+  } catch {
+    return body;
+  }
+}
+
+function parseUrlInput(source: string) {
+  const trimmed = source.trim();
+  if (!trimmed) throw new Error("Paste a full URL or query string.");
+  const raw = trimmed.startsWith("?") ? `https://example.com/${trimmed}` : /^https?:\/\//i.test(trimmed) ? trimmed : `https://example.com/${trimmed.replace(/^\//, "")}`;
+  const parsed = new URL(raw);
+  return {
+    base: `${parsed.origin}${parsed.pathname}`,
+    host: parsed.host === "example.com" && !/^https?:\/\//i.test(trimmed) ? "" : parsed.host,
+    path: parsed.pathname,
+    hash: parsed.hash,
+    params: Array.from(parsed.searchParams.entries())
+  };
+}
+
+function keyValueTable(rows: Array<[string, string]>, empty: string) {
+  return `
+    <table class="dp-table">
+      <thead><tr><th>Key</th><th>Value</th></tr></thead>
+      <tbody>${rows.map(([key, value]) => `<tr><td><code>${escapeHtml(key)}</code></td><td>${escapeHtml(value)}</td></tr>`).join("") || `<tr><td colspan="2">${escapeHtml(empty)}</td></tr>`}</tbody>
+    </table>
+  `;
+}
+
+function extractBoxShadows(source: string) {
+  const lines = source
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const values = lines.flatMap((line) => {
+    const property = line.match(/box-shadow\s*:\s*([^;]+);?/i);
+    return property ? splitCssCommaList(property[1]) : splitCssCommaList(line.replace(/;$/, ""));
+  });
+  return values.filter((value) => /\d/.test(value) && /(px|rem|em|rgba?\(|#[0-9a-f])/i.test(value)).slice(0, 12);
+}
+
+function splitCssCommaList(value: string) {
+  const parts: string[] = [];
+  let current = "";
+  let depth = 0;
+  for (const char of value) {
+    if (char === "(") depth += 1;
+    if (char === ")") depth -= 1;
+    if (char === "," && depth === 0) {
+      parts.push(current.trim());
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+  if (current.trim()) parts.push(current.trim());
+  return parts;
+}
+
+function extractPaletteColors(source: string) {
+  const rows: Array<{name: string; value: string; kind: string}> = [];
+  source.split(/\r?\n/).forEach((line, index) => {
+    const variable = line.match(/(--[\w-]+)\s*:\s*(#[0-9a-f]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\))/i);
+    if (variable) {
+      rows.push({name: variable[1], value: variable[2], kind: "CSS variable"});
+      return;
+    }
+    const pair = line.match(/([\w-]+)\s*[:=]\s*(#[0-9a-f]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\))/i);
+    if (pair) {
+      rows.push({name: pair[1], value: pair[2], kind: "named color"});
+      return;
+    }
+    for (const match of line.matchAll(/#[0-9a-f]{3,8}\b|rgba?\([^)]+\)|hsla?\([^)]+\)/gi)) {
+      rows.push({name: `color-${index + 1}-${rows.length + 1}`, value: match[0], kind: "inline color"});
+    }
+  });
+  return rows.slice(0, 36);
+}
+
+function contrastRatio(left: string, right: string) {
+  const a = parseRgbColor(left);
+  const b = parseRgbColor(right);
+  if (!a || !b) return null;
+  const la = relativeLuminance(a);
+  const lb = relativeLuminance(b);
+  return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+}
+
+function contrastNote(ratio: number | null) {
+  if (!ratio) return "Unsupported color function";
+  if (ratio >= 4.5) return "AA text contrast";
+  if (ratio >= 3) return "Large text only";
+  return "Low contrast";
+}
+
+function parseRgbColor(value: string): [number, number, number] | null {
+  const hex = value.match(/^#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})$/i);
+  if (hex) {
+    const raw = hex[1].length === 3 ? hex[1].split("").map((char) => char + char).join("") : hex[1].slice(0, 6);
+    return [Number.parseInt(raw.slice(0, 2), 16), Number.parseInt(raw.slice(2, 4), 16), Number.parseInt(raw.slice(4, 6), 16)];
+  }
+  const rgb = value.match(/^rgba?\(([^)]+)\)$/i);
+  if (rgb) {
+    const parts = rgb[1].split(",").map((part) => Number.parseFloat(part.trim()));
+    if (parts.length >= 3 && parts.every((part) => Number.isFinite(part))) return [parts[0], parts[1], parts[2]];
+  }
+  return null;
+}
+
+function relativeLuminance([r, g, b]: [number, number, number]) {
+  const [rs, gs, bs] = [r, g, b].map((value) => {
+    const channel = value / 255;
+    return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * rs + 0.7152 * gs + 0.0722 * bs;
 }
 
 function escapeHtml(value: string) {

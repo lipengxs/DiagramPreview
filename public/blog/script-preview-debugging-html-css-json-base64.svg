@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Script and visual source preview workflow</title>
+  <desc id="desc">A DiagramPreview workflow cover for HTML, CSS gradient, JSON diff, and Base64 image preview tools.</desc>
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <rect x="58" y="58" width="1084" height="559" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="58" y="58" width="1084" height="70" rx="24" fill="#0f172a"/>
+  <circle cx="99" cy="93" r="10" fill="#ef4444"/>
+  <circle cx="130" cy="93" r="10" fill="#f59e0b"/>
+  <circle cx="161" cy="93" r="10" fill="#22c55e"/>
+  <text x="205" y="101" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#e2e8f0">DiagramPreview P1 workflow</text>
+  <text x="96" y="190" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="800" fill="#0f172a">Preview scripts before publishing</text>
+  <text x="96" y="240" font-family="Inter, Arial, sans-serif" font-size="24" fill="#475569">HTML sandbox, CSS gradients, JSON diff, and Base64 image checks in one browser workflow.</text>
+  <g transform="translate(96 300)">
+    <rect width="220" height="170" rx="18" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="24" y="48" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#1d4ed8">HTML</text>
+    <text x="24" y="86" font-family="monospace" font-size="17" fill="#0f172a">&lt;section&gt;</text>
+    <text x="24" y="116" font-family="monospace" font-size="17" fill="#0f172a">sandboxed</text>
+    <text x="24" y="146" font-family="monospace" font-size="17" fill="#0f172a">&lt;/section&gt;</text>
+  </g>
+  <g transform="translate(348 300)">
+    <rect width="220" height="170" rx="18" fill="#ecfeff" stroke="#a5f3fc"/>
+    <rect x="24" y="72" width="172" height="54" rx="14" fill="url(#grad)"/>
+    <text x="24" y="48" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#0e7490">CSS</text>
+    <text x="24" y="148" font-family="monospace" font-size="16" fill="#0f172a">linear-gradient()</text>
+  </g>
+  <g transform="translate(600 300)">
+    <rect width="220" height="170" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="24" y="48" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#15803d">JSON</text>
+    <text x="24" y="86" font-family="monospace" font-size="17" fill="#166534">+ paidAt</text>
+    <text x="24" y="116" font-family="monospace" font-size="17" fill="#92400e">~ status</text>
+    <text x="24" y="146" font-family="monospace" font-size="17" fill="#991b1b">- draft</text>
+  </g>
+  <g transform="translate(852 300)">
+    <rect width="220" height="170" rx="18" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="24" y="48" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#c2410c">Base64</text>
+    <rect x="24" y="72" width="88" height="64" rx="12" fill="#0f172a"/>
+    <circle cx="52" cy="98" r="12" fill="#22c55e"/>
+    <path d="M38 126 65 108 89 126Z" fill="#60a5fa"/>
+    <text x="124" y="103" font-family="monospace" font-size="15" fill="#0f172a">data:image</text>
+    <text x="124" y="127" font-family="monospace" font-size="15" fill="#0f172a">base64,...</text>
+  </g>
+  <path d="M206 530H994" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M982 518 1000 530 982 542" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="565" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">Generated text → local preview → visual review → docs or PR</text>
+  <defs>
+    <linearGradient id="grad" x1="24" y1="72" x2="196" y2="126" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563eb"/>
+      <stop offset=".52" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+</svg>

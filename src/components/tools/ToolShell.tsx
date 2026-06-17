@@ -464,6 +464,46 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
       const html = renderHttpHeaderParser(source);
       return {html};
     }
+    case "html-preview": {
+      const {renderHtmlPreviewSandbox} = await import("@/lib/renderers/growth-tools");
+      const html = renderHtmlPreviewSandbox(source);
+      return {html};
+    }
+    case "css-gradient": {
+      const {renderCssGradientPreview} = await import("@/lib/renderers/growth-tools");
+      const html = renderCssGradientPreview(source);
+      return {html};
+    }
+    case "json-diff": {
+      const {renderJsonDiffViewer} = await import("@/lib/renderers/growth-tools");
+      const html = renderJsonDiffViewer(source);
+      return {html};
+    }
+    case "base64-image": {
+      const {renderBase64ImagePreview} = await import("@/lib/renderers/growth-tools");
+      const html = renderBase64ImagePreview(source);
+      return {html};
+    }
+    case "curl-parser": {
+      const {renderCurlCommandParser} = await import("@/lib/renderers/growth-tools");
+      const html = renderCurlCommandParser(source);
+      return {html};
+    }
+    case "url-query": {
+      const {renderUrlQueryParser} = await import("@/lib/renderers/growth-tools");
+      const html = renderUrlQueryParser(source);
+      return {html};
+    }
+    case "css-shadow": {
+      const {renderCssBoxShadowPreview} = await import("@/lib/renderers/growth-tools");
+      const html = renderCssBoxShadowPreview(source);
+      return {html};
+    }
+    case "color-palette": {
+      const {renderColorPalettePreview} = await import("@/lib/renderers/growth-tools");
+      const html = renderColorPalettePreview(source);
+      return {html};
+    }
     case "typescript": {
       const {renderTypeScriptInterface} = await import("@/lib/renderers/growth-tools");
       const svg = await renderTypeScriptInterface(source);

@@ -4474,6 +4474,534 @@
         "这类预览工具尤其适合 AI 生成内容后的二次校验：先生成，再预览，再修正，最后再放进文档、PR 或配置仓库。",
         "第一版覆盖高频调试场景，不替代完整生产解析器；复杂边界仍应以原工具和运行环境为准。"
       ]
+    },
+    "html-preview-sandbox": {
+      "name": "HTML 沙箱預覽",
+      "shortDescription": "在停用腳本的沙箱中預覽 HTML 元件、郵件片段和落地頁區塊。",
+      "seoTitle": "HTML 沙箱預覽 - DiagramPreview",
+      "seoDescription": "在停用腳本的沙箱中預覽 HTML 元件、郵件片段和落地頁區塊。",
+      "keywords": [
+        "html 沙箱預覽",
+        "html 片段預覽",
+        "email html preview",
+        "html preview",
+        "HTML 沙箱預覽",
+        "DiagramPreview"
+      ],
+      "h1": "HTML 沙箱預覽",
+      "intro": "HTML 沙箱預覽 為開發者提供快速的瀏覽器預覽迴圈，適合檢查 AI 生成片段、UI 片段、設定範例和文件素材。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "HTML 原始碼",
+      "outputLabel": "沙箱預覽",
+      "placeholder": "在這裡貼上 HTML 原始碼...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "landing": {
+          "label": "Landing section",
+          "code": "<section style=\"max-width:720px;margin:0 auto;padding:48px 24px;border-radius:24px;background:white;box-shadow:0 20px 60px rgba(15,23,42,.12)\">\n  <p style=\"font-weight:700;color:#2563eb\">Preview before publish</p>\n  <h1 style=\"font-size:42px;line-height:1.05;margin:12px 0;color:#0f172a\">Debug generated HTML without leaving the browser</h1>\n  <p style=\"font-size:18px;color:#475569\">Paste a component, email block, or landing section and review it in a script-blocked sandbox.</p>\n  <button style=\"border:0;border-radius:10px;background:#0f172a;color:white;padding:12px 18px;font-weight:700\">Open preview</button>\n</section>"
+        },
+        "email": {
+          "label": "Email block",
+          "code": "<table role=\"presentation\" width=\"100%\" style=\"font-family:Arial,sans-serif;background:#f8fafc;padding:24px\">\n  <tr><td style=\"background:white;border-radius:16px;padding:24px\">\n    <h1 style=\"margin:0 0 12px;color:#0f172a\">Your export is ready</h1>\n    <p style=\"color:#475569\">Download the SVG and keep the source beside your docs.</p>\n    <a href=\"#\" style=\"display:inline-block;background:#2563eb;color:white;padding:12px 18px;border-radius:8px;text-decoration:none\">Download</a>\n  </td></tr>\n</table>"
+        },
+        "component": {
+          "label": "Component",
+          "code": "<div class=\"card\">\n  <style>\n    .card{display:grid;gap:12px;max-width:420px;padding:20px;border:1px solid #e2e8f0;border-radius:16px;background:#fff}\n    .metric{font-size:36px;font-weight:800;color:#16a34a}\n  </style>\n  <span class=\"metric\">98.7%</span>\n  <strong>Preview success rate</strong>\n  <p>Use small snippets first, then expand the source.</p>\n</div>"
+        }
+      },
+      "howToUse": [
+        "先貼上一個小而聚焦的片段，確認預覽結構後再替換成完整原始碼。",
+        "先載入範例，了解分隔符或原始碼格式。",
+        "放進 README、Issue 或正式文件前，檢查警告、視覺輸出和提取結構。",
+        "把原始碼和截圖放在一起，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "發布前檢查 AI 生成的 HTML、CSS、JSON 和 Base64 素材。",
+        "為技術文件、發布說明和支援回覆生成輕量截圖。",
+        "不用在多個零散工具之間切換，就能調試可視化片段。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。這批 P1 預覽工具會在瀏覽器本地完成支援路徑的解析和預覽。"
+        },
+        {
+          "question": "這個預覽能替代正式執行環境嗎？",
+          "answer": "不能。它面向常見預覽和調試場景，最終仍應以瀏覽器、執行環境或正式解析器為準。"
+        }
+      ],
+      "seoBody": [
+        "HTML 沙箱預覽 是 DiagramPreview 腳本和視覺原始碼預覽工具集的一部分。",
+        "它幫助你把 AI 生成或專案中複製出的文字，快速變成團隊真正能審閱的視覺輸出。",
+        "適合在片段進入文件、工單、部落格或正式範例之前做一次快速校驗。"
+      ]
+    },
+    "css-gradient-preview": {
+      "name": "CSS 漸層預覽",
+      "shortDescription": "預覽 CSS linear、radial、conic 和 repeating 漸層，並提取色標。",
+      "seoTitle": "CSS 漸層預覽 - DiagramPreview",
+      "seoDescription": "預覽 CSS linear、radial、conic 和 repeating 漸層，並提取色標。",
+      "keywords": [
+        "css 漸層預覽",
+        "linear gradient preview",
+        "radial gradient preview",
+        "css background preview",
+        "CSS 漸層預覽",
+        "DiagramPreview"
+      ],
+      "h1": "CSS 漸層預覽",
+      "intro": "CSS 漸層預覽 為開發者提供快速的瀏覽器預覽迴圈，適合檢查 AI 生成片段、UI 片段、設定範例和文件素材。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "CSS 漸層原始碼",
+      "outputLabel": "漸層預覽",
+      "placeholder": "在這裡貼上 CSS 漸層或完整 CSS...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "hero": {
+          "label": "Hero gradient",
+          "code": "background: linear-gradient(135deg, #0f172a 0%, #2563eb 48%, #22c55e 100%);"
+        },
+        "button": {
+          "label": "Button gradient",
+          "code": ".button {\n  background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6);\n  color: white;\n}"
+        },
+        "mesh": {
+          "label": "Mesh background",
+          "code": "background:\n  radial-gradient(circle at 20% 20%, rgba(34,197,94,.55), transparent 30%),\n  radial-gradient(circle at 80% 10%, rgba(37,99,235,.55), transparent 32%),\n  linear-gradient(135deg, #f8fafc, #e0f2fe);"
+        }
+      },
+      "howToUse": [
+        "先貼上一個小而聚焦的片段，確認預覽結構後再替換成完整原始碼。",
+        "先載入範例，了解分隔符或原始碼格式。",
+        "放進 README、Issue 或正式文件前，檢查警告、視覺輸出和提取結構。",
+        "把原始碼和截圖放在一起，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "發布前檢查 AI 生成的 HTML、CSS、JSON 和 Base64 素材。",
+        "為技術文件、發布說明和支援回覆生成輕量截圖。",
+        "不用在多個零散工具之間切換，就能調試可視化片段。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。這批 P1 預覽工具會在瀏覽器本地完成支援路徑的解析和預覽。"
+        },
+        {
+          "question": "這個預覽能替代正式執行環境嗎？",
+          "answer": "不能。它面向常見預覽和調試場景，最終仍應以瀏覽器、執行環境或正式解析器為準。"
+        }
+      ],
+      "seoBody": [
+        "CSS 漸層預覽 是 DiagramPreview 腳本和視覺原始碼預覽工具集的一部分。",
+        "它幫助你把 AI 生成或專案中複製出的文字，快速變成團隊真正能審閱的視覺輸出。",
+        "適合在片段進入文件、工單、部落格或正式範例之前做一次快速校驗。"
+      ]
+    },
+    "json-diff-viewer": {
+      "name": "JSON Diff Viewer",
+      "shortDescription": "比較兩個 JSON payload，查看新增、刪除和變更路徑。",
+      "seoTitle": "JSON Diff Viewer - DiagramPreview",
+      "seoDescription": "比較兩個 JSON payload，查看新增、刪除和變更路徑。",
+      "keywords": [
+        "json diff viewer",
+        "json compare online",
+        "api response diff",
+        "json payload compare",
+        "JSON Diff Viewer",
+        "DiagramPreview"
+      ],
+      "h1": "JSON Diff Viewer",
+      "intro": "JSON Diff Viewer 為開發者提供快速的瀏覽器預覽迴圈，適合檢查 AI 生成片段、UI 片段、設定範例和文件素材。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "兩個 JSON payload",
+      "outputLabel": "JSON 差異",
+      "placeholder": "先貼上第一個 JSON，再用 --- 分隔，然後貼上第二個 JSON...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "api": {
+          "label": "API response",
+          "code": "{\n  \"id\": 42,\n  \"status\": \"draft\",\n  \"items\": [{\"sku\":\"A1\",\"qty\":1}],\n  \"total\": 19.9\n}\n---\n{\n  \"id\": 42,\n  \"status\": \"paid\",\n  \"items\": [{\"sku\":\"A1\",\"qty\":2}],\n  \"total\": 39.8,\n  \"paidAt\": \"2026-06-17T08:00:00Z\"\n}"
+        },
+        "config": {
+          "label": "Config change",
+          "code": "{\n  \"featureFlags\": {\"ai\": false, \"export\": true},\n  \"timeout\": 3000\n}\n---\n{\n  \"featureFlags\": {\"ai\": true, \"export\": true, \"beta\": true},\n  \"timeout\": 5000\n}"
+        },
+        "package": {
+          "label": "Package deps",
+          "code": "{\n  \"dependencies\": {\"next\":\"15.5.19\", \"react\":\"19.1.0\"}\n}\n---\n{\n  \"dependencies\": {\"next\":\"15.5.19\", \"react\":\"19.1.0\", \"zod\":\"latest\"},\n  \"devDependencies\": {\"vitest\":\"latest\"}\n}"
+        }
+      },
+      "howToUse": [
+        "先貼上一個小而聚焦的片段，確認預覽結構後再替換成完整原始碼。",
+        "先載入範例，了解分隔符或原始碼格式。",
+        "放進 README、Issue 或正式文件前，檢查警告、視覺輸出和提取結構。",
+        "把原始碼和截圖放在一起，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "發布前檢查 AI 生成的 HTML、CSS、JSON 和 Base64 素材。",
+        "為技術文件、發布說明和支援回覆生成輕量截圖。",
+        "不用在多個零散工具之間切換，就能調試可視化片段。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。這批 P1 預覽工具會在瀏覽器本地完成支援路徑的解析和預覽。"
+        },
+        {
+          "question": "這個預覽能替代正式執行環境嗎？",
+          "answer": "不能。它面向常見預覽和調試場景，最終仍應以瀏覽器、執行環境或正式解析器為準。"
+        }
+      ],
+      "seoBody": [
+        "JSON Diff Viewer 是 DiagramPreview 腳本和視覺原始碼預覽工具集的一部分。",
+        "它幫助你把 AI 生成或專案中複製出的文字，快速變成團隊真正能審閱的視覺輸出。",
+        "適合在片段進入文件、工單、部落格或正式範例之前做一次快速校驗。"
+      ]
+    },
+    "base64-image-preview": {
+      "name": "Base64 圖片預覽",
+      "shortDescription": "預覽 Base64 圖片字串和 data URL，並分析 MIME 類型和大小。",
+      "seoTitle": "Base64 圖片預覽 - DiagramPreview",
+      "seoDescription": "預覽 Base64 圖片字串和 data URL，並分析 MIME 類型和大小。",
+      "keywords": [
+        "base64 image preview",
+        "data url image preview",
+        "base64 png viewer",
+        "base64 svg preview",
+        "Base64 圖片預覽",
+        "DiagramPreview"
+      ],
+      "h1": "Base64 圖片預覽",
+      "intro": "Base64 圖片預覽 為開發者提供快速的瀏覽器預覽迴圈，適合檢查 AI 生成片段、UI 片段、設定範例和文件素材。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "Base64 圖片原始碼",
+      "outputLabel": "圖片預覽",
+      "placeholder": "在這裡貼上 Base64 圖片或 data:image URL...",
+      "emptyPreview": "預覽結果會顯示在這裡。",
+      "samples": {
+        "png": {
+          "label": "Tiny PNG",
+          "code": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/lv6pWQAAAABJRU5ErkJggg=="
+        },
+        "svg": {
+          "label": "SVG Base64",
+          "code": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMTIwIj48cmVjdCB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEyMCIgcng9IjE4IiBmaWxsPSIjMGYxNzJhIi8+PHRleHQgeD0iMjQiIHk9IjY4IiBmb250LXNpemU9IjI4IiBmb250LWZhbWlseT0iQXJpYWwiIGZpbGw9IndoaXRlIj5CYXNlNjQgUHJldmlldzwvdGV4dD48L3N2Zz4="
+        },
+        "dataUri": {
+          "label": "Raw Base64",
+          "code": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFElEQVR42mP8z8BQz0AEYBxVSFUBAF1hBAX+fs40AAAAAElFTkSuQmCC"
+        }
+      },
+      "howToUse": [
+        "先貼上一個小而聚焦的片段，確認預覽結構後再替換成完整原始碼。",
+        "先載入範例，了解分隔符或原始碼格式。",
+        "放進 README、Issue 或正式文件前，檢查警告、視覺輸出和提取結構。",
+        "把原始碼和截圖放在一起，方便團隊後續重現。"
+      ],
+      "useCases": [
+        "發布前檢查 AI 生成的 HTML、CSS、JSON 和 Base64 素材。",
+        "為技術文件、發布說明和支援回覆生成輕量截圖。",
+        "不用在多個零散工具之間切換，就能調試可視化片段。"
+      ],
+      "faq": [
+        {
+          "question": "原始碼會送到後端或 AI 服務嗎？",
+          "answer": "不會。這批 P1 預覽工具會在瀏覽器本地完成支援路徑的解析和預覽。"
+        },
+        {
+          "question": "這個預覽能替代正式執行環境嗎？",
+          "answer": "不能。它面向常見預覽和調試場景，最終仍應以瀏覽器、執行環境或正式解析器為準。"
+        }
+      ],
+      "seoBody": [
+        "Base64 圖片預覽 是 DiagramPreview 腳本和視覺原始碼預覽工具集的一部分。",
+        "它幫助你把 AI 生成或專案中複製出的文字，快速變成團隊真正能審閱的視覺輸出。",
+        "適合在片段進入文件、工單、部落格或正式範例之前做一次快速校驗。"
+      ]
+    },
+    "curl-command-parser": {
+      "name": "cURL 命令解析器",
+      "shortDescription": "把 cURL 命令解析成 method、URL、headers、query 參數和 request body 預覽。",
+      "seoTitle": "cURL 命令解析器 - DiagramPreview",
+      "seoDescription": "把 cURL 命令解析成 method、URL、headers、query 參數和 request body 預覽。",
+      "keywords": [
+        "curl parser",
+        "curl command parser",
+        "curl to request",
+        "api request preview",
+        "cURL 命令解析器",
+        "DiagramPreview"
+      ],
+      "h1": "cURL 命令解析器",
+      "intro": "cURL 命令解析器 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "cURL 命令",
+      "outputLabel": "請求預覽",
+      "placeholder": "在這裡貼上 cURL 命令...",
+      "emptyPreview": "预览结果会显示在这里。",
+      "samples": {
+        "postJson": {
+          "label": "POST JSON",
+          "code": "curl -X POST https://api.example.com/orders?debug=true \\\n  -H \"Authorization: Bearer demo-token\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-raw '{\"sku\":\"A1\",\"qty\":2}'"
+        },
+        "auth": {
+          "label": "Auth request",
+          "code": "curl https://api.example.com/me -H \"Authorization: Bearer eyJhbGciOi...\" -H \"Accept: application/json\""
+        },
+        "form": {
+          "label": "Form submit",
+          "code": "curl -X POST https://api.example.com/login -H \"Content-Type: application/x-www-form-urlencoded\" -d \"email=demo@example.com&remember=true\""
+        }
+      },
+      "howToUse": [
+        "先加载示例，确认输入格式和预览结构。",
+        "替换成自己的 cURL、URL、CSS 或颜色 token。",
+        "检查解析结果、视觉输出、参数列表或对比度提示。",
+        "把源码和截图一起放进文档、工单或 PR，方便团队复现。"
+      ],
+      "useCases": [
+        "调试 AI 生成的请求命令、URL 参数和视觉 CSS 片段。",
+        "为 README、博客、支持回复和 PR 描述生成可复现截图。",
+        "在发布前发现明显的参数、阴影、颜色和可读性问题。"
+      ],
+      "faq": [
+        {
+          "question": "这些工具会调用 AI 吗？",
+          "answer": "不会。P1 的这些预览工具默认在浏览器本地解析和渲染。"
+        },
+        {
+          "question": "能替代真实运行环境吗？",
+          "answer": "不能。它们适合快速预览和调试，最终仍应以真实 API、浏览器和设计系统为准。"
+        }
+      ],
+      "seoBody": [
+        "cURL 命令解析器 是 DiagramPreview P1 预览工具集的一部分。",
+        "它面向 AI 生成之后、正式发布之前的检查环节，把文本片段变成可以审阅的结构和视觉输出。",
+        "适合配合 HTML、CSS、JSON、Base64、API 和配置预览工具一起使用。"
+      ]
+    },
+    "url-query-parser": {
+      "name": "URL 查詢參數解析器",
+      "shortDescription": "解碼 URL 查詢字串，檢查 UTM 參數和 API query payload。",
+      "seoTitle": "URL 查詢參數解析器 - DiagramPreview",
+      "seoDescription": "解碼 URL 查詢字串，檢查 UTM 參數和 API query payload。",
+      "keywords": [
+        "url query parser",
+        "query string parser",
+        "utm checker",
+        "url parameter decoder",
+        "URL 查詢參數解析器",
+        "DiagramPreview"
+      ],
+      "h1": "URL 查詢參數解析器",
+      "intro": "URL 查詢參數解析器 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "URL 或查詢字串",
+      "outputLabel": "參數預覽",
+      "placeholder": "在這裡貼上 URL 或查詢字串...",
+      "emptyPreview": "预览结果会显示在这里。",
+      "samples": {
+        "utm": {
+          "label": "UTM campaign",
+          "code": "https://example.com/blog/preview?utm_source=v2ex&utm_medium=post&utm_campaign=diagram_preview&ref=community"
+        },
+        "api": {
+          "label": "API query",
+          "code": "https://api.example.com/search?q=diagram%20preview&page=2&sort=recent&include=tools,blog"
+        },
+        "encoded": {
+          "label": "Encoded URL",
+          "code": "?title=HTML%20Preview%20Sandbox&redirect=https%3A%2F%2Fdiagrampreview.com%2Fen%2Fhtml-preview-sandbox"
+        }
+      },
+      "howToUse": [
+        "先加载示例，确认输入格式和预览结构。",
+        "替换成自己的 cURL、URL、CSS 或颜色 token。",
+        "检查解析结果、视觉输出、参数列表或对比度提示。",
+        "把源码和截图一起放进文档、工单或 PR，方便团队复现。"
+      ],
+      "useCases": [
+        "调试 AI 生成的请求命令、URL 参数和视觉 CSS 片段。",
+        "为 README、博客、支持回复和 PR 描述生成可复现截图。",
+        "在发布前发现明显的参数、阴影、颜色和可读性问题。"
+      ],
+      "faq": [
+        {
+          "question": "这些工具会调用 AI 吗？",
+          "answer": "不会。P1 的这些预览工具默认在浏览器本地解析和渲染。"
+        },
+        {
+          "question": "能替代真实运行环境吗？",
+          "answer": "不能。它们适合快速预览和调试，最终仍应以真实 API、浏览器和设计系统为准。"
+        }
+      ],
+      "seoBody": [
+        "URL 查詢參數解析器 是 DiagramPreview P1 预览工具集的一部分。",
+        "它面向 AI 生成之后、正式发布之前的检查环节，把文本片段变成可以审阅的结构和视觉输出。",
+        "适合配合 HTML、CSS、JSON、Base64、API 和配置预览工具一起使用。"
+      ]
+    },
+    "css-box-shadow-preview": {
+      "name": "CSS 陰影預覽",
+      "shortDescription": "在真實卡片上預覽 CSS box-shadow，並比較多層陰影效果。",
+      "seoTitle": "CSS 陰影預覽 - DiagramPreview",
+      "seoDescription": "在真實卡片上預覽 CSS box-shadow，並比較多層陰影效果。",
+      "keywords": [
+        "box shadow preview",
+        "css shadow generator",
+        "box-shadow online",
+        "css card shadow",
+        "CSS 陰影預覽",
+        "DiagramPreview"
+      ],
+      "h1": "CSS 陰影預覽",
+      "intro": "CSS 陰影預覽 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "CSS 陰影原始碼",
+      "outputLabel": "陰影預覽",
+      "placeholder": "在這裡貼上 box-shadow CSS...",
+      "emptyPreview": "预览结果会显示在这里。",
+      "samples": {
+        "card": {
+          "label": "Card shadow",
+          "code": "box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);"
+        },
+        "button": {
+          "label": "Button lift",
+          "code": "box-shadow: 0 10px 22px rgba(37, 99, 235, 0.28), 0 2px 6px rgba(15, 23, 42, 0.12);"
+        },
+        "modal": {
+          "label": "Modal depth",
+          "code": "box-shadow: 0 28px 80px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(148, 163, 184, 0.25);"
+        }
+      },
+      "howToUse": [
+        "先加载示例，确认输入格式和预览结构。",
+        "替换成自己的 cURL、URL、CSS 或颜色 token。",
+        "检查解析结果、视觉输出、参数列表或对比度提示。",
+        "把源码和截图一起放进文档、工单或 PR，方便团队复现。"
+      ],
+      "useCases": [
+        "调试 AI 生成的请求命令、URL 参数和视觉 CSS 片段。",
+        "为 README、博客、支持回复和 PR 描述生成可复现截图。",
+        "在发布前发现明显的参数、阴影、颜色和可读性问题。"
+      ],
+      "faq": [
+        {
+          "question": "这些工具会调用 AI 吗？",
+          "answer": "不会。P1 的这些预览工具默认在浏览器本地解析和渲染。"
+        },
+        {
+          "question": "能替代真实运行环境吗？",
+          "answer": "不能。它们适合快速预览和调试，最终仍应以真实 API、浏览器和设计系统为准。"
+        }
+      ],
+      "seoBody": [
+        "CSS 陰影預覽 是 DiagramPreview P1 预览工具集的一部分。",
+        "它面向 AI 生成之后、正式发布之前的检查环节，把文本片段变成可以审阅的结构和视觉输出。",
+        "适合配合 HTML、CSS、JSON、Base64、API 和配置预览工具一起使用。"
+      ]
+    },
+    "color-palette-preview": {
+      "name": "顏色調色盤預覽",
+      "shortDescription": "預覽 hex、rgb、hsl 和 CSS 變數調色盤，並做相鄰顏色對比度檢查。",
+      "seoTitle": "顏色調色盤預覽 - DiagramPreview",
+      "seoDescription": "預覽 hex、rgb、hsl 和 CSS 變數調色盤，並做相鄰顏色對比度檢查。",
+      "keywords": [
+        "color palette preview",
+        "css color palette",
+        "hex color checker",
+        "contrast checker",
+        "顏色調色盤預覽",
+        "DiagramPreview"
+      ],
+      "h1": "顏色調色盤預覽",
+      "intro": "顏色調色盤預覽 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "badges": [
+        "无 AI",
+        "本地预览",
+        "调试",
+        "导出"
+      ],
+      "inputLabel": "顏色調色盤原始碼",
+      "outputLabel": "調色盤預覽",
+      "placeholder": "在這裡貼上顏色、CSS 變數或設計 token...",
+      "emptyPreview": "预览结果会显示在这里。",
+      "samples": {
+        "brand": {
+          "label": "Brand tokens",
+          "code": "--color-primary: #2563eb;\n--color-accent: #22c55e;\n--color-ink: #0f172a;\n--color-surface: #f8fafc;"
+        },
+        "status": {
+          "label": "Status colors",
+          "code": "success: #16a34a\nwarning: #f59e0b\ndanger: #dc2626\ninfo: #0284c7"
+        },
+        "tailwind": {
+          "label": "Tailwind-like",
+          "code": "#0f172a\n#334155\n#e2e8f0\n#2563eb\n#ec4899\n#22c55e"
+        }
+      },
+      "howToUse": [
+        "先加载示例，确认输入格式和预览结构。",
+        "替换成自己的 cURL、URL、CSS 或颜色 token。",
+        "检查解析结果、视觉输出、参数列表或对比度提示。",
+        "把源码和截图一起放进文档、工单或 PR，方便团队复现。"
+      ],
+      "useCases": [
+        "调试 AI 生成的请求命令、URL 参数和视觉 CSS 片段。",
+        "为 README、博客、支持回复和 PR 描述生成可复现截图。",
+        "在发布前发现明显的参数、阴影、颜色和可读性问题。"
+      ],
+      "faq": [
+        {
+          "question": "这些工具会调用 AI 吗？",
+          "answer": "不会。P1 的这些预览工具默认在浏览器本地解析和渲染。"
+        },
+        {
+          "question": "能替代真实运行环境吗？",
+          "answer": "不能。它们适合快速预览和调试，最终仍应以真实 API、浏览器和设计系统为准。"
+        }
+      ],
+      "seoBody": [
+        "顏色調色盤預覽 是 DiagramPreview P1 预览工具集的一部分。",
+        "它面向 AI 生成之后、正式发布之前的检查环节，把文本片段变成可以审阅的结构和视觉输出。",
+        "适合配合 HTML、CSS、JSON、Base64、API 和配置预览工具一起使用。"
+      ]
     }
   },
   "hubs": {
@@ -6988,6 +7516,109 @@
             "paragraphs": [
               "用精确 URL 檢查 robots.txt，檢查 sitemap 数量和 alternate，預覽 Open Graph，確認圖片 URL 可访问，并確認文章連結到了相关工具頁。",
               "發布后，只把足够有用、能独立解决問題的頁面提交 sitemap 或 IndexNow。"
+            ]
+          }
+        ]
+      },
+      "script-preview-debugging-html-css-json-base64": {
+        "title": "AI 生成的 HTML、CSS、JSON 和 Base64，發布前應該怎麼預覽？",
+        "seoTitle": "AI 生成片段發布前預覽工作流：HTML、CSS、JSON Diff 與 Base64 圖片",
+        "description": "一篇面向开发者的预览调试工作流：把 AI 生成或项目中复制出的 HTML、CSS、JSON、Base64、cURL、URL 参数、阴影和颜色片段，在发布到 README、Issue、博客或生产文档前先检查一遍。",
+        "excerpt": "大模型能生成代码片段，但不会替你打开浏览器、比对 JSON、检查请求参数、渐变、阴影、颜色和图片体积。这篇文章给出一套发布前预览工作流。",
+        "keywords": [
+          "html preview sandbox",
+          "css gradient preview",
+          "json diff viewer",
+          "base64 image preview",
+          "ai generated snippets",
+          "developer preview workflow"
+        ],
+        "readingTime": "15 分钟阅读",
+        "sections": [
+          {
+            "heading": "为什么这批工具不只是“小工具”",
+            "paragraphs": [
+              "现在很多内容不是从零手写，而是由 AI、设计稿、浏览器控制台、接口响应或日志拼出来。问题在于文本看起来正确，不代表视觉输出、数据差异和嵌入资源也正确。",
+              "这批 P1 工具围绕一个共同任务：在发布前把脚本、片段和视觉源码变成可检查的预览。它们补的是“生成之后、发布之前”的那一步。"
+            ],
+            "image": {
+              "src": "/blog/script-preview-debugging-html-css-json-base64.svg",
+              "alt": "HTML CSS JSON Base64 preview workflow",
+              "caption": "P1 工具不是继续堆 diagram，而是扩展到脚本和视觉源码预览。"
+            }
+          },
+          {
+            "heading": "Demo 1：HTML 片段先放进 sandbox",
+            "paragraphs": [
+              "AI 生成的落地页区块、邮件模板和组件片段，最容易出现样式溢出、移动端断行、无效标签和脚本污染。HTML Preview Sandbox 会把片段放到禁用脚本的 iframe 里预览。",
+              "它不替代真实浏览器测试，但很适合在写 README、帮助中心、推广贴和产品文档前快速看一眼。"
+            ],
+            "code": {
+              "language": "html",
+              "content": "<section style=\"max-width:720px;padding:48px;border-radius:24px;background:white\">\n  <p style=\"font-weight:700;color:#2563eb\">Preview before publish</p>\n  <h1>Debug generated HTML without leaving the browser</h1>\n  <p>Paste a component, email block, or landing section.</p>\n</section>",
+              "caption": "先用小片段确认布局，再把完整 HTML 贴进去。"
+            }
+          },
+          {
+            "heading": "Demo 2：CSS 渐变需要真实预览",
+            "paragraphs": [
+              "CSS gradient 很容易在文本里看不出问题，尤其是颜色太近、方向不对、透明度叠加后发灰。CSS Gradient Preview 会提取渐变并生成色块，适合检查 hero、按钮、社交图和截图背景。",
+              "如果你用 AI 生成视觉代码，最好不要只看 CSS 字符串，而是把背景直接渲染出来。"
+            ],
+            "code": {
+              "language": "css",
+              "content": "background:\n  radial-gradient(circle at 20% 20%, rgba(34,197,94,.55), transparent 30%),\n  radial-gradient(circle at 80% 10%, rgba(37,99,235,.55), transparent 32%),\n  linear-gradient(135deg, #f8fafc, #e0f2fe);"
+            }
+          },
+          {
+            "heading": "Demo 3：JSON Diff 比“肉眼看差异”可靠",
+            "paragraphs": [
+              "接口响应、配置文件和 package 依赖变更都适合先做 JSON diff。尤其是 AI 帮你改了一个 payload 后，新增字段、删除字段和数组变化很容易漏看。",
+              "JSON Diff Viewer 使用 --- 分隔前后两个 JSON，然后列出 added、removed、changed 路径。"
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"status\": \"draft\",\n  \"total\": 19.9\n}\n---\n{\n  \"status\": \"paid\",\n  \"total\": 39.8,\n  \"paidAt\": \"2026-06-17T08:00:00Z\"\n}"
+            }
+          },
+          {
+            "heading": "Demo 4：Base64 图片不是越方便越好",
+            "paragraphs": [
+              "Base64 图片常出现在 SVG、邮件模板、JSON 配置和 Open Graph 草稿里。它方便复制，但也会让文件变大、缓存变差、review 更困难。",
+              "Base64 Image Preview 可以确认图片是否真的能显示、MIME 类型是否合理、体积是否过大。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0i..."
+            }
+          },
+          {
+            "heading": "Demo 5：cURL 和 URL 参数也需要预览",
+            "paragraphs": [
+              "很多接口问题其实不在后端，而在请求命令、Header、query 参数或编码方式。cURL Command Parser 能把一条命令拆成 method、URL、headers 和 body；URL Query Parser 则适合检查 UTM、搜索参数和编码后的 redirect。",
+              "这类工具尤其适合发工单和写支持回复：你可以把原始命令和解析截图一起贴上，别人不用猜请求到底长什么样。"
+            ],
+            "code": {
+              "language": "bash",
+              "content": "curl -X POST https://api.example.com/orders?debug=true \\\n  -H \"Authorization: Bearer demo-token\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-raw '{\"sku\":\"A1\",\"qty\":2}'"
+            }
+          },
+          {
+            "heading": "Demo 6：视觉 CSS 也要有 review 截图",
+            "paragraphs": [
+              "阴影和颜色经常被当作“最后调一下”的细节，但它们会直接影响页面质感、可读性和分享截图质量。CSS Box Shadow Preview 可以把多层阴影放到卡片上看，Color Palette Preview 可以检查颜色 token 和相邻对比度。",
+              "如果 AI 生成了一套主题色或卡片样式，不要只复制 CSS。先把视觉效果渲染出来，再决定是否放进站点。"
+            ],
+            "code": {
+              "language": "css",
+              "content": "--color-primary: #2563eb;\n--color-accent: #22c55e;\n--color-ink: #0f172a;\n\n.card {\n  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);\n}"
+            }
+          },
+          {
+            "heading": "推荐发布前 checklist",
+            "paragraphs": [
+              "先用 HTML sandbox 看结构，再用 CSS gradient 看视觉背景，用 JSON diff 检查数据变化，最后用 Base64 image preview 检查嵌入图片。",
+              "如果这些内容来自 AI，建议把预览截图和源码一起放到 PR 或文档里。这样别人不仅能看到最终效果，也能复现生成过程。"
             ]
           }
         ]
