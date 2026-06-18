@@ -3509,7 +3509,7 @@
         "DiagramPreview"
       ],
       "h1": "Visor de archivos HAR",
-      "intro": "Pega visor de archivos har source and turn it into a reviewable vista previa. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Pega contenido para Visor de archivos HAR y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "Sin IA",
         "Vista local",
@@ -3579,7 +3579,7 @@
         "DiagramPreview"
       ],
       "h1": "Editor de vista SVG",
-      "intro": "Pega editor de vista svg source and turn it into a reviewable vista previa. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Pega contenido para Editor de vista SVG y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "Sin IA",
         "Vista local",
@@ -3649,7 +3649,7 @@
         "DiagramPreview"
       ],
       "h1": "Depurador Open Graph",
-      "intro": "Pega depurador open graph source and turn it into a reviewable vista previa. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Pega contenido para Depurador Open Graph y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "Sin IA",
         "Vista local",
@@ -3719,7 +3719,7 @@
         "DiagramPreview"
       ],
       "h1": "Vista de formulario JSON Schema",
-      "intro": "Pega vista de formulario json schema source and turn it into a reviewable vista previa. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Pega contenido para Vista de formulario JSON Schema y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "Sin IA",
         "Vista local",
@@ -3789,7 +3789,7 @@
         "DiagramPreview"
       ],
       "h1": "Probador JSONPath",
-      "intro": "Pega probador jsonpath source and turn it into a reviewable vista previa. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Pega contenido para Probador JSONPath y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "Sin IA",
         "Vista local",
@@ -3859,7 +3859,7 @@
         "DiagramPreview"
       ],
       "h1": "Probador de location Nginx",
-      "intro": "Pega probador de location nginx source and turn it into a reviewable vista previa. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Pega contenido para Probador de location Nginx y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "Sin IA",
         "Vista local",
@@ -3929,7 +3929,7 @@
         "DiagramPreview"
       ],
       "h1": "Probador de filtro jq",
-      "intro": "Paste probador de filtro jq source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Probador de filtro jq y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3999,7 +3999,7 @@
         "DiagramPreview"
       ],
       "h1": "Probador XPath",
-      "intro": "Paste probador xpath source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Probador XPath y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4069,7 +4069,7 @@
         "DiagramPreview"
       ],
       "h1": "Probador YAML Path",
-      "intro": "Paste probador yaml path source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Probador YAML Path y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4139,7 +4139,7 @@
         "DiagramPreview"
       ],
       "h1": "Visualizador TOML",
-      "intro": "Paste visualizador toml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Visualizador TOML y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4209,7 +4209,7 @@
         "DiagramPreview"
       ],
       "h1": "Comparador .env",
-      "intro": "Paste comparador .env source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Comparador .env y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4279,7 +4279,7 @@
         "DiagramPreview"
       ],
       "h1": "Probador robots.txt",
-      "intro": "Paste probador robots.txt source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Probador robots.txt y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4349,7 +4349,7 @@
         "DiagramPreview"
       ],
       "h1": "Visor Sitemap XML",
-      "intro": "Paste visor sitemap xml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Visor Sitemap XML y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4419,7 +4419,7 @@
         "DiagramPreview"
       ],
       "h1": "Parser de cabeceras HTTP",
-      "intro": "Paste parser de cabeceras http source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Pega contenido para Parser de cabeceras HTTP y genera una vista local revisable para depurar configuración, respuestas de API, archivos SEO y fragmentos generados con AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "Analizador de comandos cURL",
-      "intro": "Analizador de comandos cURL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Pega contenido para Analizador de comandos cURL y genera una vista local para decodificar, revisar y depurar la entrada.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4819,7 +4819,7 @@
         "DiagramPreview"
       ],
       "h1": "Analizador de query URL",
-      "intro": "Analizador de query URL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Pega contenido para Analizador de query URL y genera una vista local para decodificar, revisar y depurar la entrada.",
       "badges": [
         "No AI",
         "Local preview",

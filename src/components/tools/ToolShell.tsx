@@ -4,7 +4,6 @@ import {useEffect, useMemo, useState} from "react";
 import {CodeEditor} from "./CodeEditor";
 import {ExportToolbar} from "./ExportToolbar";
 import {PreviewPane} from "./PreviewPane";
-import {ToolSettings} from "./ToolSettings";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
 import {printPreview} from "@/lib/exporters/pdf";
 import {copyText, downloadText} from "@/lib/exporters/svg";
@@ -97,7 +96,7 @@ export function ToolShell({tool, copy}: ToolShellProps) {
 
     const timeout = window.setTimeout(async () => {
       try {
-        const nextState = await renderSource(tool.renderer, source, copy);
+        const nextState = await renderSource(tool.renderer, source, copy, tool.slug);
         if (!cancelled) {
           setRenderState(nextState);
           setStatus(copy.statusReady);
@@ -133,6 +132,7 @@ export function ToolShell({tool, copy}: ToolShellProps) {
   const canExportSvg = Boolean(renderState.svg);
   const canExportPng = Boolean(renderState.svg);
   const canDownloadFile = Boolean(renderState.artifact);
+  const capabilities = getRendererCapabilities(tool.renderer);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -157,6 +157,10 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             canExportSvg={canExportSvg}
             canExportPng={canExportPng}
             canDownloadFile={canDownloadFile}
+            showCopyHtml={capabilities.html}
+            showExportSvg={capabilities.svg}
+            showExportPng={capabilities.svg}
+            showPrint={capabilities.print}
             onCopyCode={() => void copyText(source)}
             onCopyHtml={() => void copyText(renderState.html ?? "")}
             onExportSvg={() => renderState.svg && downloadText(`${tool.slug}.svg`, renderState.svg, "image/svg+xml;charset=utf-8")}
@@ -183,13 +187,87 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             className="min-h-[560px] border-slate-300"
           />
         </div>
-        <ToolSettings labels={copy.settings} />
       </div>
     </section>
   );
 }
 
-async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: string, copy: ToolCopy): Promise<RenderState> {
+function getRendererCapabilities(renderer: ToolRuntimeConfig["renderer"]) {
+  const svgRenderers = new Set<ToolRuntimeConfig["renderer"]>([
+    "mermaid",
+    "graphviz",
+    "d2",
+    "mindmap",
+    "openapi",
+    "sql",
+    "docker-compose",
+    "package-json",
+    "regex",
+    "plantuml-to-drawio",
+    "mermaid-to-drawio",
+    "drawio-svg",
+    "terraform",
+    "github-actions",
+    "dockerfile",
+    "nginx",
+    "otel-trace",
+    "log-sequence",
+    "graphql",
+    "protobuf",
+    "asyncapi",
+    "dbml",
+    "prisma",
+    "cron",
+    "jwt",
+    "api-error-flow",
+    "kubernetes-topology",
+    "cicd-pipeline",
+    "postman",
+    "har",
+    "svg-preview",
+    "typescript",
+    "zod",
+    "cloudformation",
+    "c4"
+  ]);
+  const htmlRenderers = new Set<ToolRuntimeConfig["renderer"]>([
+    "markdown",
+    "har-timeline",
+    "open-graph",
+    "json-schema-form",
+    "jsonpath",
+    "nginx-location",
+    "jq-filter",
+    "xpath",
+    "yaml-path",
+    "toml",
+    "env-diff",
+    "robots-txt",
+    "sitemap-xml",
+    "http-headers",
+    "html-preview",
+    "css-gradient",
+    "json-diff",
+    "base64-image",
+    "curl-parser",
+    "url-query",
+    "css-shadow",
+    "color-palette"
+  ]);
+
+  return {
+    html: svgRenderers.has(renderer) || htmlRenderers.has(renderer),
+    svg: svgRenderers.has(renderer),
+    print: renderer !== "ai"
+  };
+}
+
+async function renderSource(
+  renderer: ToolRuntimeConfig["renderer"],
+  source: string,
+  copy: ToolCopy,
+  slug: ToolSlug
+): Promise<RenderState> {
   switch (renderer) {
     case "mermaid": {
       const {renderMermaid} = await import("@/lib/renderers/mermaid");
@@ -397,7 +475,7 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
     case "har-timeline": {
       const {renderHarTimeline} = await import("@/lib/renderers/growth-tools");
       const html = renderHarTimeline(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "svg-preview": {
       const {renderSvgPreview} = await import("@/lib/renderers/growth-tools");
@@ -407,102 +485,102 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
     case "open-graph": {
       const {renderOpenGraphPreview} = await import("@/lib/renderers/growth-tools");
       const html = renderOpenGraphPreview(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "json-schema-form": {
       const {renderJsonSchemaFormPreview} = await import("@/lib/renderers/growth-tools");
       const html = renderJsonSchemaFormPreview(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "jsonpath": {
       const {renderJsonPathTester} = await import("@/lib/renderers/growth-tools");
       const html = renderJsonPathTester(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "nginx-location": {
       const {renderNginxLocationTester} = await import("@/lib/renderers/growth-tools");
       const html = renderNginxLocationTester(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "jq-filter": {
       const {renderJqFilterTester} = await import("@/lib/renderers/growth-tools");
       const html = renderJqFilterTester(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "xpath": {
       const {renderXPathTester} = await import("@/lib/renderers/growth-tools");
       const html = renderXPathTester(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "yaml-path": {
       const {renderYamlPathTester} = await import("@/lib/renderers/growth-tools");
       const html = renderYamlPathTester(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "toml": {
       const {renderTomlVisualizer} = await import("@/lib/renderers/growth-tools");
       const html = renderTomlVisualizer(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "env-diff": {
       const {renderEnvDiffChecker} = await import("@/lib/renderers/growth-tools");
       const html = renderEnvDiffChecker(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "robots-txt": {
       const {renderRobotsTxtTester} = await import("@/lib/renderers/growth-tools");
       const html = renderRobotsTxtTester(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "sitemap-xml": {
       const {renderSitemapXmlViewer} = await import("@/lib/renderers/growth-tools");
       const html = renderSitemapXmlViewer(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "http-headers": {
       const {renderHttpHeaderParser} = await import("@/lib/renderers/growth-tools");
       const html = renderHttpHeaderParser(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "html-preview": {
       const {renderHtmlPreviewSandbox} = await import("@/lib/renderers/growth-tools");
       const html = renderHtmlPreviewSandbox(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "css-gradient": {
       const {renderCssGradientPreview} = await import("@/lib/renderers/growth-tools");
       const html = renderCssGradientPreview(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "json-diff": {
       const {renderJsonDiffViewer} = await import("@/lib/renderers/growth-tools");
       const html = renderJsonDiffViewer(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "base64-image": {
       const {renderBase64ImagePreview} = await import("@/lib/renderers/growth-tools");
       const html = renderBase64ImagePreview(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "curl-parser": {
       const {renderCurlCommandParser} = await import("@/lib/renderers/growth-tools");
       const html = renderCurlCommandParser(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "url-query": {
       const {renderUrlQueryParser} = await import("@/lib/renderers/growth-tools");
       const html = renderUrlQueryParser(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "css-shadow": {
       const {renderCssBoxShadowPreview} = await import("@/lib/renderers/growth-tools");
       const html = renderCssBoxShadowPreview(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "color-palette": {
       const {renderColorPalettePreview} = await import("@/lib/renderers/growth-tools");
       const html = renderColorPalettePreview(source);
-      return {html};
+      return withHtmlArtifact(slug, html);
     }
     case "typescript": {
       const {renderTypeScriptInterface} = await import("@/lib/renderers/growth-tools");
@@ -531,4 +609,15 @@ async function renderSource(renderer: ToolRuntimeConfig["renderer"], source: str
 
 function copyFileName(value: string) {
   return value.replace(/[^\w-]/g, "-");
+}
+
+function withHtmlArtifact(slug: ToolSlug, html: string): RenderState {
+  return {
+    html,
+    artifact: {
+      filename: `${slug}-preview.html`,
+      mime: "text/html;charset=utf-8",
+      content: `<!doctype html><html><head><meta charset="utf-8"><title>${slug} preview</title></head><body>${html}</body></html>`
+    }
+  };
 }

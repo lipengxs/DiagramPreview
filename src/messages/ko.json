@@ -3509,7 +3509,7 @@
         "DiagramPreview"
       ],
       "h1": "HAR 파일 뷰어",
-      "intro": "여기에 har 파일 뷰어 source and turn it into a reviewable 미리보기. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "HAR 파일 뷰어 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "AI 없음",
         "로컬 미리보기",
@@ -3579,7 +3579,7 @@
         "DiagramPreview"
       ],
       "h1": "SVG 코드 미리보기",
-      "intro": "여기에 svg 코드 미리보기 source and turn it into a reviewable 미리보기. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "SVG 코드 미리보기 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "AI 없음",
         "로컬 미리보기",
@@ -3649,7 +3649,7 @@
         "DiagramPreview"
       ],
       "h1": "Open Graph 미리보기 디버거",
-      "intro": "여기에 open graph 미리보기 디버거 source and turn it into a reviewable 미리보기. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Open Graph 미리보기 디버거 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "AI 없음",
         "로컬 미리보기",
@@ -3719,7 +3719,7 @@
         "DiagramPreview"
       ],
       "h1": "JSON Schema 폼 미리보기",
-      "intro": "여기에 json schema 폼 미리보기 source and turn it into a reviewable 미리보기. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "JSON Schema 폼 미리보기 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "AI 없음",
         "로컬 미리보기",
@@ -3789,7 +3789,7 @@
         "DiagramPreview"
       ],
       "h1": "JSONPath 테스터",
-      "intro": "여기에 jsonpath 테스터 source and turn it into a reviewable 미리보기. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "JSONPath 테스터 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "AI 없음",
         "로컬 미리보기",
@@ -3859,7 +3859,7 @@
         "DiagramPreview"
       ],
       "h1": "Nginx location 테스터",
-      "intro": "여기에 nginx location 테스터 source and turn it into a reviewable 미리보기. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Nginx location 테스터 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "AI 없음",
         "로컬 미리보기",
@@ -3929,7 +3929,7 @@
         "DiagramPreview"
       ],
       "h1": "jq 필터 테스터",
-      "intro": "Paste jq 필터 테스터 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "jq 필터 테스터 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3999,7 +3999,7 @@
         "DiagramPreview"
       ],
       "h1": "XPath 테스터",
-      "intro": "Paste xpath 테스터 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "XPath 테스터 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4069,7 +4069,7 @@
         "DiagramPreview"
       ],
       "h1": "YAML Path 테스터",
-      "intro": "Paste yaml path 테스터 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "YAML Path 테스터 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4139,7 +4139,7 @@
         "DiagramPreview"
       ],
       "h1": "TOML 시각화",
-      "intro": "Paste toml 시각화 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "TOML 시각화 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4209,7 +4209,7 @@
         "DiagramPreview"
       ],
       "h1": ".env 차이 검사기",
-      "intro": "Paste .env 차이 검사기 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": ".env 차이 검사기 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4279,7 +4279,7 @@
         "DiagramPreview"
       ],
       "h1": "robots.txt 테스터",
-      "intro": "Paste robots.txt 테스터 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "robots.txt 테스터 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4349,7 +4349,7 @@
         "DiagramPreview"
       ],
       "h1": "Sitemap XML 뷰어",
-      "intro": "Paste sitemap xml 뷰어 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Sitemap XML 뷰어 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4419,7 +4419,7 @@
         "DiagramPreview"
       ],
       "h1": "HTTP 헤더 파서",
-      "intro": "Paste http 헤더 파서 source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "HTTP 헤더 파서 내용을 붙여 넣고 설정, API 응답, SEO 파일, AI 생성 스니펫을 점검할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "cURL 명령 파서",
-      "intro": "cURL 명령 파서 turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "cURL 명령 파서 내용을 붙여 넣고 입력을 디코딩, 검토, 디버깅할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4819,7 +4819,7 @@
         "DiagramPreview"
       ],
       "h1": "URL 쿼리 파서",
-      "intro": "URL 쿼리 파서 turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "URL 쿼리 파서 내용을 붙여 넣고 입력을 디코딩, 검토, 디버깅할 수 있는 로컬 미리보기를 생성합니다.",
       "badges": [
         "No AI",
         "Local preview",

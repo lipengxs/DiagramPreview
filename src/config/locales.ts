@@ -15,7 +15,7 @@ export type Locale = (typeof locales)[number];
 
 export const defaultLocale: Locale = "en";
 
-export const indexableLocales: Locale[] = ["en"];
+export const indexableLocales: Locale[] = [...locales];
 
 export const localeNames: Record<Locale, string> = {
   en: "English",

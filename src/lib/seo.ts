@@ -14,13 +14,11 @@ export type SeoInput = {
 
 export function buildMetadata({locale, path, title, description, keywords = []}: SeoInput): Metadata {
   const isIndexableLocale = indexableLocales.includes(locale);
-  const canonicalPath = isIndexableLocale ? path : path.replace(`/${locale}`, `/${indexableLocales[0]}`);
+  const pathWithoutLocale = stripLocalePrefix(path);
+  const canonicalPath = isIndexableLocale ? path : `/${indexableLocales[0]}${pathWithoutLocale}`;
   const canonical = absoluteUrl(canonicalPath);
   const languageAlternates = Object.fromEntries(
-    indexableLocales.map((candidate) => [
-      candidate,
-      absoluteUrl(canonicalPath.replace(`/${indexableLocales[0]}`, `/${candidate}`))
-    ])
+    indexableLocales.map((candidate) => [candidate, absoluteUrl(`/${candidate}${pathWithoutLocale}`)])
   );
 
   return {
@@ -72,6 +70,13 @@ export function buildMetadata({locale, path, title, description, keywords = []}:
       ...(siteConfig.twitterHandle ? {creator: siteConfig.twitterHandle} : {})
     }
   };
+}
+
+function stripLocalePrefix(path: string) {
+  const matchedLocale = indexableLocales.find((candidate) => path === `/${candidate}` || path.startsWith(`/${candidate}/`));
+  if (!matchedLocale) return path.startsWith("/") ? path : `/${path}`;
+  const stripped = path.slice(matchedLocale.length + 1);
+  return stripped || "";
 }
 
 export function softwareApplicationJsonLd(input: {

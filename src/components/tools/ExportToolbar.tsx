@@ -16,6 +16,10 @@ type ExportToolbarProps = {
   canExportSvg: boolean;
   canExportPng: boolean;
   canCopyHtml: boolean;
+  showCopyHtml?: boolean;
+  showExportSvg?: boolean;
+  showExportPng?: boolean;
+  showPrint?: boolean;
   onCopyCode: () => void;
   onCopyHtml: () => void;
   onExportSvg: () => void;
@@ -31,6 +35,10 @@ export function ExportToolbar({
   canExportSvg,
   canExportPng,
   canCopyHtml,
+  showCopyHtml = true,
+  showExportSvg = true,
+  showExportPng = true,
+  showPrint = true,
   onCopyCode,
   onCopyHtml,
   onExportSvg,
@@ -46,28 +54,36 @@ export function ExportToolbar({
         <Copy className="h-4 w-4" />
         {actions.copyCode}
       </Button>
-      <Button onClick={onCopyHtml} disabled={!canCopyHtml}>
-        <FileDown className="h-4 w-4" />
-        {actions.copyHtml}
-      </Button>
-      <Button onClick={onExportSvg} disabled={!canExportSvg}>
-        <Download className="h-4 w-4" />
-        {actions.exportSvg}
-      </Button>
-      <Button onClick={onExportPng} disabled={!canExportPng}>
-        <ImageDown className="h-4 w-4" />
-        {actions.exportPng}
-      </Button>
+      {showCopyHtml ? (
+        <Button onClick={onCopyHtml} disabled={!canCopyHtml}>
+          <FileDown className="h-4 w-4" />
+          {actions.copyHtml}
+        </Button>
+      ) : null}
+      {showExportSvg ? (
+        <Button onClick={onExportSvg} disabled={!canExportSvg}>
+          <Download className="h-4 w-4" />
+          {actions.exportSvg}
+        </Button>
+      ) : null}
+      {showExportPng ? (
+        <Button onClick={onExportPng} disabled={!canExportPng}>
+          <ImageDown className="h-4 w-4" />
+          {actions.exportPng}
+        </Button>
+      ) : null}
       {actions.downloadFile && onDownloadFile ? (
         <Button onClick={onDownloadFile} disabled={!canDownloadFile}>
           <FileDown className="h-4 w-4" />
           {actions.downloadFile}
         </Button>
       ) : null}
-      <Button onClick={onPrint}>
-        <Printer className="h-4 w-4" />
-        {actions.exportPdf}
-      </Button>
+      {showPrint ? (
+        <Button onClick={onPrint}>
+          <Printer className="h-4 w-4" />
+          {actions.exportPdf}
+        </Button>
+      ) : null}
       <Button onClick={onClear}>
         <RotateCcw className="h-4 w-4" />
         {actions.clear}

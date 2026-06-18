@@ -3509,7 +3509,7 @@
         "DiagramPreview"
       ],
       "h1": "Visionneuse de fichier HAR",
-      "intro": "Collez visionneuse de fichier har source and turn it into a reviewable aperçu. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Collez du contenu pour Visionneuse de fichier HAR et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "Sans IA",
         "Aperçu local",
@@ -3579,7 +3579,7 @@
         "DiagramPreview"
       ],
       "h1": "Éditeur d’aperçu SVG",
-      "intro": "Collez éditeur d’aperçu svg source and turn it into a reviewable aperçu. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Collez du contenu pour Éditeur d’aperçu SVG et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "Sans IA",
         "Aperçu local",
@@ -3649,7 +3649,7 @@
         "DiagramPreview"
       ],
       "h1": "Débogueur Open Graph",
-      "intro": "Collez débogueur open graph source and turn it into a reviewable aperçu. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Collez du contenu pour Débogueur Open Graph et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "Sans IA",
         "Aperçu local",
@@ -3719,7 +3719,7 @@
         "DiagramPreview"
       ],
       "h1": "Aperçu formulaire JSON Schema",
-      "intro": "Collez aperçu formulaire json schema source and turn it into a reviewable aperçu. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Collez du contenu pour Aperçu formulaire JSON Schema et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "Sans IA",
         "Aperçu local",
@@ -3789,7 +3789,7 @@
         "DiagramPreview"
       ],
       "h1": "Testeur JSONPath",
-      "intro": "Collez testeur jsonpath source and turn it into a reviewable aperçu. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Collez du contenu pour Testeur JSONPath et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "Sans IA",
         "Aperçu local",
@@ -3859,7 +3859,7 @@
         "DiagramPreview"
       ],
       "h1": "Testeur location Nginx",
-      "intro": "Collez testeur location nginx source and turn it into a reviewable aperçu. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Collez du contenu pour Testeur location Nginx et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "Sans IA",
         "Aperçu local",
@@ -3929,7 +3929,7 @@
         "DiagramPreview"
       ],
       "h1": "Testeur de filtre jq",
-      "intro": "Paste testeur de filtre jq source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Testeur de filtre jq et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3999,7 +3999,7 @@
         "DiagramPreview"
       ],
       "h1": "Testeur XPath",
-      "intro": "Paste testeur xpath source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Testeur XPath et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4069,7 +4069,7 @@
         "DiagramPreview"
       ],
       "h1": "Testeur YAML Path",
-      "intro": "Paste testeur yaml path source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Testeur YAML Path et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4139,7 +4139,7 @@
         "DiagramPreview"
       ],
       "h1": "Visualiseur TOML",
-      "intro": "Paste visualiseur toml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Visualiseur TOML et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4209,7 +4209,7 @@
         "DiagramPreview"
       ],
       "h1": "Comparateur .env",
-      "intro": "Paste comparateur .env source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Comparateur .env et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4279,7 +4279,7 @@
         "DiagramPreview"
       ],
       "h1": "Testeur robots.txt",
-      "intro": "Paste testeur robots.txt source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Testeur robots.txt et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4349,7 +4349,7 @@
         "DiagramPreview"
       ],
       "h1": "Visionneuse Sitemap XML",
-      "intro": "Paste visionneuse sitemap xml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Visionneuse Sitemap XML et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4419,7 +4419,7 @@
         "DiagramPreview"
       ],
       "h1": "Analyseur d’en-têtes HTTP",
-      "intro": "Paste analyseur d’en-têtes http source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Collez du contenu pour Analyseur d’en-têtes HTTP et générez un aperçu local vérifiable pour déboguer configurations, réponses API, fichiers SEO et snippets générés par AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "Analyseur de commande cURL",
-      "intro": "Analyseur de commande cURL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Collez du contenu pour Analyseur de commande cURL et générez un aperçu local pour décoder, relire et déboguer l'entrée.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4819,7 +4819,7 @@
         "DiagramPreview"
       ],
       "h1": "Analyseur de requête URL",
-      "intro": "Analyseur de requête URL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Collez du contenu pour Analyseur de requête URL et générez un aperçu local pour décoder, relire et déboguer l'entrée.",
       "badges": [
         "No AI",
         "Local preview",

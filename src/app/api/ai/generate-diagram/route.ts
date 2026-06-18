@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error: "No AI provider could generate a diagram.",
-        providers: errors
+        providers: errors.map(summarizeProviderError)
       },
       {status: 503}
     );
@@ -70,7 +70,7 @@ export async function POST(request: Request) {
   return NextResponse.json({
     provider: result.provider,
     code: result.code,
-    fallbackErrors: errors
+    fallbackErrors: errors.map(summarizeProviderError)
   });
 }
 

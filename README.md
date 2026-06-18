@@ -55,7 +55,7 @@ Copy `.env.example` to `.env.local` and configure provider keys as needed:
 cp .env.example .env.local
 ```
 
-AI generation uses DeepSeek:
+AI generation uses DeepSeek, then returns a local template if the provider is unavailable or not configured:
 
 ```env
 DEEPSEEK_API_KEY=

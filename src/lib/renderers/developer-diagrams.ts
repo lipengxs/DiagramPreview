@@ -10,6 +10,7 @@ export async function renderTerraformArchitecture(source: string) {
   }));
   if (!resources.length) throw new Error("Add at least one Terraform resource block.");
   const lines = ["flowchart LR", ...resources.map((resource) => `  ${resource.id}["${label(resource.type)}\\n${label(resource.name)}"]`)];
+  const providers = Array.from(new Set(resources.map((resource) => resource.type.split("_")[0]))).sort();
   for (const resource of resources) {
     for (const target of resources) {
       if (resource.id !== target.id && source.includes(`${target.type}.${target.name}`)) {
@@ -17,6 +18,8 @@ export async function renderTerraformArchitecture(source: string) {
       }
     }
   }
+  lines.push(`  review["Review notes\\n${resources.length} resources\\n${providers.length ? `providers: ${label(providers.join(", "))}` : "provider unknown"}"]`);
+  resources.slice(0, 4).forEach((resource) => lines.push(`  review -.-> ${resource.id}`));
   return renderMermaid(lines.join("\n"));
 }
 
@@ -25,6 +28,7 @@ export async function renderGithubActionsWorkflow(source: string) {
   const jobs = workflow?.jobs || {};
   if (!Object.keys(jobs).length) throw new Error("GitHub Actions workflow must include jobs.");
   const lines = ["flowchart LR"];
+  const warnings = githubActionsWarnings(source, workflow);
   for (const [jobName, job] of Object.entries(jobs)) {
     lines.push(`  ${id(jobName)}["${label(jobName)}"]`);
     for (const need of normalizeList(job.needs)) lines.push(`  ${id(need)} --> ${id(jobName)}`);
@@ -33,6 +37,12 @@ export async function renderGithubActionsWorkflow(source: string) {
       lines.push(`  ${stepId}["${label(step.name || step.uses || step.run || `step ${index + 1}`)}"]`);
       lines.push(index === 0 ? `  ${id(jobName)} --> ${stepId}` : `  ${id(jobName)}_step_${index} --> ${stepId}`);
     }
+  }
+  if (warnings.length) {
+    lines.push(`  review["Review notes\\n${warnings.map(label).join("\\n")}"]`);
+    Object.keys(jobs)
+      .slice(0, 3)
+      .forEach((jobName) => lines.push(`  review -.-> ${id(jobName)}`));
   }
   return renderMermaid(lines.join("\n"));
 }
@@ -49,6 +59,11 @@ export async function renderDockerfile(source: string) {
     lines.push(`  step_${index + 1}["${label(instruction.slice(0, 80))}"]`);
     if (index > 0) lines.push(`  step_${index} --> step_${index + 1}`);
   });
+  const warnings = dockerfileWarnings(source);
+  if (warnings.length) {
+    lines.push(`  review["Review notes\\n${warnings.map(label).join("\\n")}"]`);
+    lines.push("  review -.-> step_1");
+  }
   return renderMermaid(lines.join("\n"));
 }
 
@@ -83,6 +98,9 @@ export async function renderNginxConfig(source: string) {
       lines.push(`  ${locationId} --> ${id(location.proxy)}["${label(location.proxy)}"]`);
     });
   }
+  const locationCount = servers.reduce((sum, server) => sum + server.locations.length, 0);
+  lines.push(`  review["Review notes\\n${upstreams.length} upstreams\\n${servers.length} server blocks\\n${locationCount} locations"]`);
+  servers.slice(0, 3).forEach((server) => lines.push(`  review -.-> ${id(server.name)}`));
   return renderMermaid(lines.join("\n"));
 }
 
@@ -138,6 +156,26 @@ function normalizeList(value: unknown) {
   if (Array.isArray(value)) return value.map(String);
   if (typeof value === "string") return [value];
   return [];
+}
+
+function githubActionsWarnings(source: string, workflow: unknown) {
+  const warnings: string[] = [];
+  const record = workflow && typeof workflow === "object" ? (workflow as Record<string, unknown>) : {};
+  if (!("permissions" in record)) warnings.push("permissions not declared");
+  if (/pull_request_target/.test(source)) warnings.push("review pull_request_target");
+  if (/secrets\./.test(source)) warnings.push("secrets referenced");
+  if (/(^|\n)\s*run:\s*(curl|wget).*\|\s*(sh|bash)/i.test(source)) warnings.push("curl pipe shell");
+  return warnings.slice(0, 4);
+}
+
+function dockerfileWarnings(source: string) {
+  const warnings: string[] = [];
+  if (/^FROM\s+\S+:latest\b/im.test(source) || /^FROM\s+[^:\s]+$/im.test(source)) warnings.push("base image not pinned");
+  if (!/^USER\s+\S+/im.test(source)) warnings.push("no USER instruction");
+  if (/^ADD\s+https?:\/\//im.test(source)) warnings.push("remote ADD");
+  if (/(curl|wget).*\|\s*(sh|bash)/i.test(source)) warnings.push("curl pipe shell");
+  if (/apt-get install/i.test(source) && !/rm\s+-rf\s+\/var\/lib\/apt\/lists/i.test(source)) warnings.push("apt cache not cleaned");
+  return warnings.slice(0, 5);
 }
 
 function id(value: string) {

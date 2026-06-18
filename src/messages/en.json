@@ -3485,7 +3485,7 @@
         "DiagramPreview"
       ],
       "h1": "HAR File Viewer",
-      "intro": "Paste har file viewer source and turn it into a reviewable preview. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Paste a HAR export and inspect request timing, status codes, hosts, MIME types, and slow calls in a readable waterfall preview.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3493,8 +3493,8 @@
         "Debugging"
       ],
       "inputLabel": "HAR JSON",
-      "outputLabel": "HAR waterfall preview",
-      "placeholder": "Paste HAR JSON here...",
+      "outputLabel": "Waterfall analysis",
+      "placeholder": "Paste a HAR JSON export here...",
       "emptyPreview": "Your HAR timeline will appear here.",
       "samples": {
         "checkout": {
@@ -3555,7 +3555,7 @@
         "DiagramPreview"
       ],
       "h1": "SVG Code Preview Editor",
-      "intro": "Paste svg code preview editor source and turn it into a reviewable preview. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Paste raw SVG or a data:image SVG URL, preview the rendered artwork safely, inspect the cleaned markup, and export the SVG.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3563,8 +3563,8 @@
         "Debugging"
       ],
       "inputLabel": "SVG source",
-      "outputLabel": "SVG preview",
-      "placeholder": "Paste raw SVG or data:image/svg+xml here...",
+      "outputLabel": "Sanitized SVG preview",
+      "placeholder": "Paste raw SVG markup or a data:image/svg+xml URL here...",
       "emptyPreview": "Your SVG preview will appear here.",
       "samples": {
         "icon": {
@@ -3625,7 +3625,7 @@
         "DiagramPreview"
       ],
       "h1": "Open Graph Preview Debugger",
-      "intro": "Paste open graph preview debugger source and turn it into a reviewable preview. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Paste Open Graph or Twitter Card meta tags and preview how a page title, description, image, and URL may appear in social shares.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3634,7 +3634,7 @@
       ],
       "inputLabel": "Meta tags or key-value lines",
       "outputLabel": "Social card preview",
-      "placeholder": "Paste HTML meta tags or og:title lines here...",
+      "placeholder": "Paste HTML meta tags, og:title lines, or Twitter card tags here...",
       "emptyPreview": "Your social preview will appear here.",
       "samples": {
         "article": {
@@ -3695,7 +3695,7 @@
         "DiagramPreview"
       ],
       "h1": "JSON Schema Form Preview",
-      "intro": "Paste json schema form preview source and turn it into a reviewable preview. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Paste JSON Schema and preview the form fields, required markers, enum selects, descriptions, and input types before frontend work starts.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3703,8 +3703,8 @@
         "Debugging"
       ],
       "inputLabel": "JSON Schema",
-      "outputLabel": "Form preview",
-      "placeholder": "Paste JSON Schema here...",
+      "outputLabel": "Generated form preview",
+      "placeholder": "Paste a JSON Schema object with properties here...",
       "emptyPreview": "Your generated form preview will appear here.",
       "samples": {
         "signup": {
@@ -3765,16 +3765,16 @@
         "DiagramPreview"
       ],
       "h1": "JSONPath Tester",
-      "intro": "Paste jsonpath tester source and turn it into a reviewable preview. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Paste a JSONPath expression and a JSON payload to check matched values, result shape, and copyable output for API response debugging.",
       "badges": [
         "No AI",
         "Local preview",
         "Export",
         "Debugging"
       ],
-      "inputLabel": "JSONPath expression and JSON",
-      "outputLabel": "Matched values",
-      "placeholder": "Paste JSONPath, then ---, then JSON...",
+      "inputLabel": "JSONPath and JSON payload",
+      "outputLabel": "Matched JSONPath results",
+      "placeholder": "First line: JSONPath expression. Add --- then paste JSON payload...",
       "emptyPreview": "Your JSONPath matches will appear here.",
       "samples": {
         "users": {
@@ -3835,7 +3835,7 @@
         "DiagramPreview"
       ],
       "h1": "Nginx Location Tester",
-      "intro": "Paste nginx location tester source and turn it into a reviewable preview. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Paste a target URI and Nginx location blocks to preview which rule wins, why it wins, and how exact, prefix, and regex matching behave.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3843,8 +3843,8 @@
         "Debugging"
       ],
       "inputLabel": "URI and Nginx config",
-      "outputLabel": "Matched location",
-      "placeholder": "Add URI: /path, then paste Nginx location blocks...",
+      "outputLabel": "Matched location result",
+      "placeholder": "Add URI: /path, then --- and Nginx location blocks...",
       "emptyPreview": "The matched location will appear here.",
       "samples": {
         "api": {
@@ -3905,16 +3905,16 @@
         "DiagramPreview"
       ],
       "h1": "jq Filter Tester",
-      "intro": "Paste jq filter tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste a jq-style filter and JSON payload to preview common filters such as keys, length, .items[].id, and map(.field) in the browser.",
       "badges": [
         "No AI",
         "Local preview",
         "Debugging",
         "Export"
       ],
-      "inputLabel": "jq filter and JSON",
-      "outputLabel": "Filtered JSON",
-      "placeholder": "Paste jq filter and JSON here...",
+      "inputLabel": "jq-style filter and JSON",
+      "outputLabel": "Filtered JSON result",
+      "placeholder": "First line: jq-style filter. Add --- then paste JSON payload...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "emails": {
@@ -3975,7 +3975,7 @@
         "DiagramPreview"
       ],
       "h1": "XPath Tester",
-      "intro": "Paste xpath tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste an XPath expression and XML or HTML to preview matched nodes, document outline, and selector behavior without leaving the browser.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3983,8 +3983,8 @@
         "Export"
       ],
       "inputLabel": "XPath and XML/HTML",
-      "outputLabel": "Matched nodes",
-      "placeholder": "Paste XPath and XML/HTML here...",
+      "outputLabel": "Matched XPath nodes",
+      "placeholder": "First line: XPath expression. Add --- then paste XML or HTML...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "rss": {
@@ -4045,16 +4045,16 @@
         "DiagramPreview"
       ],
       "h1": "YAML Path Tester",
-      "intro": "Paste yaml path tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste a YAML path and YAML document to verify config values, Kubernetes images, Helm settings, or CI variables quickly.",
       "badges": [
         "No AI",
         "Local preview",
         "Debugging",
         "Export"
       ],
-      "inputLabel": "YAML path and YAML",
+      "inputLabel": "YAML path and document",
       "outputLabel": "Matched YAML values",
-      "placeholder": "Paste YAML path and YAML here...",
+      "placeholder": "First line: YAML path. Add --- then paste YAML...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "kubernetes": {
@@ -4115,7 +4115,7 @@
         "DiagramPreview"
       ],
       "h1": "TOML Visualizer",
-      "intro": "Paste toml visualizer source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste TOML from pyproject, Cargo, or app config files and inspect sections, keys, and values in a compact table.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4185,7 +4185,7 @@
         "DiagramPreview"
       ],
       "h1": ".env Diff Checker",
-      "intro": "Paste .env diff checker source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste .env and .env.example content to find missing variables, empty runtime values, duplicate keys, and drift before deployment.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4194,7 +4194,7 @@
       ],
       "inputLabel": ".env and .env.example",
       "outputLabel": "Environment diff",
-      "placeholder": "Paste .env and .env.example here...",
+      "placeholder": "Paste .env, then --- and .env.example...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "missing": {
@@ -4255,7 +4255,7 @@
         "DiagramPreview"
       ],
       "h1": "robots.txt Tester",
-      "intro": "Paste robots.txt tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste a target URL and robots.txt rules to preview Allow and Disallow decisions, matched rule groups, and sitemap declarations.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4264,7 +4264,7 @@
       ],
       "inputLabel": "URL and robots.txt",
       "outputLabel": "Robots decision",
-      "placeholder": "Paste URL and robots.txt here...",
+      "placeholder": "Add URL: https://example.com/path, then --- and robots.txt...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "blog": {
@@ -4325,7 +4325,7 @@
         "DiagramPreview"
       ],
       "h1": "Sitemap XML Viewer",
-      "intro": "Paste sitemap xml viewer source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste sitemap XML to inspect URL counts, sitemap indexes, duplicate loc entries, lastmod values, and hreflang alternates.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4333,8 +4333,8 @@
         "Export"
       ],
       "inputLabel": "Sitemap XML",
-      "outputLabel": "Sitemap preview",
-      "placeholder": "Paste Sitemap XML here...",
+      "outputLabel": "Sitemap analysis",
+      "placeholder": "Paste sitemap XML or sitemap index XML here...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "basic": {
@@ -4395,7 +4395,7 @@
         "DiagramPreview"
       ],
       "h1": "HTTP Header Parser",
-      "intro": "Paste http header parser source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Paste HTTP response headers to review status, cache policy, CORS, content type, HSTS, CSP, and other security hints.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4404,7 +4404,7 @@
       ],
       "inputLabel": "HTTP response headers",
       "outputLabel": "Header analysis",
-      "placeholder": "Paste HTTP response headers here...",
+      "placeholder": "Paste HTTP status line and response headers here...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "security": {
@@ -4729,7 +4729,7 @@
         "DiagramPreview"
       ],
       "h1": "cURL Command Parser",
-      "intro": "cURL Command Parser turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Paste a cURL command to inspect method, URL, headers, query parameters, body payload, request warnings, and a generated fetch snippet.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4737,8 +4737,8 @@
         "Export"
       ],
       "inputLabel": "cURL command",
-      "outputLabel": "Request preview",
-      "placeholder": "Paste cURL command here...",
+      "outputLabel": "Parsed request preview",
+      "placeholder": "Paste a cURL command here...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "postJson": {
@@ -4795,7 +4795,7 @@
         "DiagramPreview"
       ],
       "h1": "URL Query Parser",
-      "intro": "URL Query Parser turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Paste a URL or query string to decode parameters, spot UTM fields, preserve duplicate keys, and rebuild a clean reviewable URL.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4803,8 +4803,8 @@
         "Export"
       ],
       "inputLabel": "URL or query string",
-      "outputLabel": "Query preview",
-      "placeholder": "Paste URL or query string here...",
+      "outputLabel": "Decoded query preview",
+      "placeholder": "Paste a full URL, path with query string, or ?key=value string here...",
       "emptyPreview": "Your preview will appear here.",
       "samples": {
         "utm": {

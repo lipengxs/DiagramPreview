@@ -8,6 +8,7 @@ import type {Locale} from "@/config/locales";
 import {getRelatedTools, getTool, type ToolSlug} from "@/config/tools";
 import {toolPath} from "@/lib/paths";
 import {buildMetadata, faqJsonLd, softwareApplicationJsonLd} from "@/lib/seo";
+import {getToolMaturityCopy} from "@/lib/tool-maturity";
 
 export type AiToolRouteProps = {
   params: Promise<{locale: Locale}>;
@@ -78,6 +79,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
     name: t(`tools.${related.slug}.name`),
     description: t(`tools.${related.slug}.shortDescription`)
   }));
+  const maturity = getToolMaturityCopy(locale, tool.renderer);
 
   const appJsonLd = softwareApplicationJsonLd({
     locale,
@@ -89,8 +91,14 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
 
   return (
     <>
-      <ToolHeader h1={t(`tools.${slug}.h1`)} intro={t(`tools.${slug}.intro`)} badges={t.raw(`tools.${slug}.badges`)} />
+      <ToolHeader
+        h1={t(`tools.${slug}.h1`)}
+        intro={t(`tools.${slug}.intro`)}
+        badges={t.raw(`tools.${slug}.badges`)}
+        maturityLabel={maturity.label}
+      />
       <AiDiagramWorkspace
+        locale={locale}
         slug={slug}
         mode={mode}
         outputLanguage={outputLanguages[slug] || "mermaid"}
@@ -115,6 +123,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
         }}
       />
       <ToolSeoSections
+        locale={locale}
         toolName={t(`tools.${slug}.name`)}
         toolDescription={t(`tools.${slug}.shortDescription`)}
         howTitle={t("common.seoSections.howToUse")}
@@ -127,6 +136,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
         faq={faq}
         seoBody={t.raw(`tools.${slug}.seoBody`)}
         sampleSummaries={summarizeToolSamples(samples)}
+        maturity={maturity}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(appJsonLd)}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(faqLd)}} />

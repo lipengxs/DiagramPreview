@@ -3509,7 +3509,7 @@
         "DiagramPreview"
       ],
       "h1": "Visualizador de arquivo HAR",
-      "intro": "Cole visualizador de arquivo har source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Cole conteúdo para Visualizador de arquivo HAR e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "Sem IA",
         "Prévia local",
@@ -3579,7 +3579,7 @@
         "DiagramPreview"
       ],
       "h1": "Editor de prévia SVG",
-      "intro": "Cole editor de prévia svg source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Cole conteúdo para Editor de prévia SVG e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "Sem IA",
         "Prévia local",
@@ -3649,7 +3649,7 @@
         "DiagramPreview"
       ],
       "h1": "Depurador Open Graph",
-      "intro": "Cole depurador open graph source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Cole conteúdo para Depurador Open Graph e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "Sem IA",
         "Prévia local",
@@ -3719,7 +3719,7 @@
         "DiagramPreview"
       ],
       "h1": "Prévia de formulário JSON Schema",
-      "intro": "Cole prévia de formulário json schema source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Cole conteúdo para Prévia de formulário JSON Schema e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "Sem IA",
         "Prévia local",
@@ -3789,7 +3789,7 @@
         "DiagramPreview"
       ],
       "h1": "Testador JSONPath",
-      "intro": "Cole testador jsonpath source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Cole conteúdo para Testador JSONPath e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "Sem IA",
         "Prévia local",
@@ -3859,7 +3859,7 @@
         "DiagramPreview"
       ],
       "h1": "Testador de location Nginx",
-      "intro": "Cole testador de location nginx source and turn it into a reviewable prévia. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Cole conteúdo para Testador de location Nginx e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "Sem IA",
         "Prévia local",
@@ -3929,7 +3929,7 @@
         "DiagramPreview"
       ],
       "h1": "Testador de filtro jq",
-      "intro": "Paste testador de filtro jq source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Testador de filtro jq e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3999,7 +3999,7 @@
         "DiagramPreview"
       ],
       "h1": "Testador XPath",
-      "intro": "Paste testador xpath source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Testador XPath e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4069,7 +4069,7 @@
         "DiagramPreview"
       ],
       "h1": "Testador YAML Path",
-      "intro": "Paste testador yaml path source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Testador YAML Path e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4139,7 +4139,7 @@
         "DiagramPreview"
       ],
       "h1": "Visualizador TOML",
-      "intro": "Paste visualizador toml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Visualizador TOML e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4209,7 +4209,7 @@
         "DiagramPreview"
       ],
       "h1": "Comparador .env",
-      "intro": "Paste comparador .env source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Comparador .env e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4279,7 +4279,7 @@
         "DiagramPreview"
       ],
       "h1": "Testador robots.txt",
-      "intro": "Paste testador robots.txt source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Testador robots.txt e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4349,7 +4349,7 @@
         "DiagramPreview"
       ],
       "h1": "Visualizador Sitemap XML",
-      "intro": "Paste visualizador sitemap xml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Visualizador Sitemap XML e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4419,7 +4419,7 @@
         "DiagramPreview"
       ],
       "h1": "Parser de headers HTTP",
-      "intro": "Paste parser de headers http source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Cole conteúdo para Parser de headers HTTP e gere uma prévia local revisável para depurar configurações, respostas de API, arquivos de SEO e snippets gerados por AI.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "Analisador de comando cURL",
-      "intro": "Analisador de comando cURL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Cole conteúdo para Analisador de comando cURL e gere uma prévia local para decodificar, revisar e depurar a entrada.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4819,7 +4819,7 @@
         "DiagramPreview"
       ],
       "h1": "Analisador de query URL",
-      "intro": "Analisador de query URL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Cole conteúdo para Analisador de query URL e gere uma prévia local para decodificar, revisar e depurar a entrada.",
       "badges": [
         "No AI",
         "Local preview",

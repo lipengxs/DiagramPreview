@@ -8,6 +8,7 @@ import {type Locale} from "@/config/locales";
 import {getRelatedTools, getTool, type ToolSlug} from "@/config/tools";
 import {buildMetadata, faqJsonLd, softwareApplicationJsonLd} from "@/lib/seo";
 import {toolPath} from "@/lib/paths";
+import {getToolMaturityCopy} from "@/lib/tool-maturity";
 
 export type ToolRouteProps = {
   params: Promise<{locale: Locale}>;
@@ -45,6 +46,7 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
     name: t(`tools.${related.slug}.name`),
     description: t(`tools.${related.slug}.shortDescription`)
   }));
+  const maturity = getToolMaturityCopy(locale, tool.renderer);
 
   const copy: ToolCopy = {
     inputLabel: t(`tools.${slug}.inputLabel`),
@@ -99,7 +101,12 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
 
   return (
     <>
-      <ToolHeader h1={t(`tools.${slug}.h1`)} intro={t(`tools.${slug}.intro`)} badges={t.raw(`tools.${slug}.badges`)} />
+      <ToolHeader
+        h1={t(`tools.${slug}.h1`)}
+        intro={t(`tools.${slug}.intro`)}
+        badges={t.raw(`tools.${slug}.badges`)}
+        maturityLabel={maturity.label}
+      />
       <ToolShell
         tool={{
           slug: tool.slug,
@@ -122,6 +129,8 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
         faq={faq}
         seoBody={t.raw(`tools.${slug}.seoBody`)}
         sampleSummaries={summarizeToolSamples(samples)}
+        locale={locale}
+        maturity={maturity}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(appJsonLd)}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(faqLd)}} />

@@ -8,6 +8,7 @@ import {copyText, downloadText} from "@/lib/exporters/svg";
 import {renderMermaid} from "@/lib/renderers/mermaid";
 
 type AiDiagramWorkspaceProps = {
+  locale: string;
   slug: string;
   mode:
     | "generate"
@@ -48,7 +49,8 @@ const grafanaDashboardTypes = ["prometheus", "loki", "node-exporter", "api-servi
 const prometheusRuleTypes = ["api-service", "infrastructure", "kubernetes", "database", "queue", "slo"];
 const observabilityPackTypes = ["api-service", "kubernetes", "worker", "database", "queue", "slo"];
 
-export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy, sampleKeys}: AiDiagramWorkspaceProps) {
+export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermaid", copy, sampleKeys}: AiDiagramWorkspaceProps) {
+  const statusCopy = getAiStatusCopy(locale);
   const firstSample = copy.samples[sampleKeys[0]];
   const availableDiagramTypes =
     outputLanguage === "plantuml"
@@ -70,6 +72,7 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
   const [svg, setSvg] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [provider, setProvider] = useState("");
+  const [fallbackErrors, setFallbackErrors] = useState<Array<{provider: string; status?: number; message: string}>>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -149,6 +152,7 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
     setLoading(true);
     setError("");
     setProvider("");
+    setFallbackErrors([]);
 
     try {
       const response = await fetch("/api/ai/generate-diagram", {
@@ -167,11 +171,13 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
       const data = parseGenerateResponse(responseText);
 
       if (!response.ok || !data.code) {
-        throw new Error(data.error || responseText || copy.error);
+        setFallbackErrors(data.fallbackErrors || data.providers || []);
+        throw new Error(formatAiError(data.error || responseText || copy.error, data.providers || [], statusCopy));
       }
 
       setGeneratedCode(data.code);
       setProvider(data.provider || "");
+      setFallbackErrors(data.fallbackErrors || []);
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : copy.error);
     } finally {
@@ -199,6 +205,7 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
                 setGeneratedCode(sample.code ?? "");
                 setDiagramType(sample.diagramType ?? availableDiagramTypes[0]);
                 setProvider("");
+                setFallbackErrors([]);
                 setError("");
               }}
             >
@@ -296,11 +303,12 @@ export function AiDiagramWorkspace({slug, mode, outputLanguage = "mermaid", copy
               <span className="text-sm font-semibold text-ink">{copy.previewLabel}</span>
               {provider ? (
                 <span className="rounded-md bg-blue-50 px-2 py-1 text-xs font-semibold text-primary">
-                  {copy.providerLabel}: {provider}
+                  {copy.providerLabel}: {providerLabel(provider, statusCopy)}
                 </span>
               ) : null}
             </div>
             <div className="min-h-0 flex-1 overflow-auto bg-gradient-to-b from-white to-surface p-4">
+              {fallbackErrors.length ? <FallbackNotice errors={fallbackErrors} copy={statusCopy} /> : null}
               {error ? (
                 <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700">{error}</div>
               ) : imageUrl ? (
@@ -339,10 +347,86 @@ function mimeFor(outputLanguage: NonNullable<AiDiagramWorkspaceProps["outputLang
 
 function parseGenerateResponse(value: string) {
   try {
-    return JSON.parse(value) as {code?: string; provider?: string; error?: string};
+    return JSON.parse(value) as {
+      code?: string;
+      provider?: string;
+      error?: string;
+      fallbackErrors?: Array<{provider: string; status?: number; message: string}>;
+      providers?: Array<{provider: string; status?: number; message: string}>;
+    };
   } catch {
     return {error: value};
   }
+}
+
+function FallbackNotice({
+  errors,
+  copy
+}: {
+  errors: Array<{provider: string; status?: number; message: string}>;
+  copy: ReturnType<typeof getAiStatusCopy>;
+}) {
+  return (
+    <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
+      <div className="font-semibold">{copy.fallbackTitle}</div>
+      <ul className="mt-2 grid gap-1">
+        {errors.map((item) => (
+          <li key={`${item.provider}-${item.status || "unknown"}`}>
+            <span className="font-semibold">{providerLabel(item.provider, copy)}</span>
+            {item.status ? ` · ${item.status}` : ""}: {summarizeAiProviderMessage(item.message, copy)}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function getAiStatusCopy(locale: string) {
+  if (locale.startsWith("zh")) {
+    return {
+      fallbackTitle: "已启用备用生成路径",
+      genericError: "AI 生成暂时不可用，请稍后重试，或检查服务端 API Key、额度和模型配置。",
+      missingKey: "未配置 API Key",
+      quota: "额度或限流问题",
+      auth: "认证失败",
+      deepseek: "DeepSeek",
+      local: "本地兜底"
+    };
+  }
+
+  return {
+    fallbackTitle: "Fallback generation path used",
+    genericError: "AI generation is temporarily unavailable. Try again later, or check server API keys, quota, and model settings.",
+    missingKey: "API key is not configured",
+    quota: "quota or rate limit issue",
+    auth: "authentication failed",
+    deepseek: "DeepSeek",
+    local: "local fallback"
+  };
+}
+
+function providerLabel(provider: string, copy: ReturnType<typeof getAiStatusCopy>) {
+  if (provider === "deepseek") return copy.deepseek;
+  if (provider === "local") return copy.local;
+  return provider;
+}
+
+function formatAiError(
+  error: string,
+  providers: Array<{provider: string; status?: number; message: string}>,
+  copy: ReturnType<typeof getAiStatusCopy>
+) {
+  if (!providers.length) return error || copy.genericError;
+  return `${copy.genericError} ${providers
+    .map((providerError) => `${providerLabel(providerError.provider, copy)}: ${summarizeAiProviderMessage(providerError.message, copy)}`)
+    .join(" / ")}`;
+}
+
+function summarizeAiProviderMessage(message: string, copy: ReturnType<typeof getAiStatusCopy>) {
+  if (/not configured|api key/i.test(message)) return copy.missingKey;
+  if (/quota|rate.?limit|429|resource_exhausted/i.test(message)) return copy.quota;
+  if (/unauthorized|forbidden|permission|401|403/i.test(message)) return copy.auth;
+  return message.replace(/\s+/g, " ").slice(0, 180);
 }
 
 function renderJsonSummary(source: string) {

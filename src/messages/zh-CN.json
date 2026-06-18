@@ -3485,16 +3485,16 @@
         "DiagramPreview"
       ],
       "h1": "HAR 文件瀑布流查看器",
-      "intro": "粘贴HAR 文件瀑布流查看器相关源码，立即生成可检查、可截图、可导出的预览。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "粘贴 HAR 导出文件，查看请求耗时、状态码、主机、MIME 类型和最慢请求，快速定位前端网络与 API 瓶颈。",
       "badges": [
         "无需 AI",
         "本地预览",
         "可导出",
         "调试友好"
       ],
-      "inputLabel": "HAR 文件瀑布流查看器输入",
-      "outputLabel": "HAR 文件瀑布流查看器结果",
-      "placeholder": "粘贴HAR 文件瀑布流查看器到这里...",
+      "inputLabel": "HAR JSON",
+      "outputLabel": "瀑布流分析",
+      "placeholder": "粘贴 HAR JSON 导出内容...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "checkout": {
@@ -3555,16 +3555,16 @@
         "DiagramPreview"
       ],
       "h1": "SVG 代码预览编辑器",
-      "intro": "粘贴SVG 代码预览编辑器相关源码，立即生成可检查、可截图、可导出的预览。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "粘贴原始 SVG 或 data:image SVG URL，安全预览渲染效果，检查清理后的源码，并导出 SVG。",
       "badges": [
         "无需 AI",
         "本地预览",
         "可导出",
         "调试友好"
       ],
-      "inputLabel": "SVG 代码预览编辑器输入",
-      "outputLabel": "SVG 代码预览编辑器结果",
-      "placeholder": "粘贴SVG 代码预览编辑器到这里...",
+      "inputLabel": "SVG 源码",
+      "outputLabel": "清理后的 SVG 预览",
+      "placeholder": "粘贴 SVG 标记或 data:image/svg+xml URL...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "icon": {
@@ -3625,16 +3625,16 @@
         "DiagramPreview"
       ],
       "h1": "Open Graph 预览调试器",
-      "intro": "粘贴Open Graph 预览调试器相关源码，立即生成可检查、可截图、可导出的预览。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "粘贴 Open Graph 或 Twitter Card 标签，预览标题、描述、图片和 URL 在社交分享卡片中的效果。",
       "badges": [
         "无需 AI",
         "本地预览",
         "可导出",
         "调试友好"
       ],
-      "inputLabel": "Open Graph 预览调试器输入",
-      "outputLabel": "Open Graph 预览调试器结果",
-      "placeholder": "粘贴Open Graph 预览调试器到这里...",
+      "inputLabel": "Meta 标签或键值行",
+      "outputLabel": "社交卡片预览",
+      "placeholder": "粘贴 HTML meta 标签、og:title 行或 Twitter Card 标签...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "article": {
@@ -3695,16 +3695,16 @@
         "DiagramPreview"
       ],
       "h1": "JSON Schema 表单预览",
-      "intro": "粘贴JSON Schema 表单预览相关源码，立即生成可检查、可截图、可导出的预览。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "粘贴 JSON Schema，在前端开发前预览表单字段、必填标记、枚举下拉、描述和输入类型。",
       "badges": [
         "无需 AI",
         "本地预览",
         "可导出",
         "调试友好"
       ],
-      "inputLabel": "JSON Schema 表单预览输入",
-      "outputLabel": "JSON Schema 表单预览结果",
-      "placeholder": "粘贴JSON Schema 表单预览到这里...",
+      "inputLabel": "JSON Schema",
+      "outputLabel": "表单预览",
+      "placeholder": "粘贴包含 properties 的 JSON Schema 对象...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "signup": {
@@ -3765,16 +3765,16 @@
         "DiagramPreview"
       ],
       "h1": "JSONPath 测试器",
-      "intro": "粘贴JSONPath 测试器相关源码，立即生成可检查、可截图、可导出的预览。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "粘贴 JSONPath 表达式和 JSON 响应，检查命中值、结果类型和可复制输出，适合 API 调试。",
       "badges": [
         "无需 AI",
         "本地预览",
         "可导出",
         "调试友好"
       ],
-      "inputLabel": "JSONPath 测试器输入",
-      "outputLabel": "JSONPath 测试器结果",
-      "placeholder": "粘贴JSONPath 测试器到这里...",
+      "inputLabel": "JSONPath 与 JSON 数据",
+      "outputLabel": "JSONPath 命中结果",
+      "placeholder": "第一行写 JSONPath，下面用 --- 分隔后粘贴 JSON...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "users": {
@@ -3835,16 +3835,16 @@
         "DiagramPreview"
       ],
       "h1": "Nginx Location 匹配测试器",
-      "intro": "粘贴Nginx Location 匹配测试器相关源码，立即生成可检查、可截图、可导出的预览。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "粘贴目标 URI 和 Nginx location 配置，预览哪条规则命中、为什么命中，以及精确、前缀、正则匹配的优先级。",
       "badges": [
         "无需 AI",
         "本地预览",
         "可导出",
         "调试友好"
       ],
-      "inputLabel": "Nginx Location 匹配测试器输入",
-      "outputLabel": "Nginx Location 匹配测试器结果",
-      "placeholder": "粘贴Nginx Location 匹配测试器到这里...",
+      "inputLabel": "URI 与 Nginx 配置",
+      "outputLabel": "Location 命中结果",
+      "placeholder": "先写 URI: /path，再用 --- 分隔并粘贴 location 配置...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "api": {
@@ -3905,16 +3905,16 @@
         "DiagramPreview"
       ],
       "h1": "jq 过滤器测试器",
-      "intro": "粘贴jq 过滤器测试器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴 jq 风格过滤器和 JSON 数据，在浏览器里预览 keys、length、.items[].id、map(.field) 等常见结果。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": "jq 过滤器测试器输入",
-      "outputLabel": "jq 过滤器测试器结果",
-      "placeholder": "粘贴jq 过滤器测试器内容到这里...",
+      "inputLabel": "jq 风格过滤器与 JSON",
+      "outputLabel": "过滤后的 JSON 结果",
+      "placeholder": "第一行写 jq 风格过滤器，下面用 --- 分隔后粘贴 JSON...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "emails": {
@@ -3975,16 +3975,16 @@
         "DiagramPreview"
       ],
       "h1": "XPath 测试器",
-      "intro": "粘贴XPath 测试器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴 XPath 表达式和 XML/HTML，预览命中节点、文档结构和选择器行为。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": "XPath 测试器输入",
-      "outputLabel": "XPath 测试器结果",
-      "placeholder": "粘贴XPath 测试器内容到这里...",
+      "inputLabel": "XPath 与 XML/HTML",
+      "outputLabel": "XPath 命中节点",
+      "placeholder": "第一行写 XPath，下面用 --- 分隔后粘贴 XML 或 HTML...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "rss": {
@@ -4045,16 +4045,16 @@
         "DiagramPreview"
       ],
       "h1": "YAML Path 测试器",
-      "intro": "粘贴YAML Path 测试器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴 YAML 路径和 YAML 文档，快速验证配置值、Kubernetes 镜像、Helm 设置或 CI 变量。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": "YAML Path 测试器输入",
-      "outputLabel": "YAML Path 测试器结果",
-      "placeholder": "粘贴YAML Path 测试器内容到这里...",
+      "inputLabel": "YAML 路径与文档",
+      "outputLabel": "YAML 命中值",
+      "placeholder": "第一行写 YAML 路径，下面用 --- 分隔后粘贴 YAML...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "kubernetes": {
@@ -4115,16 +4115,16 @@
         "DiagramPreview"
       ],
       "h1": "TOML 可视化预览",
-      "intro": "粘贴TOML 可视化预览相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴 pyproject、Cargo 或应用配置中的 TOML，用表格查看 section、key 和 value。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": "TOML 可视化预览输入",
-      "outputLabel": "TOML 可视化预览结果",
-      "placeholder": "粘贴TOML 可视化预览内容到这里...",
+      "inputLabel": "TOML 源码",
+      "outputLabel": "TOML 结构",
+      "placeholder": "粘贴 TOML 内容...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "pyproject": {
@@ -4185,16 +4185,16 @@
         "DiagramPreview"
       ],
       "h1": ".env 差异检查器",
-      "intro": "粘贴.env 差异检查器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴 .env 和 .env.example，对比缺失变量、空值、重复 key 和发布前的环境漂移。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": ".env 差异检查器输入",
-      "outputLabel": ".env 差异检查器结果",
-      "placeholder": "粘贴.env 差异检查器内容到这里...",
+      "inputLabel": ".env 与 .env.example",
+      "outputLabel": "环境变量差异",
+      "placeholder": "先粘贴 .env，再用 --- 分隔并粘贴 .env.example...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "missing": {
@@ -4255,16 +4255,16 @@
         "DiagramPreview"
       ],
       "h1": "robots.txt 测试器",
-      "intro": "粘贴robots.txt 测试器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴目标 URL 和 robots.txt 规则，预览 Allow/Disallow 决策、命中的规则组和 sitemap 声明。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": "robots.txt 测试器输入",
-      "outputLabel": "robots.txt 测试器结果",
-      "placeholder": "粘贴robots.txt 测试器内容到这里...",
+      "inputLabel": "URL 与 robots.txt",
+      "outputLabel": "Robots 判定",
+      "placeholder": "先写 URL: https://example.com/path，再用 --- 分隔并粘贴 robots.txt...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "blog": {
@@ -4325,16 +4325,16 @@
         "DiagramPreview"
       ],
       "h1": "Sitemap XML 查看器",
-      "intro": "粘贴Sitemap XML 查看器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴 sitemap XML，检查 URL 数量、sitemap index、重复 loc、lastmod 和 hreflang alternate。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": "Sitemap XML 查看器输入",
-      "outputLabel": "Sitemap XML 查看器结果",
-      "placeholder": "粘贴Sitemap XML 查看器内容到这里...",
+      "inputLabel": "Sitemap XML",
+      "outputLabel": "Sitemap 分析",
+      "placeholder": "粘贴 sitemap XML 或 sitemap index XML...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "basic": {
@@ -4395,16 +4395,16 @@
         "DiagramPreview"
       ],
       "h1": "HTTP 响应头解析器",
-      "intro": "粘贴HTTP 响应头解析器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "粘贴 HTTP 响应头，检查状态、缓存策略、CORS、Content-Type、HSTS、CSP 和安全提示。",
       "badges": [
         "无需 AI",
         "本地预览",
         "调试友好",
         "可导出"
       ],
-      "inputLabel": "HTTP 响应头解析器输入",
-      "outputLabel": "HTTP 响应头解析器结果",
-      "placeholder": "粘贴HTTP 响应头解析器内容到这里...",
+      "inputLabel": "HTTP 响应头",
+      "outputLabel": "响应头分析",
+      "placeholder": "粘贴 HTTP 状态行和响应头...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "security": {
@@ -4729,7 +4729,7 @@
         "DiagramPreview"
       ],
       "h1": "cURL 命令解析器",
-      "intro": "cURL 命令解析器 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "intro": "粘贴 cURL 命令，检查 method、URL、请求头、query 参数、body、风险提示，并生成可复制的 fetch 片段。",
       "badges": [
         "无 AI",
         "本地预览",
@@ -4737,8 +4737,8 @@
         "导出"
       ],
       "inputLabel": "cURL 命令",
-      "outputLabel": "请求预览",
-      "placeholder": "在这里粘贴 cURL 命令...",
+      "outputLabel": "请求解析预览",
+      "placeholder": "粘贴 cURL 命令...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "postJson": {
@@ -4795,16 +4795,16 @@
         "DiagramPreview"
       ],
       "h1": "URL 查询参数解析器",
-      "intro": "URL 查询参数解析器 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "intro": "粘贴 URL 或 query string，解码参数、识别 UTM 字段、保留重复 key，并重建可 review 的 URL。",
       "badges": [
         "无 AI",
         "本地预览",
         "调试",
         "导出"
       ],
-      "inputLabel": "URL 或查询字符串",
-      "outputLabel": "参数预览",
-      "placeholder": "在这里粘贴 URL 或查询字符串...",
+      "inputLabel": "URL 或 Query String",
+      "outputLabel": "Query 参数预览",
+      "placeholder": "粘贴完整 URL、带 query 的路径，或 ?key=value 字符串...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "utm": {

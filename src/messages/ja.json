@@ -3509,7 +3509,7 @@
         "DiagramPreview"
       ],
       "h1": "HAR ファイルビューア",
-      "intro": "ここに har ファイルビューア source and turn it into a reviewable プレビュー. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "HAR ファイルビューア の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "AI 不要",
         "ローカルプレビュー",
@@ -3579,7 +3579,7 @@
         "DiagramPreview"
       ],
       "h1": "SVG コードプレビュー",
-      "intro": "ここに svg コードプレビュー source and turn it into a reviewable プレビュー. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "SVG コードプレビュー の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "AI 不要",
         "ローカルプレビュー",
@@ -3649,7 +3649,7 @@
         "DiagramPreview"
       ],
       "h1": "Open Graph プレビューデバッガ",
-      "intro": "ここに open graph プレビューデバッガ source and turn it into a reviewable プレビュー. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Open Graph プレビューデバッガ の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "AI 不要",
         "ローカルプレビュー",
@@ -3719,7 +3719,7 @@
         "DiagramPreview"
       ],
       "h1": "JSON Schema フォームプレビュー",
-      "intro": "ここに json schema フォームプレビュー source and turn it into a reviewable プレビュー. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "JSON Schema フォームプレビュー の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "AI 不要",
         "ローカルプレビュー",
@@ -3789,7 +3789,7 @@
         "DiagramPreview"
       ],
       "h1": "JSONPath テスター",
-      "intro": "ここに jsonpath テスター source and turn it into a reviewable プレビュー. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "JSONPath テスター の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "AI 不要",
         "ローカルプレビュー",
@@ -3859,7 +3859,7 @@
         "DiagramPreview"
       ],
       "h1": "Nginx location テスター",
-      "intro": "ここに nginx location テスター source and turn it into a reviewable プレビュー. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Nginx location テスター の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "AI 不要",
         "ローカルプレビュー",
@@ -3929,7 +3929,7 @@
         "DiagramPreview"
       ],
       "h1": "jq フィルターテスター",
-      "intro": "Paste jq フィルターテスター source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "jq フィルターテスター の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -3999,7 +3999,7 @@
         "DiagramPreview"
       ],
       "h1": "XPath テスター",
-      "intro": "Paste xpath テスター source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "XPath テスター の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4069,7 +4069,7 @@
         "DiagramPreview"
       ],
       "h1": "YAML Path テスター",
-      "intro": "Paste yaml path テスター source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "YAML Path テスター の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4139,7 +4139,7 @@
         "DiagramPreview"
       ],
       "h1": "TOML ビジュアライザー",
-      "intro": "Paste toml ビジュアライザー source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "TOML ビジュアライザー の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4209,7 +4209,7 @@
         "DiagramPreview"
       ],
       "h1": ".env 差分チェッカー",
-      "intro": "Paste .env 差分チェッカー source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": ".env 差分チェッカー の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4279,7 +4279,7 @@
         "DiagramPreview"
       ],
       "h1": "robots.txt テスター",
-      "intro": "Paste robots.txt テスター source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "robots.txt テスター の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4349,7 +4349,7 @@
         "DiagramPreview"
       ],
       "h1": "Sitemap XML ビューア",
-      "intro": "Paste sitemap xml ビューア source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Sitemap XML ビューア の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4419,7 +4419,7 @@
         "DiagramPreview"
       ],
       "h1": "HTTP ヘッダーパーサー",
-      "intro": "Paste http ヘッダーパーサー source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "HTTP ヘッダーパーサー の内容を貼り付け、設定、API レスポンス、SEO ファイル、AI 生成スニペットを確認できるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "cURL コマンドパーサー",
-      "intro": "cURL コマンドパーサー turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "cURL コマンドパーサー の内容を貼り付け、入力をデコード、確認、デバッグできるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",
@@ -4819,7 +4819,7 @@
         "DiagramPreview"
       ],
       "h1": "URL クエリパーサー",
-      "intro": "URL クエリパーサー turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "URL クエリパーサー の内容を貼り付け、入力をデコード、確認、デバッグできるローカルプレビューを生成します。",
       "badges": [
         "No AI",
         "Local preview",

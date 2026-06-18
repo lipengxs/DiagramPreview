@@ -330,12 +330,21 @@ export function renderJsonPathTester(source: string) {
   const {expression, jsonText} = splitJsonPathSource(source);
   const data = JSON.parse(jsonText);
   const matches = evaluateJsonPath(data, expression);
+  const rows = jsonResultRows(matches);
   return previewHtml(`
     <div class="dp-preview">
-      ${metricCard("Expression", escapeHtml(expression))}
-      ${metricCard("Matches", String(matches.length))}
+      <div class="dp-grid">
+        ${metricCard("Expression", `<code>${escapeHtml(expression)}</code>`)}
+        ${metricCard("Matches", String(matches.length))}
+        ${metricCard("Result shape", escapeHtml(resultTypeLabel(matches)))}
+        ${metricCard("JSON size", formatBytes(jsonText.length))}
+      </div>
+      ${matches.length ? `<div class="dp-result"><span>First match</span><h2>${escapeHtml(summarizeValue(matches[0]))}</h2><p>Use the full JSON result below when you need to copy exact values into an assertion, test fixture, or API note.</p></div>` : `<div class="dp-result danger"><span>No match</span><h2>No values matched this JSONPath</h2><p>Check array wildcards, recursive selectors, and whether the payload shape matches the response you are debugging.</p></div>`}
       <h2>Matched values</h2>
       <pre class="dp-code">${escapeHtml(JSON.stringify(matches, null, 2))}</pre>
+      <h2>Match table</h2>
+      ${jsonResultTable(rows, "No values matched.")}
+      <p class="dp-note">Supported JSONPath covers common browser-debugging selectors: root paths, dot properties, bracket properties, numeric indexes, array wildcards, and recursive property lookup such as <code>$..id</code>.</p>
     </div>
   `);
 }
@@ -378,14 +387,24 @@ export function renderJqFilterTester(source: string) {
   const {expression, jsonText} = splitExpressionSource(source, ".");
   const data = JSON.parse(jsonText);
   const matches = evaluateJqLikeFilter(data, expression);
+  const rows = jsonResultRows(Array.isArray(matches) ? matches : [matches]);
   return previewHtml(`
     <div class="dp-preview">
       <div class="dp-grid">
         ${metricCard("Filter", `<code>${escapeHtml(expression)}</code>`)}
         ${metricCard("Result type", escapeHtml(Array.isArray(matches) ? "array" : typeof matches))}
+        ${metricCard("Items", String(Array.isArray(matches) ? matches.length : 1))}
+        ${metricCard("Input size", formatBytes(jsonText.length))}
+      </div>
+      <div class="dp-result">
+        <span>Debugging read</span>
+        <h2>${escapeHtml(summarizeValue(matches))}</h2>
+        <p>This browser preview implements a small jq-compatible subset for fast API payload checks, not the full jq runtime.</p>
       </div>
       <h2>Filtered result</h2>
       <pre class="dp-code">${escapeHtml(JSON.stringify(matches, null, 2))}</pre>
+      <h2>Result rows</h2>
+      ${jsonResultTable(rows, "The filter returned no rows.")}
       <p class="dp-note">This preview supports common jq-style filters such as <code>.</code>, <code>.users[].email</code>, <code>.orders[0].total</code>, <code>keys</code>, <code>length</code>, and <code>map(.field)</code>.</p>
     </div>
   `);
@@ -399,12 +418,16 @@ export function renderXPathTester(source: string) {
   if (parseError) throw new Error(parseError.textContent || "Invalid XML/HTML input.");
   const result = doc.evaluate(expression, doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
   const matches = Array.from({length: result.snapshotLength}, (_, index) => formatXPathNode(result.snapshotItem(index)));
+  const tags = summarizeMarkupTags(documentText);
   return previewHtml(`
     <div class="dp-preview">
       <div class="dp-grid">
         ${metricCard("XPath", `<code>${escapeHtml(expression)}</code>`)}
         ${metricCard("Matches", String(matches.length))}
+        ${metricCard("Tags", String(tags.length))}
+        ${metricCard("Document size", formatBytes(documentText.length))}
       </div>
+      ${matches.length ? `<div class="dp-result"><span>First node</span><h2>${escapeHtml(summarizeValue(matches[0]))}</h2><p>Matched nodes are flattened for review so long XML and HTML fragments stay readable.</p></div>` : `<div class="dp-result danger"><span>No match</span><h2>No nodes matched this XPath</h2><p>Check namespaces, document mode, and whether the selector points at text nodes or elements.</p></div>`}
       <h2>Matched nodes</h2>
       <table class="dp-table">
         <thead><tr><th>#</th><th>Node</th></tr></thead>
@@ -412,6 +435,8 @@ export function renderXPathTester(source: string) {
           ${matches.map((value, index) => `<tr><td>${index + 1}</td><td><code>${escapeHtml(value)}</code></td></tr>`).join("") || `<tr><td colspan="2">No nodes matched.</td></tr>`}
         </tbody>
       </table>
+      <h2>Document outline</h2>
+      <div class="dp-token-row">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("") || "<span>No element tags detected</span>"}</div>
     </div>
   `);
 }
@@ -420,14 +445,20 @@ export function renderYamlPathTester(source: string) {
   const {expression, documentText} = splitMarkupExpressionSource(source, "spec.template.spec.containers[0].image");
   const data = yaml.load(documentText);
   const matches = evaluatePathExpression(data, expression);
+  const rows = jsonResultRows(matches);
   return previewHtml(`
     <div class="dp-preview">
       <div class="dp-grid">
         ${metricCard("YAML path", `<code>${escapeHtml(expression)}</code>`)}
         ${metricCard("Matches", String(matches.length))}
+        ${metricCard("Result shape", escapeHtml(resultTypeLabel(matches)))}
+        ${metricCard("YAML size", formatBytes(documentText.length))}
       </div>
+      ${matches.length ? `<div class="dp-result"><span>First value</span><h2>${escapeHtml(summarizeValue(matches[0]))}</h2><p>Use the path result to verify Kubernetes images, Helm values, config flags, or CI variables before shipping a change.</p></div>` : `<div class="dp-result danger"><span>No match</span><h2>No values matched this YAML path</h2><p>Check nesting, array indexes, and whether your YAML parser loaded the expected document.</p></div>`}
       <h2>Matched values</h2>
       <pre class="dp-code">${escapeHtml(JSON.stringify(matches, null, 2))}</pre>
+      <h2>Result rows</h2>
+      ${jsonResultTable(rows, "No values matched.")}
     </div>
   `);
 }
@@ -676,6 +707,8 @@ export function renderBase64ImagePreview(source: string) {
 
 export function renderCurlCommandParser(source: string) {
   const parsed = parseCurlCommand(source);
+  const fetchSnippet = buildFetchSnippet(parsed);
+  const headerWarnings = analyzeCurlRequest(parsed);
   return previewHtml(`
     <div class="dp-preview">
       <div class="dp-grid">
@@ -689,11 +722,14 @@ export function renderCurlCommandParser(source: string) {
         <h2>${escapeHtml(parsed.url || "No URL found")}</h2>
         <p>${escapeHtml(parsed.method)} request parsed from cURL command.</p>
       </div>
+      ${headerWarnings.length ? `<h2>Request notes</h2><ul class="dp-list">${headerWarnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}
       <h2>Headers</h2>
       ${keyValueTable(parsed.headers, "No headers found.")}
       <h2>Query parameters</h2>
       ${keyValueTable(parsed.query, "No query parameters found.")}
       ${parsed.body ? `<h2>Request body</h2><pre class="dp-code">${escapeHtml(prettyBody(parsed.body))}</pre>` : ""}
+      <h2>Fetch snippet</h2>
+      <pre class="dp-code">${escapeHtml(fetchSnippet)}</pre>
     </div>
   `);
 }
@@ -701,22 +737,28 @@ export function renderCurlCommandParser(source: string) {
 export function renderUrlQueryParser(source: string) {
   const parsed = parseUrlInput(source);
   const utm = parsed.params.filter(([key]) => key.toLowerCase().startsWith("utm_"));
+  const duplicates = duplicateQueryKeys(parsed.params);
+  const rebuilt = rebuildUrl(parsed.base, parsed.params, parsed.hash);
   return previewHtml(`
     <div class="dp-preview">
       <div class="dp-grid">
         ${metricCard("Params", String(parsed.params.length))}
         ${metricCard("UTM params", String(utm.length))}
         ${metricCard("Host", escapeHtml(parsed.host || "-"))}
-        ${metricCard("Path", escapeHtml(parsed.path || "-"))}
+        ${metricCard("Duplicate keys", String(duplicates.length))}
       </div>
       <div class="dp-result">
         <span>Decoded URL</span>
         <h2>${escapeHtml(parsed.base)}</h2>
-        <p>${escapeHtml(parsed.hash ? `Hash: ${parsed.hash}` : "No hash fragment detected.")}</p>
+        <p>${escapeHtml(parsed.hash ? `Hash: ${parsed.hash}` : `Path: ${parsed.path || "/"}`)}</p>
       </div>
       <h2>Query parameters</h2>
       ${keyValueTable(parsed.params, "No query parameters found.")}
+      ${duplicates.length ? `<h2>Duplicate keys</h2><div class="dp-token-row">${duplicates.map((key) => `<span>${escapeHtml(key)}</span>`).join("")}</div>` : ""}
       ${utm.length ? `<h2>Campaign fields</h2>${keyValueTable(utm, "No UTM fields found.")}` : ""}
+      <h2>Rebuilt URL</h2>
+      <pre class="dp-code">${escapeHtml(rebuilt)}</pre>
+      <p class="dp-note">This preview decodes query parameters for review, but keeps duplicate keys intact because analytics, filters, and backend frameworks may interpret repeated keys differently.</p>
     </div>
   `);
 }
@@ -910,6 +952,8 @@ function previewHtml(body: string) {
       .dp-required{margin-left:6px;color:#dc2626}
       .dp-note{border:1px solid #dbeafe;border-radius:8px;background:#eff6ff;padding:12px;color:#1e3a8a}
       .dp-list{display:grid;gap:8px;margin:0;padding-left:20px;color:#475569}
+      .dp-token-row{display:flex;flex-wrap:wrap;gap:8px}
+      .dp-token-row span{border:1px solid #cbd5e1;border-radius:6px;background:#fff;padding:6px 9px;font-size:12px;font-weight:700;color:#475569}
       .dp-browser{overflow:hidden;border:1px solid #cbd5e1;border-radius:8px;background:#fff}
       .dp-browser-bar{display:flex;align-items:center;gap:7px;border-bottom:1px solid #e2e8f0;background:#f8fafc;padding:10px}
       .dp-browser-bar span{height:10px;width:10px;border-radius:999px;background:#ef4444}
@@ -941,6 +985,39 @@ function previewHtml(body: string) {
 
 function metricCard(labelText: string, value: string) {
   return `<div class="dp-card"><span>${escapeHtml(labelText)}</span><strong>${value}</strong></div>`;
+}
+
+function jsonResultRows(values: unknown[]) {
+  return values.slice(0, 80).map((value, index) => ({
+    index: index + 1,
+    type: resultTypeLabel(value),
+    preview: summarizeValue(value),
+    value
+  }));
+}
+
+function jsonResultTable(rows: Array<{index: number; type: string; preview: string; value: unknown}>, empty: string) {
+  return `
+    <table class="dp-table">
+      <thead><tr><th>#</th><th>Type</th><th>Preview</th></tr></thead>
+      <tbody>
+        ${rows.map((row) => `<tr><td>${row.index}</td><td>${escapeHtml(row.type)}</td><td><code>${escapeHtml(row.preview)}</code></td></tr>`).join("") || `<tr><td colspan="3">${escapeHtml(empty)}</td></tr>`}
+      </tbody>
+    </table>
+  `;
+}
+
+function resultTypeLabel(value: unknown): string {
+  if (Array.isArray(value)) return `array(${value.length})`;
+  if (value === null) return "null";
+  if (value && typeof value === "object") return `object(${Object.keys(value as Record<string, unknown>).length})`;
+  return typeof value;
+}
+
+function summarizeValue(value: unknown) {
+  const text = typeof value === "string" ? value : JSON.stringify(value);
+  if (!text) return String(value);
+  return text.length > 140 ? `${text.slice(0, 137)}...` : text;
 }
 
 function decodeSvgSource(source: string) {
@@ -1143,6 +1220,18 @@ function formatXPathNode(node: Node | null) {
   if (node.nodeType === Node.TEXT_NODE) return node.textContent?.trim() || "";
   const element = node as Element;
   return element.outerHTML ? element.outerHTML.replace(/\s+/g, " ").slice(0, 300) : node.textContent?.trim() || "";
+}
+
+function summarizeMarkupTags(source: string) {
+  const counts = new Map<string, number>();
+  for (const match of source.matchAll(/<([a-z][\w:-]*)\b/gi)) {
+    const tag = match[1].toLowerCase();
+    counts.set(tag, (counts.get(tag) || 0) + 1);
+  }
+  return Array.from(counts.entries())
+    .sort((left, right) => right[1] - left[1])
+    .slice(0, 16)
+    .map(([tag, count]) => `${tag} x${count}`);
 }
 
 function evaluatePathExpression(data: unknown, expression: string) {
@@ -1474,6 +1563,25 @@ function prettyBody(body: string) {
   }
 }
 
+function buildFetchSnippet(parsed: {method: string; url: string; headers: Array<[string, string]>; body: string}) {
+  const init: Record<string, unknown> = {method: parsed.method};
+  if (parsed.headers.length) init.headers = Object.fromEntries(parsed.headers);
+  if (parsed.body) init.body = prettyBody(parsed.body);
+  return `const response = await fetch(${JSON.stringify(parsed.url)}, ${JSON.stringify(init, null, 2)});\nconst data = await response.text();`;
+}
+
+function analyzeCurlRequest(parsed: {method: string; headers: Array<[string, string]>; body: string; url: string}) {
+  const warnings: string[] = [];
+  const headerMap = new Map(parsed.headers.map(([key, value]) => [key.toLowerCase(), value]));
+  if (headerMap.has("authorization") || /[?&](?:token|api_key|apikey|access_token)=/i.test(parsed.url)) {
+    warnings.push("The command appears to contain credentials. Remove or mask tokens before sharing screenshots or exported HTML.");
+  }
+  if (parsed.body && !headerMap.has("content-type")) warnings.push("A request body was found without a Content-Type header.");
+  if (parsed.method === "GET" && parsed.body) warnings.push("GET request includes a body. Some clients and servers ignore GET bodies.");
+  if (parsed.url.startsWith("http://")) warnings.push("The URL uses plain HTTP. Verify whether HTTPS is required before production use.");
+  return warnings;
+}
+
 function parseUrlInput(source: string) {
   const trimmed = source.trim();
   if (!trimmed) throw new Error("Paste a full URL or query string.");
@@ -1486,6 +1594,21 @@ function parseUrlInput(source: string) {
     hash: parsed.hash,
     params: Array.from(parsed.searchParams.entries())
   };
+}
+
+function duplicateQueryKeys(params: Array<[string, string]>) {
+  const seen = new Set<string>();
+  const duplicates = new Set<string>();
+  params.forEach(([key]) => {
+    if (seen.has(key)) duplicates.add(key);
+    seen.add(key);
+  });
+  return Array.from(duplicates);
+}
+
+function rebuildUrl(base: string, params: Array<[string, string]>, hash: string) {
+  const query = params.map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`).join("&");
+  return `${base}${query ? `?${query}` : ""}${hash}`;
 }
 
 function keyValueTable(rows: Array<[string, string]>, empty: string) {

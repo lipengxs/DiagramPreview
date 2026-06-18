@@ -3509,7 +3509,7 @@
         "DiagramPreview"
       ],
       "h1": "Просмотр HAR файла",
-      "intro": "Вставьте просмотр har файла source and turn it into a reviewable предпросмотр. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Вставьте данные для Просмотр HAR файла, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "Без ИИ",
         "Локальный предпросмотр",
@@ -3579,7 +3579,7 @@
         "DiagramPreview"
       ],
       "h1": "Редактор предпросмотра SVG",
-      "intro": "Вставьте редактор предпросмотра svg source and turn it into a reviewable предпросмотр. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Вставьте данные для Редактор предпросмотра SVG, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "Без ИИ",
         "Локальный предпросмотр",
@@ -3649,7 +3649,7 @@
         "DiagramPreview"
       ],
       "h1": "Отладчик Open Graph",
-      "intro": "Вставьте отладчик open graph source and turn it into a reviewable предпросмотр. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Вставьте данные для Отладчик Open Graph, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "Без ИИ",
         "Локальный предпросмотр",
@@ -3719,7 +3719,7 @@
         "DiagramPreview"
       ],
       "h1": "Предпросмотр формы JSON Schema",
-      "intro": "Вставьте предпросмотр формы json schema source and turn it into a reviewable предпросмотр. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Вставьте данные для Предпросмотр формы JSON Schema, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "Без ИИ",
         "Локальный предпросмотр",
@@ -3789,7 +3789,7 @@
         "DiagramPreview"
       ],
       "h1": "Тестер JSONPath",
-      "intro": "Вставьте тестер jsonpath source and turn it into a reviewable предпросмотр. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Вставьте данные для Тестер JSONPath, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "Без ИИ",
         "Локальный предпросмотр",
@@ -3859,7 +3859,7 @@
         "DiagramPreview"
       ],
       "h1": "Тестер location Nginx",
-      "intro": "Вставьте тестер location nginx source and turn it into a reviewable предпросмотр. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Вставьте данные для Тестер location Nginx, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "Без ИИ",
         "Локальный предпросмотр",
@@ -3929,7 +3929,7 @@
         "DiagramPreview"
       ],
       "h1": "Тестер фильтра jq",
-      "intro": "Paste тестер фильтра jq source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Тестер фильтра jq, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3999,7 +3999,7 @@
         "DiagramPreview"
       ],
       "h1": "Тестер XPath",
-      "intro": "Paste тестер xpath source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Тестер XPath, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4069,7 +4069,7 @@
         "DiagramPreview"
       ],
       "h1": "Тестер YAML Path",
-      "intro": "Paste тестер yaml path source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Тестер YAML Path, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4139,7 +4139,7 @@
         "DiagramPreview"
       ],
       "h1": "Визуализатор TOML",
-      "intro": "Paste визуализатор toml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Визуализатор TOML, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4209,7 +4209,7 @@
         "DiagramPreview"
       ],
       "h1": "Проверка diff .env",
-      "intro": "Paste проверка diff .env source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Проверка diff .env, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4279,7 +4279,7 @@
         "DiagramPreview"
       ],
       "h1": "Тестер robots.txt",
-      "intro": "Paste тестер robots.txt source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Тестер robots.txt, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4349,7 +4349,7 @@
         "DiagramPreview"
       ],
       "h1": "Просмотр Sitemap XML",
-      "intro": "Paste просмотр sitemap xml source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Просмотр Sitemap XML, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4419,7 +4419,7 @@
         "DiagramPreview"
       ],
       "h1": "Парсер HTTP-заголовков",
-      "intro": "Paste парсер http-заголовков source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Вставьте данные для Парсер HTTP-заголовков, чтобы получить локальный предпросмотр для отладки конфигураций, API-ответов, SEO-файлов и AI-сниппетов.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "Парсер команды cURL",
-      "intro": "Парсер команды cURL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Вставьте данные для Парсер команды cURL, чтобы локально декодировать, проверить и отладить ввод.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4819,7 +4819,7 @@
         "DiagramPreview"
       ],
       "h1": "Парсер параметров URL",
-      "intro": "Парсер параметров URL turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Вставьте данные для Парсер параметров URL, чтобы локально декодировать, проверить и отладить ввод.",
       "badges": [
         "No AI",
         "Local preview",

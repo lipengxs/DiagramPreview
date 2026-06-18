@@ -3509,7 +3509,7 @@
         "DiagramPreview"
       ],
       "h1": "HAR-Datei-Viewer",
-      "intro": "Füge har-datei-viewer source and turn it into a reviewable Vorschau. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Füge Inhalte für HAR-Datei-Viewer ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "Keine KI",
         "Lokale Vorschau",
@@ -3579,7 +3579,7 @@
         "DiagramPreview"
       ],
       "h1": "SVG-Code-Vorschau",
-      "intro": "Füge svg-code-vorschau source and turn it into a reviewable Vorschau. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Füge Inhalte für SVG-Code-Vorschau ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "Keine KI",
         "Lokale Vorschau",
@@ -3649,7 +3649,7 @@
         "DiagramPreview"
       ],
       "h1": "Open-Graph-Debugger",
-      "intro": "Füge open-graph-debugger source and turn it into a reviewable Vorschau. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Füge Inhalte für Open-Graph-Debugger ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "Keine KI",
         "Lokale Vorschau",
@@ -3719,7 +3719,7 @@
         "DiagramPreview"
       ],
       "h1": "JSON-Schema-Formularvorschau",
-      "intro": "Füge json-schema-formularvorschau source and turn it into a reviewable Vorschau. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Füge Inhalte für JSON-Schema-Formularvorschau ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "Keine KI",
         "Lokale Vorschau",
@@ -3789,7 +3789,7 @@
         "DiagramPreview"
       ],
       "h1": "JSONPath-Tester",
-      "intro": "Füge jsonpath-tester source and turn it into a reviewable Vorschau. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Füge Inhalte für JSONPath-Tester ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "Keine KI",
         "Lokale Vorschau",
@@ -3859,7 +3859,7 @@
         "DiagramPreview"
       ],
       "h1": "Nginx-Location-Tester",
-      "intro": "Füge nginx-location-tester source and turn it into a reviewable Vorschau. It is useful for AI-generated snippets, API debugging material, and technical documentation checks.",
+      "intro": "Füge Inhalte für Nginx-Location-Tester ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "Keine KI",
         "Lokale Vorschau",
@@ -3929,7 +3929,7 @@
         "DiagramPreview"
       ],
       "h1": "jq-Filter-Tester",
-      "intro": "Paste jq-filter-tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für jq-Filter-Tester ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -3999,7 +3999,7 @@
         "DiagramPreview"
       ],
       "h1": "XPath-Tester",
-      "intro": "Paste xpath-tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für XPath-Tester ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4069,7 +4069,7 @@
         "DiagramPreview"
       ],
       "h1": "YAML-Path-Tester",
-      "intro": "Paste yaml-path-tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für YAML-Path-Tester ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4139,7 +4139,7 @@
         "DiagramPreview"
       ],
       "h1": "TOML-Visualizer",
-      "intro": "Paste toml-visualizer source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für TOML-Visualizer ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4209,7 +4209,7 @@
         "DiagramPreview"
       ],
       "h1": ".env-Diff-Checker",
-      "intro": "Paste .env-diff-checker source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für .env-Diff-Checker ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4279,7 +4279,7 @@
         "DiagramPreview"
       ],
       "h1": "robots.txt-Tester",
-      "intro": "Paste robots.txt-tester source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für robots.txt-Tester ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4349,7 +4349,7 @@
         "DiagramPreview"
       ],
       "h1": "Sitemap-XML-Viewer",
-      "intro": "Paste sitemap-xml-viewer source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für Sitemap-XML-Viewer ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4419,7 +4419,7 @@
         "DiagramPreview"
       ],
       "h1": "HTTP-Header-Parser",
-      "intro": "Paste http-header-parser source and generate a local preview for debugging API responses, configuration files, SEO technical files, and AI-generated snippets.",
+      "intro": "Füge Inhalte für HTTP-Header-Parser ein und erzeuge eine lokale, prüfbare Vorschau für Konfigurationen, API-Antworten, SEO-Dateien und AI-generierte Snippets.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "cURL-Befehl-Parser",
-      "intro": "cURL-Befehl-Parser turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Füge Inhalte für cURL-Befehl-Parser ein und erzeuge eine lokale Vorschau zum Dekodieren, Prüfen und Debuggen.",
       "badges": [
         "No AI",
         "Local preview",
@@ -4819,7 +4819,7 @@
         "DiagramPreview"
       ],
       "h1": "URL-Query-Parser",
-      "intro": "URL-Query-Parser turns request, URL, CSS, or color snippets into a reviewable preview before publishing.",
+      "intro": "Füge Inhalte für URL-Query-Parser ein und erzeuge eine lokale Vorschau zum Dekodieren, Prüfen und Debuggen.",
       "badges": [
         "No AI",
         "Local preview",

@@ -1225,7 +1225,7 @@
       "faq": [
         {
           "question": "使用哪个 AI 服务？",
-          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地範本兜底。"
         },
         {
           "question": "API Key 会暴露给浏览器吗？",
@@ -1235,7 +1235,7 @@
       "seoBody": [
         "用 AI 从产品或系统说明生成 Mermaid 架构图。",
         "描述系统架构，生成可编辑的 Mermaid 图，覆盖服务、队列、数据库、客户端和外部集成。",
-        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+        "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地範本兜底。"
       ]
     },
     "ai-plantuml-generator": {
@@ -1302,7 +1302,7 @@
       "faq": [
         {
           "question": "使用哪个 AI 服务？",
-          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地範本兜底。"
         },
         {
           "question": "API Key 会暴露给浏览器吗？",
@@ -1312,7 +1312,7 @@
       "seoBody": [
         "通过 DeepSeek 从自然语言生成 PlantUML。",
         "描述序列图、组件图、类图、活动图、用例图或状态图，生成可编辑 PlantUML 源码。",
-        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+        "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地範本兜底。"
       ]
     },
     "xml-to-diagram": {
@@ -3509,16 +3509,16 @@
         "DiagramPreview"
       ],
       "h1": "HAR 檔案瀑布流檢視器",
-      "intro": "貼上HAR 檔案瀑布流檢視器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "貼上 HAR 檔案瀑布流檢視器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "可匯出",
         "除錯友好"
       ],
-      "inputLabel": "HAR 檔案瀑布流檢視器输入",
-      "outputLabel": "HAR 檔案瀑布流檢視器结果",
-      "placeholder": "貼上HAR 檔案瀑布流檢視器到這裡...",
+      "inputLabel": "HAR JSON",
+      "outputLabel": "瀑布流分析",
+      "placeholder": "粘贴 HAR JSON 导出内容...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "checkout": {
@@ -3579,16 +3579,16 @@
         "DiagramPreview"
       ],
       "h1": "SVG 程式碼預覽編輯器",
-      "intro": "貼上SVG 程式碼預覽編輯器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "貼上 SVG 程式碼預覽編輯器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "可匯出",
         "除錯友好"
       ],
-      "inputLabel": "SVG 程式碼預覽編輯器输入",
-      "outputLabel": "SVG 程式碼預覽編輯器结果",
-      "placeholder": "貼上SVG 程式碼預覽編輯器到這裡...",
+      "inputLabel": "SVG 原始碼",
+      "outputLabel": "清理后的 SVG 预览",
+      "placeholder": "粘贴 SVG 标记或 data:image/svg+xml URL...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "icon": {
@@ -3649,16 +3649,16 @@
         "DiagramPreview"
       ],
       "h1": "Open Graph 預覽除錯器",
-      "intro": "貼上Open Graph 預覽除錯器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "貼上 Open Graph 預覽除錯器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "可匯出",
         "除錯友好"
       ],
-      "inputLabel": "Open Graph 預覽除錯器输入",
-      "outputLabel": "Open Graph 預覽除錯器结果",
-      "placeholder": "貼上Open Graph 預覽除錯器到這裡...",
+      "inputLabel": "Meta 标签或键值行",
+      "outputLabel": "社交卡片预览",
+      "placeholder": "粘贴 HTML meta 标签、og:title 行或 Twitter Card 标签...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "article": {
@@ -3719,16 +3719,16 @@
         "DiagramPreview"
       ],
       "h1": "JSON Schema 表單預覽",
-      "intro": "貼上JSON Schema 表單預覽相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "貼上 JSON Schema 表單預覽 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "可匯出",
         "除錯友好"
       ],
-      "inputLabel": "JSON Schema 表單預覽输入",
-      "outputLabel": "JSON Schema 表單預覽结果",
-      "placeholder": "貼上JSON Schema 表單預覽到這裡...",
+      "inputLabel": "JSON Schema",
+      "outputLabel": "表单预览",
+      "placeholder": "粘贴包含 properties 的 JSON Schema 对象...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "signup": {
@@ -3789,16 +3789,16 @@
         "DiagramPreview"
       ],
       "h1": "JSONPath 測試器",
-      "intro": "貼上JSONPath 測試器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "貼上 JSONPath 測試器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "可匯出",
         "除錯友好"
       ],
-      "inputLabel": "JSONPath 測試器输入",
-      "outputLabel": "JSONPath 測試器结果",
-      "placeholder": "貼上JSONPath 測試器到這裡...",
+      "inputLabel": "JSONPath 与 JSON 資料",
+      "outputLabel": "JSONPath 命中结果",
+      "placeholder": "第一行写 JSONPath，下面用 --- 分隔后粘贴 JSON...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "users": {
@@ -3859,16 +3859,16 @@
         "DiagramPreview"
       ],
       "h1": "Nginx Location 匹配測試器",
-      "intro": "貼上Nginx Location 匹配測試器相关源码，立即生成可检查、可截图、可导出的預覽。适合预览 AI 生成的脚本、API 调试材料和技术文档片段。",
+      "intro": "貼上 Nginx Location 匹配測試器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "可匯出",
         "除錯友好"
       ],
-      "inputLabel": "Nginx Location 匹配測試器输入",
-      "outputLabel": "Nginx Location 匹配測試器结果",
-      "placeholder": "貼上Nginx Location 匹配測試器到這裡...",
+      "inputLabel": "URI 与 Nginx 配置",
+      "outputLabel": "Location 命中结果",
+      "placeholder": "先写 URI: /path，再用 --- 分隔并粘贴 location 配置...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "api": {
@@ -3929,16 +3929,16 @@
         "DiagramPreview"
       ],
       "h1": "jq 過濾器測試器",
-      "intro": "貼上jq 過濾器測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 jq 過濾器測試器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": "jq 過濾器測試器输入",
-      "outputLabel": "jq 過濾器測試器结果",
-      "placeholder": "貼上jq 過濾器測試器内容到这里...",
+      "inputLabel": "jq 风格过滤器与 JSON",
+      "outputLabel": "过滤后的 JSON 结果",
+      "placeholder": "第一行写 jq 风格过滤器，下面用 --- 分隔后粘贴 JSON...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "emails": {
@@ -3999,16 +3999,16 @@
         "DiagramPreview"
       ],
       "h1": "XPath 測試器",
-      "intro": "貼上XPath 測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 XPath 測試器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": "XPath 測試器输入",
-      "outputLabel": "XPath 測試器结果",
-      "placeholder": "貼上XPath 測試器内容到这里...",
+      "inputLabel": "XPath 与 XML/HTML",
+      "outputLabel": "XPath 命中节点",
+      "placeholder": "第一行写 XPath，下面用 --- 分隔后粘贴 XML 或 HTML...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "rss": {
@@ -4069,16 +4069,16 @@
         "DiagramPreview"
       ],
       "h1": "YAML Path 測試器",
-      "intro": "貼上YAML Path 測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 YAML Path 測試器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": "YAML Path 測試器输入",
-      "outputLabel": "YAML Path 測試器结果",
-      "placeholder": "貼上YAML Path 測試器内容到这里...",
+      "inputLabel": "YAML 路径与文件",
+      "outputLabel": "YAML 命中值",
+      "placeholder": "第一行写 YAML 路径，下面用 --- 分隔后粘贴 YAML...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "kubernetes": {
@@ -4139,16 +4139,16 @@
         "DiagramPreview"
       ],
       "h1": "TOML 視覺化預覽",
-      "intro": "貼上TOML 視覺化預覽相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 TOML 視覺化預覽 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": "TOML 視覺化預覽输入",
-      "outputLabel": "TOML 視覺化預覽结果",
-      "placeholder": "貼上TOML 視覺化預覽内容到这里...",
+      "inputLabel": "TOML 原始碼",
+      "outputLabel": "TOML 结构",
+      "placeholder": "粘贴 TOML 内容...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "pyproject": {
@@ -4209,16 +4209,16 @@
         "DiagramPreview"
       ],
       "h1": ".env 差異檢查器",
-      "intro": "貼上.env 差異檢查器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 .env 差異檢查器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": ".env 差異檢查器输入",
-      "outputLabel": ".env 差異檢查器结果",
-      "placeholder": "貼上.env 差異檢查器内容到这里...",
+      "inputLabel": ".env 与 .env.example",
+      "outputLabel": "环境变量差异",
+      "placeholder": "先粘贴 .env，再用 --- 分隔并粘贴 .env.example...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "missing": {
@@ -4279,16 +4279,16 @@
         "DiagramPreview"
       ],
       "h1": "robots.txt 測試器",
-      "intro": "貼上robots.txt 測試器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 robots.txt 測試器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": "robots.txt 測試器输入",
-      "outputLabel": "robots.txt 測試器结果",
-      "placeholder": "貼上robots.txt 測試器内容到这里...",
+      "inputLabel": "URL 与 robots.txt",
+      "outputLabel": "Robots 判定",
+      "placeholder": "先写 URL: https://example.com/path，再用 --- 分隔并粘贴 robots.txt...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "blog": {
@@ -4349,16 +4349,16 @@
         "DiagramPreview"
       ],
       "h1": "Sitemap XML 檢視器",
-      "intro": "貼上Sitemap XML 檢視器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 Sitemap XML 檢視器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": "Sitemap XML 檢視器输入",
-      "outputLabel": "Sitemap XML 檢視器结果",
-      "placeholder": "貼上Sitemap XML 檢視器内容到这里...",
+      "inputLabel": "Sitemap XML",
+      "outputLabel": "Sitemap 分析",
+      "placeholder": "粘贴 sitemap XML 或 sitemap index XML...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "basic": {
@@ -4419,16 +4419,16 @@
         "DiagramPreview"
       ],
       "h1": "HTTP 回應標頭解析器",
-      "intro": "貼上HTTP 回應標頭解析器相关源码，立即生成可检查的本地预览。适合调试 AI 生成的片段、API 响应、配置文件和 SEO 技术文件。",
+      "intro": "貼上 HTTP 回應標頭解析器 內容，在瀏覽器內產生可檢查的本機預覽，適合除錯設定、API 回應、SEO 技術檔與 AI 生成片段。",
       "badges": [
         "無需 AI",
         "本機預覽",
         "除錯友好",
         "可匯出"
       ],
-      "inputLabel": "HTTP 回應標頭解析器输入",
-      "outputLabel": "HTTP 回應標頭解析器结果",
-      "placeholder": "貼上HTTP 回應標頭解析器内容到这里...",
+      "inputLabel": "HTTP 回應標頭",
+      "outputLabel": "响应头分析",
+      "placeholder": "粘贴 HTTP 状态行和响应头...",
       "emptyPreview": "預覽結果會顯示在這裡。",
       "samples": {
         "security": {
@@ -4753,7 +4753,7 @@
         "DiagramPreview"
       ],
       "h1": "cURL 命令解析器",
-      "intro": "cURL 命令解析器 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "intro": "貼上 cURL 命令解析器 內容，在瀏覽器內解碼、檢查並產生可 review 的本機預覽。",
       "badges": [
         "无 AI",
         "本地预览",
@@ -4761,8 +4761,8 @@
         "导出"
       ],
       "inputLabel": "cURL 命令",
-      "outputLabel": "請求預覽",
-      "placeholder": "在這裡貼上 cURL 命令...",
+      "outputLabel": "请求解析预览",
+      "placeholder": "粘贴 cURL 命令...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "postJson": {
@@ -4819,16 +4819,16 @@
         "DiagramPreview"
       ],
       "h1": "URL 查詢參數解析器",
-      "intro": "URL 查詢參數解析器 帮你在发布前把请求、URL、CSS 或颜色片段转成可检查的预览。",
+      "intro": "貼上 URL 查詢參數解析器 內容，在瀏覽器內解碼、檢查並產生可 review 的本機預覽。",
       "badges": [
         "无 AI",
         "本地预览",
         "调试",
         "导出"
       ],
-      "inputLabel": "URL 或查詢字串",
-      "outputLabel": "參數預覽",
-      "placeholder": "在這裡貼上 URL 或查詢字串...",
+      "inputLabel": "URL 或 Query String",
+      "outputLabel": "Query 参数预览",
+      "placeholder": "粘贴完整 URL、带 query 的路径，或 ?key=value 字符串...",
       "emptyPreview": "预览结果会显示在这里。",
       "samples": {
         "utm": {
