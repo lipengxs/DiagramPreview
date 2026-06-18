@@ -5115,9 +5115,9 @@
       "mermaid-preview-guide": {
         "title": "Mermaid 미리보기 가이드",
         "seoTitle": "Mermaid 미리보기 가이드 - DiagramPreview",
-        "description": "Mermaid 미리보기 가이드：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "readingTime": "5분 읽기",
+        "description": "Mermaid 미리보기 가이드: Mermaid 소스를 문서화하기 전에 확인할 수 있는 붙여넣기 데모, 리뷰 체크리스트, 게시 메모가 있는 실전 가이드입니다.",
+        "excerpt": "Mermaid 소스를 문서가 되기 전에 미리 보는 실전 워크플로입니다.",
+        "readingTime": "9분 읽기",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5126,17 +5126,48 @@
         ],
         "sections": [
           {
-            "heading": "워크플로 권장 사항",
+            "heading": "이 워크플로가 해결하는 문제",
             "paragraphs": [
-              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
-              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+              "Mermaid 미리보기 가이드는 다이어그램을 단순한 이미지가 아니라 유지보수 가능한 문서 자산으로 다룰 때 유용합니다. 소스는 읽기 쉬워야 하고, 미리보기는 오류를 보여줘야 하며, 내보낸 결과는 README, wiki, 블로그에서 사용할 수 있어야 합니다.",
+              "대상은 체크아웃 플로우, 온보딩, 릴리스, 장애 타임라인입니다. 게시 전에 편집, 미리보기, 리뷰의 짧은 루프를 만드는 것이 핵심입니다."
+            ],
+            "image": {
+              "src": "/blog/mermaid-preview-guide.png",
+              "alt": "Mermaid 미리보기 가이드",
+              "caption": "Mermaid 미리보기 가이드 미리보기 워크플로."
+            }
+          },
+          {
+            "heading": "먼저 붙여 넣을 작은 데모",
+            "paragraphs": [
+              "처음부터 전체 운영 내용을 붙여 넣지 말고, 작은 조각으로 문법, 라벨, 레이아웃을 확인합니다.",
+              "첫 미리보기가 되면 실제 서비스 이름, 필드, 액터, 의존성을 추가합니다."
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "flowchart LR\n  Draft[AI or human draft] --> Preview[Mermaid Preview]\n  Preview --> Check{Readable?}\n  Check -- no --> Edit[Fix labels and direction]\n  Edit --> Preview\n  Check -- yes --> Export[Export SVG / PNG]",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다。"
+            }
+          },
+          {
+            "heading": "미리보기에서 볼 것",
+            "paragraphs": [
+              "동료가 읽는다고 생각하고 봅니다. 하나의 분명한 질문에 답하는지, 나중에 소스를 안전하게 고칠 수 있는지 확인합니다.",
+              "AI 생성 내용은 이름, 방향, 그룹, 누락된 관계를 특히 확인해야 합니다."
             ]
           },
           {
-            "heading": "게시 전 확인",
+            "heading": "흔한 실수",
             "paragraphs": [
-              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
-              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+              "가장 흔한 실수는 하나의 다이어그램으로 모든 것을 설명하려는 것입니다. 요청 흐름, 데이터, 인프라, 게시 결과를 나누세요.",
+              "또 다른 실수는 이미지만 저장하는 것입니다. SVG 또는 PNG와 함께 소스 텍스트도 보관하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 체크리스트",
+            "paragraphs": [
+              "게시 전에는 이미지 선명도, 긴 라벨, 재현 가능한 입력 예제가 있는지 확인합니다.",
+              "입력, 미리보기, 리뷰 후 결정을 함께 보여주는 페이지가 더 신뢰를 줍니다."
             ]
           }
         ]
@@ -5144,9 +5175,9 @@
       "plantuml-online-preview-workflow": {
         "title": "PlantUML 온라인 미리보기 워크플로",
         "seoTitle": "PlantUML 온라인 미리보기 워크플로 - DiagramPreview",
-        "description": "PlantUML 온라인 미리보기 워크플로：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "readingTime": "5분 읽기",
+        "description": "PlantUML 온라인 미리보기 워크플로: PlantUML 소스를 문서화하기 전에 확인할 수 있는 붙여넣기 데모, 리뷰 체크리스트, 게시 메모가 있는 실전 가이드입니다.",
+        "excerpt": "PlantUML 소스를 문서가 되기 전에 미리 보는 실전 워크플로입니다.",
+        "readingTime": "9분 읽기",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5155,17 +5186,48 @@
         ],
         "sections": [
           {
-            "heading": "워크플로 권장 사항",
+            "heading": "이 워크플로가 해결하는 문제",
             "paragraphs": [
-              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
-              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+              "PlantUML 온라인 미리보기 워크플로는 다이어그램을 단순한 이미지가 아니라 유지보수 가능한 문서 자산으로 다룰 때 유용합니다. 소스는 읽기 쉬워야 하고, 미리보기는 오류를 보여줘야 하며, 내보낸 결과는 README, wiki, 블로그에서 사용할 수 있어야 합니다.",
+              "대상은 시퀀스, 컴포넌트, 클래스, 액티비티 다이어그램입니다. 게시 전에 편집, 미리보기, 리뷰의 짧은 루프를 만드는 것이 핵심입니다."
+            ],
+            "image": {
+              "src": "/blog/plantuml-online-preview-workflow.png",
+              "alt": "PlantUML 온라인 미리보기 워크플로",
+              "caption": "PlantUML 온라인 미리보기 워크플로 미리보기 워크플로."
+            }
+          },
+          {
+            "heading": "먼저 붙여 넣을 작은 데모",
+            "paragraphs": [
+              "처음부터 전체 운영 내용을 붙여 넣지 말고, 작은 조각으로 문법, 라벨, 레이아웃을 확인합니다.",
+              "첫 미리보기가 되면 실제 서비스 이름, 필드, 액터, 의존성을 추가합니다."
+            ],
+            "code": {
+              "language": "plantuml",
+              "content": "@startuml\nactor Developer\nparticipant Browser\nparticipant \"PlantUML Preview\" as Preview\nDeveloper -> Browser: Paste sequence source\nBrowser -> Preview: Render diagram\nPreview --> Browser: SVG preview or syntax error\nDeveloper -> Browser: Export after review\n@enduml",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다。"
+            }
+          },
+          {
+            "heading": "미리보기에서 볼 것",
+            "paragraphs": [
+              "동료가 읽는다고 생각하고 봅니다. 하나의 분명한 질문에 답하는지, 나중에 소스를 안전하게 고칠 수 있는지 확인합니다.",
+              "AI 생성 내용은 이름, 방향, 그룹, 누락된 관계를 특히 확인해야 합니다."
             ]
           },
           {
-            "heading": "게시 전 확인",
+            "heading": "흔한 실수",
             "paragraphs": [
-              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
-              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+              "가장 흔한 실수는 하나의 다이어그램으로 모든 것을 설명하려는 것입니다. 요청 흐름, 데이터, 인프라, 게시 결과를 나누세요.",
+              "또 다른 실수는 이미지만 저장하는 것입니다. SVG 또는 PNG와 함께 소스 텍스트도 보관하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 체크리스트",
+            "paragraphs": [
+              "게시 전에는 이미지 선명도, 긴 라벨, 재현 가능한 입력 예제가 있는지 확인합니다.",
+              "입력, 미리보기, 리뷰 후 결정을 함께 보여주는 페이지가 더 신뢰를 줍니다."
             ]
           }
         ]
@@ -5173,9 +5235,9 @@
       "markdown-mermaid-documentation": {
         "title": "Markdown와 Mermaid 문서화",
         "seoTitle": "Markdown와 Mermaid 문서화 - DiagramPreview",
-        "description": "Markdown와 Mermaid 문서화：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "readingTime": "5분 읽기",
+        "description": "Markdown와 Mermaid 문서화: Mermaid가 포함된 Markdown를 문서화하기 전에 확인할 수 있는 붙여넣기 데모, 리뷰 체크리스트, 게시 메모가 있는 실전 가이드입니다.",
+        "excerpt": "Mermaid가 포함된 Markdown를 문서가 되기 전에 미리 보는 실전 워크플로입니다.",
+        "readingTime": "9분 읽기",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5184,17 +5246,48 @@
         ],
         "sections": [
           {
-            "heading": "워크플로 권장 사항",
+            "heading": "이 워크플로가 해결하는 문제",
             "paragraphs": [
-              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
-              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+              "Markdown와 Mermaid 문서화는 다이어그램을 단순한 이미지가 아니라 유지보수 가능한 문서 자산으로 다룰 때 유용합니다. 소스는 읽기 쉬워야 하고, 미리보기는 오류를 보여줘야 하며, 내보낸 결과는 README, wiki, 블로그에서 사용할 수 있어야 합니다.",
+              "대상은 README, API 메모, RFC, 도움말 문서입니다. 게시 전에 편집, 미리보기, 리뷰의 짧은 루프를 만드는 것이 핵심입니다."
+            ],
+            "image": {
+              "src": "/blog/markdown-mermaid-documentation.png",
+              "alt": "Markdown와 Mermaid 문서화",
+              "caption": "Markdown와 Mermaid 문서화 미리보기 워크플로."
+            }
+          },
+          {
+            "heading": "먼저 붙여 넣을 작은 데모",
+            "paragraphs": [
+              "처음부터 전체 운영 내용을 붙여 넣지 말고, 작은 조각으로 문법, 라벨, 레이아웃을 확인합니다.",
+              "첫 미리보기가 되면 실제 서비스 이름, 필드, 액터, 의존성을 추가합니다."
+            ],
+            "code": {
+              "language": "markdown",
+              "content": "# Checkout flow\n\nThe API creates an order, then asks the payment service to confirm it.\n\n```mermaid\nsequenceDiagram\n  participant User\n  participant Store\n  participant Payment\n  User->>Store: POST /orders\n  Store->>Payment: Create payment intent\n  Payment-->>Store: Confirmed\n  Store-->>User: Order receipt\n```",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다。"
+            }
+          },
+          {
+            "heading": "미리보기에서 볼 것",
+            "paragraphs": [
+              "동료가 읽는다고 생각하고 봅니다. 하나의 분명한 질문에 답하는지, 나중에 소스를 안전하게 고칠 수 있는지 확인합니다.",
+              "AI 생성 내용은 이름, 방향, 그룹, 누락된 관계를 특히 확인해야 합니다."
             ]
           },
           {
-            "heading": "게시 전 확인",
+            "heading": "흔한 실수",
             "paragraphs": [
-              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
-              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+              "가장 흔한 실수는 하나의 다이어그램으로 모든 것을 설명하려는 것입니다. 요청 흐름, 데이터, 인프라, 게시 결과를 나누세요.",
+              "또 다른 실수는 이미지만 저장하는 것입니다. SVG 또는 PNG와 함께 소스 텍스트도 보관하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 체크리스트",
+            "paragraphs": [
+              "게시 전에는 이미지 선명도, 긴 라벨, 재현 가능한 입력 예제가 있는지 확인합니다.",
+              "입력, 미리보기, 리뷰 후 결정을 함께 보여주는 페이지가 더 신뢰를 줍니다."
             ]
           }
         ]
@@ -5202,9 +5295,9 @@
       "graphviz-dot-dependency-graphs": {
         "title": "Graphviz DOT 의존성 그래프",
         "seoTitle": "Graphviz DOT 의존성 그래프 - DiagramPreview",
-        "description": "Graphviz DOT 의존성 그래프：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "readingTime": "5분 읽기",
+        "description": "Graphviz DOT 의존성 그래프: DOT 소스를 문서화하기 전에 확인할 수 있는 붙여넣기 데모, 리뷰 체크리스트, 게시 메모가 있는 실전 가이드입니다.",
+        "excerpt": "DOT 소스를 문서가 되기 전에 미리 보는 실전 워크플로입니다.",
+        "readingTime": "9분 읽기",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5213,17 +5306,48 @@
         ],
         "sections": [
           {
-            "heading": "워크플로 권장 사항",
+            "heading": "이 워크플로가 해결하는 문제",
             "paragraphs": [
-              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
-              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+              "Graphviz DOT 의존성 그래프는 다이어그램을 단순한 이미지가 아니라 유지보수 가능한 문서 자산으로 다룰 때 유용합니다. 소스는 읽기 쉬워야 하고, 미리보기는 오류를 보여줘야 하며, 내보낸 결과는 README, wiki, 블로그에서 사용할 수 있어야 합니다.",
+              "대상은 패키지 의존성, 서비스 호출, 작업 그래프, 빌드 파이프라인입니다. 게시 전에 편집, 미리보기, 리뷰의 짧은 루프를 만드는 것이 핵심입니다."
+            ],
+            "image": {
+              "src": "/blog/graphviz-dot-dependency-graphs.png",
+              "alt": "Graphviz DOT 의존성 그래프",
+              "caption": "Graphviz DOT 의존성 그래프 미리보기 워크플로."
+            }
+          },
+          {
+            "heading": "먼저 붙여 넣을 작은 데모",
+            "paragraphs": [
+              "처음부터 전체 운영 내용을 붙여 넣지 말고, 작은 조각으로 문법, 라벨, 레이아웃을 확인합니다.",
+              "첫 미리보기가 되면 실제 서비스 이름, 필드, 액터, 의존성을 추가합니다."
+            ],
+            "code": {
+              "language": "dot",
+              "content": "digraph dependencies {\n  rankdir=LR;\n  node [shape=box, style=\"rounded,filled\", fillcolor=\"#f8fafc\"];\n  web -> api;\n  api -> postgres;\n  api -> redis;\n  worker -> redis;\n  worker -> postgres;\n}",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다。"
+            }
+          },
+          {
+            "heading": "미리보기에서 볼 것",
+            "paragraphs": [
+              "동료가 읽는다고 생각하고 봅니다. 하나의 분명한 질문에 답하는지, 나중에 소스를 안전하게 고칠 수 있는지 확인합니다.",
+              "AI 생성 내용은 이름, 방향, 그룹, 누락된 관계를 특히 확인해야 합니다."
             ]
           },
           {
-            "heading": "게시 전 확인",
+            "heading": "흔한 실수",
             "paragraphs": [
-              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
-              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+              "가장 흔한 실수는 하나의 다이어그램으로 모든 것을 설명하려는 것입니다. 요청 흐름, 데이터, 인프라, 게시 결과를 나누세요.",
+              "또 다른 실수는 이미지만 저장하는 것입니다. SVG 또는 PNG와 함께 소스 텍스트도 보관하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 체크리스트",
+            "paragraphs": [
+              "게시 전에는 이미지 선명도, 긴 라벨, 재현 가능한 입력 예제가 있는지 확인합니다.",
+              "입력, 미리보기, 리뷰 후 결정을 함께 보여주는 페이지가 더 신뢰를 줍니다."
             ]
           }
         ]
@@ -5231,9 +5355,9 @@
       "json-yaml-diagram-visualization": {
         "title": "JSON 및 YAML 다이어그램 시각화",
         "seoTitle": "JSON 및 YAML 다이어그램 시각화 - DiagramPreview",
-        "description": "JSON 및 YAML 다이어그램 시각화：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "readingTime": "5분 읽기",
+        "description": "JSON 및 YAML 다이어그램 시각화: JSON 또는 YAML 구조를 문서화하기 전에 확인할 수 있는 붙여넣기 데모, 리뷰 체크리스트, 게시 메모가 있는 실전 가이드입니다.",
+        "excerpt": "JSON 또는 YAML 구조를 문서가 되기 전에 미리 보는 실전 워크플로입니다.",
+        "readingTime": "9분 읽기",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5242,17 +5366,48 @@
         ],
         "sections": [
           {
-            "heading": "워크플로 권장 사항",
+            "heading": "이 워크플로가 해결하는 문제",
             "paragraphs": [
-              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
-              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+              "JSON 및 YAML 다이어그램 시각화는 다이어그램을 단순한 이미지가 아니라 유지보수 가능한 문서 자산으로 다룰 때 유용합니다. 소스는 읽기 쉬워야 하고, 미리보기는 오류를 보여줘야 하며, 내보낸 결과는 README, wiki, 블로그에서 사용할 수 있어야 합니다.",
+              "대상은 서비스 설정, API payload, 배포 YAML, 중첩 설정입니다. 게시 전에 편집, 미리보기, 리뷰의 짧은 루프를 만드는 것이 핵심입니다."
+            ],
+            "image": {
+              "src": "/blog/json-yaml-diagram-visualization.png",
+              "alt": "JSON 및 YAML 다이어그램 시각화",
+              "caption": "JSON 및 YAML 다이어그램 시각화 미리보기 워크플로."
+            }
+          },
+          {
+            "heading": "먼저 붙여 넣을 작은 데모",
+            "paragraphs": [
+              "처음부터 전체 운영 내용을 붙여 넣지 말고, 작은 조각으로 문법, 라벨, 레이아웃을 확인합니다.",
+              "첫 미리보기가 되면 실제 서비스 이름, 필드, 액터, 의존성을 추가합니다."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "service: checkout\nruntime: node\nconnectsTo:\n  - postgres\n  - redis\n  - payment-api\nenvironments:\n  staging:\n    replicas: 2\n  production:\n    replicas: 6",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다。"
+            }
+          },
+          {
+            "heading": "미리보기에서 볼 것",
+            "paragraphs": [
+              "동료가 읽는다고 생각하고 봅니다. 하나의 분명한 질문에 답하는지, 나중에 소스를 안전하게 고칠 수 있는지 확인합니다.",
+              "AI 생성 내용은 이름, 방향, 그룹, 누락된 관계를 특히 확인해야 합니다."
             ]
           },
           {
-            "heading": "게시 전 확인",
+            "heading": "흔한 실수",
             "paragraphs": [
-              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
-              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+              "가장 흔한 실수는 하나의 다이어그램으로 모든 것을 설명하려는 것입니다. 요청 흐름, 데이터, 인프라, 게시 결과를 나누세요.",
+              "또 다른 실수는 이미지만 저장하는 것입니다. SVG 또는 PNG와 함께 소스 텍스트도 보관하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 체크리스트",
+            "paragraphs": [
+              "게시 전에는 이미지 선명도, 긴 라벨, 재현 가능한 입력 예제가 있는지 확인합니다.",
+              "입력, 미리보기, 리뷰 후 결정을 함께 보여주는 페이지가 더 신뢰를 줍니다."
             ]
           }
         ]
@@ -5260,9 +5415,9 @@
       "drawio-file-preview-guide": {
         "title": "Draw.io 파일 미리보기 가이드",
         "seoTitle": "Draw.io 파일 미리보기 가이드 - DiagramPreview",
-        "description": "Draw.io 파일 미리보기 가이드：다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "excerpt": "다이어그램을 온라인으로 미리보기, 변환, 내보내기, 문서화하는 실용 가이드입니다.",
-        "readingTime": "5분 읽기",
+        "description": "Draw.io 파일 미리보기 가이드: draw.io XML를 문서화하기 전에 확인할 수 있는 붙여넣기 데모, 리뷰 체크리스트, 게시 메모가 있는 실전 가이드입니다.",
+        "excerpt": "draw.io XML를 문서가 되기 전에 미리 보는 실전 워크플로입니다.",
+        "readingTime": "9분 읽기",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5271,17 +5426,48 @@
         ],
         "sections": [
           {
-            "heading": "워크플로 권장 사항",
+            "heading": "이 워크플로가 해결하는 문제",
             "paragraphs": [
-              "DiagramPreview는 원본, 미리보기, 관련 도구, 내보내기 작업을 하나의 작업 영역에 모아 기술 문서, 아키텍처 노트, AI 생성 콘텐츠 검토에 적합합니다.",
-              "예제에서 시작해 원본을 조금씩 수정하고, 내보내기 전에 미리보기를 확인하세요."
+              "Draw.io 파일 미리보기 가이드는 다이어그램을 단순한 이미지가 아니라 유지보수 가능한 문서 자산으로 다룰 때 유용합니다. 소스는 읽기 쉬워야 하고, 미리보기는 오류를 보여줘야 하며, 내보낸 결과는 README, wiki, 블로그에서 사용할 수 있어야 합니다.",
+              "대상은 편집 가능한 아키텍처 다이어그램, AI 생성 다이어그램, diagrams.net 파일입니다. 게시 전에 편집, 미리보기, 리뷰의 짧은 루프를 만드는 것이 핵심입니다."
+            ],
+            "image": {
+              "src": "/blog/drawio-file-preview-guide.png",
+              "alt": "Draw.io 파일 미리보기 가이드",
+              "caption": "Draw.io 파일 미리보기 가이드 미리보기 워크플로."
+            }
+          },
+          {
+            "heading": "먼저 붙여 넣을 작은 데모",
+            "paragraphs": [
+              "처음부터 전체 운영 내용을 붙여 넣지 말고, 작은 조각으로 문법, 라벨, 레이아웃을 확인합니다.",
+              "첫 미리보기가 되면 실제 서비스 이름, 필드, 액터, 의존성을 추가합니다."
+            ],
+            "code": {
+              "language": "xml",
+              "content": "<mxfile host=\"DiagramPreview\">\n  <diagram name=\"Preview\">\n    <mxGraphModel>\n      <root>\n        <mxCell id=\"0\" />\n        <mxCell id=\"1\" parent=\"0\" />\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다。"
+            }
+          },
+          {
+            "heading": "미리보기에서 볼 것",
+            "paragraphs": [
+              "동료가 읽는다고 생각하고 봅니다. 하나의 분명한 질문에 답하는지, 나중에 소스를 안전하게 고칠 수 있는지 확인합니다.",
+              "AI 생성 내용은 이름, 방향, 그룹, 누락된 관계를 특히 확인해야 합니다."
             ]
           },
           {
-            "heading": "게시 전 확인",
+            "heading": "흔한 실수",
             "paragraphs": [
-              "나중에 쉽게 수정할 수 있도록 원본 텍스트를 내보낸 파일과 함께 보관하세요.",
-              "AI가 만든 다이어그램이라면 이름, 방향, 그룹, 기술적 의미를 먼저 확인하세요."
+              "가장 흔한 실수는 하나의 다이어그램으로 모든 것을 설명하려는 것입니다. 요청 흐름, 데이터, 인프라, 게시 결과를 나누세요.",
+              "또 다른 실수는 이미지만 저장하는 것입니다. SVG 또는 PNG와 함께 소스 텍스트도 보관하세요."
+            ]
+          },
+          {
+            "heading": "게시 전 체크리스트",
+            "paragraphs": [
+              "게시 전에는 이미지 선명도, 긴 라벨, 재현 가능한 입력 예제가 있는지 확인합니다.",
+              "입력, 미리보기, 리뷰 후 결정을 함께 보여주는 페이지가 더 신뢰를 줍니다."
             ]
           }
         ]
@@ -5291,7 +5477,7 @@
         "seoTitle": "가이드: How to preview Mermaid diagrams generated by ChatGPT - DiagramPreview",
         "description": "A long-tail guide for Mermaid Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Mermaid Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "ChatGPT Mermaid preview",
           "AI generated Mermaid",
@@ -5316,6 +5502,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "sequenceDiagram\n  participant Prompt as Prompt to AI\n  participant Draft as Mermaid draft\n  participant Preview as DiagramPreview\n  Prompt->>Draft: Ask for a checkout sequence\n  Draft->>Preview: Paste generated Mermaid\n  Preview-->>Draft: Syntax error or clean SVG\n  Draft->>Prompt: Revise labels and missing steps",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5345,7 +5543,7 @@
         "seoTitle": "가이드: Mermaid vs PlantUML: which one should you use for technical docs? - DiagramPreview",
         "description": "A long-tail guide for Mermaid and PlantUML Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Mermaid and PlantUML Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Mermaid vs PlantUML",
           "technical documentation diagrams",
@@ -5370,6 +5568,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "text",
+              "content": "Use Mermaid when:\n- the diagram lives in Markdown\n- the team wants low-friction edits\n- flowcharts and sequence diagrams are enough\n\nUse PlantUML when:\n- the team already uses UML terminology\n- class/component diagrams need more control\n- docs are generated from a build pipeline",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5399,7 +5609,7 @@
         "seoTitle": "가이드: How to convert PlantUML to editable draw.io diagrams - DiagramPreview",
         "description": "A long-tail guide for PlantUML to Draw.io: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for PlantUML to Draw.io: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "PlantUML to draw.io",
           "editable diagrams.net XML",
@@ -5424,6 +5634,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "plantuml",
+              "content": "@startuml\ncomponent Web\ncomponent API\ndatabase PostgreSQL\nWeb --> API : HTTPS\nAPI --> PostgreSQL : SQL\n@enduml",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5453,7 +5675,7 @@
         "seoTitle": "가이드: How to generate editable draw.io diagrams with AI - DiagramPreview",
         "description": "A long-tail guide for AI Draw.io Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for AI Draw.io Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "AI draw.io generator",
           "editable architecture diagram",
@@ -5478,6 +5700,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "text",
+              "content": "Prompt:\nCreate an editable draw.io diagram for a microservice checkout system.\nInclude web, API gateway, order service, payment service, queue, PostgreSQL, and Redis.\nGroup runtime services separately from data stores.\nReturn diagrams.net XML and a short SVG preview.",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5507,7 +5741,7 @@
         "seoTitle": "가이드: How to visualize Kubernetes manifests online - DiagramPreview",
         "description": "A long-tail guide for Kubernetes Manifest Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Kubernetes Manifest Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Kubernetes manifest visualizer",
           "Kubernetes service topology",
@@ -5532,6 +5766,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: checkout-api\nspec:\n  replicas: 3\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/checkout-api:1.8.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: checkout-api\nspec:\n  selector:\n    app: checkout-api",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5561,7 +5807,7 @@
         "seoTitle": "가이드: How to turn Docker Compose into an architecture diagram - DiagramPreview",
         "description": "A long-tail guide for Docker Compose Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Docker Compose Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Docker Compose diagram",
           "container architecture diagram",
@@ -5586,6 +5832,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "services:\n  web:\n    image: node:22\n    depends_on: [api]\n  api:\n    image: checkout-api\n    depends_on: [postgres, redis]\n  postgres:\n    image: postgres:16\n  redis:\n    image: redis:7",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5615,7 +5873,7 @@
         "seoTitle": "가이드: How to generate Grafana dashboard JSON with AI - DiagramPreview",
         "description": "A long-tail guide for Grafana Dashboard Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Grafana Dashboard Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "AI Grafana dashboard generator",
           "Grafana dashboard JSON",
@@ -5640,6 +5898,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"title\": \"Checkout API Overview\",\n  \"panels\": [\n    {\"title\": \"Request rate\", \"type\": \"timeseries\"},\n    {\"title\": \"Error rate\", \"type\": \"timeseries\"},\n    {\"title\": \"P95 latency\", \"type\": \"timeseries\"}\n  ],\n  \"templating\": {\"list\": [{\"name\": \"service\"}]}\n}",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5669,7 +5939,7 @@
         "seoTitle": "가이드: Prometheus alert rules examples for API latency and error rate - DiagramPreview",
         "description": "A long-tail guide for Prometheus Alert Rule Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Prometheus Alert Rule Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Prometheus alert rules examples",
           "API latency alert",
@@ -5694,6 +5964,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "groups:\n  - name: checkout-api.rules\n    rules:\n      - alert: HighApiErrorRate\n        expr: sum(rate(http_requests_total{status=~\"5..\"}[5m])) / sum(rate(http_requests_total[5m])) > 0.02\n        for: 10m\n      - alert: HighP95Latency\n        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 0.8\n        for: 10m",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5777,7 +6059,7 @@
         "seoTitle": "가이드: SQL to ER diagram online: from schema to database docs - DiagramPreview",
         "description": "A long-tail guide for SQL to ER Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for SQL to ER Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "SQL to ER diagram online",
           "database schema diagram",
@@ -5802,6 +6084,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "sql",
+              "content": "CREATE TABLE customers (\n  id BIGINT PRIMARY KEY,\n  email TEXT NOT NULL UNIQUE\n);\n\nCREATE TABLE orders (\n  id BIGINT PRIMARY KEY,\n  customer_id BIGINT NOT NULL REFERENCES customers(id),\n  status TEXT NOT NULL\n);",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5885,7 +6179,7 @@
         "seoTitle": "가이드: Cron expression visualizer: explain schedules without guessing - DiagramPreview",
         "description": "A long-tail guide for Cron Expression Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Cron Expression Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "cron expression visualizer",
           "cron schedule explainer",
@@ -5910,6 +6204,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "text",
+              "content": "0 9 * * MON-FRI   # every weekday at 09:00\n*/15 * * * *      # every 15 minutes\n0 2 1 * *         # monthly maintenance at 02:00 on day 1",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -6209,7 +6515,7 @@
         "seoTitle": "가이드: CloudFormation template visualizer guide - DiagramPreview",
         "description": "A practical long-tail guide for CloudFormation Template Diagram with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for CloudFormation Template Diagram with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "CloudFormation template visualizer",
           "AWS architecture diagram",
@@ -6234,6 +6540,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "Resources:\n  WebSecurityGroup:\n    Type: AWS::EC2::SecurityGroup\n  AppLoadBalancer:\n    Type: AWS::ElasticLoadBalancingV2::LoadBalancer\n  AppTargetGroup:\n    Type: AWS::ElasticLoadBalancingV2::TargetGroup",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "What to check in the preview",
@@ -6263,7 +6581,7 @@
         "seoTitle": "가이드: Terraform vs CloudFormation architecture diagrams - DiagramPreview",
         "description": "A practical long-tail guide for Terraform and CloudFormation Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for Terraform and CloudFormation Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Terraform vs CloudFormation",
           "IaC architecture diagram",
@@ -6288,6 +6606,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "hcl",
+              "content": "resource \"aws_lb\" \"app\" {\n  name               = \"checkout-app\"\n  load_balancer_type = \"application\"\n}\n\nresource \"aws_ecs_service\" \"api\" {\n  name = \"checkout-api\"\n}",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "What to check in the preview",
@@ -6317,7 +6647,7 @@
         "seoTitle": "가이드: C4 model diagrams for software architecture - DiagramPreview",
         "description": "A practical long-tail guide for C4 Model Diagram Generator with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for C4 Model Diagram Generator with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "C4 model diagram",
           "software architecture documentation",
@@ -6342,6 +6672,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "flowchart TB\n  User[Customer]\n  System[Checkout System]\n  ContainerA[Web App]\n  ContainerB[API Service]\n  ContainerC[(PostgreSQL)]\n  User --> System\n  System --> ContainerA\n  ContainerA --> ContainerB\n  ContainerB --> ContainerC",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "What to check in the preview",
@@ -6533,7 +6875,7 @@
         "seoTitle": "가이드: Architecture documentation checklist for AI-generated diagrams - DiagramPreview",
         "description": "A practical long-tail guide for C4 and AI Diagram Tools with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for C4 and AI Diagram Tools with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "architecture documentation checklist",
           "AI generated architecture diagram",
@@ -6558,6 +6900,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "바로 붙여 넣는 데모",
+            "paragraphs": [
+              "실제 입력을 넣기 전에 이 작은 예제로 구조를 빠르게 확인합니다.",
+              "렌더링이 되면 이름, 서비스, 필드, 리소스, 메트릭을 실제 값으로 바꿉니다."
+            ],
+            "code": {
+              "language": "markdown",
+              "content": "## Diagram review checklist\n\n- [ ] Does the title answer one clear question?\n- [ ] Are external systems separated from internal components?\n- [ ] Are arrows labeled with protocols or events?\n- [ ] Is the source saved beside the exported image?",
+              "caption": "작은 데모는 미리보기 흐름을 재현 가능하게 만듭니다."
+            }
           },
           {
             "heading": "What to check in the preview",

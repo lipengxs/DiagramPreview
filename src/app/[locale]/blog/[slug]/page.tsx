@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
-import {CalendarDays} from "lucide-react";
+import {CalendarDays, Clock3} from "lucide-react";
 import {blogPosts, getBlogPost, getCanonicalBlogPost} from "@/config/blog";
 import type {Locale} from "@/config/locales";
 import {tools} from "@/config/tools";
@@ -59,22 +59,36 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
   const isChineseLocale = locale.startsWith("zh");
 
   return (
-    <article className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-        <img src={post.image} alt="" className="aspect-[16/9] w-full object-cover" />
-        <div className="p-6 sm:p-8">
+    <article className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
           <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-slate-500">
-            <CalendarDays className="h-4 w-4" />
-            <span>{post.date}</span>
-            <span>{t(`blog.posts.${post.slug}.readingTime`)}</span>
+            <span className="inline-flex items-center gap-1.5">
+              <CalendarDays className="h-4 w-4" />
+              {post.date}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock3 className="h-4 w-4" />
+              {t(`blog.posts.${post.slug}.readingTime`)}
+            </span>
           </div>
           <h1 className="mt-4 text-3xl font-bold tracking-normal text-ink sm:text-4xl">{t(`blog.posts.${post.slug}.title`)}</h1>
           <p className="mt-4 text-base leading-7 text-slate-600">{t(`blog.posts.${post.slug}.description`)}</p>
+          {relatedTools.length ? (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {relatedTools.slice(0, 5).map((tool) => (
+                <Link key={tool.slug} href={`/${tool.slug}`} className="rounded-md border border-slate-200 bg-surface px-3 py-1.5 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">
+                  {t(`tools.${tool.slug}.name`)}
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
+        <img src={post.image} alt="" className="aspect-[16/10] h-full w-full object-cover" />
       </div>
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_280px]">
-        <div className="rounded-lg border border-slate-200 bg-white p-6 sm:p-8">
+      <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_300px]">
+        <div className="rounded-lg border border-slate-200 bg-white p-6 sm:p-8 lg:p-10">
           {canonicalPost ? (
             <div className="mb-8 rounded-lg border border-primary/25 bg-primary/5 p-4 text-sm leading-6 text-slate-700">
               <p className="font-semibold text-ink">
@@ -88,10 +102,15 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
               </p>
             </div>
           ) : null}
-          {sections.map((section) => (
-            <section key={section.heading} className="mb-8 last:mb-0">
-              <h2 className="text-xl font-bold text-ink">{section.heading}</h2>
-              <div className="mt-3 grid gap-4 text-base leading-8 text-slate-600">
+          {sections.map((section, index) => (
+            <section key={section.heading} id={`section-${index + 1}`} className="scroll-mt-28 border-b border-slate-100 py-8 first:pt-0 last:border-b-0 last:pb-0">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-sm font-bold text-primary">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2 className="text-xl font-bold leading-8 text-ink">{section.heading}</h2>
+              </div>
+              <div className="mt-4 grid gap-4 text-base leading-8 text-slate-600">
                 {section.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -107,9 +126,10 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
                 </figure>
               ) : null}
               {section.code ? (
-                <figure className="mt-5 overflow-hidden rounded-lg border border-slate-800 bg-slate-950">
-                  <div className="border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-                    {section.code.language}
+                <figure className="mt-5 overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-sm">
+                  <div className="flex items-center justify-between border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    <span>{section.code.language}</span>
+                    <span>{isChineseLocale ? "可复制 Demo" : "Copyable demo"}</span>
                   </div>
                   <pre className="overflow-auto p-4 text-sm leading-7 text-slate-100">
                     <code>{section.code.content}</code>
@@ -124,14 +144,26 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
             </section>
           ))}
         </div>
-        <aside className="h-fit rounded-lg border border-slate-200 bg-white p-5">
-          <h2 className="text-base font-bold text-ink">{t("blog.common.relatedTools")}</h2>
-          <div className="mt-4 grid gap-3">
-            {relatedTools.map((tool) => (
-              <Link key={tool.slug} href={`/${tool.slug}`} className="rounded-md border border-slate-200 p-3 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">
-                {t(`tools.${tool.slug}.name`)}
-              </Link>
-            ))}
+        <aside className="h-fit rounded-lg border border-slate-200 bg-white p-5 lg:sticky lg:top-24">
+          <div>
+            <h2 className="text-base font-bold text-ink">{isChineseLocale ? "文章目录" : "Contents"}</h2>
+            <div className="mt-4 grid gap-2">
+              {sections.map((section, index) => (
+                <a key={section.heading} href={`#section-${index + 1}`} className="rounded-md px-3 py-2 text-sm leading-5 text-slate-600 hover:bg-surface hover:text-primary">
+                  {String(index + 1).padStart(2, "0")} {section.heading}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="mt-6 border-t border-slate-200 pt-5">
+            <h2 className="text-base font-bold text-ink">{t("blog.common.relatedTools")}</h2>
+            <div className="mt-4 grid gap-3">
+              {relatedTools.map((tool) => (
+                <Link key={tool.slug} href={`/${tool.slug}`} className="rounded-md border border-slate-200 p-3 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">
+                  {t(`tools.${tool.slug}.name`)}
+                </Link>
+              ))}
+            </div>
           </div>
         </aside>
       </div>

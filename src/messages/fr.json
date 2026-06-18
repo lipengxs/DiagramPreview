@@ -5115,9 +5115,9 @@
       "mermaid-preview-guide": {
         "title": "Guide d’aperçu Mermaid",
         "seoTitle": "Guide d’aperçu Mermaid - DiagramPreview",
-        "description": "Guide d’aperçu Mermaid：Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "excerpt": "Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "readingTime": "5 min",
+        "description": "Guide d’aperçu Mermaid : guide pratique avec démo copiable, checklist de revue et notes de publication pour source Mermaid.",
+        "excerpt": "Workflow pratique pour prévisualiser source Mermaid avant la documentation.",
+        "readingTime": "9 min",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5126,17 +5126,48 @@
         ],
         "sections": [
           {
-            "heading": "Recommandations de workflow",
+            "heading": "Le vrai problème résolu",
             "paragraphs": [
-              "DiagramPreview regroupe source, aperçu, outils associés et export dans le même espace, ce qui aide pour la documentation technique, les notes d’architecture et la revue de contenu généré par IA.",
-              "Commencez par un exemple, ajustez la source par petites étapes, puis vérifiez l’aperçu avant d’exporter."
+              "Guide d’aperçu Mermaid est utile lorsqu’un diagramme n’est pas seulement une image, mais un élément maintenable de documentation. La source doit rester lisible, la prévisualisation doit révéler les erreurs et l’export doit tenir dans un README, un wiki ou un blog.",
+              "Utilisez ce flux pour flux de paiement, onboarding, releases ou chronologies d’incident. L’objectif est une boucle courte édition, prévisualisation et revue avant publication."
+            ],
+            "image": {
+              "src": "/blog/mermaid-preview-guide.png",
+              "alt": "Guide d’aperçu Mermaid",
+              "caption": "Workflow de prévisualisation pour Guide d’aperçu Mermaid."
+            }
+          },
+          {
+            "heading": "Une petite démo à coller",
+            "paragraphs": [
+              "Ne commencez pas avec tout le contenu de production. Utilisez d’abord un petit extrait pour vérifier syntaxe, libellés et mise en page.",
+              "Quand la première prévisualisation fonctionne, ajoutez les vrais noms de services, champs, acteurs ou dépendances."
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "flowchart LR\n  Draft[AI or human draft] --> Preview[Mermaid Preview]\n  Preview --> Check{Readable?}\n  Check -- no --> Edit[Fix labels and direction]\n  Edit --> Preview\n  Check -- yes --> Export[Export SVG / PNG]",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
+          },
+          {
+            "heading": "Comment relire la prévisualisation",
+            "paragraphs": [
+              "Relisez comme un collègue. La page répond-elle à une question claire ? La source pourra-t-elle être modifiée plus tard ?",
+              "Pour du contenu généré par IA, vérifiez les noms, la direction, les groupes et les relations manquantes."
             ]
           },
           {
-            "heading": "Vérification avant publication",
+            "heading": "Erreurs courantes",
             "paragraphs": [
-              "Conservez la source texte avec l’asset exporté afin de faciliter les futures modifications.",
-              "Si le diagramme provient d’une IA, vérifiez les noms, la direction, les groupes et le sens métier."
+              "L’erreur courante consiste à vouloir tout expliquer dans un seul diagramme. Séparez flux de requête, données, infrastructure et sortie de publication.",
+              "Autre erreur : n’exporter qu’une image. Gardez la source avec le SVG ou PNG."
+            ]
+          },
+          {
+            "heading": "Checklist avant publication",
+            "paragraphs": [
+              "Avant publication, vérifiez netteté, longs libellés et présence d’un extrait reproductible.",
+              "La page est plus crédible lorsqu’elle montre l’entrée, la prévisualisation et la décision après revue."
             ]
           }
         ]
@@ -5144,9 +5175,9 @@
       "plantuml-online-preview-workflow": {
         "title": "Workflow d’aperçu PlantUML en ligne",
         "seoTitle": "Workflow d’aperçu PlantUML en ligne - DiagramPreview",
-        "description": "Workflow d’aperçu PlantUML en ligne：Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "excerpt": "Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "readingTime": "5 min",
+        "description": "Workflow d’aperçu PlantUML en ligne : guide pratique avec démo copiable, checklist de revue et notes de publication pour source PlantUML.",
+        "excerpt": "Workflow pratique pour prévisualiser source PlantUML avant la documentation.",
+        "readingTime": "9 min",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5155,17 +5186,48 @@
         ],
         "sections": [
           {
-            "heading": "Recommandations de workflow",
+            "heading": "Le vrai problème résolu",
             "paragraphs": [
-              "DiagramPreview regroupe source, aperçu, outils associés et export dans le même espace, ce qui aide pour la documentation technique, les notes d’architecture et la revue de contenu généré par IA.",
-              "Commencez par un exemple, ajustez la source par petites étapes, puis vérifiez l’aperçu avant d’exporter."
+              "Workflow d’aperçu PlantUML en ligne est utile lorsqu’un diagramme n’est pas seulement une image, mais un élément maintenable de documentation. La source doit rester lisible, la prévisualisation doit révéler les erreurs et l’export doit tenir dans un README, un wiki ou un blog.",
+              "Utilisez ce flux pour diagrammes de séquence, composants, classes et activités. L’objectif est une boucle courte édition, prévisualisation et revue avant publication."
+            ],
+            "image": {
+              "src": "/blog/plantuml-online-preview-workflow.png",
+              "alt": "Workflow d’aperçu PlantUML en ligne",
+              "caption": "Workflow de prévisualisation pour Workflow d’aperçu PlantUML en ligne."
+            }
+          },
+          {
+            "heading": "Une petite démo à coller",
+            "paragraphs": [
+              "Ne commencez pas avec tout le contenu de production. Utilisez d’abord un petit extrait pour vérifier syntaxe, libellés et mise en page.",
+              "Quand la première prévisualisation fonctionne, ajoutez les vrais noms de services, champs, acteurs ou dépendances."
+            ],
+            "code": {
+              "language": "plantuml",
+              "content": "@startuml\nactor Developer\nparticipant Browser\nparticipant \"PlantUML Preview\" as Preview\nDeveloper -> Browser: Paste sequence source\nBrowser -> Preview: Render diagram\nPreview --> Browser: SVG preview or syntax error\nDeveloper -> Browser: Export after review\n@enduml",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
+          },
+          {
+            "heading": "Comment relire la prévisualisation",
+            "paragraphs": [
+              "Relisez comme un collègue. La page répond-elle à une question claire ? La source pourra-t-elle être modifiée plus tard ?",
+              "Pour du contenu généré par IA, vérifiez les noms, la direction, les groupes et les relations manquantes."
             ]
           },
           {
-            "heading": "Vérification avant publication",
+            "heading": "Erreurs courantes",
             "paragraphs": [
-              "Conservez la source texte avec l’asset exporté afin de faciliter les futures modifications.",
-              "Si le diagramme provient d’une IA, vérifiez les noms, la direction, les groupes et le sens métier."
+              "L’erreur courante consiste à vouloir tout expliquer dans un seul diagramme. Séparez flux de requête, données, infrastructure et sortie de publication.",
+              "Autre erreur : n’exporter qu’une image. Gardez la source avec le SVG ou PNG."
+            ]
+          },
+          {
+            "heading": "Checklist avant publication",
+            "paragraphs": [
+              "Avant publication, vérifiez netteté, longs libellés et présence d’un extrait reproductible.",
+              "La page est plus crédible lorsqu’elle montre l’entrée, la prévisualisation et la décision après revue."
             ]
           }
         ]
@@ -5173,9 +5235,9 @@
       "markdown-mermaid-documentation": {
         "title": "Documentation Markdown avec Mermaid",
         "seoTitle": "Documentation Markdown avec Mermaid - DiagramPreview",
-        "description": "Documentation Markdown avec Mermaid：Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "excerpt": "Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "readingTime": "5 min",
+        "description": "Documentation Markdown avec Mermaid : guide pratique avec démo copiable, checklist de revue et notes de publication pour Markdown avec Mermaid intégré.",
+        "excerpt": "Workflow pratique pour prévisualiser Markdown avec Mermaid intégré avant la documentation.",
+        "readingTime": "9 min",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5184,17 +5246,48 @@
         ],
         "sections": [
           {
-            "heading": "Recommandations de workflow",
+            "heading": "Le vrai problème résolu",
             "paragraphs": [
-              "DiagramPreview regroupe source, aperçu, outils associés et export dans le même espace, ce qui aide pour la documentation technique, les notes d’architecture et la revue de contenu généré par IA.",
-              "Commencez par un exemple, ajustez la source par petites étapes, puis vérifiez l’aperçu avant d’exporter."
+              "Documentation Markdown avec Mermaid est utile lorsqu’un diagramme n’est pas seulement une image, mais un élément maintenable de documentation. La source doit rester lisible, la prévisualisation doit révéler les erreurs et l’export doit tenir dans un README, un wiki ou un blog.",
+              "Utilisez ce flux pour README, notes d’API, RFC et articles d’aide. L’objectif est une boucle courte édition, prévisualisation et revue avant publication."
+            ],
+            "image": {
+              "src": "/blog/markdown-mermaid-documentation.png",
+              "alt": "Documentation Markdown avec Mermaid",
+              "caption": "Workflow de prévisualisation pour Documentation Markdown avec Mermaid."
+            }
+          },
+          {
+            "heading": "Une petite démo à coller",
+            "paragraphs": [
+              "Ne commencez pas avec tout le contenu de production. Utilisez d’abord un petit extrait pour vérifier syntaxe, libellés et mise en page.",
+              "Quand la première prévisualisation fonctionne, ajoutez les vrais noms de services, champs, acteurs ou dépendances."
+            ],
+            "code": {
+              "language": "markdown",
+              "content": "# Checkout flow\n\nThe API creates an order, then asks the payment service to confirm it.\n\n```mermaid\nsequenceDiagram\n  participant User\n  participant Store\n  participant Payment\n  User->>Store: POST /orders\n  Store->>Payment: Create payment intent\n  Payment-->>Store: Confirmed\n  Store-->>User: Order receipt\n```",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
+          },
+          {
+            "heading": "Comment relire la prévisualisation",
+            "paragraphs": [
+              "Relisez comme un collègue. La page répond-elle à une question claire ? La source pourra-t-elle être modifiée plus tard ?",
+              "Pour du contenu généré par IA, vérifiez les noms, la direction, les groupes et les relations manquantes."
             ]
           },
           {
-            "heading": "Vérification avant publication",
+            "heading": "Erreurs courantes",
             "paragraphs": [
-              "Conservez la source texte avec l’asset exporté afin de faciliter les futures modifications.",
-              "Si le diagramme provient d’une IA, vérifiez les noms, la direction, les groupes et le sens métier."
+              "L’erreur courante consiste à vouloir tout expliquer dans un seul diagramme. Séparez flux de requête, données, infrastructure et sortie de publication.",
+              "Autre erreur : n’exporter qu’une image. Gardez la source avec le SVG ou PNG."
+            ]
+          },
+          {
+            "heading": "Checklist avant publication",
+            "paragraphs": [
+              "Avant publication, vérifiez netteté, longs libellés et présence d’un extrait reproductible.",
+              "La page est plus crédible lorsqu’elle montre l’entrée, la prévisualisation et la décision après revue."
             ]
           }
         ]
@@ -5202,9 +5295,9 @@
       "graphviz-dot-dependency-graphs": {
         "title": "Graphes de dépendances Graphviz DOT",
         "seoTitle": "Graphes de dépendances Graphviz DOT - DiagramPreview",
-        "description": "Graphes de dépendances Graphviz DOT：Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "excerpt": "Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "readingTime": "5 min",
+        "description": "Graphes de dépendances Graphviz DOT : guide pratique avec démo copiable, checklist de revue et notes de publication pour source DOT.",
+        "excerpt": "Workflow pratique pour prévisualiser source DOT avant la documentation.",
+        "readingTime": "9 min",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5213,17 +5306,48 @@
         ],
         "sections": [
           {
-            "heading": "Recommandations de workflow",
+            "heading": "Le vrai problème résolu",
             "paragraphs": [
-              "DiagramPreview regroupe source, aperçu, outils associés et export dans le même espace, ce qui aide pour la documentation technique, les notes d’architecture et la revue de contenu généré par IA.",
-              "Commencez par un exemple, ajustez la source par petites étapes, puis vérifiez l’aperçu avant d’exporter."
+              "Graphes de dépendances Graphviz DOT est utile lorsqu’un diagramme n’est pas seulement une image, mais un élément maintenable de documentation. La source doit rester lisible, la prévisualisation doit révéler les erreurs et l’export doit tenir dans un README, un wiki ou un blog.",
+              "Utilisez ce flux pour dépendances de packages, appels de services, jobs et pipelines. L’objectif est une boucle courte édition, prévisualisation et revue avant publication."
+            ],
+            "image": {
+              "src": "/blog/graphviz-dot-dependency-graphs.png",
+              "alt": "Graphes de dépendances Graphviz DOT",
+              "caption": "Workflow de prévisualisation pour Graphes de dépendances Graphviz DOT."
+            }
+          },
+          {
+            "heading": "Une petite démo à coller",
+            "paragraphs": [
+              "Ne commencez pas avec tout le contenu de production. Utilisez d’abord un petit extrait pour vérifier syntaxe, libellés et mise en page.",
+              "Quand la première prévisualisation fonctionne, ajoutez les vrais noms de services, champs, acteurs ou dépendances."
+            ],
+            "code": {
+              "language": "dot",
+              "content": "digraph dependencies {\n  rankdir=LR;\n  node [shape=box, style=\"rounded,filled\", fillcolor=\"#f8fafc\"];\n  web -> api;\n  api -> postgres;\n  api -> redis;\n  worker -> redis;\n  worker -> postgres;\n}",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
+          },
+          {
+            "heading": "Comment relire la prévisualisation",
+            "paragraphs": [
+              "Relisez comme un collègue. La page répond-elle à une question claire ? La source pourra-t-elle être modifiée plus tard ?",
+              "Pour du contenu généré par IA, vérifiez les noms, la direction, les groupes et les relations manquantes."
             ]
           },
           {
-            "heading": "Vérification avant publication",
+            "heading": "Erreurs courantes",
             "paragraphs": [
-              "Conservez la source texte avec l’asset exporté afin de faciliter les futures modifications.",
-              "Si le diagramme provient d’une IA, vérifiez les noms, la direction, les groupes et le sens métier."
+              "L’erreur courante consiste à vouloir tout expliquer dans un seul diagramme. Séparez flux de requête, données, infrastructure et sortie de publication.",
+              "Autre erreur : n’exporter qu’une image. Gardez la source avec le SVG ou PNG."
+            ]
+          },
+          {
+            "heading": "Checklist avant publication",
+            "paragraphs": [
+              "Avant publication, vérifiez netteté, longs libellés et présence d’un extrait reproductible.",
+              "La page est plus crédible lorsqu’elle montre l’entrée, la prévisualisation et la décision après revue."
             ]
           }
         ]
@@ -5231,9 +5355,9 @@
       "json-yaml-diagram-visualization": {
         "title": "Visualisation JSON et YAML",
         "seoTitle": "Visualisation JSON et YAML - DiagramPreview",
-        "description": "Visualisation JSON et YAML：Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "excerpt": "Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "readingTime": "5 min",
+        "description": "Visualisation JSON et YAML : guide pratique avec démo copiable, checklist de revue et notes de publication pour structure JSON ou YAML.",
+        "excerpt": "Workflow pratique pour prévisualiser structure JSON ou YAML avant la documentation.",
+        "readingTime": "9 min",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5242,17 +5366,48 @@
         ],
         "sections": [
           {
-            "heading": "Recommandations de workflow",
+            "heading": "Le vrai problème résolu",
             "paragraphs": [
-              "DiagramPreview regroupe source, aperçu, outils associés et export dans le même espace, ce qui aide pour la documentation technique, les notes d’architecture et la revue de contenu généré par IA.",
-              "Commencez par un exemple, ajustez la source par petites étapes, puis vérifiez l’aperçu avant d’exporter."
+              "Visualisation JSON et YAML est utile lorsqu’un diagramme n’est pas seulement une image, mais un élément maintenable de documentation. La source doit rester lisible, la prévisualisation doit révéler les erreurs et l’export doit tenir dans un README, un wiki ou un blog.",
+              "Utilisez ce flux pour configuration de service, payloads API, YAML de déploiement et paramètres imbriqués. L’objectif est une boucle courte édition, prévisualisation et revue avant publication."
+            ],
+            "image": {
+              "src": "/blog/json-yaml-diagram-visualization.png",
+              "alt": "Visualisation JSON et YAML",
+              "caption": "Workflow de prévisualisation pour Visualisation JSON et YAML."
+            }
+          },
+          {
+            "heading": "Une petite démo à coller",
+            "paragraphs": [
+              "Ne commencez pas avec tout le contenu de production. Utilisez d’abord un petit extrait pour vérifier syntaxe, libellés et mise en page.",
+              "Quand la première prévisualisation fonctionne, ajoutez les vrais noms de services, champs, acteurs ou dépendances."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "service: checkout\nruntime: node\nconnectsTo:\n  - postgres\n  - redis\n  - payment-api\nenvironments:\n  staging:\n    replicas: 2\n  production:\n    replicas: 6",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
+          },
+          {
+            "heading": "Comment relire la prévisualisation",
+            "paragraphs": [
+              "Relisez comme un collègue. La page répond-elle à une question claire ? La source pourra-t-elle être modifiée plus tard ?",
+              "Pour du contenu généré par IA, vérifiez les noms, la direction, les groupes et les relations manquantes."
             ]
           },
           {
-            "heading": "Vérification avant publication",
+            "heading": "Erreurs courantes",
             "paragraphs": [
-              "Conservez la source texte avec l’asset exporté afin de faciliter les futures modifications.",
-              "Si le diagramme provient d’une IA, vérifiez les noms, la direction, les groupes et le sens métier."
+              "L’erreur courante consiste à vouloir tout expliquer dans un seul diagramme. Séparez flux de requête, données, infrastructure et sortie de publication.",
+              "Autre erreur : n’exporter qu’une image. Gardez la source avec le SVG ou PNG."
+            ]
+          },
+          {
+            "heading": "Checklist avant publication",
+            "paragraphs": [
+              "Avant publication, vérifiez netteté, longs libellés et présence d’un extrait reproductible.",
+              "La page est plus crédible lorsqu’elle montre l’entrée, la prévisualisation et la décision après revue."
             ]
           }
         ]
@@ -5260,9 +5415,9 @@
       "drawio-file-preview-guide": {
         "title": "Guide d’aperçu de fichiers Draw.io",
         "seoTitle": "Guide d’aperçu de fichiers Draw.io - DiagramPreview",
-        "description": "Guide d’aperçu de fichiers Draw.io：Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "excerpt": "Guides pratiques pour prévisualiser, convertir, exporter et documenter des diagrammes en ligne.",
-        "readingTime": "5 min",
+        "description": "Guide d’aperçu de fichiers Draw.io : guide pratique avec démo copiable, checklist de revue et notes de publication pour XML draw.io.",
+        "excerpt": "Workflow pratique pour prévisualiser XML draw.io avant la documentation.",
+        "readingTime": "9 min",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5271,17 +5426,48 @@
         ],
         "sections": [
           {
-            "heading": "Recommandations de workflow",
+            "heading": "Le vrai problème résolu",
             "paragraphs": [
-              "DiagramPreview regroupe source, aperçu, outils associés et export dans le même espace, ce qui aide pour la documentation technique, les notes d’architecture et la revue de contenu généré par IA.",
-              "Commencez par un exemple, ajustez la source par petites étapes, puis vérifiez l’aperçu avant d’exporter."
+              "Guide d’aperçu de fichiers Draw.io est utile lorsqu’un diagramme n’est pas seulement une image, mais un élément maintenable de documentation. La source doit rester lisible, la prévisualisation doit révéler les erreurs et l’export doit tenir dans un README, un wiki ou un blog.",
+              "Utilisez ce flux pour diagrammes éditables, imports générés par IA et fichiers diagrams.net. L’objectif est une boucle courte édition, prévisualisation et revue avant publication."
+            ],
+            "image": {
+              "src": "/blog/drawio-file-preview-guide.png",
+              "alt": "Guide d’aperçu de fichiers Draw.io",
+              "caption": "Workflow de prévisualisation pour Guide d’aperçu de fichiers Draw.io."
+            }
+          },
+          {
+            "heading": "Une petite démo à coller",
+            "paragraphs": [
+              "Ne commencez pas avec tout le contenu de production. Utilisez d’abord un petit extrait pour vérifier syntaxe, libellés et mise en page.",
+              "Quand la première prévisualisation fonctionne, ajoutez les vrais noms de services, champs, acteurs ou dépendances."
+            ],
+            "code": {
+              "language": "xml",
+              "content": "<mxfile host=\"DiagramPreview\">\n  <diagram name=\"Preview\">\n    <mxGraphModel>\n      <root>\n        <mxCell id=\"0\" />\n        <mxCell id=\"1\" parent=\"0\" />\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
+          },
+          {
+            "heading": "Comment relire la prévisualisation",
+            "paragraphs": [
+              "Relisez comme un collègue. La page répond-elle à une question claire ? La source pourra-t-elle être modifiée plus tard ?",
+              "Pour du contenu généré par IA, vérifiez les noms, la direction, les groupes et les relations manquantes."
             ]
           },
           {
-            "heading": "Vérification avant publication",
+            "heading": "Erreurs courantes",
             "paragraphs": [
-              "Conservez la source texte avec l’asset exporté afin de faciliter les futures modifications.",
-              "Si le diagramme provient d’une IA, vérifiez les noms, la direction, les groupes et le sens métier."
+              "L’erreur courante consiste à vouloir tout expliquer dans un seul diagramme. Séparez flux de requête, données, infrastructure et sortie de publication.",
+              "Autre erreur : n’exporter qu’une image. Gardez la source avec le SVG ou PNG."
+            ]
+          },
+          {
+            "heading": "Checklist avant publication",
+            "paragraphs": [
+              "Avant publication, vérifiez netteté, longs libellés et présence d’un extrait reproductible.",
+              "La page est plus crédible lorsqu’elle montre l’entrée, la prévisualisation et la décision après revue."
             ]
           }
         ]
@@ -5291,7 +5477,7 @@
         "seoTitle": "Guide : How to preview Mermaid diagrams generated by ChatGPT - DiagramPreview",
         "description": "A long-tail guide for Mermaid Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Mermaid Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "ChatGPT Mermaid preview",
           "AI generated Mermaid",
@@ -5316,6 +5502,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "sequenceDiagram\n  participant Prompt as Prompt to AI\n  participant Draft as Mermaid draft\n  participant Preview as DiagramPreview\n  Prompt->>Draft: Ask for a checkout sequence\n  Draft->>Preview: Paste generated Mermaid\n  Preview-->>Draft: Syntax error or clean SVG\n  Draft->>Prompt: Revise labels and missing steps",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5345,7 +5543,7 @@
         "seoTitle": "Guide : Mermaid vs PlantUML: which one should you use for technical docs? - DiagramPreview",
         "description": "A long-tail guide for Mermaid and PlantUML Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Mermaid and PlantUML Preview: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Mermaid vs PlantUML",
           "technical documentation diagrams",
@@ -5370,6 +5568,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "text",
+              "content": "Use Mermaid when:\n- the diagram lives in Markdown\n- the team wants low-friction edits\n- flowcharts and sequence diagrams are enough\n\nUse PlantUML when:\n- the team already uses UML terminology\n- class/component diagrams need more control\n- docs are generated from a build pipeline",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5399,7 +5609,7 @@
         "seoTitle": "Guide : How to convert PlantUML to editable draw.io diagrams - DiagramPreview",
         "description": "A long-tail guide for PlantUML to Draw.io: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for PlantUML to Draw.io: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "PlantUML to draw.io",
           "editable diagrams.net XML",
@@ -5424,6 +5634,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "plantuml",
+              "content": "@startuml\ncomponent Web\ncomponent API\ndatabase PostgreSQL\nWeb --> API : HTTPS\nAPI --> PostgreSQL : SQL\n@enduml",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5453,7 +5675,7 @@
         "seoTitle": "Guide : How to generate editable draw.io diagrams with AI - DiagramPreview",
         "description": "A long-tail guide for AI Draw.io Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for AI Draw.io Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "AI draw.io generator",
           "editable architecture diagram",
@@ -5478,6 +5700,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "text",
+              "content": "Prompt:\nCreate an editable draw.io diagram for a microservice checkout system.\nInclude web, API gateway, order service, payment service, queue, PostgreSQL, and Redis.\nGroup runtime services separately from data stores.\nReturn diagrams.net XML and a short SVG preview.",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5507,7 +5741,7 @@
         "seoTitle": "Guide : How to visualize Kubernetes manifests online - DiagramPreview",
         "description": "A long-tail guide for Kubernetes Manifest Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Kubernetes Manifest Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Kubernetes manifest visualizer",
           "Kubernetes service topology",
@@ -5532,6 +5766,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: checkout-api\nspec:\n  replicas: 3\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/checkout-api:1.8.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: checkout-api\nspec:\n  selector:\n    app: checkout-api",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5561,7 +5807,7 @@
         "seoTitle": "Guide : How to turn Docker Compose into an architecture diagram - DiagramPreview",
         "description": "A long-tail guide for Docker Compose Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Docker Compose Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Docker Compose diagram",
           "container architecture diagram",
@@ -5586,6 +5832,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "services:\n  web:\n    image: node:22\n    depends_on: [api]\n  api:\n    image: checkout-api\n    depends_on: [postgres, redis]\n  postgres:\n    image: postgres:16\n  redis:\n    image: redis:7",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5615,7 +5873,7 @@
         "seoTitle": "Guide : How to generate Grafana dashboard JSON with AI - DiagramPreview",
         "description": "A long-tail guide for Grafana Dashboard Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Grafana Dashboard Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "AI Grafana dashboard generator",
           "Grafana dashboard JSON",
@@ -5640,6 +5898,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"title\": \"Checkout API Overview\",\n  \"panels\": [\n    {\"title\": \"Request rate\", \"type\": \"timeseries\"},\n    {\"title\": \"Error rate\", \"type\": \"timeseries\"},\n    {\"title\": \"P95 latency\", \"type\": \"timeseries\"}\n  ],\n  \"templating\": {\"list\": [{\"name\": \"service\"}]}\n}",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5669,7 +5939,7 @@
         "seoTitle": "Guide : Prometheus alert rules examples for API latency and error rate - DiagramPreview",
         "description": "A long-tail guide for Prometheus Alert Rule Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Prometheus Alert Rule Generator: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Prometheus alert rules examples",
           "API latency alert",
@@ -5694,6 +5964,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "groups:\n  - name: checkout-api.rules\n    rules:\n      - alert: HighApiErrorRate\n        expr: sum(rate(http_requests_total{status=~\"5..\"}[5m])) / sum(rate(http_requests_total[5m])) > 0.02\n        for: 10m\n      - alert: HighP95Latency\n        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 0.8\n        for: 10m",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5777,7 +6059,7 @@
         "seoTitle": "Guide : SQL to ER diagram online: from schema to database docs - DiagramPreview",
         "description": "A long-tail guide for SQL to ER Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for SQL to ER Diagram: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "SQL to ER diagram online",
           "database schema diagram",
@@ -5802,6 +6084,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "sql",
+              "content": "CREATE TABLE customers (\n  id BIGINT PRIMARY KEY,\n  email TEXT NOT NULL UNIQUE\n);\n\nCREATE TABLE orders (\n  id BIGINT PRIMARY KEY,\n  customer_id BIGINT NOT NULL REFERENCES customers(id),\n  status TEXT NOT NULL\n);",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -5885,7 +6179,7 @@
         "seoTitle": "Guide : Cron expression visualizer: explain schedules without guessing - DiagramPreview",
         "description": "A long-tail guide for Cron Expression Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
         "excerpt": "A long-tail guide for Cron Expression Visualizer: use cases, input examples, common mistakes, and publishing workflow for developer documentation.",
-        "readingTime": "7 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "cron expression visualizer",
           "cron schedule explainer",
@@ -5910,6 +6204,18 @@
               "Start with the smallest useful input. Instead of pasting a full production configuration immediately, verify the direction with a short Mermaid, PlantUML, YAML, SQL, or API fragment.",
               "Preview the result, then check labels, direction, grouping, and error messages. After that, add real fields, status codes, metrics, or topology relationships. This is easier to debug than generating one large diagram at once."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "text",
+              "content": "0 9 * * MON-FRI   # every weekday at 09:00\n*/15 * * * *      # every 15 minutes\n0 2 1 * *         # monthly maintenance at 02:00 on day 1",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "Common mistakes and checks",
@@ -6209,7 +6515,7 @@
         "seoTitle": "Guide : CloudFormation template visualizer guide - DiagramPreview",
         "description": "A practical long-tail guide for CloudFormation Template Diagram with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for CloudFormation Template Diagram with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "CloudFormation template visualizer",
           "AWS architecture diagram",
@@ -6234,6 +6540,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "Resources:\n  WebSecurityGroup:\n    Type: AWS::EC2::SecurityGroup\n  AppLoadBalancer:\n    Type: AWS::ElasticLoadBalancingV2::LoadBalancer\n  AppTargetGroup:\n    Type: AWS::ElasticLoadBalancingV2::TargetGroup",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "What to check in the preview",
@@ -6263,7 +6581,7 @@
         "seoTitle": "Guide : Terraform vs CloudFormation architecture diagrams - DiagramPreview",
         "description": "A practical long-tail guide for Terraform and CloudFormation Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for Terraform and CloudFormation Diagrams with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "Terraform vs CloudFormation",
           "IaC architecture diagram",
@@ -6288,6 +6606,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "hcl",
+              "content": "resource \"aws_lb\" \"app\" {\n  name               = \"checkout-app\"\n  load_balancer_type = \"application\"\n}\n\nresource \"aws_ecs_service\" \"api\" {\n  name = \"checkout-api\"\n}",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "What to check in the preview",
@@ -6317,7 +6647,7 @@
         "seoTitle": "Guide : C4 model diagrams for software architecture - DiagramPreview",
         "description": "A practical long-tail guide for C4 Model Diagram Generator with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for C4 Model Diagram Generator with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "C4 model diagram",
           "software architecture documentation",
@@ -6342,6 +6672,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "flowchart TB\n  User[Customer]\n  System[Checkout System]\n  ContainerA[Web App]\n  ContainerB[API Service]\n  ContainerC[(PostgreSQL)]\n  User --> System\n  System --> ContainerA\n  ContainerA --> ContainerB\n  ContainerB --> ContainerC",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "What to check in the preview",
@@ -6533,7 +6875,7 @@
         "seoTitle": "Guide : Architecture documentation checklist for AI-generated diagrams - DiagramPreview",
         "description": "A practical long-tail guide for C4 and AI Diagram Tools with example input, visualization checks, common mistakes, and publishing notes.",
         "excerpt": "A practical long-tail guide for C4 and AI Diagram Tools with example input, visualization checks, common mistakes, and publishing notes.",
-        "readingTime": "8 min read",
+        "readingTime": "9 min read",
         "keywords": [
           "architecture documentation checklist",
           "AI generated architecture diagram",
@@ -6558,6 +6900,18 @@
               "Start with the smallest useful source instead of pasting a full production file immediately. Small input reveals parsing issues faster and keeps the first diagram readable.",
               "For API debugging, begin with a request collection or HAR fragment. For schema docs, start with one interface or z.object. For architecture docs, begin with a few resources and relationships."
             ]
+          },
+          {
+            "heading": "Démo prête à coller",
+            "paragraphs": [
+              "Utilisez cet exemple compact avant votre entrée réelle. Il est volontairement court pour valider vite la structure.",
+              "Quand le rendu fonctionne, remplacez les noms, services, champs, ressources ou métriques par vos données réelles."
+            ],
+            "code": {
+              "language": "markdown",
+              "content": "## Diagram review checklist\n\n- [ ] Does the title answer one clear question?\n- [ ] Are external systems separated from internal components?\n- [ ] Are arrows labeled with protocols or events?\n- [ ] Is the source saved beside the exported image?",
+              "caption": "Une démo compacte rend le flux reproductible."
+            }
           },
           {
             "heading": "What to check in the preview",

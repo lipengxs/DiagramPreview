@@ -5115,9 +5115,9 @@
       "mermaid-preview-guide": {
         "title": "Mermaid 線上預覽指南",
         "seoTitle": "Mermaid 線上預覽指南 - DiagramPreview",
-        "description": "Mermaid 線上預覽指南：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "readingTime": "5 分钟阅读",
+        "description": "Mermaid 線上預覽指南：包含可複製 demo、檢查清單與發布建議的實用教程，適合在正式文件前預覽 Mermaid 原始碼。",
+        "excerpt": "在發布文件前預覽 Mermaid 原始碼 的實用工作流。",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5126,17 +5126,48 @@
         ],
         "sections": [
           {
-            "heading": "工作流建議",
+            "heading": "它真正解決的問題",
             "paragraphs": [
-              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
-              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+              "Mermaid 線上預覽指南 的價值不只是「線上看一眼圖」。對開發者來說，圖表原始碼本身也是文件資產：它要能被複製、能被預覽、能被匯出，也要能在半年後繼續修改。",
+              "當你處理下單流程、入門流程、發布流程或故障復盤時間線時，可以先建立一個短閉環：貼上原始碼、查看預覽、修正語法和命名、最後再匯出。"
+            ],
+            "image": {
+              "src": "/blog/mermaid-preview-guide.png",
+              "alt": "Mermaid 線上預覽指南",
+              "caption": "Mermaid 線上預覽指南 的原始碼、預覽和匯出工作流。"
+            }
+          },
+          {
+            "heading": "先貼上一個最小 demo",
+            "paragraphs": [
+              "不要一開始就把完整生產內容貼進去。先用一個很小的片段確認渲染方向、標籤長度和版面關係。",
+              "第一版預覽通過後，再把真實服務名、欄位、角色或依賴關係逐步加進去。小步除錯比在一大段 AI 生成內容裡找錯舒服得多。"
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "flowchart LR\n  Draft[AI or human draft] --> Preview[Mermaid Preview]\n  Preview --> Check{Readable?}\n  Check -- no --> Edit[Fix labels and direction]\n  Edit --> Preview\n  Check -- yes --> Export[Export SVG / PNG]",
+              "caption": "先用小流程圖驗證方向，比直接貼完整架構圖更容易除錯。"
+            }
+          },
+          {
+            "heading": "預覽時應該看什麼",
+            "paragraphs": [
+              "把預覽結果當成同事會看到的頁面來檢查：它是否回答了一個明確問題？不看上下文能否理解主要關係？",
+              "如果內容來自 AI，要重點檢查節點命名、方向、分組和缺失關係。AI 很容易生成「看起來很像」的圖，但漏掉錯誤流程、協議、環境邊界或所有權。"
             ]
           },
           {
-            "heading": "發布前檢查",
+            "heading": "常見錯誤",
             "paragraphs": [
-              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
-              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+              "最常見的問題是想讓一張圖解釋所有東西。更好的做法是拆成請求流、資料結構、部署拓撲和發布截圖幾個小預覽。",
+              "另一個問題是只保存截圖，不保存原始碼。建議把源文本和 SVG/PNG 一起放進文件或倉庫，這樣後續改圖可以像改程式碼一樣 review。"
+            ]
+          },
+          {
+            "heading": "發布前清單",
+            "paragraphs": [
+              "發布前檢查三件事：匯出圖片是否清晰，最長標籤是否換行合理，文章裡是否能看到可復現的輸入片段。",
+              "好的工具頁不應該只說「支援線上預覽」，而應該展示輸入長什麼樣、預覽發現了什麼、最後如何決定匯出。"
             ]
           }
         ]
@@ -5144,9 +5175,9 @@
       "plantuml-online-preview-workflow": {
         "title": "PlantUML 線上預覽工作流",
         "seoTitle": "PlantUML 線上預覽工作流 - DiagramPreview",
-        "description": "PlantUML 線上預覽工作流：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "readingTime": "5 分钟阅读",
+        "description": "PlantUML 線上預覽工作流：包含可複製 demo、檢查清單與發布建議的實用教程，適合在正式文件前預覽 PlantUML 原始碼。",
+        "excerpt": "在發布文件前預覽 PlantUML 原始碼 的實用工作流。",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5155,17 +5186,48 @@
         ],
         "sections": [
           {
-            "heading": "工作流建議",
+            "heading": "它真正解決的問題",
             "paragraphs": [
-              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
-              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+              "PlantUML 線上預覽工作流 的價值不只是「線上看一眼圖」。對開發者來說，圖表原始碼本身也是文件資產：它要能被複製、能被預覽、能被匯出，也要能在半年後繼續修改。",
+              "當你處理時序圖、元件圖、類別圖和活動流程時，可以先建立一個短閉環：貼上原始碼、查看預覽、修正語法和命名、最後再匯出。"
+            ],
+            "image": {
+              "src": "/blog/plantuml-online-preview-workflow.png",
+              "alt": "PlantUML 線上預覽工作流",
+              "caption": "PlantUML 線上預覽工作流 的原始碼、預覽和匯出工作流。"
+            }
+          },
+          {
+            "heading": "先貼上一個最小 demo",
+            "paragraphs": [
+              "不要一開始就把完整生產內容貼進去。先用一個很小的片段確認渲染方向、標籤長度和版面關係。",
+              "第一版預覽通過後，再把真實服務名、欄位、角色或依賴關係逐步加進去。小步除錯比在一大段 AI 生成內容裡找錯舒服得多。"
+            ],
+            "code": {
+              "language": "plantuml",
+              "content": "@startuml\nactor Developer\nparticipant Browser\nparticipant \"PlantUML Preview\" as Preview\nDeveloper -> Browser: Paste sequence source\nBrowser -> Preview: Render diagram\nPreview --> Browser: SVG preview or syntax error\nDeveloper -> Browser: Export after review\n@enduml",
+              "caption": "先用時序圖確認互動順序，再考慮樣式和匯出。"
+            }
+          },
+          {
+            "heading": "預覽時應該看什麼",
+            "paragraphs": [
+              "把預覽結果當成同事會看到的頁面來檢查：它是否回答了一個明確問題？不看上下文能否理解主要關係？",
+              "如果內容來自 AI，要重點檢查節點命名、方向、分組和缺失關係。AI 很容易生成「看起來很像」的圖，但漏掉錯誤流程、協議、環境邊界或所有權。"
             ]
           },
           {
-            "heading": "發布前檢查",
+            "heading": "常見錯誤",
             "paragraphs": [
-              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
-              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+              "最常見的問題是想讓一張圖解釋所有東西。更好的做法是拆成請求流、資料結構、部署拓撲和發布截圖幾個小預覽。",
+              "另一個問題是只保存截圖，不保存原始碼。建議把源文本和 SVG/PNG 一起放進文件或倉庫，這樣後續改圖可以像改程式碼一樣 review。"
+            ]
+          },
+          {
+            "heading": "發布前清單",
+            "paragraphs": [
+              "發布前檢查三件事：匯出圖片是否清晰，最長標籤是否換行合理，文章裡是否能看到可復現的輸入片段。",
+              "好的工具頁不應該只說「支援線上預覽」，而應該展示輸入長什麼樣、預覽發現了什麼、最後如何決定匯出。"
             ]
           }
         ]
@@ -5173,9 +5235,9 @@
       "markdown-mermaid-documentation": {
         "title": "Markdown 與 Mermaid 文件實踐",
         "seoTitle": "Markdown 與 Mermaid 文件實踐 - DiagramPreview",
-        "description": "Markdown 與 Mermaid 文件實踐：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "readingTime": "5 分钟阅读",
+        "description": "Markdown 與 Mermaid 文件實踐：包含可複製 demo、檢查清單與發布建議的實用教程，適合在正式文件前預覽 帶 Mermaid 的 Markdown 文件。",
+        "excerpt": "在發布文件前預覽 帶 Mermaid 的 Markdown 文件 的實用工作流。",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5184,17 +5246,48 @@
         ],
         "sections": [
           {
-            "heading": "工作流建議",
+            "heading": "它真正解決的問題",
             "paragraphs": [
-              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
-              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+              "Markdown 與 Mermaid 文件實踐 的價值不只是「線上看一眼圖」。對開發者來說，圖表原始碼本身也是文件資產：它要能被複製、能被預覽、能被匯出，也要能在半年後繼續修改。",
+              "當你處理README、API 說明、RFC 和幫助中心文章時，可以先建立一個短閉環：貼上原始碼、查看預覽、修正語法和命名、最後再匯出。"
+            ],
+            "image": {
+              "src": "/blog/markdown-mermaid-documentation.png",
+              "alt": "Markdown 與 Mermaid 文件實踐",
+              "caption": "Markdown 與 Mermaid 文件實踐 的原始碼、預覽和匯出工作流。"
+            }
+          },
+          {
+            "heading": "先貼上一個最小 demo",
+            "paragraphs": [
+              "不要一開始就把完整生產內容貼進去。先用一個很小的片段確認渲染方向、標籤長度和版面關係。",
+              "第一版預覽通過後，再把真實服務名、欄位、角色或依賴關係逐步加進去。小步除錯比在一大段 AI 生成內容裡找錯舒服得多。"
+            ],
+            "code": {
+              "language": "markdown",
+              "content": "# Checkout flow\n\nThe API creates an order, then asks the payment service to confirm it.\n\n```mermaid\nsequenceDiagram\n  participant User\n  participant Store\n  participant Payment\n  User->>Store: POST /orders\n  Store->>Payment: Create payment intent\n  Payment-->>Store: Confirmed\n  Store-->>User: Order receipt\n```",
+              "caption": "發布前同時預覽 Markdown 正文和內嵌 Mermaid 圖。"
+            }
+          },
+          {
+            "heading": "預覽時應該看什麼",
+            "paragraphs": [
+              "把預覽結果當成同事會看到的頁面來檢查：它是否回答了一個明確問題？不看上下文能否理解主要關係？",
+              "如果內容來自 AI，要重點檢查節點命名、方向、分組和缺失關係。AI 很容易生成「看起來很像」的圖，但漏掉錯誤流程、協議、環境邊界或所有權。"
             ]
           },
           {
-            "heading": "發布前檢查",
+            "heading": "常見錯誤",
             "paragraphs": [
-              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
-              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+              "最常見的問題是想讓一張圖解釋所有東西。更好的做法是拆成請求流、資料結構、部署拓撲和發布截圖幾個小預覽。",
+              "另一個問題是只保存截圖，不保存原始碼。建議把源文本和 SVG/PNG 一起放進文件或倉庫，這樣後續改圖可以像改程式碼一樣 review。"
+            ]
+          },
+          {
+            "heading": "發布前清單",
+            "paragraphs": [
+              "發布前檢查三件事：匯出圖片是否清晰，最長標籤是否換行合理，文章裡是否能看到可復現的輸入片段。",
+              "好的工具頁不應該只說「支援線上預覽」，而應該展示輸入長什麼樣、預覽發現了什麼、最後如何決定匯出。"
             ]
           }
         ]
@@ -5202,9 +5295,9 @@
       "graphviz-dot-dependency-graphs": {
         "title": "Graphviz DOT 依賴圖指南",
         "seoTitle": "Graphviz DOT 依賴圖指南 - DiagramPreview",
-        "description": "Graphviz DOT 依賴圖指南：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "readingTime": "5 分钟阅读",
+        "description": "Graphviz DOT 依賴圖指南：包含可複製 demo、檢查清單與發布建議的實用教程，適合在正式文件前預覽 DOT 原始碼。",
+        "excerpt": "在發布文件前預覽 DOT 原始碼 的實用工作流。",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5213,17 +5306,48 @@
         ],
         "sections": [
           {
-            "heading": "工作流建議",
+            "heading": "它真正解決的問題",
             "paragraphs": [
-              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
-              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+              "Graphviz DOT 依賴圖指南 的價值不只是「線上看一眼圖」。對開發者來說，圖表原始碼本身也是文件資產：它要能被複製、能被預覽、能被匯出，也要能在半年後繼續修改。",
+              "當你處理套件依賴、服務呼叫、任務圖和建置流水線時，可以先建立一個短閉環：貼上原始碼、查看預覽、修正語法和命名、最後再匯出。"
+            ],
+            "image": {
+              "src": "/blog/graphviz-dot-dependency-graphs.png",
+              "alt": "Graphviz DOT 依賴圖指南",
+              "caption": "Graphviz DOT 依賴圖指南 的原始碼、預覽和匯出工作流。"
+            }
+          },
+          {
+            "heading": "先貼上一個最小 demo",
+            "paragraphs": [
+              "不要一開始就把完整生產內容貼進去。先用一個很小的片段確認渲染方向、標籤長度和版面關係。",
+              "第一版預覽通過後，再把真實服務名、欄位、角色或依賴關係逐步加進去。小步除錯比在一大段 AI 生成內容裡找錯舒服得多。"
+            ],
+            "code": {
+              "language": "dot",
+              "content": "digraph dependencies {\n  rankdir=LR;\n  node [shape=box, style=\"rounded,filled\", fillcolor=\"#f8fafc\"];\n  web -> api;\n  api -> postgres;\n  api -> redis;\n  worker -> redis;\n  worker -> postgres;\n}",
+              "caption": "DOT 很適合依賴圖：只需要描述關係，版面交給渲染器。"
+            }
+          },
+          {
+            "heading": "預覽時應該看什麼",
+            "paragraphs": [
+              "把預覽結果當成同事會看到的頁面來檢查：它是否回答了一個明確問題？不看上下文能否理解主要關係？",
+              "如果內容來自 AI，要重點檢查節點命名、方向、分組和缺失關係。AI 很容易生成「看起來很像」的圖，但漏掉錯誤流程、協議、環境邊界或所有權。"
             ]
           },
           {
-            "heading": "發布前檢查",
+            "heading": "常見錯誤",
             "paragraphs": [
-              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
-              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+              "最常見的問題是想讓一張圖解釋所有東西。更好的做法是拆成請求流、資料結構、部署拓撲和發布截圖幾個小預覽。",
+              "另一個問題是只保存截圖，不保存原始碼。建議把源文本和 SVG/PNG 一起放進文件或倉庫，這樣後續改圖可以像改程式碼一樣 review。"
+            ]
+          },
+          {
+            "heading": "發布前清單",
+            "paragraphs": [
+              "發布前檢查三件事：匯出圖片是否清晰，最長標籤是否換行合理，文章裡是否能看到可復現的輸入片段。",
+              "好的工具頁不應該只說「支援線上預覽」，而應該展示輸入長什麼樣、預覽發現了什麼、最後如何決定匯出。"
             ]
           }
         ]
@@ -5231,9 +5355,9 @@
       "json-yaml-diagram-visualization": {
         "title": "JSON 與 YAML 圖表視覺化",
         "seoTitle": "JSON 與 YAML 圖表視覺化 - DiagramPreview",
-        "description": "JSON 與 YAML 圖表視覺化：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "readingTime": "5 分钟阅读",
+        "description": "JSON 與 YAML 圖表視覺化：包含可複製 demo、檢查清單與發布建議的實用教程，適合在正式文件前預覽 JSON 或 YAML 結構。",
+        "excerpt": "在發布文件前預覽 JSON 或 YAML 結構 的實用工作流。",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5242,17 +5366,48 @@
         ],
         "sections": [
           {
-            "heading": "工作流建議",
+            "heading": "它真正解決的問題",
             "paragraphs": [
-              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
-              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+              "JSON 與 YAML 圖表視覺化 的價值不只是「線上看一眼圖」。對開發者來說，圖表原始碼本身也是文件資產：它要能被複製、能被預覽、能被匯出，也要能在半年後繼續修改。",
+              "當你處理服務設定、API payload、部署 YAML 和巢狀設定時，可以先建立一個短閉環：貼上原始碼、查看預覽、修正語法和命名、最後再匯出。"
+            ],
+            "image": {
+              "src": "/blog/json-yaml-diagram-visualization.png",
+              "alt": "JSON 與 YAML 圖表視覺化",
+              "caption": "JSON 與 YAML 圖表視覺化 的原始碼、預覽和匯出工作流。"
+            }
+          },
+          {
+            "heading": "先貼上一個最小 demo",
+            "paragraphs": [
+              "不要一開始就把完整生產內容貼進去。先用一個很小的片段確認渲染方向、標籤長度和版面關係。",
+              "第一版預覽通過後，再把真實服務名、欄位、角色或依賴關係逐步加進去。小步除錯比在一大段 AI 生成內容裡找錯舒服得多。"
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "service: checkout\nruntime: node\nconnectsTo:\n  - postgres\n  - redis\n  - payment-api\nenvironments:\n  staging:\n    replicas: 2\n  production:\n    replicas: 6",
+              "caption": "先用短 YAML 片段看結構，再擴展到完整設定。"
+            }
+          },
+          {
+            "heading": "預覽時應該看什麼",
+            "paragraphs": [
+              "把預覽結果當成同事會看到的頁面來檢查：它是否回答了一個明確問題？不看上下文能否理解主要關係？",
+              "如果內容來自 AI，要重點檢查節點命名、方向、分組和缺失關係。AI 很容易生成「看起來很像」的圖，但漏掉錯誤流程、協議、環境邊界或所有權。"
             ]
           },
           {
-            "heading": "發布前檢查",
+            "heading": "常見錯誤",
             "paragraphs": [
-              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
-              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+              "最常見的問題是想讓一張圖解釋所有東西。更好的做法是拆成請求流、資料結構、部署拓撲和發布截圖幾個小預覽。",
+              "另一個問題是只保存截圖，不保存原始碼。建議把源文本和 SVG/PNG 一起放進文件或倉庫，這樣後續改圖可以像改程式碼一樣 review。"
+            ]
+          },
+          {
+            "heading": "發布前清單",
+            "paragraphs": [
+              "發布前檢查三件事：匯出圖片是否清晰，最長標籤是否換行合理，文章裡是否能看到可復現的輸入片段。",
+              "好的工具頁不應該只說「支援線上預覽」，而應該展示輸入長什麼樣、預覽發現了什麼、最後如何決定匯出。"
             ]
           }
         ]
@@ -5260,9 +5415,9 @@
       "drawio-file-preview-guide": {
         "title": "Draw.io 檔案預覽指南",
         "seoTitle": "Draw.io 檔案預覽指南 - DiagramPreview",
-        "description": "Draw.io 檔案預覽指南：關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "excerpt": "關於線上預覽、轉換、匯出和撰寫圖表文件的實用指南。",
-        "readingTime": "5 分钟阅读",
+        "description": "Draw.io 檔案預覽指南：包含可複製 demo、檢查清單與發布建議的實用教程，適合在正式文件前預覽 draw.io XML 檔案。",
+        "excerpt": "在發布文件前預覽 draw.io XML 檔案 的實用工作流。",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "diagram preview",
           "developer diagrams",
@@ -5271,17 +5426,48 @@
         ],
         "sections": [
           {
-            "heading": "工作流建議",
+            "heading": "它真正解決的問題",
             "paragraphs": [
-              "DiagramPreview 將源內容、預覽結果、相關工具和匯出動作放在同一個工作區中，適合技術文件、架構說明和 AI 生成內容複核。",
-              "建議先從範例開始，逐步修改源內容，再檢查預覽和匯出結果。"
+              "Draw.io 檔案預覽指南 的價值不只是「線上看一眼圖」。對開發者來說，圖表原始碼本身也是文件資產：它要能被複製、能被預覽、能被匯出，也要能在半年後繼續修改。",
+              "當你處理可編輯架構圖、AI 生成匯入圖和 diagrams.net 檔案時，可以先建立一個短閉環：貼上原始碼、查看預覽、修正語法和命名、最後再匯出。"
+            ],
+            "image": {
+              "src": "/blog/drawio-file-preview-guide.png",
+              "alt": "Draw.io 檔案預覽指南",
+              "caption": "Draw.io 檔案預覽指南 的原始碼、預覽和匯出工作流。"
+            }
+          },
+          {
+            "heading": "先貼上一個最小 demo",
+            "paragraphs": [
+              "不要一開始就把完整生產內容貼進去。先用一個很小的片段確認渲染方向、標籤長度和版面關係。",
+              "第一版預覽通過後，再把真實服務名、欄位、角色或依賴關係逐步加進去。小步除錯比在一大段 AI 生成內容裡找錯舒服得多。"
+            ],
+            "code": {
+              "language": "xml",
+              "content": "<mxfile host=\"DiagramPreview\">\n  <diagram name=\"Preview\">\n    <mxGraphModel>\n      <root>\n        <mxCell id=\"0\" />\n        <mxCell id=\"1\" parent=\"0\" />\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>",
+              "caption": "即使是最小 draw.io XML，也應該先確認可預覽並可繼續編輯。"
+            }
+          },
+          {
+            "heading": "預覽時應該看什麼",
+            "paragraphs": [
+              "把預覽結果當成同事會看到的頁面來檢查：它是否回答了一個明確問題？不看上下文能否理解主要關係？",
+              "如果內容來自 AI，要重點檢查節點命名、方向、分組和缺失關係。AI 很容易生成「看起來很像」的圖，但漏掉錯誤流程、協議、環境邊界或所有權。"
             ]
           },
           {
-            "heading": "發布前檢查",
+            "heading": "常見錯誤",
             "paragraphs": [
-              "保留原始文字和匯出圖片，可以讓後續修改更容易審閱。",
-              "如果圖表來自 AI，先檢查節點命名、方向、分組和關鍵業務含義。"
+              "最常見的問題是想讓一張圖解釋所有東西。更好的做法是拆成請求流、資料結構、部署拓撲和發布截圖幾個小預覽。",
+              "另一個問題是只保存截圖，不保存原始碼。建議把源文本和 SVG/PNG 一起放進文件或倉庫，這樣後續改圖可以像改程式碼一樣 review。"
+            ]
+          },
+          {
+            "heading": "發布前清單",
+            "paragraphs": [
+              "發布前檢查三件事：匯出圖片是否清晰，最長標籤是否換行合理，文章裡是否能看到可復現的輸入片段。",
+              "好的工具頁不應該只說「支援線上預覽」，而應該展示輸入長什麼樣、預覽發現了什麼、最後如何決定匯出。"
             ]
           }
         ]
@@ -5291,7 +5477,7 @@
         "seoTitle": "如何預覽 ChatGPT 產生的 Mermaid 圖表 - DiagramPreview",
         "description": "围绕 Mermaid Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 Mermaid Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "ChatGPT Mermaid preview",
           "AI generated Mermaid",
@@ -5316,6 +5502,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "sequenceDiagram\n  participant Prompt as Prompt to AI\n  participant Draft as Mermaid draft\n  participant Preview as DiagramPreview\n  Prompt->>Draft: Ask for a checkout sequence\n  Draft->>Preview: Paste generated Mermaid\n  Preview-->>Draft: Syntax error or clean SVG\n  Draft->>Prompt: Revise labels and missing steps",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5345,7 +5543,7 @@
         "seoTitle": "Mermaid vs PlantUML：技術文件該選哪個？ - DiagramPreview",
         "description": "围绕 Mermaid and PlantUML Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 Mermaid and PlantUML Preview 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "Mermaid vs PlantUML",
           "technical documentation diagrams",
@@ -5370,6 +5568,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "Use Mermaid when:\n- the diagram lives in Markdown\n- the team wants low-friction edits\n- flowcharts and sequence diagrams are enough\n\nUse PlantUML when:\n- the team already uses UML terminology\n- class/component diagrams need more control\n- docs are generated from a build pipeline",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5399,7 +5609,7 @@
         "seoTitle": "如何把 PlantUML 轉成可編輯 draw.io 圖 - DiagramPreview",
         "description": "围绕 PlantUML to Draw.io 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 PlantUML to Draw.io 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "PlantUML to draw.io",
           "editable diagrams.net XML",
@@ -5424,6 +5634,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "plantuml",
+              "content": "@startuml\ncomponent Web\ncomponent API\ndatabase PostgreSQL\nWeb --> API : HTTPS\nAPI --> PostgreSQL : SQL\n@enduml",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5453,7 +5675,7 @@
         "seoTitle": "如何用 AI 產生可編輯 draw.io 圖表 - DiagramPreview",
         "description": "围绕 AI Draw.io Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 AI Draw.io Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "AI draw.io generator",
           "editable architecture diagram",
@@ -5478,6 +5700,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "Prompt:\nCreate an editable draw.io diagram for a microservice checkout system.\nInclude web, API gateway, order service, payment service, queue, PostgreSQL, and Redis.\nGroup runtime services separately from data stores.\nReturn diagrams.net XML and a short SVG preview.",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5507,7 +5741,7 @@
         "seoTitle": "如何線上視覺化 Kubernetes Manifest - DiagramPreview",
         "description": "围绕 Kubernetes Manifest Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 Kubernetes Manifest Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "Kubernetes manifest visualizer",
           "Kubernetes service topology",
@@ -5532,6 +5766,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: checkout-api\nspec:\n  replicas: 3\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/checkout-api:1.8.0\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: checkout-api\nspec:\n  selector:\n    app: checkout-api",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5561,7 +5807,7 @@
         "seoTitle": "如何把 Docker Compose 轉成架構圖 - DiagramPreview",
         "description": "围绕 Docker Compose Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 Docker Compose Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "Docker Compose diagram",
           "container architecture diagram",
@@ -5586,6 +5832,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "services:\n  web:\n    image: node:22\n    depends_on: [api]\n  api:\n    image: checkout-api\n    depends_on: [postgres, redis]\n  postgres:\n    image: postgres:16\n  redis:\n    image: redis:7",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5615,7 +5873,7 @@
         "seoTitle": "如何用 AI 產生 Grafana Dashboard JSON - DiagramPreview",
         "description": "围绕 Grafana Dashboard Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 Grafana Dashboard Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "AI Grafana dashboard generator",
           "Grafana dashboard JSON",
@@ -5640,6 +5898,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "json",
+              "content": "{\n  \"title\": \"Checkout API Overview\",\n  \"panels\": [\n    {\"title\": \"Request rate\", \"type\": \"timeseries\"},\n    {\"title\": \"Error rate\", \"type\": \"timeseries\"},\n    {\"title\": \"P95 latency\", \"type\": \"timeseries\"}\n  ],\n  \"templating\": {\"list\": [{\"name\": \"service\"}]}\n}",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5669,7 +5939,7 @@
         "seoTitle": "API 延遲和錯誤率的 Prometheus 告警規則範例 - DiagramPreview",
         "description": "围绕 Prometheus Alert Rule Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 Prometheus Alert Rule Generator 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "Prometheus alert rules examples",
           "API latency alert",
@@ -5694,6 +5964,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "groups:\n  - name: checkout-api.rules\n    rules:\n      - alert: HighApiErrorRate\n        expr: sum(rate(http_requests_total{status=~\"5..\"}[5m])) / sum(rate(http_requests_total[5m])) > 0.02\n        for: 10m\n      - alert: HighP95Latency\n        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 0.8\n        for: 10m",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5777,7 +6059,7 @@
         "seoTitle": "SQL 轉 ER 圖：從建表語句到資料庫文件 - DiagramPreview",
         "description": "围绕 SQL to ER Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 SQL to ER Diagram 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "SQL to ER diagram online",
           "database schema diagram",
@@ -5802,6 +6084,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "sql",
+              "content": "CREATE TABLE customers (\n  id BIGINT PRIMARY KEY,\n  email TEXT NOT NULL UNIQUE\n);\n\nCREATE TABLE orders (\n  id BIGINT PRIMARY KEY,\n  customer_id BIGINT NOT NULL REFERENCES customers(id),\n  status TEXT NOT NULL\n);",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -5885,7 +6179,7 @@
         "seoTitle": "Cron 表達式視覺化：不用猜也能看懂排程 - DiagramPreview",
         "description": "围绕 Cron Expression Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
         "excerpt": "围绕 Cron Expression Visualizer 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "7 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "cron expression visualizer",
           "cron schedule explainer",
@@ -5910,6 +6204,18 @@
               "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
               "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "text",
+              "content": "0 9 * * MON-FRI   # every weekday at 09:00\n*/15 * * * *      # every 15 minutes\n0 2 1 * *         # monthly maintenance at 02:00 on day 1",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "常见错误和检查点",
@@ -6209,7 +6515,7 @@
         "seoTitle": "CloudFormation 範本視覺化：从 YAML 到 AWS 架构圖 - DiagramPreview",
         "description": "围绕 CloudFormation Template Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
         "excerpt": "围绕 CloudFormation Template Diagram 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
-        "readingTime": "8 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "CloudFormation template visualizer",
           "AWS architecture diagram",
@@ -6234,6 +6540,18 @@
               "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
               "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "yaml",
+              "content": "Resources:\n  WebSecurityGroup:\n    Type: AWS::EC2::SecurityGroup\n  AppLoadBalancer:\n    Type: AWS::ElasticLoadBalancingV2::LoadBalancer\n  AppTargetGroup:\n    Type: AWS::ElasticLoadBalancingV2::TargetGroup",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "预览时应该检查什么",
@@ -6263,7 +6581,7 @@
         "seoTitle": "Terraform vs CloudFormation：IaC 架构圖怎么做 - DiagramPreview",
         "description": "围绕 Terraform and CloudFormation Diagrams 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
         "excerpt": "围绕 Terraform and CloudFormation Diagrams 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
-        "readingTime": "8 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "Terraform vs CloudFormation",
           "IaC architecture diagram",
@@ -6288,6 +6606,18 @@
               "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
               "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "hcl",
+              "content": "resource \"aws_lb\" \"app\" {\n  name               = \"checkout-app\"\n  load_balancer_type = \"application\"\n}\n\nresource \"aws_ecs_service\" \"api\" {\n  name = \"checkout-api\"\n}",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "预览时应该检查什么",
@@ -6317,7 +6647,7 @@
         "seoTitle": "C4 模型圖：软件架构文档的 System、Container、Component - DiagramPreview",
         "description": "围绕 C4 Model Diagram Generator 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
         "excerpt": "围绕 C4 Model Diagram Generator 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
-        "readingTime": "8 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "C4 model diagram",
           "software architecture documentation",
@@ -6342,6 +6672,18 @@
               "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
               "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "mermaid",
+              "content": "flowchart TB\n  User[Customer]\n  System[Checkout System]\n  ContainerA[Web App]\n  ContainerB[API Service]\n  ContainerC[(PostgreSQL)]\n  User --> System\n  System --> ContainerA\n  ContainerA --> ContainerB\n  ContainerB --> ContainerC",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "预览时应该检查什么",
@@ -6533,7 +6875,7 @@
         "seoTitle": "AI 生成架构圖后的文档檢查清单 - DiagramPreview",
         "description": "围绕 C4 and AI Diagram Tools 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
         "excerpt": "围绕 C4 and AI Diagram Tools 的长尾技术文章，包含示例输入、可视化检查点、常见问题和发布到文档的建议。",
-        "readingTime": "8 分钟阅读",
+        "readingTime": "9 分鐘閱讀",
         "keywords": [
           "architecture documentation checklist",
           "AI generated architecture diagram",
@@ -6558,6 +6900,18 @@
               "建议先使用一个最小可运行片段，而不是一开始就粘贴完整生产文件。小输入能更快暴露解析问题，也能让图表结构更清楚。",
               "例如 API 调试类工具可以从一个请求集合或 HAR 片段开始；Schema 类工具可以从一个 interface 或 z.object 开始；架构类工具可以从两三个资源和关系开始。"
             ]
+          },
+          {
+            "heading": "可以直接貼上的 demo",
+            "paragraphs": [
+              "下面這個例子可以直接放進工具裡試，不追求覆蓋完整生產場景，而是為了讓第一輪預覽馬上產生可觀察結果。",
+              "確認能渲染後，再替換成你的真實服務、欄位、資源或指標。記得把原始碼和匯出圖一起保留，後續 review 會輕鬆很多。"
+            ],
+            "code": {
+              "language": "markdown",
+              "content": "## Diagram review checklist\n\n- [ ] Does the title answer one clear question?\n- [ ] Are external systems separated from internal components?\n- [ ] Are arrows labeled with protocols or events?\n- [ ] Is the source saved beside the exported image?",
+              "caption": "小 demo 能讓預覽流程變得可復現。"
+            }
           },
           {
             "heading": "预览时应该检查什么",
