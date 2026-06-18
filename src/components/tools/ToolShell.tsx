@@ -184,6 +184,7 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             imageUrl={renderState.imageUrl}
             tree={renderState.tree}
             fallback={fallback}
+            normalizePreviewHeadings={tool.renderer !== "markdown"}
             className="min-h-[560px] border-slate-300"
           />
         </div>

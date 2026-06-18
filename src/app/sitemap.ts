@@ -7,13 +7,13 @@ import {staticPageSlugs} from "@/config/static-pages";
 import {tools} from "@/config/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const latestContentDate = latestDate(sitemapBlogPosts.map((post) => post.date));
   const urls: MetadataRoute.Sitemap = [];
 
   for (const locale of indexableLocales) {
     urls.push({
       url: `${siteConfig.url}/${locale}`,
-      lastModified: now,
+      lastModified: latestContentDate,
       changeFrequency: "weekly",
       priority: 1
     });
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const hub of toolHubs) {
       urls.push({
         url: `${siteConfig.url}/${locale}${hub.href}`,
-        lastModified: now,
+        lastModified: latestContentDate,
         changeFrequency: "weekly",
         priority: 0.82
       });
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     urls.push({
       url: `${siteConfig.url}/${locale}/blog`,
-      lastModified: now,
+      lastModified: latestContentDate,
       changeFrequency: "weekly",
       priority: 0.72
     });
@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const post of sitemapBlogPosts) {
       urls.push({
         url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
-        lastModified: now,
+        lastModified: new Date(post.date),
         changeFrequency: "monthly",
         priority: 0.68
       });
@@ -46,7 +46,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const tool of tools) {
       urls.push({
         url: `${siteConfig.url}/${locale}/${tool.slug}`,
-        lastModified: now,
         changeFrequency: "weekly",
         priority: tool.popular ? 0.9 : 0.75
       });
@@ -56,11 +55,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const slug of staticPageSlugs) {
     urls.push({
       url: `${siteConfig.url}/en/${slug}`,
-      lastModified: now,
+      lastModified: latestContentDate,
       changeFrequency: "monthly",
       priority: slug === "privacy-policy" || slug === "terms-of-use" ? 0.35 : 0.55
     });
   }
 
   return urls;
+}
+
+function latestDate(values: string[]) {
+  const timestamps = values.map((value) => new Date(value).getTime()).filter((value) => Number.isFinite(value));
+  return new Date(timestamps.length ? Math.max(...timestamps) : Date.UTC(2026, 5, 18));
 }

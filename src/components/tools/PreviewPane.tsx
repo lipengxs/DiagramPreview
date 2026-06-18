@@ -16,10 +16,24 @@ type PreviewPaneProps = {
     title: string;
     body: string;
   };
+  normalizePreviewHeadings?: boolean;
   className?: string;
 };
 
-export function PreviewPane({label, status, emptyText, error, html, imageUrl, tree, fallback, className}: PreviewPaneProps) {
+export function PreviewPane({
+  label,
+  status,
+  emptyText,
+  error,
+  html,
+  imageUrl,
+  tree,
+  fallback,
+  normalizePreviewHeadings,
+  className
+}: PreviewPaneProps) {
+  const previewHtml = normalizePreviewHeadings && html ? demotePreviewHeadings(html) : html;
+
   return (
     <div className={cn("flex min-h-[520px] flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm", className)}>
       <div className="flex items-center justify-between gap-3 border-b border-slate-200 px-4 py-3">
@@ -44,8 +58,8 @@ export function PreviewPane({label, status, emptyText, error, html, imageUrl, tr
           <div className="flex h-full min-h-80 items-center justify-center">
             <img src={imageUrl} alt={label} className="max-h-full max-w-full" />
           </div>
-        ) : html ? (
-          <div className="markdown-preview diagram-preview-output" dangerouslySetInnerHTML={{__html: html}} />
+        ) : previewHtml ? (
+          <div className="markdown-preview diagram-preview-output" dangerouslySetInnerHTML={{__html: previewHtml}} />
         ) : (
           <div className="flex h-full min-h-80 items-center justify-center rounded-md border border-dashed border-slate-300 bg-surface p-6 text-center text-sm text-slate-500">
             {emptyText}
@@ -54,6 +68,14 @@ export function PreviewPane({label, status, emptyText, error, html, imageUrl, tr
       </div>
     </div>
   );
+}
+
+function demotePreviewHeadings(value: string) {
+  return value
+    .replace(/<h2(\s|>)/gi, "<h3$1")
+    .replace(/<\/h2>/gi, "</h3>")
+    .replace(/<h1(\s|>)/gi, "<h3$1")
+    .replace(/<\/h1>/gi, "</h3>");
 }
 
 function TreeView({node}: {node: TreeNode}) {

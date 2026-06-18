@@ -20,6 +20,7 @@ type ToolSeoSectionsProps = {
   faq: Array<{question: string; answer: string}>;
   seoBody: string[];
   sampleSummaries: string[];
+  deepDives?: ToolDeepDive[];
 };
 
 type SampleValue = {
@@ -27,6 +28,14 @@ type SampleValue = {
   prompt?: string;
   code?: string;
   diagramType?: string;
+};
+
+export type ToolDeepDive = {
+  title: string;
+  body: string;
+  bullets?: string[];
+  code?: string;
+  caption?: string;
 };
 
 export function ToolSeoSections({
@@ -43,7 +52,8 @@ export function ToolSeoSections({
   relatedTools,
   faq,
   seoBody,
-  sampleSummaries
+  sampleSummaries,
+  deepDives = []
 }: ToolSeoSectionsProps) {
   const helperCopy = getHelperCopy(locale, toolName, toolDescription);
 
@@ -97,6 +107,32 @@ export function ToolSeoSections({
           ))}
         </div>
       </div>
+      {deepDives.length ? (
+        <div className="grid gap-4 lg:col-span-2">
+          {deepDives.map((section) => (
+            <article key={section.title} className="rounded-lg border border-slate-200 bg-white p-5">
+              <h2 className="text-lg font-semibold text-ink">{section.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{section.body}</p>
+              {section.bullets?.length ? (
+                <ul className="mt-4 grid gap-2 text-sm leading-7 text-slate-600">
+                  {section.bullets.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              {section.code ? (
+                <pre className="mt-4 overflow-auto rounded-lg border border-slate-800 bg-slate-950 p-4 text-xs leading-5 text-slate-100">
+                  <code>{section.code}</code>
+                </pre>
+              ) : null}
+              {section.caption ? <p className="mt-3 text-xs leading-5 text-slate-500">{section.caption}</p> : null}
+            </article>
+          ))}
+        </div>
+      ) : null}
       <InfoBlock title={helperCopy.reviewTitle}>
         <div className="grid gap-3 text-sm leading-7 text-slate-600">
           <p>{helperCopy.reviewBody}</p>
@@ -136,28 +172,28 @@ export function ToolSeoSections({
 
 function getHelperCopy(locale: string, toolName: string, toolDescription: string) {
   const zhHans = {
-      reviewTitle: `${toolName} 检查清单`,
-      reviewBody: `当你需要在文档、PR、故障复盘或交接材料发布前检查源码内容时，可以使用 ${toolName}。${toolDescription}`,
-      reviewChecklist: "导出前建议检查标签是否可读、关系是否和源码一致、示例是否包含敏感信息，以及修改输入后预览是否仍然成立。",
-      limitsTitle: "限制与排查",
-      limitsBody: "如果预览失败，先把输入缩小到最小完整示例，确认格式语法，再逐段加回内容。很多失败来自不完整文件、缩进错误、缺少图表头，或复制了依赖隐藏上下文的片段。",
-      limitsNote: "请把预览结果当作 review 界面，而不是生产事实来源。生成的图表、转换文件、看板和规则示例在进入正式文档或运维流程前仍需要人工确认。",
-      examplesTitle: "可测试的示例输入",
-      maturityTitle: "工具完成度",
-      maturityNote: "分级不是质量打分，而是告诉用户当前工具更适合稳定导出、深度调试、快速解析，还是 AI 辅助生成。"
-    };
+    reviewTitle: `${toolName} 检查清单`,
+    reviewBody: `当你需要在文档、PR、故障复盘或交接材料发布前检查源码内容时，可以使用 ${toolName}。${toolDescription}`,
+    reviewChecklist: "导出前建议检查标签是否可读、关系是否和源码一致、示例是否包含敏感信息，以及修改输入后预览是否仍然成立。",
+    limitsTitle: "限制与排查",
+    limitsBody: "如果预览失败，先把输入缩小到最小完整示例，确认格式语法，再逐段加回内容。很多失败来自不完整文件、缩进错误、缺少图表头，或复制了依赖隐藏上下文的片段。",
+    limitsNote: "请把预览结果当作 review 界面，而不是生产事实来源。生成的图表、转换文件、看板和规则示例在进入正式文档或运维流程前仍需要人工确认。",
+    examplesTitle: "可测试的示例输入",
+    maturityTitle: "工具完成度",
+    maturityNote: "分级不是质量打分，而是告诉用户当前工具更适合稳定导出、深度调试、快速解析，还是 AI 辅助生成。"
+  };
 
   const helperCopy = {
     en: {
-    reviewTitle: `Review checklist for ${toolName}`,
-    reviewBody: `Use ${toolName} when you need to inspect source content visually before it becomes documentation, a pull request note, an incident write-up, or a handoff artifact. ${toolDescription}`,
-    reviewChecklist: "Before exporting, check that labels are readable, relationships match the source, generated examples do not contain private data, and the preview still makes sense after you edit the input.",
-    limitsTitle: "Limits and troubleshooting",
-    limitsBody: "If the preview fails, reduce the input to the smallest complete example, confirm the format syntax, and then add sections back one at a time. Many rendering failures come from partial files, indentation mistakes, missing diagram headers, or copied snippets that depend on hidden context.",
-    limitsNote: "Treat the preview as a review surface rather than a source of truth. Generated diagrams, converted files, dashboards, and rule examples should be checked before they are used in production documentation or operations.",
-    examplesTitle: "Example inputs to test",
-    maturityTitle: "Tool maturity",
-    maturityNote: "The maturity label is not a quality score. It tells visitors whether the tool is best for stable export, deeper debugging, quick parsing, or AI-assisted generation."
+      reviewTitle: `Review checklist for ${toolName}`,
+      reviewBody: `Use ${toolName} when you need to inspect source content visually before it becomes documentation, a pull request note, an incident write-up, or a handoff artifact. ${toolDescription}`,
+      reviewChecklist: "Before exporting, check that labels are readable, relationships match the source, generated examples do not contain private data, and the preview still makes sense after you edit the input.",
+      limitsTitle: "Limits and troubleshooting",
+      limitsBody: "If the preview fails, reduce the input to the smallest complete example, confirm the format syntax, and then add sections back one at a time. Many rendering failures come from partial files, indentation mistakes, missing diagram headers, or copied snippets that depend on hidden context.",
+      limitsNote: "Treat the preview as a review surface rather than a source of truth. Generated diagrams, converted files, dashboards, and rule examples should be checked before they are used in production documentation or operations.",
+      examplesTitle: "Example inputs to test",
+      maturityTitle: "Tool maturity",
+      maturityNote: "The maturity label is not a quality score. It tells visitors whether the tool is best for stable export, deeper debugging, quick parsing, or AI-assisted generation."
     },
     "zh-CN": zhHans,
     "zh-TW": {

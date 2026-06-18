@@ -2,7 +2,7 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import type {Metadata} from "next";
 import {ToolHeader} from "@/components/tools/ToolHeader";
-import {summarizeToolSamples, ToolSeoSections} from "@/components/tools/ToolSeoSections";
+import {summarizeToolSamples, ToolSeoSections, type ToolDeepDive} from "@/components/tools/ToolSeoSections";
 import {ToolShell, type ToolCopy} from "@/components/tools/ToolShell";
 import {type Locale} from "@/config/locales";
 import {getRelatedTools, getTool, type ToolSlug} from "@/config/tools";
@@ -41,6 +41,7 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
   const t = await getTranslations({locale});
   const faq = t.raw(`tools.${slug}.faq`) as Array<{question: string; answer: string}>;
   const samples = t.raw(`tools.${slug}.samples`) as ToolCopy["samples"];
+  const deepDives = getOptionalRaw<ToolDeepDive[]>(t, `tools.${slug}.deepDives`, []);
   const relatedTools = getRelatedTools(slug).map((related) => ({
     slug: related.slug,
     name: t(`tools.${related.slug}.name`),
@@ -129,6 +130,7 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
         faq={faq}
         seoBody={t.raw(`tools.${slug}.seoBody`)}
         sampleSummaries={summarizeToolSamples(samples)}
+        deepDives={deepDives}
         locale={locale}
         maturity={maturity}
       />
@@ -136,4 +138,8 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(faqLd)}} />
     </>
   );
+}
+
+function getOptionalRaw<T>(t: Awaited<ReturnType<typeof getTranslations>>, key: string, fallback: T) {
+  return t.has(key) ? (t.raw(key) as T) : fallback;
 }

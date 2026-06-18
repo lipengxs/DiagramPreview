@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {indexableLocales, type Locale} from "@/config/locales";
+import {defaultLocale, indexableLocales, type Locale} from "@/config/locales";
 import {siteConfig} from "@/config/site";
 import {ToolSlug} from "@/config/tools";
 import {absoluteUrl, toolPath} from "./paths";
@@ -20,6 +20,7 @@ export function buildMetadata({locale, path, title, description, keywords = []}:
   const languageAlternates = Object.fromEntries(
     indexableLocales.map((candidate) => [candidate, absoluteUrl(`/${candidate}${pathWithoutLocale}`)])
   );
+  languageAlternates["x-default"] = absoluteUrl(`/${defaultLocale}${pathWithoutLocale}`);
 
   return {
     metadataBase: new URL(siteConfig.url),

@@ -3,7 +3,7 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {AiDiagramWorkspace} from "@/components/tools/AiDiagramWorkspace";
 import {ToolHeader} from "@/components/tools/ToolHeader";
-import {summarizeToolSamples, ToolSeoSections} from "@/components/tools/ToolSeoSections";
+import {summarizeToolSamples, ToolSeoSections, type ToolDeepDive} from "@/components/tools/ToolSeoSections";
 import type {Locale} from "@/config/locales";
 import {getRelatedTools, getTool, type ToolSlug} from "@/config/tools";
 import {toolPath} from "@/lib/paths";
@@ -74,6 +74,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
     string,
     {label: string; prompt: string; code?: string; diagramType?: string}
   >;
+  const deepDives = getOptionalRaw<ToolDeepDive[]>(t, `tools.${slug}.deepDives`, []);
   const relatedTools = getRelatedTools(slug).map((related) => ({
     slug: related.slug,
     name: t(`tools.${related.slug}.name`),
@@ -119,6 +120,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
           exportPng: t("common.actions.exportPng"),
           downloadFile: t("common.actions.downloadFile"),
           error: t("common.workspace.renderError"),
+          samplesTitle: t("common.workspace.samples"),
           samples
         }}
       />
@@ -136,10 +138,15 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
         faq={faq}
         seoBody={t.raw(`tools.${slug}.seoBody`)}
         sampleSummaries={summarizeToolSamples(samples)}
+        deepDives={deepDives}
         maturity={maturity}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(appJsonLd)}} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(faqLd)}} />
     </>
   );
+}
+
+function getOptionalRaw<T>(t: Awaited<ReturnType<typeof getTranslations>>, key: string, fallback: T) {
+  return t.has(key) ? (t.raw(key) as T) : fallback;
 }
