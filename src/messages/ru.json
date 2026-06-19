@@ -104,9 +104,22 @@
       "subtitle": "Просматривайте Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps и диаграммы для разработчиков онлайн.",
       "searchPlaceholder": "Искать инструменты диаграмм..."
     },
+    "demo": {
+      "eyebrow": "Обзор продукта за 60 секунд",
+      "title": "Посмотрите, как DiagramPreview превращает сгенерированный текст в видимые диаграммы",
+      "description": "Посмотрите, как Mermaid, PlantUML, draw.io, Grafana, Prometheus, JSON, YAML и технический текст от AI можно просматривать, отлаживать, конвертировать и экспортировать в одном браузерном workspace.",
+      "badges": [
+        "С озвучкой",
+        "Демо 64 секунды",
+        "Без регистрации"
+      ],
+      "videoLabel": "Демо-видео продукта DiagramPreview",
+      "videoFallback": "Ваш браузер не поддерживает тег video."
+    },
     "sections": {
       "popular": "Популярные инструменты",
       "categories": "Категории инструментов",
+      "demo": "Демо продукта",
       "recent": "Недавно добавлено",
       "why": "Почему DiagramPreview",
       "faq": "FAQ"

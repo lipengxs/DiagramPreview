@@ -104,9 +104,22 @@
       "subtitle": "線上預覽 Mermaid、PlantUML、Markdown、Graphviz、D2、draw.io、心智圖和開發者圖表。",
       "searchPlaceholder": "搜尋圖表工具..."
     },
+    "demo": {
+      "eyebrow": "60 秒產品演示",
+      "title": "看看 DiagramPreview 如何把生成式文字變成可見圖表",
+      "description": "示範 AI 生成的 Mermaid、PlantUML、draw.io、Grafana、Prometheus、JSON、YAML 和開發者原始文字，如何在一個瀏覽器工作區完成預覽、除錯、轉換和匯出。",
+      "badges": [
+        "含語音講解",
+        "64 秒演示",
+        "無需註冊"
+      ],
+      "videoLabel": "DiagramPreview 產品演示影片",
+      "videoFallback": "你的瀏覽器不支援 video 標籤。"
+    },
     "sections": {
       "popular": "熱門工具",
       "categories": "工具分類",
+      "demo": "產品演示",
       "recent": "最近新增",
       "why": "為什麼選擇 DiagramPreview",
       "faq": "常見問題"

@@ -104,9 +104,22 @@
       "subtitle": "Mermaid、PlantUML、Markdown、Graphviz、D2、draw.io、マインドマップ、開発者向け図表をオンラインでプレビューします。",
       "searchPlaceholder": "図表ツールを検索..."
     },
+    "demo": {
+      "eyebrow": "60秒の製品ツアー",
+      "title": "DiagramPreview が生成テキストを見える図表に変える流れを見る",
+      "description": "AI が生成した Mermaid、PlantUML、draw.io、Grafana、Prometheus、JSON、YAML、開発者向けソーステキストを、1つのブラウザ workspace でプレビュー、デバッグ、変換、エクスポートする流れを紹介します。",
+      "badges": [
+        "音声付き",
+        "64秒デモ",
+        "登録不要"
+      ],
+      "videoLabel": "DiagramPreview 製品デモ動画",
+      "videoFallback": "お使いのブラウザは video タグに対応していません。"
+    },
     "sections": {
       "popular": "人気ツール",
       "categories": "ツールカテゴリ",
+      "demo": "製品デモ",
       "recent": "最近追加",
       "why": "DiagramPreview を選ぶ理由",
       "faq": "FAQ"

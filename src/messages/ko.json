@@ -104,9 +104,22 @@
       "subtitle": "Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, 마인드맵 및 개발자 다이어그램을 온라인으로 미리보세요.",
       "searchPlaceholder": "다이어그램 도구 검색..."
     },
+    "demo": {
+      "eyebrow": "60초 제품 투어",
+      "title": "DiagramPreview가 생성된 텍스트를 보이는 다이어그램으로 바꾸는 방식",
+      "description": "AI가 생성한 Mermaid, PlantUML, draw.io, Grafana, Prometheus, JSON, YAML 및 개발자 소스 텍스트를 하나의 브라우저 workspace에서 미리보고, 디버그하고, 변환하고, 내보내는 흐름을 확인하세요.",
+      "badges": [
+        "음성 포함",
+        "64초 데모",
+        "가입 불필요"
+      ],
+      "videoLabel": "DiagramPreview 제품 데모 동영상",
+      "videoFallback": "브라우저가 video 태그를 지원하지 않습니다."
+    },
     "sections": {
       "popular": "인기 도구",
       "categories": "도구 카테고리",
+      "demo": "제품 데모",
       "recent": "최근 추가",
       "why": "DiagramPreview를 선택하는 이유",
       "faq": "FAQ"

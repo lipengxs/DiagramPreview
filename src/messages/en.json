@@ -104,9 +104,22 @@
       "subtitle": "Preview Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mind maps and developer diagrams online.",
       "searchPlaceholder": "Search diagram tools..."
     },
+    "demo": {
+      "eyebrow": "60-second product tour",
+      "title": "See DiagramPreview turn generated text into visible diagrams",
+      "description": "Watch how AI-generated Mermaid, PlantUML, draw.io, Grafana, Prometheus, JSON, YAML, and developer source text can be previewed, debugged, converted, and exported from one browser workspace.",
+      "badges": [
+        "With voiceover",
+        "64-second demo",
+        "No signup needed"
+      ],
+      "videoLabel": "DiagramPreview product demo video",
+      "videoFallback": "Your browser does not support the video tag."
+    },
     "sections": {
       "popular": "Popular Tools",
       "categories": "Tool Categories",
+      "demo": "Product Demo",
       "recent": "Recently Added",
       "why": "Why DiagramPreview",
       "faq": "FAQ"

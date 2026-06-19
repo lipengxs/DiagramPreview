@@ -55,6 +55,34 @@ export default async function HomePage({params}: HomePageProps) {
       </section>
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:px-8">
+        <HomeSection title={t("home.sections.demo")}>
+          <div className="grid gap-5 rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-5">
+            <div className="flex flex-col justify-center">
+              <p className="text-sm font-semibold text-primary">{t("home.demo.eyebrow")}</p>
+              <h3 className="mt-2 text-2xl font-bold tracking-normal text-ink">{t("home.demo.title")}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{t("home.demo.description")}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {(t.raw("home.demo.badges") as string[]).map((badge) => (
+                  <span key={badge} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-950">
+              <video
+                className="aspect-video h-full w-full bg-slate-950 object-cover"
+                controls
+                playsInline
+                preload="metadata"
+                aria-label={t("home.demo.videoLabel")}
+              >
+                <source src="/product-hunt-demo/product-hunt-demo-with-voice.mp4" type="video/mp4" />
+                {t("home.demo.videoFallback")}
+              </video>
+            </div>
+          </div>
+        </HomeSection>
         <HomeSection title={t("home.sections.popular")}>
           <PopularTools />
         </HomeSection>
