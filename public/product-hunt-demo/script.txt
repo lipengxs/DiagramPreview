@@ -1,0 +1,11 @@
+Hi, this is DiagramPreview.
+
+AI tools can generate diagrams, configs, dashboards, schemas, and documentation snippets, but after generation developers still need a clean way to preview, debug, edit, and export the result.
+
+DiagramPreview is a browser-based workspace for that workflow.
+
+You can preview Mermaid, PlantUML, Graphviz, D2, draw.io, Markdown, JSON, YAML, OpenAPI, SQL, Prisma, GraphQL, Kubernetes, Terraform, Grafana dashboards, Prometheus alert rules, and more.
+
+The goal is simple: turn text-based technical output into something visual, reviewable, and ready for documentation.
+
+I would love feedback on what visual script, config format, or developer preview tool we should add next.

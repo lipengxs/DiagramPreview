@@ -1,0 +1,66 @@
+[
+  {
+    "index": 0,
+    "image": "frames/00.png",
+    "seconds": 7,
+    "title": "DiagramPreview",
+    "subtitle": "Preview, debug, edit, and export AI-generated diagrams and developer snippets.",
+    "url": "http://localhost:3002/en"
+  },
+  {
+    "index": 1,
+    "image": "frames/01.png",
+    "seconds": 8,
+    "title": "Mermaid Preview",
+    "subtitle": "Paste Mermaid code, inspect the result, fix syntax, and export for documentation.",
+    "url": "http://localhost:3002/en/mermaid-preview"
+  },
+  {
+    "index": 2,
+    "image": "frames/02.png",
+    "seconds": 8,
+    "title": "AI Diagram Generator",
+    "subtitle": "Turn system notes into editable diagram source instead of a static AI image.",
+    "url": "http://localhost:3002/en/ai-diagram-generator"
+  },
+  {
+    "index": 3,
+    "image": "frames/03.png",
+    "seconds": 8,
+    "title": "Schema And Data Preview",
+    "subtitle": "Visualize JSON Schema, OpenAPI, SQL, Prisma, GraphQL, Protobuf, YAML, XML, and CSV.",
+    "url": "http://localhost:3002/en/json-schema-visualizer"
+  },
+  {
+    "index": 4,
+    "image": "frames/04.png",
+    "seconds": 8,
+    "title": "Developer Configs",
+    "subtitle": "Review Kubernetes, Docker, Terraform, GitHub Actions, Nginx, Helm, and package files visually.",
+    "url": "http://localhost:3002/en/kubernetes-manifest-visualizer"
+  },
+  {
+    "index": 5,
+    "image": "frames/05.png",
+    "seconds": 8,
+    "title": "Observability Workflows",
+    "subtitle": "Generate and preview Grafana dashboards, Prometheus alert rules, traces, logs, and runbooks.",
+    "url": "http://localhost:3002/en/grafana-dashboard-generator"
+  },
+  {
+    "index": 6,
+    "image": "frames/06.png",
+    "seconds": 8,
+    "title": "SEO And Debug Utilities",
+    "subtitle": "Check robots.txt, sitemap XML, Open Graph cards, headers, cURL, URLs, and frontend snippets.",
+    "url": "http://localhost:3002/en/robots-txt-tester"
+  },
+  {
+    "index": 7,
+    "image": "frames/07.png",
+    "seconds": 9,
+    "title": "70+ Tools In One Workspace",
+    "subtitle": "A long-tail developer toolbox for visual scripts, structured files, and AI-generated technical output.",
+    "url": "http://localhost:3002/en/tools"
+  }
+]
