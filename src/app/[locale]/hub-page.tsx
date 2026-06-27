@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {toolHubs, type ToolHub} from "@/config/navigation";
+import {seoCoreToolSlugs} from "@/config/seo-focus";
 import {sortedTools, tools, type ToolNavGroup} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
 import {buildMetadata} from "@/lib/seo";
@@ -42,7 +43,9 @@ export async function HubPage({params, hubSlug}: HubRouteProps & {hubSlug: ToolH
 
   const t = await getTranslations({locale});
   const hubTools = getHubTools(hub.slug, hub.navGroup);
+  const priorityTools = hubTools.filter((tool) => seoCoreToolSlugs.includes(tool.slug)).slice(0, 6);
   const planned = t.raw(`hubs.${hub.slug}.planned`) as string[];
+  const isChineseLocale = locale.startsWith("zh");
 
   return (
     <div className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:px-8">
@@ -72,6 +75,27 @@ export async function HubPage({params, hubSlug}: HubRouteProps & {hubSlug: ToolH
           })}
         </div>
       </section>
+
+      {priorityTools.length ? (
+        <section className="rounded-lg border border-primary/20 bg-white p-5">
+          <p className="text-sm font-semibold text-primary">{isChineseLocale ? "优先推荐" : "Priority workflows"}</p>
+          <h2 className="mt-2 text-lg font-bold text-ink">
+            {isChineseLocale ? "先从这些高价值工具开始" : "Start with these high-value tools"}
+          </h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {priorityTools.map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <Link key={tool.slug} href={`/${tool.slug}`} className="rounded-md border border-slate-200 p-3 hover:border-primary hover:bg-blue-50">
+                  <Icon className="h-4 w-4 text-primary" />
+                  <h3 className="mt-3 text-sm font-semibold text-ink">{t(`tools.${tool.slug}.name`)}</h3>
+                  <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-600">{t(`tools.${tool.slug}.shortDescription`)}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      ) : null}
 
       {planned.length ? (
         <section className="rounded-lg border border-slate-200 bg-white p-5">

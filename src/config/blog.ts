@@ -47,6 +47,15 @@ export type BlogSlug =
 
 export type BlogPostTier = "core" | "supporting" | "merge";
 
+export type BlogTopic =
+  | "diagram-authoring"
+  | "ai-diagramming"
+  | "api-debugging"
+  | "schema-contracts"
+  | "infrastructure-config"
+  | "technical-seo"
+  | "publishing-preview";
+
 export type BlogPostConfig = {
   slug: BlogSlug;
   image: string;
@@ -365,9 +374,97 @@ export const blogPosts: BlogPostConfig[] = [
   }
 ];
 
+export const blogTopics: {slug: BlogTopic; title: string; description: string}[] = [
+  {
+    slug: "api-debugging",
+    title: "API debugging",
+    description: "HAR, Postman, OpenAPI, jq, JSONPath, XPath, headers, and request-flow review."
+  },
+  {
+    slug: "schema-contracts",
+    title: "Schema contracts",
+    description: "JSON Schema, Zod, TypeScript, GraphQL, Protobuf, generated forms, and contract drift."
+  },
+  {
+    slug: "diagram-authoring",
+    title: "Diagram authoring",
+    description: "Mermaid, PlantUML, Graphviz, C4, Draw.io, Markdown diagrams, and editable exports."
+  },
+  {
+    slug: "ai-diagramming",
+    title: "AI diagramming",
+    description: "AI-generated diagrams, repair workflows, architecture docs, and prompt-to-preview loops."
+  },
+  {
+    slug: "infrastructure-config",
+    title: "Infrastructure and config",
+    description: "Docker, Kubernetes, Terraform, CloudFormation, Nginx, YAML, TOML, cron, and observability files."
+  },
+  {
+    slug: "technical-seo",
+    title: "Technical SEO",
+    description: "Robots.txt, sitemap XML, Open Graph, hreflang, social cards, and indexation checks."
+  },
+  {
+    slug: "publishing-preview",
+    title: "Publishing preview",
+    description: "Markdown, SVG, HTML, CSS, screenshots, visual snippets, and publish-ready examples."
+  }
+];
+
+export const blogPostTopics = {
+  "mermaid-preview-guide": "diagram-authoring",
+  "plantuml-online-preview-workflow": "diagram-authoring",
+  "markdown-mermaid-documentation": "diagram-authoring",
+  "graphviz-dot-dependency-graphs": "diagram-authoring",
+  "json-yaml-diagram-visualization": "diagram-authoring",
+  "drawio-file-preview-guide": "diagram-authoring",
+  "chatgpt-mermaid-preview-workflow": "ai-diagramming",
+  "mermaid-vs-plantuml-technical-docs": "diagram-authoring",
+  "plantuml-to-drawio-editable-diagram": "diagram-authoring",
+  "ai-drawio-diagram-generator-guide": "ai-diagramming",
+  "kubernetes-manifest-visualization-guide": "infrastructure-config",
+  "docker-compose-architecture-diagram-guide": "infrastructure-config",
+  "ai-grafana-dashboard-json-guide": "infrastructure-config",
+  "prometheus-alert-rules-api-latency-error-rate": "infrastructure-config",
+  "openapi-to-sequence-diagram-guide": "api-debugging",
+  "sql-to-er-diagram-online-guide": "schema-contracts",
+  "json-schema-visualizer-api-payloads": "schema-contracts",
+  "cron-expression-visualizer-guide": "infrastructure-config",
+  "postman-collection-to-sequence-diagram": "api-debugging",
+  "har-file-to-sequence-diagram-api-debugging": "api-debugging",
+  "typescript-interface-to-diagram-api-docs": "schema-contracts",
+  "zod-schema-visualizer-validation-docs": "schema-contracts",
+  "json-schema-vs-zod-vs-typescript": "schema-contracts",
+  "cloudformation-template-visualizer-guide": "infrastructure-config",
+  "terraform-vs-cloudformation-architecture-diagrams": "infrastructure-config",
+  "c4-model-diagrams-software-architecture": "diagram-authoring",
+  "api-error-flow-documentation-guide": "api-debugging",
+  "browser-network-requests-sequence-diagram": "api-debugging",
+  "frontend-api-debugging-har-sequence": "api-debugging",
+  "architecture-documentation-checklist-ai-diagrams": "ai-diagramming",
+  "har-file-viewer-api-waterfall-debugging": "api-debugging",
+  "svg-code-preview-editor-clean-export": "publishing-preview",
+  "open-graph-preview-debugger-social-cards": "technical-seo",
+  "json-schema-form-preview-guide": "schema-contracts",
+  "jsonpath-tester-api-response-debugging": "api-debugging",
+  "nginx-location-tester-routing-debug": "infrastructure-config",
+  "ai-generated-code-preview-debugging-workflow": "publishing-preview",
+  "api-debugging-preview-har-postman-openapi": "api-debugging",
+  "schema-preview-workflow-json-schema-zod-typescript": "schema-contracts",
+  "social-card-svg-preview-publishing-workflow": "publishing-preview",
+  "jq-vs-jsonpath-api-debugging-workflow": "api-debugging",
+  "xpath-xml-api-debugging-guide": "api-debugging",
+  "config-preview-env-yaml-toml-before-deploy": "infrastructure-config",
+  "technical-seo-preview-robots-sitemap-open-graph": "technical-seo",
+  "script-preview-debugging-html-css-json-base64": "publishing-preview"
+} satisfies Record<BlogSlug, BlogTopic>;
+
 export const visibleBlogPosts = blogPosts.filter((post) => post.tier !== "merge");
 
 export const sitemapBlogPosts = visibleBlogPosts;
+
+export const coreBlogPosts = visibleBlogPosts.filter((post) => post.tier === "core");
 
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
@@ -375,4 +472,12 @@ export function getBlogPost(slug: string) {
 
 export function getCanonicalBlogPost(post: BlogPostConfig) {
   return post.canonicalSlug ? getBlogPost(post.canonicalSlug) : undefined;
+}
+
+export function getBlogPostTopic(post: BlogPostConfig) {
+  return blogPostTopics[post.slug];
+}
+
+export function getVisibleBlogPostsByTopic(topic: BlogTopic) {
+  return visibleBlogPosts.filter((post) => getBlogPostTopic(post) === topic);
 }

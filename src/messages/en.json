@@ -149,7 +149,7 @@
       "name": "Mermaid Preview",
       "shortDescription": "Live Mermaid editor with SVG preview and export actions.",
       "seoTitle": "Mermaid Preview Online - Mermaid Editor and Live SVG Viewer",
-      "seoDescription": "Preview Mermaid diagrams online with a live editor, example templates, SVG export, PNG export, and copy actions.",
+      "seoDescription": "Preview Mermaid diagrams online with a live editor, readable examples, syntax review tips, SVG/PNG export, and copy actions for documentation.",
       "keywords": [
         "mermaid preview",
         "mermaid editor online",
@@ -217,6 +217,10 @@
         {
           "question": "Can I export the preview for documentation?",
           "answer": "Yes. When the SVG preview looks correct, export SVG for crisp documentation or PNG for quick sharing in issues and chat tools."
+        },
+        {
+          "question": "How should I review AI-generated Mermaid before publishing it?",
+          "answer": "Check the diagram type, edge direction, invented nodes, long labels, and any labels that contain punctuation. Then keep the Mermaid source in the document so future edits remain reviewable."
         }
       ],
       "seoBody": [
@@ -244,6 +248,17 @@
             "Long product or API names should be shortened in the diagram and explained nearby.",
             "If the diagram needs a paragraph to explain each arrow, split it into multiple diagrams."
           ]
+        },
+        {
+          "title": "Common Mermaid errors this preview helps catch",
+          "body": "Most broken Mermaid snippets fail for a small set of reasons: missing diagram headers, unescaped labels, mixed diagram syntax, or relationships copied from prose without a valid node id.",
+          "bullets": [
+            "If parsing fails on the first line, confirm the diagram starts with flowchart, sequenceDiagram, classDiagram, stateDiagram-v2, gantt, or erDiagram.",
+            "If labels contain slashes, colons, parentheses, or quotes, wrap the visible label in brackets and quotes.",
+            "If the graph renders but is unreadable, reduce scope before styling it."
+          ],
+          "code": "flowchart LR\n  api[\"API /checkout\"] --> payment[\"Payment provider\"]\n  api --> queue[\"order.created event\"]",
+          "caption": "Quoted labels make generated Mermaid more resilient when API paths or event names include punctuation."
         }
       ]
     },
@@ -251,7 +266,7 @@
       "name": "PlantUML Preview",
       "shortDescription": "Preview PlantUML diagrams from text using a replaceable server renderer.",
       "seoTitle": "PlantUML Preview Online - PlantUML Editor and Viewer",
-      "seoDescription": "Preview PlantUML sequence, class, use case, and activity diagrams online from plain text.",
+      "seoDescription": "Preview PlantUML sequence, class, use case, and activity diagrams online, then review server-rendered SVG output before publishing docs.",
       "keywords": [
         "plantuml preview",
         "plantuml online editor",
@@ -287,14 +302,19 @@
         }
       },
       "howToUse": [
-        "Paste a complete PlantUML document.",
-        "Choose a sample for common diagram styles.",
-        "Use the rendered SVG preview in documentation workflows."
+        "Paste a complete PlantUML document that includes @startuml and @enduml.",
+        "Choose a sequence, class, use case, or activity sample when you need a known-good starting point.",
+        "Review the rendered SVG for missing participants, unreadable labels, styling that hides meaning, and remote include dependencies.",
+        "Reduce failing diagrams to a minimal source before adding skinparam, notes, sprites, or complex blocks back.",
+        "Export the rendered result only after confirming the source can still live beside the documentation."
       ],
       "useCases": [
         "Sequence diagrams",
         "UML class sketches",
-        "Use case diagrams"
+        "Use case diagrams",
+        "Activity flow review",
+        "Architecture decision records",
+        "Code review documentation"
       ],
       "faq": [
         {
@@ -304,6 +324,14 @@
         {
           "question": "Can the renderer be replaced later?",
           "answer": "Yes. The PlantUML URL builder is isolated behind a renderer module."
+        },
+        {
+          "question": "What should I check before publishing a PlantUML diagram?",
+          "answer": "Confirm the source is complete, labels are short enough, remote includes are intentional, and the rendered SVG still matches the system or workflow being documented."
+        },
+        {
+          "question": "Is server-rendered PlantUML suitable for private diagrams?",
+          "answer": "Use a trusted private renderer for sensitive diagrams. Server rendering can send PlantUML source to the renderer that creates the SVG."
         }
       ],
       "seoBody": [
@@ -331,6 +359,16 @@
             "Keep private diagrams on trusted renderers because server rendering can send source to that renderer."
           ],
           "code": "@startuml\nAlice -> Bob: ping\nBob --> Alice: pong\n@enduml"
+        },
+        {
+          "title": "Review pattern: keep PlantUML source maintainable",
+          "body": "PlantUML diagrams work best when the text source remains readable in code review. Heavy styling, large includes, and dense diagrams can make the rendered image look polished while the source becomes hard to maintain.",
+          "bullets": [
+            "Keep participant and class names close to the terminology used in code or docs.",
+            "Use notes for assumptions instead of hiding them in long message labels.",
+            "Split unrelated class, sequence, and activity views into separate diagrams."
+          ],
+          "code": "@startuml\nparticipant Client\nparticipant API\nnote over API: Validate token before reading orders\nClient -> API: GET /orders\nAPI --> Client: 200 OK\n@enduml"
         }
       ]
     },
@@ -502,13 +540,15 @@
     },
     "d2-preview": {
       "name": "D2 Preview",
-      "shortDescription": "Structured D2 workspace prepared for the upcoming renderer.",
-      "seoTitle": "D2 Preview Online - D2 Diagram Viewer",
-      "seoDescription": "Preview D2 diagram text online in a developer-focused diagram workspace.",
+      "shortDescription": "Preview D2 architecture diagrams and service maps in a focused workspace.",
+      "seoTitle": "D2 Preview Online - Render D2 Architecture Diagrams",
+      "seoDescription": "Preview D2 diagram text for architecture sketches, service maps, dependency diagrams, and text-first developer documentation workflows.",
       "keywords": [
         "d2 preview",
         "d2 diagram online",
-        "d2 viewer"
+        "d2 viewer",
+        "d2 architecture diagram",
+        "d2 diagrams"
       ],
       "h1": "D2 Preview",
       "intro": "Draft D2 diagram text in the shared DiagramPreview workspace while the dedicated renderer is prepared.",
@@ -536,19 +576,32 @@
         }
       },
       "howToUse": [
-        "Paste D2 text into the editor.",
-        "Use samples to structure architecture notes.",
+        "Paste D2 text into the editor and start with relationships before styling.",
+        "Use samples to structure service maps, deployment zones, or architecture notes.",
+        "Keep identifiers stable so future edits do not unexpectedly reshape the diagram.",
+        "Write edge labels as protocols, events, or verbs when the relationship is not obvious.",
         "Return after the renderer module is enabled for SVG output."
       ],
       "useCases": [
         "Architecture sketches",
         "Service maps",
-        "System diagrams"
+        "System diagrams",
+        "Dependency review",
+        "Deployment zone diagrams",
+        "Text-first architecture docs"
       ],
       "faq": [
         {
           "question": "Is D2 rendering enabled?",
           "answer": "The route and workspace are ready. The dedicated renderer is planned for the next build stage."
+        },
+        {
+          "question": "What makes a D2 diagram easier to review?",
+          "answer": "Stable node ids, short edge labels, nested containers for boundaries, and comments for assumptions make D2 diagrams easier to maintain as text."
+        },
+        {
+          "question": "When should I use D2 instead of Mermaid?",
+          "answer": "Use D2 when you want text-first architecture diagrams with explicit containers, labels, and layout-friendly service relationships."
         }
       ],
       "seoBody": [
@@ -576,21 +629,34 @@
             "Use comments to explain assumptions that are not visible in the graph."
           ],
           "code": "# Assumption: analytics is async\napi -> event_bus: order.created\nevent_bus -> analytics: consume"
+        },
+        {
+          "title": "Architecture note: model boundaries before dependencies",
+          "body": "D2 is useful for showing bounded contexts, deployment zones, and ownership boundaries. Start by modeling containers and then add dependencies inside or across those boundaries.",
+          "bullets": [
+            "Use nested blocks for teams, networks, or runtime zones.",
+            "Name external dependencies explicitly so they are not mistaken for internal services.",
+            "Keep async and sync relationships visually distinguishable through labels."
+          ],
+          "code": "prod: {\n  web\n  api\n  worker\n}\nexternal: {\n  stripe\n}\nweb -> api: HTTPS\napi -> stripe: payment auth\napi -> worker: order.created"
         }
       ]
     },
     "drawio-preview": {
       "name": "Draw.io Viewer",
-      "shortDescription": "Inspect draw.io and diagrams.net XML files in a preview workspace.",
-      "seoTitle": "Draw.io Viewer Online - diagrams.net XML Preview",
-      "seoDescription": "Open draw.io or diagrams.net XML content online and inspect file structure, pages, and objects.",
+      "shortDescription": "Open draw.io and diagrams.net XML files online before sharing or converting them.",
+      "seoTitle": "Open draw.io File Online - diagrams.net Viewer and XML Preview",
+      "seoDescription": "Open draw.io and diagrams.net XML online to inspect pages, objects, labels, embedded data, and portability issues before review or SVG export.",
       "keywords": [
+        "open drawio file online",
+        "open draw.io file online",
         "draw.io viewer",
         "diagrams.net viewer",
-        "drawio preview"
+        "drawio preview",
+        "drawio file viewer"
       ],
       "h1": "Draw.io Viewer",
-      "intro": "Paste draw.io XML to inspect diagram file structure before full rendering support is enabled.",
+      "intro": "Paste draw.io or diagrams.net XML to inspect pages, object counts, labels, and file structure before sharing, converting, or exporting the diagram.",
       "badges": [
         "draw.io",
         "XML",
@@ -602,30 +668,46 @@
       "emptyPreview": "A draw.io file summary will appear here.",
       "samples": {
         "xml": {
-          "label": "XML",
-          "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+          "label": "Minimal XML",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"System Context\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"app\" value=\"Web app\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"120\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
         }
       },
       "howToUse": [
-        "Paste .drawio or diagrams.net XML.",
-        "Review the file summary.",
-        "Use the route as the foundation for future full rendering."
+        "Paste .drawio, diagrams.net, or mxfile XML into the editor.",
+        "Review page names, object counts, labels, and whether the XML is complete enough to share.",
+        "Check for default page names, hidden draft content, off-canvas objects, or external assets that may break in another workspace.",
+        "Use related converters when the diagram needs to move between editable draw.io XML and publishable SVG.",
+        "Keep the original XML in version control when the diagram is part of architecture or incident documentation."
       ],
       "useCases": [
-        "draw.io inspection",
-        "XML checks",
-        "Diagram migration"
+        "Open draw.io file online",
+        "diagrams.net XML inspection",
+        "Architecture diagram handoff",
+        "Diagram migration review",
+        "SVG export preparation"
       ],
       "faq": [
         {
           "question": "Does this render complex draw.io files?",
-          "answer": "The first version focuses on structure inspection and a clean preview placeholder."
+          "answer": "The current workflow focuses on XML structure inspection, page metadata, and review signals. Use it to decide whether a file is complete and portable before editing or exporting."
+        },
+        {
+          "question": "Can I open a draw.io file without installing diagrams.net?",
+          "answer": "Yes. Paste the .drawio XML content into the browser workspace to inspect pages, objects, and file structure before deciding whether to edit or export it."
+        },
+        {
+          "question": "What should I check before sharing a draw.io file?",
+          "answer": "Check page names, hidden draft content, oversized labels, embedded images, and whether the XML loads cleanly before exporting SVG or PNG."
+        },
+        {
+          "question": "When should I keep draw.io XML instead of only exporting SVG?",
+          "answer": "Keep the XML when teammates need to edit the diagram later. Export SVG for documentation, READMEs, tickets, or static publishing where editability is less important."
         }
       ],
       "seoBody": [
-        "Draw.io Viewer is built for users who need to inspect diagrams.net XML files inside a broader diagram tool site.",
-        "Complex draw.io rendering requires specialized handling, so the first build focuses on route structure, file input, and summary-oriented preview behavior.",
-        "The page is useful as a stable URL for future draw.io rendering and conversion features."
+        "Draw.io Viewer helps developers open draw.io and diagrams.net XML files online when a diagram needs a quick inspection before it goes into a README, wiki, issue, or handoff note.",
+        "Use it to check page names, XML structure, object counts, hidden draft content, and portability issues before converting or sharing the diagram.",
+        "The page also connects draw.io preview workflows with PlantUML to draw.io conversion, AI draw.io generation, and SVG export tools."
       ],
       "deepDives": [
         {
@@ -647,6 +729,16 @@
             "Rename default pages so exports are easier to understand."
           ],
           "code": "Page 1: System Context\nPage 2: Checkout Sequence\nPage 3: Deployment Notes"
+        },
+        {
+          "title": "Review pattern: separate edit source from publish artifact",
+          "body": "Treat draw.io XML as the editable source and SVG as the publishing artifact. That distinction keeps diagrams maintainable while still giving readers a clean static image.",
+          "bullets": [
+            "Store the .drawio XML next to the documentation that references it.",
+            "Export SVG only after the page name, viewport, and labels are stable.",
+            "Mention the source file path near important architecture diagrams so future updates do not happen in a detached export."
+          ],
+          "code": "docs/architecture/checkout.drawio\nREADME.md -> embeds checkout.svg\nPR review -> updates checkout.drawio first"
         }
       ]
     },
@@ -969,13 +1061,15 @@
     "ai-diagram-generator": {
       "name": "AI Diagram Generator",
       "shortDescription": "Generate Mermaid diagrams from a natural language prompt with AI.",
-      "seoTitle": "AI Diagram Generator - DiagramPreview",
-      "seoDescription": "Generate Mermaid diagrams from a natural language prompt with AI.",
+      "seoTitle": "AI Diagram Generator Online - Mermaid Diagrams from Prompts",
+      "seoDescription": "Generate editable Mermaid diagrams from natural language prompts, preview the result, and review AI output before exporting documentation assets.",
       "keywords": [
         "ai-diagram-generator",
         "ai diagram generator",
         "text to mermaid",
-        "mermaid ai"
+        "mermaid ai",
+        "ai architecture diagram",
+        "generate diagram from prompt"
       ],
       "h1": "AI Diagram Generator",
       "intro": "Describe the diagram you want, choose a Mermaid diagram type, and let AI draft editable Mermaid source with live preview.",
@@ -1018,13 +1112,18 @@
         "providerLabel": "Provider"
       },
       "howToUse": [
-        "Describe the target diagram in plain language.",
-        "Choose a Mermaid diagram type and generate code with AI.",
-        "Review the Mermaid output, edit it if needed, then export SVG or PNG."
+        "Describe the diagram audience, scope, required nodes, and any systems the model must not invent.",
+        "Choose a Mermaid diagram type before generating so the output matches the task.",
+        "Generate editable Mermaid source, then preview the diagram immediately.",
+        "Remove invented components, fix labels, and split oversized results before sharing.",
+        "Export SVG or PNG only after the source is readable enough for future documentation updates."
       ],
       "useCases": [
         "AI diagram drafting",
         "Text to Mermaid conversion",
+        "Architecture diagram prompts",
+        "Product flow diagrams",
+        "Incident visualization",
         "Mermaid syntax repair"
       ],
       "faq": [
@@ -1035,12 +1134,20 @@
         {
           "question": "Are API keys exposed to the browser?",
           "answer": "No. API keys are read only on the server through environment variables."
+        },
+        {
+          "question": "How do I prevent AI from inventing architecture components?",
+          "answer": "List required systems, explicitly say what should not appear, and ask for a compact Mermaid diagram based only on the provided context."
+        },
+        {
+          "question": "What should I do after the AI returns a diagram?",
+          "answer": "Preview it, compare it against source material, remove inaccurate nodes, shorten labels, and keep the Mermaid source editable in the final document."
         }
       ],
       "seoBody": [
-        "Generate Mermaid diagrams from a natural language prompt with AI.",
-        "Describe the diagram you want, choose a Mermaid diagram type, and let AI draft editable Mermaid source with live preview.",
-        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+        "AI Diagram Generator turns natural language prompts into editable Mermaid diagrams for architecture notes, incident reports, product flows, and technical documentation.",
+        "The best workflow is not prompt to final image. Generate source, preview it, edit the Mermaid, and check whether the diagram matches the actual system before exporting.",
+        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured, while API keys remain on the server side."
       ],
       "deepDives": [
         {
@@ -1062,19 +1169,31 @@
             "Compare the diagram against source docs, code, or architecture notes before using it in a decision."
           ],
           "code": "Prompt -> Mermaid source -> Browser preview -> Edit labels -> Export SVG/PNG -> Attach to PR"
+        },
+        {
+          "title": "Prompt recipe: constrain the diagram before generation",
+          "body": "A strong diagram prompt gives the model less room to improvise. Define the audience, diagram type, required nodes, forbidden assumptions, and output format before asking for Mermaid source.",
+          "bullets": [
+            "Start with the reader: backend review, product spec, onboarding, or incident timeline.",
+            "List required systems and external services explicitly.",
+            "Ask for short labels and no extra components beyond the prompt."
+          ],
+          "code": "Audience: backend onboarding. Diagram type: flowchart LR. Required nodes: Browser, API Gateway, Auth Service, Orders Service, PostgreSQL, Redis. Do not add payments or analytics. Output Mermaid only."
         }
       ]
     },
     "text-to-mermaid": {
       "name": "Text to Mermaid",
       "shortDescription": "Convert product notes, incidents, and architecture text into Mermaid diagrams.",
-      "seoTitle": "Text to Mermaid - DiagramPreview",
-      "seoDescription": "Convert product notes, incidents, and architecture text into Mermaid diagrams.",
+      "seoTitle": "Text to Mermaid Online - Generate Mermaid Diagrams from Prompts",
+      "seoDescription": "Convert product notes, incidents, architecture text, and process descriptions into editable Mermaid diagrams with AI-assisted generation and preview.",
       "keywords": [
         "text-to-mermaid",
+        "text to mermaid online",
         "ai diagram generator",
         "text to mermaid",
-        "mermaid ai"
+        "mermaid ai",
+        "generate mermaid from text"
       ],
       "h1": "Text to Mermaid",
       "intro": "Paste plain text requirements, notes, or process descriptions and convert them into Mermaid code you can preview and export.",
@@ -1117,13 +1236,18 @@
         "providerLabel": "Provider"
       },
       "howToUse": [
-        "Describe the target diagram in plain language.",
-        "Choose a Mermaid diagram type and generate code with AI.",
-        "Review the Mermaid output, edit it if needed, then export SVG or PNG."
+        "Describe the audience, scope, required actors, and the decision the diagram should support.",
+        "Choose the Mermaid diagram type before generating so the result matches the problem: flowchart, sequenceDiagram, classDiagram, or ER.",
+        "Generate Mermaid code, then preview it immediately instead of copying AI output directly into documentation.",
+        "Remove invented components, shorten labels, and split oversized results into smaller diagrams.",
+        "Export SVG or PNG only after the source remains readable enough for future edits."
       ],
       "useCases": [
         "AI diagram drafting",
         "Text to Mermaid conversion",
+        "Incident timeline diagrams",
+        "Architecture review prompts",
+        "Product flow documentation",
         "Mermaid syntax repair"
       ],
       "faq": [
@@ -1134,12 +1258,24 @@
         {
           "question": "Are API keys exposed to the browser?",
           "answer": "No. API keys are read only on the server through environment variables."
+        },
+        {
+          "question": "Can I generate a Mermaid sequence diagram from plain text?",
+          "answer": "Yes. Describe the actors and request order, choose sequenceDiagram, then review the generated Mermaid code before exporting it."
+        },
+        {
+          "question": "What should I include in a good text-to-Mermaid prompt?",
+          "answer": "Include the audience, diagram type, required actors or systems, important data stores, external services, and anything the model must not invent."
+        },
+        {
+          "question": "Should generated Mermaid be treated as final documentation?",
+          "answer": "No. Treat it as a draft. Preview the output, verify it against source material, and keep the Mermaid code editable in the final document."
         }
       ],
       "seoBody": [
-        "Convert product notes, incidents, and architecture text into Mermaid diagrams.",
-        "Paste plain text requirements, notes, or process descriptions and convert them into Mermaid code you can preview and export.",
-        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+        "Text to Mermaid turns plain-language requirements, incident notes, user journeys, and architecture descriptions into Mermaid diagrams for documentation.",
+        "It is useful when a developer has the flow in prose but needs editable Mermaid code for a README, design review, incident report, or product spec.",
+        "After generation, keep the Mermaid source editable, preview the SVG, and export only when labels, arrows, and diagram type match the story."
       ],
       "deepDives": [
         {
@@ -1161,14 +1297,24 @@
             "Use ER diagrams for data relationships instead of forcing them into boxes and arrows."
           ],
           "code": "Question: who called whom? -> sequenceDiagram\nQuestion: what path can the user take? -> flowchart\nQuestion: what data relates? -> erDiagram"
+        },
+        {
+          "title": "Prompt template: generate a diagram reviewers can trust",
+          "body": "The strongest prompts constrain the model. Instead of asking for a beautiful diagram, ask for a Mermaid source file that names the systems, keeps labels short, and avoids unverified services.",
+          "bullets": [
+            "State the diagram audience and scope in the first sentence.",
+            "List required nodes and any nodes that must not appear.",
+            "Ask the model to keep edge labels short enough for a README or architecture decision record."
+          ],
+          "code": "Create a Mermaid sequenceDiagram for backend reviewers. Scope: checkout payment authorization only. Required actors: Browser, Checkout API, Auth service, Payment provider, Order database. Do not add inventory or shipping. Keep message labels under 5 words."
         }
       ]
     },
     "mermaid-ai-fixer": {
       "name": "Mermaid AI Fixer",
       "shortDescription": "Fix broken Mermaid syntax and improve diagram readability with AI.",
-      "seoTitle": "Mermaid AI Fixer - DiagramPreview",
-      "seoDescription": "Fix broken Mermaid syntax and improve diagram readability with AI.",
+      "seoTitle": "Mermaid AI Fixer Online - Repair Broken Mermaid Diagrams",
+      "seoDescription": "Fix broken Mermaid syntax with AI, preserve diagram intent, preview the repaired source, and improve readability before exporting.",
       "keywords": [
         "mermaid-ai-fixer",
         "ai diagram generator",
@@ -1219,14 +1365,18 @@
         "providerLabel": "Provider"
       },
       "howToUse": [
-        "Describe the target diagram in plain language.",
-        "Choose a Mermaid diagram type and generate code with AI.",
-        "Review the Mermaid output, edit it if needed, then export SVG or PNG."
+        "Paste the broken Mermaid code into the editor and describe the repair goal.",
+        "Ask for a minimal syntax fix first when the diagram structure is already correct.",
+        "Preview the repaired source before asking for readability improvements.",
+        "Compare the fixed diagram with the original intent so the AI does not silently redesign the flow.",
+        "Export only after the repaired Mermaid code remains understandable."
       ],
       "useCases": [
-        "AI diagram drafting",
-        "Text to Mermaid conversion",
-        "Mermaid syntax repair"
+        "Mermaid syntax repair",
+        "AI-generated diagram cleanup",
+        "README diagram fixes",
+        "Sequence diagram repair",
+        "Label readability improvements"
       ],
       "faq": [
         {
@@ -1236,12 +1386,20 @@
         {
           "question": "Are API keys exposed to the browser?",
           "answer": "No. API keys are read only on the server through environment variables."
+        },
+        {
+          "question": "Should I ask for a redesign or a syntax fix?",
+          "answer": "Ask for a minimal syntax fix first. Once the diagram renders, you can separately ask for shorter labels, subgraphs, or layout improvements."
+        },
+        {
+          "question": "Can AI change the meaning of a Mermaid diagram while fixing it?",
+          "answer": "Yes. Always compare the repaired diagram with the original source and check whether participants, edges, states, and branches still mean the same thing."
         }
       ],
       "seoBody": [
-        "Fix broken Mermaid syntax and improve diagram readability with AI.",
-        "Paste broken Mermaid code and a short repair instruction. The AI will return corrected Mermaid source for preview and export.",
-        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+        "Mermaid AI Fixer repairs broken Mermaid syntax and helps make generated diagrams readable without losing the original intent.",
+        "Use it when ChatGPT, another AI tool, or a copied README snippet returns Mermaid that fails to render because of labels, arrows, missing headers, or mixed syntax.",
+        "The safest workflow is minimal fix, preview, then optional readability cleanup. The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable."
       ],
       "deepDives": [
         {
@@ -1263,18 +1421,30 @@
             "Keep a copy of the broken input for regression testing."
           ],
           "code": "Broken -> minimal fixed Mermaid -> rendered preview -> optional refactor"
+        },
+        {
+          "title": "Repair checklist: preserve meaning while fixing syntax",
+          "body": "A Mermaid fixer should not turn an error into a different diagram. Keep the semantic pieces stable, then make the source valid and readable.",
+          "bullets": [
+            "Check that every original participant, state, or node still exists unless you asked to remove it.",
+            "Verify edge direction and branch labels after the repair.",
+            "Keep a copy of the broken input so you can compare before and after."
+          ],
+          "code": "Original intent: User submits checkout -> API validates -> Payment authorizes -> Order created\nRepair goal: valid Mermaid only, no new services"
         }
       ]
     },
     "openapi-to-sequence": {
       "name": "OpenAPI to Sequence Diagram",
       "shortDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
-      "seoTitle": "OpenAPI to Sequence Diagram - DiagramPreview",
-      "seoDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
+      "seoTitle": "OpenAPI to Sequence Diagram Online - API Flow Visualizer",
+      "seoDescription": "Convert OpenAPI JSON or YAML paths into Mermaid sequence diagrams for API documentation, backend reviews, onboarding, and incident notes.",
       "keywords": [
         "openapi-to-sequence",
         "openapi to sequence diagram",
-        "diagram tool",
+        "openapi sequence diagram online",
+        "api flow visualizer",
+        "swagger to sequence diagram",
         "DiagramPreview"
       ],
       "h1": "OpenAPI to Sequence Diagram",
@@ -1328,6 +1498,14 @@
         {
           "question": "How do I make the output easier to read?",
           "answer": "Group related endpoints, shorten operation summaries, and avoid mixing unrelated resources in one sequence diagram."
+        },
+        {
+          "question": "Can this prove what happens in production?",
+          "answer": "No. It explains the contract in diagram form. Compare it with HAR files, Postman collections, logs, or traces when you need to verify runtime behavior."
+        },
+        {
+          "question": "Which OpenAPI fields improve the sequence diagram?",
+          "answer": "operationId, summary, security schemes, requestBody, response descriptions, and focused path groups all make the generated messages easier to understand."
         }
       ],
       "seoBody": [
@@ -1356,18 +1534,30 @@
             "Use the sequence output to discuss behavior, not as a replacement for the OpenAPI spec."
           ],
           "code": "POST /orders\nAuthorization: Bearer <token>\n201 Created -> orderId\n409 Conflict -> duplicate cart or inventory lock"
+        },
+        {
+          "title": "Troubleshooting: compare contract diagrams with runtime evidence",
+          "body": "OpenAPI sequence diagrams are strongest when paired with runtime evidence. Use the contract diagram to show intended behavior, then compare HAR, Postman, or trace data when an incident suggests the real call order is different.",
+          "bullets": [
+            "Use OpenAPI for expected request and response paths.",
+            "Use HAR or Postman collections for observed request order.",
+            "Use the mismatch as the discussion point in backend review or incident follow-up."
+          ],
+          "code": "Expected: Browser -> API -> Payment provider -> API -> Browser\nObserved: Browser -> API -> API retry -> Payment provider timeout -> 503"
         }
       ]
     },
     "sql-to-er-diagram": {
       "name": "SQL to ER Diagram",
       "shortDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
-      "seoTitle": "SQL to ER Diagram - DiagramPreview",
-      "seoDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
+      "seoTitle": "SQL to ER Diagram Online - Visualize Table Relationships",
+      "seoDescription": "Convert CREATE TABLE SQL into Mermaid ER diagrams to review tables, primary keys, foreign keys, join tables, and schema relationships.",
       "keywords": [
         "sql-to-er-diagram",
         "sql to er diagram",
-        "diagram tool",
+        "create table to er diagram",
+        "database schema visualizer",
+        "sql relationship diagram",
         "DiagramPreview"
       ],
       "h1": "SQL to ER Diagram",
@@ -1397,25 +1587,38 @@
         }
       },
       "howToUse": [
-        "Paste source text into the editor.",
-        "Review the generated visualization.",
-        "Edit the input and export the rendered SVG or PNG when the diagram looks right."
+        "Paste CREATE TABLE statements that include primary keys and foreign key relationships.",
+        "Review the generated ER diagram for missing tables, unexpected one-to-many relationships, and join tables.",
+        "Check *_id columns that imply relationships but do not have explicit constraints.",
+        "Trim unrelated tables when documenting one bounded context or feature area.",
+        "Export the diagram after the relationships match the schema you intend to publish."
       ],
       "useCases": [
         "Database documentation",
         "Schema review",
-        "Data model onboarding"
+        "Data model onboarding",
+        "Migration review",
+        "Foreign key audit",
+        "ER diagram for README docs"
       ],
       "faq": [
         {
           "question": "Does this use AI?",
           "answer": "No. This tool runs parsing and visualization locally in the browser."
+        },
+        {
+          "question": "What SQL should I paste for the clearest ER diagram?",
+          "answer": "Use focused CREATE TABLE statements with primary keys, foreign keys, and join tables. Avoid dumping unrelated schemas into one diagram."
+        },
+        {
+          "question": "Can this find missing foreign key constraints?",
+          "answer": "It can make suspicious relationship patterns visible, such as *_id columns without constraints, but you should confirm the database rules in migrations or schema docs."
         }
       ],
       "seoBody": [
-        "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
-        "Paste SQL DDL and visualize tables, columns, primary keys, and foreign key relationships as an ER diagram.",
-        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+        "SQL to ER Diagram converts CREATE TABLE DDL into Mermaid ER diagrams for database documentation, schema review, and onboarding.",
+        "Use it to inspect tables, columns, primary keys, foreign keys, join tables, and relationship direction before a migration or documentation update ships.",
+        "DiagramPreview keeps the SQL source editable so you can revise a focused schema snippet and regenerate the visualization quickly."
       ],
       "deepDives": [
         {
@@ -1437,18 +1640,30 @@
             "Confirm nullable foreign keys represent a real optional relationship."
           ],
           "code": "order_items(order_id, product_id)\nUNIQUE(order_id, product_id)"
+        },
+        {
+          "title": "Migration review: diagram only the tables that changed",
+          "body": "For database migrations, a smaller ER diagram is usually more useful than a full schema dump. Focus on the tables touched by the migration and their nearest dependencies.",
+          "bullets": [
+            "Include referenced parent tables so foreign keys have context.",
+            "Call out new nullable foreign keys because they often change application behavior.",
+            "Use the diagram in PR review alongside the migration diff."
+          ],
+          "code": "CREATE TABLE subscriptions (\n  id INT PRIMARY KEY,\n  account_id INT NOT NULL REFERENCES accounts(id),\n  plan_id INT REFERENCES plans(id)\n);"
         }
       ]
     },
     "json-schema-visualizer": {
       "name": "JSON Schema Visualizer",
       "shortDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
-      "seoTitle": "JSON Schema Visualizer - DiagramPreview",
-      "seoDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
+      "seoTitle": "JSON Schema Visualizer Online - API Contract Tree Viewer",
+      "seoDescription": "Visualize JSON Schema properties, required fields, arrays, enums, and oneOf/anyOf branches for API contract review and documentation.",
       "keywords": [
         "json-schema-visualizer",
         "json schema visualizer",
-        "diagram tool",
+        "json schema tree viewer",
+        "api contract visualizer",
+        "json schema documentation",
         "DiagramPreview"
       ],
       "h1": "JSON Schema Visualizer",
@@ -1502,6 +1717,14 @@
         {
           "question": "How do I make a schema visualization easier to read?",
           "answer": "Split very large schemas by resource, keep descriptions short, and avoid deeply nested anonymous objects when a named schema would be clearer."
+        },
+        {
+          "question": "Can this help with breaking-change review?",
+          "answer": "Yes. Use it to spot newly required fields, enum changes, nested array changes, nullable behavior, and oneOf/anyOf branches that may affect clients."
+        },
+        {
+          "question": "Should I visualize generated schemas from AI or code tools?",
+          "answer": "Yes, but review the output carefully. Generated schemas can invent optional metadata, miss required fields, or simplify composition rules in ways that do not match your validator."
         }
       ],
       "seoBody": [
@@ -1530,6 +1753,17 @@
             "Flatten deeply nested oneOf or anyOf branches into review notes when the diagram becomes too dense."
           ],
           "code": "{\n  \"type\": \"object\",\n  \"required\": [\"id\", \"status\"],\n  \"properties\": {\n    \"status\": {\"enum\": [\"draft\", \"paid\", \"cancelled\"]}\n  }\n}"
+        },
+        {
+          "title": "Documentation pattern: pair schema trees with examples",
+          "body": "A schema tree explains structure, but developers still need examples. Use the visualization to show required fields and branches, then place a small request or response example next to it.",
+          "bullets": [
+            "Use the tree for structure and the example for realistic values.",
+            "Call out enum values that map to user-visible states.",
+            "Explain oneOf or anyOf branches in prose when the visual tree becomes dense."
+          ],
+          "code": "{\n  \"email\": \"user@example.com\",\n  \"plan\": \"pro\",\n  \"metadata\": {\"source\": \"checkout\"}\n}",
+          "caption": "Examples make a schema visualization more useful for SDK users and API consumers."
         }
       ]
     },
@@ -1896,12 +2130,14 @@
     "docker-compose-diagram": {
       "name": "Docker Compose Diagram",
       "shortDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
-      "seoTitle": "Docker Compose Diagram - DiagramPreview",
-      "seoDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
+      "seoTitle": "Docker Compose Diagram - Service Dependency Visualizer",
+      "seoDescription": "Convert docker-compose.yml into architecture diagrams that show services, depends_on links, networks, volumes, ports, and local stack topology.",
       "keywords": [
         "docker-compose-diagram",
         "docker compose diagram",
-        "diagram tool",
+        "docker compose visualizer",
+        "docker compose architecture diagram",
+        "compose service dependency diagram",
         "developer documentation"
       ],
       "h1": "Docker Compose Diagram",
@@ -1931,25 +2167,37 @@
         }
       },
       "howToUse": [
-        "Paste source text into the editor.",
-        "Load a sample when you need a starting point.",
-        "Review the generated visualization and export when useful."
+        "Paste docker-compose.yml into the editor, including services, networks, volumes, and depends_on blocks.",
+        "Review service dependencies separately from readiness or health-check guarantees.",
+        "Check which services expose ports, mount volumes, or share networks before documenting the stack.",
+        "Trim secret values and environment variables before sharing a diagram publicly.",
+        "Export the diagram for onboarding docs, README files, or local development setup notes."
       ],
       "useCases": [
-        "Developer documentation",
-        "Code review",
-        "AI-generated output validation"
+        "Local stack documentation",
+        "Compose service dependency review",
+        "Developer onboarding",
+        "README architecture diagrams",
+        "AI-generated Compose validation"
       ],
       "faq": [
         {
           "question": "Does this tool use AI?",
           "answer": "No. It parses and visualizes the source locally in the browser."
+        },
+        {
+          "question": "Does depends_on mean a service is ready?",
+          "answer": "No. depends_on shows startup ordering, not application readiness. Use health checks and application-level retries for readiness guarantees."
+        },
+        {
+          "question": "What should I remove before sharing a Compose diagram?",
+          "answer": "Remove secrets, private registry names, internal hostnames, and environment variables that should not appear in public documentation."
         }
       ],
       "seoBody": [
-        "Convert Docker Compose services and dependencies into a readable architecture diagram.",
-        "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
-        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+        "Docker Compose Diagram turns docker-compose.yml into a readable service topology for local stack documentation and onboarding.",
+        "Use it to visualize services, depends_on relationships, exposed ports, networks, and volumes before sharing setup instructions or reviewing a generated Compose file.",
+        "The diagram is a review surface: it explains declared topology but does not prove runtime readiness, health, or connectivity."
       ],
       "deepDives": [
         {
@@ -1971,18 +2219,30 @@
             "Review named volumes when data persistence matters."
           ],
           "code": "healthcheck:\n  test: [\"CMD\", \"pg_isready\", \"-U\", \"postgres\"]\n  interval: 10s\n  retries: 5"
+        },
+        {
+          "title": "Security note: sanitize Compose before publishing",
+          "body": "Compose files often include environment variables, host paths, private registry names, and internal service names. A diagram makes topology easier to share, but the source should still be reviewed first.",
+          "bullets": [
+            "Remove secrets and tokens from environment blocks.",
+            "Replace private registry URLs or internal hostnames when publishing externally.",
+            "Keep volume paths generic when they expose local machine structure."
+          ],
+          "code": "environment:\n  DATABASE_URL: postgres://user:***@db:5432/app\nvolumes:\n  - ./data:/var/lib/postgresql/data"
         }
       ]
     },
     "kubernetes-manifest-visualizer": {
       "name": "Kubernetes Manifest Visualizer",
       "shortDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
-      "seoTitle": "Kubernetes Manifest Visualizer - DiagramPreview",
-      "seoDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
+      "seoTitle": "Kubernetes Manifest Visualizer - Inspect YAML Resources",
+      "seoDescription": "Visualize Kubernetes YAML manifests as resource trees to review Deployments, Services, Ingress, labels, selectors, namespaces, and risky changes.",
       "keywords": [
         "kubernetes-manifest-visualizer",
         "kubernetes manifest visualizer",
-        "diagram tool",
+        "kubernetes yaml visualizer",
+        "k8s manifest viewer",
+        "deployment service ingress diagram",
         "developer documentation"
       ],
       "h1": "Kubernetes Manifest Visualizer",
@@ -2012,25 +2272,37 @@
         }
       },
       "howToUse": [
-        "Paste source text into the editor.",
-        "Load a sample when you need a starting point.",
-        "Review the generated visualization and export when useful."
+        "Paste one or more Kubernetes YAML manifests into the editor.",
+        "Review resource kind, namespace, labels, selectors, container images, ports, and ingress routes.",
+        "Check that Service selectors match Pod template labels before applying changes.",
+        "Inspect risky fields such as image tags, env vars, resource limits, probes, and hostPath volumes.",
+        "Export the visualization for release notes, PR review, or onboarding docs."
       ],
       "useCases": [
-        "Developer documentation",
-        "Code review",
-        "AI-generated output validation"
+        "Kubernetes YAML review",
+        "Deployment and Service inspection",
+        "Ingress route documentation",
+        "Release manifest review",
+        "AI-generated manifest validation"
       ],
       "faq": [
         {
           "question": "Does this tool use AI?",
           "answer": "No. It parses and visualizes the source locally in the browser."
+        },
+        {
+          "question": "Can this prove a Kubernetes manifest will deploy successfully?",
+          "answer": "No. It helps review structure and relationships. Use kubectl, policy checks, and cluster validation for final deployment confidence."
+        },
+        {
+          "question": "What Kubernetes mistakes are easiest to spot visually?",
+          "answer": "Selector and label mismatches, wrong namespaces, surprising image tags, missing probes, exposed ports, and risky volume mounts are easier to catch in a resource tree."
         }
       ],
       "seoBody": [
-        "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
-        "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
-        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+        "Kubernetes Manifest Visualizer turns YAML manifests into readable resource trees for Deployments, Services, Ingress, ConfigMaps, labels, selectors, and namespaces.",
+        "Use it before release review to inspect image tags, ports, probes, resource limits, selectors, and routing assumptions without reading a long manifest line by line.",
+        "The tool supports documentation and review workflows; final deployment validation should still happen with Kubernetes-native commands and policy checks."
       ],
       "deepDives": [
         {
@@ -2052,6 +2324,16 @@
             "Do not paste real secret values into public tools."
           ],
           "code": "service.type: ClusterIP -> LoadBalancer\nimage.tag: 1.8.2 -> latest\nresources.limits.cpu: 500m"
+        },
+        {
+          "title": "Debug pattern: selectors before containers",
+          "body": "When a Service has no endpoints, the container image is often not the first thing to inspect. Start by comparing Service selectors with Pod template labels.",
+          "bullets": [
+            "Check metadata.labels and spec.selector side by side.",
+            "Confirm namespace consistency for related resources.",
+            "Review targetPort names when Services reference named container ports."
+          ],
+          "code": "Service selector: app=checkout\nPod labels: app=checkout-api\nResult: Service has no matching endpoints"
         }
       ]
     },
@@ -2221,11 +2503,14 @@
       "name": "AI Draw.io Generator",
       "shortDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
       "seoTitle": "AI Draw.io Generator Online - DiagramPreview",
-      "seoDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "seoDescription": "Generate editable diagrams.net and draw.io XML from architecture, CI/CD, cloud, and data flow prompts, then review the file before handoff.",
       "keywords": [
         "ai-drawio-generator",
         "ai draw.io generator",
-        "ai draw.io generator"
+        "ai diagrams.net generator",
+        "text to drawio",
+        "drawio xml generator",
+        "editable architecture diagram"
       ],
       "h1": "AI Draw.io Generator",
       "intro": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
@@ -2283,6 +2568,14 @@
         {
           "question": "Is the generated .drawio file final?",
           "answer": "Treat it as a structured first draft. Preview it, remove invented components, and refine the layout before publishing it as architecture documentation."
+        },
+        {
+          "question": "How do I make AI draw.io output easier to maintain?",
+          "answer": "Ask for one diagram per page, short labels, stable node names, and editable XML. Avoid prompts that ask for a complete enterprise map in one canvas."
+        },
+        {
+          "question": "When should I use AI draw.io instead of Mermaid?",
+          "answer": "Use AI draw.io when teammates need to continue editing the diagram visually in diagrams.net. Use Mermaid when text source and code review are more important."
         }
       ],
       "seoBody": [
@@ -2323,6 +2616,16 @@
           ],
           "code": "<mxfile><diagram name=\"Checkout\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/></root></mxGraphModel></diagram></mxfile>",
           "caption": "A minimal draw.io file should remain valid XML first; layout polish can happen after import."
+        },
+        {
+          "title": "Prompt pattern: ask for a handoff-ready .drawio file",
+          "body": "A useful AI draw.io prompt should specify the audience, page structure, required nodes, and editing expectations. The goal is not only a preview; it is a file another person can open and revise.",
+          "bullets": [
+            "Request one page per workflow or architecture layer.",
+            "List required nodes and external services explicitly.",
+            "Ask for concise labels and no decorative elements that make XML noisy."
+          ],
+          "code": "Create editable draw.io XML for a checkout architecture review. One page named Checkout Context. Include Browser, API Gateway, Orders Service, Payment Provider, PostgreSQL, Redis, and Kafka. Keep labels under 24 characters."
         }
       ]
     },
@@ -2546,12 +2849,14 @@
     "plantuml-to-drawio": {
       "name": "PlantUML to Draw.io",
       "shortDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
-      "seoTitle": "PlantUML to Draw.io Online - DiagramPreview",
-      "seoDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "seoTitle": "PlantUML to Draw.io Online - Editable diagrams.net Converter",
+      "seoDescription": "Convert PlantUML sequence, component, class, and activity diagrams into editable draw.io XML for diagrams.net review and documentation handoff.",
       "keywords": [
         "plantuml-to-drawio",
         "plantuml to draw.io",
-        "plantuml to draw.io"
+        "plantuml to diagrams.net",
+        "convert plantuml to drawio",
+        "editable uml diagram"
       ],
       "h1": "PlantUML to Draw.io",
       "intro": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
@@ -2603,6 +2908,14 @@
         {
           "question": "When should I keep the original PlantUML?",
           "answer": "Keep it when diagrams are generated from code or docs pipelines. Use draw.io for collaborative editing and presentation polishing."
+        },
+        {
+          "question": "What should I simplify before conversion?",
+          "answer": "Remove unrelated scenarios, heavy macros, and styling-only blocks. Convert a focused sequence, component, class, or activity diagram first."
+        },
+        {
+          "question": "Is draw.io the new source of truth after conversion?",
+          "answer": "Only if your team decides to maintain the visual file. Otherwise keep PlantUML as the source and treat draw.io as an editable handoff artifact."
         }
       ],
       "seoBody": [
@@ -2630,6 +2943,16 @@
             "Skinparam styling, notes, and advanced macros should be treated as hints, not exact canvas instructions."
           ],
           "code": "@startuml\nactor User\nparticipant API\ndatabase DB\nUser -> API: POST /orders\nAPI -> DB: insert order\nAPI --> User: 201 Created\n@enduml"
+        },
+        {
+          "title": "Handoff checklist: convert only after the source is stable",
+          "body": "PlantUML changes are easier to review as text, while draw.io changes are easier for visual collaboration. Convert when the structure is stable enough for manual layout work.",
+          "bullets": [
+            "Keep the original PlantUML file linked near the generated .drawio file.",
+            "Use one converted file per scenario so visual edits stay focused.",
+            "Review participant names and edge labels after import into diagrams.net."
+          ],
+          "code": "docs/login-sequence.puml -> docs/login-sequence.drawio\nSource owner: backend team\nVisual edits: docs review"
         }
       ]
     },
@@ -2726,12 +3049,14 @@
     "drawio-to-svg": {
       "name": "Draw.io to SVG Preview",
       "shortDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
-      "seoTitle": "Draw.io to SVG Preview Online - DiagramPreview",
-      "seoDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "seoTitle": "Draw.io to SVG Preview Online - Export diagrams.net XML",
+      "seoDescription": "Preview uncompressed diagrams.net and draw.io XML as SVG, inspect labels and bounds, and export documentation-ready diagram images.",
       "keywords": [
         "drawio-to-svg",
         "draw.io to svg preview",
-        "draw.io to svg preview"
+        "diagrams.net to svg",
+        "drawio svg export",
+        "preview drawio xml"
       ],
       "h1": "Draw.io to SVG Preview",
       "intro": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
@@ -2783,6 +3108,14 @@
         {
           "question": "What should I check before exporting SVG?",
           "answer": "Check page selection, clipped objects, unreadable labels, and whether the diagram includes private text or internal hostnames."
+        },
+        {
+          "question": "Should I publish SVG or keep the draw.io XML?",
+          "answer": "Publish SVG for readers and keep the draw.io XML as the editable source. That keeps documentation clean while preserving maintainability."
+        },
+        {
+          "question": "Why use a browser preview before a docs pipeline?",
+          "answer": "It catches broken XML, huge whitespace, hidden draft objects, and labels that look fine in the editor but fail in static documentation."
         }
       ],
       "seoBody": [
@@ -2810,6 +3143,16 @@
             "Use the preview to catch hidden scratch layers or objects outside the visible canvas."
           ],
           "code": "<img src=\"/previews/checkout-architecture.svg\" alt=\"Checkout architecture diagram\" />"
+        },
+        {
+          "title": "Docs workflow: source XML plus published SVG",
+          "body": "A maintainable docs workflow keeps the draw.io XML in the repository and publishes SVG for readers. The preview step verifies that the SVG artifact still represents the editable source.",
+          "bullets": [
+            "Version the .drawio or XML file next to the generated SVG.",
+            "Regenerate SVG after source changes instead of editing exported SVG by hand.",
+            "Use descriptive alt text when embedding the SVG in documentation."
+          ],
+          "code": "architecture.drawio -> architecture.svg -> README.md\nDo not hand-edit architecture.svg unless it is intentionally detached from the source."
         }
       ]
     },
@@ -3431,12 +3774,14 @@
     "graphql-schema-visualizer": {
       "name": "GraphQL Schema Visualizer",
       "shortDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
-      "seoTitle": "GraphQL Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "seoTitle": "GraphQL Schema Visualizer - Type Relationship Diagram",
+      "seoDescription": "Visualize GraphQL types, inputs, interfaces, enums, fields, nullability, and relationships for API contract review and documentation.",
       "keywords": [
         "graphql-schema-visualizer",
         "graphql schema visualizer",
-        "graphql schema visualizer"
+        "graphql type diagram",
+        "graphql schema diagram",
+        "graphql api documentation"
       ],
       "h1": "GraphQL Schema Visualizer",
       "intro": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
@@ -3464,14 +3809,18 @@
         }
       },
       "howToUse": [
-        "Paste source or load a sample.",
-        "Review the rendered preview or structured output.",
-        "Copy code, export images, or download generated files."
+        "Paste a focused GraphQL SDL schema or load a sample.",
+        "Review object types, input types, interfaces, enums, field nullability, and nested relationships.",
+        "Check query and mutation entry points before reviewing deeper domain types.",
+        "Look for removed fields, renamed enums, and nullable-to-non-null changes before publishing.",
+        "Export the visualization for API docs, schema review notes, or SDK onboarding."
       ],
       "useCases": [
-        "AI-generated diagram validation",
-        "Developer docs and README workflows",
-        "Architecture, monitoring, and config review"
+        "GraphQL API documentation",
+        "Schema breaking-change review",
+        "Client onboarding",
+        "Nested query explanation",
+        "AI-generated schema validation"
       ],
       "faq": [
         {
@@ -3481,11 +3830,20 @@
         {
           "question": "Does it require an account?",
           "answer": "No. The tool page can be used directly in the browser."
+        },
+        {
+          "question": "Which GraphQL changes are risky for clients?",
+          "answer": "Removed fields, enum removals, renamed types, argument changes, and nullable-to-non-null changes can break clients even when the schema still validates."
+        },
+        {
+          "question": "How should I make a large GraphQL schema readable?",
+          "answer": "Start from one query or mutation area, then include only the related object, input, enum, and interface types needed to explain that workflow."
         }
       ],
       "seoBody": [
-        "GraphQL Schema Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
-        "It helps convert source text, config, or AI output into a previewable and exportable result."
+        "GraphQL Schema Visualizer turns SDL into a visual map of object types, input types, enums, interfaces, fields, and relationships.",
+        "Use it for API contract review when nested GraphQL schemas become hard to scan as text, especially before SDK docs or client-facing changes are published.",
+        "The visualization helps reviewers discuss breaking changes, query cost, nullability, and relationships while keeping the schema source editable."
       ],
       "deepDives": [
         {
@@ -3507,6 +3865,16 @@
             "Use relationship diagrams to explain nested query cost."
           ],
           "code": "Before: user.name: String\nAfter: user.name: String!\nRisk: clients that handle null differently"
+        },
+        {
+          "title": "Documentation pattern: start from Query and Mutation",
+          "body": "A GraphQL diagram is easier to read when it starts with the operations users call. From there, expand only the related types that explain the response shape or input contract.",
+          "bullets": [
+            "Show Query and Mutation entry points first.",
+            "Keep pagination types close to the list fields that use them.",
+            "Explain expensive nested relationships in docs beside the diagram."
+          ],
+          "code": "type Query {\n  order(id: ID!): Order\n}\ntype Mutation {\n  createOrder(input: CreateOrderInput!): Order!\n}"
         }
       ]
     },
@@ -3514,11 +3882,13 @@
       "name": "Protobuf Schema Visualizer",
       "shortDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
       "seoTitle": "Protobuf Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "seoDescription": "Visualize Protobuf schemas online as diagrams that show messages, fields, enums, services, and references.",
       "keywords": [
         "protobuf-schema-visualizer",
         "protobuf schema visualizer",
-        "protobuf schema visualizer"
+        "protobuf schema visualization",
+        "protobuf visualizer",
+        "proto file visualizer"
       ],
       "h1": "Protobuf Schema Visualizer",
       "intro": "Visualize protobuf messages, fields, and message references as a class diagram.",
@@ -3546,14 +3916,18 @@
         }
       },
       "howToUse": [
-        "Paste source or load a sample.",
-        "Review the rendered preview or structured output.",
-        "Copy code, export images, or download generated files."
+        "Paste a .proto schema or load a message/service sample.",
+        "Review messages, fields, repeated relationships, enums, services, and request or response types.",
+        "Check field numbers, reserved fields, and enum defaults before treating a visual change as compatible.",
+        "Split very large proto files by package or service when preparing documentation.",
+        "Export the visualization for API docs, SDK notes, or schema review."
       ],
       "useCases": [
-        "AI-generated diagram validation",
-        "Developer docs and README workflows",
-        "Architecture, monitoring, and config review"
+        "Protobuf API contract review",
+        "SDK documentation",
+        "Message relationship diagrams",
+        "Schema evolution review",
+        "AI-generated proto validation"
       ],
       "faq": [
         {
@@ -3563,11 +3937,24 @@
         {
           "question": "Does it require an account?",
           "answer": "No. The tool page can be used directly in the browser."
+        },
+        {
+          "question": "Can it help review protobuf schema changes?",
+          "answer": "Yes. A diagram makes message references, repeated fields, enums, and service request or response shapes easier to inspect before a schema change is published."
+        },
+        {
+          "question": "Does a visual protobuf change prove wire compatibility?",
+          "answer": "No. Compatibility depends on field numbers, reserved fields, enum behavior, and generated client expectations. Use the diagram as a review aid, not the final compatibility check."
+        },
+        {
+          "question": "What should I include for service documentation?",
+          "answer": "Include the service block, request messages, response messages, referenced enums, and any nested messages that clients need to understand."
         }
       ],
       "seoBody": [
-        "Protobuf Schema Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
-        "It helps convert source text, config, or AI output into a previewable and exportable result."
+        "Protobuf Schema Visualizer is designed for API contract review, developer documentation, and schema visualization workflows where proto files become hard to scan as text.",
+        "Paste a protobuf schema to inspect messages, fields, repeated relationships, enums, and service request or response types as a visual map.",
+        "Use the preview before publishing SDK docs, reviewing schema evolution, or checking AI-generated protobuf examples."
       ],
       "deepDives": [
         {
@@ -3589,6 +3976,16 @@
             "Review enum default values and unknown value handling."
           ],
           "code": "reserved 4, 7;\nreserved \"legacy_status\";"
+        },
+        {
+          "title": "Service documentation: connect RPCs to message shapes",
+          "body": "For API docs, a protobuf diagram should connect service methods with request and response messages. That helps SDK users understand the contract without reading every field in a long proto file.",
+          "bullets": [
+            "Show request and response messages next to each RPC.",
+            "Keep enums visible when they control client behavior.",
+            "Document repeated fields that may become large collections."
+          ],
+          "code": "service OrderService {\n  rpc GetOrder (GetOrderRequest) returns (Order);\n}\nmessage GetOrderRequest { string id = 1; }"
         }
       ]
     },
@@ -3677,12 +4074,14 @@
     "dbml-to-er-diagram": {
       "name": "DBML to ER Diagram",
       "shortDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
-      "seoTitle": "DBML to ER Diagram Online - DiagramPreview",
-      "seoDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "seoTitle": "DBML to ER Diagram Online - Visualize Tables and Refs",
+      "seoDescription": "Convert DBML table definitions and refs into Mermaid ER diagrams for database documentation, product review, and schema relationship checks.",
       "keywords": [
         "dbml-to-er-diagram",
         "dbml to er diagram",
-        "dbml to er diagram"
+        "dbml visualizer",
+        "dbml relationship diagram",
+        "database markup language diagram"
       ],
       "h1": "DBML to ER Diagram",
       "intro": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
@@ -3710,14 +4109,18 @@
         }
       },
       "howToUse": [
-        "Paste source or load a sample.",
-        "Review the rendered preview or structured output.",
-        "Copy code, export images, or download generated files."
+        "Paste DBML table definitions with Ref lines for relationships.",
+        "Review generated ER relationships, join tables, nullable refs, and ownership boundaries.",
+        "Check whether cardinality matches the product rule before publishing docs.",
+        "Split large schemas by bounded context or feature area.",
+        "Export the diagram for product specs, backend reviews, or onboarding notes."
       ],
       "useCases": [
-        "AI-generated diagram validation",
-        "Developer docs and README workflows",
-        "Architecture, monitoring, and config review"
+        "DBML documentation",
+        "Database schema review",
+        "Product data model discussion",
+        "ER diagram generation",
+        "AI-generated DBML validation"
       ],
       "faq": [
         {
@@ -3727,11 +4130,20 @@
         {
           "question": "Does it require an account?",
           "answer": "No. The tool page can be used directly in the browser."
+        },
+        {
+          "question": "What makes DBML easier to visualize?",
+          "answer": "Clear table names, primary keys, Ref lines, and table groups make the ER diagram easier to read and review."
+        },
+        {
+          "question": "Should I paste a full production schema?",
+          "answer": "Use a focused subset when writing documentation. Full schemas are better for internal review after removing private names or sensitive comments."
         }
       ],
       "seoBody": [
-        "DBML to ER Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
-        "It helps convert source text, config, or AI output into a previewable and exportable result."
+        "DBML to ER Diagram converts Database Markup Language table definitions and refs into Mermaid ER diagrams for schema documentation and review.",
+        "It helps backend and product teams discuss relationships, cardinality, join tables, nullable refs, and tenant boundaries without reading every DBML line.",
+        "Use it for focused schema sections, AI-generated DBML validation, and onboarding docs where a visual data model is easier to scan."
       ],
       "deepDives": [
         {
@@ -3753,6 +4165,16 @@
             "Add notes for soft deletes and tenant boundaries."
           ],
           "code": "Table memberships { user_id int org_id int role varchar }\nRef: memberships.user_id > users.id\nRef: memberships.org_id > organizations.id"
+        },
+        {
+          "title": "Product review: make data ownership visible",
+          "body": "DBML diagrams are useful outside pure database review. They help product and platform teams see which entity owns a relationship and where tenant or account boundaries appear.",
+          "bullets": [
+            "Show account, organization, or workspace tables near dependent tables.",
+            "Flag shared tables that cross multiple product areas.",
+            "Add notes for soft-delete or audit-log patterns that are not obvious from refs."
+          ],
+          "code": "Table accounts { id int [pk] }\nTable projects { id int [pk] account_id int }\nTable project_members { project_id int user_id int role varchar }\nRef: projects.account_id > accounts.id"
         }
       ]
     },
@@ -4240,7 +4662,7 @@
       "seoDescription": "Generate Grafana dashboard YAML, Prometheus rules, Mermaid architecture, and a runbook checklist with AI.",
       "keywords": [
         "Observability Pack Generator",
-        null,
+        "observability dashboard",
         "DiagramPreview"
       ],
       "h1": "Observability Pack Generator",
@@ -4326,11 +4748,13 @@
     "postman-collection-sequence-diagram": {
       "name": "Postman Collection to Sequence Diagram",
       "shortDescription": "Postman Collection to Sequence Diagram: Convert Postman collection JSON into a readable API request sequence diagram.",
-      "seoTitle": "Postman Collection to Sequence Diagram - DiagramPreview",
-      "seoDescription": "Postman Collection to Sequence Diagram: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "seoTitle": "Postman to Sequence Diagram Online - API Request Flow",
+      "seoDescription": "Convert Postman collection JSON into readable API request sequence diagrams for documentation, debugging, onboarding, and workflow review.",
       "keywords": [
         "Postman Collection to Sequence Diagram",
         "Postman collection JSON",
+        "postman to sequence diagram",
+        "api request flow diagram",
         "developer diagrams"
       ],
       "h1": "Postman Collection to Sequence Diagram",
@@ -4359,25 +4783,37 @@
         }
       },
       "howToUse": [
-        "Examples: choose an example or paste your own Postman collection JSON.",
-        "Review the rendered relationships, field names, resource references, or request order.",
-        "Export the SVG/PNG or keep the source with your documentation."
+        "Choose an example or paste your own Postman collection JSON.",
+        "Pick one folder or scenario when the collection contains multiple workflows.",
+        "Review request order, methods, URLs, variables, and setup or cleanup calls.",
+        "Replace tokens, secrets, private hosts, and customer data with safe placeholders.",
+        "Export the sequence diagram for API docs, runbooks, onboarding, or incident notes."
       ],
       "useCases": [
         "API documentation and debugging",
-        "Architecture and platform docs",
+        "Postman workflow explanation",
+        "Backend onboarding",
+        "Incident request order review",
         "AI-generated draft review before publishing"
       ],
       "faq": [
         {
           "question": "Can I use generated or production-like source?",
           "answer": "Yes, but remove secrets, tokens, private hostnames, and customer data before pasting any source."
+        },
+        {
+          "question": "Does collection order always represent runtime behavior?",
+          "answer": "No. Collection order is documentation or test order. Compare it with HAR files, logs, or traces when you need observed runtime behavior."
+        },
+        {
+          "question": "How do I keep a large Postman collection readable?",
+          "answer": "Convert one folder, scenario, or user journey at a time. Mark optional setup, retry, and cleanup requests as notes."
         }
       ],
       "seoBody": [
-        "Use this tool to turn existing developer source into a visual explanation that is easier to review in docs, tickets, and architecture notes.",
-        "Start with a small sample, verify the relationships, then paste the larger source once the workflow is clear.",
-        "Keep the source next to exported SVG or PNG files so diagrams remain reviewable and editable."
+        "Postman Collection to Sequence Diagram turns collection JSON into a visual API request flow for documentation, debugging, and onboarding.",
+        "Use it to explain authentication, resource creation, polling, cleanup, and multi-step workflows without forcing readers through every request object.",
+        "The diagram explains the collection scenario. Compare it with HAR files, logs, or traces when you need to confirm what actually happened in a browser or production system."
       ],
       "deepDives": [
         {
@@ -4399,17 +4835,30 @@
             "Mark optional or retry requests as notes."
           ],
           "code": "{{baseUrl}}/orders\nAuthorization: Bearer {{token}}\nDo not paste real token values."
+        },
+        {
+          "title": "Docs pattern: turn a collection folder into one user journey",
+          "body": "The clearest sequence diagrams come from one Postman folder that represents a real journey, such as login, checkout, invitation, or billing setup.",
+          "bullets": [
+            "Start with authentication only if it matters to the workflow being explained.",
+            "Keep setup and cleanup requests visible but clearly labeled.",
+            "Use environment variables as placeholders, not real production values."
+          ],
+          "code": "Folder: Checkout happy path\n1. POST /auth/token\n2. POST /cart/validate\n3. POST /orders\n4. GET /orders/{{orderId}}"
         }
       ]
     },
     "har-file-sequence-diagram": {
       "name": "HAR File to Sequence Diagram",
       "shortDescription": "HAR File to Sequence Diagram: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
-      "seoTitle": "HAR File to Sequence Diagram - DiagramPreview",
-      "seoDescription": "HAR File to Sequence Diagram: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "seoTitle": "HAR File to Sequence Diagram Online - Browser Network Flow",
+      "seoDescription": "Turn browser Network HAR exports into request sequence diagrams for API debugging, performance review, frontend handoff, and incident notes.",
       "keywords": [
         "HAR File to Sequence Diagram",
         "HAR JSON",
+        "har to sequence diagram",
+        "browser network flow diagram",
+        "api waterfall diagram",
         "developer diagrams"
       ],
       "h1": "HAR File to Sequence Diagram",
@@ -4438,25 +4887,37 @@
         }
       },
       "howToUse": [
-        "Examples: choose an example or paste your own HAR JSON.",
-        "Review the rendered relationships, field names, resource references, or request order.",
-        "Export the SVG/PNG or keep the source with your documentation."
+        "Export a HAR file from the browser Network panel and remove cookies, tokens, and private payloads.",
+        "Paste HAR JSON or load a sample request flow.",
+        "Review request order, domains, methods, response status, and slow requests.",
+        "Hide static asset noise when the goal is to explain an API workflow.",
+        "Export the diagram for bug reports, performance notes, or incident timelines."
       ],
       "useCases": [
-        "API documentation and debugging",
-        "Architecture and platform docs",
-        "AI-generated draft review before publishing"
+        "Frontend API debugging",
+        "Browser network waterfall review",
+        "Incident request timelines",
+        "Performance investigation",
+        "Backend handoff notes"
       ],
       "faq": [
         {
           "question": "Can I use generated or production-like source?",
           "answer": "Yes, but remove secrets, tokens, private hostnames, and customer data before pasting any source."
+        },
+        {
+          "question": "What should I remove from a HAR before sharing?",
+          "answer": "Remove cookies, authorization headers, query tokens, private hostnames, request bodies, and customer data before sharing or documenting a HAR flow."
+        },
+        {
+          "question": "How is HAR different from OpenAPI or Postman?",
+          "answer": "HAR shows observed browser traffic. OpenAPI shows the intended contract, and Postman often shows a test or documentation workflow."
         }
       ],
       "seoBody": [
-        "Use this tool to turn existing developer source into a visual explanation that is easier to review in docs, tickets, and architecture notes.",
-        "Start with a small sample, verify the relationships, then paste the larger source once the workflow is clear.",
-        "Keep the source next to exported SVG or PNG files so diagrams remain reviewable and editable."
+        "HAR File to Sequence Diagram converts browser Network HAR exports into request sequence diagrams for frontend debugging, API handoff, and incident documentation.",
+        "Use it to see observed request order, domains, methods, response status codes, and slow calls without reading a large HAR JSON file by hand.",
+        "Because HAR files can contain sensitive headers and payloads, sanitize the source before sharing a diagram or attaching it to public documentation."
       ],
       "deepDives": [
         {
@@ -4478,6 +4939,16 @@
             "Separate network latency from server wait time."
           ],
           "code": "GET /app.js 40ms cached\nPOST /api/checkout 1250ms waiting\nGET /analytics.js 300ms third-party"
+        },
+        {
+          "title": "Privacy checklist: sanitize HAR before sharing",
+          "body": "HAR files are rich debugging artifacts, but they often contain cookies, tokens, request bodies, and customer-specific URLs. Clean the source before turning it into a shareable diagram.",
+          "bullets": [
+            "Remove Cookie, Authorization, and Set-Cookie headers.",
+            "Replace account ids, emails, and private hosts with placeholders.",
+            "Keep enough URL path and status information to preserve the debugging story."
+          ],
+          "code": "Authorization: Bearer ***\nCookie: <removed>\nGET https://api.example.com/accounts/{accountId}/billing -> 500"
         }
       ]
     },
@@ -9438,6 +9909,25 @@
             }
           },
           {
+            "heading": "When to use jq instead of JSONPath",
+            "paragraphs": [
+              "Use JSONPath when the debugging question is selection: which users, orders, errors, or nested fields match this path? It maps well to API tests, assertions, and documentation examples because the expression stays close to the shape of the response.",
+              "Use jq when the question is transformation: group records, rename fields, map arrays, calculate counts, remove sensitive values, or create a smaller payload for a bug report. jq is more powerful, but that power can hide mistakes if the preview does not show the intermediate result."
+            ],
+            "code": {
+              "language": "text",
+              "content": "Task: collect failed order IDs\n\nJSONPath: $.orders[?(@.status==\"failed\")].id\njq: .orders[] | select(.status == \"failed\") | .id\n\n{\n  \"orders\": [\n    {\"id\": \"ord_1\", \"status\": \"paid\"},\n    {\"id\": \"ord_2\", \"status\": \"failed\"}\n  ]\n}",
+              "caption": "The same task can be expressed both ways; preview the output before putting the expression into a test or runbook."
+            }
+          },
+          {
+            "heading": "A practical API debugging sequence",
+            "paragraphs": [
+              "Start by previewing the full JSON tree so reviewers agree on the response shape. Then run a JSONPath selector for the field you expect to exist. If the selector finds the right nodes, move to jq only when you need a transformed output for a ticket, fixture, or monitoring example.",
+              "For production incidents, keep the original response, the selector, and the filtered result together. That gives another engineer enough context to reproduce the issue without receiving a giant payload full of unrelated data."
+            ]
+          },
+          {
             "heading": "Inspection checklist",
             "paragraphs": [
               "First check whether the result is empty, then whether it matched the wrong node, field, or path. For configuration tools, pay special attention to empty values, missing variables, duplicate keys, and production defaults.",
@@ -9488,6 +9978,25 @@
               "content": "//item/title\n---\n<rss><channel><item><title>API release</title></item></channel></rss>",
               "caption": "Get the preview working first, then expand the input."
             }
+          },
+          {
+            "heading": "Common XML problems this catches",
+            "paragraphs": [
+              "XML debugging often fails for reasons that do not look obvious in a raw text editor. The node can be present but hidden behind a namespace, the feed can contain repeated item blocks, the sitemap can include alternate links that point to the wrong locale, or the API response can mix attributes and text nodes in a way the XPath expression does not expect.",
+              "A preview workflow should make those edge cases visible. Test one short XML sample first, then add namespaces, attributes, repeated nodes, and real sitemap entries one by one."
+            ],
+            "code": {
+              "language": "xml",
+              "content": "//*[local-name()=\"url\"]/*[local-name()=\"loc\"]/text()\n---\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>https://example.com/en/blog/api-debugging</loc>\n  </url>\n</urlset>",
+              "caption": "When a default namespace is present, local-name based XPath can help confirm whether the selector is the problem."
+            }
+          },
+          {
+            "heading": "How XPath fits API and SEO review",
+            "paragraphs": [
+              "For XML APIs and feeds, XPath is useful for checking whether the required node exists, whether a repeated block has the expected count, and whether the value is empty. For sitemap files, it helps review loc values, lastmod coverage, image entries, and hreflang alternates before submission.",
+              "Keep XPath review close to the publishing workflow. If a sitemap or feed is generated by code, save the XPath expression and the expected count in the release checklist so the next deployment can be checked faster."
+            ]
           },
           {
             "heading": "Inspection checklist",

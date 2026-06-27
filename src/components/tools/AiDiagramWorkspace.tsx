@@ -1,11 +1,12 @@
 "use client";
 
-import {Copy, Download, ImageDown, Sparkles, WandSparkles} from "lucide-react";
+import {Copy, Download, ImageDown, Link2, Sparkles, WandSparkles} from "lucide-react";
 import {useEffect, useState} from "react";
 import {Button} from "@/components/ui/Button";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
 import {copyText, downloadText} from "@/lib/exporters/svg";
 import {renderMermaid} from "@/lib/renderers/mermaid";
+import {absoluteSourceUrl} from "@/lib/source-links";
 
 type AiDiagramWorkspaceProps = {
   locale: string;
@@ -76,6 +77,15 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
   const [fallbackErrors, setFallbackErrors] = useState<Array<{provider: string; status?: number; message: string}>>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const sharedSource = url.searchParams.get("source");
+    if (sharedSource) {
+      setPrompt(sharedSource);
+      setGeneratedCode(sharedSource);
+    }
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -284,6 +294,10 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             <Button onClick={() => downloadText(fileNameFor(slug, outputLanguage), generatedCode, mimeFor(outputLanguage))} disabled={!generatedCode}>
               <Download className="h-4 w-4" />
               {copy.downloadFile}
+            </Button>
+            <Button onClick={() => void copyText(absoluteSourceUrl(window.location.origin, window.location.pathname, generatedCode || prompt))} disabled={!generatedCode && !prompt}>
+              <Link2 className="h-4 w-4" />
+              {locale.startsWith("zh") ? "分享链接" : "Share link"}
             </Button>
           </div>
 

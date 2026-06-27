@@ -1,7 +1,8 @@
 import type {Metadata} from "next";
 import {defaultLocale, indexableLocales, type Locale} from "@/config/locales";
+import {defaultToolUpdatedAt} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
-import {ToolSlug} from "@/config/tools";
+import type {ToolConfig, ToolSlug} from "@/config/tools";
 import {absoluteUrl, toolPath} from "./paths";
 
 export type SeoInput = {
@@ -115,4 +116,117 @@ export function faqJsonLd(items: Array<{question: string; answer: string}>) {
       }
     }))
   };
+}
+
+export function websiteJsonLd(input: {locale: Locale; name: string; description: string; url: string}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: input.name,
+    url: input.url,
+    description: input.description,
+    inLanguage: input.locale
+  };
+}
+
+export function collectionPageJsonLd(input: {
+  name: string;
+  description: string;
+  url: string;
+  items: Array<{name: string; url: string; description?: string}>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: input.items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: item.name,
+          url: item.url,
+          ...(item.description ? {description: item.description} : {})
+        }
+      }))
+    }
+  };
+}
+
+export function howToJsonLd(input: {
+  name: string;
+  description: string;
+  url: string;
+  steps: Array<{name: string; text: string; url?: string}>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    step: input.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      ...(step.url ? {url: step.url} : {})
+    }))
+  };
+}
+
+export function breadcrumbJsonLd(items: Array<{name: string; url: string}>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url
+    }))
+  };
+}
+
+export function blogPostingJsonLd(input: {
+  headline: string;
+  description: string;
+  url: string;
+  image: string;
+  datePublished: string;
+  dateModified?: string;
+  locale: Locale;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: input.headline,
+    description: input.description,
+    url: input.url,
+    image: input.image,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified ?? input.datePublished,
+    inLanguage: input.locale,
+    author: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl(siteConfig.logoPath)
+      }
+    }
+  };
+}
+
+export function getToolLastModified(tool: Pick<ToolConfig, "updatedAt">) {
+  return new Date(tool.updatedAt ?? defaultToolUpdatedAt);
 }

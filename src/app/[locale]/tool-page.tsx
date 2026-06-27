@@ -68,6 +68,8 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
       exportPng: t("common.actions.exportPng"),
       exportPdf: t("common.actions.exportPdf"),
       downloadFile: t("common.actions.downloadFile"),
+      copyMarkdown: locale.startsWith("zh") ? "复制 Markdown" : "Copy Markdown",
+      shareLink: locale.startsWith("zh") ? "分享链接" : "Share link",
       clear: t("common.actions.clear"),
       loadSample: t("common.actions.loadSample")
     },

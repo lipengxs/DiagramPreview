@@ -1,6 +1,6 @@
 "use client";
 
-import {Copy, Download, FileDown, ImageDown, Printer, RotateCcw} from "lucide-react";
+import {Copy, Download, FileDown, FileText, ImageDown, Link2, Printer, RotateCcw} from "lucide-react";
 import {Button} from "@/components/ui/Button";
 
 type ExportToolbarProps = {
@@ -11,6 +11,8 @@ type ExportToolbarProps = {
     exportPng: string;
     exportPdf: string;
     downloadFile?: string;
+    copyMarkdown?: string;
+    shareLink?: string;
     clear: string;
   };
   canExportSvg: boolean;
@@ -22,6 +24,8 @@ type ExportToolbarProps = {
   showPrint?: boolean;
   onCopyCode: () => void;
   onCopyHtml: () => void;
+  onCopyMarkdown?: () => void;
+  onShareLink?: () => void;
   onExportSvg: () => void;
   onExportPng: () => void;
   canDownloadFile?: boolean;
@@ -41,6 +45,8 @@ export function ExportToolbar({
   showPrint = true,
   onCopyCode,
   onCopyHtml,
+  onCopyMarkdown,
+  onShareLink,
   onExportSvg,
   onExportPng,
   canDownloadFile,
@@ -58,6 +64,18 @@ export function ExportToolbar({
         <Button onClick={onCopyHtml} disabled={!canCopyHtml}>
           <FileDown className="h-4 w-4" />
           {actions.copyHtml}
+        </Button>
+      ) : null}
+      {onCopyMarkdown ? (
+        <Button onClick={onCopyMarkdown}>
+          <FileText className="h-4 w-4" />
+          {actions.copyMarkdown ?? "Markdown"}
+        </Button>
+      ) : null}
+      {onShareLink ? (
+        <Button onClick={onShareLink}>
+          <Link2 className="h-4 w-4" />
+          {actions.shareLink ?? "Share"}
         </Button>
       ) : null}
       {showExportSvg ? (

@@ -108,6 +108,7 @@ export type ToolConfig = {
   icon: typeof Code2;
   popular?: boolean;
   recentlyAdded?: boolean;
+  updatedAt?: string;
   priority: number;
   implemented: boolean;
   renderer:

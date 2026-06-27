@@ -58,7 +58,7 @@ export function ToolSeoSections({
   const helperCopy = getHelperCopy(locale, toolName, toolDescription);
 
   return (
-    <section className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+    <section className="mx-auto grid max-w-7xl min-w-0 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
       <InfoBlock title={howTitle}>
         <ol className="grid gap-2">
           {howToUse.map((item, index) => (
@@ -100,7 +100,7 @@ export function ToolSeoSections({
           ))}
         </div>
       </InfoBlock>
-      <div className="rounded-lg border border-slate-200 bg-white p-5 lg:col-span-2">
+      <div className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 lg:col-span-2">
         <div className="grid gap-4 text-sm leading-7 text-slate-600 md:grid-cols-3">
           {seoBody.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
@@ -108,10 +108,10 @@ export function ToolSeoSections({
         </div>
       </div>
       {deepDives.length ? (
-        <div className="grid gap-4 lg:col-span-2">
+        <div className="grid min-w-0 gap-4 lg:col-span-2">
           {deepDives.map((section) => (
-            <article key={section.title} className="rounded-lg border border-slate-200 bg-white p-5">
-              <h2 className="text-lg font-semibold text-ink">{section.title}</h2>
+            <article key={section.title} className="min-w-0 rounded-lg border border-slate-200 bg-white p-5">
+              <h2 className="break-words text-lg font-semibold text-ink">{section.title}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">{section.body}</p>
               {section.bullets?.length ? (
                 <ul className="mt-4 grid gap-2 text-sm leading-7 text-slate-600">
@@ -291,8 +291,8 @@ function getHelperCopy(locale: string, toolName: string, toolDescription: string
 
 function InfoBlock({title, children}: {title: string; children: ReactNode}) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-5">
-      <h2 className="mb-4 text-lg font-semibold text-ink">{title}</h2>
+    <div className="min-w-0 rounded-lg border border-slate-200 bg-white p-5">
+      <h2 className="mb-4 break-words text-lg font-semibold text-ink">{title}</h2>
       {children}
     </div>
   );

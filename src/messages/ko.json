@@ -88,14 +88,15 @@
   },
   "home": {
     "metadata": {
-      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
-      "description": "Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, 마인드맵, JSON, YAML 및 개발자 다이어그램을 온라인으로 미리보고 변환하세요.",
+      "title": "온라인 다이어그램 도구 - Mermaid, PlantUML, draw.io, OpenAPI",
+      "description": "DiagramPreview는 Mermaid, PlantUML, draw.io, OpenAPI, JSON Schema, HAR, Docker, Kubernetes 및 아키텍처 다이어그램을 미리보기, 검토, 내보내기 위한 개발자용 온라인 workspace입니다.",
       "keywords": [
-        "diagram preview",
-        "mermaid preview",
-        "plantuml preview",
-        "graphviz online",
-        "markdown preview"
+        "온라인 다이어그램 도구",
+        "Mermaid 온라인",
+        "PlantUML 온라인",
+        "draw.io 온라인",
+        "OpenAPI sequence diagram",
+        "JSON Schema visualizer"
       ]
     },
     "hero": {
@@ -148,12 +149,14 @@
     "mermaid-preview": {
       "name": "Mermaid 미리보기",
       "shortDescription": "Mermaid 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
-      "seoTitle": "Mermaid 미리보기 온라인 - DiagramPreview",
-      "seoDescription": "Mermaid 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "seoTitle": "Mermaid 미리보기 온라인 - SVG preview와 export가 있는 Mermaid editor",
+      "seoDescription": "Mermaid flowchart, sequence diagram, class diagram, state diagram, Gantt, ER을 온라인에서 편집, 검토하고 SVG/PNG로 export합니다.",
       "keywords": [
-        "mermaid preview",
-        "mermaid editor online",
-        "mermaid live preview"
+        "Mermaid 온라인",
+        "Mermaid editor",
+        "Mermaid preview",
+        "Mermaid SVG",
+        "Mermaid sequence diagram"
       ],
       "h1": "Mermaid 미리보기",
       "intro": "전문 작업 영역에 내용을 붙여 넣고 Mermaid 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
@@ -207,16 +210,16 @@
       ],
       "faq": [
         {
-          "question": "Why does a Mermaid diagram render in ChatGPT but fail here?",
-          "answer": "Large language models often omit required diagram headers, quote labels inconsistently, or mix syntax from different Mermaid versions. Start by checking the first line, node labels with punctuation, and unmatched brackets."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "What should I do when the diagram is visually too wide?",
-          "answer": "Split the source into smaller diagrams, use subgraphs for related nodes, shorten labels, and avoid turning a full system map into one giant flowchart."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
         },
         {
-          "question": "Can I export the preview for documentation?",
-          "answer": "Yes. When the SVG preview looks correct, export SVG for crisp documentation or PNG for quick sharing in issues and chat tools."
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -250,12 +253,14 @@
     "plantuml-preview": {
       "name": "PlantUML 미리보기",
       "shortDescription": "PlantUML 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
-      "seoTitle": "PlantUML 미리보기 온라인 - DiagramPreview",
-      "seoDescription": "PlantUML 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "seoTitle": "PlantUML 미리보기 온라인 - SVG가 있는 PlantUML editor",
+      "seoDescription": "@startuml/@enduml이 포함된 PlantUML code를 붙여넣고 sequence, class, use case, activity diagram을 게시 전 확인합니다.",
       "keywords": [
-        "plantuml preview",
-        "plantuml online editor",
-        "plantuml viewer"
+        "PlantUML 온라인",
+        "PlantUML viewer",
+        "PlantUML SVG",
+        "UML sequence diagram",
+        "PlantUML editor"
       ],
       "h1": "PlantUML 미리보기",
       "intro": "전문 작업 영역에 내용을 붙여 넣고 PlantUML 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
@@ -298,12 +303,20 @@
       ],
       "faq": [
         {
-          "question": "PlantUML 미리보기을 온라인에서 사용할 수 있나요?",
-          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "결과를 내보낼 수 있나요?",
-          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
+        },
+        {
+          "question": "비공개 내용을 붙여넣어도 되나요?",
+          "answer": "secret, token, 고객 데이터, 민감한 인프라 값은 붙여넣지 마세요. 비밀 다이어그램은 private 값을 제거하거나 통제된 환경에서 처리하세요."
         }
       ],
       "seoBody": [
@@ -503,12 +516,14 @@
     "d2-preview": {
       "name": "D2 미리보기",
       "shortDescription": "D2 미리보기을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
-      "seoTitle": "D2 미리보기 온라인 - DiagramPreview",
-      "seoDescription": "D2 미리보기로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "seoTitle": "D2 미리보기 온라인 - architecture diagram용 D2 viewer",
+      "seoDescription": "D2 text를 붙여넣고 service maps, dependencies, boundaries, text-first architecture drafts를 preview합니다.",
       "keywords": [
-        "d2 preview",
-        "d2 diagram online",
-        "d2 viewer"
+        "D2 preview",
+        "D2 diagram viewer",
+        "architecture diagram text",
+        "D2 online",
+        "D2 architecture"
       ],
       "h1": "D2 미리보기",
       "intro": "전문 작업 영역에 내용을 붙여 넣고 D2 미리보기으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
@@ -547,12 +562,16 @@
       ],
       "faq": [
         {
-          "question": "D2 미리보기을 온라인에서 사용할 수 있나요?",
-          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "결과를 내보낼 수 있나요?",
-          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -586,12 +605,14 @@
     "drawio-preview": {
       "name": "Draw.io 뷰어",
       "shortDescription": "Draw.io 뷰어을 온라인 작업 영역에서 예제, 검증, 내보내기와 함께 사용할 수 있습니다.",
-      "seoTitle": "Draw.io 뷰어 온라인 - DiagramPreview",
-      "seoDescription": "Draw.io 뷰어로 예제, 명확한 오류, 내보내기 기능과 함께 다이어그램을 온라인으로 확인하세요.",
+      "seoTitle": "draw.io 온라인 열기 - diagrams.net viewer 및 XML 검사",
+      "seoDescription": ".drawio 파일과 mxfile XML을 브라우저에서 열어 pages, objects, labels, external images, 공유 전 문제를 확인합니다.",
       "keywords": [
-        "draw.io viewer",
+        "draw.io 온라인",
         "diagrams.net viewer",
-        "drawio preview"
+        "drawio XML",
+        "mxfile viewer",
+        "draw.io preview"
       ],
       "h1": "Draw.io 뷰어",
       "intro": "전문 작업 영역에 내용을 붙여 넣고 Draw.io 뷰어으로 다이어그램, 문서 또는 데이터 구조를 검토하세요.",
@@ -622,12 +643,16 @@
       ],
       "faq": [
         {
-          "question": "Draw.io 뷰어을 온라인에서 사용할 수 있나요?",
-          "answer": "네. 이 페이지는 DiagramPreview의 브라우저 작업 영역을 사용합니다."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "결과를 내보낼 수 있나요?",
-          "answer": "지원되는 렌더러는 SVG, PNG, 복사, 인쇄형 PDF 작업을 제공합니다."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -993,13 +1018,14 @@
     "ai-diagram-generator": {
       "name": "AI 다이어그램 생성기",
       "shortDescription": "자연어 프롬프트로 Mermaid 다이어그램을 생성합니다.",
-      "seoTitle": "AI 다이어그램 생성기 - DiagramPreview",
-      "seoDescription": "자연어 프롬프트로 Mermaid 다이어그램을 생성합니다.",
+      "seoTitle": "AI Diagram Generator - prompt에서 Mermaid 다이어그램 생성",
+      "seoDescription": "AI로 architecture, API, product flow, incident review 다이어그램 초안을 만들고 Mermaid 출력을 export 전에 확인합니다.",
       "keywords": [
-        "ai-diagram-generator",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "AI diagram generator",
+        "AI 다이어그램 생성기",
+        "prompt to Mermaid",
+        "architecture diagram AI",
+        "AI Mermaid"
       ],
       "h1": "AI 다이어그램 생성기",
       "intro": "원하는 다이어그램을 설명하고 Mermaid 유형을 선택하면 AI가 편집 가능한 코드와 미리보기를 생성합니다.",
@@ -1053,12 +1079,16 @@
       ],
       "faq": [
         {
-          "question": "어떤 AI 제공자를 사용하나요?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "어떤 AI 제공자를 사용하나요?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "AI 생성 콘텐츠에도 사용할 수 있나요?",
+          "answer": "예. AI로 초안을 만들고, 게시 전에 syntax, 만들어진 노드, 화살표 방향, contract fields, examples를 확인하세요."
         }
       ],
       "seoBody": [
@@ -1092,13 +1122,14 @@
     "text-to-mermaid": {
       "name": "텍스트를 Mermaid로",
       "shortDescription": "제품 노트, 장애 기록, 아키텍처 텍스트를 Mermaid로 변환합니다.",
-      "seoTitle": "텍스트를 Mermaid로 - DiagramPreview",
-      "seoDescription": "제품 노트, 장애 기록, 아키텍처 텍스트를 Mermaid로 변환합니다.",
+      "seoTitle": "텍스트를 Mermaid로 - 자연어에서 Mermaid 생성",
+      "seoDescription": "prompt를 Mermaid flowchart, sequence diagram, ER diagram, architecture draft로 변환하고 검토 후 export합니다.",
       "keywords": [
-        "text-to-mermaid",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "text to Mermaid",
+        "Mermaid AI generator",
+        "prompt to diagram",
+        "Mermaid generator",
+        "AI diagram"
       ],
       "h1": "텍스트를 Mermaid로",
       "intro": "요구사항, 노트, 프로세스 설명을 붙여 넣어 Mermaid로 변환하세요.",
@@ -1152,12 +1183,16 @@
       ],
       "faq": [
         {
-          "question": "어떤 AI 제공자를 사용하나요?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "어떤 AI 제공자를 사용하나요?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "AI 생성 콘텐츠에도 사용할 수 있나요?",
+          "answer": "예. AI로 초안을 만들고, 게시 전에 syntax, 만들어진 노드, 화살표 방향, contract fields, examples를 확인하세요."
         }
       ],
       "seoBody": [
@@ -1191,13 +1226,14 @@
     "mermaid-ai-fixer": {
       "name": "Mermaid AI 수정기",
       "shortDescription": "깨진 Mermaid 문법을 AI로 고치고 가독성을 높입니다.",
-      "seoTitle": "Mermaid AI 수정기 - DiagramPreview",
-      "seoDescription": "깨진 Mermaid 문법을 AI로 고치고 가독성을 높입니다.",
+      "seoTitle": "Mermaid AI Fixer - Mermaid syntax error 온라인 수정",
+      "seoDescription": "깨진 Mermaid code를 붙여넣고 AI로 수정한 뒤 syntax, labels, 원래 의미가 유지되었는지 확인합니다.",
       "keywords": [
-        "mermaid-ai-fixer",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "Mermaid AI fixer",
+        "Mermaid 수정",
+        "Mermaid syntax error",
+        "AI Mermaid repair",
+        "Mermaid debug"
       ],
       "h1": "Mermaid AI 수정기",
       "intro": "깨진 Mermaid와 수정 지시를 붙여 넣으면 AI가 수정된 코드를 반환합니다.",
@@ -1254,12 +1290,16 @@
       ],
       "faq": [
         {
-          "question": "어떤 AI 제공자를 사용하나요?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "어떤 AI 제공자를 사용하나요?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "AI 생성 콘텐츠에도 사용할 수 있나요?",
+          "answer": "예. AI로 초안을 만들고, 게시 전에 syntax, 만들어진 노드, 화살표 방향, contract fields, examples를 확인하세요."
         }
       ],
       "seoBody": [
@@ -1293,13 +1333,14 @@
     "openapi-to-sequence": {
       "name": "OpenAPI to Sequence Diagram",
       "shortDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
-      "seoTitle": "OpenAPI to Sequence Diagram - DiagramPreview",
-      "seoDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
+      "seoTitle": "OpenAPI를 sequence diagram으로 - OpenAPI에서 API flow 시각화",
+      "seoDescription": "OpenAPI JSON/YAML을 붙여넣고 paths, operationId, request bodies, responses, error branches를 Mermaid sequence로 만듭니다.",
       "keywords": [
-        "openapi-to-sequence",
-        "openapi to sequence diagram",
-        "diagram tool",
-        "DiagramPreview"
+        "OpenAPI sequence diagram",
+        "OpenAPI to Mermaid",
+        "API flow diagram",
+        "OpenAPI viewer",
+        "API docs"
       ],
       "h1": "OpenAPI to Sequence Diagram",
       "intro": "Paste OpenAPI JSON or YAML and turn API operations into a sequence diagram that explains request handling.",
@@ -1342,16 +1383,16 @@
       ],
       "faq": [
         {
-          "question": "Should I paste a full OpenAPI document?",
-          "answer": "You can, but focused path snippets usually produce clearer diagrams. Remove unrelated endpoints when writing a specific doc page."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "What does the sequence diagram represent?",
-          "answer": "It summarizes request and response relationships from the OpenAPI paths. It does not execute the API or prove runtime behavior."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
         },
         {
-          "question": "How do I make the output easier to read?",
-          "answer": "Group related endpoints, shorten operation summaries, and avoid mixing unrelated resources in one sequence diagram."
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -1386,13 +1427,14 @@
     "sql-to-er-diagram": {
       "name": "SQL to ER Diagram",
       "shortDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
-      "seoTitle": "SQL to ER Diagram - DiagramPreview",
-      "seoDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
+      "seoTitle": "SQL을 ER diagram으로 - DDL에서 tables와 relations 시각화",
+      "seoDescription": "SQL DDL을 붙여넣고 tables, primary keys, foreign keys, nullable fields, indexes, data model relations를 확인합니다.",
       "keywords": [
-        "sql-to-er-diagram",
-        "sql to er diagram",
-        "diagram tool",
-        "DiagramPreview"
+        "SQL to ER diagram",
+        "DDL visualizer",
+        "database diagram online",
+        "ERD generator",
+        "database modeling"
       ],
       "h1": "SQL to ER Diagram",
       "intro": "Paste SQL DDL and visualize tables, columns, primary keys, and foreign key relationships as an ER diagram.",
@@ -1432,8 +1474,16 @@
       ],
       "faq": [
         {
-          "question": "Does this use AI?",
-          "answer": "No. This tool runs parsing and visualization locally in the browser."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
+        },
+        {
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -1467,13 +1517,14 @@
     "json-schema-visualizer": {
       "name": "JSON Schema Visualizer",
       "shortDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
-      "seoTitle": "JSON Schema Visualizer - DiagramPreview",
-      "seoDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
+      "seoTitle": "JSON Schema Visualizer - API contract와 payload preview",
+      "seoDescription": "JSON Schema의 properties, required, nullable, enum, array items, additionalProperties, oneOf/anyOf를 게시 전에 확인합니다.",
       "keywords": [
-        "json-schema-visualizer",
-        "json schema visualizer",
-        "diagram tool",
-        "DiagramPreview"
+        "JSON Schema visualizer",
+        "JSON Schema online",
+        "API schema preview",
+        "JSON Schema form",
+        "contract review"
       ],
       "h1": "JSON Schema Visualizer",
       "intro": "Paste JSON Schema and inspect a structured tree of properties, types, required fields, arrays, enums, and composition groups.",
@@ -1516,16 +1567,16 @@
       ],
       "faq": [
         {
-          "question": "What schema features are most important to review?",
-          "answer": "Required fields, nullable behavior, array item schemas, enum values, additionalProperties, and oneOf/anyOf composition usually cause the most integration confusion."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "Can it validate data against the schema?",
-          "answer": "This page focuses on visualization and review. Use your application validator or a dedicated JSON Schema validator for final validation."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
         },
         {
-          "question": "How do I make a schema visualization easier to read?",
-          "answer": "Split very large schemas by resource, keep descriptions short, and avoid deeply nested anonymous objects when a named schema would be clearer."
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -1920,13 +1971,14 @@
     "docker-compose-diagram": {
       "name": "Docker Compose 다이어그램",
       "shortDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
-      "seoTitle": "Docker Compose 다이어그램 - DiagramPreview",
-      "seoDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
+      "seoTitle": "Docker Compose Diagram - Compose service dependencies 시각화",
+      "seoDescription": "docker-compose.yml을 붙여넣고 services, depends_on, networks, volumes, ports, local topology를 documentation 전에 확인합니다.",
       "keywords": [
-        "docker-compose-diagram",
-        "docker compose 다이어그램",
-        "diagram tool",
-        "developer documentation"
+        "Docker Compose diagram",
+        "compose visualizer",
+        "service dependency diagram",
+        "docker architecture",
+        "Docker diagram"
       ],
       "h1": "Docker Compose 다이어그램",
       "intro": "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
@@ -1966,8 +2018,20 @@
       ],
       "faq": [
         {
-          "question": "Does this tool use AI?",
-          "answer": "No. It parses and visualizes the source locally in the browser."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
+        },
+        {
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
+        },
+        {
+          "question": "비공개 내용을 붙여넣어도 되나요?",
+          "answer": "secret, token, 고객 데이터, 민감한 인프라 값은 붙여넣지 마세요. 비밀 다이어그램은 private 값을 제거하거나 통제된 환경에서 처리하세요."
         }
       ],
       "seoBody": [
@@ -2001,13 +2065,14 @@
     "kubernetes-manifest-visualizer": {
       "name": "Kubernetes Manifest 시각화",
       "shortDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
-      "seoTitle": "Kubernetes Manifest 시각화 - DiagramPreview",
-      "seoDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
+      "seoTitle": "Kubernetes Manifest Visualizer - Deployment, Service, Ingress YAML 확인",
+      "seoDescription": "Kubernetes manifest를 붙여넣고 labels, selectors, namespaces, images, ports, resource relations를 deploy 전에 확인합니다.",
       "keywords": [
-        "kubernetes-manifest-visualizer",
-        "kubernetes manifest 시각화",
-        "diagram tool",
-        "developer documentation"
+        "Kubernetes manifest visualizer",
+        "Kubernetes YAML viewer",
+        "K8s diagram",
+        "Deployment Service Ingress",
+        "Kubernetes visualizer"
       ],
       "h1": "Kubernetes Manifest 시각화",
       "intro": "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
@@ -2047,8 +2112,20 @@
       ],
       "faq": [
         {
-          "question": "Does this tool use AI?",
-          "answer": "No. It parses and visualizes the source locally in the browser."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
+        },
+        {
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
+        },
+        {
+          "question": "비공개 내용을 붙여넣어도 되나요?",
+          "answer": "secret, token, 고객 데이터, 민감한 인프라 값은 붙여넣지 마세요. 비밀 다이어그램은 private 값을 제거하거나 통제된 환경에서 처리하세요."
         }
       ],
       "seoBody": [
@@ -2244,12 +2321,14 @@
     "ai-drawio-generator": {
       "name": "AI Draw.io Generator",
       "shortDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
-      "seoTitle": "AI Draw.io Generator Online - DiagramPreview",
-      "seoDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "seoTitle": "AI Draw.io Generator - 편집 가능한 diagrams.net XML 생성",
+      "seoDescription": "architecture, CI/CD, cloud, data flow용 editable draw.io files를 prompt에서 생성하고 XML을 확인해 documentation에 사용합니다.",
       "keywords": [
-        "ai-drawio-generator",
-        "ai draw.io generator",
-        "ai draw.io generator"
+        "AI drawio generator",
+        "draw.io AI",
+        "diagrams.net XML generator",
+        "editable diagram AI",
+        "AI diagrams.net"
       ],
       "h1": "AI Draw.io Generator",
       "intro": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
@@ -2297,16 +2376,16 @@
       ],
       "faq": [
         {
-          "question": "Why generate draw.io XML instead of an image?",
-          "answer": "A draw.io file stays editable. Teams can move nodes, adjust labels, add icons, and keep using diagrams.net after the AI draft is generated."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "What should I include in the prompt?",
-          "answer": "List the main actors, services, stores, queues, external systems, and the direction of important flows. Short but specific prompts usually produce cleaner diagrams."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
         },
         {
-          "question": "Is the generated .drawio file final?",
-          "answer": "Treat it as a structured first draft. Preview it, remove invented components, and refine the layout before publishing it as architecture documentation."
+          "question": "AI 생성 콘텐츠에도 사용할 수 있나요?",
+          "answer": "예. AI로 초안을 만들고, 게시 전에 syntax, 만들어진 노드, 화살표 방향, contract fields, examples를 확인하세요."
         }
       ],
       "seoBody": [
@@ -2570,12 +2649,14 @@
     "plantuml-to-drawio": {
       "name": "PlantUML to Draw.io",
       "shortDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
-      "seoTitle": "PlantUML to Draw.io Online - DiagramPreview",
-      "seoDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "seoTitle": "PlantUML을 Draw.io로 - 텍스트 UML을 editable diagrams.net로 변환",
+      "seoDescription": "PlantUML draft를 draw.io XML로 변환해 text source를 유지하면서 editable diagram을 공유합니다.",
       "keywords": [
-        "plantuml-to-drawio",
-        "plantuml to draw.io",
-        "plantuml to draw.io"
+        "PlantUML to drawio",
+        "UML to diagrams.net",
+        "PlantUML converter",
+        "editable UML diagram",
+        "UML diagram"
       ],
       "h1": "PlantUML to Draw.io",
       "intro": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
@@ -2617,16 +2698,16 @@
       ],
       "faq": [
         {
-          "question": "Will conversion be pixel-perfect?",
-          "answer": "No. PlantUML and draw.io have different layout models. The goal is editable structure, not exact visual reproduction."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "Which PlantUML diagrams work best?",
-          "answer": "Sequence, component, class, and simple activity diagrams convert best because their main entities and relationships can be mapped clearly."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
         },
         {
-          "question": "When should I keep the original PlantUML?",
-          "answer": "Keep it when diagrams are generated from code or docs pipelines. Use draw.io for collaborative editing and presentation polishing."
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -2750,12 +2831,14 @@
     "drawio-to-svg": {
       "name": "Draw.io to SVG Preview",
       "shortDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
-      "seoTitle": "Draw.io to SVG Preview Online - DiagramPreview",
-      "seoDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "seoTitle": "Draw.io를 SVG로 - diagrams.net XML export preview",
+      "seoDescription": "draw.io XML을 브라우저에서 SVG로 변환하고 pages, objects, labels, visible bounds를 게시 전에 확인합니다.",
       "keywords": [
-        "drawio-to-svg",
-        "draw.io to svg preview",
-        "draw.io to svg preview"
+        "drawio to SVG",
+        "diagrams.net SVG",
+        "drawio export preview",
+        "mxfile to svg",
+        "SVG export"
       ],
       "h1": "Draw.io to SVG Preview",
       "intro": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
@@ -2797,16 +2880,16 @@
       ],
       "faq": [
         {
-          "question": "Why does my draw.io file not render?",
-          "answer": "Many .drawio files are compressed. Export or save as uncompressed XML before pasting it into this preview."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "Can this replace diagrams.net?",
-          "answer": "No. It is a quick preview and export surface. Use diagrams.net for full visual editing."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
         },
         {
-          "question": "What should I check before exporting SVG?",
-          "answer": "Check page selection, clipped objects, unreadable labels, and whether the diagram includes private text or internal hostnames."
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -3455,12 +3538,14 @@
     "graphql-schema-visualizer": {
       "name": "GraphQL Schema Visualizer",
       "shortDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
-      "seoTitle": "GraphQL Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "seoTitle": "GraphQL Schema Visualizer - types, inputs, enums 맵",
+      "seoDescription": "GraphQL SDL을 붙여넣고 types, inputs, interfaces, enums, nullability, Query/Mutation, breaking change risks를 확인합니다.",
       "keywords": [
-        "graphql-schema-visualizer",
-        "graphql schema visualizer",
-        "graphql schema visualizer"
+        "GraphQL schema visualizer",
+        "GraphQL SDL viewer",
+        "GraphQL type diagram",
+        "API contract review",
+        "GraphQL visualizer"
       ],
       "h1": "GraphQL Schema Visualizer",
       "intro": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
@@ -3499,12 +3584,16 @@
       ],
       "faq": [
         {
-          "question": "What is GraphQL Schema Visualizer for?",
-          "answer": "Visualize GraphQL types, inputs, interfaces, fields, and relationships."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -3537,12 +3626,14 @@
     "protobuf-schema-visualizer": {
       "name": "Protobuf Schema Visualizer",
       "shortDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
-      "seoTitle": "Protobuf Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "seoTitle": "Protobuf Schema Visualizer - messages, fields, services 보기",
+      "seoDescription": "Protobuf messages, field numbers, repeated fields, enums, services, request/response를 시각화해 contract evolution을 review합니다.",
       "keywords": [
-        "protobuf-schema-visualizer",
-        "protobuf schema visualizer",
-        "protobuf schema visualizer"
+        "Protobuf visualizer",
+        "proto schema diagram",
+        "gRPC schema viewer",
+        "protobuf messages",
+        "API contract"
       ],
       "h1": "Protobuf Schema Visualizer",
       "intro": "Visualize protobuf messages, fields, and message references as a class diagram.",
@@ -3581,12 +3672,16 @@
       ],
       "faq": [
         {
-          "question": "What is Protobuf Schema Visualizer for?",
-          "answer": "Visualize protobuf messages, fields, and message references as a class diagram."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -3701,12 +3796,14 @@
     "dbml-to-er-diagram": {
       "name": "DBML to ER Diagram",
       "shortDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
-      "seoTitle": "DBML to ER Diagram Online - DiagramPreview",
-      "seoDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "seoTitle": "DBML을 ER diagram으로 - DBML data model preview",
+      "seoDescription": "DBML schema를 붙여넣고 tables, refs, enums, notes, cardinality를 engineering/product review용으로 시각화합니다.",
       "keywords": [
-        "dbml-to-er-diagram",
-        "dbml to er diagram",
-        "dbml to er diagram"
+        "DBML to ER diagram",
+        "DBML visualizer",
+        "database modeling",
+        "ER diagram online",
+        "data model"
       ],
       "h1": "DBML to ER Diagram",
       "intro": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
@@ -3745,12 +3842,16 @@
       ],
       "faq": [
         {
-          "question": "What is DBML to ER Diagram for?",
-          "answer": "Convert DBML table definitions and refs into a Mermaid ER diagram."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
         }
       ],
       "seoBody": [
@@ -4264,7 +4365,7 @@
       "seoDescription": "관측성 팩 생성기: Generate Grafana dashboard YAML, Prometheus rules, Mermaid architecture, and a runbook checklist with AI.",
       "keywords": [
         "관측성 팩 생성기",
-        null,
+        "옵저버빌리티 대시보드",
         "DiagramPreview"
       ],
       "h1": "관측성 팩 생성기",
@@ -4350,12 +4451,14 @@
     "postman-collection-sequence-diagram": {
       "name": "Postman Collection 시퀀스 다이어그램",
       "shortDescription": "Postman Collection 시퀀스 다이어그램: Convert Postman collection JSON into a readable API request sequence diagram.",
-      "seoTitle": "Postman Collection 시퀀스 다이어그램 - DiagramPreview",
-      "seoDescription": "Postman Collection 시퀀스 다이어그램: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "seoTitle": "Postman Collection을 sequence로 - Postman requests 순서 시각화",
+      "seoDescription": "Postman Collection JSON을 documentation, onboarding, manual test analysis용 reviewable API flow로 변환합니다.",
       "keywords": [
-        "Postman Collection 시퀀스 다이어그램",
-        "Postman collection JSON",
-        "developer diagrams"
+        "Postman sequence diagram",
+        "Postman collection visualizer",
+        "API request flow",
+        "Postman to Mermaid",
+        "API test flow"
       ],
       "h1": "Postman Collection 시퀀스 다이어그램",
       "intro": "Postman Collection 시퀀스 다이어그램: Convert Postman collection JSON into a readable API request sequence diagram.",
@@ -4394,8 +4497,20 @@
       ],
       "faq": [
         {
-          "question": "AI 생성 또는 운영과 유사한 소스를 사용할 수 있나요?",
-          "answer": "네. 붙여넣기 전에 비밀값, 토큰, 내부 호스트, 고객 데이터를 제거하세요."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
+        },
+        {
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
+        },
+        {
+          "question": "비공개 내용을 붙여넣어도 되나요?",
+          "answer": "secret, token, 고객 데이터, 민감한 인프라 값은 붙여넣지 마세요. 비밀 다이어그램은 private 값을 제거하거나 통제된 환경에서 처리하세요."
         }
       ],
       "seoBody": [
@@ -4429,12 +4544,14 @@
     "har-file-sequence-diagram": {
       "name": "HAR 파일 시퀀스 다이어그램",
       "shortDescription": "HAR 파일 시퀀스 다이어그램: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
-      "seoTitle": "HAR 파일 시퀀스 다이어그램 - DiagramPreview",
-      "seoDescription": "HAR 파일 시퀀스 다이어그램: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "seoTitle": "HAR을 sequence diagram으로 - HAR에서 browser requests 시각화",
+      "seoDescription": "HAR JSON을 붙여넣고 requests, status codes, timings, third-party calls를 API/frontend debugging sequence로 변환합니다.",
       "keywords": [
-        "HAR 파일 시퀀스 다이어그램",
-        "HAR JSON",
-        "developer diagrams"
+        "HAR sequence diagram",
+        "HAR file viewer",
+        "API waterfall debugging",
+        "browser request sequence",
+        "HAR debugging"
       ],
       "h1": "HAR 파일 시퀀스 다이어그램",
       "intro": "HAR 파일 시퀀스 다이어그램: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
@@ -4473,8 +4590,20 @@
       ],
       "faq": [
         {
-          "question": "AI 생성 또는 운영과 유사한 소스를 사용할 수 있나요?",
-          "answer": "네. 붙여넣기 전에 비밀값, 토큰, 내부 호스트, 고객 데이터를 제거하세요."
+          "question": "이 도구는 브라우저에서 작동하나요?",
+          "answer": "예. 대부분의 미리보기, 검증, 내보내기는 브라우저에서 실행됩니다. AI 도구는 설정된 API로 prompt만 전송합니다."
+        },
+        {
+          "question": "게시 전에 무엇을 확인해야 하나요?",
+          "answer": "다이어그램이나 파일이 실제 흐름을 반영하는지, 라벨이 읽기 쉬운지, 민감한 데이터가 제거되었는지, SVG/PNG export가 review하기 쉬운지 확인하세요."
+        },
+        {
+          "question": "문서화에 어떻게 도움이 되나요?",
+          "answer": "기술 텍스트나 파일을 review 가능한 시각적 preview로 바꾸어 README, ADR, runbook, issue, API docs에서 연결할 수 있습니다."
+        },
+        {
+          "question": "비공개 내용을 붙여넣어도 되나요?",
+          "answer": "secret, token, 고객 데이터, 민감한 인프라 값은 붙여넣지 마세요. 비밀 다이어그램은 private 값을 제거하거나 통제된 환경에서 처리하세요."
         }
       ],
       "seoBody": [

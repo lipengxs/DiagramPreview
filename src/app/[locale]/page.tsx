@@ -1,12 +1,15 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import type {Metadata} from "next";
 import type {ReactNode} from "react";
+import {CoreWorkflows} from "@/components/home/CoreWorkflows";
 import {PopularTools} from "@/components/home/PopularTools";
 import {ToolCategoryGrid} from "@/components/home/ToolCategoryGrid";
 import {ToolSearch, type SearchTool} from "@/components/home/ToolSearch";
 import {type Locale} from "@/config/locales";
 import {tools} from "@/config/tools";
-import {buildMetadata} from "@/lib/seo";
+import {Link} from "@/i18n/navigation";
+import {absoluteUrl} from "@/lib/paths";
+import {buildMetadata, websiteJsonLd} from "@/lib/seo";
 
 type HomePageProps = {
   params: Promise<{locale: Locale}>;
@@ -36,9 +39,17 @@ export default async function HomePage({params}: HomePageProps) {
     description: t(`tools.${tool.slug}.shortDescription`),
     category: t(`common.category.${tool.category}`)
   }));
+  const pageDescription = t("home.metadata.description");
+  const websiteLd = websiteJsonLd({
+    locale,
+    name: "DiagramPreview",
+    description: pageDescription,
+    url: absoluteUrl(`/${locale}`)
+  });
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(websiteLd)}} />
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
           <div className="flex flex-col justify-center">
@@ -55,6 +66,12 @@ export default async function HomePage({params}: HomePageProps) {
       </section>
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:px-8">
+        <HomeSection title={locale.startsWith("zh") ? "核心工作流" : "Core Workflows"}>
+          <CoreWorkflows />
+        </HomeSection>
+        <HomeSection title={locale.startsWith("zh") ? "从样例开始" : "Start from an example"}>
+          <GrowthEntrySection locale={locale} />
+        </HomeSection>
         <HomeSection title={t("home.sections.demo")}>
           <div className="grid gap-5 rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-5">
             <div className="flex flex-col justify-center">
@@ -122,6 +139,48 @@ export default async function HomePage({params}: HomePageProps) {
         </HomeSection>
       </div>
     </>
+  );
+}
+
+function GrowthEntrySection({locale}: {locale: Locale}) {
+  const isChineseLocale = locale.startsWith("zh");
+  const entries = [
+    {
+      href: "/templates",
+      eyebrow: isChineseLocale ? "模板库" : "Template library",
+      title: isChineseLocale ? "打开可直接预览的图表模板" : "Open paste-ready diagram templates",
+      description: isChineseLocale
+        ? "从 Mermaid、draw.io、API、Schema 和 DevOps 示例开始，直接带入对应工具。"
+        : "Start with Mermaid, draw.io, API, schema, and DevOps examples that load directly into the matching tool.",
+      action: isChineseLocale ? "查看模板" : "View templates"
+    },
+    {
+      href: "/workflows",
+      eyebrow: isChineseLocale ? "工作流指南" : "Workflow guides",
+      title: isChineseLocale ? "按开发场景串联多个工具" : "Follow developer diagram workflows",
+      description: isChineseLocale
+        ? "围绕 AI 生成、draw.io 预览、API 排障和 Schema 可视化，把工具组织成可执行流程。"
+        : "Connect tools around AI diagrams, draw.io review, API debugging, and schema visualization.",
+      action: isChineseLocale ? "查看工作流" : "View workflows"
+    }
+  ];
+
+  return (
+    <div className="grid gap-4 md:grid-cols-2">
+      {entries.map((entry) => (
+        <section key={entry.href} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary">{entry.eyebrow}</p>
+          <h3 className="mt-3 text-lg font-bold text-ink">{entry.title}</h3>
+          <p className="mt-2 text-sm leading-6 text-slate-600">{entry.description}</p>
+          <Link
+            href={entry.href}
+            className="mt-4 inline-flex h-9 items-center justify-center rounded-md bg-primary px-3 text-sm font-semibold text-white hover:bg-blue-700"
+          >
+            {entry.action}
+          </Link>
+        </section>
+      ))}
+    </div>
   );
 }
 

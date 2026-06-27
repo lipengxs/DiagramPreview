@@ -88,21 +88,22 @@
   },
   "home": {
     "metadata": {
-      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
-      "description": "在线预览和转换 Mermaid、PlantUML、Markdown、Graphviz、D2、draw.io、思维导图、JSON、YAML 和开发者图表。",
+      "title": "在线图表预览工具 - Mermaid、PlantUML、draw.io、OpenAPI 可视化",
+      "description": "DiagramPreview 是面向开发者的在线图表预览工作区，可预览 Mermaid、PlantUML、draw.io、OpenAPI、JSON Schema、Markdown、Graphviz、D2、JSON 和 YAML。",
       "keywords": [
-        "diagram preview",
-        "mermaid preview",
-        "plantuml preview",
-        "graphviz online",
-        "markdown preview"
+        "在线图表预览",
+        "Mermaid 在线预览",
+        "PlantUML 在线预览",
+        "draw.io 在线打开",
+        "OpenAPI 转时序图",
+        "JSON Schema 可视化"
       ]
     },
     "hero": {
-      "eyebrow": "在线图表预览工作区",
-      "h1": "Diagram Preview Tools for Developers",
-      "subtitle": "在线预览 Mermaid、PlantUML、Markdown、Graphviz、D2、draw.io、思维导图和开发者图表。",
-      "searchPlaceholder": "搜索图表工具..."
+      "eyebrow": "面向开发者的在线图表预览工作区",
+      "h1": "开发者在线图表预览工具",
+      "subtitle": "在浏览器里预览、检查、转换和导出 Mermaid、PlantUML、draw.io、OpenAPI、JSON Schema、Markdown、Graphviz、D2 以及常见开发者文档图表。",
+      "searchPlaceholder": "搜索 Mermaid、draw.io、OpenAPI、Schema 等工具..."
     },
     "demo": {
       "eyebrow": "60 秒产品演示",
@@ -125,38 +126,40 @@
       "faq": "常见问题"
     },
     "why": [
-      "用一个专注的工作区处理文本图表、文档预览和文件型图表格式。",
-      "优先在浏览器端渲染，让草稿预览更快，也减少不必要的服务端往返。",
-      "每个工具都有独立 URL、metadata、相关工具和导出入口，适合长期做 SEO 工具站。"
+      "把 Mermaid、PlantUML、draw.io、OpenAPI、Schema、配置文件和 AI 生成图表放在同一个工作区里预览，减少在多个工具之间来回切换。",
+      "优先在浏览器端完成预览和导出，适合 README、架构文档、接口评审、故障复盘和发布前检查。",
+      "每个工具都有独立 URL、示例输入、FAQ、相关工具和导出入口，既方便开发者使用，也更利于长期 SEO 增长。"
     ],
     "faq": [
       {
-        "question": "DiagramPreview 可以渲染什么？",
-        "answer": "第一版重点支持 Mermaid、PlantUML、Markdown、Graphviz、JSON、YAML，并为其它图表格式准备独立工具页。"
+        "question": "DiagramPreview 适合哪些开发者场景？",
+        "answer": "适合 Mermaid/PlantUML 图表预览、draw.io 文件检查、OpenAPI 转时序图、JSON Schema 可视化、Markdown 文档预览、DevOps 配置检查和 AI 生成图表 review。"
       },
       {
-        "question": "图表会上传到服务器吗？",
-        "answer": "能在浏览器端运行的工具会优先本地渲染。PlantUML 第一版使用 server URL 方案，后续可替换。"
+        "question": "输入内容会上传到服务器吗？",
+        "answer": "大多数预览和转换优先在浏览器端完成。AI 生成类工具会把提示词发送到服务端 API，但普通预览工具不需要把源码交给 AI。"
       },
       {
-        "question": "可以导出图表吗？",
-        "answer": "已支持的渲染器会在工具栏提供 SVG、PNG、复制和打印式 PDF 操作。"
+        "question": "可以把图表用于正式文档吗？",
+        "answer": "可以。渲染器支持时会提供复制源码、导出 SVG、导出 PNG 或打印式 PDF。正式发布前建议保留源文本，方便后续 review 和修改。"
       }
     ]
   },
   "tools": {
     "mermaid-preview": {
-      "name": "Mermaid Preview",
-      "shortDescription": "带 SVG 实时预览和导出操作的 Mermaid 编辑器。",
-      "seoTitle": "Mermaid Preview Online - Mermaid Editor and Live SVG Viewer",
-      "seoDescription": "在线预览 Mermaid 图表，支持实时编辑、示例模板、SVG 导出、PNG 导出和复制操作。",
+      "name": "Mermaid 在线预览",
+      "shortDescription": "实时预览 Mermaid 流程图、时序图、类图和 ER 图，并导出 SVG/PNG。",
+      "seoTitle": "Mermaid 在线预览 - Mermaid 编辑器与 SVG 导出工具",
+      "seoDescription": "在线编辑和预览 Mermaid 图表，支持流程图、时序图、类图、状态图、甘特图、ER 图、示例模板、SVG/PNG 导出和源码复制。",
       "keywords": [
-        "mermaid preview",
-        "mermaid editor online",
-        "mermaid live preview"
+        "Mermaid 在线预览",
+        "Mermaid 编辑器",
+        "Mermaid SVG 导出",
+        "Mermaid 流程图",
+        "Mermaid 时序图"
       ],
-      "h1": "Mermaid Preview",
-      "intro": "编写 Mermaid 语法，并在浏览器工作区预览流程图、时序图、类图、状态图、甘特图和 ER 图。",
+      "h1": "Mermaid 在线预览",
+      "intro": "粘贴 Mermaid 源码，在浏览器里实时检查语法、布局、标签和箭头关系，适合 README、架构文档、AI 生成图表 review 和故障流程图整理。",
       "badges": [
         "实时 SVG",
         "浏览器渲染",
@@ -217,6 +220,10 @@
         {
           "question": "可以直接导出到文档里吗？",
           "answer": "可以。SVG 适合正式文档，PNG 适合 issue、聊天工具和快速分享。"
+        },
+        {
+          "question": "AI 生成的 Mermaid 发布前应该检查什么？",
+          "answer": "检查图表类型、箭头方向、是否出现凭空编造的节点、标签是否过长，以及包含括号、斜杠、冒号的标签是否加引号。建议把 Mermaid 源码和导出图一起保留。"
         }
       ],
       "seoBody": [
@@ -244,21 +251,34 @@
             "过长的产品名或接口名可以在图里缩短，在正文解释。",
             "如果每条箭头都需要一段话解释，说明应该拆图。"
           ]
+        },
+        {
+          "title": "常见 Mermaid 错误：预览时优先排查这些点",
+          "body": "大多数 Mermaid 渲染失败都来自少数原因：缺少第一行图表声明、标签没有转义、把不同图表语法混在一起，或者从说明文字里复制了不合法的节点 ID。",
+          "bullets": [
+            "如果第一行就报错，先确认以 flowchart、sequenceDiagram、classDiagram、stateDiagram-v2、gantt 或 erDiagram 开头。",
+            "如果标签包含 API 路径、事件名、括号或引号，优先用方括号加引号包起来。",
+            "如果能渲染但很难读，不要先调样式，先减少节点数量或拆成多张图。"
+          ],
+          "code": "flowchart LR\n  api[\"API /checkout\"] --> payment[\"Payment provider\"]\n  api --> queue[\"order.created event\"]",
+          "caption": "加引号的标签对 API 路径和事件名更稳，尤其适合 AI 生成后的修正。"
         }
       ]
     },
     "plantuml-preview": {
-      "name": "PlantUML Preview",
-      "shortDescription": "通过可替换的 server renderer 预览 PlantUML 文本图。",
-      "seoTitle": "PlantUML Preview Online - PlantUML Editor and Viewer",
-      "seoDescription": "在线预览 PlantUML 时序图、类图、用例图和活动图。",
+      "name": "PlantUML 在线预览",
+      "shortDescription": "在线预览 PlantUML 时序图、类图、用例图和活动图。",
+      "seoTitle": "PlantUML 在线预览 - PlantUML 编辑器与 SVG 查看器",
+      "seoDescription": "粘贴 PlantUML 源码，在线预览时序图、类图、用例图和活动图，检查服务端渲染 SVG、标签、participant 和文档发布风险。",
       "keywords": [
-        "plantuml preview",
-        "plantuml online editor",
-        "plantuml viewer"
+        "PlantUML 在线预览",
+        "PlantUML editor",
+        "PlantUML viewer",
+        "UML 时序图",
+        "PlantUML SVG"
       ],
-      "h1": "PlantUML Preview",
-      "intro": "粘贴 PlantUML 文本，并通过 PlantUML server URL 生成可预览的 SVG。",
+      "h1": "PlantUML 在线预览",
+      "intro": "粘贴包含 @startuml 和 @enduml 的 PlantUML 源码，快速检查 UML 图是否能渲染、标签是否可读、参与方和失败分支是否完整。",
       "badges": [
         "Server SVG",
         "文本图表",
@@ -287,23 +307,36 @@
         }
       },
       "howToUse": [
-        "粘贴完整 PlantUML 文档。",
-        "选择常见图表示例快速开始。",
-        "把生成的 SVG 用到文档流程中。"
+        "粘贴完整 PlantUML 文档，确保包含 @startuml 和 @enduml。",
+        "从时序图、类图、用例图或活动图示例开始，先确认基础语法可渲染。",
+        "检查渲染 SVG 中的 participant、类名、消息标签、note 和 alt 分支是否符合文档意图。",
+        "遇到失败时先缩小到最小可渲染示例，再逐步加回 skinparam、note、sprite 或 include。",
+        "确认源码可以和文档一起维护后，再导出或复制结果。"
       ],
       "useCases": [
-        "时序图",
-        "UML 类图草稿",
-        "用例图"
+        "UML 时序图",
+        "类图草稿",
+        "用例图 review",
+        "活动流程说明",
+        "ADR 架构决策记录",
+        "代码评审文档"
       ],
       "faq": [
         {
-          "question": "PlantUML 是怎么渲染的？",
-          "answer": "第一版会编码 PlantUML 源码，并展示 PlantUML server 生成的 SVG。"
+          "question": "PlantUML 是如何渲染的？",
+          "answer": "当前版本会编码 PlantUML 源码，并通过 PlantUML 渲染服务生成 SVG 预览。"
         },
         {
-          "question": "后续可以替换 renderer 吗？",
-          "answer": "可以，PlantUML URL 生成逻辑已经封装在独立 renderer 模块中。"
+          "question": "后续可以替换渲染器吗？",
+          "answer": "可以。PlantUML URL 构建逻辑隔离在 renderer 模块中，后续可替换为自建或私有渲染服务。"
+        },
+        {
+          "question": "发布 PlantUML 图前应该检查什么？",
+          "answer": "确认源码完整、标签足够短、远程 include 是有意使用的，并且渲染结果仍然匹配真实系统或工作流。"
+        },
+        {
+          "question": "私有图表适合使用公共 PlantUML 渲染吗？",
+          "answer": "敏感图表建议使用可信的私有渲染器。服务端渲染通常会把 PlantUML 源码发送给负责生成 SVG 的渲染服务。"
         }
       ],
       "seoBody": [
@@ -313,24 +346,34 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：用 PlantUML 记录登录时序",
-          "body": "PlantUML 适合把图和代码放在一起维护。短小的 sequence 源码可以说明认证、token 交换和失败处理。",
+          "title": "Demo：用 PlantUML 说明登录时序",
+          "body": "PlantUML 适合把接口调用和认证流程作为文本放在代码仓库里维护。一个紧凑的时序图能解释登录、令牌交换和失败路径。",
           "bullets": [
-            "参与方名称尽量和系统边界一致。",
-            "消息标签保持短，方便 review 和 wiki 阅读。",
-            "失败路径用 alt 块表达，不要只写在段落里。"
+            "participant 名称尽量和系统边界里的服务名一致。",
+            "消息标签保持短句，方便在 Wiki 和 PR 里阅读。",
+            "用 alt block 表示关键失败路径，而不是只写在正文里。"
           ],
           "code": "@startuml\nactor User\nparticipant Web\nparticipant Auth\ndatabase SessionDB\nUser -> Web: submit credentials\nWeb -> Auth: verify password\nAuth -> SessionDB: create session\nAuth --> Web: token\nWeb --> User: signed in\n@enduml"
         },
         {
-          "title": "排查：隔离 PlantUML 渲染失败",
-          "body": "PlantUML 渲染失败时，最快方法是缩小源码，先让服务端接受最小图，再逐步加回样式、note 和复杂块。",
+          "title": "排障：隔离服务端 PlantUML 渲染失败",
+          "body": "PlantUML 渲染失败时，最快方式是先把源码缩到服务器能接受的最小图，再逐步加回样式、note 和复杂 block。",
           "bullets": [
-            "先测试只有 @startuml、@enduml 和两个节点的版本。",
-            "检查 include、sprite、skinparam 是否依赖外部资源。",
-            "私密图表要使用可信渲染器，因为服务端渲染可能提交源码。"
+            "先只保留 @startuml、@enduml 和两个节点测试。",
+            "检查 remote include、sprite、skinparam 是否依赖不可访问资源。",
+            "私有图表不要直接依赖不可信公共渲染器。"
           ],
           "code": "@startuml\nAlice -> Bob: ping\nBob --> Alice: pong\n@enduml"
+        },
+        {
+          "title": "Review 模式：让 PlantUML 源码可维护",
+          "body": "PlantUML 的价值不只是生成图片，而是让图表源码可在 code review 中被理解。过重样式和超大 include 会让图片漂亮但难维护。",
+          "bullets": [
+            "participant、class 和 service 名称尽量贴近代码或文档术语。",
+            "假设写在 note 里，不要藏在很长的箭头标签里。",
+            "类图、时序图和活动图如果主题不同，应拆成多个文件。"
+          ],
+          "code": "@startuml\nparticipant Client\nparticipant API\nnote over API: Validate token before reading orders\nClient -> API: GET /orders\nAPI --> Client: 200 OK\n@enduml"
         }
       ]
     },
@@ -501,17 +544,19 @@
       ]
     },
     "d2-preview": {
-      "name": "D2 Preview",
-      "shortDescription": "为即将接入的 D2 renderer 准备的结构化工作区。",
-      "seoTitle": "D2 Preview Online - D2 Diagram Viewer",
-      "seoDescription": "在开发者图表工作区中在线预览 D2 diagram text。",
+      "name": "D2 在线预览",
+      "shortDescription": "在线预览 D2 架构图和服务关系图，适合文本优先的架构文档。",
+      "seoTitle": "D2 在线预览 - D2 架构图查看器",
+      "seoDescription": "粘贴 D2 diagram 文本，预览架构草图、服务地图、依赖关系和部署区域，适合文本优先的开发者文档流程。",
       "keywords": [
-        "d2 preview",
-        "d2 diagram online",
-        "d2 viewer"
+        "D2 在线预览",
+        "D2 diagram viewer",
+        "D2 架构图",
+        "文本架构图",
+        "service map"
       ],
-      "h1": "D2 Preview",
-      "intro": "在共享工作区中编写 D2 图表文本，等待专用 renderer 接入。",
+      "h1": "D2 在线预览",
+      "intro": "用 D2 文本描述服务、容器、边界和依赖关系，在发布文档前先检查结构和标签是否清楚。",
       "badges": [
         "D2",
         "架构",
@@ -536,19 +581,32 @@
         }
       },
       "howToUse": [
-        "粘贴 D2 文本。",
-        "使用示例组织架构说明。",
-        "renderer 启用后可输出 SVG。"
+        "粘贴 D2 文本，先从节点和关系开始，不要急着加样式。",
+        "使用示例组织 service map、deployment zone 或架构说明。",
+        "保持 identifier 稳定，避免后续编辑时图形大幅变化。",
+        "当关系不明显时，用协议、事件或动词作为边标签。",
+        "专用 SVG renderer 启用后，可回到此页面导出最终图。"
       ],
       "useCases": [
         "架构草图",
-        "服务关系",
-        "系统图"
+        "服务地图",
+        "系统图",
+        "依赖 review",
+        "部署区域图",
+        "文本优先架构文档"
       ],
       "faq": [
         {
-          "question": "D2 渲染已启用吗？",
-          "answer": "路由和工作区已经准备好，专用 renderer 会在下一阶段接入。"
+          "question": "D2 渲染已经启用了吗？",
+          "answer": "路由和工作区已准备好，专用 renderer 会在后续构建阶段完善。"
+        },
+        {
+          "question": "什么样的 D2 图更容易 review？",
+          "answer": "稳定 node id、短边标签、边界 container 和假设注释，会让 D2 图更容易以文本维护。"
+        },
+        {
+          "question": "什么时候用 D2 而不是 Mermaid？",
+          "answer": "当你想表达有明确 container、label 和服务关系的文本优先架构图时，D2 更合适。"
         }
       ],
       "seoBody": [
@@ -558,39 +616,51 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：草拟 D2 服务图",
-          "body": "D2 适合带标签、容器和关系类型的架构图。即使还没做最终样式，预览也能确认文本是否描述了正确系统。",
+          "title": "Demo：起草 D2 服务地图",
+          "body": "D2 适合需要标签、容器和类型化关系的架构图。即使还没最终样式，预览也能确认文本是否描述了目标系统。",
           "bullets": [
-            "用嵌套块表达领域或部署区域。",
-            "关系标签写成动作或协议。",
-            "保持标识符稳定，避免后续编辑导致图大幅变化。"
+            "用嵌套 block 表示领域或部署区域。",
+            "边标签写成动词、协议或事件。",
+            "保持 identifier 稳定，避免未来编辑导致图大幅重排。"
           ],
           "code": "client -> gateway: HTTPS\ngateway -> orders: REST\norders -> queue: publish event\nqueue -> worker: consume\norders -> db: SQL"
         },
         {
-          "title": "Review：先结构后美化",
-          "body": "D2 最好的工作流是先确认结构。节点和边正确后再加主题和布局，否则样式会掩盖缺失依赖。",
+          "title": "Review 提示：先结构后视觉",
+          "body": "最好的 D2 工作流从结构开始。节点和边正确后再应用主题和布局，否则样式会掩盖缺失依赖。",
           "bullets": [
-            "先验证纯结构图。",
-            "流程正确后再添加图标或自定义样式。",
-            "用注释说明图中看不见的假设。"
+            "先在纯结构下验证图。",
+            "flow 正确后再加 icon 或自定义样式。",
+            "用注释解释图中看不出的假设。"
           ],
           "code": "# Assumption: analytics is async\napi -> event_bus: order.created\nevent_bus -> analytics: consume"
+        },
+        {
+          "title": "架构提示：先建模边界，再添加依赖",
+          "body": "D2 很适合表达 bounded context、部署区域和 ownership 边界。先建 container，再在边界内外添加依赖。",
+          "bullets": [
+            "用 nested block 表示团队、网络或运行区。",
+            "明确命名外部依赖，避免被误认为内部服务。",
+            "通过标签区分同步和异步关系。"
+          ],
+          "code": "prod: {\n  web\n  api\n  worker\n}\nexternal: {\n  stripe\n}\nweb -> api: HTTPS\napi -> stripe: payment auth\napi -> worker: order.created"
         }
       ]
     },
     "drawio-preview": {
-      "name": "Draw.io Viewer",
-      "shortDescription": "在预览工作区中检查 draw.io 与 diagrams.net XML。",
-      "seoTitle": "Draw.io Viewer Online - diagrams.net XML Preview",
-      "seoDescription": "在线打开 draw.io 或 diagrams.net XML，并检查文件结构、页面和对象。",
+      "name": "Draw.io 在线打开",
+      "shortDescription": "在线打开 draw.io / diagrams.net XML，检查页面、对象、标签和可移植性。",
+      "seoTitle": "Draw.io 在线打开 - diagrams.net 文件预览与 XML 检查",
+      "seoDescription": "无需安装 diagrams.net，在线检查 .drawio 文件和 mxfile XML，查看页面名称、对象数量、隐藏草稿、外部图片和导出前问题。",
       "keywords": [
-        "draw.io viewer",
-        "diagrams.net viewer",
-        "drawio preview"
+        "draw.io 在线打开",
+        "diagrams.net 预览",
+        "drawio XML 检查",
+        "打开 drawio 文件",
+        "draw.io SVG 导出"
       ],
-      "h1": "Draw.io Viewer",
-      "intro": "粘贴 draw.io XML，在完整渲染支持前先检查图表文件结构。",
+      "h1": "Draw.io 在线打开",
+      "intro": "粘贴 .drawio 或 diagrams.net XML，在分享、迁移或导出前先检查文件结构、页面名称、对象数量和潜在的隐藏草稿内容。",
       "badges": [
         "draw.io",
         "XML",
@@ -607,25 +677,41 @@
         }
       },
       "howToUse": [
-        "粘贴 .drawio 或 diagrams.net XML。",
-        "查看文件摘要。",
-        "作为后续完整渲染的基础路由。"
+        "粘贴 .drawio、diagrams.net 或 mxfile XML 内容。",
+        "检查页面名称、对象数量、标签是否完整，以及 XML 是否足够完整可分享。",
+        "关注默认页面名、隐藏草稿、画布外对象和外部图片，这些内容可能在另一个工作区失效。",
+        "需要发布时再结合相关转换工具，把可编辑 XML 转为更适合文档的 SVG 或 PNG。",
+        "如果图表属于架构文档或故障复盘，把原始 .drawio XML 保留在仓库中。"
       ],
       "useCases": [
-        "draw.io 检查",
-        "XML 检查",
-        "图表迁移"
+        "在线打开 draw.io 文件",
+        "diagrams.net XML 检查",
+        "架构图交接",
+        "图表迁移 review",
+        "SVG 导出准备"
       ],
       "faq": [
         {
           "question": "可以渲染复杂 draw.io 文件吗？",
           "answer": "第一版重点是结构检查和干净的预览占位。"
+        },
+        {
+          "question": "不安装 diagrams.net 可以打开 draw.io 文件吗？",
+          "answer": "可以，把 .drawio XML 内容粘贴到浏览器工作区，就能先检查页面、对象和文件结构。"
+        },
+        {
+          "question": "分享 draw.io 文件前应该检查什么？",
+          "answer": "建议检查页面名称、隐藏草稿内容、过长标签、嵌入图片，以及 XML 是否能正常加载。"
+        },
+        {
+          "question": "什么时候应该保留 draw.io XML，而不是只导出 SVG？",
+          "answer": "当团队后续还需要编辑图表时，应保留 XML 作为可编辑源文件。SVG 更适合 README、工单、静态文档和对外发布。"
         }
       ],
       "seoBody": [
-        "Draw.io Viewer 面向需要在图表工具站中检查 diagrams.net XML 的用户。",
-        "复杂 draw.io 渲染需要专门处理，所以第一版先完成路由、输入和摘要预览。",
-        "该页面会作为后续 draw.io 渲染和转换能力的稳定 URL。"
+        "Draw.io Viewer 面向需要在线打开 draw.io 文件、检查 diagrams.net XML、或在迁移图表前做快速预览的开发者。",
+        "你可以在分享到 README、Wiki、Issue 或设计文档前，检查页面名称、对象数量、隐藏草稿和文件结构。",
+        "该页面也会连接 draw.io 预览、PlantUML 转 draw.io、AI 生成 draw.io 和 SVG 导出等工作流。"
       ],
       "deepDives": [
         {
@@ -647,6 +733,16 @@
             "重命名默认页面，方便理解导出结果。"
           ],
           "code": "Page 1: System Context\nPage 2: Checkout Sequence\nPage 3: Deployment Notes"
+        },
+        {
+          "title": "Review 模式：区分可编辑源文件和发布产物",
+          "body": "把 draw.io XML 当作可编辑源文件，把 SVG 当作发布产物。这样既能保持图表可维护，又能给读者一个清晰的静态图。",
+          "bullets": [
+            "把 .drawio XML 和引用它的文档放在相邻目录，方便后续更新。",
+            "页面名称、视口和标签稳定后，再导出 SVG 用于发布。",
+            "重要架构图旁边标注源文件路径，避免以后只改截图不改源文件。"
+          ],
+          "code": "docs/architecture/checkout.drawio\nREADME.md -> embeds checkout.svg\nPR review -> updates checkout.drawio first"
         }
       ]
     },
@@ -968,17 +1064,18 @@
     },
     "ai-diagram-generator": {
       "name": "AI 图表生成器",
-      "shortDescription": "用自然语言提示词生成 Mermaid 图表。",
-      "seoTitle": "AI 图表生成器 - DiagramPreview",
-      "seoDescription": "用自然语言提示词生成 Mermaid 图表。",
+      "shortDescription": "用自然语言生成可编辑 Mermaid 图表，并在导出前完成预览和 review。",
+      "seoTitle": "AI 图表生成器 - 用 Prompt 生成 Mermaid 架构图",
+      "seoDescription": "输入自然语言 prompt，生成可编辑 Mermaid 图表，预览 AI 输出，检查凭空节点、标签和结构后再导出为文档素材。",
       "keywords": [
-        "ai-diagram-generator",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "AI 图表生成器",
+        "AI diagram generator",
+        "Prompt 生成 Mermaid",
+        "AI 架构图",
+        "文本生成图表"
       ],
       "h1": "AI 图表生成器",
-      "intro": "描述你想要的图表，选择 Mermaid 图表类型，让 AI 生成可编辑源码并实时预览。",
+      "intro": "描述系统、流程或故障场景，让 AI 生成 Mermaid 源码，并在浏览器中完成预览、修正、导出和文档化。",
       "badges": [
         "AI",
         "DeepSeek",
@@ -1018,23 +1115,36 @@
         "providerLabel": "供应商"
       },
       "howToUse": [
-        "用自然语言描述目标图表。",
-        "选择 Mermaid 图表类型并调用 AI 生成代码。",
-        "检查 Mermaid 输出，必要时编辑，然后导出 SVG 或 PNG。"
+        "描述图表受众、范围、必需节点，以及模型不能添加的系统。",
+        "生成前选择 Mermaid 图类型，让输出匹配任务。",
+        "生成可编辑 Mermaid 源码后，立即在页面里预览。",
+        "删除凭空编造的组件，修正标签，并把过大的结果拆成多张图。",
+        "只有当源码足够可读、便于未来维护时，再导出 SVG 或 PNG。"
       ],
       "useCases": [
         "AI 图表草稿",
         "文本转 Mermaid",
+        "架构图 prompt",
+        "产品流程图",
+        "事故可视化",
         "Mermaid 语法修复"
       ],
       "faq": [
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+          "answer": "服务端会调用 DeepSeek；当 DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         },
         {
-          "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+          "question": "API Key 会暴露到浏览器吗？",
+          "answer": "不会。API Key 只在服务端通过环境变量读取。"
+        },
+        {
+          "question": "如何避免 AI 凭空添加架构组件？",
+          "answer": "列出必需系统，明确说明哪些系统不能出现，并要求只基于给定上下文输出紧凑 Mermaid 图。"
+        },
+        {
+          "question": "AI 返回图表后还要做什么？",
+          "answer": "先预览，对照原始材料检查，删除不准确节点，缩短标签，并把 Mermaid 源码保留在最终文档里。"
         }
       ],
       "seoBody": [
@@ -1044,40 +1154,51 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：让 AI 生成可 review 的图",
-          "body": "AI 图表生成最好在 prompt 里写清受众、范围、节点和图要支持的决策。模糊 prompt 往往会生成好看但不可 review 的图。",
+          "title": "Demo：让 AI 生成可 review 的图表",
+          "body": "AI 图表生成最好从受众、范围、节点和决策目标开始。模糊 prompt 往往会得到看起来漂亮但无法 review 的图。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "说明系统边界和读者是谁。",
+            "列出必需服务和数据存储，减少模型脑补。",
+            "要求输出可预览、可编辑的 Mermaid。"
           ],
-          "code": "Create a Mermaid architecture diagram for a B2B billing service with web app, API gateway, billing service, Stripe, invoice DB, queue, worker, and email provider."
+          "code": "Create a Mermaid architecture diagram for a B2B billing service. Audience: backend review. Include web app, API gateway, billing service, Stripe, invoice database, queue, worker, email provider, and admin dashboard. Show sync calls and async events."
         },
         {
-          "title": "AI 图表生成器 Review 清单",
-          "body": "生成、预览、修正、发布才是可靠链路。预览阶段能发现漏服务、编造依赖和不可读标签。",
+          "title": "Review 循环：AI 输出只是草稿",
+          "body": "有效流程是生成、预览、纠正，然后才发布。预览阶段会暴露缺失服务、虚构依赖和难读标签。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "导出前删除凭空编造的组件。",
+            "缩短在预览里换行严重的标签。",
+            "用于决策前，对照源码、文档或架构说明验证。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "Prompt -> Mermaid source -> Browser preview -> Edit labels -> Export SVG/PNG -> Attach to PR"
+        },
+        {
+          "title": "Prompt 配方：生成前先限制范围",
+          "body": "强 prompt 会减少模型发挥空间。先定义受众、图类型、必需节点、禁止假设和输出格式，再要求 Mermaid 源码。",
+          "bullets": [
+            "从读者开始：后端评审、产品规格、onboarding 或事故时间线。",
+            "明确列出内部系统和外部服务。",
+            "要求短标签，不要添加 prompt 之外的组件。"
+          ],
+          "code": "Audience: backend onboarding. Diagram type: flowchart LR. Required nodes: Browser, API Gateway, Auth Service, Orders Service, PostgreSQL, Redis. Do not add payments or analytics. Output Mermaid only."
         }
       ]
     },
     "text-to-mermaid": {
       "name": "文本转 Mermaid",
-      "shortDescription": "把产品说明、事故记录和架构文本转换成 Mermaid 图表。",
-      "seoTitle": "文本转 Mermaid - DiagramPreview",
-      "seoDescription": "把产品说明、事故记录和架构文本转换成 Mermaid 图表。",
+      "shortDescription": "把产品说明、事故记录、架构文本和需求草稿转换成可编辑 Mermaid 图表。",
+      "seoTitle": "文本转 Mermaid - 用自然语言生成 Mermaid 图表",
+      "seoDescription": "用自然语言生成 Mermaid 流程图、时序图、类图和 ER 图，适合产品流程、事故时间线、架构评审、README 图表和 AI 图表草稿。",
       "keywords": [
-        "text-to-mermaid",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "文本转 Mermaid",
+        "AI 生成 Mermaid",
+        "自然语言生成流程图",
+        "Mermaid sequenceDiagram",
+        "Mermaid prompt"
       ],
       "h1": "文本转 Mermaid",
-      "intro": "粘贴需求、笔记或流程描述，将普通文本转换成可预览和导出的 Mermaid 代码。",
+      "intro": "输入产品说明、故障记录或架构描述，让 AI 生成 Mermaid 源码，并在同一个页面里预览、检查、修改和导出。",
       "badges": [
         "AI",
         "DeepSeek",
@@ -1117,13 +1238,18 @@
         "providerLabel": "供应商"
       },
       "howToUse": [
-        "用自然语言描述目标图表。",
-        "选择 Mermaid 图表类型并调用 AI 生成代码。",
-        "检查 Mermaid 输出，必要时编辑，然后导出 SVG 或 PNG。"
+        "描述目标读者、图表范围、必须出现的参与方，以及这张图要支持的决策。",
+        "生成前先选择 Mermaid 图类型：流程图、时序图、类图或 ER 图。",
+        "生成 Mermaid 代码后立即预览，不要直接把 AI 输出复制进正式文档。",
+        "删除凭空编造的组件，缩短标签，并把过大的结果拆成多张图。",
+        "只有当源码仍然可读、方便后续修改时，再导出 SVG 或 PNG。"
       ],
       "useCases": [
         "AI 图表草稿",
         "文本转 Mermaid",
+        "事故时间线图",
+        "架构评审 prompt",
+        "产品流程文档",
         "Mermaid 语法修复"
       ],
       "faq": [
@@ -1132,14 +1258,26 @@
           "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
         },
         {
-          "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+          "question": "API Key 会暴露到浏览器吗？",
+          "answer": "不会。API Key 只在服务端通过环境变量读取，不会发送到浏览器。"
+        },
+        {
+          "question": "可以用文字生成 Mermaid 时序图吗？",
+          "answer": "可以。描述参与方和调用顺序，选择 sequenceDiagram，再检查生成的 Mermaid 源码后导出。"
+        },
+        {
+          "question": "一个好的文本转 Mermaid prompt 应该包含什么？",
+          "answer": "建议包含目标读者、图表类型、必须出现的系统或参与方、关键数据存储、外部服务，以及明确说明哪些内容不能由 AI 自行补充。"
+        },
+        {
+          "question": "AI 生成的 Mermaid 可以直接作为最终文档吗？",
+          "answer": "不建议。它应该被当作草稿。发布前需要预览、对照原始材料验证，并保留可编辑的 Mermaid 源码。"
         }
       ],
       "seoBody": [
-        "把产品说明、事故记录和架构文本转换成 Mermaid 图表。",
-        "粘贴需求、笔记或流程描述，将普通文本转换成可预览和导出的 Mermaid 代码。",
-        "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+        "文本转 Mermaid 适合把需求说明、事故记录、用户路径和架构描述转换成可维护的 Mermaid 源码。",
+        "当你已经有文字流程，但需要放进 README、设计评审、故障复盘或产品文档时，可以先生成再预览。",
+        "生成后请保留 Mermaid 源码，确认标签、箭头和图表类型都匹配，再导出 SVG 或 PNG。"
       ],
       "deepDives": [
         {
@@ -1153,30 +1291,41 @@
           "code": "At 10:05 API returned 503. Gateway retried twice. Checkout timed out waiting for inventory. Recovery: scale inventory pods."
         },
         {
-          "title": "文本转 Mermaid Review 清单",
-          "body": "先选择 Mermaid 图类型。请求顺序用 sequenceDiagram，决策路径用 flowchart，数据关系用 ER。",
+          "title": "编辑模式：先选 Mermaid 图类型，再生成",
+          "body": "文本转图表的质量很大程度取决于图表类型是否匹配问题。架构说明、事故记录和产品流程不应该都被生成成同一种 flowchart。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "请求顺序和责任归属用 sequenceDiagram。",
+            "决策树、用户路径和排障步骤用 flowchart。",
+            "数据关系用 ER 图，不要强行塞进盒子和箭头。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "问题：谁调用了谁？ -> sequenceDiagram\n问题：用户可以走哪些路径？ -> flowchart\n问题：数据如何关联？ -> erDiagram"
+        },
+        {
+          "title": "Prompt 模板：生成 reviewer 更信任的图",
+          "body": "更好的 prompt 会约束模型，而不是只要求“生成一张好看的图”。说明受众、范围、必须出现和不能出现的系统，并要求保持标签短小。",
+          "bullets": [
+            "第一句说明图表受众和范围。",
+            "列出必需节点，以及禁止 AI 添加的节点。",
+            "要求边标签足够短，适合 README 或架构决策记录。"
+          ],
+          "code": "为后端 reviewer 创建 Mermaid sequenceDiagram。范围：checkout 支付授权。必须包含：Browser、Checkout API、Auth service、Payment provider、Order database。不要添加 inventory 或 shipping。消息标签不超过 5 个词。"
         }
       ]
     },
     "mermaid-ai-fixer": {
       "name": "Mermaid AI 修复器",
-      "shortDescription": "用 AI 修复 Mermaid 语法并提升图表可读性。",
-      "seoTitle": "Mermaid AI 修复器 - DiagramPreview",
-      "seoDescription": "用 AI 修复 Mermaid 语法并提升图表可读性。",
+      "shortDescription": "用 AI 修复 Mermaid 语法错误，并在发布前检查图表语义和可读性。",
+      "seoTitle": "Mermaid AI 修复器 - 在线修复 Mermaid 语法错误",
+      "seoDescription": "粘贴无法渲染的 Mermaid 源码，用 AI 修复语法、保留原始意图、预览修复结果，并在导出前优化标签和结构。",
       "keywords": [
-        "mermaid-ai-fixer",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "Mermaid AI 修复",
+        "修复 Mermaid 语法",
+        "Mermaid syntax fixer",
+        "AI Mermaid fixer",
+        "Mermaid 渲染失败"
       ],
       "h1": "Mermaid AI 修复器",
-      "intro": "粘贴有问题的 Mermaid 代码和修复要求，AI 会返回修正后的 Mermaid 源码。",
+      "intro": "把报错的 Mermaid 源码和修复目标交给 AI，先得到最小语法修复，再预览图表并检查语义是否被悄悄改变。",
       "badges": [
         "AI",
         "DeepSeek",
@@ -1219,23 +1368,35 @@
         "providerLabel": "供应商"
       },
       "howToUse": [
-        "用自然语言描述目标图表。",
-        "选择 Mermaid 图表类型并调用 AI 生成代码。",
-        "检查 Mermaid 输出，必要时编辑，然后导出 SVG 或 PNG。"
+        "粘贴无法渲染的 Mermaid 源码，并说明希望修复的目标。",
+        "当结构本身正确时，先要求“只做最小语法修复”。",
+        "修复后立即预览，不要直接复制 AI 输出到正式文档。",
+        "对比原始图表意图，确认 AI 没有新增服务、改箭头方向或删掉关键分支。",
+        "源码仍然易读后，再导出 SVG/PNG 或复制到 README。"
       ],
       "useCases": [
-        "AI 图表草稿",
-        "文本转 Mermaid",
-        "Mermaid 语法修复"
+        "Mermaid 语法修复",
+        "AI 生成图表清理",
+        "README 图表修复",
+        "时序图修复",
+        "标签可读性优化"
       ],
       "faq": [
         {
           "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+          "answer": "服务端会调用 DeepSeek；当 DeepSeek 不可用或未配置时，会使用本地模板作为兜底。"
         },
         {
-          "question": "会使用哪个 AI 供应商？",
-          "answer": "服务端直接调用 DeepSeek；DeepSeek 不可用或未配置时，会使用本地模板兜底。"
+          "question": "API Key 会暴露到浏览器吗？",
+          "answer": "不会。API Key 只在服务端通过环境变量读取，不会发送到浏览器。"
+        },
+        {
+          "question": "应该要求 AI 重画还是只修语法？",
+          "answer": "建议先要求最小语法修复。等图能渲染后，再单独要求缩短标签、整理 subgraph 或优化布局。"
+        },
+        {
+          "question": "AI 修复 Mermaid 时会改变图表含义吗？",
+          "answer": "可能会。修复后必须检查 participant、节点、状态、分支和箭头方向是否仍然符合原意。"
         }
       ],
       "seoBody": [
@@ -1245,40 +1406,51 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：修复坏掉的 Mermaid flowchart",
-          "body": "AI 生成的 Mermaid 常因保留字符、箭头混用或 subgraph 不完整失败。修复器应保留原意并输出可渲染代码。",
+          "title": "Demo：修复一个损坏的 Mermaid 流程图",
+          "body": "AI 生成的 Mermaid 常因为标签包含保留符号、箭头混用或 subgraph 不完整而失败。修复器应返回有效代码，同时保留原始意图。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "保留节点含义，只简化标签。",
+            "包含斜杠、冒号或括号的标签要加引号。",
+            "修复后立即渲染，确认问题已解决。"
           ],
           "code": "flowchart LR\n  A[User submits /checkout] --> B{Payment OK?}\n  B -- yes --> C[Create order]\n  B -- no --> D[Show retry]"
         },
         {
-          "title": "Mermaid AI 修复器 Review 清单",
-          "body": "先修语法再优化样式。渲染通过后，再改分组、标签和布局。",
+          "title": "调试顺序：先修语法，再优化样式",
+          "body": "修复循环应先解决“能否渲染”。只有错误消失后，再处理分组、标签和布局，否则 AI 可能用重画掩盖原始语法错误。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "结构已正确时，要求最小可用 patch。",
+            "渲染错误消失后，再要求可读性优化。",
+            "保留损坏输入，用于以后回归测试。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "Broken -> minimal fixed Mermaid -> rendered preview -> optional refactor"
+        },
+        {
+          "title": "修复清单：修语法但不改含义",
+          "body": "Mermaid fixer 不应该把一个错误修成另一张图。先稳定语义，再让源码合法和可读。",
+          "bullets": [
+            "除非你要求删除，否则原始 participant、状态或节点都应保留。",
+            "修复后检查箭头方向和分支标签。",
+            "保留原始输入，便于对比修复前后。"
+          ],
+          "code": "Original intent: User submits checkout -> API validates -> Payment authorizes -> Order created\nRepair goal: valid Mermaid only, no new services"
         }
       ]
     },
     "openapi-to-sequence": {
-      "name": "OpenAPI 转序列图",
-      "shortDescription": "在本地把 OpenAPI paths 转成 Mermaid 序列图。",
-      "seoTitle": "OpenAPI 转序列图 - DiagramPreview",
-      "seoDescription": "在本地把 OpenAPI paths 转成 Mermaid 序列图。",
+      "name": "OpenAPI 转时序图",
+      "shortDescription": "把 OpenAPI paths 转成 Mermaid 时序图，用于接口文档、后端评审和运行时对比。",
+      "seoTitle": "OpenAPI 转时序图 - API Flow 可视化工具",
+      "seoDescription": "粘贴 OpenAPI JSON/YAML，把接口 paths、operationId、请求体和响应分支转换成 Mermaid 时序图，适合 API 文档、后端 onboarding 和契约 review。",
       "keywords": [
-        "openapi-to-sequence",
-        "openapi 转序列图",
-        "diagram tool",
-        "DiagramPreview"
+        "OpenAPI 转时序图",
+        "OpenAPI sequence diagram",
+        "API flow visualizer",
+        "Swagger 转时序图",
+        "接口文档可视化"
       ],
-      "h1": "OpenAPI 转序列图",
-      "intro": "粘贴 OpenAPI JSON 或 YAML，把 API 操作转换为解释请求处理过程的序列图。",
+      "h1": "OpenAPI 转时序图",
+      "intro": "从 OpenAPI 规范中提取接口调用故事，把 paths、方法、响应状态和关键错误分支转换成更容易 review 的 Mermaid 时序图。",
       "badges": [
         "No AI",
         "Local preview",
@@ -1328,6 +1500,14 @@
         {
           "question": "如何让输出更易读？",
           "answer": "按业务流程分组接口，缩短 operation summary，不要在一张图里混入无关资源。"
+        },
+        {
+          "question": "它能证明线上真实调用顺序吗？",
+          "answer": "不能。它解释的是 OpenAPI 契约里的预期行为。如果要验证生产环境，需要和 HAR、Postman Collection、日志或 trace 一起对比。"
+        },
+        {
+          "question": "哪些 OpenAPI 字段最能改善时序图质量？",
+          "answer": "operationId、summary、security schemes、requestBody、response descriptions 和聚焦的 path 分组，都会让生成的消息更容易理解。"
         }
       ],
       "seoBody": [
@@ -1356,22 +1536,33 @@
             "时序图用于讨论行为，不替代 OpenAPI 原始规范。"
           ],
           "code": "POST /orders\nAuthorization: Bearer <token>\n201 Created -> orderId\n409 Conflict -> duplicate cart or inventory lock"
+        },
+        {
+          "title": "排障模式：把契约图和运行时证据放在一起看",
+          "body": "OpenAPI 时序图最适合表示预期行为。遇到事故或接口联调问题时，把它和 HAR、Postman Collection 或 trace 对比，能快速发现真实请求顺序和契约说明哪里不一致。",
+          "bullets": [
+            "OpenAPI 用来说明预期请求、响应和错误分支。",
+            "HAR 或 Postman Collection 用来说明实际请求顺序。",
+            "把差异点作为后端评审或事故复盘的讨论重点。"
+          ],
+          "code": "Expected: Browser -> API -> Payment provider -> API -> Browser\nObserved: Browser -> API -> API retry -> Payment provider timeout -> 503"
         }
       ]
     },
     "sql-to-er-diagram": {
       "name": "SQL 转 ER 图",
-      "shortDescription": "把 CREATE TABLE SQL 转成 Mermaid ER 图。",
-      "seoTitle": "SQL 转 ER 图 - DiagramPreview",
-      "seoDescription": "把 CREATE TABLE SQL 转成 Mermaid ER 图。",
+      "shortDescription": "从 CREATE TABLE SQL 生成 ER 图，检查表、主键、外键和关系。",
+      "seoTitle": "SQL 转 ER 图 - 数据库表关系在线可视化",
+      "seoDescription": "粘贴 SQL DDL，在线生成 ER 图，检查表结构、主键、外键、nullable 字段、索引和数据模型关系。",
       "keywords": [
-        "sql-to-er-diagram",
-        "sql 转 er 图",
-        "diagram tool",
-        "DiagramPreview"
+        "SQL 转 ER 图",
+        "SQL to ER diagram",
+        "数据库 ER 图",
+        "DDL 可视化",
+        "表关系图"
       ],
       "h1": "SQL 转 ER 图",
-      "intro": "粘贴 SQL DDL，可视化表、字段、主键和外键关系。",
+      "intro": "把 CREATE TABLE 和外键定义变成 ER 图，适合数据库设计 review、文档生成、迁移前检查和 AI 生成 SQL 校验。",
       "badges": [
         "No AI",
         "Local preview",
@@ -1397,19 +1588,34 @@
         }
       },
       "howToUse": [
-        "把源文本粘贴到编辑器。",
-        "检查生成的可视化结果。",
-        "输入调整到满意后，导出 SVG 或 PNG。"
+        "粘贴包含 CREATE TABLE、PRIMARY KEY 和 FOREIGN KEY 的 SQL。",
+        "检查表名、字段、主键、外键、nullable 字段和关系方向。",
+        "为大型 schema 选择一个业务域，避免一次性生成过大的 ER 图。",
+        "将图和原始 DDL 一起保存，方便后续迁移和 review。"
       ],
       "useCases": [
-        "数据库文档",
-        "Schema 评审",
-        "数据模型上手"
+        "数据库设计 review",
+        "SQL DDL 文档化",
+        "外键关系检查",
+        "AI 生成 SQL 校验",
+        "数据模型 onboarding"
       ],
       "faq": [
         {
-          "question": "这个工具会用 AI 吗？",
-          "answer": "不会。解析和可视化在浏览器本地完成。"
+          "question": "没有外键还能生成关系吗？",
+          "answer": "可以显示表和字段，但关系推断会有限。明确 FOREIGN KEY 通常能得到更可靠的 ER 图。"
+        },
+        {
+          "question": "适合粘贴完整生产 schema 吗？",
+          "answer": "不建议。生产 schema 可能很大且包含敏感命名，最好按业务域拆分并脱敏。"
+        },
+        {
+          "question": "ER 图能证明数据库约束正确吗？",
+          "answer": "不能。它帮助 review 结构，最终仍要依赖数据库实际约束、迁移脚本和测试。"
+        },
+        {
+          "question": "AI 生成的 SQL 需要可视化吗？",
+          "answer": "建议需要。可视化能更快发现缺失主键、错误外键、重复字段和不合理 nullable 设计。"
         }
       ],
       "seoBody": [
@@ -1419,40 +1625,51 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：把 CREATE TABLE 转成 ER 图",
-          "body": "SQL schema 用图 review 更快，表、主键、外键会更直观。",
+          "title": "Demo：从订单 SQL 生成 ER 图",
+          "body": "订单、用户和订单项是最常见的数据建模示例。ER 图能快速暴露一对多、多对多和缺失约束。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "确认每个表都有主键。",
+            "订单项应通过外键连接订单和商品。",
+            "nullable 字段应符合真实业务含义。"
           ],
-          "code": "CREATE TABLE users (id INT PRIMARY KEY, email TEXT);\nCREATE TABLE orders (id INT PRIMARY KEY, user_id INT REFERENCES users(id));"
+          "code": "CREATE TABLE users (id INT PRIMARY KEY, email TEXT);\nCREATE TABLE orders (id INT PRIMARY KEY, user_id INT REFERENCES users(id));\nCREATE TABLE order_items (id INT PRIMARY KEY, order_id INT REFERENCES orders(id));"
         },
         {
-          "title": "SQL 转 ER 图 Review 清单",
-          "body": "ER 图可以发现缺失外键、隐含关系和 many-to-many join table 问题。",
+          "title": "Review 清单：不要只看字段名",
+          "body": "数据模型 review 应同时看关系、约束和业务规则。字段名正确但外键缺失，后续仍会带来数据一致性问题。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "检查主键和唯一约束。",
+            "检查外键方向是否符合 ownership。",
+            "检查软删除、租户边界和审计字段。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "tenant_id should appear on tenant-scoped tables\nunique(user_id, organization_id) prevents duplicate membership"
+        },
+        {
+          "title": "迁移模式：先画局部模型",
+          "body": "大型数据库不适合一次生成完整 ER 图。按业务域或迁移范围生成局部图更适合 review。",
+          "bullets": [
+            "一次只画 checkout、billing 或 identity 等子域。",
+            "把跨域表作为外部依赖标注。",
+            "PR 中附上 DDL diff 和 ER 图截图。"
+          ],
+          "code": "Scope: checkout only\nTables: carts, cart_items, orders, payments\nExternal: users"
         }
       ]
     },
     "json-schema-visualizer": {
       "name": "JSON Schema 可视化",
-      "shortDescription": "查看 JSON Schema 属性、类型、必填字段和组合结构。",
-      "seoTitle": "JSON Schema 可视化 - DiagramPreview",
-      "seoDescription": "查看 JSON Schema 属性、类型、必填字段和组合结构。",
+      "shortDescription": "查看 JSON Schema 属性、类型、必填字段、枚举、数组 item 和 oneOf/anyOf 结构。",
+      "seoTitle": "JSON Schema 可视化 - API 契约树状预览工具",
+      "seoDescription": "在线可视化 JSON Schema，检查 required、nullable、enum、array items、additionalProperties、oneOf/anyOf 和 API 契约破坏性变更。",
       "keywords": [
-        "json-schema-visualizer",
-        "json schema 可视化",
-        "diagram tool",
-        "DiagramPreview"
+        "JSON Schema 可视化",
+        "JSON Schema visualizer",
+        "API 契约 review",
+        "schema tree viewer",
+        "JSON Schema form preview"
       ],
       "h1": "JSON Schema 可视化",
-      "intro": "粘贴 JSON Schema，查看属性、类型、必填字段、数组、枚举和组合结构树。",
+      "intro": "把 JSON Schema 转成可读结构树，在发布 API 文档、生成表单或修改契约前检查必填字段、枚举、数组和组合结构。",
       "badges": [
         "No AI",
         "Local preview",
@@ -1502,6 +1719,14 @@
         {
           "question": "如何让 schema 图更易读？",
           "answer": "超大 schema 按资源拆分，description 保持短句，深层匿名对象能命名就命名。"
+        },
+        {
+          "question": "它适合做破坏性变更 review 吗？",
+          "answer": "适合。可以用来发现新增 required 字段、enum 变化、嵌套数组变化、nullable 行为变化，以及 oneOf/anyOf 分支对客户端的影响。"
+        },
+        {
+          "question": "AI 或代码工具生成的 schema 需要可视化吗？",
+          "answer": "建议需要。生成的 schema 可能凭空增加 metadata、漏掉 required 字段，或简化组合规则，必须和应用实际 validator 对比。"
         }
       ],
       "seoBody": [
@@ -1530,6 +1755,17 @@
             "oneOf/anyOf 过深时，应把重点分支整理成 review notes。"
           ],
           "code": "{\n  \"type\": \"object\",\n  \"required\": [\"id\", \"status\"],\n  \"properties\": {\n    \"status\": {\"enum\": [\"draft\", \"paid\", \"cancelled\"]}\n  }\n}"
+        },
+        {
+          "title": "文档模式：Schema 树要和示例 payload 配套",
+          "body": "Schema 树能解释结构，但开发者仍然需要示例值。建议用可视化树展示必填字段和分支，再在旁边放一个小的请求或响应示例。",
+          "bullets": [
+            "结构交给树状图，真实取值交给示例 payload。",
+            "把会映射到 UI 状态或 SDK 常量的 enum 单独说明。",
+            "oneOf/anyOf 过密时，用正文解释每个分支的适用场景。"
+          ],
+          "code": "{\n  \"email\": \"user@example.com\",\n  \"plan\": \"pro\",\n  \"metadata\": {\"source\": \"checkout\"}\n}",
+          "caption": "示例 payload 能让 Schema 可视化对 SDK 用户和 API 调用方更有用。"
         }
       ]
     },
@@ -1895,17 +2131,18 @@
     },
     "docker-compose-diagram": {
       "name": "Docker Compose 架构图",
-      "shortDescription": "把 Docker Compose 服务和依赖关系转换为清晰的架构图。",
-      "seoTitle": "Docker Compose 架构图 - DiagramPreview",
-      "seoDescription": "把 Docker Compose 服务和依赖关系转换为清晰的架构图。",
+      "shortDescription": "把 docker-compose.yml 中的服务、depends_on、网络、卷和端口转换成架构图。",
+      "seoTitle": "Docker Compose 架构图 - 服务依赖关系可视化",
+      "seoDescription": "粘贴 docker-compose.yml，生成服务依赖架构图，检查 depends_on、网络、卷、端口、本地开发拓扑和发布前风险。",
       "keywords": [
-        "docker-compose-diagram",
-        "docker compose 架构图",
-        "diagram tool",
-        "developer documentation"
+        "Docker Compose 架构图",
+        "docker-compose diagram",
+        "Compose 服务依赖",
+        "本地开发拓扑",
+        "DevOps 文档"
       ],
       "h1": "Docker Compose 架构图",
-      "intro": "粘贴 docker-compose.yml，可视化服务、depends_on、网络和卷。",
+      "intro": "把 Docker Compose YAML 转成可读架构图，帮助团队理解本地栈服务依赖、端口暴露、网络和持久化数据。",
       "badges": [
         "本地预览",
         "无需 AI",
@@ -1931,19 +2168,31 @@
         }
       },
       "howToUse": [
-        "把源文本粘贴到编辑器。",
-        "需要起步模板时加载示例。",
-        "检查生成的可视化结果，必要时导出。"
+        "粘贴包含 services、networks、volumes 和 depends_on 的 docker-compose.yml。",
+        "把服务依赖和 readiness/healthcheck 保证分开 review。",
+        "检查哪些服务暴露端口、挂载卷或共享网络。",
+        "公开分享前移除 secret、私有 registry 和环境变量。",
+        "导出图用于 onboarding、README 或本地开发说明。"
       ],
       "useCases": [
-        "开发文档",
-        "代码评审",
-        "AI 生成内容校验"
+        "本地栈文档",
+        "Compose 服务依赖 review",
+        "开发者 onboarding",
+        "README 架构图",
+        "AI 生成 Compose 校验"
       ],
       "faq": [
         {
           "question": "这个工具会用 AI 吗？",
           "answer": "不会。它在浏览器本地解析并可视化输入内容。"
+        },
+        {
+          "question": "depends_on 是否代表服务已经 ready？",
+          "answer": "不代表。depends_on 只说明启动顺序，不说明应用 readiness。需要 healthcheck 和应用重试保证。"
+        },
+        {
+          "question": "分享 Compose 图前应移除什么？",
+          "answer": "移除 secret、私有 registry 名称、内部 host、以及不应出现在公开文档里的环境变量。"
         }
       ],
       "seoBody": [
@@ -1956,37 +2205,48 @@
           "title": "Demo：可视化 Compose Web 栈",
           "body": "Docker Compose 描述本地架构。图可以帮助 onboarding 和调试服务依赖、端口、网络和 volume。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "depends_on 和实际 readiness 分开展示。",
+            "标出公网端口和仅内部使用的服务。",
+            "文件变大后按 app、data、observability 分组。"
           ],
-          "code": "services:\n  web:\n    depends_on: [api]\n  api:\n    depends_on: [db]\n  db:\n    image: postgres:16"
+          "code": "services:\n  web:\n    build: .\n    depends_on: [api]\n    ports: [\"3000:3000\"]\n  api:\n    image: acme/api\n    depends_on: [db]\n  db:\n    image: postgres:16"
         },
         {
-          "title": "Docker Compose 架构图 Review 清单",
-          "body": "Compose 图说明拓扑，不代表 depends_on 的服务已经 ready。",
+          "title": "Review 清单：Compose 图不是 readiness 证明",
+          "body": "图能说明拓扑，但 depends_on 不总是代表依赖已能接收流量。视觉 review 应和 healthcheck、环境变量检查一起做。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "数据库和队列应配置 healthcheck。",
+            "检查端口是否意外暴露。",
+            "数据需要持久化时 review named volume。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "healthcheck:\n  test: [\"CMD\", \"pg_isready\", \"-U\", \"postgres\"]\n  interval: 10s\n  retries: 5"
+        },
+        {
+          "title": "安全提示：发布前清理 Compose",
+          "body": "Compose 文件常包含环境变量、本地路径、私有 registry 和内部服务名。图更容易分享，但源码仍要先 review。",
+          "bullets": [
+            "删除 environment 中的 secret 和 token。",
+            "对外发布时替换私有 registry 或内部 host。",
+            "volume 路径不要暴露本机目录结构。"
+          ],
+          "code": "environment:\n  DATABASE_URL: postgres://user:***@db:5432/app\nvolumes:\n  - ./data:/var/lib/postgresql/data"
         }
       ]
     },
     "kubernetes-manifest-visualizer": {
       "name": "Kubernetes Manifest 可视化",
-      "shortDescription": "把 Kubernetes manifest 转成资源树，查看 Deployment、Service、Ingress、标签和命名空间。",
-      "seoTitle": "Kubernetes Manifest 可视化 - DiagramPreview",
-      "seoDescription": "把 Kubernetes manifest 转成资源树，查看 Deployment、Service、Ingress、标签和命名空间。",
+      "shortDescription": "把 Kubernetes YAML 可视化为资源树，检查 Deployment、Service、Ingress、label 和 namespace。",
+      "seoTitle": "Kubernetes Manifest 可视化 - YAML 资源关系检查工具",
+      "seoDescription": "粘贴 Kubernetes YAML manifest，在线检查 Deployment、Service、Ingress、labels、selectors、namespace、镜像、端口和发布风险。",
       "keywords": [
-        "kubernetes-manifest-visualizer",
-        "kubernetes manifest 可视化",
-        "diagram tool",
-        "developer documentation"
+        "Kubernetes Manifest 可视化",
+        "Kubernetes YAML viewer",
+        "Deployment Service 检查",
+        "K8s manifest review",
+        "Ingress 可视化"
       ],
       "h1": "Kubernetes Manifest 可视化",
-      "intro": "粘贴一个或多个 Kubernetes YAML 资源，查看 kind、name、namespace、labels 和 spec 摘要。",
+      "intro": "把一个或多个 Kubernetes YAML 资源转换成可读结构，帮助发布前检查 selector、label、image、port、namespace 和 ingress。",
       "badges": [
         "本地预览",
         "无需 AI",
@@ -2012,19 +2272,31 @@
         }
       },
       "howToUse": [
-        "把源文本粘贴到编辑器。",
-        "需要起步模板时加载示例。",
-        "检查生成的可视化结果，必要时导出。"
+        "粘贴一个或多个 Kubernetes YAML manifest。",
+        "检查 resource kind、namespace、labels、selectors、container image、ports 和 ingress routes。",
+        "应用前确认 Service selector 匹配 Pod template labels。",
+        "重点检查 image tag、env、resources、probe、hostPath 等风险字段。",
+        "导出可视化结果用于发布说明、PR review 或 onboarding 文档。"
       ],
       "useCases": [
-        "开发文档",
-        "代码评审",
-        "AI 生成内容校验"
+        "Kubernetes YAML review",
+        "Deployment 和 Service 检查",
+        "Ingress 路由文档",
+        "发布 manifest review",
+        "AI 生成 manifest 校验"
       ],
       "faq": [
         {
           "question": "这个工具会用 AI 吗？",
           "answer": "不会。它在浏览器本地解析并可视化输入内容。"
+        },
+        {
+          "question": "能证明 manifest 一定部署成功吗？",
+          "answer": "不能。它帮助 review 结构和关系，最终部署还需要 kubectl、policy check 和集群验证。"
+        },
+        {
+          "question": "哪些 Kubernetes 问题最适合可视化检查？",
+          "answer": "selector/label 不匹配、namespace 错误、意外 image tag、缺失 probe、端口暴露和危险 volume mount 都更容易在资源树里发现。"
         }
       ],
       "seoBody": [
@@ -2035,23 +2307,33 @@
       "deepDives": [
         {
           "title": "Demo：一起检查 Deployment 和 Service",
-          "body": "Kubernetes YAML 按 namespace、label、selector 和端口分组后更容易 review。",
+          "body": "Kubernetes YAML 按 namespace、label、selector 和端口组织后更容易 review。预览能在 kubectl apply 前发现 label 不匹配。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "对比 Service selector 和 Pod template labels。",
+            "发布 review 时检查 image tag 和 pull policy。",
+            "把 resource requests/limits 和 replica 数放在一起看。"
           ],
-          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: api\nspec:\n  template:\n    metadata:\n      labels: {app: api}"
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: api\nspec:\n  selector:\n    matchLabels: {app: api}\n  template:\n    metadata:\n      labels: {app: api}"
         },
         {
-          "title": "Kubernetes Manifest 可视化 Review 清单",
-          "body": "发布前优先检查 ingress、service type、image、probe、secret 和 resources。",
+          "title": "发布清单：找出高风险 manifest 改动",
+          "body": "Manifest 可视化应优先暴露生产敏感字段：ingress hosts、service type、image tags、probe、secret 和 resources。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "LoadBalancer 和 NodePort 变化都属于暴露面变化。",
+            "增加 replicas 前确认 readiness/liveness probes。",
+            "不要把真实 secret 值粘贴到公开工具。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "service.type: ClusterIP -> LoadBalancer\nimage.tag: 1.8.2 -> latest\nresources.limits.cpu: 500m"
+        },
+        {
+          "title": "调试模式：先看 selector，再看 container",
+          "body": "Service 没有 endpoints 时，container image 往往不是第一排查点。先对比 Service selector 和 Pod template labels。",
+          "bullets": [
+            "并排检查 metadata.labels 和 spec.selector。",
+            "确认相关资源 namespace 一致。",
+            "Service 使用命名 targetPort 时检查 container port name。"
+          ],
+          "code": "Service selector: app=checkout\nPod labels: app=checkout-api\nResult: Service has no matching endpoints"
         }
       ]
     },
@@ -2219,16 +2501,18 @@
     },
     "ai-drawio-generator": {
       "name": "AI Draw.io 生成器",
-      "shortDescription": "根据架构、CI/CD、数据链路描述生成可编辑的 diagrams.net / draw.io XML。",
-      "seoTitle": "AI Draw.io 生成器 Online - DiagramPreview",
-      "seoDescription": "根据架构、CI/CD、数据链路描述生成可编辑的 diagrams.net / draw.io XML。",
+      "shortDescription": "用 AI 生成可编辑 diagrams.net / draw.io XML，用于架构图、CI/CD 和数据流草稿。",
+      "seoTitle": "AI Draw.io 生成器 - 生成可编辑 diagrams.net XML",
+      "seoDescription": "从架构、CI/CD、云部署和数据流 prompt 生成可编辑 draw.io XML，在线预览并在交接前检查节点、标签和结构。",
       "keywords": [
-        "ai-drawio-generator",
-        "ai draw.io 生成器",
-        "ai draw.io generator"
+        "AI Draw.io 生成器",
+        "AI diagrams.net",
+        "生成 draw.io XML",
+        "editable architecture diagram",
+        "AI 架构图"
       ],
       "h1": "AI Draw.io 生成器",
-      "intro": "根据架构、CI/CD、数据链路描述生成可编辑的 diagrams.net / draw.io XML。",
+      "intro": "把架构说明、工作流或部署描述转换成可编辑 draw.io XML，适合团队继续在 diagrams.net 中调整布局和样式。",
       "badges": [
         "AI generated",
         "Preview",
@@ -2259,30 +2543,39 @@
         }
       },
       "howToUse": [
-        "描述要画的系统、工作流或部署关系。",
-        "选择 microservices、CI/CD、data flow、cloud 或 deployment 等图类型。",
-        "生成 draw.io XML，并检查 SVG 预览是否缺节点或标签不清楚。",
-        "下载 .drawio 文件，在 diagrams.net 里继续调整布局、样式和注释。"
+        "描述要绘制的系统、工作流或部署拓扑。",
+        "选择 microservices、CI/CD、data flow、cloud 或 deployment 等图表类型。",
+        "生成 draw.io XML 后，检查 SVG 预览中的缺失节点和不清晰标签。",
+        "下载 .drawio 文件，在 diagrams.net 中继续调整布局、样式和注释。",
+        "分享前再次确认 XML 可打开，且没有凭空组件或敏感信息。"
       ],
       "useCases": [
         "可编辑 AI 架构图",
         "diagrams.net 交接文件",
         "CI/CD 流程草稿",
-        "微服务图",
+        "微服务架构图",
         "数据流文档"
       ],
       "faq": [
         {
-          "question": "为什么生成 draw.io XML 而不是图片？",
-          "answer": "draw.io 文件可以继续编辑，团队能移动节点、改标签、加图标，并在 diagrams.net 里长期维护。"
+          "question": "为什么生成 draw.io XML，而不是只生成图片？",
+          "answer": "draw.io 文件可以继续编辑。团队成员可以移动节点、修改标签、添加图标，并在 diagrams.net 中维护它。"
         },
         {
-          "question": "prompt 里应该写什么？",
-          "answer": "写清主要角色、服务、数据库、队列、外部系统和关键流向。短但具体的 prompt 通常更容易生成可用图。"
+          "question": "Prompt 里应该包含什么？",
+          "answer": "写清主要参与方、服务、存储、队列、外部系统，以及关键流向。简短但具体的 prompt 通常生成更干净的图。"
         },
         {
-          "question": "生成的 .drawio 可以直接作为最终图吗？",
-          "answer": "建议当结构化草稿使用。发布前要预览、删掉 AI 编造的组件，并调整布局。"
+          "question": "生成的 .drawio 文件可以直接发布吗？",
+          "answer": "应把它当作结构化初稿。先预览，删除凭空组件，优化布局，再作为架构文档发布。"
+        },
+        {
+          "question": "如何让 AI 生成的 draw.io 更容易维护？",
+          "answer": "要求每页只放一个主题、标签简短、节点命名稳定、输出可编辑 XML。不要要求一张图画完整企业地图。"
+        },
+        {
+          "question": "什么时候用 AI draw.io，什么时候用 Mermaid？",
+          "answer": "如果团队需要在 diagrams.net 中继续视觉编辑，用 AI draw.io；如果更重视文本源码和 code review，用 Mermaid。"
         }
       ],
       "seoBody": [
@@ -2303,26 +2596,34 @@
       },
       "deepDives": [
         {
-          "title": "Demo：生成可编辑微服务图的 prompt",
-          "body": "好的 prompt 会说明边界、主要服务和流向。不要只写“画一个系统图”，否则生成的 .drawio 很难直接用于文档。",
+          "title": "Demo：生成可编辑微服务图",
+          "body": "好的 prompt 会说明系统边界、重要服务和流向。不要只说“画一个系统图”，否则很难得到可用的 .drawio 文件。",
           "bullets": [
-            "明确外部用户和托管服务。",
-            "按 checkout、fulfillment、analytics 等领域分组。",
-            "要求可编辑节点和带标签的连线，而不是漂亮但不可维护的图片。"
+            "明确外部参与方和托管服务。",
+            "按 checkout、fulfillment、analytics 等领域分组服务。",
+            "要求可编辑节点和有标签的连接线，而不是只要好看的图片。"
           ],
-          "code": "Create an editable draw.io microservice diagram for an ecommerce checkout flow. Include browser, CDN, Next.js app, API gateway, auth service, checkout service, payment provider, order database, Redis cache, event bus, inventory service, shipping service, and analytics warehouse. Label synchronous calls and async events.",
-          "caption": "下载的 .drawio 应先 review，再成为正式架构图。"
+          "code": "Create an editable draw.io microservice diagram for an ecommerce checkout flow. Include browser, CDN, Next.js app, API gateway, auth service, checkout service, payment provider, order database, Redis cache, event bus, inventory service, shipping service, and analytics warehouse. Label synchronous calls and async events."
         },
         {
-          "title": "调试清单：让 AI 生成的 draw.io 保持可编辑",
-          "body": "最常见的问题不是图不好看，而是 AI 输出变成了不可维护的画布。生成后应检查每个节点、容器和连线是否仍然能在 diagrams.net 中编辑。",
+          "title": "调试清单：保持 AI draw.io 输出可编辑",
+          "body": "最常见的问题是要求 AI 生成“精美图片”，而不是结构化图。review 时应检查每个 shape、container 和 connector 下载后是否仍可编辑。",
           "bullets": [
-            "节点标签用名词，连线标签用动词或接口名。",
-            "只有在边界真的重要时才要求泳道或分组容器。",
-            "分享前先打开一次 .drawio 文件，快速发现 XML 错误或超长标签。"
+            "节点标签用名词，连接线标签用动词。",
+            "只有当边界对评审有意义时，才要求 swimlane 或 container。",
+            "分享前至少打开一次 .drawio 文件，diagrams.net 很快能暴露 malformed XML 或过长标签。"
           ],
-          "code": "<mxfile><diagram name=\"Checkout\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/></root></mxGraphModel></diagram></mxfile>",
-          "caption": "第一版先保证结构可编辑，样式可以在导入后继续调整。"
+          "code": "<mxfile><diagram name=\"Checkout\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+        },
+        {
+          "title": "Prompt 模式：生成可交接的 .drawio 文件",
+          "body": "有用的 AI draw.io prompt 应说明受众、页面结构、必需节点和编辑预期。目标不是只预览，而是让别人能打开并继续修改。",
+          "bullets": [
+            "每个工作流或架构层单独一页。",
+            "明确列出必需节点和外部服务。",
+            "要求标签简短，不要加入让 XML 变噪的装饰元素。"
+          ],
+          "code": "Create editable draw.io XML for a checkout architecture review. One page named Checkout Context. Include Browser, API Gateway, Orders Service, Payment Provider, PostgreSQL, Redis, and Kafka. Keep labels under 24 characters."
         }
       ]
     },
@@ -2545,16 +2846,18 @@
     },
     "plantuml-to-drawio": {
       "name": "PlantUML 转 Draw.io",
-      "shortDescription": "将常见 PlantUML 时序图、组件图、类图、活动图转换为可编辑 draw.io XML，并提供 SVG 预览。",
-      "seoTitle": "PlantUML 转 Draw.io Online - DiagramPreview",
-      "seoDescription": "将常见 PlantUML 时序图、组件图、类图、活动图转换为可编辑 draw.io XML，并提供 SVG 预览。",
+      "shortDescription": "把 PlantUML 草稿转换成可编辑 draw.io XML，方便在 diagrams.net 中继续调整。",
+      "seoTitle": "PlantUML 转 Draw.io - UML 转 diagrams.net 可编辑文件",
+      "seoDescription": "在线把 PlantUML 时序图或结构草稿转换成 draw.io XML，预览并下载可编辑 diagrams.net 文件，适合架构图交接。",
       "keywords": [
-        "plantuml-to-drawio",
-        "plantuml 转 draw.io",
-        "plantuml to draw.io"
+        "PlantUML 转 Draw.io",
+        "PlantUML to diagrams.net",
+        "UML 转 drawio",
+        "draw.io XML",
+        "可编辑 UML 图"
       ],
       "h1": "PlantUML 转 Draw.io",
-      "intro": "将常见 PlantUML 时序图、组件图、类图、活动图转换为可编辑 draw.io XML，并提供 SVG 预览。",
+      "intro": "当 PlantUML 源码适合 code review，但团队还需要视觉编辑时，可以先转换成 draw.io XML，再在 diagrams.net 中继续整理。",
       "badges": [
         "Live preview",
         "Export",
@@ -2579,30 +2882,34 @@
         }
       },
       "howToUse": [
-        "粘贴聚焦的 PlantUML 图，不要混入大量无关宏。",
-        "检查生成的 draw.io 结构，确认主要节点和连线被保留。",
-        "下载 .drawio 文件，在 diagrams.net 中完成布局和样式调整。",
-        "如果 PlantUML 仍是源码事实来源，请把原始文本和转换文件一起保留。"
+        "粘贴 PlantUML 源码，先确认它本身能表达目标流程或结构。",
+        "转换为 draw.io XML 后，检查节点、消息、容器和标签是否保留。",
+        "下载 .drawio 文件，在 diagrams.net 中调整布局、颜色和注释。",
+        "把 PlantUML 源码和 draw.io 文件都保留，避免后续无法追溯。"
       ],
       "useCases": [
-        "PlantUML 迁移",
-        "可编辑时序图",
+        "UML 到 draw.io 迁移",
         "架构图交接",
-        "diagrams.net 协作",
-        "文档转换"
+        "时序图视觉编辑",
+        "文档产物转换",
+        "团队 diagrams.net 协作"
       ],
       "faq": [
         {
-          "question": "转换会像素级一致吗？",
-          "answer": "不会。PlantUML 和 draw.io 的布局模型不同，目标是保留可编辑结构，而不是完全复刻视觉效果。"
+          "question": "为什么要把 PlantUML 转成 draw.io？",
+          "answer": "PlantUML 适合文本维护，draw.io 适合视觉编辑。当图表需要给非代码人员继续调整时，转换成 draw.io 更方便。"
         },
         {
-          "question": "哪些 PlantUML 图最适合转换？",
-          "answer": "时序图、组件图、类图和简单活动图最适合，因为实体和关系比较容易映射。"
+          "question": "转换后还能保持完全一致吗？",
+          "answer": "不一定。转换结果应作为可编辑草稿，需要检查参与方、箭头、标签和分组是否符合原图。"
         },
         {
-          "question": "什么时候应该保留原始 PlantUML？",
-          "answer": "如果图由代码或文档流水线生成，建议保留 PlantUML；draw.io 更适合协作编辑和展示润色。"
+          "question": "应该保留 PlantUML 源码吗？",
+          "answer": "建议保留。PlantUML 是更适合 code review 的源格式，draw.io 是便于视觉协作的编辑格式。"
+        },
+        {
+          "question": "适合转换超大 PlantUML 图吗？",
+          "answer": "不建议。超大图转换后也很难编辑，最好先拆分主题，再转换成多个 draw.io 页面。"
         }
       ],
       "seoBody": [
@@ -2612,24 +2919,34 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：把时序图转换为可视化编辑文件",
-          "body": "时序图常从 PlantUML 开始，因为文本容易 review。转成 draw.io 后，产品、支持或架构团队可以不学 PlantUML 也能调整标签和间距。",
+          "title": "Demo：把登录时序转成 draw.io 草稿",
+          "body": "时序图经常先以 PlantUML 写在文档里。当需要给产品或架构评审继续拖拽调整时，可转换成 draw.io。",
           "bullets": [
-            "参与者保持显式，避免输入中包含复杂宏。",
-            "一次转换一个场景，不要把完整系统流塞进一个文件。",
-            "转换后在 diagrams.net 中调整生命线间距和注释。"
+            "先保证 PlantUML 原图语义正确。",
+            "转换后检查消息顺序和参与方是否完整。",
+            "在 diagrams.net 中只调整布局和注释，不随意改语义。"
           ],
-          "code": "@startuml\nactor User\nparticipant Web\nparticipant API\ndatabase DB\nUser -> Web: Submit order\nWeb -> API: POST /orders\nAPI -> DB: Insert order\nDB --> API: order id\nAPI --> Web: 201 Created\n@enduml"
+          "code": "@startuml\nactor User\nparticipant Web\nparticipant API\nUser -> Web: login\nWeb -> API: POST /auth\nAPI --> Web: token\n@enduml"
         },
         {
-          "title": "转换说明：哪些 PlantUML 结构更适合转 draw.io",
-          "body": "PlantUML 是文本优先，draw.io 是画布优先，所以第一版转换更适合保留可编辑结构，而不是追求像素级一致。",
+          "title": "交接模式：源码和可编辑文件并存",
+          "body": "PlantUML 和 draw.io 各有价值。源码适合 review，可编辑图适合视觉协作；两者并存可以减少未来维护成本。",
           "bullets": [
-            "sequence participant 会转换成有顺序的节点和消息连线。",
-            "component、class 块会转换成带标签的盒子和基础关系。",
-            "skinparam、note、高级宏应视作提示，而不是精确画布指令。"
+            "PR review 看 PlantUML 源码。",
+            "文档发布使用 draw.io/SVG 产物。",
+            "重大改动先改源，再重新生成或同步编辑文件。"
           ],
-          "code": "@startuml\nactor User\nparticipant API\ndatabase DB\nUser -> API: POST /orders\nAPI -> DB: insert order\nAPI --> User: 201 Created\n@enduml"
+          "code": "login.puml -> login.drawio -> login.svg"
+        },
+        {
+          "title": "转换清单：检查语义是否丢失",
+          "body": "转换不是最终发布步骤。必须确认关键分支、note、participant 和箭头标签没有在转换中丢失或混乱。",
+          "bullets": [
+            "检查 alt/opt 分支是否仍然可读。",
+            "检查 note 是否成为可见注释。",
+            "检查箭头方向和返回消息是否正确。"
+          ],
+          "code": "PlantUML source -> draw.io preview -> manual review -> publish"
         }
       ]
     },
@@ -2725,16 +3042,18 @@
     },
     "drawio-to-svg": {
       "name": "Draw.io 转 SVG 预览",
-      "shortDescription": "将未压缩的 diagrams.net / draw.io XML 预览为 SVG，并支持导出渲染结果。",
-      "seoTitle": "Draw.io 转 SVG 预览 Online - DiagramPreview",
-      "seoDescription": "将未压缩的 diagrams.net / draw.io XML 预览为 SVG，并支持导出渲染结果。",
+      "shortDescription": "把未压缩 diagrams.net / draw.io XML 预览为 SVG，并在发布前检查边界和标签。",
+      "seoTitle": "Draw.io 转 SVG 预览 - diagrams.net XML 导出检查",
+      "seoDescription": "在线预览未压缩 draw.io XML 为 SVG，检查页面、对象、标签、可见边界和导出质量，适合文档发布和图表流水线。",
       "keywords": [
-        "drawio-to-svg",
-        "draw.io 转 svg 预览",
-        "draw.io to svg preview"
+        "draw.io 转 SVG",
+        "diagrams.net SVG export",
+        "drawio XML 预览",
+        "SVG 导出检查",
+        "draw.io 文档发布"
       ],
       "h1": "Draw.io 转 SVG 预览",
-      "intro": "将未压缩的 diagrams.net / draw.io XML 预览为 SVG，并支持导出渲染结果。",
+      "intro": "粘贴未压缩 draw.io XML，快速检查 SVG 渲染结果，避免破损 XML、裁切对象和隐藏草稿进入文档。",
       "badges": [
         "Live preview",
         "Export",
@@ -2759,22 +3078,22 @@
         }
       },
       "howToUse": [
-        "粘贴未压缩 diagrams.net XML 或加载示例。",
-        "检查 SVG 预览、页面名、对象数量、标签和可见边界。",
-        "准备进入文档或 issue 时复制或导出 SVG。",
-        "如果预览失败，先在 diagrams.net 中另存为未压缩 XML。"
+        "粘贴未压缩 diagrams.net XML，或加载示例。",
+        "预览 SVG，检查页面名称、对象数量、标签和可见边界。",
+        "确认图表适合文档或 issue 后，再复制或导出 SVG。",
+        "如果无法预览，请在 diagrams.net 中另存为未压缩 XML 后重试。"
       ],
       "useCases": [
         "draw.io XML 预览",
         "SVG 导出检查",
-        "生成图表 QA",
+        "生成图 QA",
         "文档流水线 review",
         "diagrams.net 文件检查"
       ],
       "faq": [
         {
-          "question": "为什么我的 draw.io 文件不能渲染？",
-          "answer": "很多 .drawio 文件是压缩格式，需要先导出或保存为未压缩 XML 再粘贴。"
+          "question": "为什么我的 draw.io 文件无法渲染？",
+          "answer": "很多 .drawio 文件是压缩格式。请从 diagrams.net 导出或保存为未压缩 XML 后再粘贴。"
         },
         {
           "question": "它能替代 diagrams.net 吗？",
@@ -2782,7 +3101,15 @@
         },
         {
           "question": "导出 SVG 前应该检查什么？",
-          "answer": "检查页面选择、对象是否被裁切、标签是否可读，以及图里是否包含内部域名或敏感文本。"
+          "answer": "检查页面选择、对象是否被裁切、标签是否可读，以及图里是否包含私有文本或内部域名。"
+        },
+        {
+          "question": "应该发布 SVG 还是保留 draw.io XML？",
+          "answer": "给读者发布 SVG，同时保留 draw.io XML 作为可编辑源文件，这样文档干净且可维护。"
+        },
+        {
+          "question": "为什么文档流水线前还要浏览器预览？",
+          "answer": "它能提前发现破损 XML、巨大空白、隐藏草稿对象，以及在编辑器里看着正常但静态文档里失败的标签。"
         }
       ],
       "seoBody": [
@@ -2793,23 +3120,33 @@
       "deepDives": [
         {
           "title": "Demo：发布前检查生成的 draw.io XML",
-          "body": "生成式 draw.io 文件进入文档流水线前应该先预览。快速 SVG 渲染能发现 XML 损坏、节点裁切和意外标签。",
+          "body": "生成的 draw.io 文件进入文档流水线前应该先预览。快速 SVG 渲染可以发现破损 XML、裁切节点和意外标签。",
           "bullets": [
             "确认预览显示目标页面，而不是空白默认页。",
             "检查对象标签是否被边界裁切。",
-            "分享 SVG 前移除内部 URL 或凭据信息。"
+            "分享导出 SVG 前移除内部 URL 或凭据。"
           ],
           "code": "<mxfile host=\"app.diagrams.net\">\n  <diagram name=\"Preview\">\n    <mxGraphModel>...</mxGraphModel>\n  </diagram>\n</mxfile>"
         },
         {
-          "title": "发布清单：导出 SVG 前避免信息丢失",
-          "body": "draw.io 编辑器里看起来正常的图，发布成 SVG 后可能出现文字溢出、外部图标丢失、画布留白或隐藏草稿对象。",
+          "title": "发布清单：导出 SVG 但不丢失含义",
+          "body": "draw.io 图在编辑器里看起来正确，不代表导出的 SVG 适合文档。导出前要看静态读者是否仍能理解上下文。",
           "bullets": [
-            "检查 SVG viewport，去掉多余空白。",
-            "保持标签短一些，避免在响应式页面中溢出。",
-            "发布前用预览检查隐藏图层或画布外对象。"
+            "页面标题和图标题应一致。",
+            "导出前移除画布外草稿对象。",
+            "检查 SVG 在浅色和深色文档背景中的可读性。"
           ],
-          "code": "<img src=\"/previews/checkout-architecture.svg\" alt=\"Checkout architecture diagram\" />"
+          "code": "Source: checkout.drawio\nArtifact: checkout.svg\nReview: labels, bounds, private text, page name"
+        },
+        {
+          "title": "维护模式：把 XML 当源文件",
+          "body": "SVG 是发布产物，不应成为唯一来源。把 XML 和 SVG 的关系写清楚，未来修改才不会只改图片。",
+          "bullets": [
+            "仓库保留 .drawio XML。",
+            "CI 或人工步骤从 XML 导出 SVG。",
+            "PR 中同时 review 源文件和渲染结果。"
+          ],
+          "code": "docs/diagrams/checkout.drawio -> public/images/checkout.svg"
         }
       ]
     },
@@ -3430,16 +3767,18 @@
     },
     "graphql-schema-visualizer": {
       "name": "GraphQL Schema 可视化",
-      "shortDescription": "可视化 GraphQL types、inputs、interfaces、fields 和关系。",
-      "seoTitle": "GraphQL Schema 可视化 Online - DiagramPreview",
-      "seoDescription": "可视化 GraphQL types、inputs、interfaces、fields 和关系。",
+      "shortDescription": "可视化 GraphQL type、input、interface、enum、字段和关系。",
+      "seoTitle": "GraphQL Schema 可视化 - Type 关系图与 API 契约预览",
+      "seoDescription": "粘贴 GraphQL SDL，在线查看 type、input、interface、enum、字段 nullability、Query/Mutation 入口和破坏性变更风险。",
       "keywords": [
-        "graphql-schema-visualizer",
-        "graphql schema 可视化",
-        "graphql schema visualizer"
+        "GraphQL Schema 可视化",
+        "GraphQL type diagram",
+        "GraphQL SDL preview",
+        "GraphQL breaking changes",
+        "API 契约 review"
       ],
       "h1": "GraphQL Schema 可视化",
-      "intro": "可视化 GraphQL types、inputs、interfaces、fields 和关系。",
+      "intro": "把 GraphQL SDL 转成类型关系图，让 API 团队在发布变更前检查字段、输入、枚举、nullability 和嵌套关系。",
       "badges": [
         "Live preview",
         "Export",
@@ -3464,23 +3803,35 @@
         }
       },
       "howToUse": [
-        "粘贴或加载一个示例。",
-        "检查生成的预览或结构。",
-        "复制代码、导出图片或下载生成文件。"
+        "粘贴聚焦的 GraphQL SDL schema 或加载示例。",
+        "检查 object type、input type、interface、enum、字段 nullability 和嵌套关系。",
+        "先看 Query 和 Mutation 入口，再展开相关领域类型。",
+        "发布前检查删除字段、enum 变化、参数变化和 nullable 到 non-null 的变更。",
+        "导出图用于 API 文档、schema review notes 或 SDK onboarding。"
       ],
       "useCases": [
-        "AI 生成图表后的校验",
-        "开发者文档和 README",
-        "架构设计、监控和配置审查"
+        "GraphQL API 文档",
+        "Schema 破坏性变更 review",
+        "客户端 onboarding",
+        "嵌套查询解释",
+        "AI 生成 schema 校验"
       ],
       "faq": [
         {
-          "question": "这个 GraphQL Schema 可视化 工具适合什么场景？",
-          "answer": "可视化 GraphQL types、inputs、interfaces、fields 和关系。"
+          "question": "这个工具用来做什么？",
+          "answer": "可视化 GraphQL type、input、interface、字段和关系。"
         },
         {
-          "question": "是否需要登录？",
-          "answer": "不需要，当前工具页面可以直接在浏览器里使用。"
+          "question": "需要账号吗？",
+          "answer": "不需要，工具页可以直接在浏览器里使用。"
+        },
+        {
+          "question": "哪些 GraphQL 变更对客户端风险最高？",
+          "answer": "删除字段、删除 enum 值、类型改名、参数变更，以及 nullable 到 non-null 的变化都可能破坏客户端。"
+        },
+        {
+          "question": "大型 GraphQL schema 怎么看才清楚？",
+          "answer": "从一个 Query 或 Mutation 场景开始，只包含解释该流程所需的 object、input、enum 和 interface。"
         }
       ],
       "seoBody": [
@@ -3490,38 +3841,50 @@
       "deepDives": [
         {
           "title": "Demo：可视化 GraphQL 类型和字段",
-          "body": "GraphQL schema 用图更容易 review object、input、enum 和关系。",
+          "body": "GraphQL schema 在 type、input、enum 和关系可见时更容易讨论。预览能帮助 API 团队在发布前审查 schema 形状。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "区分 Query、Mutation 和领域对象。",
+            "查找返回宽泛 JSON scalar 但没有说明的字段。",
+            "检查 input type 是否和 object type 过度耦合。"
           ],
-          "code": "type Query { order(id: ID!): Order }\ntype Order { id: ID!, status: OrderStatus! }"
+          "code": "type Query { order(id: ID!): Order }\ntype Order { id: ID!, items: [OrderItem!]!, status: OrderStatus! }\nenum OrderStatus { DRAFT PAID CANCELLED }"
         },
         {
-          "title": "GraphQL Schema 可视化 Review 清单",
-          "body": "GraphQL 变更即使 schema 合法也可能破坏客户端。",
+          "title": "Schema review：捕获 GraphQL 破坏性变更",
+          "body": "GraphQL schema 仍然 valid，不代表客户端安全。视觉 review 可以暴露字段删除、nullability 变化和 enum 假设。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "nullable 到 non-null 的变化可能影响客户端。",
+            "谨慎 review enum 删除和字段改名。",
+            "用关系图解释嵌套查询成本。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "Before: user.name: String\nAfter: user.name: String!\nRisk: clients that handle null differently"
+        },
+        {
+          "title": "文档模式：从 Query 和 Mutation 开始",
+          "body": "GraphQL 图从用户实际调用的 operation 入口开始最容易读。再展开解释 response shape 或 input contract 所需的相关类型。",
+          "bullets": [
+            "先展示 Query 和 Mutation 入口。",
+            "分页类型靠近使用它的列表字段。",
+            "昂贵嵌套关系应在图旁边用文档说明。"
+          ],
+          "code": "type Query {\n  order(id: ID!): Order\n}\ntype Mutation {\n  createOrder(input: CreateOrderInput!): Order!\n}"
         }
       ]
     },
     "protobuf-schema-visualizer": {
       "name": "Protobuf Schema 可视化",
-      "shortDescription": "将 protobuf message、字段和引用关系可视化为类图。",
-      "seoTitle": "Protobuf Schema 可视化 Online - DiagramPreview",
-      "seoDescription": "将 protobuf message、字段和引用关系可视化为类图。",
+      "shortDescription": "把 .proto 中的 message、字段、enum、service 和引用关系可视化。",
+      "seoTitle": "Protobuf Schema 可视化 - message、字段和 service 关系图",
+      "seoDescription": "在线可视化 Protobuf schema，查看 message、字段编号、repeated、enum、service、request/response 和 schema 演进风险。",
       "keywords": [
-        "protobuf-schema-visualizer",
-        "protobuf schema 可视化",
-        "protobuf schema visualizer"
+        "Protobuf Schema 可视化",
+        "proto visualizer",
+        "protobuf message diagram",
+        "gRPC schema docs",
+        "Protobuf 契约 review"
       ],
       "h1": "Protobuf Schema 可视化",
-      "intro": "将 protobuf message、字段和引用关系可视化为类图。",
+      "intro": "粘贴 .proto schema，把 message、字段、枚举、service 和引用关系展示为更容易 review 的图。",
       "badges": [
         "Live preview",
         "Export",
@@ -3546,49 +3909,76 @@
         }
       },
       "howToUse": [
-        "粘贴或加载一个示例。",
-        "检查生成的预览或结构。",
-        "复制代码、导出图片或下载生成文件。"
+        "粘贴 .proto schema 或加载 message/service 示例。",
+        "检查 message、字段、repeated 关系、enum、service、request 和 response 类型。",
+        "评估变更时同时检查 field number、reserved 字段和 enum 默认值。",
+        "大型 proto 按 package 或 service 拆分后再做文档。",
+        "导出可视化结果用于 API 文档、SDK 说明或 schema review。"
       ],
       "useCases": [
-        "AI 生成图表后的校验",
-        "开发者文档和 README",
-        "架构设计、监控和配置审查"
+        "Protobuf API 契约 review",
+        "SDK 文档",
+        "Message 关系图",
+        "Schema 演进 review",
+        "AI 生成 proto 校验"
       ],
       "faq": [
         {
-          "question": "这个 Protobuf Schema 可视化 工具适合什么场景？",
-          "answer": "将 protobuf message、字段和引用关系可视化为类图。"
+          "question": "这个工具用来做什么？",
+          "answer": "把 protobuf message、字段和引用关系可视化，方便看懂 API 契约和数据结构。"
         },
         {
-          "question": "是否需要登录？",
-          "answer": "不需要，当前工具页面可以直接在浏览器里使用。"
+          "question": "需要账号吗？",
+          "answer": "不需要，工具页可以直接在浏览器里使用。"
+        },
+        {
+          "question": "能帮助 review protobuf schema 变更吗？",
+          "answer": "可以。图能更清楚展示 message 引用、repeated 字段、enum 和 service request/response 形状。"
+        },
+        {
+          "question": "视觉变化能证明 wire compatibility 吗？",
+          "answer": "不能。兼容性取决于 field number、reserved 字段、enum 行为和客户端生成代码预期。"
+        },
+        {
+          "question": "service 文档应包含什么？",
+          "answer": "包含 service block、request message、response message、相关 enum，以及客户端需要理解的嵌套 message。"
         }
       ],
       "seoBody": [
-        "Protobuf Schema 可视化 面向开发者文档、AI 生成图表校验和工程配置可视化场景。",
-        "它可以帮助你把文本源、配置或 AI 输出转换成更容易检查和导出的结果。"
+        "Protobuf Schema 可视化适合 API 契约 review、SDK 文档和 proto 文件结构检查。",
+        "粘贴 protobuf schema 后，可以把 message、字段、repeated 关系、enum、service 请求响应类型看成更容易理解的结构图。",
+        "发布 schema 变更、检查 AI 生成 proto 示例或整理开发文档前，先用预览确认结构是否符合预期。"
       ],
       "deepDives": [
         {
           "title": "Demo：映射 protobuf message 和引用",
-          "body": "Protobuf 文件紧凑，但 message 引用和 repeated 字段用类图更容易读。",
+          "body": "Protobuf 文件很紧凑，但 message 引用和 repeated 字段变成类图后更容易检查。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "分开展示普通字段、enum 字段和 repeated 关系。",
+            "跨 service 的 schema 保留 package 名。",
+            "用图 review API 契约，不要只靠图判断二进制兼容。"
           ],
-          "code": "message Order { string id = 1; repeated OrderItem items = 2; }"
+          "code": "message Order {\n  string id = 1;\n  repeated OrderItem items = 2;\n  OrderStatus status = 3;\n}\nmessage OrderItem { string sku = 1; int32 qty = 2; }"
         },
         {
-          "title": "Protobuf Schema 可视化 Review 清单",
-          "body": "兼容性不只看形状，还要检查 field number 和 wire 行为。",
+          "title": "兼容性清单：可视化变更但不替代规则",
+          "body": "Protobuf 演进时，视觉 diff 很有帮助，但兼容性仍由 field number 和 wire behavior 决定。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "不要复用已删除字段的 field number。",
+            "删除旧字段时标记 reserved。",
+            "检查 enum 默认值和未知值处理。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "reserved 4, 7;\nreserved \"legacy_status\";"
+        },
+        {
+          "title": "Service 文档：把 RPC 和 message 形状连起来",
+          "body": "API 文档中，protobuf 图应把 service method 与 request/response message 放在一起，让 SDK 用户不必阅读整份 proto。",
+          "bullets": [
+            "每个 RPC 旁边显示 request 和 response。",
+            "控制客户端行为的 enum 要可见。",
+            "说明可能很大的 repeated 字段。"
+          ],
+          "code": "service OrderService {\n  rpc GetOrder (GetOrderRequest) returns (Order);\n}\nmessage GetOrderRequest { string id = 1; }"
         }
       ]
     },
@@ -3676,16 +4066,18 @@
     },
     "dbml-to-er-diagram": {
       "name": "DBML 转 ER 图",
-      "shortDescription": "将 DBML 表定义和 Ref 关系转换为 Mermaid ER 图。",
-      "seoTitle": "DBML 转 ER 图 Online - DiagramPreview",
-      "seoDescription": "将 DBML 表定义和 Ref 关系转换为 Mermaid ER 图。",
+      "shortDescription": "把 DBML schema 转成 ER 图，检查表关系、枚举、注释和基数。",
+      "seoTitle": "DBML 转 ER 图 - 数据库建模在线预览",
+      "seoDescription": "粘贴 DBML schema，生成 ER 图，检查表、字段、关系、枚举、ref、注释和产品数据模型边界。",
       "keywords": [
-        "dbml-to-er-diagram",
-        "dbml 转 er 图",
-        "dbml to er diagram"
+        "DBML 转 ER 图",
+        "DBML visualizer",
+        "数据库建模",
+        "ER diagram online",
+        "DBML schema"
       ],
       "h1": "DBML 转 ER 图",
-      "intro": "将 DBML 表定义和 Ref 关系转换为 Mermaid ER 图。",
+      "intro": "DBML 适合用文本描述数据模型。在线预览可以让团队在发布文档或迁移前讨论表关系、基数和数据 ownership。",
       "badges": [
         "Live preview",
         "Export",
@@ -3710,23 +4102,34 @@
         }
       },
       "howToUse": [
-        "粘贴或加载一个示例。",
-        "检查生成的预览或结构。",
-        "复制代码、导出图片或下载生成文件。"
+        "粘贴 DBML 表、字段、enum 和 Ref 定义。",
+        "检查一对一、一对多、多对多关系是否清楚。",
+        "关注 nullable 字段、唯一约束、租户边界和软删除模式。",
+        "把 DBML 源码和导出图一起放入模型文档。"
       ],
       "useCases": [
-        "AI 生成图表后的校验",
-        "开发者文档和 README",
-        "架构设计、监控和配置审查"
+        "数据库建模 review",
+        "产品数据模型讨论",
+        "DBML 文档预览",
+        "ER 图导出",
+        "多租户数据边界"
       ],
       "faq": [
         {
-          "question": "这个 DBML 转 ER 图 工具适合什么场景？",
-          "answer": "将 DBML 表定义和 Ref 关系转换为 Mermaid ER 图。"
+          "question": "DBML 和 SQL 哪个更适合文档？",
+          "answer": "DBML 更简洁，适合数据模型文档和讨论；SQL 更贴近真实数据库迁移。两者可以配合使用。"
         },
         {
-          "question": "是否需要登录？",
-          "answer": "不需要，当前工具页面可以直接在浏览器里使用。"
+          "question": "可以表示多对多关系吗？",
+          "answer": "可以，通常通过 join table 和两个 Ref 表示，多对多的业务规则应在注释里写清楚。"
+        },
+        {
+          "question": "ER 图会显示所有约束吗？",
+          "answer": "可视化重点是结构和关系，复杂索引、触发器和数据库特性仍需要在文档或迁移脚本中 review。"
+        },
+        {
+          "question": "DBML 适合产品团队看吗？",
+          "answer": "适合。它能把 entity ownership、租户边界和主要关系展示出来，比只看 SQL 更容易讨论。"
         }
       ],
       "seoBody": [
@@ -3735,24 +4138,34 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：把 DBML refs 转成 ER 关系",
-          "body": "DBML 本身可读，但 ER 图能让产品和后端更快看到表关系。",
+          "title": "Demo：用 DBML 表达会员关系",
+          "body": "DBML 很适合把产品关系写成可读文本，再生成 ER 图供开发和产品一起 review。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "join table 应明确唯一性。",
+            "role、status 这类枚举应靠近关系表。",
+            "租户或组织边界要在图里可见。"
           ],
-          "code": "Table users { id int [pk] email varchar }\nTable orders { id int [pk] user_id int }\nRef: orders.user_id > users.id"
+          "code": "Table users { id int [pk] }\nTable orgs { id int [pk] }\nTable memberships { user_id int org_id int role varchar }\nRef: memberships.user_id > users.id\nRef: memberships.org_id > orgs.id"
         },
         {
-          "title": "DBML 转 ER 图 Review 清单",
-          "body": "用 DBML 图讨论 cardinality、join table 和 tenant 边界。",
+          "title": "基数 review：让关系规则可讨论",
+          "body": "ER 图应帮助 reviewer 讨论一对一、一对多、多对多，以及表设计是否支持真实产品规则。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "查找缺少唯一约束的 join table。",
+            "检查 nullable refs 是否真的代表可选关系。",
+            "为软删除和租户边界写注释。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "Table memberships { user_id int org_id int role varchar }\nIndexes { (user_id, org_id) [unique] }"
+        },
+        {
+          "title": "产品 review：让数据 ownership 可见",
+          "body": "DBML 图不只给数据库工程师看。它能帮助产品和平台团队看到哪个 entity 拥有什么关系，以及账号或 workspace 边界在哪里。",
+          "bullets": [
+            "把 account、organization、workspace 表放在依赖表附近。",
+            "标出跨产品域共享的表。",
+            "审计日志和软删除模式要在 notes 中说明。"
+          ],
+          "code": "Table accounts { id int [pk] }\nTable projects { id int [pk] account_id int }\nRef: projects.account_id > accounts.id"
         }
       ]
     },
@@ -4240,7 +4653,7 @@
       "seoDescription": "可观测性套件生成器：用于开发者文档的在线预览、校验和导出工具。",
       "keywords": [
         "可观测性套件生成器",
-        null,
+        "可观测性看板",
         "DiagramPreview"
       ],
       "h1": "可观测性套件生成器",
@@ -4325,16 +4738,18 @@
     },
     "postman-collection-sequence-diagram": {
       "name": "Postman Collection 转时序图",
-      "shortDescription": "Postman Collection 转时序图：把 Postman Collection JSON 转成接口调用时序图，适合 API 文档和调试复盘。",
-      "seoTitle": "Postman Collection 转时序图 - DiagramPreview",
-      "seoDescription": "Postman Collection 转时序图：把 Postman Collection JSON 转成接口调用时序图，适合 API 文档和调试复盘。",
+      "shortDescription": "把 Postman Collection JSON 转成接口调用时序图，检查请求顺序和文档流程。",
+      "seoTitle": "Postman Collection 转时序图 - API 请求流程可视化",
+      "seoDescription": "粘贴 Postman Collection JSON，生成 API 请求时序图，适合接口文档、手工测试流程、后端 onboarding 和调试复盘。",
       "keywords": [
         "Postman Collection 转时序图",
-        "Postman collection JSON",
-        "developer diagrams"
+        "Postman to sequence diagram",
+        "API 请求流程",
+        "接口文档可视化",
+        "Postman JSON"
       ],
       "h1": "Postman Collection 转时序图",
-      "intro": "Postman Collection 转时序图：把 Postman Collection JSON 转成接口调用时序图，适合 API 文档和调试复盘。",
+      "intro": "把 Postman Collection 中的请求分组、名称、方法和 URL 转成时序图，快速检查测试流程是否符合真实产品路径。",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4359,19 +4774,34 @@
         }
       },
       "howToUse": [
-        "示例: choose an example or paste your own Postman collection JSON.",
-        "Review the rendered relationships, field names, resource references, or request order.",
-        "Export the SVG/PNG or keep the source with your documentation."
+        "粘贴 Postman Collection JSON，先选择一个聚焦的 folder 或 workflow。",
+        "检查请求顺序、方法、URL、变量和分组是否和文档场景一致。",
+        "删除无关请求，避免把完整 workspace 直接变成一张大图。",
+        "导出时序图用于 API 文档、测试说明或问题复盘。"
       ],
       "useCases": [
-        "API documentation and debugging",
-        "Architecture and platform docs",
-        "AI-generated draft review before publishing"
+        "API 文档流程",
+        "手工测试顺序",
+        "后端 onboarding",
+        "接口调试复盘",
+        "Postman Collection 清理"
       ],
       "faq": [
         {
-          "question": "可以使用 AI 生成或生产环境类似的源码吗？",
-          "answer": "可以，但粘贴前请移除密钥、token、私有域名和客户数据。"
+          "question": "Postman Collection 一定是线性流程吗？",
+          "answer": "不一定。Collection 可能只是请求集合。生成图前最好选择一个 folder 或真实测试场景。"
+        },
+        {
+          "question": "变量会如何处理？",
+          "answer": "变量通常会保留在 URL 或名称中，review 时应确认 {{baseUrl}}、{{token}} 等变量不会泄露敏感信息。"
+        },
+        {
+          "question": "它能代替 OpenAPI 文档吗？",
+          "answer": "不能。Postman 更接近手工测试流程，OpenAPI 更接近接口契约。两者可以互相补充。"
+        },
+        {
+          "question": "分享前需要脱敏吗？",
+          "answer": "需要。移除 token、私有域名、账号 ID、客户数据和生产环境变量。"
         }
       ],
       "seoBody": [
@@ -4381,39 +4811,51 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：把 Postman 请求转成 API 时序",
-          "body": "Postman Collection 经常描述跨多个请求的工作流，时序图能展示认证、创建、轮询和清理。",
+          "title": "Demo：把登录和下单请求转成时序图",
+          "body": "Postman Collection 常记录人实际点击和调试的顺序。转成时序图后，可以看出认证、业务请求和查询状态是否顺畅。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "从登录、创建订单、查询订单这类线性流程开始。",
+            "保留请求名称和 HTTP 方法。",
+            "删除 collection 中与当前文档无关的请求。"
           ],
-          "code": "POST /auth/token -> token\nPOST /orders -> orderId\nGET /orders/:id -> status"
+          "code": "POST /auth/login -> token\nPOST /orders -> orderId\nGET /orders/:id -> status"
         },
         {
-          "title": "Postman Collection 转时序图 Review 清单",
-          "body": "Collection 不一定线性，只转换要文档化的场景。",
+          "title": "Review 清单：Collection 可能已经过期",
+          "body": "手工测试 Collection 经常落后于接口契约。时序图可以暴露过期 endpoint、不一致变量和错误请求顺序。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "检查是否还在调用 deprecated endpoint。",
+            "确认 baseUrl 和环境变量是否正确。",
+            "和 OpenAPI 的 path、method、response code 对照。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "Collection: POST /v1/order\nOpenAPI: POST /v2/orders\nAction: update docs or collection"
+        },
+        {
+          "title": "文档模式：只画一个用户故事",
+          "body": "不要把整个 Postman workspace 变成一张图。更好的方式是每篇文档只画一个用户故事或调试流程。",
+          "bullets": [
+            "每张图只包含一个目标流程。",
+            "把异常分支放在单独图或说明里。",
+            "保留 collection 链接作为原始材料。"
+          ],
+          "code": "Doc page: Checkout happy path\nDiagram: 4 requests\nAppendix: link to full collection"
         }
       ]
     },
     "har-file-sequence-diagram": {
       "name": "HAR 文件转时序图",
-      "shortDescription": "HAR 文件转时序图：把浏览器 HAR 文件转成请求时序图，适合前端接口调试和性能排查。",
-      "seoTitle": "HAR 文件转时序图 - DiagramPreview",
-      "seoDescription": "HAR 文件转时序图：把浏览器 HAR 文件转成请求时序图，适合前端接口调试和性能排查。",
+      "shortDescription": "把浏览器 HAR 请求转换成时序图，用于 API 调试、性能排查和事故复盘。",
+      "seoTitle": "HAR 文件转时序图 - 浏览器请求链路可视化",
+      "seoDescription": "粘贴 HAR JSON，把浏览器网络请求转成时序图，分析接口顺序、慢请求、第三方脚本、状态码和调试证据。",
       "keywords": [
-        "HAR 文件转时序图",
-        "HAR JSON",
-        "developer diagrams"
+        "HAR 转时序图",
+        "HAR file sequence diagram",
+        "浏览器网络请求",
+        "API 调试",
+        "前端性能排查"
       ],
       "h1": "HAR 文件转时序图",
-      "intro": "HAR 文件转时序图：把浏览器 HAR 文件转成请求时序图，适合前端接口调试和性能排查。",
+      "intro": "把 DevTools 导出的 HAR 文件变成可读请求时序，帮助前端、后端和 QA 对齐真实浏览器行为。",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4438,19 +4880,34 @@
         }
       },
       "howToUse": [
-        "示例: choose an example or paste your own HAR JSON.",
-        "Review the rendered relationships, field names, resource references, or request order.",
-        "Export the SVG/PNG or keep the source with your documentation."
+        "从浏览器 DevTools 导出 HAR，并移除 cookie、token 和敏感 header。",
+        "粘贴 HAR JSON，查看请求顺序、域名、方法、状态码和耗时。",
+        "重点检查慢请求、失败状态码、重复请求和第三方资源。",
+        "把时序图和原始 HAR 摘要放进工单或事故复盘，方便他人复现。"
       ],
       "useCases": [
-        "API documentation and debugging",
-        "Architecture and platform docs",
-        "AI-generated draft review before publishing"
+        "前端 API 调试",
+        "HAR waterfall 复盘",
+        "接口性能排查",
+        "第三方脚本检查",
+        "事故证据整理"
       ],
       "faq": [
         {
-          "question": "可以使用 AI 生成或生产环境类似的源码吗？",
-          "answer": "可以，但粘贴前请移除密钥、token、私有域名和客户数据。"
+          "question": "HAR 文件里可能有敏感信息吗？",
+          "answer": "有。HAR 常包含 cookie、Authorization header、query 参数和用户数据，粘贴前必须清理。"
+        },
+        {
+          "question": "时序图和 DevTools waterfall 有什么区别？",
+          "answer": "waterfall 更适合看精确耗时；时序图更适合解释请求顺序、参与域名和调试故事。"
+        },
+        {
+          "question": "可以证明后端慢吗？",
+          "answer": "不能单独证明。HAR 显示浏览器观察到的请求耗时，需要结合服务端日志、trace 和缓存信息判断。"
+        },
+        {
+          "question": "应该把完整 HAR 放进工单吗？",
+          "answer": "通常不建议。先提取关键请求和截图，必要时再提供脱敏 HAR。"
         }
       ],
       "seoBody": [
@@ -4460,24 +4917,34 @@
       ],
       "deepDives": [
         {
-          "title": "Demo：把浏览器 HAR 转成请求时序",
-          "body": "HAR 时序图能解释浏览器按什么顺序发请求，适合 login、checkout 和 API waterfall 调试。",
+          "title": "Demo：把 checkout HAR 转成请求故事",
+          "body": "checkout 页面常同时请求页面、购物车校验、下单接口和订单状态。时序图能让团队快速看到真实顺序。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "标出页面请求和 API 请求。",
+            "突出 4xx/5xx 状态码。",
+            "把第三方脚本和核心接口分开讨论。"
           ],
-          "code": "Browser -> app.example.com: GET /checkout\nBrowser -> api.example.com: POST /api/cart"
+          "code": "GET /checkout -> 200\nPOST /cart/validate -> 200\nPOST /orders -> 201\nGET /orders/123 -> 200"
         },
         {
-          "title": "HAR 文件转时序图 Review 清单",
-          "body": "只看顺序不够，性能 review 还要结合 duration、size、cache、blocked time。",
+          "title": "排障清单：慢请求不一定是后端慢",
+          "body": "HAR 中的耗时可能包含 DNS、连接、排队、缓存、下载和浏览器调度。时序图帮助定位顺序，最终原因还要结合更多证据。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "检查是否有重复请求或重定向。",
+            "检查第三方脚本是否阻塞关键流程。",
+            "把后端日志和 trace 与 HAR 时间对齐。"
           ],
-          "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
+          "code": "Observed slow: POST /orders 1280ms\nNeed: server log duration + trace span + cache headers"
+        },
+        {
+          "title": "隐私清单：分享 HAR 前先脱敏",
+          "body": "HAR 是高风险调试材料。公开或跨团队分享前，应移除所有身份、会话和客户相关信息。",
+          "bullets": [
+            "删除 cookie、Authorization 和 set-cookie。",
+            "替换真实域名、用户 ID、订单号和邮箱。",
+            "不要把完整生产 HAR 放到公开 issue。"
+          ],
+          "code": "Authorization: Bearer [redacted]\nCookie: [removed]\nemail: user@example.com -> user@example.test"
         }
       ]
     },
@@ -6906,13 +7373,16 @@
     },
     "index": {
       "eyebrow": "DiagramPreview 博客",
-      "title": "面向开发者的图表指南",
-      "description": "关于在线预览、转换、导出和编写图表文档的实用指南。",
-      "seoTitle": "面向开发者的图表指南 - DiagramPreview",
+      "title": "开发者图表、API 调试与发布前预览指南",
+      "description": "围绕 Mermaid、PlantUML、draw.io、OpenAPI、HAR、JSON Schema、技术 SEO 和 AI 生成内容，整理可复用的预览、调试、导出和发布工作流。",
+      "seoTitle": "开发者图表与预览工作流指南 - Mermaid、OpenAPI、Schema 与技术 SEO",
       "keywords": [
-        "diagram blog",
-        "developer diagrams",
-        "diagram guides"
+        "开发者图表指南",
+        "Mermaid 教程",
+        "API 调试流程",
+        "Schema 预览",
+        "技术 SEO 检查",
+        "AI 图表工作流"
       ]
     },
     "posts": {
@@ -9154,249 +9624,248 @@
         ]
       },
       "api-debugging-preview-har-postman-openapi": {
-        "title": "实用 API 调试闭环：OpenAPI、Postman、HAR、jq 与 JSONPath",
-        "seoTitle": "实用 API 调试闭环：OpenAPI、Postman、HAR、jq 与 JSONPath - DiagramPreview",
-        "description": "一篇更完整的 API 调试教程，串起 OpenAPI 时序预览、Postman 请求顺序、HAR 瀑布流、jq/JSONPath 字段提取和 HTTP 响应头检查。",
-        "excerpt": "一篇更完整的 API 调试教程，串起 OpenAPI 时序预览、Postman 请求顺序、HAR 瀑布流、jq/JSONPath 字段提取和 HTTP 响应头检查。",
-        "readingTime": "14 分钟阅读",
+        "title": "API 调试闭环：用 OpenAPI、Postman、HAR、jq 和 JSONPath 定位问题",
+        "seoTitle": "API 调试闭环 - OpenAPI、Postman、HAR、jq 与 JSONPath 实战",
+        "description": "从接口契约、手工请求、浏览器 HAR、响应字段提取到 HTTP Header 检查，建立一套可复用的 API 调试和故障复盘流程。",
+        "excerpt": "API 问题很少只藏在一个文件里。这篇支柱指南把 OpenAPI、Postman、HAR、jq、JSONPath 和 Header 检查串成一条可复用的调试链路。",
+        "readingTime": "15 分钟阅读",
         "keywords": [
           "API 调试流程",
           "HAR 瀑布流调试",
-          "Postman 时序图",
-          "jq JSONPath API 响应"
+          "Postman 转时序图",
+          "OpenAPI 转时序图",
+          "jq JSONPath API 响应",
+          "HTTP Header 检查"
         ],
         "sections": [
           {
-            "heading": "真实问题不是一个图能解决的",
+            "heading": "先把问题拆成契约、请求、浏览器和证据字段",
             "paragraphs": [
-              "API 问题通常不只存在于一个文件里。OpenAPI 契约写的是一种行为，Postman 集合里可能是另一种请求顺序，浏览器 HAR 又暴露了慢请求、重定向或第三方脚本。",
-              "所以这篇文章应该像一条调试链路，而不是单纯介绍某个在线工具：先看契约，再看请求顺序，再看浏览器网络瀑布流，最后用 jq 或 JSONPath 提取证据。"
+              "搜索“API 调试流程”时，用户通常不是想看单个工具介绍，而是想知道哪里错了：契约没写清楚、Postman 请求顺序过期、浏览器请求链路太慢，还是响应字段和 Header 与预期不一致。",
+              "这篇文章建议把 OpenAPI、Postman Collection、HAR、jq、JSONPath 和 HTTP Header 放进同一个 review 上下文。DiagramPreview 的相关工具页会在文章侧栏和顶部自动露出，读者可以直接从问题跳到对应工具。"
             ],
             "image": {
               "src": "/blog/demos/api-debugging-har-waterfall-demo.png",
-              "alt": "API 调试闭环示意图",
-              "caption": "把契约、请求顺序、HAR 时间线、响应字段和 Header 检查放在同一个调试上下文里。"
+              "alt": "API 调试闭环示意图：OpenAPI、Postman、HAR、jq、JSONPath 和 Header",
+              "caption": "把契约、请求顺序、浏览器时间线、响应字段和 Header 放在同一条证据链里，调试记录会更容易复现。"
             }
           },
           {
-            "heading": "Demo 1：先从 OpenAPI 契约确认分支",
+            "heading": "第一步：用 OpenAPI 转时序图确认成功和失败分支",
             "paragraphs": [
-              "很多线上问题不是 200 分支没写，而是 401、409、422、429 这些错误分支没人维护。先粘贴一个小的 OpenAPI 片段，比直接丢整个 spec 更容易定位。",
-              "预览时重点看：接口是否有关键错误响应、错误码是否和前端处理一致、是否遗漏重试或幂等分支。"
+              "OpenAPI 更像“应该发生什么”。先截取一个具体 path，而不是把整个 spec 丢进去，可以快速看清 200、401、409、422、429 这些分支是否真的存在。",
+              "如果文章要承接搜索流量，推荐明确写出“OpenAPI 转时序图能发现什么”：缺少错误分支、operationId 语义不清、请求体和响应体没有对应业务场景。"
             ],
             "code": {
               "language": "yaml",
-              "content": "paths:\n  /orders:\n    post:\n      summary: Create order\n      responses:\n        \"201\":\n          description: Created\n        \"409\":\n          description: Duplicate payment intent\n        \"422\":\n          description: Invalid cart state",
-              "caption": "用 OpenAPI 预览先确认契约里的成功和失败分支。"
+              "content": "paths:\n  /orders:\n    post:\n      operationId: createOrder\n      summary: Create order\n      responses:\n        \"201\":\n          description: Created\n        \"409\":\n          description: Duplicate payment intent\n        \"422\":\n          description: Invalid cart state\n        \"429\":\n          description: Rate limited",
+              "caption": "把这类片段放进 OpenAPI 转时序图工具，优先确认错误分支是否能被文档和测试覆盖。"
             }
           },
           {
-            "heading": "Demo 2：用 Postman 集合检查真实请求顺序",
+            "heading": "第二步：用 Postman Collection 检查人工测试路径是否过期",
             "paragraphs": [
-              "Postman 集合更接近人工测试路径。契约可能是对的，但集合可能还在调用旧接口，或者漏了购物车校验、鉴权刷新这类中间步骤。",
-              "这个 demo 的目标不是画漂亮图，而是快速回答：请求顺序是否符合真实产品流程。"
+              "Postman Collection 更接近测试人员和开发者每天手工运行的顺序。契约可能是新的，但 Collection 仍然可能调用旧接口、跳过刷新 token，或没有覆盖购物车校验。",
+              "适合写进文章的判断标准是：请求顺序是否符合用户故事、变量是否有默认值、环境变量是否脱敏、失败请求是否被误当成成功路径。"
             ],
             "code": {
               "language": "json",
-              "content": "{\n  \"item\": [\n    {\"name\": \"Login\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/auth/login\"}},\n    {\"name\": \"Validate cart\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/cart/validate\"}},\n    {\"name\": \"Create order\", \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/orders\"}}\n  ]\n}",
-              "caption": "Postman 转时序图适合检查集合是否已经过期。"
+              "content": "{\n  \"item\": [\n    {\"name\": \"Login\", \"request\": {\"method\": \"POST\", \"url\": \"{{baseUrl}}/login\"}},\n    {\"name\": \"Create cart\", \"request\": {\"method\": \"POST\", \"url\": \"{{baseUrl}}/cart\"}},\n    {\"name\": \"Checkout\", \"request\": {\"method\": \"POST\", \"url\": \"{{baseUrl}}/orders\"}}\n  ]\n}",
+              "caption": "Postman 转时序图适合把手工测试路径变成可讨论的请求故事。"
             }
           },
           {
-            "heading": "Demo 3：HAR 里看慢请求和第三方影响",
+            "heading": "第三步：HAR 负责回答浏览器视角到底发生了什么",
             "paragraphs": [
-              "HAR 是浏览器视角的事实记录。它能告诉你：页面慢到底是接口慢、静态资源慢、第三方脚本慢，还是某个 4xx/5xx 被前端吞掉了。",
-              "建议先截取最慢的几条 entry 做预览，而不是把完整生产 HAR 丢进 Issue。"
+              "HAR 是浏览器给出的事实记录。它能把接口、静态资源、重定向、第三方脚本、状态码和等待时间放到同一条时间线上。",
+              "很多“后端慢”的结论在 HAR 里会被推翻：真正慢的可能是图片、广告脚本、DNS、缓存策略，或者前端吞掉了一个 4xx/5xx。"
             ],
             "code": {
               "language": "json",
-              "content": "{\n  \"log\": {\n    \"entries\": [\n      {\"time\": 92, \"request\": {\"method\": \"GET\", \"url\": \"https://app.example.com/checkout\"}, \"response\": {\"status\": 200}},\n      {\"time\": 1280, \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/orders\"}, \"response\": {\"status\": 201}},\n      {\"time\": 430, \"request\": {\"method\": \"GET\", \"url\": \"https://analytics.example.net/tag.js\"}, \"response\": {\"status\": 200}}\n    ]\n  }\n}",
-              "caption": "HAR 预览应该让慢请求、状态码和 host 分布一眼可见。"
+              "content": "{\n  \"request\": {\"method\": \"POST\", \"url\": \"https://api.example.com/orders\"},\n  \"response\": {\"status\": 409, \"headers\": [{\"name\": \"cache-control\", \"value\": \"no-store\"}]},\n  \"timings\": {\"blocked\": 4, \"wait\": 620, \"receive\": 18}\n}",
+              "caption": "把 HAR 片段转成时序图后，调试记录会比单张 DevTools 截图更容易复盘。"
             }
           },
           {
-            "heading": "Demo 4：用 jq 和 JSONPath 提取证据字段",
+            "heading": "第四步：用 jq 和 JSONPath 抽出能写进工单的证据",
             "paragraphs": [
-              "响应体很大时，不要让读者翻完整 payload。用 jq 或 JSONPath 抽出错误码、订单 ID、duration、retryCount 这些关键字段。",
-              "jq 更适合转换 JSON，JSONPath 更像选择器，适合写进测试、监控和文档示例。"
+              "响应体很大时，不要让 reviewer 自己翻 payload。用 jq 或 JSONPath 抽出 errorCode、orderId、duration、retryCount、traceId 这些字段，能把“感觉不对”变成可复查证据。",
+              "jq 更适合命令行和转换，JSONPath 更适合文档、测试断言和 UI 选择器式表达。文章里同时给出两种写法，可以覆盖更多搜索意图。"
             ],
             "code": {
               "language": "text",
-              "content": "jq: .errors[].code\nJSONPath: $.errors[*].code\n\n{\n  \"errors\": [\n    {\"code\": \"CART_EXPIRED\", \"message\": \"Cart was updated\"},\n    {\"code\": \"PAYMENT_RETRY_REQUIRED\", \"message\": \"Retry with a new intent\"}\n  ]\n}",
-              "caption": "把 jq 和 JSONPath 并排展示，比只放工具链接更像真正的调试教程。"
+              "content": ".error.code\n---\n$.error.code\n---\n{\"error\":{\"code\":\"DUPLICATE_PAYMENT_INTENT\",\"traceId\":\"req_42\"}}",
+              "caption": "同一个字段可以用 jq 和 JSONPath 两种方式表达，方便读者迁移到自己的工具链。"
             }
           },
           {
-            "heading": "这条链路能发现哪些常见坑",
+            "heading": "发布 API 调试记录前的 checklist",
             "paragraphs": [
-              "Postman 集合仍然调用废弃接口；OpenAPI 只写了 201 和 500，却漏了前端每天遇到的 409；HAR 显示后端其实很快，真正慢的是第三方脚本；响应头缓存策略导致浏览器一直拿旧 schema。",
-              "这些具体错误案例，才是博客内容和普通工具页拉开差距的地方。"
-            ]
-          },
-          {
-            "heading": "发布调试记录前的 checklist",
-            "paragraphs": [
-              "至少保留一个契约片段、一个请求顺序截图、一个 HAR 时间线截图、一个字段提取示例。说明数据来自本地、测试环境还是生产环境。",
-              "截图用于快速阅读，源码用于复现。两者一起放进 PR、Issue 或博客里，可信度会高很多。"
+              "一篇高质量 API 调试文章或工单至少包含：一个 OpenAPI 契约片段、一个 Postman 请求顺序、一个 HAR 时间线证据、一个字段提取示例，以及关键 Header。",
+              "不要只链接首页。更好的内链方式是把“OpenAPI 转时序图”“Postman Collection 转时序图”“HAR 文件转时序图”“jq Filter Tester”“JSONPath Tester”“HTTP Header Parser”放到相关段落或侧栏里。"
             ]
           }
         ]
       },
       "schema-preview-workflow-json-schema-zod-typescript": {
-        "title": "Schema 预览工作流：TypeScript、Zod、JSON Schema 与表单预览",
-        "seoTitle": "Schema 预览工作流：TypeScript、Zod、JSON Schema 与表单预览 - DiagramPreview",
-        "description": "一篇更完整的 Schema 文档教程，覆盖 TypeScript 类型、Zod 运行时校验、JSON Schema 契约、表单预览和常见不一致案例。",
-        "excerpt": "一篇更完整的 Schema 文档教程，覆盖 TypeScript 类型、Zod 运行时校验、JSON Schema 契约、表单预览和常见不一致案例。",
-        "readingTime": "14 分钟阅读",
+        "title": "Schema 预览工作流：JSON Schema、Zod、TypeScript、GraphQL 与 Protobuf",
+        "seoTitle": "Schema 预览工作流 - JSON Schema、Zod、TypeScript、GraphQL 与 Protobuf",
+        "description": "围绕 API 契约、运行时校验、TypeScript 类型、表单预览、GraphQL SDL 和 Protobuf schema，建立发布前 schema review 流程。",
+        "excerpt": "Schema 文档最容易在多个事实来源之间漂移。这篇指南把 TypeScript、Zod、JSON Schema、GraphQL、Protobuf 和表单预览串成一次发布前 review。",
+        "readingTime": "15 分钟阅读",
         "keywords": [
-          "Schema 预览工作流",
-          "JSON Schema Zod TypeScript",
-          "JSON Schema 表单预览"
+          "Schema 预览",
+          "JSON Schema 可视化",
+          "Zod Schema 可视化",
+          "TypeScript interface diagram",
+          "GraphQL Schema 可视化",
+          "Protobuf Schema 可视化"
         ],
         "sections": [
           {
-            "heading": "为什么 Schema 文档容易过期",
+            "heading": "Schema 问题的本质是多个事实来源不一致",
             "paragraphs": [
-              "Schema 文档经常漂移，因为不同团队使用不同事实来源。后端可能维护 JSON Schema，前端写 TypeScript，运行时校验在 Zod，产品和测试更关心表单到底长什么样。",
-              "所以这篇文章不应该只介绍某一种格式，而应该展示如何把这些层串起来对比。"
+              "后端可能维护 JSON Schema，前端使用 TypeScript，运行时校验写在 Zod，GraphQL 或 Protobuf 又承担另一套契约。只看其中一个文件，很容易漏掉 required、nullable、enum、default 和嵌套结构变化。",
+              "支柱文章的目标不是解释每种格式的语法，而是帮助读者建立一条能复用的 schema review 路径：先看类型意图，再看运行时行为，最后看契约和表单呈现。"
             ],
             "image": {
               "src": "/blog/demos/schema-form-preview-demo.png",
-              "alt": "Schema 到表单预览工作流",
-              "caption": "有价值的不是某一种格式，而是从类型、运行时校验、契约到表单预览的一条链路。"
+              "alt": "Schema 预览工作流：TypeScript、Zod、JSON Schema、GraphQL 和 Protobuf",
+              "caption": "有价值的 schema 文档应该同时回答开发者、运行时校验、API 契约和表单体验的问题。"
             }
           },
           {
-            "heading": "Demo 1：TypeScript 表达开发者意图",
+            "heading": "用 TypeScript 先看字段层级和开发者意图",
             "paragraphs": [
-              "TypeScript 对前端和 SDK 开发者最友好，可以快速看出可选字段、嵌套模型和命名约定。",
-              "但 TypeScript 本身不验证运行时输入，所以它更像开发者意图，不应该单独当作 API 契约。"
+              "TypeScript interface 最适合让前端、SDK 和文档读者快速理解字段层级。它能表达可选字段、联合类型和嵌套模型，但不能证明运行时真的会校验。",
+              "如果一个字段在 TypeScript 里是可选，在 JSON Schema 里却是 required，就应该在文章里明确标为破坏性风险。"
             ],
             "code": {
               "language": "ts",
               "content": "export interface UserProfile {\n  id: string;\n  email: string;\n  role?: \"admin\" | \"viewer\";\n  settings: {\n    theme: \"light\" | \"dark\";\n    weeklyDigest: boolean;\n  };\n}",
-              "caption": "先预览 interface，可以让读者快速理解字段层级。"
+              "caption": "TypeScript 预览适合先检查命名、层级和 optional 字段。"
             }
           },
           {
-            "heading": "Demo 2：Zod 体现运行时行为",
+            "heading": "用 Zod 检查真实输入会在哪里失败",
             "paragraphs": [
-              "Zod 关注运行时：必填、邮箱格式、默认值、转换和错误消息都在这里发生。真实用户输入也是在这一层失败。",
-              "当 Zod 和 TypeScript 不一致时，预览工具应该帮助你提前发现。"
+              "Zod 关注运行时行为：email 校验、默认值、transform、refine、自定义错误消息都在这一层。很多线上问题不是类型写错，而是用户输入到了类型系统看不到的边界。",
+              "文章里可以把 Zod 预览作为“从文档到运行时”的桥，提醒读者检查错误消息和默认值是否同步到 API 示例。"
             ],
             "code": {
               "language": "ts",
               "content": "const UserProfileSchema = z.object({\n  id: z.string().uuid(),\n  email: z.string().email(),\n  role: z.enum([\"admin\", \"viewer\"]).default(\"viewer\"),\n  settings: z.object({\n    theme: z.enum([\"light\", \"dark\"]),\n    weeklyDigest: z.boolean()\n  })\n});",
-              "caption": "Zod 预览适合检查默认值、枚举和运行时校验规则。"
+              "caption": "Zod 可视化要重点看 default、enum、refine 和错误消息。"
             }
           },
           {
-            "heading": "Demo 3：JSON Schema 用于契约和表单预览",
+            "heading": "用 JSON Schema 和表单预览检查契约是否能被消费",
             "paragraphs": [
-              "JSON Schema 更适合跨语言共享，可以用于 API 文档、校验器、生成表单和示例。",
-              "表单预览很重要，因为产品、测试和非前端同学可以直接检查必填项、枚举和描述，而不用读原始 JSON。"
+              "JSON Schema 更适合跨语言共享，也常被用于表单生成、API 文档和校验器。可视化时要重点看 required、nullable、array items、additionalProperties、oneOf/anyOf。",
+              "如果 schema 能生成表单，还应该检查字段顺序、描述、枚举文案和非法 payload 的错误反馈。搜索“JSON Schema 表单预览”的用户通常关心这个。"
             ],
             "code": {
               "language": "json",
-              "content": "{\n  \"title\": \"UserProfile\",\n  \"type\": \"object\",\n  \"required\": [\"id\", \"email\", \"settings\"],\n  \"properties\": {\n    \"email\": {\"type\": \"string\", \"format\": \"email\"},\n    \"role\": {\"type\": \"string\", \"enum\": [\"admin\", \"viewer\"]},\n    \"settings\": {\"type\": \"object\"}\n  }\n}",
-              "caption": "JSON Schema 表单预览能把契约细节变成可 review 的界面。"
+              "content": "{\n  \"type\": \"object\",\n  \"required\": [\"id\", \"email\", \"settings\"],\n  \"properties\": {\n    \"email\": {\"type\": \"string\", \"format\": \"email\"},\n    \"role\": {\"type\": \"string\", \"enum\": [\"admin\", \"viewer\"]},\n    \"settings\": {\"type\": \"object\"}\n  }\n}",
+              "caption": "JSON Schema 可视化适合发现 required、enum 和嵌套对象的变更。"
             }
           },
           {
-            "heading": "常见不一致案例",
+            "heading": "GraphQL 和 Protobuf 要特别关注兼容性",
             "paragraphs": [
-              "TypeScript 里是可选字段，但 JSON Schema 里是 required；Zod 有默认值，但 OpenAPI 示例没写；表单预览是下拉框，真实 UI 却允许自由输入；文档写了嵌套对象，运行时却没有校验。",
-              "这些具体案例会让文章更像经验总结，而不是工具介绍。"
-            ]
+              "GraphQL 里 nullable 到 non-null、删除 enum 值、修改参数都可能影响客户端。Protobuf 里字段编号、reserved、repeated、message 引用和 service request/response 才是 review 重点。",
+              "这类文章不要承诺“可视化能证明兼容”，更准确的说法是：可视化能把高风险变更暴露出来，最终仍要结合各自协议的兼容规则。"
+            ],
+            "code": {
+              "language": "graphql",
+              "content": "type Query {\n  user(id: ID!): User\n}\n\ntype User {\n  id: ID!\n  email: String!\n  role: Role\n}\n\nenum Role { ADMIN VIEWER }",
+              "caption": "GraphQL schema 预览适合从 Query/Mutation 入口一路追到 type、input 和 enum。"
+            }
           },
           {
-            "heading": "Schema review checklist",
+            "heading": "Schema review checklist 和内链建议",
             "paragraphs": [
-              "检查 required、enum、nullable、default、嵌套对象、数组 item 类型和错误消息。然后至少生成一个表单预览和一个非法 payload 示例。",
-              "如果这是公开 API 的契约变更，建议在 release note 里放一张预览截图，让 reviewer 能快速扫到变化。"
+              "发布前至少检查 required、nullable、enum、default、array item、additionalProperties、oneOf/anyOf、错误消息和表单字段顺序。再准备一个合法 payload 和一个非法 payload。",
+              "内链上建议把 JSON Schema Visualizer、Zod Schema Visualizer、TypeScript Interface Visualizer、JSON Schema Form Preview、GraphQL Schema Visualizer 和 Protobuf Schema Visualizer 都连接到这篇支柱文章。"
             ]
           }
         ]
       },
       "social-card-svg-preview-publishing-workflow": {
-        "title": "发布技术文档前，先预览 Markdown、SVG、Open Graph 和截图",
-        "seoTitle": "发布技术文档前，先预览 Markdown、SVG、Open Graph 和截图 - DiagramPreview",
-        "description": "一篇技术文章发布前 checklist，覆盖 Markdown 预览、SVG 封面检查、Open Graph 卡片、截图、代码示例和常见发布错误。",
-        "excerpt": "一篇技术文章发布前 checklist，覆盖 Markdown 预览、SVG 封面检查、Open Graph 卡片、截图、代码示例和常见发布错误。",
-        "readingTime": "14 分钟阅读",
+        "title": "技术文章发布前预览：Markdown、SVG、Open Graph、截图和代码示例",
+        "seoTitle": "技术文章发布前预览 Checklist - Markdown、SVG、Open Graph 与截图",
+        "description": "发布技术博客、README、产品文档或工具页前，用 Markdown 预览、SVG 检查、Open Graph 调试和截图 review 降低展示错误。",
+        "excerpt": "技术文章内容正确还不够，封面、代码块、社交卡片、截图和工具链接都会影响点击和转化。这篇指南给出发布前预览 checklist。",
+        "readingTime": "13 分钟阅读",
         "keywords": [
           "技术博客发布 checklist",
-          "Open Graph SVG 预览",
-          "Markdown 预览工作流"
+          "Markdown 预览",
+          "Open Graph 预览",
+          "SVG 代码预览",
+          "社交卡片调试",
+          "技术文档发布"
         ],
         "sections": [
           {
-            "heading": "发布质量也是产品质量的一部分",
+            "heading": "发布质量会直接影响搜索点击和工具转化",
             "paragraphs": [
-              "一篇技术文章即使内容正确，也可能因为代码块换行难看、封面图不清楚、Open Graph 标题被截断、截图没有展示有效结果而表现很差。",
-              "这条工作流把发布当成预览问题：先预览 Markdown，再检查 SVG 封面，再看 Open Graph，最后补真实截图。"
+              "技术文章经常输在最后一步：标题能被搜索到，但 Open Graph 图片模糊；代码示例无法复制；SVG 封面断字；截图没有展示真实结果；链接只指向首页而不是具体工具。",
+              "这篇文章的搜索意图是“发布前怎么检查”。所以正文应该围绕可执行 checklist 展开，而不是泛泛介绍 Markdown 或 Open Graph 是什么。"
             ],
             "image": {
               "src": "/blog/demos/publishing-preview-demo.png",
-              "alt": "技术文章发布前预览工作流",
-              "caption": "发布前预览应该覆盖正文、封面、社交卡片和最终截图。"
+              "alt": "技术文章发布前预览工作流：Markdown、SVG、Open Graph 和截图",
+              "caption": "发布前预览应该覆盖正文、封面、社交卡片、可复制 demo 和最终截图。"
             }
           },
           {
-            "heading": "Demo 1：Markdown 里必须有真实代码",
+            "heading": "Markdown 预览要包含真实可复制的代码",
             "paragraphs": [
-              "不要只写营销文案。每篇教程至少放一个读者可以直接复制到工具里的代码片段。",
-              "Markdown 预览能提前发现标题层级、代码块、表格和链接问题。"
+              "教程里至少要有一个可以直接放进工具运行的输入。只有概念描述会降低停留时间，也很难把用户引导到具体工具页。",
+              "如果代码块很长，建议在正文先给最小 demo，再把完整例子放到后续章节或仓库。"
             ],
             "code": {
               "language": "markdown",
-              "content": "## Debug a JSON response with jq\n\n```text\n.users[].email\n---\n{\"users\":[{\"email\":\"ada@example.com\"}]}\n```\n\nExpected result: one email string in the preview output.",
-              "caption": "有用的文章应该说明运行 demo 后读者会看到什么。"
+              "content": "## Debug a JSON response with jq\n\n```text\n.error.code\n---\n{\"error\":{\"code\":\"DUPLICATE_PAYMENT_INTENT\"}}\n```\n\nExpected result: DUPLICATE_PAYMENT_INTENT appears in the preview output.",
+              "caption": "好 demo 要同时给输入和预期输出，读者才知道工具是否工作。"
             }
           },
           {
-            "heading": "Demo 2：预览 SVG 封面源码",
+            "heading": "SVG 封面和导出图要检查可读性、尺寸和安全边界",
             "paragraphs": [
-              "生成 SVG 封面很方便，但也可能出现文字断行、对比度不够、viewBox 太大或带有不安全脚本。发布前要先预览和清理。",
-              "如果 SVG 只是中间产物，博客和社交卡片建议使用导出的 PNG。"
+              "SVG 适合作为技术封面和图表导出格式，但它也可能出现 viewBox 过大、文字溢出、对比度不足、外链图片失效或脚本标签。",
+              "SVG Code Preview Editor 的价值在于让作者先看到真实渲染结果，再决定是否导出、压缩或替换为 PNG。"
             ],
             "code": {
               "language": "svg",
-              "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 630\">\n  <rect width=\"1200\" height=\"630\" rx=\"32\" fill=\"#0f172a\"/>\n  <text x=\"80\" y=\"170\" font-size=\"64\" fill=\"white\">jq vs JSONPath</text>\n  <text x=\"80\" y=\"250\" font-size=\"32\" fill=\"#bfdbfe\">API response debugging workflow</text>\n</svg>",
-              "caption": "用 Open Graph 同比例预览封面，能提前发现裁切和排版问题。"
+              "content": "<svg viewBox=\"0 0 1200 630\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"1200\" height=\"630\" fill=\"#0f172a\"/>\n  <text x=\"80\" y=\"160\" fill=\"white\" font-size=\"64\">API Debugging Workflow</text>\n  <text x=\"80\" y=\"250\" fill=\"#93c5fd\" font-size=\"34\">OpenAPI + HAR + jq + JSONPath</text>\n</svg>",
+              "caption": "发布前检查标题是否在社交卡片裁剪范围内。"
             }
           },
           {
-            "heading": "Demo 3：检查 Open Graph 卡片",
+            "heading": "Open Graph 不是补充信息，而是搜索和社交入口",
             "paragraphs": [
-              "社交卡片应该描述这篇教程，而不是只写网站名称。图片 URL 也必须是平台可抓取的绝对地址。",
-              "发到开发者社区、newsletter 或产品更新页之前，先预览卡片。"
+              "Open Graph 标题、描述和图片决定页面在聊天工具、社交平台、知识库和内部 IM 里的第一印象。图片 URL 必须是绝对地址，并且平台能访问。",
+              "Open Graph Preview Debugger 应该检查标题是否被截断、描述是否重复 H1、图片尺寸是否合适、是否仍然指向本地路径。"
             ],
             "code": {
               "language": "html",
-              "content": "<meta property=\"og:title\" content=\"jq vs JSONPath: API response debugging workflow\" />\n<meta property=\"og:description\" content=\"Copyable jq and JSONPath demos for inspecting large API payloads.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/jq-vs-jsonpath-api-debugging-workflow.png\" />",
-              "caption": "具体的 OG 文案通常比泛泛的产品口号更有效。"
+              "content": "<meta property=\"og:title\" content=\"API Debugging Workflow\" />\n<meta property=\"og:description\" content=\"Preview OpenAPI, Postman, HAR, jq and JSONPath before publishing a debugging note.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/api-debugging-preview.png\" />",
+              "caption": "OG 文案应该描述当前文章，而不是只重复网站名称。"
             }
           },
           {
-            "heading": "Demo 4：加入一张能证明工具可用的截图",
+            "heading": "截图要证明工具真的解决了一个问题",
             "paragraphs": [
-              "生成封面不够。正文里至少要有一张 demo 图或截图，展示左侧源码、右侧预览结果。",
-              "对开发者来说，这张图回答的是：我粘贴这段代码后会发生什么。"
-            ]
-          },
-          {
-            "heading": "常见错误",
-            "paragraphs": [
-              "封面图看不出文章主题；代码示例无法运行；没有写预期输出；链接到首页而不是具体工具页；OG 图片还是本地地址。",
-              "修掉这些问题，文章才更像文档，而不是广告。"
+              "发布页里至少放一张能说明价值的截图：左侧输入，右侧预览或输出，下面写清楚它发现了什么问题。单纯的装饰封面不能替代产品证据。",
+              "如果文章目标是导流工具页，截图附近应该出现具体工具名，例如 Markdown Preview、SVG Code Preview Editor、Open Graph Preview Debugger，而不是泛泛写“在线工具”。"
             ]
           },
           {
             "heading": "最终发布 checklist",
             "paragraphs": [
-              "预览 Markdown，运行代码示例，预览 SVG 或生成图，检查 Open Graph，确认图片 URL 可访问，并链接到具体工具页。",
-              "发布后，用一两条聚焦的推广文案解释调试问题，不要到处发同一段泛泛广告。"
+              "发布前依次检查：Markdown 预览、代码能否运行、SVG 或封面图是否清晰、Open Graph 是否可抓取、截图是否展示真实结果、链接是否指向具体工具页。",
+              "这类支柱文章适合承接所有发布前预览相关长尾文章，把 Open Graph、SVG、Markdown、截图和 sitemap/robots 文章聚合起来，减少内容稀释。"
             ]
           }
         ]
@@ -9506,35 +9975,37 @@
         ]
       },
       "config-preview-env-yaml-toml-before-deploy": {
-        "title": "部署出问题前，先预览 .env、YAML、TOML 和 Nginx 配置",
-        "seoTitle": "部署出问题前，先预览 .env、YAML、TOML 和 Nginx 配置 - DiagramPreview",
-        "description": "一篇面向部署前检查的配置预览教程，覆盖 .env 差异、YAML 路径、TOML 结构、Nginx location 匹配和生产事故常见错误。",
-        "excerpt": "一篇面向部署前检查的配置预览教程，覆盖 .env 差异、YAML 路径、TOML 结构、Nginx location 匹配和生产事故常见错误。",
+        "title": "部署前配置预览：检查 .env、YAML、TOML、Nginx 和 Header",
+        "seoTitle": "部署前配置预览 Checklist - .env、YAML、TOML、Nginx 与 Header",
+        "description": "发布前检查环境变量差异、YAML 路径、TOML 默认值、Nginx location 匹配和 HTTP Header，提前发现配置事故风险。",
+        "excerpt": "配置错误上线前往往只是几行文本，上线后却可能变成事故。这篇指南把 .env、YAML、TOML、Nginx 和 Header 检查放进一个发布前流程。",
         "readingTime": "14 分钟阅读",
         "keywords": [
+          "部署前检查",
           "env 差异检查",
           "YAML Path 测试",
           "TOML 可视化",
-          "Nginx location 匹配"
+          "Nginx location 匹配",
+          "HTTP Header 检查"
         ],
         "sections": [
           {
-            "heading": "配置问题预览成本低，线上代价高",
+            "heading": "配置预览的目标是提前发现明显不一致",
             "paragraphs": [
-              "配置问题在 code review 里看起来很小，但上线后代价很高。少一个环境变量、镜像 tag 还是 latest、TOML 默认值不对、Nginx location 匹配错，都可能让发布翻车。",
-              "所以配置类博客不能只说“这是一个工具”，而要展示部署前怎么把这些文件串起来检查。"
+              "配置问题在 PR 里看起来很小：少一个环境变量、镜像 tag 错了、TOML 默认值不合适、Nginx location 命中错误 block、Header 缓存策略过激。真正上线后，它们可能造成白屏、回调失败、缓存污染或路由错配。",
+              "这篇文章要承接“部署前检查”“env diff”“YAML path”“Nginx location tester”等搜索意图，所以每一节都应该回答一个发布前问题。"
             ],
             "image": {
               "src": "/blog/demos/config-preview-deploy-demo.png",
-              "alt": "部署前配置预览",
-              "caption": "实用的部署前检查应该把 .env 差异、YAML 路径、TOML 结构和 Nginx 路由匹配放在一起。"
+              "alt": "部署前配置预览：env、YAML、TOML、Nginx 和 Header",
+              "caption": "部署前配置预览不是替代 staging，而是把容易漏看的文本配置风险提前暴露出来。"
             }
           },
           {
-            "heading": "Demo 1：对比 .env 和 .env.example",
+            "heading": "用 .env diff 检查缺失、空值和重复 key",
             "paragraphs": [
-              "最直接的收益是检查运行环境变量和 example 是否一致。缺失 key 很明显，但空值和重复 key 同样危险。",
-              "这个 demo 能发现常见上线问题：example 里写了变量，但真实环境没配置。"
+              ".env.example 能告诉团队“需要哪些变量”，真实 .env 能告诉你“现在有哪些变量”。两者一对比，缺失 key、空值、重复 key 和只存在本地的变量都会更明显。",
+              "敏感值不要贴进文章或 issue，保留 key 名和脱敏后的 shape 就够了。"
             ],
             "code": {
               "language": "dotenv",
@@ -9543,173 +10014,162 @@
             }
           },
           {
-            "heading": "Demo 2：只检查真正会部署的 YAML 值",
+            "heading": "用 YAML Path 只看真正影响发布的字段",
             "paragraphs": [
-              "Kubernetes、Helm、GitHub Actions 文件通常很长。YAML Path 预览适合问一个具体问题：这次部署到底用哪个 image、branch、CPU limit 或 secret name。",
-              "当 review 关注一个生产值时，这比展示完整 YAML 树更有效。"
+              "Kubernetes、Helm、GitHub Actions 和 Docker Compose 文件都可能很长。YAML Path 的价值是把问题缩小到一个字段：这次到底部署哪个 image、哪个 branch、哪个 secret、哪个 CPU limit。",
+              "文章里给出可复制表达式，可以把读者自然引到 YAML Path Tester 或 Kubernetes Manifest Visualizer。"
             ],
             "code": {
               "language": "yaml",
-              "content": "spec.template.spec.containers[0].image\n---\napiVersion: apps/v1\nkind: Deployment\nspec:\n  template:\n    spec:\n      containers:\n        - name: api\n          image: example/api:latest",
-              "caption": "如果生产还在用 latest，应该在发布前明确标出来。"
+              "content": "deploy:\n  image: registry.example.com/app:2026-06-27\n  resources:\n    limits:\n      cpu: \"1000m\"\n      memory: \"512Mi\"\n---\n$.deploy.image",
+              "caption": "先验证关键路径，再看完整 manifest 或 values 文件。"
             }
           },
           {
-            "heading": "Demo 3：检查 TOML section 和默认值",
+            "heading": "TOML 默认值和 section 层级要单独 review",
             "paragraphs": [
-              "TOML 常见于 pyproject、Cargo、应用配置和内部工具。它可读性不错，但生产默认值仍然可能不合适。",
-              "结构预览可以让 reviewer 快速扫 section、key 和 value，不需要先理解完整应用。"
+              "TOML 常见于应用配置、pyproject、Cargo 和内部工具。它可读性强，但默认值经常被复制到生产环境，比如 worker 数太低、timeout 太短、feature flag 状态错误。",
+              "TOML Visualizer 应该帮助读者看清 section 层级、数组、布尔值和默认参数。"
             ],
             "code": {
               "language": "toml",
-              "content": "[server]\nport = 3000\nworkers = 1\n\n[features]\nsearch = true\nnew_checkout = false",
-              "caption": "文章里要解释哪些 TOML 值是安全默认值，哪些需要按环境复核。"
+              "content": "[worker]\nconcurrency = 2\ntimeout_seconds = 10\n\n[feature_flags]\nnew_checkout = true",
+              "caption": "生产发布前要确认 concurrency、timeout 和 flag 是否符合真实流量。"
             }
           },
           {
-            "heading": "Demo 4：测试 Nginx location 匹配",
+            "heading": "Nginx location 匹配和 Header 是发布事故高发区",
             "paragraphs": [
-              "Nginx 路由 bug 容易漏，因为 exact、prefix、^~、regex 的优先级不同。配置看起来对，但实际可能命中另一个 block。",
-              "部署 rewrite 或 proxy 规则前，应该把目标 URI 和相关 location block 单独拿出来预览。"
+              "Nginx 的 exact、prefix、^~、regex 优先级很容易误判。配置看起来对，真实 URL 却可能命中另一个 location。Header 也一样，缓存、CORS、content-type 都可能让前端拿到过期资源。",
+              "把 Nginx Location Tester 和 HTTP Header Parser 放进发布前 checklist，比事故后翻配置更划算。"
             ],
             "code": {
               "language": "nginx",
-              "content": "URI: /api/users/42\n---\nlocation = /health { return 200; }\nlocation ^~ /api/ { proxy_pass http://api; }\nlocation ~ \\.(js|css)$ { root /assets; }\nlocation / { try_files $uri /index.html; }",
-              "caption": "预期应命中 ^~ /api/，而不是 fallback location。"
+              "content": "location /api/ { proxy_pass http://api; }\nlocation ~* \\.(js|css)$ { add_header Cache-Control \"public, max-age=31536000\"; }\nlocation / { try_files $uri /index.html; }",
+              "caption": "检查 /api/orders、/assets/app.js 和 /dashboard 分别命中哪个 block。"
             }
           },
           {
-            "heading": "这份 checklist 能发现什么",
+            "heading": "部署前配置 checklist",
             "paragraphs": [
-              "secret 在 example 里有，但真实环境没有；部署镜像仍然使用 latest；TOML worker 数本地够用但生产不够；regex route 抢走 prefix route 的流量；缓存响应头让客户端一直保留旧 bundle。",
-              "这些具体错误会让文章像发布经验，而不是普通工具介绍。"
-            ]
-          },
-          {
-            "heading": "什么时候不能只依赖预览",
-            "paragraphs": [
-              "预览不能替代 staging 部署、secret 扫描或真实健康检查。它的价值是提前发现明显不一致。",
-              "最终发布仍然要看真实环境变量、已部署 manifest、Nginx reload 校验和应用日志。"
+              "发布前检查：env diff、YAML 关键路径、TOML 默认值、Nginx location 命中、Header 缓存和 CORS、secret 脱敏、staging 环境健康检查。",
+              "这篇文章适合作为基础设施配置类文章的中心页，向 Env Diff Checker、YAML Path Tester、TOML Visualizer、Nginx Location Tester 和 HTTP Header Parser 分发流量。"
             ]
           }
         ]
       },
       "technical-seo-preview-robots-sitemap-open-graph": {
-        "title": "技术 SEO 预览工作流：robots.txt、sitemap.xml、Open Graph 和 SVG 封面",
-        "seoTitle": "技术 SEO 预览工作流：robots.txt、sitemap.xml、Open Graph 和 SVG 封面 - DiagramPreview",
-        "description": "一篇技术 SEO 预览教程，覆盖 robots.txt 规则、sitemap XML、hreflang、Open Graph 卡片、SVG 封面和发布前检查。",
-        "excerpt": "一篇技术 SEO 预览教程，覆盖 robots.txt 规则、sitemap XML、hreflang、Open Graph 卡片、SVG 封面和发布前检查。",
+        "title": "技术 SEO 预览：robots.txt、sitemap.xml、hreflang、Open Graph 和 SVG 封面",
+        "seoTitle": "技术 SEO 预览工作流 - robots.txt、sitemap.xml、hreflang 与 Open Graph",
+        "description": "上线前检查 robots.txt 规则、sitemap XML 质量、hreflang alternate、Open Graph 卡片和 SVG 封面，降低索引和分享错误。",
+        "excerpt": "技术 SEO 的很多问题都藏在小文件里：robots 误伤、sitemap 重复、hreflang 缺失、OG 图片不可抓取。这篇指南给出上线前预览流程。",
         "readingTime": "14 分钟阅读",
         "keywords": [
           "技术 SEO 预览",
           "robots.txt 测试器",
           "sitemap XML 查看器",
-          "Open Graph 预览"
+          "hreflang 检查",
+          "Open Graph 预览",
+          "SVG 封面检查"
         ],
         "sections": [
           {
-            "heading": "技术 SEO 文件也需要预览",
+            "heading": "技术 SEO 文件很小，但影响的是抓取、收录和点击",
             "paragraphs": [
-              "很小的技术 SEO 文件也可能造成很大的收录问题。robots.txt 一条规则可能挡住整个目录，sitemap 可能重复提交大量 URL，Open Graph 图片可能在真正分享后才发现不可用。",
-              "所以这篇文章应该展示完整发布流程：robots 规则检查、sitemap 检查、Open Graph 预览、SVG 封面预览和上线前 checklist。"
+              "robots.txt 一条规则可能挡住整个目录，sitemap 可能重复提交大量低质量 URL，hreflang 缺失会让多语言页面互相竞争，Open Graph 图片不可抓取会降低分享点击。",
+              "这篇文章要服务“上线前技术 SEO 检查”的搜索意图，因此重点不是讲概念，而是给出可执行的预览顺序。"
             ],
             "image": {
               "src": "/blog/demos/technical-seo-preview-demo.png",
-              "alt": "技术 SEO 预览工作流",
-              "caption": "技术 SEO 预览要把抓取规则、sitemap 质量、社交卡片和封面图放到同一条发布链路里。"
+              "alt": "技术 SEO 预览工作流：robots、sitemap、hreflang、Open Graph 和 SVG",
+              "caption": "技术 SEO 预览要把抓取规则、sitemap 质量、多语言 alternate、社交卡片和封面图放在同一条发布链路里。"
             }
           },
           {
-            "heading": "Demo 1：用目标 URL 测试 robots.txt",
+            "heading": "用具体 URL 测 robots.txt，而不是只读规则",
             "paragraphs": [
-              "不要只把 robots.txt 当文本看。拿一个你希望收录的具体 URL，测试最长匹配的 Allow 或 Disallow 是否允许它。",
-              "新增私有后台、API 路由、测试环境路径或自动生成博客目录后，这一步尤其重要。"
+              "robots.txt 的风险常常来自误匹配。你以为阻止的是 /api/，实际可能影响 /api-docs/；你以为允许 /blog/，但更长的 Disallow 规则可能覆盖它。",
+              "Robots.txt Tester 应该输入目标 URL、user-agent 和完整规则，输出最终允许或阻止结果。"
             ],
             "code": {
               "language": "text",
-              "content": "URL: https://example.com/blog/jq-vs-jsonpath-api-debugging-workflow\n---\nUser-agent: *\nDisallow: /admin/\nDisallow: /api/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
+              "content": "URL: https://example.com/blog/api-debugging-preview-har-postman-openapi\n---\nUser-agent: *\nDisallow: /admin/\nDisallow: /api/\nAllow: /blog/\nSitemap: https://example.com/sitemap.xml",
               "caption": "预期结果是 /blog 允许收录，同时 /admin 和 /api 仍然阻止。"
             }
           },
           {
-            "heading": "Demo 2：检查 sitemap URL 和多语言 alternate",
+            "heading": "sitemap 要检查数量、重复、lastmod 和多语言 alternate",
             "paragraphs": [
-              "sitemap 预览不只是 XML 校验。它应该展示 URL 数量、重复 URL、lastmod、sitemap index 和 hreflang alternate。",
-              "对于多语言工具站，hreflang alternate 和 URL 数量一样重要。alternate 错误会给搜索引擎传递混乱信号。"
+              "XML 合法不代表 sitemap 健康。真正要看的是 URL 是否重复、是否包含 noindex 页面、lastmod 是否每次部署都无意义变化、多语言 alternate 是否完整。",
+              "如果站点做了 sitemap 拆分，应该检查 index sitemap 是否正确引用 core、tools、blog 等子 sitemap。"
             ],
             "code": {
               "language": "xml",
-              "content": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n  <url>\n    <loc>https://example.com/en/jq-filter-tester</loc>\n    <xhtml:link rel=\"alternate\" hreflang=\"zh-CN\" href=\"https://example.com/zh-CN/jq-filter-tester\" />\n    <xhtml:link rel=\"alternate\" hreflang=\"ja\" href=\"https://example.com/ja/jq-filter-tester\" />\n  </url>\n</urlset>",
-              "caption": "文章里应该解释 URL 数量、alternate、重复 URL 和 lastmod 质量。"
+              "content": "<url>\n  <loc>https://example.com/en/mermaid-preview</loc>\n  <xhtml:link rel=\"alternate\" hreflang=\"zh-CN\" href=\"https://example.com/zh-CN/mermaid-preview\" />\n  <xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"https://example.com/en/mermaid-preview\" />\n</url>",
+              "caption": "多语言工具页应通过 hreflang 互相指向，避免搜索引擎误判重复内容。"
             }
           },
           {
-            "heading": "Demo 3：分享前预览 Open Graph",
+            "heading": "Open Graph 和 SVG 封面影响分享后的第一眼点击",
             "paragraphs": [
-              "Open Graph 很容易出问题：HTML 看起来对，但图片太大、被阻止、发生跳转，或者视觉上不清楚。",
-              "发布前预览 title、description、image、url、site name，比手动扫 meta 标签更有效。"
+              "OG HTML 看起来正确，不代表平台一定能抓到图片。图片可能过大、被重定向、需要 cookie、仍是 localhost，或者视觉上看不出文章主题。",
+              "SVG 封面也要检查尺寸、对比度、文字是否溢出，以及是否包含不适合发布的脚本或外部资源。"
             ],
             "code": {
               "language": "html",
-              "content": "<meta property=\"og:title\" content=\"jq vs JSONPath: API response debugging workflow\" />\n<meta property=\"og:description\" content=\"A practical guide with jq filters, JSONPath selectors, and copyable API payload demos.\" />\n<meta property=\"og:image\" content=\"https://diagrampreview.com/blog/jq-vs-jsonpath-api-debugging-workflow.png\" />\n<meta property=\"og:url\" content=\"https://diagrampreview.com/en/blog/jq-vs-jsonpath-api-debugging-workflow\" />",
-              "caption": "OG 卡片应该描述真实教程，而不是只写产品名。"
+              "content": "<meta property=\"og:title\" content=\"Technical SEO Preview Workflow\" />\n<meta property=\"og:description\" content=\"Check robots.txt, sitemap XML, hreflang and Open Graph before publishing.\" />\n<meta property=\"og:image\" content=\"https://example.com/blog/technical-seo-preview.png\" />",
+              "caption": "OG 内容应该匹配当前页面的搜索意图，而不是只写品牌名。"
             }
           },
           {
-            "heading": "Demo 4：检查 SVG 封面和导出图",
+            "heading": "多语言站点还要检查索引策略",
             "paragraphs": [
-              "生成的封面图和 SVG 片段也应该在发布前预览。文字断行、对比度太低、脚本、尺寸过大，都会让文章看起来不可信。",
-              "SVG 适合检查代码生成的图，PNG 更适合发到不稳定支持 SVG 的平台。"
+              "多语言页面能打开不代表都应该立刻索引。如果某些语言只是薄翻译，建议先 noindex 或先补 meta、FAQ 和核心段落。否则低质量页面会消耗抓取预算并稀释主题信号。",
+              "这也是本项目分阶段治理的原因：先做英文和简体中文核心内容，再同步 pt/es/ru 的轻量 meta/FAQ。"
             ]
           },
           {
-            "heading": "常见 SEO 预览错误",
+            "heading": "技术 SEO 发布 checklist",
             "paragraphs": [
-              "没检查重复 URL 就提交 sitemap；本来想阻止 /api/，结果误伤 /api-docs/；社交卡片图片还是本地 URL；新增多语言工具页后忘了 hreflang；批量加博客但没有从相关工具页链接过去。",
-              "这些具体错误比“SEO 很重要”更有价值，读者可以马上对照自己的网站检查。"
-            ]
-          },
-          {
-            "heading": "发布 checklist",
-            "paragraphs": [
-              "用精确 URL 检查 robots.txt，检查 sitemap 数量和 alternate，预览 Open Graph，确认图片 URL 可访问，并确认文章链接到了相关工具页。",
-              "发布后，只把足够有用、能独立解决问题的页面提交 sitemap 或 IndexNow。"
+              "上线前依次检查：robots 具体 URL、sitemap URL 数量和重复、hreflang alternate、canonical、OG 卡片、SVG 封面、noindex 策略和内部链接。",
+              "建议把 Robots.txt Tester、Sitemap XML Viewer、Open Graph Preview Debugger、SVG Code Preview Editor 和 Markdown Preview 作为技术 SEO 预览工具链进行内链。"
             ]
           }
         ]
       },
       "script-preview-debugging-html-css-json-base64": {
-        "title": "AI 生成的 HTML、CSS、JSON 和 Base64，发布前应该怎么预览？",
-        "seoTitle": "AI 生成片段发布前预览工作流：HTML、CSS、JSON Diff 与 Base64 图片",
-        "description": "一篇面向开发者的预览调试工作流：把 AI 生成或项目中复制出的 HTML、CSS、JSON、Base64、cURL、URL 参数、阴影和颜色片段，在发布到 README、Issue、博客或生产文档前先检查一遍。",
+        "title": "AI 生成片段发布前预览：HTML、CSS、JSON Diff、Base64、cURL 和 URL 参数",
+        "seoTitle": "AI 生成代码片段发布前预览 - HTML、CSS、JSON Diff、Base64 与 cURL",
+        "description": "把 AI 生成或项目中复制出的 HTML、CSS、JSON、Base64、cURL、URL 参数、阴影和颜色片段，在发布到 README、Issue、博客或生产文档前先检查。",
         "excerpt": "大模型能生成代码片段，但不会替你打开浏览器、比对 JSON、检查请求参数、渐变、阴影、颜色和图片体积。这篇文章给出一套发布前预览工作流。",
         "keywords": [
-          "html preview sandbox",
-          "css gradient preview",
-          "json diff viewer",
-          "base64 image preview",
-          "ai generated snippets",
-          "developer preview workflow"
+          "AI 生成代码预览",
+          "HTML Preview Sandbox",
+          "CSS Gradient Preview",
+          "JSON Diff Viewer",
+          "Base64 Image Preview",
+          "cURL Parser",
+          "URL Query Parser"
         ],
         "readingTime": "15 分钟阅读",
         "sections": [
           {
-            "heading": "为什么这批工具不只是“小工具”",
+            "heading": "AI 生成内容最大的问题不是生成，而是验证",
             "paragraphs": [
-              "现在很多内容不是从零手写，而是由 AI、设计稿、浏览器控制台、接口响应或日志拼出来。问题在于文本看起来正确，不代表视觉输出、数据差异和嵌入资源也正确。",
-              "这批 P1 工具围绕一个共同任务：在发布前把脚本、片段和视觉源码变成可检查的预览。它们补的是“生成之后、发布之前”的那一步。"
+              "AI 生成的 HTML、CSS、JSON、Base64 图片、cURL 命令和 URL 参数经常“看起来没问题”，但真正放进浏览器、文档或接口请求时才暴露错误。",
+              "这篇文章承接的是“AI generated snippets preview”“HTML preview sandbox”“JSON diff viewer”等长尾搜索意图，目标是把零散小工具组织成发布前检查流程。"
             ],
             "image": {
               "src": "/blog/script-preview-debugging-html-css-json-base64.svg",
-              "alt": "HTML CSS JSON Base64 preview workflow",
-              "caption": "P1 工具不是继续堆 diagram，而是扩展到脚本和视觉源码预览。"
+              "alt": "AI 生成 HTML CSS JSON Base64 片段发布前预览工作流",
+              "caption": "P1 工具不只是继续堆 diagram，而是扩展到脚本、视觉源码和请求片段的预览。"
             }
           },
           {
-            "heading": "Demo 1：HTML 片段先放进 sandbox",
+            "heading": "HTML 片段先放进 sandbox，而不是直接进 CMS",
             "paragraphs": [
-              "AI 生成的落地页区块、邮件模板和组件片段，最容易出现样式溢出、移动端断行、无效标签和脚本污染。HTML Preview Sandbox 会把片段放到禁用脚本的 iframe 里预览。",
-              "它不替代真实浏览器测试，但很适合在写 README、帮助中心、推广贴和产品文档前快速看一眼。"
+              "AI 生成的落地页区块、邮件模板和组件片段最容易出现移动端溢出、无效标签、内联样式覆盖、脚本污染和不可访问结构。",
+              "HTML Preview Sandbox 的定位是隔离预览：先验证结构和视觉结果，再决定是否进入真实页面或文档。"
             ],
             "code": {
               "language": "html",
@@ -9718,65 +10178,46 @@
             }
           },
           {
-            "heading": "Demo 2：CSS 渐变需要真实预览",
+            "heading": "CSS 渐变、阴影和颜色要看真实渲染效果",
             "paragraphs": [
-              "CSS gradient 很容易在文本里看不出问题，尤其是颜色太近、方向不对、透明度叠加后发灰。CSS Gradient Preview 会提取渐变并生成色块，适合检查 hero、按钮、社交图和截图背景。",
-              "如果你用 AI 生成视觉代码，最好不要只看 CSS 字符串，而是把背景直接渲染出来。"
+              "CSS gradient、box-shadow 和 color palette 在文本里很难判断质量。颜色过近、透明度叠加、阴影太重、相邻色对比不足，都会影响页面质感和截图质量。",
+              "视觉类片段特别适合在发布前保存一张 review 截图，方便设计、前端和内容同学讨论。"
             ],
             "code": {
               "language": "css",
-              "content": "background:\n  radial-gradient(circle at 20% 20%, rgba(34,197,94,.55), transparent 30%),\n  radial-gradient(circle at 80% 10%, rgba(37,99,235,.55), transparent 32%),\n  linear-gradient(135deg, #f8fafc, #e0f2fe);"
+              "content": "background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);\nbox-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);\ncolor: #0f172a;",
+              "caption": "视觉 CSS 不能只看源码，必须看真实背景、卡片和文字对比。"
             }
           },
           {
-            "heading": "Demo 3：JSON Diff 比“肉眼看差异”可靠",
+            "heading": "JSON Diff 负责发现 AI 或脚本偷偷改了什么",
             "paragraphs": [
-              "接口响应、配置文件和 package 依赖变更都适合先做 JSON diff。尤其是 AI 帮你改了一个 payload 后，新增字段、删除字段和数组变化很容易漏看。",
-              "JSON Diff Viewer 使用 --- 分隔前后两个 JSON，然后列出 added、removed、changed 路径。"
+              "接口响应、配置文件、package 依赖和 schema 变更都适合先做 JSON diff。尤其是 AI 帮你“优化”一个 payload 后，新增字段、删除字段、数组顺序和类型变化很容易漏看。",
+              "好的文章应该说明 diff 后的行动：哪些变化可以接受，哪些必须回到契约、测试或后端代码确认。"
             ],
             "code": {
               "language": "json",
-              "content": "{\n  \"status\": \"draft\",\n  \"total\": 19.9\n}\n---\n{\n  \"status\": \"paid\",\n  \"total\": 39.8,\n  \"paidAt\": \"2026-06-17T08:00:00Z\"\n}"
+              "content": "{\"plan\":\"free\",\"limits\":{\"exports\":3}}\n---\n{\"plan\":\"free\",\"limits\":{\"exports\":10},\"beta\":true}",
+              "caption": "JSON Diff 可以快速暴露新增 beta 字段和 limits 变化。"
             }
           },
           {
-            "heading": "Demo 4：Base64 图片不是越方便越好",
+            "heading": "Base64、cURL 和 URL 参数要检查体积、编码和 Header",
             "paragraphs": [
-              "Base64 图片常出现在 SVG、邮件模板、JSON 配置和 Open Graph 草稿里。它方便复制，但也会让文件变大、缓存变差、review 更困难。",
-              "Base64 Image Preview 可以确认图片是否真的能显示、MIME 类型是否合理、体积是否过大。"
-            ],
-            "code": {
-              "language": "text",
-              "content": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0i..."
-            }
-          },
-          {
-            "heading": "Demo 5：cURL 和 URL 参数也需要预览",
-            "paragraphs": [
-              "很多接口问题其实不在后端，而在请求命令、Header、query 参数或编码方式。cURL Command Parser 能把一条命令拆成 method、URL、headers 和 body；URL Query Parser 则适合检查 UTM、搜索参数和编码后的 redirect。",
-              "这类工具尤其适合发工单和写支持回复：你可以把原始命令和解析截图一起贴上，别人不用猜请求到底长什么样。"
+              "Base64 图片方便复制，但会增加体积并降低 review 可读性。cURL 命令和 URL query 则容易因为 Header、转义、编码、redirect 参数导致接口行为不同。",
+              "Base64 Image Preview、cURL Command Parser 和 URL Query Parser 可以把这些文本片段变成可检查的结构。"
             ],
             "code": {
               "language": "bash",
-              "content": "curl -X POST https://api.example.com/orders?debug=true \\\n  -H \"Authorization: Bearer demo-token\" \\\n  -H \"Content-Type: application/json\" \\\n  --data-raw '{\"sku\":\"A1\",\"qty\":2}'"
+              "content": "curl -X POST \"https://api.example.com/search?q=diagram%20preview&utm_source=docs\" \\\n  -H \"content-type: application/json\" \\\n  -d \"{\\\"query\\\":\\\"mermaid preview\\\"}\"",
+              "caption": "解析后重点检查 method、URL、query、headers 和 body 是否符合预期。"
             }
           },
           {
-            "heading": "Demo 6：视觉 CSS 也要有 review 截图",
+            "heading": "发布前预览 checklist",
             "paragraphs": [
-              "阴影和颜色经常被当作“最后调一下”的细节，但它们会直接影响页面质感、可读性和分享截图质量。CSS Box Shadow Preview 可以把多层阴影放到卡片上看，Color Palette Preview 可以检查颜色 token 和相邻对比度。",
-              "如果 AI 生成了一套主题色或卡片样式，不要只复制 CSS。先把视觉效果渲染出来，再决定是否放进站点。"
-            ],
-            "code": {
-              "language": "css",
-              "content": "--color-primary: #2563eb;\n--color-accent: #22c55e;\n--color-ink: #0f172a;\n\n.card {\n  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);\n}"
-            }
-          },
-          {
-            "heading": "推荐发布前 checklist",
-            "paragraphs": [
-              "先用 HTML sandbox 看结构，再用 CSS gradient 看视觉背景，用 JSON diff 检查数据变化，最后用 Base64 image preview 检查嵌入图片。",
-              "如果这些内容来自 AI，建议把预览截图和源码一起放到 PR 或文档里。这样别人不仅能看到最终效果，也能复现生成过程。"
+              "发布前依次检查：HTML sandbox、CSS gradient、box shadow、color palette、JSON diff、Base64 图片体积、cURL 解析、URL 参数编码。每一步都保留一个最小可复现输入。",
+              "这篇文章适合作为脚本和视觉源码预览类工具的中心页，向 HTML Preview Sandbox、CSS Gradient Preview、JSON Diff Viewer、Base64 Image Preview、cURL Command Parser 和 URL Query Parser 分发流量。"
             ]
           }
         ]

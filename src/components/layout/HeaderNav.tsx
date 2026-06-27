@@ -2,18 +2,25 @@
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import {ChevronDown, PanelsTopLeft} from "lucide-react";
-import {useTranslations} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 import {headerNavItems} from "@/config/navigation";
 import {sortedTools, type ToolConfig, type ToolSlug} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
 
 export function HeaderNav() {
+  const locale = useLocale();
   const t = useTranslations();
+  const resourceLinks = getResourceLinks(locale);
 
   return (
     <nav className="order-3 flex w-full gap-1 overflow-x-auto text-sm text-slate-300 md:order-none md:ml-5 md:w-auto md:flex-1">
       {toolMenuSections.map((section) => (
         <ToolCategoryMenu key={section.id} section={section} />
+      ))}
+      {resourceLinks.map((item) => (
+        <Link key={item.href} href={item.href} className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-slate-800 hover:text-white">
+          {item.label}
+        </Link>
       ))}
       {headerNavItems
         .filter((item) => item.href !== "/tools")
@@ -24,6 +31,26 @@ export function HeaderNav() {
         ))}
     </nav>
   );
+}
+
+function getResourceLinks(locale: string) {
+  const labels: Record<string, {templates: string; workflows: string}> = {
+    "zh-CN": {templates: "模板", workflows: "工作流"},
+    "zh-TW": {templates: "範本", workflows: "工作流"},
+    ja: {templates: "テンプレート", workflows: "ワークフロー"},
+    ko: {templates: "템플릿", workflows: "워크플로"},
+    ru: {templates: "Шаблоны", workflows: "Workflows"},
+    es: {templates: "Plantillas", workflows: "Flujos"},
+    fr: {templates: "Modèles", workflows: "Workflows"},
+    de: {templates: "Vorlagen", workflows: "Workflows"},
+    pt: {templates: "Templates", workflows: "Workflows"}
+  };
+  const copy = labels[locale] ?? {templates: "Templates", workflows: "Workflows"};
+
+  return [
+    {href: "/templates", label: copy.templates},
+    {href: "/workflows", label: copy.workflows}
+  ];
 }
 
 function ToolCategoryMenu({section}: {section: ToolMenuSection}) {

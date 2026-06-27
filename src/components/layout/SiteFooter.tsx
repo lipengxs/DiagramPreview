@@ -23,6 +23,12 @@ export function SiteFooter() {
           ))}
         </FooterColumn>
         <FooterColumn title="Resources">
+          <Link href="/templates" className="text-sm text-slate-600 hover:text-primary">
+            Templates
+          </Link>
+          <Link href="/workflows" className="text-sm text-slate-600 hover:text-primary">
+            Workflows
+          </Link>
           <Link href="/blog" className="text-sm text-slate-600 hover:text-primary">
             Blog
           </Link>

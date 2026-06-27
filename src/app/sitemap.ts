@@ -2,9 +2,12 @@ import type {MetadataRoute} from "next";
 import {sitemapBlogPosts} from "@/config/blog";
 import {indexableLocales} from "@/config/locales";
 import {toolHubs} from "@/config/navigation";
+import {growthContentIndexableLocales} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
 import {staticPageSlugs} from "@/config/static-pages";
 import {tools} from "@/config/tools";
+import {workflows} from "@/config/workflows";
+import {getToolLastModified} from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const latestContentDate = latestDate(sitemapBlogPosts.map((post) => post.date));
@@ -34,6 +37,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.72
     });
 
+    if (growthContentIndexableLocales.includes(locale)) {
+      urls.push({
+        url: `${siteConfig.url}/${locale}/templates`,
+        lastModified: latestContentDate,
+        changeFrequency: "weekly",
+        priority: 0.76
+      });
+
+      urls.push({
+        url: `${siteConfig.url}/${locale}/workflows`,
+        lastModified: latestContentDate,
+        changeFrequency: "weekly",
+        priority: 0.78
+      });
+
+      for (const workflow of workflows) {
+        urls.push({
+          url: `${siteConfig.url}/${locale}/workflows/${workflow.slug}`,
+          lastModified: latestContentDate,
+          changeFrequency: "monthly",
+          priority: 0.74
+        });
+      }
+    }
+
     for (const post of sitemapBlogPosts) {
       urls.push({
         url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
@@ -46,6 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const tool of tools) {
       urls.push({
         url: `${siteConfig.url}/${locale}/${tool.slug}`,
+        lastModified: getToolLastModified(tool),
         changeFrequency: "weekly",
         priority: tool.popular ? 0.9 : 0.75
       });

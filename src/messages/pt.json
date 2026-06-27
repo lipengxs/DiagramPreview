@@ -88,14 +88,15 @@
   },
   "home": {
     "metadata": {
-      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
-      "description": "Visualize e converta Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, mapas mentais, JSON, YAML e diagramas para desenvolvedores online.",
+      "title": "Ferramentas online de diagrama - Mermaid, PlantUML, draw.io e OpenAPI",
+      "description": "DiagramPreview é um workspace online para visualizar, revisar e exportar Mermaid, PlantUML, draw.io, OpenAPI, JSON Schema, HAR, Docker, Kubernetes e diagramas de arquitetura.",
       "keywords": [
-        "diagram preview",
-        "mermaid preview",
-        "plantuml preview",
-        "graphviz online",
-        "markdown preview"
+        "ferramentas de diagrama online",
+        "Mermaid online",
+        "PlantUML online",
+        "draw.io online",
+        "OpenAPI para diagrama de sequência",
+        "JSON Schema visualizer"
       ]
     },
     "hero": {
@@ -148,12 +149,14 @@
     "mermaid-preview": {
       "name": "Prévia Mermaid",
       "shortDescription": "Prévia Mermaid em um workspace online com exemplos, validação e ações de exportação.",
-      "seoTitle": "Prévia Mermaid Online - DiagramPreview",
-      "seoDescription": "Use Prévia Mermaid para visualizar e inspecionar diagramas online com exemplos, erros claros e exportação.",
+      "seoTitle": "Prévia Mermaid online - Editor Mermaid com prévia SVG e exportação",
+      "seoDescription": "Edite e visualize fluxogramas, sequence diagrams, class diagrams, state diagrams, Gantt e ER em Mermaid, com exemplos, cópia do código e exportação SVG/PNG.",
       "keywords": [
-        "mermaid preview",
-        "mermaid editor online",
-        "mermaid live preview"
+        "Mermaid online",
+        "editor Mermaid",
+        "prévia Mermaid",
+        "Mermaid SVG",
+        "Mermaid sequence diagram"
       ],
       "h1": "Prévia Mermaid",
       "intro": "Cole ou escreva conteúdo em um workspace profissional e use Prévia Mermaid para revisar diagramas, documentos ou estruturas de dados.",
@@ -207,16 +210,16 @@
       ],
       "faq": [
         {
-          "question": "Why does a Mermaid diagram render in ChatGPT but fail here?",
-          "answer": "Large language models often omit required diagram headers, quote labels inconsistently, or mix syntax from different Mermaid versions. Start by checking the first line, node labels with punctuation, and unmatched brackets."
+          "question": "Prévia Mermaid online roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "What should I do when the diagram is visually too wide?",
-          "answer": "Split the source into smaller diagrams, use subgraphs for related nodes, shorten labels, and avoid turning a full system map into one giant flowchart."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
         },
         {
-          "question": "Can I export the preview for documentation?",
-          "answer": "Yes. When the SVG preview looks correct, export SVG for crisp documentation or PNG for quick sharing in issues and chat tools."
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -250,12 +253,13 @@
     "plantuml-preview": {
       "name": "Prévia PlantUML",
       "shortDescription": "Prévia PlantUML em um workspace online com exemplos, validação e ações de exportação.",
-      "seoTitle": "Prévia PlantUML Online - DiagramPreview",
-      "seoDescription": "Use Prévia PlantUML para visualizar e inspecionar diagramas online com exemplos, erros claros e exportação.",
+      "seoTitle": "Prévia PlantUML online - Editor PlantUML com SVG",
+      "seoDescription": "Cole código PlantUML com @startuml/@enduml para revisar sequence diagrams, class diagrams, use cases e activity diagrams antes de publicar.",
       "keywords": [
-        "plantuml preview",
-        "plantuml online editor",
-        "plantuml viewer"
+        "PlantUML online",
+        "PlantUML viewer",
+        "PlantUML SVG",
+        "UML sequence diagram"
       ],
       "h1": "Prévia PlantUML",
       "intro": "Cole ou escreva conteúdo em um workspace profissional e use Prévia PlantUML para revisar diagramas, documentos ou estruturas de dados.",
@@ -298,12 +302,20 @@
       ],
       "faq": [
         {
-          "question": "Prévia PlantUML funciona online?",
-          "answer": "Sim. Esta página usa o workspace de navegador do DiagramPreview."
+          "question": "Prévia PlantUML online roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Posso exportar o resultado?",
-          "answer": "Renderizadores compatíveis oferecem SVG, PNG, cópia e PDF via impressão."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
+        },
+        {
+          "question": "Posso colar conteúdo privado?",
+          "answer": "Evite colar segredos, tokens, dados de clientes ou infraestrutura sensível. Para diagramas confidenciais, remova valores privados ou use um ambiente controlado."
         }
       ],
       "seoBody": [
@@ -503,12 +515,13 @@
     "d2-preview": {
       "name": "Prévia D2",
       "shortDescription": "Prévia D2 em um workspace online com exemplos, validação e ações de exportação.",
-      "seoTitle": "Prévia D2 Online - DiagramPreview",
-      "seoDescription": "Use Prévia D2 para visualizar e inspecionar diagramas online com exemplos, erros claros e exportação.",
+      "seoTitle": "Prévia D2 online - Visualizador D2 para diagramas de arquitetura",
+      "seoDescription": "Cole texto D2 para pré-visualizar service maps, dependências, boundaries e rascunhos de arquitetura mantidos como texto.",
       "keywords": [
-        "d2 preview",
-        "d2 diagram online",
-        "d2 viewer"
+        "D2 preview",
+        "D2 diagram viewer",
+        "architecture diagram text",
+        "D2 online"
       ],
       "h1": "Prévia D2",
       "intro": "Cole ou escreva conteúdo em um workspace profissional e use Prévia D2 para revisar diagramas, documentos ou estruturas de dados.",
@@ -547,12 +560,16 @@
       ],
       "faq": [
         {
-          "question": "Prévia D2 funciona online?",
-          "answer": "Sim. Esta página usa o workspace de navegador do DiagramPreview."
+          "question": "Prévia D2 online roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Posso exportar o resultado?",
-          "answer": "Renderizadores compatíveis oferecem SVG, PNG, cópia e PDF via impressão."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -586,12 +603,14 @@
     "drawio-preview": {
       "name": "Visualizador Draw.io",
       "shortDescription": "Visualizador Draw.io em um workspace online com exemplos, validação e ações de exportação.",
-      "seoTitle": "Visualizador Draw.io Online - DiagramPreview",
-      "seoDescription": "Use Visualizador Draw.io para visualizar e inspecionar diagramas online com exemplos, erros claros e exportação.",
+      "seoTitle": "Abrir draw.io online - Visualizador diagrams.net e inspeção de XML",
+      "seoDescription": "Abra arquivos .drawio e mxfile XML no navegador para revisar páginas, objetos, rótulos, imagens externas e problemas antes de compartilhar ou exportar.",
       "keywords": [
-        "draw.io viewer",
+        "draw.io online",
         "diagrams.net viewer",
-        "drawio preview"
+        "abrir drawio",
+        "drawio XML",
+        "mxfile viewer"
       ],
       "h1": "Visualizador Draw.io",
       "intro": "Cole ou escreva conteúdo em um workspace profissional e use Visualizador Draw.io para revisar diagramas, documentos ou estruturas de dados.",
@@ -622,12 +641,16 @@
       ],
       "faq": [
         {
-          "question": "Visualizador Draw.io funciona online?",
-          "answer": "Sim. Esta página usa o workspace de navegador do DiagramPreview."
+          "question": "Abrir draw.io online roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Posso exportar o resultado?",
-          "answer": "Renderizadores compatíveis oferecem SVG, PNG, cópia e PDF via impressão."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -993,13 +1016,13 @@
     "ai-diagram-generator": {
       "name": "Gerador de diagramas com IA",
       "shortDescription": "Gere diagramas Mermaid a partir de prompts em linguagem natural.",
-      "seoTitle": "Gerador de diagramas com IA - DiagramPreview",
-      "seoDescription": "Gere diagramas Mermaid a partir de prompts em linguagem natural.",
+      "seoTitle": "Gerador de diagramas com IA - Crie diagramas Mermaid a partir de prompts",
+      "seoDescription": "Gere rascunhos de diagramas de arquitetura, API, produto ou incidentes com IA e revise a saída Mermaid antes de exportar.",
       "keywords": [
-        "ai-diagram-generator",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "AI diagram generator",
+        "gerador de diagrama IA",
+        "prompt para Mermaid",
+        "architecture diagram AI"
       ],
       "h1": "Gerador de diagramas com IA",
       "intro": "Descreva o diagrama, escolha o tipo Mermaid e deixe a IA criar uma fonte editável com prévia ao vivo.",
@@ -1053,12 +1076,16 @@
       ],
       "faq": [
         {
-          "question": "Qual provedor de IA é usado?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Gerador de diagramas com IA roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Qual provedor de IA é usado?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Posso usar com conteúdo gerado por IA?",
+          "answer": "Sim. Use a IA para criar um rascunho, mas revise sintaxe, nós inventados, direção das setas, campos de contrato e exemplos antes de publicar."
         }
       ],
       "seoBody": [
@@ -1092,13 +1119,13 @@
     "text-to-mermaid": {
       "name": "Texto para Mermaid",
       "shortDescription": "Converta notas de produto, incidentes e arquitetura em Mermaid.",
-      "seoTitle": "Texto para Mermaid - DiagramPreview",
-      "seoDescription": "Converta notas de produto, incidentes e arquitetura em Mermaid.",
+      "seoTitle": "Texto para Mermaid - Gere Mermaid a partir de descrições em linguagem natural",
+      "seoDescription": "Transforme prompts em fluxogramas, sequence diagrams, ER diagrams e rascunhos de arquitetura Mermaid, depois revise e exporte o resultado.",
       "keywords": [
-        "text-to-mermaid",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "texto para Mermaid",
+        "gerador Mermaid IA",
+        "prompt para diagrama",
+        "Mermaid generator"
       ],
       "h1": "Texto para Mermaid",
       "intro": "Cole requisitos, notas ou processos e converta texto comum em Mermaid para prévia e exportação.",
@@ -1152,12 +1179,16 @@
       ],
       "faq": [
         {
-          "question": "Qual provedor de IA é usado?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Texto para Mermaid roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Qual provedor de IA é usado?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Posso usar com conteúdo gerado por IA?",
+          "answer": "Sim. Use a IA para criar um rascunho, mas revise sintaxe, nós inventados, direção das setas, campos de contrato e exemplos antes de publicar."
         }
       ],
       "seoBody": [
@@ -1191,13 +1222,13 @@
     "mermaid-ai-fixer": {
       "name": "Corretor Mermaid com IA",
       "shortDescription": "Corrija sintaxe Mermaid quebrada e melhore a legibilidade com IA.",
-      "seoTitle": "Corretor Mermaid com IA - DiagramPreview",
-      "seoDescription": "Corrija sintaxe Mermaid quebrada e melhore a legibilidade com IA.",
+      "seoTitle": "Corretor Mermaid com IA - Corrija erros de sintaxe Mermaid online",
+      "seoDescription": "Cole Mermaid quebrado, peça correção por IA e revise se a sintaxe, os rótulos e o significado original foram preservados.",
       "keywords": [
-        "mermaid-ai-fixer",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "Mermaid AI fixer",
+        "corrigir Mermaid",
+        "Mermaid syntax error",
+        "AI Mermaid repair"
       ],
       "h1": "Corretor Mermaid com IA",
       "intro": "Cole Mermaid quebrado e uma instrução; a IA retorna código corrigido para prévia e exportação.",
@@ -1254,12 +1285,16 @@
       ],
       "faq": [
         {
-          "question": "Qual provedor de IA é usado?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Corretor Mermaid com IA roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Qual provedor de IA é usado?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Posso usar com conteúdo gerado por IA?",
+          "answer": "Sim. Use a IA para criar um rascunho, mas revise sintaxe, nós inventados, direção das setas, campos de contrato e exemplos antes de publicar."
         }
       ],
       "seoBody": [
@@ -1293,13 +1328,13 @@
     "openapi-to-sequence": {
       "name": "OpenAPI to Sequence Diagram",
       "shortDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
-      "seoTitle": "OpenAPI to Sequence Diagram - DiagramPreview",
-      "seoDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
+      "seoTitle": "OpenAPI para diagrama de sequência - Visualize fluxos de API a partir de OpenAPI",
+      "seoDescription": "Cole OpenAPI JSON/YAML e gere uma sequência Mermaid para revisar paths, operationId, request bodies, responses e branches de erro.",
       "keywords": [
-        "openapi-to-sequence",
-        "openapi to sequence diagram",
-        "diagram tool",
-        "DiagramPreview"
+        "OpenAPI sequence diagram",
+        "OpenAPI para Mermaid",
+        "API flow diagram",
+        "OpenAPI viewer"
       ],
       "h1": "OpenAPI to Sequence Diagram",
       "intro": "Paste OpenAPI JSON or YAML and turn API operations into a sequence diagram that explains request handling.",
@@ -1342,16 +1377,16 @@
       ],
       "faq": [
         {
-          "question": "Should I paste a full OpenAPI document?",
-          "answer": "You can, but focused path snippets usually produce clearer diagrams. Remove unrelated endpoints when writing a specific doc page."
+          "question": "OpenAPI para diagrama de sequência roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "What does the sequence diagram represent?",
-          "answer": "It summarizes request and response relationships from the OpenAPI paths. It does not execute the API or prove runtime behavior."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
         },
         {
-          "question": "How do I make the output easier to read?",
-          "answer": "Group related endpoints, shorten operation summaries, and avoid mixing unrelated resources in one sequence diagram."
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -1386,13 +1421,13 @@
     "sql-to-er-diagram": {
       "name": "SQL to ER Diagram",
       "shortDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
-      "seoTitle": "SQL to ER Diagram - DiagramPreview",
-      "seoDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
+      "seoTitle": "SQL para ER diagram - Visualize tabelas e relações a partir de DDL",
+      "seoDescription": "Cole SQL DDL para revisar tabelas, primary keys, foreign keys, nullable fields, índices e relações do modelo de dados.",
       "keywords": [
-        "sql-to-er-diagram",
-        "sql to er diagram",
-        "diagram tool",
-        "DiagramPreview"
+        "SQL to ER diagram",
+        "DDL visualizer",
+        "database diagram online",
+        "ERD generator"
       ],
       "h1": "SQL to ER Diagram",
       "intro": "Paste SQL DDL and visualize tables, columns, primary keys, and foreign key relationships as an ER diagram.",
@@ -1432,8 +1467,16 @@
       ],
       "faq": [
         {
-          "question": "Does this use AI?",
-          "answer": "No. This tool runs parsing and visualization locally in the browser."
+          "question": "SQL para ER diagram roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
+        },
+        {
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -1467,13 +1510,13 @@
     "json-schema-visualizer": {
       "name": "JSON Schema Visualizer",
       "shortDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
-      "seoTitle": "JSON Schema Visualizer - DiagramPreview",
-      "seoDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
+      "seoTitle": "Visualizador JSON Schema - Prévia de contratos e payloads JSON Schema",
+      "seoDescription": "Visualize propriedades, required, nullable, enum, array items, additionalProperties e oneOf/anyOf antes de publicar contratos de API.",
       "keywords": [
-        "json-schema-visualizer",
-        "json schema visualizer",
-        "diagram tool",
-        "DiagramPreview"
+        "JSON Schema visualizer",
+        "JSON Schema online",
+        "API schema preview",
+        "JSON Schema form"
       ],
       "h1": "JSON Schema Visualizer",
       "intro": "Paste JSON Schema and inspect a structured tree of properties, types, required fields, arrays, enums, and composition groups.",
@@ -1516,16 +1559,16 @@
       ],
       "faq": [
         {
-          "question": "What schema features are most important to review?",
-          "answer": "Required fields, nullable behavior, array item schemas, enum values, additionalProperties, and oneOf/anyOf composition usually cause the most integration confusion."
+          "question": "Visualizador JSON Schema roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Can it validate data against the schema?",
-          "answer": "This page focuses on visualization and review. Use your application validator or a dedicated JSON Schema validator for final validation."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
         },
         {
-          "question": "How do I make a schema visualization easier to read?",
-          "answer": "Split very large schemas by resource, keep descriptions short, and avoid deeply nested anonymous objects when a named schema would be clearer."
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -1920,13 +1963,13 @@
     "docker-compose-diagram": {
       "name": "Diagrama Docker Compose",
       "shortDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
-      "seoTitle": "Diagrama Docker Compose - DiagramPreview",
-      "seoDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
+      "seoTitle": "Diagrama Docker Compose - Visualize dependências de serviços Compose",
+      "seoDescription": "Cole docker-compose.yml para revisar services, depends_on, networks, volumes, ports e topologia local antes de documentar.",
       "keywords": [
-        "docker-compose-diagram",
-        "diagrama docker compose",
-        "diagram tool",
-        "developer documentation"
+        "Docker Compose diagram",
+        "compose visualizer",
+        "service dependency diagram",
+        "docker architecture"
       ],
       "h1": "Diagrama Docker Compose",
       "intro": "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
@@ -1966,8 +2009,20 @@
       ],
       "faq": [
         {
-          "question": "Does this tool use AI?",
-          "answer": "No. It parses and visualizes the source locally in the browser."
+          "question": "Diagrama Docker Compose roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
+        },
+        {
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
+        },
+        {
+          "question": "Posso colar conteúdo privado?",
+          "answer": "Evite colar segredos, tokens, dados de clientes ou infraestrutura sensível. Para diagramas confidenciais, remova valores privados ou use um ambiente controlado."
         }
       ],
       "seoBody": [
@@ -2001,13 +2056,13 @@
     "kubernetes-manifest-visualizer": {
       "name": "Visualizador de Manifest Kubernetes",
       "shortDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
-      "seoTitle": "Visualizador de Manifest Kubernetes - DiagramPreview",
-      "seoDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
+      "seoTitle": "Visualizador Kubernetes Manifest - Revise YAML de Deployment, Service e Ingress",
+      "seoDescription": "Cole manifest Kubernetes para verificar labels, selectors, namespaces, images, ports e relações entre recursos antes do deploy.",
       "keywords": [
-        "kubernetes-manifest-visualizer",
-        "visualizador de manifest kubernetes",
-        "diagram tool",
-        "developer documentation"
+        "Kubernetes manifest visualizer",
+        "Kubernetes YAML viewer",
+        "K8s diagram",
+        "Deployment Service Ingress"
       ],
       "h1": "Visualizador de Manifest Kubernetes",
       "intro": "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
@@ -2047,8 +2102,20 @@
       ],
       "faq": [
         {
-          "question": "Does this tool use AI?",
-          "answer": "No. It parses and visualizes the source locally in the browser."
+          "question": "Visualizador Kubernetes Manifest roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
+        },
+        {
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
+        },
+        {
+          "question": "Posso colar conteúdo privado?",
+          "answer": "Evite colar segredos, tokens, dados de clientes ou infraestrutura sensível. Para diagramas confidenciais, remova valores privados ou use um ambiente controlado."
         }
       ],
       "seoBody": [
@@ -2244,12 +2311,13 @@
     "ai-drawio-generator": {
       "name": "AI Draw.io Generator",
       "shortDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
-      "seoTitle": "AI Draw.io Generator Online - DiagramPreview",
-      "seoDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "seoTitle": "Gerador Draw.io com IA - Crie XML diagrams.net editável por prompt",
+      "seoDescription": "Gere arquivos draw.io editáveis para arquitetura, CI/CD, cloud e data flow, revise o XML e exporte para documentação.",
       "keywords": [
-        "ai-drawio-generator",
-        "ai draw.io generator",
-        "ai draw.io generator"
+        "AI drawio generator",
+        "draw.io AI",
+        "diagrams.net XML generator",
+        "editable diagram AI"
       ],
       "h1": "AI Draw.io Generator",
       "intro": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
@@ -2297,16 +2365,16 @@
       ],
       "faq": [
         {
-          "question": "Why generate draw.io XML instead of an image?",
-          "answer": "A draw.io file stays editable. Teams can move nodes, adjust labels, add icons, and keep using diagrams.net after the AI draft is generated."
+          "question": "Gerador Draw.io com IA roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "What should I include in the prompt?",
-          "answer": "List the main actors, services, stores, queues, external systems, and the direction of important flows. Short but specific prompts usually produce cleaner diagrams."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
         },
         {
-          "question": "Is the generated .drawio file final?",
-          "answer": "Treat it as a structured first draft. Preview it, remove invented components, and refine the layout before publishing it as architecture documentation."
+          "question": "Posso usar com conteúdo gerado por IA?",
+          "answer": "Sim. Use a IA para criar um rascunho, mas revise sintaxe, nós inventados, direção das setas, campos de contrato e exemplos antes de publicar."
         }
       ],
       "seoBody": [
@@ -2570,12 +2638,13 @@
     "plantuml-to-drawio": {
       "name": "PlantUML to Draw.io",
       "shortDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
-      "seoTitle": "PlantUML to Draw.io Online - DiagramPreview",
-      "seoDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "seoTitle": "PlantUML para Draw.io - Converta UML textual em diagrams.net editável",
+      "seoDescription": "Transforme rascunhos PlantUML em XML draw.io para entregar diagramas editáveis sem perder a fonte textual.",
       "keywords": [
-        "plantuml-to-drawio",
-        "plantuml to draw.io",
-        "plantuml to draw.io"
+        "PlantUML to drawio",
+        "UML to diagrams.net",
+        "PlantUML converter",
+        "editable UML diagram"
       ],
       "h1": "PlantUML to Draw.io",
       "intro": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
@@ -2617,16 +2686,16 @@
       ],
       "faq": [
         {
-          "question": "Will conversion be pixel-perfect?",
-          "answer": "No. PlantUML and draw.io have different layout models. The goal is editable structure, not exact visual reproduction."
+          "question": "PlantUML para Draw.io roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Which PlantUML diagrams work best?",
-          "answer": "Sequence, component, class, and simple activity diagrams convert best because their main entities and relationships can be mapped clearly."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
         },
         {
-          "question": "When should I keep the original PlantUML?",
-          "answer": "Keep it when diagrams are generated from code or docs pipelines. Use draw.io for collaborative editing and presentation polishing."
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -2750,12 +2819,13 @@
     "drawio-to-svg": {
       "name": "Draw.io to SVG Preview",
       "shortDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
-      "seoTitle": "Draw.io to SVG Preview Online - DiagramPreview",
-      "seoDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "seoTitle": "Draw.io para SVG - Prévia e exportação SVG de diagrams.net",
+      "seoDescription": "Converta XML draw.io em SVG no navegador e verifique páginas, objetos, rótulos e limites visuais antes de publicar.",
       "keywords": [
-        "drawio-to-svg",
-        "draw.io to svg preview",
-        "draw.io to svg preview"
+        "drawio to SVG",
+        "diagrams.net SVG",
+        "drawio export preview",
+        "mxfile to svg"
       ],
       "h1": "Draw.io to SVG Preview",
       "intro": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
@@ -2797,16 +2867,16 @@
       ],
       "faq": [
         {
-          "question": "Why does my draw.io file not render?",
-          "answer": "Many .drawio files are compressed. Export or save as uncompressed XML before pasting it into this preview."
+          "question": "Draw.io para SVG roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Can this replace diagrams.net?",
-          "answer": "No. It is a quick preview and export surface. Use diagrams.net for full visual editing."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
         },
         {
-          "question": "What should I check before exporting SVG?",
-          "answer": "Check page selection, clipped objects, unreadable labels, and whether the diagram includes private text or internal hostnames."
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -3455,12 +3525,13 @@
     "graphql-schema-visualizer": {
       "name": "GraphQL Schema Visualizer",
       "shortDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
-      "seoTitle": "GraphQL Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "seoTitle": "Visualizador GraphQL Schema - Mapa de types, inputs e enums GraphQL",
+      "seoDescription": "Cole GraphQL SDL para revisar types, inputs, interfaces, enums, nullability, Query/Mutation e riscos de breaking changes.",
       "keywords": [
-        "graphql-schema-visualizer",
-        "graphql schema visualizer",
-        "graphql schema visualizer"
+        "GraphQL schema visualizer",
+        "GraphQL SDL viewer",
+        "GraphQL type diagram",
+        "API contract review"
       ],
       "h1": "GraphQL Schema Visualizer",
       "intro": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
@@ -3499,12 +3570,16 @@
       ],
       "faq": [
         {
-          "question": "What is GraphQL Schema Visualizer for?",
-          "answer": "Visualize GraphQL types, inputs, interfaces, fields, and relationships."
+          "question": "Visualizador GraphQL Schema roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -3537,12 +3612,13 @@
     "protobuf-schema-visualizer": {
       "name": "Protobuf Schema Visualizer",
       "shortDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
-      "seoTitle": "Protobuf Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "seoTitle": "Visualizador Protobuf Schema - Veja messages, fields e services",
+      "seoDescription": "Visualize Protobuf messages, field numbers, repeated fields, enums, services e request/response para revisar evolução de contratos.",
       "keywords": [
-        "protobuf-schema-visualizer",
-        "protobuf schema visualizer",
-        "protobuf schema visualizer"
+        "Protobuf visualizer",
+        "proto schema diagram",
+        "gRPC schema viewer",
+        "protobuf messages"
       ],
       "h1": "Protobuf Schema Visualizer",
       "intro": "Visualize protobuf messages, fields, and message references as a class diagram.",
@@ -3581,12 +3657,16 @@
       ],
       "faq": [
         {
-          "question": "What is Protobuf Schema Visualizer for?",
-          "answer": "Visualize protobuf messages, fields, and message references as a class diagram."
+          "question": "Visualizador Protobuf Schema roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -3701,12 +3781,13 @@
     "dbml-to-er-diagram": {
       "name": "DBML to ER Diagram",
       "shortDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
-      "seoTitle": "DBML to ER Diagram Online - DiagramPreview",
-      "seoDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "seoTitle": "DBML para ER diagram - Prévia de modelos de dados DBML",
+      "seoDescription": "Cole DBML para visualizar tabelas, refs, enums, notas e cardinalidade antes de compartilhar o modelo com engenharia e produto.",
       "keywords": [
-        "dbml-to-er-diagram",
-        "dbml to er diagram",
-        "dbml to er diagram"
+        "DBML to ER diagram",
+        "DBML visualizer",
+        "database modeling",
+        "ER diagram online"
       ],
       "h1": "DBML to ER Diagram",
       "intro": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
@@ -3745,12 +3826,16 @@
       ],
       "faq": [
         {
-          "question": "What is DBML to ER Diagram for?",
-          "answer": "Convert DBML table definitions and refs into a Mermaid ER diagram."
+          "question": "DBML para ER diagram roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
         }
       ],
       "seoBody": [
@@ -4264,7 +4349,7 @@
       "seoDescription": "Gerador de Pacote de Observabilidade: Generate Grafana dashboard YAML, Prometheus rules, Mermaid architecture, and a runbook checklist with AI.",
       "keywords": [
         "Gerador de Pacote de Observabilidade",
-        null,
+        "dashboard de observabilidade",
         "DiagramPreview"
       ],
       "h1": "Gerador de Pacote de Observabilidade",
@@ -4350,12 +4435,13 @@
     "postman-collection-sequence-diagram": {
       "name": "Postman Collection para Diagrama de Sequência",
       "shortDescription": "Postman Collection para Diagrama de Sequência: Convert Postman collection JSON into a readable API request sequence diagram.",
-      "seoTitle": "Postman Collection para Diagrama de Sequência - DiagramPreview",
-      "seoDescription": "Postman Collection para Diagrama de Sequência: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "seoTitle": "Postman Collection para sequência - Visualize ordem de requests Postman",
+      "seoDescription": "Converta Postman Collection JSON em um fluxo de API revisável para documentação, onboarding e análise de testes manuais.",
       "keywords": [
-        "Postman Collection para Diagrama de Sequência",
-        "Postman collection JSON",
-        "developer diagrams"
+        "Postman sequence diagram",
+        "Postman collection visualizer",
+        "API request flow",
+        "Postman to Mermaid"
       ],
       "h1": "Postman Collection para Diagrama de Sequência",
       "intro": "Postman Collection para Diagrama de Sequência: Convert Postman collection JSON into a readable API request sequence diagram.",
@@ -4394,8 +4480,20 @@
       ],
       "faq": [
         {
-          "question": "Posso usar fonte gerada por IA ou parecida com produção?",
-          "answer": "Sim, mas remova segredos, tokens, hosts privados e dados de clientes antes de colar."
+          "question": "Postman Collection para sequência roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
+        },
+        {
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
+        },
+        {
+          "question": "Posso colar conteúdo privado?",
+          "answer": "Evite colar segredos, tokens, dados de clientes ou infraestrutura sensível. Para diagramas confidenciais, remova valores privados ou use um ambiente controlado."
         }
       ],
       "seoBody": [
@@ -4429,12 +4527,13 @@
     "har-file-sequence-diagram": {
       "name": "HAR para Diagrama de Sequência",
       "shortDescription": "HAR para Diagrama de Sequência: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
-      "seoTitle": "HAR para Diagrama de Sequência - DiagramPreview",
-      "seoDescription": "HAR para Diagrama de Sequência: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "seoTitle": "HAR para diagrama de sequência - Visualize requisições do navegador a partir de HAR",
+      "seoDescription": "Cole HAR JSON e transforme requests, status codes, timings e terceiros em uma sequência para debugging de API e frontend.",
       "keywords": [
-        "HAR para Diagrama de Sequência",
-        "HAR JSON",
-        "developer diagrams"
+        "HAR sequence diagram",
+        "HAR file viewer",
+        "API waterfall debugging",
+        "browser request sequence"
       ],
       "h1": "HAR para Diagrama de Sequência",
       "intro": "HAR para Diagrama de Sequência: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
@@ -4473,8 +4572,20 @@
       ],
       "faq": [
         {
-          "question": "Posso usar fonte gerada por IA ou parecida com produção?",
-          "answer": "Sim, mas remova segredos, tokens, hosts privados e dados de clientes antes de colar."
+          "question": "HAR para diagrama de sequência roda no navegador?",
+          "answer": "Sim. A maior parte da prévia, validação e exportação acontece no navegador. Ferramentas com IA enviam apenas o prompt para a API configurada."
+        },
+        {
+          "question": "O que devo verificar antes de publicar?",
+          "answer": "Confira se o diagrama ou arquivo reflete o fluxo real, se os rótulos estão legíveis, se dados sensíveis foram removidos e se o SVG/PNG exportado ainda é fácil de revisar."
+        },
+        {
+          "question": "Como isso ajuda na documentação?",
+          "answer": "A ferramenta transforma texto ou arquivos técnicos em uma prévia visual revisável, que pode ser ligada a README, ADR, runbooks, issues e documentação de API."
+        },
+        {
+          "question": "Posso colar conteúdo privado?",
+          "answer": "Evite colar segredos, tokens, dados de clientes ou infraestrutura sensível. Para diagramas confidenciais, remova valores privados ou use um ambiente controlado."
         }
       ],
       "seoBody": [

@@ -88,21 +88,22 @@
   },
   "home": {
     "metadata": {
-      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
-      "description": "Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, Mindmaps, JSON, YAML und Entwicklerdiagramme online anzeigen und konvertieren.",
+      "title": "Online-Diagrammtools - Mermaid, PlantUML, draw.io und OpenAPI",
+      "description": "DiagramPreview ist ein Online-Workspace zum Anzeigen, Prüfen und Exportieren von Mermaid, PlantUML, draw.io, OpenAPI, JSON Schema, HAR, Docker, Kubernetes und Architekturdiagrammen.",
       "keywords": [
-        "diagram preview",
-        "mermaid preview",
-        "plantuml preview",
-        "graphviz online",
-        "markdown preview"
+        "Online-Diagrammtools",
+        "Mermaid online",
+        "PlantUML online",
+        "draw.io online",
+        "OpenAPI Sequenzdiagramm",
+        "JSON Schema Visualizer"
       ]
     },
     "hero": {
       "eyebrow": "Online-Workspace für Diagrammvorschau",
-      "h1": "Diagram Preview Tools for Developers",
-      "subtitle": "Mermaid, PlantUML, Markdown, Graphviz, D2, draw.io, Mindmaps und Entwicklerdiagramme online anzeigen.",
-      "searchPlaceholder": "Diagramm-Tools suchen..."
+      "h1": "Online-Diagrammtools für Entwickler",
+      "subtitle": "Mermaid, PlantUML, draw.io, OpenAPI, JSON Schema, HAR, Docker, Kubernetes und Architekturdiagramme im Browser prüfen, visualisieren und exportieren.",
+      "searchPlaceholder": "Mermaid, draw.io, OpenAPI, Schema oder Diagrammtool suchen..."
     },
     "demo": {
       "eyebrow": "60-Sekunden-Produkttour",
@@ -125,38 +126,40 @@
       "faq": "FAQ"
     },
     "why": [
-      "Use one focused workspace for text diagrams, documentation previews, and file-based diagram formats.",
-      "Most rendering runs in the browser, keeping drafts fast while reducing unnecessary round trips.",
-      "Every tool has its own URL, metadata, related tools, and export actions so it can grow as a search-friendly utility."
+      "Mermaid, PlantUML, draw.io, OpenAPI, Schema-Dateien, Konfigurationen und AI-generierte Diagramme in einem Workspace prüfen.",
+      "Vorschau und Export laufen bevorzugt im Browser und passen zu README, Architekturdocs, API-Reviews, Incident-Analysen und Deploy-Checks.",
+      "Jedes Tool hat eine eigene URL, Beispiele, FAQ, verwandte Tools und Exportpfade, damit Nutzer schneller von Suche zu konkreter Arbeit kommen."
     ],
     "faq": [
       {
-        "question": "What can DiagramPreview render?",
-        "answer": "The first release focuses on Mermaid, PlantUML, Markdown, Graphviz, JSON, YAML, and structured preview pages for the remaining diagram formats."
+        "question": "Wofür eignet sich DiagramPreview?",
+        "answer": "Für Mermaid- und PlantUML-Vorschau, draw.io-Prüfung, OpenAPI-Sequenzen, JSON Schema Review, DevOps-Konfigurationen und AI-generierte Diagrammentwürfe."
       },
       {
-        "question": "Do diagrams upload to a server?",
-        "answer": "Browser-first tools render locally when possible. PlantUML uses a server URL in the first version so the renderer can be replaced later."
+        "question": "Werden Eingaben hochgeladen?",
+        "answer": "Normale Vorschau- und Exporttools laufen bevorzugt im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
       },
       {
-        "question": "Can I export diagrams?",
-        "answer": "Supported renderers expose SVG, PNG, copy, and print-style PDF actions from the workspace toolbar."
+        "question": "Kann ich Ergebnisse in Dokumentation verwenden?",
+        "answer": "Ja. Exportieren Sie SVG/PNG, bewahren Sie aber die Quelle auf, damit Reviews und spätere Änderungen nachvollziehbar bleiben."
       }
     ]
   },
   "tools": {
     "mermaid-preview": {
       "name": "Mermaid-Vorschau",
-      "shortDescription": "Mermaid-Vorschau in einem Online-Workspace mit Beispielen, Validierung und Exportaktionen.",
-      "seoTitle": "Mermaid-Vorschau Online - DiagramPreview",
-      "seoDescription": "Nutze Mermaid-Vorschau, um Diagramme online mit Beispielen, klaren Fehlern und Export zu prüfen.",
+      "shortDescription": "Mermaid-Vorschau für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Mermaid-Vorschau online - Mermaid-Editor mit SVG-Vorschau und Export",
+      "seoDescription": "Mermaid Flowcharts, Sequence Diagrams, Class Diagrams, State Diagrams, Gantt und ER online bearbeiten, prüfen und als SVG/PNG exportieren.",
       "keywords": [
-        "mermaid preview",
-        "mermaid editor online",
-        "mermaid live preview"
+        "Mermaid online",
+        "Mermaid Editor",
+        "Mermaid Vorschau",
+        "Mermaid SVG",
+        "Mermaid Sequence Diagram"
       ],
       "h1": "Mermaid-Vorschau",
-      "intro": "Füge Inhalte in einen professionellen Workspace ein und nutze Mermaid-Vorschau, um Diagramme, Dokumente oder Datenstrukturen zu prüfen.",
+      "intro": "Mermaid-Quelltext einfügen und gerenderte Mermaid-SVG im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live SVG",
         "Browser renderer",
@@ -164,8 +167,8 @@
       ],
       "inputLabel": "Eingabe",
       "outputLabel": "Ergebnis",
-      "placeholder": "Mermaid-Vorschau-Inhalt hier einfügen...",
-      "emptyPreview": "Die Mermaid-Vorschau-Vorschau erscheint hier.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "flowchart": {
           "label": "Flowchart",
@@ -193,72 +196,76 @@
         }
       },
       "howToUse": [
-        "Paste Mermaid source, or start from a flowchart, sequence, class, state, Gantt, or ER sample.",
-        "Check the rendered SVG for broken syntax, cramped labels, reversed arrows, or branches that should be split into subgraphs.",
-        "Edit the source and wait for the preview to refresh before exporting SVG, PNG, or copying the source into a README.",
-        "When a generated diagram is too large, reduce it into smaller Mermaid diagrams rather than publishing a single unreadable graph."
+        "Mermaid-Quelltext einfügen oder ein Beispiel laden.",
+        "gerenderte Mermaid-SVG in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "Diagrammtyp, Pfeilrichtung, Label-Länge und Mermaid-Syntax vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "README Mermaid preview",
-        "AI-generated diagram review",
-        "Architecture documentation",
-        "Incident flow diagrams",
-        "Sequence diagram cleanup"
+        "README-Diagramme",
+        "Architektur-Reviews",
+        "AI-generierte Mermaid-Prüfung",
+        "Incident-Flows",
+        "API-Sequenzen"
       ],
       "faq": [
         {
-          "question": "Why does a Mermaid diagram render in ChatGPT but fail here?",
-          "answer": "Large language models often omit required diagram headers, quote labels inconsistently, or mix syntax from different Mermaid versions. Start by checking the first line, node labels with punctuation, and unmatched brackets."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "What should I do when the diagram is visually too wide?",
-          "answer": "Split the source into smaller diagrams, use subgraphs for related nodes, shorten labels, and avoid turning a full system map into one giant flowchart."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
         },
         {
-          "question": "Can I export the preview for documentation?",
-          "answer": "Yes. When the SVG preview looks correct, export SVG for crisp documentation or PNG for quick sharing in issues and chat tools."
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "Mermaid Preview is a live editor for flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and ER diagrams. It is useful when an AI assistant, README draft, or architecture note gives you Mermaid code but no reliable visual check.",
-        "Use the preview loop to catch syntax errors, unreadable labels, overly dense branches, and direction mistakes before the diagram lands in a pull request or documentation page.",
-        "The source remains editable, so you can keep the Mermaid text as the source of truth while exporting SVG or PNG only when you need a shareable artifact."
+        "Mermaid-Vorschau hilft Teams, Mermaid-Quelltext vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten Diagrammtyp, Pfeilrichtung, Label-Länge und Mermaid-Syntax geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: turn a rough AI flowchart into readable Mermaid",
-          "body": "A common workflow is to ask an AI model for an architecture or incident flow, paste the Mermaid code here, then trim labels and branches until the preview is readable. The goal is not just valid syntax; the diagram should survive code review.",
+          "title": "Demo: Mermaid-Quelltext in eine prüfbare Vorschau bringen",
+          "body": "Mermaid-Vorschau ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Keep the first line explicit, such as flowchart LR or sequenceDiagram.",
-            "Quote labels that contain punctuation, slashes, or parentheses.",
-            "Prefer a few named subgraphs over dozens of loose nodes."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "flowchart LR\n  user[\"User\"] --> web[\"Web app\"]\n  web --> api[\"API gateway\"]\n  api --> auth[\"Auth service\"]\n  api --> orders[\"Order service\"]\n  orders --> db[(PostgreSQL)]\n  orders --> queue[\"Event queue\"]",
-          "caption": "This style keeps the graph compact while still showing the request path and async boundary."
+          "code": "flowchart LR\n  Idee --> Vorschau\n  Vorschau --> Review\n  Review --> Export",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Mermaid preview checklist before publishing",
-          "body": "Before exporting, review the diagram like a reader who has not seen the source code. A technically valid Mermaid file can still be a poor documentation asset if labels are too long or relationships are ambiguous.",
+          "title": "Mermaid-Vorschau Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Every edge should answer what moves between two nodes.",
-            "Long product or API names should be shortened in the diagram and explained nearby.",
-            "If the diagram needs a paragraph to explain each arrow, split it into multiple diagrams."
-          ]
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
+          ],
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "plantuml-preview": {
       "name": "PlantUML-Vorschau",
-      "shortDescription": "PlantUML-Vorschau in einem Online-Workspace mit Beispielen, Validierung und Exportaktionen.",
-      "seoTitle": "PlantUML-Vorschau Online - DiagramPreview",
-      "seoDescription": "Nutze PlantUML-Vorschau, um Diagramme online mit Beispielen, klaren Fehlern und Export zu prüfen.",
+      "shortDescription": "PlantUML-Vorschau für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "PlantUML-Vorschau online - PlantUML-Editor mit SVG",
+      "seoDescription": "PlantUML-Code mit @startuml/@enduml einfügen und Sequence, Class, Use Case und Activity Diagrams vor der Veröffentlichung prüfen.",
       "keywords": [
-        "plantuml preview",
-        "plantuml online editor",
-        "plantuml viewer"
+        "PlantUML online",
+        "PlantUML viewer",
+        "PlantUML SVG",
+        "UML Sequence Diagram",
+        "PlantUML Editor"
       ],
       "h1": "PlantUML-Vorschau",
-      "intro": "Füge Inhalte in einen professionellen Workspace ein und nutze PlantUML-Vorschau, um Diagramme, Dokumente oder Datenstrukturen zu prüfen.",
+      "intro": "PlantUML-Quelltext einfügen und PlantUML-SVG im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Server SVG",
         "Text diagrams",
@@ -266,8 +273,8 @@
       ],
       "inputLabel": "Eingabe",
       "outputLabel": "Ergebnis",
-      "placeholder": "PlantUML-Vorschau-Inhalt hier einfügen...",
-      "emptyPreview": "Die PlantUML-Vorschau-Vorschau erscheint hier.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "sequence": {
           "label": "Sequence",
@@ -287,50 +294,62 @@
         }
       },
       "howToUse": [
-        "Füge den Quellinhalt ein oder schreibe ihn direkt.",
-        "Lade ein Beispiel, wenn du schnell starten möchtest.",
-        "Prüfe die Vorschau und kopiere oder exportiere das Ergebnis."
+        "PlantUML-Quelltext einfügen oder ein Beispiel laden.",
+        "PlantUML-SVG in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "@startuml/@enduml, participants, notes, alt-Zweige und Datenschutz vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "Technische Dokumentation",
-        "Architekturnotizen",
-        "Prüfung KI-generierter Inhalte"
+        "UML-Sequenzen",
+        "Klassendiagramme",
+        "Use-Case-Diagramme",
+        "ADR-Dokumente"
       ],
       "faq": [
         {
-          "question": "Funktioniert PlantUML-Vorschau online?",
-          "answer": "Ja. Diese Seite nutzt den Browser-Workspace von DiagramPreview."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Kann ich das Ergebnis exportieren?",
-          "answer": "Unterstützte Renderer bieten SVG, PNG, Kopieren und druckbasiertes PDF."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
+        },
+        {
+          "question": "Kann ich private Inhalte einfügen?",
+          "answer": "Vermeiden Sie Secrets, Tokens, Kundendaten oder sensible Infrastrukturwerte. Entfernen Sie private Werte oder nutzen Sie eine kontrollierte Umgebung."
         }
       ],
       "seoBody": [
-        "PlantUML-Vorschau hilft Entwicklern, PMs und technischen Autoren, Diagramme und strukturierte Inhalte schnell zu prüfen.",
-        "Der Workspace zeigt Quelle und Vorschau nebeneinander, damit Syntax-, Hierarchie- oder Layoutprobleme vor der Veröffentlichung auffallen.",
-        "Jedes Tool hat eine eigene URL, Metadata, FAQ und verwandte Links, damit es als suchbare Tool-Seite wachsen kann."
+        "PlantUML-Vorschau hilft Teams, PlantUML-Quelltext vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten @startuml/@enduml, participants, notes, alt-Zweige und Datenschutz geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: document a login sequence with PlantUML",
-          "body": "PlantUML is strong when a diagram needs to live beside code. A compact sequence source can explain authentication, token exchange, and failure handling without drawing by hand.",
+          "title": "Demo: PlantUML-Quelltext in eine prüfbare Vorschau bringen",
+          "body": "PlantUML-Vorschau ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Name participants exactly as they appear in the system boundary.",
-            "Keep messages short enough for review comments and wiki pages.",
-            "Use alt blocks for expected failure paths instead of writing them only in prose."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "@startuml\nactor User\nparticipant Web\nparticipant Auth\ndatabase SessionDB\nUser -> Web: submit credentials\nWeb -> Auth: verify password\nAuth -> SessionDB: create session\nAuth --> Web: token\nWeb --> User: signed in\n@enduml"
+          "code": "@startuml\nAlice -> Bob: ping\nBob --> Alice: pong\n@enduml",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Troubleshooting: isolate server-rendered PlantUML failures",
-          "body": "When PlantUML rendering fails, the fastest path is to reduce the source until the server accepts it, then add styling, notes, and complex blocks back gradually.",
+          "title": "PlantUML-Vorschau Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "First test @startuml and @enduml with two nodes only.",
-            "Check whether remote includes, sprites, or skinparam blocks depend on unavailable resources.",
-            "Keep private diagrams on trusted renderers because server rendering can send source to that renderer."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "@startuml\nAlice -> Bob: ping\nBob --> Alice: pong\n@enduml"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -502,16 +521,18 @@
     },
     "d2-preview": {
       "name": "D2-Vorschau",
-      "shortDescription": "D2-Vorschau in einem Online-Workspace mit Beispielen, Validierung und Exportaktionen.",
-      "seoTitle": "D2-Vorschau Online - DiagramPreview",
-      "seoDescription": "Nutze D2-Vorschau, um Diagramme online mit Beispielen, klaren Fehlern und Export zu prüfen.",
+      "shortDescription": "D2-Vorschau für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "D2-Vorschau online - D2 Viewer für Architekturdiagramme",
+      "seoDescription": "D2-Text einfügen und service maps, Abhängigkeiten, boundaries und textbasierte Architekturentwürfe previewen.",
       "keywords": [
-        "d2 preview",
-        "d2 diagram online",
-        "d2 viewer"
+        "D2 preview",
+        "D2 diagram viewer",
+        "architecture diagram text",
+        "D2 online",
+        "D2 Architektur"
       ],
       "h1": "D2-Vorschau",
-      "intro": "Füge Inhalte in einen professionellen Workspace ein und nutze D2-Vorschau, um Diagramme, Dokumente oder Datenstrukturen zu prüfen.",
+      "intro": "D2-Text einfügen und D2-Diagramm im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "D2",
         "Architecture",
@@ -519,8 +540,8 @@
       ],
       "inputLabel": "Eingabe",
       "outputLabel": "Ergebnis",
-      "placeholder": "D2-Vorschau-Inhalt hier einfügen...",
-      "emptyPreview": "Die D2-Vorschau-Vorschau erscheint hier.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "architecture": {
           "label": "Architecture",
@@ -536,65 +557,75 @@
         }
       },
       "howToUse": [
-        "Füge den Quellinhalt ein oder schreibe ihn direkt.",
-        "Lade ein Beispiel, wenn du schnell starten möchtest.",
-        "Prüfe die Vorschau und kopiere oder exportiere das Ergebnis."
+        "D2-Text einfügen oder ein Beispiel laden.",
+        "D2-Diagramm in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "boundaries, Beziehungen, Label-Länge und Wartbarkeit des Quelltexts vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "Technische Dokumentation",
-        "Architekturnotizen",
-        "Prüfung KI-generierter Inhalte"
+        "textbasierte Architektur",
+        "Service Maps",
+        "Dependency Review",
+        "Dokumentationsdiagramme"
       ],
       "faq": [
         {
-          "question": "Funktioniert D2-Vorschau online?",
-          "answer": "Ja. Diese Seite nutzt den Browser-Workspace von DiagramPreview."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Kann ich das Ergebnis exportieren?",
-          "answer": "Unterstützte Renderer bieten SVG, PNG, Kopieren und druckbasiertes PDF."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "D2-Vorschau hilft Entwicklern, PMs und technischen Autoren, Diagramme und strukturierte Inhalte schnell zu prüfen.",
-        "Der Workspace zeigt Quelle und Vorschau nebeneinander, damit Syntax-, Hierarchie- oder Layoutprobleme vor der Veröffentlichung auffallen.",
-        "Jedes Tool hat eine eigene URL, Metadata, FAQ und verwandte Links, damit es als suchbare Tool-Seite wachsen kann."
+        "D2-Vorschau hilft Teams, D2-Text vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten boundaries, Beziehungen, Label-Länge und Wartbarkeit des Quelltexts geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: draft a D2 service map",
-          "body": "D2 is readable for architecture diagrams that need labels, containers, and typed relationships. Even before final styling, a preview helps verify that the text describes the intended system.",
+          "title": "Demo: D2-Text in eine prüfbare Vorschau bringen",
+          "body": "D2-Vorschau ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Use nested blocks for domains or deployment zones.",
-            "Write relationship labels as verbs or protocols.",
-            "Keep identifiers stable so future edits do not reshuffle the whole diagram."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "client -> gateway: HTTPS\ngateway -> orders: REST\norders -> queue: publish event\nqueue -> worker: consume\norders -> db: SQL"
+          "code": "api -> db: reads\napi -> queue: publishes",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Review note: separate structure from visual polish",
-          "body": "The best D2 workflow starts with structure. Once nodes and edges are correct, apply themes and layout settings; otherwise styling can hide that the diagram is missing an important dependency.",
+          "title": "D2-Vorschau Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Validate the graph in plain form first.",
-            "Only add icons or custom styles after the flow is correct.",
-            "Use comments to explain assumptions that are not visible in the graph."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "# Assumption: analytics is async\napi -> event_bus: order.created\nevent_bus -> analytics: consume"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "drawio-preview": {
-      "name": "Draw.io-Viewer",
-      "shortDescription": "Draw.io-Viewer in einem Online-Workspace mit Beispielen, Validierung und Exportaktionen.",
-      "seoTitle": "Draw.io-Viewer Online - DiagramPreview",
-      "seoDescription": "Nutze Draw.io-Viewer, um Diagramme online mit Beispielen, klaren Fehlern und Export zu prüfen.",
+      "name": "draw.io Viewer",
+      "shortDescription": "draw.io Viewer für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "draw.io online öffnen - diagrams.net Viewer und XML-Prüfung",
+      "seoDescription": ".drawio Dateien und mxfile XML im Browser öffnen, Seiten, Objekte, Labels, externe Bilder und Freigabeprobleme prüfen.",
       "keywords": [
-        "draw.io viewer",
+        "draw.io online",
         "diagrams.net viewer",
-        "drawio preview"
+        "drawio XML",
+        "mxfile viewer",
+        "draw.io Vorschau"
       ],
-      "h1": "Draw.io-Viewer",
-      "intro": "Füge Inhalte in einen professionellen Workspace ein und nutze Draw.io-Viewer, um Diagramme, Dokumente oder Datenstrukturen zu prüfen.",
+      "h1": "draw.io Viewer",
+      "intro": ".drawio oder mxfile XML einfügen und diagrams.net-Datei im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "draw.io",
         "XML",
@@ -602,8 +633,8 @@
       ],
       "inputLabel": "Eingabe",
       "outputLabel": "Ergebnis",
-      "placeholder": "Draw.io-Viewer-Inhalt hier einfügen...",
-      "emptyPreview": "Die Draw.io-Viewer-Vorschau erscheint hier.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "xml": {
           "label": "XML",
@@ -611,50 +642,58 @@
         }
       },
       "howToUse": [
-        "Füge den Quellinhalt ein oder schreibe ihn direkt.",
-        "Lade ein Beispiel, wenn du schnell starten möchtest.",
-        "Prüfe die Vorschau und kopiere oder exportiere das Ergebnis."
+        ".drawio oder mxfile XML einfügen oder ein Beispiel laden.",
+        "diagrams.net-Datei in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "Seiten, Objekte, externe Bilder, versteckte Entwürfe und Lesbarkeit vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "Technische Dokumentation",
-        "Architekturnotizen",
-        "Prüfung KI-generierter Inhalte"
+        "draw.io-Dateien öffnen",
+        "diagrams.net XML prüfen",
+        "Dokumentationsfreigabe",
+        "Export-Qualität prüfen"
       ],
       "faq": [
         {
-          "question": "Funktioniert Draw.io-Viewer online?",
-          "answer": "Ja. Diese Seite nutzt den Browser-Workspace von DiagramPreview."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Kann ich das Ergebnis exportieren?",
-          "answer": "Unterstützte Renderer bieten SVG, PNG, Kopieren und druckbasiertes PDF."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "Draw.io-Viewer hilft Entwicklern, PMs und technischen Autoren, Diagramme und strukturierte Inhalte schnell zu prüfen.",
-        "Der Workspace zeigt Quelle und Vorschau nebeneinander, damit Syntax-, Hierarchie- oder Layoutprobleme vor der Veröffentlichung auffallen.",
-        "Jedes Tool hat eine eigene URL, Metadata, FAQ und verwandte Links, damit es als suchbare Tool-Seite wachsen kann."
+        "draw.io Viewer hilft Teams, .drawio oder mxfile XML vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten Seiten, Objekte, externe Bilder, versteckte Entwürfe und Lesbarkeit geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: inspect diagrams.net XML before sharing",
-          "body": "A draw.io file is XML underneath. Previewing it helps catch broken downloads, missing pages, oversized labels, and imported diagrams that still contain private draft nodes.",
+          "title": "Demo: .drawio oder mxfile XML in eine prüfbare Vorschau bringen",
+          "body": "draw.io Viewer ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Check page names before sending the file to a reviewer.",
-            "Look for off-canvas objects and hidden scratch content.",
-            "Use SVG export only after the XML preview loads cleanly."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "<mxfile><diagram name=\"System\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+          "code": "<mxfile><diagram name=\"Architecture\">...</diagram></mxfile>",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Debug checklist: make draw.io files portable",
-          "body": "draw.io diagrams often move between Confluence, diagrams.net, Git repos, and exported SVGs. A portable file should keep labels, page boundaries, and embedded data intact.",
+          "title": "draw.io Viewer Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Avoid relying on externally hosted images when the diagram must work offline.",
-            "Keep each page focused on one diagram or review topic.",
-            "Rename default pages so exports are easier to understand."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "Page 1: System Context\nPage 2: Checkout Sequence\nPage 3: Deployment Notes"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -991,18 +1030,19 @@
       ]
     },
     "ai-diagram-generator": {
-      "name": "KI-Diagramm-Generator",
-      "shortDescription": "Erzeuge Mermaid-Diagramme aus natürlicher Sprache.",
-      "seoTitle": "KI-Diagramm-Generator - DiagramPreview",
-      "seoDescription": "Erzeuge Mermaid-Diagramme aus natürlicher Sprache.",
+      "name": "AI Diagram Generator",
+      "shortDescription": "AI Diagram Generator für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "AI Diagram Generator - Mermaid-Diagramme aus Prompts erstellen",
+      "seoDescription": "AI-Entwürfe für Architektur, API, Produktflüsse und Incident Reviews erzeugen und Mermaid vor dem Export prüfen.",
       "keywords": [
-        "ai-diagram-generator",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "AI diagram generator",
+        "AI Diagramm Generator",
+        "Prompt to Mermaid",
+        "Architecture diagram AI",
+        "AI Mermaid"
       ],
-      "h1": "KI-Diagramm-Generator",
-      "intro": "Beschreibe das Diagramm, wähle den Mermaid-Typ und lasse KI editierbaren Code mit Live-Vorschau erstellen.",
+      "h1": "AI Diagram Generator",
+      "intro": "Prompt einfügen und Mermaid-Diagramm im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "AI",
         "DeepSeek",
@@ -1011,8 +1051,8 @@
       ],
       "inputLabel": "Diagrammwunsch",
       "outputLabel": "Mermaid-Vorschau",
-      "placeholder": "Beschreibe das gewünschte Diagramm...",
-      "emptyPreview": "Beschreibe das Diagramm, wähle den Mermaid-Typ und lasse KI editierbaren Code mit Live-Vorschau erstellen.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "system": {
           "label": "System flow",
@@ -1031,77 +1071,86 @@
         }
       },
       "ai": {
-        "promptLabel": "Diagrammwunsch",
-        "promptPlaceholder": "Beschreibe das gewünschte Diagramm...",
-        "existingCodeLabel": "Vorhandener Mermaid-Code",
-        "existingCodePlaceholder": "Mermaid-Code zum Reparieren einfügen...",
-        "diagramTypeLabel": "Diagrammtyp",
-        "generateButton": "Diagramm erzeugen",
-        "generatedCodeLabel": "Generierter Mermaid-Code",
-        "previewLabel": "Mermaid-Vorschau",
-        "providerLabel": "Provider"
+        "promptLabel": "Beschreiben Sie das Diagramm oder die Korrektur.",
+        "promptPlaceholder": "Beschreiben Sie das gewünschte Diagramm, den Workflow oder die Architektur...",
+        "existingCodeLabel": "Vorhandener Quelltext",
+        "existingCodePlaceholder": "Optional vorhandenen Quelltext einfügen...",
+        "diagramTypeLabel": "Szenario",
+        "generateButton": "Generieren",
+        "generatedCodeLabel": "Generierter Quelltext",
+        "previewLabel": "Vorschau",
+        "providerLabel": "Anbieter"
       },
       "howToUse": [
-        "Beschreibe das Ziel in natürlicher Sprache.",
-        "Wähle den Mermaid-Typ und generiere Code mit KI.",
-        "Prüfe die Ausgabe, editiere bei Bedarf und exportiere SVG oder PNG."
+        "Prompt einfügen oder ein Beispiel laden.",
+        "Mermaid-Diagramm in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "erfundene Systeme, unklare Grenzen, fehlende Fehlerpfade und zu lange Labels vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "KI-Diagrammentwurf",
-        "Text zu Mermaid",
-        "Mermaid-Reparatur"
+        "Architekturentwürfe",
+        "API-Flows",
+        "Produktprozesse",
+        "Incident-Reviews"
       ],
       "faq": [
         {
-          "question": "Welcher KI-Provider wird genutzt?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Welcher KI-Provider wird genutzt?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Kann ich AI-generierte Inhalte verwenden?",
+          "answer": "Ja. Nutzen Sie AI für den Entwurf, prüfen Sie aber Syntax, erfundene Knoten, Pfeilrichtung, Vertragsfelder und Beispiele vor der Veröffentlichung."
         }
       ],
       "seoBody": [
-        "Erzeuge Mermaid-Diagramme aus natürlicher Sprache.",
-        "Beschreibe das Diagramm, wähle den Mermaid-Typ und lasse KI editierbaren Code mit Live-Vorschau erstellen.",
-        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+        "AI Diagram Generator hilft Teams, Prompt vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten erfundene Systeme, unklare Grenzen, fehlende Fehlerpfade und zu lange Labels geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: ask AI for a diagram that can be reviewed",
-          "body": "AI diagram generation works best when the prompt includes audience, scope, nodes, and the kind of decision the diagram should support. Vague prompts tend to create attractive but unreviewable diagrams.",
+          "title": "Demo: Prompt in eine prüfbare Vorschau bringen",
+          "body": "AI Diagram Generator ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Name the system boundary and the people who will read the diagram.",
-            "List required services and data stores so the model does not invent them.",
-            "Ask for Mermaid output that can be previewed and edited."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "Create a Mermaid architecture diagram for a B2B billing service. Audience: backend review. Include web app, API gateway, billing service, Stripe, invoice database, queue, worker, email provider, and admin dashboard. Show sync calls and async events."
+          "code": "Erzeuge ein Mermaid-Architekturdiagramm für eine Checkout-Plattform.",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Review loop: AI output is a draft, not documentation truth",
-          "body": "The useful workflow is generate, preview, correct, and only then publish. The preview step is where missing services, invented dependencies, and unreadable labels become visible.",
+          "title": "AI Diagram Generator Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Delete invented components before exporting.",
-            "Shorten labels that wrap badly in the preview.",
-            "Compare the diagram against source docs, code, or architecture notes before using it in a decision."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "Prompt -> Mermaid source -> Browser preview -> Edit labels -> Export SVG/PNG -> Attach to PR"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "text-to-mermaid": {
       "name": "Text zu Mermaid",
-      "shortDescription": "Konvertiere Produktnotizen, Incidents und Architekturtexte in Mermaid.",
-      "seoTitle": "Text zu Mermaid - DiagramPreview",
-      "seoDescription": "Konvertiere Produktnotizen, Incidents und Architekturtexte in Mermaid.",
+      "shortDescription": "Text zu Mermaid für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Text zu Mermaid - Mermaid aus natürlicher Sprache erzeugen",
+      "seoDescription": "Prompts in Mermaid Flowcharts, Sequence Diagrams, ER-Diagramme und Architekturentwürfe umwandeln, prüfen und exportieren.",
       "keywords": [
-        "text-to-mermaid",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "Text zu Mermaid",
+        "Mermaid AI Generator",
+        "Prompt to diagram",
+        "Mermaid generator",
+        "AI Diagramm"
       ],
       "h1": "Text zu Mermaid",
-      "intro": "Füge Anforderungen, Notizen oder Prozesse ein und konvertiere Text in Mermaid.",
+      "intro": "natürliche Beschreibung einfügen und Mermaid-Entwurf im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "AI",
         "DeepSeek",
@@ -1110,8 +1159,8 @@
       ],
       "inputLabel": "Diagrammwunsch",
       "outputLabel": "Mermaid-Vorschau",
-      "placeholder": "Beschreibe das gewünschte Diagramm...",
-      "emptyPreview": "Füge Anforderungen, Notizen oder Prozesse ein und konvertiere Text in Mermaid.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "requirements": {
           "label": "Requirements",
@@ -1130,77 +1179,86 @@
         }
       },
       "ai": {
-        "promptLabel": "Diagrammwunsch",
-        "promptPlaceholder": "Beschreibe das gewünschte Diagramm...",
-        "existingCodeLabel": "Vorhandener Mermaid-Code",
-        "existingCodePlaceholder": "Mermaid-Code zum Reparieren einfügen...",
-        "diagramTypeLabel": "Diagrammtyp",
-        "generateButton": "Diagramm erzeugen",
-        "generatedCodeLabel": "Generierter Mermaid-Code",
-        "previewLabel": "Mermaid-Vorschau",
-        "providerLabel": "Provider"
+        "promptLabel": "Beschreiben Sie das Diagramm oder die Korrektur.",
+        "promptPlaceholder": "Beschreiben Sie das gewünschte Diagramm, den Workflow oder die Architektur...",
+        "existingCodeLabel": "Vorhandener Quelltext",
+        "existingCodePlaceholder": "Optional vorhandenen Quelltext einfügen...",
+        "diagramTypeLabel": "Szenario",
+        "generateButton": "Generieren",
+        "generatedCodeLabel": "Generierter Quelltext",
+        "previewLabel": "Vorschau",
+        "providerLabel": "Anbieter"
       },
       "howToUse": [
-        "Beschreibe das Ziel in natürlicher Sprache.",
-        "Wähle den Mermaid-Typ und generiere Code mit KI.",
-        "Prüfe die Ausgabe, editiere bei Bedarf und exportiere SVG oder PNG."
+        "natürliche Beschreibung einfügen oder ein Beispiel laden.",
+        "Mermaid-Entwurf in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "Diagrammtyp, erfundene Knoten, Label-Länge und technische Annahmen vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "KI-Diagrammentwurf",
-        "Text zu Mermaid",
-        "Mermaid-Reparatur"
+        "Produktflüsse",
+        "Architekturentwürfe",
+        "Incident-Timelines",
+        "README-Diagramme"
       ],
       "faq": [
         {
-          "question": "Welcher KI-Provider wird genutzt?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Welcher KI-Provider wird genutzt?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Kann ich AI-generierte Inhalte verwenden?",
+          "answer": "Ja. Nutzen Sie AI für den Entwurf, prüfen Sie aber Syntax, erfundene Knoten, Pfeilrichtung, Vertragsfelder und Beispiele vor der Veröffentlichung."
         }
       ],
       "seoBody": [
-        "Konvertiere Produktnotizen, Incidents und Architekturtexte in Mermaid.",
-        "Füge Anforderungen, Notizen oder Prozesse ein und konvertiere Text in Mermaid.",
-        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+        "Text zu Mermaid hilft Teams, natürliche Beschreibung vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten Diagrammtyp, erfundene Knoten, Label-Länge und technische Annahmen geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: convert incident notes into Mermaid",
-          "body": "Incident notes often contain actors, events, and timing in prose. Converting them into Mermaid can reveal missing steps, unclear ownership, and recovery actions that were buried in text.",
+          "title": "Demo: natürliche Beschreibung in eine prüfbare Vorschau bringen",
+          "body": "Text zu Mermaid ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Keep the input factual and chronological.",
-            "Ask for sequenceDiagram when order matters.",
-            "Ask for flowchart when the goal is decision or remediation logic."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "At 10:05 the API started returning 503. The gateway retried twice, then the checkout service timed out while waiting for inventory. The worker queue kept accepting events. Recovery was to scale inventory pods and drain retries."
+          "code": "Erzeuge ein Mermaid sequenceDiagram für Login, Token-Prüfung und Fehlerfall.",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Editing pattern: choose the Mermaid diagram type first",
-          "body": "A text-to-diagram result is stronger when the diagram type matches the question. Architecture notes, incidents, and product flows should not all become the same flowchart.",
+          "title": "Text zu Mermaid Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Use sequenceDiagram for request order and ownership.",
-            "Use flowchart for decision trees and user journeys.",
-            "Use ER diagrams for data relationships instead of forcing them into boxes and arrows."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "Question: who called whom? -> sequenceDiagram\nQuestion: what path can the user take? -> flowchart\nQuestion: what data relates? -> erDiagram"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "mermaid-ai-fixer": {
-      "name": "Mermaid-KI-Fixer",
-      "shortDescription": "Repariere Mermaid-Syntax und verbessere Lesbarkeit mit KI.",
-      "seoTitle": "Mermaid-KI-Fixer - DiagramPreview",
-      "seoDescription": "Repariere Mermaid-Syntax und verbessere Lesbarkeit mit KI.",
+      "name": "Mermaid AI Fixer",
+      "shortDescription": "Mermaid AI Fixer für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Mermaid AI Fixer - Mermaid-Syntaxfehler online korrigieren",
+      "seoDescription": "Defekten Mermaid-Code einfügen, per AI korrigieren lassen und prüfen, ob Syntax, Labels und ursprüngliche Bedeutung erhalten bleiben.",
       "keywords": [
-        "mermaid-ai-fixer",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "Mermaid AI fixer",
+        "Mermaid reparieren",
+        "Mermaid syntax error",
+        "AI Mermaid repair",
+        "Mermaid debug"
       ],
-      "h1": "Mermaid-KI-Fixer",
-      "intro": "Füge fehlerhaften Mermaid-Code und eine Anweisung ein; die KI gibt korrigierten Code zurück.",
+      "h1": "Mermaid AI Fixer",
+      "intro": "defekten Mermaid-Code einfügen und korrigierte Mermaid-Vorschau im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "AI",
         "DeepSeek",
@@ -1209,8 +1267,8 @@
       ],
       "inputLabel": "Diagrammwunsch",
       "outputLabel": "Mermaid-Vorschau",
-      "placeholder": "Beschreibe das gewünschte Diagramm...",
-      "emptyPreview": "Füge fehlerhaften Mermaid-Code und eine Anweisung ein; die KI gibt korrigierten Code zurück.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "brokenFlow": {
           "label": "Broken flow",
@@ -1232,77 +1290,86 @@
         }
       },
       "ai": {
-        "promptLabel": "Diagrammwunsch",
-        "promptPlaceholder": "Beschreibe das gewünschte Diagramm...",
-        "existingCodeLabel": "Vorhandener Mermaid-Code",
-        "existingCodePlaceholder": "Mermaid-Code zum Reparieren einfügen...",
-        "diagramTypeLabel": "Diagrammtyp",
-        "generateButton": "Diagramm erzeugen",
-        "generatedCodeLabel": "Generierter Mermaid-Code",
-        "previewLabel": "Mermaid-Vorschau",
-        "providerLabel": "Provider"
+        "promptLabel": "Beschreiben Sie das Diagramm oder die Korrektur.",
+        "promptPlaceholder": "Beschreiben Sie das gewünschte Diagramm, den Workflow oder die Architektur...",
+        "existingCodeLabel": "Vorhandener Quelltext",
+        "existingCodePlaceholder": "Optional vorhandenen Quelltext einfügen...",
+        "diagramTypeLabel": "Szenario",
+        "generateButton": "Generieren",
+        "generatedCodeLabel": "Generierter Quelltext",
+        "previewLabel": "Vorschau",
+        "providerLabel": "Anbieter"
       },
       "howToUse": [
-        "Beschreibe das Ziel in natürlicher Sprache.",
-        "Wähle den Mermaid-Typ und generiere Code mit KI.",
-        "Prüfe die Ausgabe, editiere bei Bedarf und exportiere SVG oder PNG."
+        "defekten Mermaid-Code einfügen oder ein Beispiel laden.",
+        "korrigierte Mermaid-Vorschau in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "ob Syntax repariert wurde, ohne Bedeutung, Knoten oder Richtung zu verändern vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "KI-Diagrammentwurf",
-        "Text zu Mermaid",
-        "Mermaid-Reparatur"
+        "Mermaid-Syntax reparieren",
+        "AI-Ausgaben prüfen",
+        "Diagramme vor PRs stabilisieren",
+        "Dokumentationsfehler finden"
       ],
       "faq": [
         {
-          "question": "Welcher KI-Provider wird genutzt?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Welcher KI-Provider wird genutzt?",
-          "answer": "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Kann ich AI-generierte Inhalte verwenden?",
+          "answer": "Ja. Nutzen Sie AI für den Entwurf, prüfen Sie aber Syntax, erfundene Knoten, Pfeilrichtung, Vertragsfelder und Beispiele vor der Veröffentlichung."
         }
       ],
       "seoBody": [
-        "Repariere Mermaid-Syntax und verbessere Lesbarkeit mit KI.",
-        "Füge fehlerhaften Mermaid-Code und eine Anweisung ein; die KI gibt korrigierten Code zurück.",
-        "The server calls DeepSeek directly and uses a local template fallback when DeepSeek is unavailable or not configured."
+        "Mermaid AI Fixer hilft Teams, defekten Mermaid-Code vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten ob Syntax repariert wurde, ohne Bedeutung, Knoten oder Richtung zu verändern geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: repair a broken Mermaid flowchart",
-          "body": "AI-generated Mermaid often fails because labels contain reserved punctuation, arrows are mixed, or subgraph syntax is incomplete. A fixer should return valid code and keep the original intent.",
+          "title": "Demo: defekten Mermaid-Code in eine prüfbare Vorschau bringen",
+          "body": "Mermaid AI Fixer ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Preserve node meaning while simplifying labels.",
-            "Quote labels that include slashes, colons, or parentheses.",
-            "Render the fixed diagram immediately to confirm the repair."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "flowchart LR\n  A[User submits /checkout] --> B{Payment OK?}\n  B -- yes --> C[Create order]\n  B -- no --> D[Show retry]"
+          "code": "flowchart LR\n  A[Start --> B[Fehler]",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Debugging: fix syntax before improving style",
-          "body": "The repair loop should solve rendering first. Once the diagram renders, then improve grouping, labels, and layout; otherwise the model may hide the original syntax error behind a redesign.",
+          "title": "Mermaid AI Fixer Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Ask for the smallest valid patch when the structure is already good.",
-            "Ask for readability improvements only after render errors are gone.",
-            "Keep a copy of the broken input for regression testing."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "Broken -> minimal fixed Mermaid -> rendered preview -> optional refactor"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "openapi-to-sequence": {
-      "name": "OpenAPI to Sequence Diagram",
-      "shortDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
-      "seoTitle": "OpenAPI to Sequence Diagram - DiagramPreview",
-      "seoDescription": "Convert OpenAPI paths into a Mermaid sequence diagram locally.",
+      "name": "OpenAPI zu Sequenzdiagramm",
+      "shortDescription": "OpenAPI zu Sequenzdiagramm für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "OpenAPI zu Sequenzdiagramm - API-Flows aus OpenAPI visualisieren",
+      "seoDescription": "OpenAPI JSON/YAML einfügen und Mermaid-Sequenzen für paths, operationId, request bodies, responses und Fehlerzweige erzeugen.",
       "keywords": [
-        "openapi-to-sequence",
-        "openapi to sequence diagram",
-        "diagram tool",
-        "DiagramPreview"
+        "OpenAPI sequence diagram",
+        "OpenAPI to Mermaid",
+        "API flow diagram",
+        "OpenAPI viewer",
+        "API Dokumentation"
       ],
-      "h1": "OpenAPI to Sequence Diagram",
-      "intro": "Paste OpenAPI JSON or YAML and turn API operations into a sequence diagram that explains request handling.",
+      "h1": "OpenAPI zu Sequenzdiagramm",
+      "intro": "OpenAPI JSON oder YAML einfügen und generierte Mermaid-Sequenz im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "No AI",
         "Local preview",
@@ -1311,8 +1378,8 @@
       ],
       "inputLabel": "OpenAPI input",
       "outputLabel": "Sequence diagram",
-      "placeholder": "Paste OpenAPI JSON or YAML here...",
-      "emptyPreview": "Your API sequence diagram will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "petstore": {
           "label": "Pet API",
@@ -1328,74 +1395,75 @@
         }
       },
       "howToUse": [
-        "Paste OpenAPI JSON or YAML that includes the paths you want to explain.",
-        "Review the generated sequence diagram for actors, request methods, response branches, and missing operations.",
-        "Simplify large specs by keeping only the paths relevant to the document you are writing.",
-        "Export the diagram after checking that endpoint names and response labels are readable."
+        "OpenAPI JSON oder YAML einfügen oder ein Beispiel laden.",
+        "generierte Mermaid-Sequenz in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "actors, request methods, response branches und fehlende Operationen vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "API documentation review",
-        "Backend onboarding",
-        "Endpoint design review",
-        "Release notes",
-        "AI OpenAPI output validation"
+        "API-Dokumentation",
+        "Backend-Onboarding",
+        "Fehlerzweige erklären",
+        "Contract Review"
       ],
       "faq": [
         {
-          "question": "Should I paste a full OpenAPI document?",
-          "answer": "You can, but focused path snippets usually produce clearer diagrams. Remove unrelated endpoints when writing a specific doc page."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "What does the sequence diagram represent?",
-          "answer": "It summarizes request and response relationships from the OpenAPI paths. It does not execute the API or prove runtime behavior."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
         },
         {
-          "question": "How do I make the output easier to read?",
-          "answer": "Group related endpoints, shorten operation summaries, and avoid mixing unrelated resources in one sequence diagram."
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "OpenAPI to Sequence Diagram converts API paths, operations, parameters, and response shapes into a Mermaid sequence diagram for documentation and backend review.",
-        "It helps explain endpoint behavior when a specification is too large to read quickly or when AI-generated docs need a visual sanity check.",
-        "Use it for onboarding, API design reviews, incident notes, and release documentation where request flow matters more than a complete schema dump."
+        "OpenAPI zu Sequenzdiagramm hilft Teams, OpenAPI JSON oder YAML vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten actors, request methods, response branches und fehlende Operationen geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: document one checkout endpoint instead of the whole API",
-          "body": "A sequence diagram is most useful when it explains one workflow. For OpenAPI, that usually means selecting a small group of related paths instead of the entire specification.",
+          "title": "Demo: OpenAPI JSON oder YAML in eine prüfbare Vorschau bringen",
+          "body": "OpenAPI zu Sequenzdiagramm ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Keep POST /checkout and the most relevant success and error responses.",
-            "Use operationId or summary fields to create readable message labels.",
-            "Link to the full OpenAPI spec from the document instead of copying everything into the diagram."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "paths:\n  /checkout:\n    post:\n      operationId: createCheckout\n      summary: Create checkout session\n      responses:\n        \"201\": { description: Checkout created }\n        \"402\": { description: Payment required }",
-          "caption": "This focused input creates a cleaner sequence diagram than a full API dump."
+          "code": "paths:\n  /checkout:\n    post:\n      operationId: createCheckout",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "API review: turn a spec endpoint into a request story",
-          "body": "OpenAPI describes endpoints, but reviewers often need to understand the request story: who calls the endpoint, which auth step happens first, which services are involved, and what error paths matter.",
+          "title": "OpenAPI zu Sequenzdiagramm Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Start from the path, method, auth scheme, request body, and main response codes.",
-            "Add backend services as inferred participants only when the contract names them clearly.",
-            "Use the sequence output to discuss behavior, not as a replacement for the OpenAPI spec."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "POST /orders\nAuthorization: Bearer <token>\n201 Created -> orderId\n409 Conflict -> duplicate cart or inventory lock"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "sql-to-er-diagram": {
-      "name": "SQL to ER Diagram",
-      "shortDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
-      "seoTitle": "SQL to ER Diagram - DiagramPreview",
-      "seoDescription": "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
+      "name": "SQL zu ER-Diagramm",
+      "shortDescription": "SQL zu ER-Diagramm für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "SQL zu ER-Diagramm - Datenbanktabellen und Beziehungen visualisieren",
+      "seoDescription": "SQL DDL einfügen und Tabellen, Primary Keys, Foreign Keys, nullable fields, Indizes und Datenmodell-Beziehungen prüfen.",
       "keywords": [
-        "sql-to-er-diagram",
-        "sql to er diagram",
-        "diagram tool",
-        "DiagramPreview"
+        "SQL to ER diagram",
+        "DDL visualizer",
+        "database diagram online",
+        "ERD generator",
+        "Datenbankmodellierung"
       ],
-      "h1": "SQL to ER Diagram",
-      "intro": "Paste SQL DDL and visualize tables, columns, primary keys, and foreign key relationships as an ER diagram.",
+      "h1": "SQL zu ER-Diagramm",
+      "intro": "SQL DDL einfügen und ER-Modell im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "No AI",
         "Local preview",
@@ -1404,8 +1472,8 @@
       ],
       "inputLabel": "SQL DDL input",
       "outputLabel": "ER diagram",
-      "placeholder": "Paste CREATE TABLE statements here...",
-      "emptyPreview": "Your ER diagram will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "commerce": {
           "label": "Commerce",
@@ -1421,62 +1489,75 @@
         }
       },
       "howToUse": [
-        "Paste source text into the editor.",
-        "Review the generated visualization.",
-        "Edit the input and export the rendered SVG or PNG when the diagram looks right."
+        "SQL DDL einfügen oder ein Beispiel laden.",
+        "ER-Modell in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "primary keys, foreign keys, nullable fields, indexes und Beziehungskardinalität vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "Database documentation",
-        "Schema review",
-        "Data model onboarding"
+        "Datenbankmodellierung",
+        "Migration Reviews",
+        "AI-generierte SQL-Prüfung",
+        "Produktdatenmodelle"
       ],
       "faq": [
         {
-          "question": "Does this use AI?",
-          "answer": "No. This tool runs parsing and visualization locally in the browser."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
+        },
+        {
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "Convert CREATE TABLE SQL into a Mermaid ER diagram.",
-        "Paste SQL DDL and visualize tables, columns, primary keys, and foreign key relationships as an ER diagram.",
-        "DiagramPreview keeps the workflow editable so you can revise the source and regenerate the visualization quickly."
+        "SQL zu ER-Diagramm hilft Teams, SQL DDL vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten primary keys, foreign keys, nullable fields, indexes und Beziehungskardinalität geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: convert CREATE TABLE statements into an ER diagram",
-          "body": "SQL schema review becomes faster when tables, primary keys, and foreign keys are visible. The preview helps teams discuss relationships before migrations reach production.",
+          "title": "Demo: SQL DDL in eine prüfbare Vorschau bringen",
+          "body": "SQL zu ER-Diagramm ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Include CREATE TABLE statements for all referenced tables.",
-            "Keep foreign key constraints in the sample when possible.",
-            "Use the ER output to review relationships, not query performance."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "CREATE TABLE users (id INT PRIMARY KEY, email TEXT);\nCREATE TABLE orders (id INT PRIMARY KEY, user_id INT REFERENCES users(id), total DECIMAL);"
+          "code": "CREATE TABLE orders (id uuid PRIMARY KEY, user_id uuid REFERENCES users(id));",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Review checklist: catch schema relationship mistakes",
-          "body": "An ER preview can expose missing foreign keys, many-to-many join tables, and columns that imply a relationship but are not constrained.",
+          "title": "SQL zu ER-Diagramm Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Look for *_id columns without a matching relationship.",
-            "Check whether join tables need composite uniqueness.",
-            "Confirm nullable foreign keys represent a real optional relationship."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "order_items(order_id, product_id)\nUNIQUE(order_id, product_id)"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "json-schema-visualizer": {
       "name": "JSON Schema Visualizer",
-      "shortDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
-      "seoTitle": "JSON Schema Visualizer - DiagramPreview",
-      "seoDescription": "Inspect JSON Schema properties, types, required fields, and composition groups.",
+      "shortDescription": "JSON Schema Visualizer für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "JSON Schema Visualizer - API-Verträge und Payloads prüfen",
+      "seoDescription": "JSON Schema online visualisieren: required, nullable, enum, array items, additionalProperties und oneOf/anyOf vor der Veröffentlichung prüfen.",
       "keywords": [
-        "json-schema-visualizer",
-        "json schema visualizer",
-        "diagram tool",
-        "DiagramPreview"
+        "JSON Schema visualizer",
+        "JSON Schema online",
+        "API schema preview",
+        "JSON Schema form",
+        "Contract review"
       ],
       "h1": "JSON Schema Visualizer",
-      "intro": "Paste JSON Schema and inspect a structured tree of properties, types, required fields, arrays, enums, and composition groups.",
+      "intro": "JSON Schema einfügen und Schema-Baum im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "No AI",
         "Local preview",
@@ -1485,8 +1566,8 @@
       ],
       "inputLabel": "JSON Schema input",
       "outputLabel": "Schema tree",
-      "placeholder": "Paste JSON Schema here...",
-      "emptyPreview": "Your schema tree will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "user": {
           "label": "Nutzerprofil",
@@ -1502,58 +1583,58 @@
         }
       },
       "howToUse": [
-        "Paste a JSON Schema object or load a sample payload contract.",
-        "Inspect required fields, optional fields, array item types, enums, and composition groups.",
-        "Check whether descriptions and examples are present before publishing API documentation.",
-        "Export or copy the visualization after confirming it matches the validator used by your application."
+        "JSON Schema einfügen oder ein Beispiel laden.",
+        "Schema-Baum in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "required, nullable, enum, array items und oneOf/anyOf vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "API contract review",
-        "Payload documentation",
-        "Schema debugging",
-        "AI schema validation",
-        "Breaking-change review"
+        "API-Verträge",
+        "Payload-Review",
+        "Formularvorschau",
+        "Breaking-Change-Prüfung"
       ],
       "faq": [
         {
-          "question": "What schema features are most important to review?",
-          "answer": "Required fields, nullable behavior, array item schemas, enum values, additionalProperties, and oneOf/anyOf composition usually cause the most integration confusion."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Can it validate data against the schema?",
-          "answer": "This page focuses on visualization and review. Use your application validator or a dedicated JSON Schema validator for final validation."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
         },
         {
-          "question": "How do I make a schema visualization easier to read?",
-          "answer": "Split very large schemas by resource, keep descriptions short, and avoid deeply nested anonymous objects when a named schema would be clearer."
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "JSON Schema Visualizer turns properties, required fields, arrays, enums, oneOf, anyOf, and nested object structures into a reviewable schema map.",
-        "It is useful when API payload contracts are too nested for a table, or when AI-generated schema needs a quick check before being committed.",
-        "Use it to review breaking changes, explain request bodies, compare schema sections, and prepare documentation examples that match validation rules."
+        "JSON Schema Visualizer hilft Teams, JSON Schema vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten required, nullable, enum, array items und oneOf/anyOf geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: review a request schema before API docs publish",
-          "body": "Schema diagrams are most useful when they reveal which fields are required, which arrays contain objects, and where composition changes behavior.",
+          "title": "Demo: JSON Schema in eine prüfbare Vorschau bringen",
+          "body": "JSON Schema Visualizer ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Required fields should stand out from optional metadata.",
-            "Enums should be visible because they often become UI states or SDK constants.",
-            "oneOf and anyOf need human explanation in docs, not only a visual branch."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "{\n  \"type\": \"object\",\n  \"required\": [\"email\", \"plan\"],\n  \"properties\": {\n    \"email\": {\"type\": \"string\", \"format\": \"email\"},\n    \"plan\": {\"type\": \"string\", \"enum\": [\"free\", \"pro\"]},\n    \"metadata\": {\"type\": \"object\", \"additionalProperties\": true}\n  }\n}",
-          "caption": "This small schema already shows required fields, enum states, and open metadata."
+          "code": "{\"type\":\"object\",\"required\":[\"email\"],\"properties\":{\"email\":{\"type\":\"string\"}}}",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Schema review: find breaking changes before clients do",
-          "body": "JSON Schema diagrams are especially useful during API evolution. They make required fields, enum changes, nested arrays, nullable fields, and oneOf branches easier to review before a schema update ships.",
+          "title": "JSON Schema Visualizer Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Treat newly required fields as breaking unless every client already sends them.",
-            "Review enum additions with downstream validation rules.",
-            "Flatten deeply nested oneOf or anyOf branches into review notes when the diagram becomes too dense."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "{\n  \"type\": \"object\",\n  \"required\": [\"id\", \"status\"],\n  \"properties\": {\n    \"status\": {\"enum\": [\"draft\", \"paid\", \"cancelled\"]}\n  }\n}"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -1919,17 +2000,18 @@
     },
     "docker-compose-diagram": {
       "name": "Docker Compose Diagramm",
-      "shortDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
-      "seoTitle": "Docker Compose Diagramm - DiagramPreview",
-      "seoDescription": "Convert Docker Compose services and dependencies into a readable architecture diagram.",
+      "shortDescription": "Docker Compose Diagramm für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Docker Compose Diagramm - Service-Abhängigkeiten visualisieren",
+      "seoDescription": "docker-compose.yml einfügen und services, depends_on, networks, volumes, ports und lokale Topologie prüfen.",
       "keywords": [
-        "docker-compose-diagram",
-        "docker compose diagramm",
-        "diagram tool",
-        "developer documentation"
+        "Docker Compose diagram",
+        "compose visualizer",
+        "service dependency diagram",
+        "docker architecture",
+        "Docker Diagramm"
       ],
       "h1": "Docker Compose Diagramm",
-      "intro": "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
+      "intro": "docker-compose.yml einfügen und Service-Topologie im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Local preview",
         "No AI",
@@ -1938,8 +2020,8 @@
       ],
       "inputLabel": "Docker Compose YAML",
       "outputLabel": "Compose diagram",
-      "placeholder": "Paste docker-compose.yml here...",
-      "emptyPreview": "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "webStack": {
           "label": "Web stack",
@@ -1955,62 +2037,79 @@
         }
       },
       "howToUse": [
-        "Paste source text into the editor.",
-        "Load a sample when you need a starting point.",
-        "Review the generated visualization and export when useful."
+        "docker-compose.yml einfügen oder ein Beispiel laden.",
+        "Service-Topologie in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "depends_on, networks, ports, volumes, secrets und readiness-Annahmen vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "Developer documentation",
-        "Code review",
-        "AI-generated output validation"
+        "lokale Architektur",
+        "Onboarding",
+        "Service-Abhängigkeiten",
+        "Dokumentation von Dev-Stacks"
       ],
       "faq": [
         {
-          "question": "Does this tool use AI?",
-          "answer": "No. It parses and visualizes the source locally in the browser."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
+        },
+        {
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
+        },
+        {
+          "question": "Kann ich private Inhalte einfügen?",
+          "answer": "Vermeiden Sie Secrets, Tokens, Kundendaten oder sensible Infrastrukturwerte. Entfernen Sie private Werte oder nutzen Sie eine kontrollierte Umgebung."
         }
       ],
       "seoBody": [
-        "Convert Docker Compose services and dependencies into a readable architecture diagram.",
-        "Paste docker-compose.yml and visualize services, depends_on relationships, networks, and volumes.",
-        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+        "Docker Compose Diagramm hilft Teams, docker-compose.yml vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten depends_on, networks, ports, volumes, secrets und readiness-Annahmen geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: visualize a Compose web stack",
-          "body": "Docker Compose files describe a local architecture in YAML. A diagram makes service dependencies, exposed ports, networks, and volumes easier to review before onboarding or debugging.",
+          "title": "Demo: docker-compose.yml in eine prüfbare Vorschau bringen",
+          "body": "Docker Compose Diagramm ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Show depends_on separately from actual runtime readiness.",
-            "Mark public ports and internal-only services.",
-            "Group observability, app, and data services when the file grows."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "services:\n  web:\n    build: .\n    depends_on: [api]\n    ports: [\"3000:3000\"]\n  api:\n    image: acme/api\n    depends_on: [db]\n  db:\n    image: postgres:16"
+          "code": "services:\n  api:\n    depends_on: [db]\n  db:\n    image: postgres",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Review checklist: Compose diagrams are not readiness guarantees",
-          "body": "The diagram helps explain topology, but Compose depends_on does not always mean a dependency is ready for traffic. Pair the visual review with healthchecks and environment checks.",
+          "title": "Docker Compose Diagramm Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Add healthcheck for databases and queues.",
-            "Check whether ports expose services unintentionally.",
-            "Review named volumes when data persistence matters."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "healthcheck:\n  test: [\"CMD\", \"pg_isready\", \"-U\", \"postgres\"]\n  interval: 10s\n  retries: 5"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "kubernetes-manifest-visualizer": {
       "name": "Kubernetes Manifest Visualizer",
-      "shortDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
-      "seoTitle": "Kubernetes Manifest Visualizer - DiagramPreview",
-      "seoDescription": "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
+      "shortDescription": "Kubernetes Manifest Visualizer für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Kubernetes Manifest Visualizer - YAML-Ressourcenbeziehungen prüfen",
+      "seoDescription": "Kubernetes YAML manifest einfügen und Deployment, Service, Ingress, labels, selectors, namespace, images und ports prüfen.",
       "keywords": [
-        "kubernetes-manifest-visualizer",
-        "kubernetes manifest visualizer",
-        "diagram tool",
-        "developer documentation"
+        "Kubernetes manifest visualizer",
+        "Kubernetes YAML viewer",
+        "K8s diagram",
+        "Deployment Service Ingress",
+        "Kubernetes Visualizer"
       ],
       "h1": "Kubernetes Manifest Visualizer",
-      "intro": "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
+      "intro": "Kubernetes YAML einfügen und Ressourcenbeziehungen im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Local preview",
         "No AI",
@@ -2019,8 +2118,8 @@
       ],
       "inputLabel": "Kubernetes YAML",
       "outputLabel": "Manifest tree",
-      "placeholder": "Paste Kubernetes YAML here...",
-      "emptyPreview": "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "deployment": {
           "label": "Deployment",
@@ -2036,46 +2135,62 @@
         }
       },
       "howToUse": [
-        "Paste source text into the editor.",
-        "Load a sample when you need a starting point.",
-        "Review the generated visualization and export when useful."
+        "Kubernetes YAML einfügen oder ein Beispiel laden.",
+        "Ressourcenbeziehungen in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "labels, selectors, namespaces, images, ports und risky defaults vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "Developer documentation",
-        "Code review",
-        "AI-generated output validation"
+        "Deployment Reviews",
+        "Service/Ingress-Debugging",
+        "Label-Selector-Prüfung",
+        "Release-Vorbereitung"
       ],
       "faq": [
         {
-          "question": "Does this tool use AI?",
-          "answer": "No. It parses and visualizes the source locally in the browser."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
+        },
+        {
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
+        },
+        {
+          "question": "Kann ich private Inhalte einfügen?",
+          "answer": "Vermeiden Sie Secrets, Tokens, Kundendaten oder sensible Infrastrukturwerte. Entfernen Sie private Werte oder nutzen Sie eine kontrollierte Umgebung."
         }
       ],
       "seoBody": [
-        "Inspect Kubernetes manifests as resource trees for deployments, services, ingress, labels, and namespaces.",
-        "Paste one or more Kubernetes YAML resources and review kind, name, namespace, labels, and spec summaries.",
-        "This fits DiagramPreview workflows where developers paste generated or hand-written text and need a fast visual check before publishing documentation."
+        "Kubernetes Manifest Visualizer hilft Teams, Kubernetes YAML vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten labels, selectors, namespaces, images, ports und risky defaults geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: inspect a Deployment and Service together",
-          "body": "Kubernetes YAML is easier to review when resources are grouped by namespace, labels, selectors, and exposed ports. The preview helps catch mismatched labels before kubectl apply.",
+          "title": "Demo: Kubernetes YAML in eine prüfbare Vorschau bringen",
+          "body": "Kubernetes Manifest Visualizer ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Compare Service selectors with Pod template labels.",
-            "Check image tags and pull policies during release review.",
-            "Inspect resource requests and limits next to replica counts."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: api\nspec:\n  selector:\n    matchLabels: {app: api}\n  template:\n    metadata:\n      labels: {app: api}"
+          "code": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: api",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Release checklist: find risky manifest changes",
-          "body": "A manifest visualizer should surface production-sensitive fields first: ingress hosts, service type, image tags, probes, secrets, and resources.",
+          "title": "Kubernetes Manifest Visualizer Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Treat LoadBalancer and NodePort changes as exposure changes.",
-            "Verify liveness and readiness probes before increasing replicas.",
-            "Do not paste real secret values into public tools."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "service.type: ClusterIP -> LoadBalancer\nimage.tag: 1.8.2 -> latest\nresources.limits.cpu: 500m"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -2243,16 +2358,18 @@
     },
     "ai-drawio-generator": {
       "name": "AI Draw.io Generator",
-      "shortDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
-      "seoTitle": "AI Draw.io Generator Online - DiagramPreview",
-      "seoDescription": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "shortDescription": "AI Draw.io Generator für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "AI Draw.io Generator - Editierbares diagrams.net XML erzeugen",
+      "seoDescription": "Editierbare draw.io Dateien für Architektur, CI/CD, Cloud und Data Flow per Prompt erzeugen, XML prüfen und dokumentieren.",
       "keywords": [
-        "ai-drawio-generator",
-        "ai draw.io generator",
-        "ai draw.io generator"
+        "AI drawio generator",
+        "draw.io AI",
+        "diagrams.net XML generator",
+        "editable diagram AI",
+        "AI diagrams.net"
       ],
       "h1": "AI Draw.io Generator",
-      "intro": "Generate editable diagrams.net / draw.io XML from architecture, CI/CD, and data flow prompts.",
+      "intro": "Prompt einfügen und editierbares draw.io XML im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "AI generated",
         "Preview",
@@ -2260,8 +2377,8 @@
       ],
       "inputLabel": "Source code",
       "outputLabel": "Rendered preview",
-      "placeholder": "Paste source here...",
-      "emptyPreview": "The preview will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "microservices": {
           "label": "Microservices",
@@ -2283,70 +2400,69 @@
         }
       },
       "howToUse": [
-        "Describe the system, workflow, or deployment you want to diagram.",
-        "Choose a diagram type such as microservices, CI/CD, data flow, cloud, or deployment.",
-        "Generate the draw.io XML and inspect the SVG preview for missing nodes or unclear labels.",
-        "Download the .drawio file and finish layout, styling, and annotations in diagrams.net if needed."
+        "Prompt einfügen oder ein Beispiel laden.",
+        "editierbares draw.io XML in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "editierbare Knoten, Gruppen, Labels, fehlende Services und XML-Struktur vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "Editable AI architecture diagrams",
-        "diagrams.net handoff files",
-        "CI/CD flow drafts",
-        "Microservice diagrams",
-        "Data-flow documentation"
+        "editierbare Architekturdiagramme",
+        "CI/CD-Flows",
+        "Cloud-Topologien",
+        "Data-Flow-Diagramme"
       ],
       "faq": [
         {
-          "question": "Why generate draw.io XML instead of an image?",
-          "answer": "A draw.io file stays editable. Teams can move nodes, adjust labels, add icons, and keep using diagrams.net after the AI draft is generated."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "What should I include in the prompt?",
-          "answer": "List the main actors, services, stores, queues, external systems, and the direction of important flows. Short but specific prompts usually produce cleaner diagrams."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
         },
         {
-          "question": "Is the generated .drawio file final?",
-          "answer": "Treat it as a structured first draft. Preview it, remove invented components, and refine the layout before publishing it as architecture documentation."
+          "question": "Kann ich AI-generierte Inhalte verwenden?",
+          "answer": "Ja. Nutzen Sie AI für den Entwurf, prüfen Sie aber Syntax, erfundene Knoten, Pfeilrichtung, Vertragsfelder und Beispiele vor der Veröffentlichung."
         }
       ],
       "seoBody": [
-        "AI Draw.io Generator creates editable diagrams.net XML from architecture, CI/CD, deployment, and data-flow prompts instead of returning only a static image.",
-        "This is useful when a diagram starts in an AI prompt but still needs manual cleanup in diagrams.net, Confluence, or an internal architecture review.",
-        "Use the generated XML as a draft, preview it in the browser, then download the .drawio file for final editing and team review."
+        "AI Draw.io Generator hilft Teams, Prompt vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten editierbare Knoten, Gruppen, Labels, fehlende Services und XML-Struktur geprüft und sensible Werte entfernt werden."
       ],
       "ai": {
-        "promptLabel": "Generation request",
-        "promptPlaceholder": "Describe what you want to generate...",
-        "existingCodeLabel": "Existing source",
-        "existingCodePlaceholder": "Paste existing source to improve...",
-        "diagramTypeLabel": "Generation type",
-        "generateButton": "Generate",
-        "generatedCodeLabel": "Generated draw.io XML",
-        "previewLabel": "Preview",
-        "providerLabel": "Provider"
+        "promptLabel": "Beschreiben Sie das Diagramm oder die Korrektur.",
+        "promptPlaceholder": "Beschreiben Sie das gewünschte Diagramm, den Workflow oder die Architektur...",
+        "existingCodeLabel": "Vorhandener Quelltext",
+        "existingCodePlaceholder": "Optional vorhandenen Quelltext einfügen...",
+        "diagramTypeLabel": "Szenario",
+        "generateButton": "Generieren",
+        "generatedCodeLabel": "Generierter Quelltext",
+        "previewLabel": "Vorschau",
+        "providerLabel": "Anbieter"
       },
       "deepDives": [
         {
-          "title": "Demo: prompt for an editable microservice diagram",
-          "body": "A good prompt names the boundary, the important services, and the flow direction. Avoid vague prompts such as “make a system diagram” when you need a usable .drawio file.",
+          "title": "Demo: Prompt in eine prüfbare Vorschau bringen",
+          "body": "AI Draw.io Generator ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Mention external actors and managed services explicitly.",
-            "Group related services into domains, such as checkout, fulfillment, and analytics.",
-            "Ask for editable nodes and labeled edges, not just a pretty picture."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "Create an editable draw.io microservice diagram for an ecommerce checkout flow. Include browser, CDN, Next.js app, API gateway, auth service, checkout service, payment provider, order database, Redis cache, event bus, inventory service, shipping service, and analytics warehouse. Label synchronous calls and async events.",
-          "caption": "The downloaded .drawio file should be reviewed before it becomes a canonical architecture diagram."
+          "code": "Erzeuge ein editierbares draw.io Diagramm für einen Microservice-Checkout.",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Debug checklist: keep AI draw.io output editable",
-          "body": "The most common failure mode is asking AI for a polished diagram instead of a structured diagram. A better review loop checks whether each shape, container, and connector can still be edited in diagrams.net after download.",
+          "title": "AI Draw.io Generator Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Prefer nouns for node labels and verbs for connector labels.",
-            "Ask for swimlanes or containers only when the boundary matters to the architecture review.",
-            "Open the .drawio file once before sharing it, because diagrams.net will expose malformed XML or oversized labels quickly."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "<mxfile><diagram name=\"Checkout\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/></root></mxGraphModel></diagram></mxfile>",
-          "caption": "A minimal draw.io file should remain valid XML first; layout polish can happen after import."
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -2568,17 +2684,19 @@
       ]
     },
     "plantuml-to-drawio": {
-      "name": "PlantUML to Draw.io",
-      "shortDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
-      "seoTitle": "PlantUML to Draw.io Online - DiagramPreview",
-      "seoDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "name": "PlantUML zu Draw.io",
+      "shortDescription": "PlantUML zu Draw.io für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "PlantUML zu Draw.io - Text-UML in editierbares diagrams.net umwandeln",
+      "seoDescription": "PlantUML-Entwürfe in draw.io XML konvertieren, damit editierbare Diagramme ohne Verlust der Textquelle übergeben werden können.",
       "keywords": [
-        "plantuml-to-drawio",
-        "plantuml to draw.io",
-        "plantuml to draw.io"
+        "PlantUML to drawio",
+        "UML to diagrams.net",
+        "PlantUML converter",
+        "editable UML diagram",
+        "UML Diagramm"
       ],
-      "h1": "PlantUML to Draw.io",
-      "intro": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "h1": "PlantUML zu Draw.io",
+      "intro": "PlantUML-Entwurf einfügen und draw.io XML im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live preview",
         "Export",
@@ -2586,8 +2704,8 @@
       ],
       "inputLabel": "PlantUML source",
       "outputLabel": "Draw.io preview",
-      "placeholder": "Paste source here...",
-      "emptyPreview": "The preview will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "sequence": {
           "label": "Sequence",
@@ -2603,57 +2721,58 @@
         }
       },
       "howToUse": [
-        "Paste a focused PlantUML diagram instead of a full document with unrelated macros.",
-        "Preview the generated draw.io structure and check that main nodes and edges are preserved.",
-        "Download the .drawio file and finish layout or styling inside diagrams.net.",
-        "Keep the PlantUML source beside the converted file if the text source remains the canonical version."
+        "PlantUML-Entwurf einfügen oder ein Beispiel laden.",
+        "draw.io XML in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "semantische Verluste, Knoten, Beziehungen und erhaltene Textquelle vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "PlantUML migration",
-        "Editable sequence diagrams",
-        "Architecture handoff",
-        "diagrams.net collaboration",
-        "Documentation conversion"
+        "UML-Übergabe",
+        "editierbare Diagramme",
+        "Architektur-Workshops",
+        "Dokumentationsmigration"
       ],
       "faq": [
         {
-          "question": "Will conversion be pixel-perfect?",
-          "answer": "No. PlantUML and draw.io have different layout models. The goal is editable structure, not exact visual reproduction."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Which PlantUML diagrams work best?",
-          "answer": "Sequence, component, class, and simple activity diagrams convert best because their main entities and relationships can be mapped clearly."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
         },
         {
-          "question": "When should I keep the original PlantUML?",
-          "answer": "Keep it when diagrams are generated from code or docs pipelines. Use draw.io for collaborative editing and presentation polishing."
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "PlantUML to Draw.io converts common PlantUML sequence, component, class, and activity diagrams into editable diagrams.net XML.",
-        "The conversion is most useful when a text-first diagram needs to become a file that non-PlantUML users can edit visually.",
-        "Because PlantUML supports rich syntax, the first version focuses on preserving the main actors, components, classes, activities, and relationships rather than pixel-perfect layout."
+        "PlantUML zu Draw.io hilft Teams, PlantUML-Entwurf vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten semantische Verluste, Knoten, Beziehungen und erhaltene Textquelle geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: convert a sequence diagram for visual editing",
-          "body": "Sequence diagrams often start in PlantUML because text is fast to review. Converting to draw.io helps product, support, or architecture teams edit labels and spacing without learning PlantUML.",
+          "title": "Demo: PlantUML-Entwurf in eine prüfbare Vorschau bringen",
+          "body": "PlantUML zu Draw.io ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Keep participants explicit and avoid heavy macros in the conversion input.",
-            "Convert one scenario per file rather than an entire system flow.",
-            "After conversion, adjust lifeline spacing and annotations in diagrams.net."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "@startuml\nactor User\nparticipant Web\nparticipant API\ndatabase DB\nUser -> Web: Submit order\nWeb -> API: POST /orders\nAPI -> DB: Insert order\nDB --> API: order id\nAPI --> Web: 201 Created\n@enduml"
+          "code": "@startuml\nClient -> API: GET /orders\n@enduml",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Conversion notes: what maps cleanly from PlantUML",
-          "body": "PlantUML is text-first and draw.io is canvas-first, so conversion works best when the source has explicit actors, components, classes, and arrows. The goal is editable structure rather than pixel-identical rendering.",
+          "title": "PlantUML zu Draw.io Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Sequence participants become ordered editable nodes with message connectors.",
-            "Component and class blocks become boxes with labels and basic relationships.",
-            "Skinparam styling, notes, and advanced macros should be treated as hints, not exact canvas instructions."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "@startuml\nactor User\nparticipant API\ndatabase DB\nUser -> API: POST /orders\nAPI -> DB: insert order\nAPI --> User: 201 Created\n@enduml"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -2748,17 +2867,19 @@
       ]
     },
     "drawio-to-svg": {
-      "name": "Draw.io to SVG Preview",
-      "shortDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
-      "seoTitle": "Draw.io to SVG Preview Online - DiagramPreview",
-      "seoDescription": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "name": "Draw.io zu SVG",
+      "shortDescription": "Draw.io zu SVG für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Draw.io zu SVG - diagrams.net XML Export prüfen",
+      "seoDescription": "draw.io XML im Browser als SVG previewen und Seiten, Objekte, Labels und sichtbare Grenzen vor der Veröffentlichung prüfen.",
       "keywords": [
-        "drawio-to-svg",
-        "draw.io to svg preview",
-        "draw.io to svg preview"
+        "drawio to SVG",
+        "diagrams.net SVG",
+        "drawio export preview",
+        "mxfile to svg",
+        "SVG Export"
       ],
-      "h1": "Draw.io to SVG Preview",
-      "intro": "Preview uncompressed diagrams.net / draw.io XML as SVG and export the rendered result.",
+      "h1": "Draw.io zu SVG",
+      "intro": "draw.io XML einfügen und SVG-Vorschau im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live preview",
         "Export",
@@ -2766,8 +2887,8 @@
       ],
       "inputLabel": "Draw.io XML",
       "outputLabel": "SVG preview",
-      "placeholder": "Paste source here...",
-      "emptyPreview": "The preview will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "basic": {
           "label": "Basic",
@@ -2783,57 +2904,58 @@
         }
       },
       "howToUse": [
-        "Paste uncompressed diagrams.net XML or load a sample.",
-        "Preview the SVG and check page names, object count, labels, and visible bounds.",
-        "Copy or export the SVG when it is ready for docs or issue comments.",
-        "If the file fails to preview, save it from diagrams.net as uncompressed XML and try again."
+        "draw.io XML einfügen oder ein Beispiel laden.",
+        "SVG-Vorschau in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "Seitenwahl, sichtbare Grenzen, Labels, Objektanzahl und Exportgröße vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "draw.io XML preview",
-        "SVG export checks",
-        "Generated diagram QA",
-        "Documentation pipeline review",
-        "diagrams.net file inspection"
+        "SVG-Export prüfen",
+        "Dokumentationsbilder",
+        "diagrams.net Pipelines",
+        "Release-Assets"
       ],
       "faq": [
         {
-          "question": "Why does my draw.io file not render?",
-          "answer": "Many .drawio files are compressed. Export or save as uncompressed XML before pasting it into this preview."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Can this replace diagrams.net?",
-          "answer": "No. It is a quick preview and export surface. Use diagrams.net for full visual editing."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
         },
         {
-          "question": "What should I check before exporting SVG?",
-          "answer": "Check page selection, clipped objects, unreadable labels, and whether the diagram includes private text or internal hostnames."
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "Draw.io to SVG Preview renders uncompressed diagrams.net XML so you can inspect a draw.io file without opening the full editor.",
-        "It is useful for code review, documentation pipelines, generated draw.io files, and quick checks before exporting a diagram image.",
-        "The preview focuses on readable SVG output and source inspection; compressed or binary draw.io formats may need to be opened and saved as XML first."
+        "Draw.io zu SVG hilft Teams, draw.io XML vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten Seitenwahl, sichtbare Grenzen, Labels, Objektanzahl und Exportgröße geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: inspect generated draw.io XML before publishing",
-          "body": "Generated draw.io files should be previewed before they enter a docs pipeline. A quick SVG render catches broken XML, clipped nodes, and unexpected labels.",
+          "title": "Demo: draw.io XML in eine prüfbare Vorschau bringen",
+          "body": "Draw.io zu SVG ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Confirm the preview shows the intended page, not an empty default page.",
-            "Check that object labels are not clipped at the edges.",
-            "Remove internal URLs or credentials before sharing exported SVG."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "<mxfile host=\"app.diagrams.net\">\n  <diagram name=\"Preview\">\n    <mxGraphModel>...</mxGraphModel>\n  </diagram>\n</mxfile>"
+          "code": "<mxfile><diagram>...</diagram></mxfile>",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Publishing checklist: export SVG without losing meaning",
-          "body": "A draw.io diagram can look correct inside the editor but still fail as a published SVG if labels overflow, icons depend on external resources, or the canvas includes hidden draft objects.",
+          "title": "Draw.io zu SVG Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Check the SVG viewport and remove empty whitespace before embedding it in docs.",
-            "Keep text labels short enough to survive responsive layouts.",
-            "Use the preview to catch hidden scratch layers or objects outside the visible canvas."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "<img src=\"/previews/checkout-architecture.svg\" alt=\"Checkout architecture diagram\" />"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -3454,16 +3576,18 @@
     },
     "graphql-schema-visualizer": {
       "name": "GraphQL Schema Visualizer",
-      "shortDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
-      "seoTitle": "GraphQL Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "shortDescription": "GraphQL Schema Visualizer für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "GraphQL Schema Visualizer - Types, Inputs und Enums als Karte",
+      "seoDescription": "GraphQL SDL einfügen und types, inputs, interfaces, enums, nullability, Query/Mutation und Breaking-Change-Risiken prüfen.",
       "keywords": [
-        "graphql-schema-visualizer",
-        "graphql schema visualizer",
-        "graphql schema visualizer"
+        "GraphQL schema visualizer",
+        "GraphQL SDL viewer",
+        "GraphQL type diagram",
+        "API contract review",
+        "GraphQL Visualizer"
       ],
       "h1": "GraphQL Schema Visualizer",
-      "intro": "Visualize GraphQL types, inputs, interfaces, fields, and relationships.",
+      "intro": "GraphQL SDL einfügen und Type-Map im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live preview",
         "Export",
@@ -3471,8 +3595,8 @@
       ],
       "inputLabel": "GraphQL schema",
       "outputLabel": "Rendered preview",
-      "placeholder": "Paste source here...",
-      "emptyPreview": "The preview will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "commerce": {
           "label": "Commerce",
@@ -3488,64 +3612,75 @@
         }
       },
       "howToUse": [
-        "Paste source or load a sample.",
-        "Review the rendered preview or structured output.",
-        "Copy code, export images, or download generated files."
+        "GraphQL SDL einfügen oder ein Beispiel laden.",
+        "Type-Map in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "nullability, removed fields, enum changes, inputs und Query/Mutation vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "AI-generated diagram validation",
-        "Developer docs and README workflows",
-        "Architecture, monitoring, and config review"
+        "GraphQL API-Review",
+        "Breaking Changes",
+        "Client-Onboarding",
+        "Schema-Dokumentation"
       ],
       "faq": [
         {
-          "question": "What is GraphQL Schema Visualizer for?",
-          "answer": "Visualize GraphQL types, inputs, interfaces, fields, and relationships."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "GraphQL Schema Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
-        "It helps convert source text, config, or AI output into a previewable and exportable result."
+        "GraphQL Schema Visualizer hilft Teams, GraphQL SDL vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten nullability, removed fields, enum changes, inputs und Query/Mutation geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: visualize GraphQL types and fields",
-          "body": "GraphQL schemas become easier to discuss when object types, inputs, enums, and relationships are visible. A preview helps API teams review schema shape before publishing changes.",
+          "title": "Demo: GraphQL SDL in eine prüfbare Vorschau bringen",
+          "body": "GraphQL Schema Visualizer ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Separate query, mutation, and domain object types.",
-            "Look for fields that return broad JSON scalars without documentation.",
-            "Check whether input types mirror object types too closely."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "type Query { order(id: ID!): Order }\ntype Order { id: ID!, items: [OrderItem!]!, status: OrderStatus! }\nenum OrderStatus { DRAFT PAID CANCELLED }"
+          "code": "type Query { order(id: ID!): Order }\ntype Order { id: ID!, status: String! }",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Schema review: catch breaking GraphQL changes",
-          "body": "GraphQL changes can break clients even when the schema still validates. Visual review helps catch removed fields, changed nullability, and enum value assumptions.",
+          "title": "GraphQL Schema Visualizer Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Treat nullable-to-non-null changes as client-impacting.",
-            "Review enum removals and renamed fields carefully.",
-            "Use relationship diagrams to explain nested query cost."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "Before: user.name: String\nAfter: user.name: String!\nRisk: clients that handle null differently"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "protobuf-schema-visualizer": {
       "name": "Protobuf Schema Visualizer",
-      "shortDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
-      "seoTitle": "Protobuf Schema Visualizer Online - DiagramPreview",
-      "seoDescription": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "shortDescription": "Protobuf Schema Visualizer für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Protobuf Schema Visualizer - Messages, Fields und Services anzeigen",
+      "seoDescription": "Protobuf messages, field numbers, repeated fields, enums, services und request/response für Vertragsentwicklung prüfen.",
       "keywords": [
-        "protobuf-schema-visualizer",
-        "protobuf schema visualizer",
-        "protobuf schema visualizer"
+        "Protobuf visualizer",
+        "proto schema diagram",
+        "gRPC schema viewer",
+        "protobuf messages",
+        "API contract"
       ],
       "h1": "Protobuf Schema Visualizer",
-      "intro": "Visualize protobuf messages, fields, and message references as a class diagram.",
+      "intro": "Protobuf Schema einfügen und Message- und Service-Map im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live preview",
         "Export",
@@ -3553,8 +3688,8 @@
       ],
       "inputLabel": "Protobuf schema",
       "outputLabel": "Rendered preview",
-      "placeholder": "Paste source here...",
-      "emptyPreview": "The preview will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "orders": {
           "label": "Orders",
@@ -3570,49 +3705,58 @@
         }
       },
       "howToUse": [
-        "Paste source or load a sample.",
-        "Review the rendered preview or structured output.",
-        "Copy code, export images, or download generated files."
+        "Protobuf Schema einfügen oder ein Beispiel laden.",
+        "Message- und Service-Map in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "field numbers, reserved fields, repeated, enums und request/response vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "AI-generated diagram validation",
-        "Developer docs and README workflows",
-        "Architecture, monitoring, and config review"
+        "gRPC-Dokumentation",
+        "Contract Evolution",
+        "Service-Reviews",
+        "Message-Modelle"
       ],
       "faq": [
         {
-          "question": "What is Protobuf Schema Visualizer for?",
-          "answer": "Visualize protobuf messages, fields, and message references as a class diagram."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "Protobuf Schema Visualizer is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
-        "It helps convert source text, config, or AI output into a previewable and exportable result."
+        "Protobuf Schema Visualizer hilft Teams, Protobuf Schema vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten field numbers, reserved fields, repeated, enums und request/response geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: map protobuf messages and references",
-          "body": "Protobuf files are compact, but message references and repeated fields become easier to inspect as a class-style diagram.",
+          "title": "Demo: Protobuf Schema in eine prüfbare Vorschau bringen",
+          "body": "Protobuf Schema Visualizer ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Show message fields, enum fields, and repeated relationships separately.",
-            "Keep package names visible when schemas cross services.",
-            "Use the diagram to review API contracts, not binary compatibility alone."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "message Order {\n  string id = 1;\n  repeated OrderItem items = 2;\n  OrderStatus status = 3;\n}\nmessage OrderItem { string sku = 1; int32 qty = 2; }"
+          "code": "message Order { string id = 1; repeated Item items = 2; }",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Compatibility checklist: diagram what changed",
-          "body": "A visual schema diff is useful during protobuf evolution, but compatibility depends on field numbers and wire behavior. Never judge safety only by shape.",
+          "title": "Protobuf Schema Visualizer Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Do not reuse field numbers from removed fields.",
-            "Mark reserved fields when deleting old properties.",
-            "Review enum default values and unknown value handling."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "reserved 4, 7;\nreserved \"legacy_status\";"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -3699,17 +3843,19 @@
       ]
     },
     "dbml-to-er-diagram": {
-      "name": "DBML to ER Diagram",
-      "shortDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
-      "seoTitle": "DBML to ER Diagram Online - DiagramPreview",
-      "seoDescription": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "name": "DBML zu ER-Diagramm",
+      "shortDescription": "DBML zu ER-Diagramm für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "DBML zu ER-Diagramm - DBML-Datenmodelle previewen",
+      "seoDescription": "DBML schema einfügen und Tabellen, refs, enums, Notizen und Kardinalität für Engineering- und Produktreviews visualisieren.",
       "keywords": [
-        "dbml-to-er-diagram",
-        "dbml to er diagram",
-        "dbml to er diagram"
+        "DBML to ER diagram",
+        "DBML visualizer",
+        "database modeling",
+        "ER diagram online",
+        "Datenmodell"
       ],
-      "h1": "DBML to ER Diagram",
-      "intro": "Convert DBML table definitions and refs into a Mermaid ER diagram.",
+      "h1": "DBML zu ER-Diagramm",
+      "intro": "DBML Schema einfügen und ER-Vorschau im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live preview",
         "Export",
@@ -3717,8 +3863,8 @@
       ],
       "inputLabel": "DBML source",
       "outputLabel": "Rendered preview",
-      "placeholder": "Paste source here...",
-      "emptyPreview": "The preview will appear here.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "commerce": {
           "label": "Commerce",
@@ -3734,49 +3880,58 @@
         }
       },
       "howToUse": [
-        "Paste source or load a sample.",
-        "Review the rendered preview or structured output.",
-        "Copy code, export images, or download generated files."
+        "DBML Schema einfügen oder ein Beispiel laden.",
+        "ER-Vorschau in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "refs, enums, nullable relations, ownership und Kardinalität vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "AI-generated diagram validation",
-        "Developer docs and README workflows",
-        "Architecture, monitoring, and config review"
+        "Datenmodell-Reviews",
+        "Produkt-Workshops",
+        "Relationen erklären",
+        "Schema-Dokumentation"
       ],
       "faq": [
         {
-          "question": "What is DBML to ER Diagram for?",
-          "answer": "Convert DBML table definitions and refs into a Mermaid ER diagram."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
         },
         {
-          "question": "Does it require an account?",
-          "answer": "No. The tool page can be used directly in the browser."
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
         }
       ],
       "seoBody": [
-        "DBML to ER Diagram is designed for developer documentation, AI-generated diagram validation, and engineering configuration visualization.",
-        "It helps convert source text, config, or AI output into a previewable and exportable result."
+        "DBML zu ER-Diagramm hilft Teams, DBML Schema vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten refs, enums, nullable relations, ownership und Kardinalität geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: convert DBML refs into ER relationships",
-          "body": "DBML is already readable, but an ER preview helps product and backend reviewers see table relationships, ownership, and join tables faster.",
+          "title": "Demo: DBML Schema in eine prüfbare Vorschau bringen",
+          "body": "DBML zu ER-Diagramm ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Include Ref lines for every relationship you want in the diagram.",
-            "Use table groups or naming conventions for bounded contexts.",
-            "Preview before pasting schema notes into product docs."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "Table users { id int [pk] email varchar }\nTable orders { id int [pk] user_id int }\nRef: orders.user_id > users.id"
+          "code": "Table users { id uuid [pk] }\nTable orders { user_id uuid [ref: > users.id] }",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Schema review: use DBML diagrams to discuss cardinality",
-          "body": "The diagram should help reviewers ask whether a relationship is one-to-one, one-to-many, or many-to-many, and whether the table design supports the product rule.",
+          "title": "DBML zu ER-Diagramm Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Look for join tables with missing uniqueness.",
-            "Check whether nullable refs match real optional behavior.",
-            "Add notes for soft deletes and tenant boundaries."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "Table memberships { user_id int org_id int role varchar }\nRef: memberships.user_id > users.id\nRef: memberships.org_id > organizations.id"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
@@ -4264,7 +4419,7 @@
       "seoDescription": "Observability Pack Generator: Generate Grafana dashboard YAML, Prometheus rules, Mermaid architecture, and a runbook checklist with AI.",
       "keywords": [
         "Observability Pack Generator",
-        null,
+        "Observability Dashboard",
         "DiagramPreview"
       ],
       "h1": "Observability Pack Generator",
@@ -4349,16 +4504,18 @@
     },
     "postman-collection-sequence-diagram": {
       "name": "Postman Collection zu Sequenzdiagramm",
-      "shortDescription": "Postman Collection zu Sequenzdiagramm: Convert Postman collection JSON into a readable API request sequence diagram.",
-      "seoTitle": "Postman Collection zu Sequenzdiagramm - DiagramPreview",
-      "seoDescription": "Postman Collection zu Sequenzdiagramm: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "shortDescription": "Postman Collection zu Sequenzdiagramm für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "Postman Collection zu Sequenzdiagramm - Postman Request-Reihenfolge visualisieren",
+      "seoDescription": "Postman Collection JSON in einen review-fähigen API Flow für Dokumentation, Onboarding und manuelle Tests umwandeln.",
       "keywords": [
-        "Postman Collection zu Sequenzdiagramm",
-        "Postman collection JSON",
-        "developer diagrams"
+        "Postman sequence diagram",
+        "Postman collection visualizer",
+        "API request flow",
+        "Postman to Mermaid",
+        "API Test Flow"
       ],
       "h1": "Postman Collection zu Sequenzdiagramm",
-      "intro": "Postman Collection zu Sequenzdiagramm: Convert Postman collection JSON into a readable API request sequence diagram.",
+      "intro": "Postman Collection JSON einfügen und API-Request-Flow im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4366,8 +4523,8 @@
       ],
       "inputLabel": "Postman collection JSON",
       "outputLabel": "Vorschau",
-      "placeholder": "Quelle hier einfügen...",
-      "emptyPreview": "Das gerenderte Diagramm erscheint hier.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "orders": {
           "label": "Orders collection",
@@ -4383,61 +4540,79 @@
         }
       },
       "howToUse": [
-        "Beispiele: choose an example or paste your own Postman collection JSON.",
-        "Review the rendered relationships, field names, resource references, or request order.",
-        "Export the SVG/PNG or keep the source with your documentation."
+        "Postman Collection JSON einfügen oder ein Beispiel laden.",
+        "API-Request-Flow in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "Request-Reihenfolge, Variablen, Auth-Schritte und veraltete Endpunkte vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "API documentation and debugging",
-        "Architecture and platform docs",
-        "AI-generated draft review before publishing"
+        "manuelle Testabläufe",
+        "API-Onboarding",
+        "Backend-Reviews",
+        "Dokumentation von User Stories"
       ],
       "faq": [
         {
-          "question": "Kann ich KI-generierte oder produktionsnahe Quellen verwenden?",
-          "answer": "Ja, aber entferne Secrets, Tokens, private Hosts und Kundendaten vor dem Einfügen."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
+        },
+        {
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
+        },
+        {
+          "question": "Kann ich private Inhalte einfügen?",
+          "answer": "Vermeiden Sie Secrets, Tokens, Kundendaten oder sensible Infrastrukturwerte. Entfernen Sie private Werte oder nutzen Sie eine kontrollierte Umgebung."
         }
       ],
       "seoBody": [
-        "Nutze dieses Tool, um Entwicklerquellen in visuelle Erklärungen für Docs, Tickets und Architekturhinweise zu verwandeln.",
-        "Beginne mit einem kleinen Beispiel, prüfe die Beziehungen und füge dann größere Quellen ein.",
-        "Bewahre Quelle und exportierte SVG/PNG zusammen auf, damit Diagramme editierbar bleiben."
+        "Postman Collection zu Sequenzdiagramm hilft Teams, Postman Collection JSON vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten Request-Reihenfolge, Variablen, Auth-Schritte und veraltete Endpunkte geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: convert Postman requests into an API sequence",
-          "body": "Postman collections often describe a workflow across many requests. A sequence diagram helps explain authentication, resource creation, polling, and cleanup steps.",
+          "title": "Demo: Postman Collection JSON in eine prüfbare Vorschau bringen",
+          "body": "Postman Collection zu Sequenzdiagramm ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Use folder order as the default scenario order.",
-            "Include request names, methods, and URLs in message labels.",
-            "Treat tests and scripts as notes when they affect the flow."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "POST /auth/token -> token\nPOST /orders -> orderId\nGET /orders/:id -> status\nDELETE /orders/:id -> cleanup"
+          "code": "{\"item\":[{\"name\":\"Login\"},{\"name\":\"Checkout\"}]}",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Review checklist: collections are not always linear",
-          "body": "A collection may contain alternatives, setup requests, and environment-specific variables. Convert only the workflow you want to document, not every request in the workspace.",
+          "title": "Postman Collection zu Sequenzdiagramm Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Choose one folder or scenario at a time.",
-            "Replace secret variables with safe placeholders.",
-            "Mark optional or retry requests as notes."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "{{baseUrl}}/orders\nAuthorization: Bearer {{token}}\nDo not paste real token values."
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },
     "har-file-sequence-diagram": {
-      "name": "HAR-Datei zu Sequenzdiagramm",
-      "shortDescription": "HAR-Datei zu Sequenzdiagramm: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
-      "seoTitle": "HAR-Datei zu Sequenzdiagramm - DiagramPreview",
-      "seoDescription": "HAR-Datei zu Sequenzdiagramm: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "name": "HAR zu Sequenzdiagramm",
+      "shortDescription": "HAR zu Sequenzdiagramm für Vorschau, Review und Export in Entwicklerdokumentation.",
+      "seoTitle": "HAR zu Sequenzdiagramm - Browser-Requests aus HAR visualisieren",
+      "seoDescription": "HAR JSON einfügen und requests, status codes, timings und third-party calls in ein API/Frontend-Debugging-Diagramm umwandeln.",
       "keywords": [
-        "HAR-Datei zu Sequenzdiagramm",
-        "HAR JSON",
-        "developer diagrams"
+        "HAR sequence diagram",
+        "HAR file viewer",
+        "API waterfall debugging",
+        "browser request sequence",
+        "HAR Debugging"
       ],
-      "h1": "HAR-Datei zu Sequenzdiagramm",
-      "intro": "HAR-Datei zu Sequenzdiagramm: Turn browser Network HAR exports into request sequence diagrams for debugging and documentation.",
+      "h1": "HAR zu Sequenzdiagramm",
+      "intro": "HAR JSON einfügen und Request-Sequenz im Browser prüfen. Geeignet für technische Dokumentation, Reviews und AI-generierte Entwürfe vor der Veröffentlichung.",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4445,8 +4620,8 @@
       ],
       "inputLabel": "HAR JSON",
       "outputLabel": "Vorschau",
-      "placeholder": "Quelle hier einfügen...",
-      "emptyPreview": "Das gerenderte Diagramm erscheint hier.",
+      "placeholder": "Quelltext, Konfiguration oder Dateiinhalt hier einfügen...",
+      "emptyPreview": "Die Vorschau erscheint hier, sobald eine gültige Eingabe vorhanden ist.",
       "samples": {
         "checkout": {
           "label": "Checkout HAR",
@@ -4462,46 +4637,62 @@
         }
       },
       "howToUse": [
-        "Beispiele: choose an example or paste your own HAR JSON.",
-        "Review the rendered relationships, field names, resource references, or request order.",
-        "Export the SVG/PNG or keep the source with your documentation."
+        "HAR JSON einfügen oder ein Beispiel laden.",
+        "Request-Sequenz in der Vorschau prüfen und Syntax-, Label- oder Strukturprobleme markieren.",
+        "Statuscodes, timings, Redirects, Drittanbieter und sensible Header vor Veröffentlichung, Export oder Weitergabe gezielt kontrollieren.",
+        "Quelltext zusammen mit dem exportierten Ergebnis speichern, damit spätere Reviews nachvollziehbar bleiben."
       ],
       "useCases": [
-        "API documentation and debugging",
-        "Architecture and platform docs",
-        "AI-generated draft review before publishing"
+        "API-Debugging",
+        "Frontend-Performance",
+        "Third-Party-Analyse",
+        "Incident-Beweise"
       ],
       "faq": [
         {
-          "question": "Kann ich KI-generierte oder produktionsnahe Quellen verwenden?",
-          "answer": "Ja, aber entferne Secrets, Tokens, private Hosts und Kundendaten vor dem Einfügen."
+          "question": "Funktioniert dieses Tool im Browser?",
+          "answer": "Ja. Die meisten Vorschauen, Prüfungen und Exporte laufen im Browser. AI-Tools senden nur den Prompt an die konfigurierte API."
+        },
+        {
+          "question": "Was sollte ich vor der Veröffentlichung prüfen?",
+          "answer": "Prüfen Sie, ob Diagramm oder Datei den echten Ablauf abbildet, Labels lesbar sind, sensible Daten entfernt wurden und der SVG/PNG-Export review-fähig bleibt."
+        },
+        {
+          "question": "Wie hilft das bei Dokumentation?",
+          "answer": "Das Tool macht technische Texte oder Dateien visuell review-fähig und verlinkbar aus README, ADR, Runbooks, Issues und API-Dokumentation."
+        },
+        {
+          "question": "Kann ich private Inhalte einfügen?",
+          "answer": "Vermeiden Sie Secrets, Tokens, Kundendaten oder sensible Infrastrukturwerte. Entfernen Sie private Werte oder nutzen Sie eine kontrollierte Umgebung."
         }
       ],
       "seoBody": [
-        "Nutze dieses Tool, um Entwicklerquellen in visuelle Erklärungen für Docs, Tickets und Architekturhinweise zu verwandeln.",
-        "Beginne mit einem kleinen Beispiel, prüfe die Beziehungen und füge dann größere Quellen ein.",
-        "Bewahre Quelle und exportierte SVG/PNG zusammen auf, damit Diagramme editierbar bleiben."
+        "HAR zu Sequenzdiagramm hilft Teams, HAR JSON vor der Veröffentlichung visuell zu prüfen, statt nur Rohtext oder Screenshots zu reviewen.",
+        "Die Vorschau eignet sich für technische Dokumentation, API-Reviews, Architekturentscheidungen, Onboarding und AI-generierte Entwürfe.",
+        "Vor dem Export sollten Statuscodes, timings, Redirects, Drittanbieter und sensible Header geprüft und sensible Werte entfernt werden."
       ],
       "deepDives": [
         {
-          "title": "Demo: turn a browser HAR into request sequence",
-          "body": "A HAR sequence diagram explains what the browser requested and in what order. It helps debug login, checkout, asset loading, and API waterfall behavior.",
+          "title": "Demo: HAR JSON in eine prüfbare Vorschau bringen",
+          "body": "HAR zu Sequenzdiagramm ist am nützlichsten, wenn der Eingabetext klein genug bleibt, um ihn im Review zu verstehen. Starten Sie mit einem fokussierten Ausschnitt und erweitern Sie ihn erst danach.",
           "bullets": [
-            "Group requests by domain to separate first-party and third-party calls.",
-            "Show long API requests as highlighted messages.",
-            "Hide static asset noise when documenting business flow."
+            "Mit einem kleinen Beispiel beginnen.",
+            "Labels und Beziehungen mit der echten Dokumentation vergleichen.",
+            "Das Ergebnis erst nach einer manuellen Prüfung exportieren."
           ],
-          "code": "Browser -> app.example.com: GET /checkout\nBrowser -> api.example.com: POST /api/cart\nBrowser -> pay.example.com: POST /authorize"
+          "code": "{\"log\":{\"entries\":[{\"request\":{\"url\":\"/api/orders\"},\"response\":{\"status\":200}}]}}",
+          "caption": "Ein fokussierter Ausschnitt ist leichter zu debuggen als ein kompletter Dump."
         },
         {
-          "title": "Performance checklist: sequence plus timing is more useful",
-          "body": "Request order alone is not enough for performance review. Pair the sequence with duration, size, cache status, and blocked time.",
+          "title": "HAR zu Sequenzdiagramm Review-Checkliste",
+          "body": "Beim Review geht es nicht nur darum, ob etwas rendert. Entscheidend ist, ob die Vorschau die echte technische Aussage korrekt und lesbar wiedergibt.",
           "bullets": [
-            "Look for late-starting critical API calls.",
-            "Check cache misses for repeated assets.",
-            "Separate network latency from server wait time."
+            "Syntax und Rendering prüfen.",
+            "Labels, Beziehungen und Reihenfolge mit dem echten System vergleichen.",
+            "Sensible Werte vor dem Teilen entfernen."
           ],
-          "code": "GET /app.js 40ms cached\nPOST /api/checkout 1250ms waiting\nGET /analytics.js 300ms third-party"
+          "code": "Eingabe -> Vorschau -> fachliche Prüfung -> Export oder Link",
+          "caption": "Die Vorschau ersetzt keine fachliche Prüfung, verkürzt aber den Weg dorthin."
         }
       ]
     },

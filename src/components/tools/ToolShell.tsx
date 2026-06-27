@@ -4,11 +4,14 @@ import {useEffect, useMemo, useState} from "react";
 import {CodeEditor} from "./CodeEditor";
 import {ExportToolbar} from "./ExportToolbar";
 import {PreviewPane} from "./PreviewPane";
+import {detectInputTool} from "@/lib/input-detector";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
 import {printPreview} from "@/lib/exporters/pdf";
 import {copyText, downloadText} from "@/lib/exporters/svg";
+import {absoluteSourceUrl, markdownSnippet} from "@/lib/source-links";
 import type {TreeNode} from "@/lib/renderers/tree";
 import type {ToolConfig, ToolSlug} from "@/config/tools";
+import {Link} from "@/i18n/navigation";
 
 export type ToolCopy = {
   inputLabel: string;
@@ -29,6 +32,8 @@ export type ToolCopy = {
     exportPng: string;
     exportPdf: string;
     downloadFile: string;
+    copyMarkdown?: string;
+    shareLink?: string;
     clear: string;
     loadSample: string;
   };
@@ -83,6 +88,16 @@ export function ToolShell({tool, copy}: ToolShellProps) {
   const [source, setSource] = useState(firstSample?.code ?? "");
   const [status, setStatus] = useState(copy.statusReady);
   const [renderState, setRenderState] = useState<RenderState>({});
+  const detectedTool = useMemo(() => detectInputTool(source), [source]);
+  const suggestedTool = detectedTool?.slug !== tool.slug ? detectedTool : null;
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const sharedSource = url.searchParams.get("source");
+    if (sharedSource) {
+      setSource(sharedSource);
+    }
+  }, []);
 
   useEffect(() => {
     if (!source.trim()) {
@@ -163,6 +178,8 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             showPrint={capabilities.print}
             onCopyCode={() => void copyText(source)}
             onCopyHtml={() => void copyText(renderState.html ?? "")}
+            onCopyMarkdown={() => void copyText(markdownSnippet(source, shareUrl(tool.slug, source), tool.renderer))}
+            onShareLink={() => void copyText(shareUrl(tool.slug, source))}
             onExportSvg={() => renderState.svg && downloadText(`${tool.slug}.svg`, renderState.svg, "image/svg+xml;charset=utf-8")}
             onExportPng={() => renderState.svg && void downloadSvgAsPng(renderState.svg, `${tool.slug}.png`)}
             onDownloadFile={() =>
@@ -173,6 +190,18 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             onClear={() => setSource("")}
           />
         </div>
+        {suggestedTool ? (
+          <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-slate-700">
+            <div className="font-semibold text-ink">Detected {suggestedTool.label}</div>
+            <p className="mt-1">
+              This input may work better in the matching tool.
+              {" "}
+              <Link href={`/${suggestedTool.slug}?source=${encodeURIComponent(source)}`} className="font-semibold text-primary hover:underline">
+                Open {suggestedTool.label} tool
+              </Link>
+            </p>
+          </div>
+        ) : null}
         <div className="grid gap-5">
           <CodeEditor label={copy.inputLabel} value={source} placeholder={copy.placeholder} onChange={setSource} />
           <PreviewPane
@@ -191,6 +220,14 @@ export function ToolShell({tool, copy}: ToolShellProps) {
       </div>
     </section>
   );
+}
+
+function shareUrl(slug: ToolSlug, source: string) {
+  if (typeof window === "undefined") {
+    return "";
+  }
+
+  return absoluteSourceUrl(window.location.origin, window.location.pathname || `/${slug}`, source);
 }
 
 function getRendererCapabilities(renderer: ToolRuntimeConfig["renderer"]) {

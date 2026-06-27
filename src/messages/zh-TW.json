@@ -88,14 +88,15 @@
   },
   "home": {
     "metadata": {
-      "title": "Diagram Preview Tools - Mermaid, PlantUML, Markdown, Graphviz Online",
-      "description": "線上預覽和轉換 Mermaid、PlantUML、Markdown、Graphviz、D2、draw.io、心智圖、JSON、YAML 和開發者圖表。",
+      "title": "線上圖表預覽工具 - Mermaid、PlantUML、draw.io、OpenAPI 視覺化",
+      "description": "DiagramPreview 是面向開發者的線上圖表預覽工作區，可預覽、檢查與匯出 Mermaid、PlantUML、draw.io、OpenAPI、JSON Schema、HAR、Docker、Kubernetes 和架構圖。",
       "keywords": [
-        "diagram preview",
-        "mermaid preview",
-        "plantuml preview",
-        "graphviz online",
-        "markdown preview"
+        "線上圖表預覽",
+        "Mermaid 線上預覽",
+        "PlantUML 線上預覽",
+        "draw.io 線上開啟",
+        "OpenAPI 轉時序圖",
+        "JSON Schema 視覺化"
       ]
     },
     "hero": {
@@ -148,12 +149,14 @@
     "mermaid-preview": {
       "name": "Mermaid Preview",
       "shortDescription": "Mermaid Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
-      "seoTitle": "Mermaid Preview Online - DiagramPreview",
-      "seoDescription": "使用 Mermaid Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "seoTitle": "Mermaid 線上預覽 - Mermaid 編輯器與 SVG 匯出工具",
+      "seoDescription": "線上編輯與預覽 Mermaid 流程圖、時序圖、類別圖、狀態圖、甘特圖和 ER 圖，支援範例、複製原始碼與 SVG/PNG 匯出。",
       "keywords": [
-        "mermaid preview",
-        "mermaid editor online",
-        "mermaid live preview"
+        "Mermaid 線上預覽",
+        "Mermaid 編輯器",
+        "Mermaid SVG 匯出",
+        "Mermaid 流程圖",
+        "Mermaid 時序圖"
       ],
       "h1": "Mermaid Preview",
       "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Mermaid Preview 檢查圖表、文件或資料結構。",
@@ -207,16 +210,16 @@
       ],
       "faq": [
         {
-          "question": "为什么 AI 给的 Mermaid 在这里渲染失败？",
-          "answer": "常见原因是缺少图表头、标签里的括号或斜杠没有加引号、混用了不同 Mermaid 版本的语法。先检查第一行、节点标签和括号是否闭合。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "图太宽或者太乱怎么办？",
-          "answer": "把大图拆成多个小图，用 subgraph 收纳相关节点，缩短标签，不要把完整系统地图强行做成一张流程图。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
         },
         {
-          "question": "可以直接导出到文档里吗？",
-          "answer": "可以。SVG 适合正式文档，PNG 适合 issue、聊天工具和快速分享。"
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -250,12 +253,14 @@
     "plantuml-preview": {
       "name": "PlantUML Preview",
       "shortDescription": "PlantUML Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
-      "seoTitle": "PlantUML Preview Online - DiagramPreview",
-      "seoDescription": "使用 PlantUML Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "seoTitle": "PlantUML 線上預覽 - PlantUML 編輯器與 SVG 查看器",
+      "seoDescription": "貼上包含 @startuml 和 @enduml 的 PlantUML 原始碼，檢查時序圖、類別圖、用例圖和活動圖。",
       "keywords": [
-        "plantuml preview",
-        "plantuml online editor",
-        "plantuml viewer"
+        "PlantUML 線上預覽",
+        "PlantUML viewer",
+        "PlantUML SVG",
+        "UML 時序圖",
+        "PlantUML editor"
       ],
       "h1": "PlantUML Preview",
       "intro": "在專業工具工作區中編寫或貼上內容，立即使用 PlantUML Preview 檢查圖表、文件或資料結構。",
@@ -298,12 +303,20 @@
       ],
       "faq": [
         {
-          "question": "PlantUML Preview 可以線上使用嗎？",
-          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "可以匯出結果嗎？",
-          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
+        },
+        {
+          "question": "可以貼上私有內容嗎？",
+          "answer": "不建議貼上 secret、token、客戶資料或敏感基礎設施資訊。機密圖表請先移除私有值，或在可信環境中處理。"
         }
       ],
       "seoBody": [
@@ -503,12 +516,14 @@
     "d2-preview": {
       "name": "D2 Preview",
       "shortDescription": "D2 Preview 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
-      "seoTitle": "D2 Preview Online - DiagramPreview",
-      "seoDescription": "使用 D2 Preview 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "seoTitle": "D2 線上預覽 - D2 架構圖查看器",
+      "seoDescription": "貼上 D2 diagram 文字，預覽服務地圖、依賴關係、邊界和文字優先的架構草稿。",
       "keywords": [
-        "d2 preview",
-        "d2 diagram online",
-        "d2 viewer"
+        "D2 preview",
+        "D2 diagram viewer",
+        "architecture diagram text",
+        "D2 online",
+        "D2 架構圖"
       ],
       "h1": "D2 Preview",
       "intro": "在專業工具工作區中編寫或貼上內容，立即使用 D2 Preview 檢查圖表、文件或資料結構。",
@@ -547,12 +562,16 @@
       ],
       "faq": [
         {
-          "question": "D2 Preview 可以線上使用嗎？",
-          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "可以匯出結果嗎？",
-          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -586,12 +605,14 @@
     "drawio-preview": {
       "name": "Draw.io Viewer",
       "shortDescription": "Draw.io Viewer 的線上預覽工作區，支援範例、語法檢查和匯出操作。",
-      "seoTitle": "Draw.io Viewer Online - DiagramPreview",
-      "seoDescription": "使用 Draw.io Viewer 線上預覽、檢查和整理開發者圖表，支援範例、錯誤提示和匯出流程。",
+      "seoTitle": "Draw.io 線上開啟 - diagrams.net 檔案預覽與 XML 檢查",
+      "seoDescription": "不用安裝 diagrams.net，即可線上檢查 .drawio 檔案和 mxfile XML，查看頁面、物件、標籤、外部圖片和分享前問題。",
       "keywords": [
-        "draw.io viewer",
+        "draw.io 線上開啟",
         "diagrams.net viewer",
-        "drawio preview"
+        "drawio XML",
+        "mxfile viewer",
+        "draw.io 預覽"
       ],
       "h1": "Draw.io Viewer",
       "intro": "在專業工具工作區中編寫或貼上內容，立即使用 Draw.io Viewer 檢查圖表、文件或資料結構。",
@@ -622,12 +643,16 @@
       ],
       "faq": [
         {
-          "question": "Draw.io Viewer 可以線上使用嗎？",
-          "answer": "可以。此頁面已接入 DiagramPreview 的瀏覽器工作區。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "可以匯出結果嗎？",
-          "answer": "支援的渲染器會提供 SVG、PNG、複製和列印式 PDF 操作。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -993,13 +1018,14 @@
     "ai-diagram-generator": {
       "name": "AI 圖表生成器",
       "shortDescription": "用自然語言提示詞生成 Mermaid 圖表。",
-      "seoTitle": "AI 圖表生成器 - DiagramPreview",
-      "seoDescription": "用自然語言提示詞生成 Mermaid 圖表。",
+      "seoTitle": "AI 圖表生成器 - 用 Prompt 生成 Mermaid 架構圖",
+      "seoDescription": "輸入自然語言 prompt，生成可編輯 Mermaid 圖表，適合架構、API、產品流程和事故復盤草稿。",
       "keywords": [
-        "ai-diagram-generator",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "AI 圖表生成器",
+        "Mermaid 生成器",
+        "prompt to diagram",
+        "architecture diagram AI",
+        "AI Mermaid"
       ],
       "h1": "AI 圖表生成器",
       "intro": "描述你想要的圖表，選擇 Mermaid 圖表類型，讓 AI 生成可編輯源碼並即時預覽。",
@@ -1053,12 +1079,16 @@
       ],
       "faq": [
         {
-          "question": "會使用哪個 AI 供應商？",
-          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地模板兜底。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "會使用哪個 AI 供應商？",
-          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地模板兜底。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "可以搭配 AI 生成內容使用嗎？",
+          "answer": "可以。先用 AI 生成草稿，再檢查語法、憑空產生的節點、箭頭方向、契約欄位和範例，最後再發布。"
         }
       ],
       "seoBody": [
@@ -1092,13 +1122,14 @@
     "text-to-mermaid": {
       "name": "文字轉 Mermaid",
       "shortDescription": "把產品說明、事故記錄和架構文字轉換成 Mermaid 圖表。",
-      "seoTitle": "文字轉 Mermaid - DiagramPreview",
-      "seoDescription": "把產品說明、事故記錄和架構文字轉換成 Mermaid 圖表。",
+      "seoTitle": "文字轉 Mermaid - 用自然語言生成 Mermaid 圖表",
+      "seoDescription": "用文字 prompt 生成 Mermaid 流程圖、時序圖、ER 圖和架構草稿，並在匯出前檢查 AI 輸出。",
       "keywords": [
-        "text-to-mermaid",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "文字轉 Mermaid",
+        "Mermaid AI 生成器",
+        "prompt 生成圖表",
+        "Mermaid generator",
+        "AI 圖表"
       ],
       "h1": "文字轉 Mermaid",
       "intro": "貼上需求、筆記或流程描述，將普通文字轉換成可預覽和匯出的 Mermaid 程式碼。",
@@ -1152,12 +1183,16 @@
       ],
       "faq": [
         {
-          "question": "會使用哪個 AI 供應商？",
-          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地模板兜底。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "會使用哪個 AI 供應商？",
-          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地模板兜底。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "可以搭配 AI 生成內容使用嗎？",
+          "answer": "可以。先用 AI 生成草稿，再檢查語法、憑空產生的節點、箭頭方向、契約欄位和範例，最後再發布。"
         }
       ],
       "seoBody": [
@@ -1191,13 +1226,14 @@
     "mermaid-ai-fixer": {
       "name": "Mermaid AI 修復器",
       "shortDescription": "用 AI 修復 Mermaid 語法並提升圖表可讀性。",
-      "seoTitle": "Mermaid AI 修復器 - DiagramPreview",
-      "seoDescription": "用 AI 修復 Mermaid 語法並提升圖表可讀性。",
+      "seoTitle": "Mermaid AI 修復器 - 線上修復 Mermaid 語法錯誤",
+      "seoDescription": "貼上無法渲染的 Mermaid 原始碼，用 AI 修復語法，並檢查標籤、箭頭和原始語意是否保留。",
       "keywords": [
-        "mermaid-ai-fixer",
-        "ai diagram generator",
-        "text to mermaid",
-        "mermaid ai"
+        "Mermaid AI 修復",
+        "修復 Mermaid",
+        "Mermaid syntax error",
+        "AI Mermaid repair",
+        "Mermaid debug"
       ],
       "h1": "Mermaid AI 修復器",
       "intro": "貼上有問題的 Mermaid 程式碼和修復要求，AI 會返回修正後的 Mermaid 源碼。",
@@ -1254,12 +1290,16 @@
       ],
       "faq": [
         {
-          "question": "會使用哪個 AI 供應商？",
-          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地模板兜底。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "會使用哪個 AI 供應商？",
-          "answer": "服務端直接呼叫 DeepSeek；DeepSeek 不可用或未設定時，會使用本地模板兜底。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "可以搭配 AI 生成內容使用嗎？",
+          "answer": "可以。先用 AI 生成草稿，再檢查語法、憑空產生的節點、箭頭方向、契約欄位和範例，最後再發布。"
         }
       ],
       "seoBody": [
@@ -1293,13 +1333,14 @@
     "openapi-to-sequence": {
       "name": "OpenAPI 转序列图",
       "shortDescription": "在本地把 OpenAPI paths 转成 Mermaid 序列图。",
-      "seoTitle": "OpenAPI 转序列图 - DiagramPreview",
-      "seoDescription": "在本地把 OpenAPI paths 转成 Mermaid 序列图。",
+      "seoTitle": "OpenAPI 轉時序圖 - API Flow 視覺化工具",
+      "seoDescription": "貼上 OpenAPI JSON/YAML，把 paths、operationId、request body、response 和錯誤分支轉成 Mermaid 時序圖。",
       "keywords": [
-        "openapi-to-sequence",
-        "openapi 转序列图",
-        "diagram tool",
-        "DiagramPreview"
+        "OpenAPI 轉時序圖",
+        "OpenAPI to Mermaid",
+        "API flow diagram",
+        "OpenAPI viewer",
+        "API 文件"
       ],
       "h1": "OpenAPI 转序列图",
       "intro": "粘贴 OpenAPI JSON 或 YAML，把 API 操作转换为解释请求处理过程的序列图。",
@@ -1342,16 +1383,16 @@
       ],
       "faq": [
         {
-          "question": "应该粘贴完整 OpenAPI 吗？",
-          "answer": "可以，但聚焦的 path 片段通常生成更清楚的图。写特定页面时建议移除无关接口。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "时序图代表什么？",
-          "answer": "它根据 OpenAPI paths 总结请求和响应关系，不会真正执行 API，也不能证明运行时行为。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
         },
         {
-          "question": "如何让输出更易读？",
-          "answer": "按业务流程分组接口，缩短 operation summary，不要在一张图里混入无关资源。"
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -1386,13 +1427,14 @@
     "sql-to-er-diagram": {
       "name": "SQL 转 ER 图",
       "shortDescription": "把 CREATE TABLE SQL 转成 Mermaid ER 图。",
-      "seoTitle": "SQL 转 ER 图 - DiagramPreview",
-      "seoDescription": "把 CREATE TABLE SQL 转成 Mermaid ER 图。",
+      "seoTitle": "SQL 轉 ER 圖 - 資料庫表關係線上視覺化",
+      "seoDescription": "貼上 SQL DDL，檢查表、主鍵、外鍵、nullable 欄位、索引和資料模型關係。",
       "keywords": [
-        "sql-to-er-diagram",
-        "sql 转 er 图",
-        "diagram tool",
-        "DiagramPreview"
+        "SQL to ER diagram",
+        "DDL visualizer",
+        "database diagram online",
+        "ERD generator",
+        "資料庫建模"
       ],
       "h1": "SQL 转 ER 图",
       "intro": "粘贴 SQL DDL，可视化表、字段、主键和外键关系。",
@@ -1432,8 +1474,16 @@
       ],
       "faq": [
         {
-          "question": "这个工具会用 AI 吗？",
-          "answer": "不会。解析和可视化在浏览器本地完成。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
+        },
+        {
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -1467,13 +1517,14 @@
     "json-schema-visualizer": {
       "name": "JSON Schema 可视化",
       "shortDescription": "查看 JSON Schema 属性、类型、必填字段和组合结构。",
-      "seoTitle": "JSON Schema 可视化 - DiagramPreview",
-      "seoDescription": "查看 JSON Schema 属性、类型、必填字段和组合结构。",
+      "seoTitle": "JSON Schema 視覺化 - API 契約樹狀預覽工具",
+      "seoDescription": "線上視覺化 JSON Schema，檢查 required、nullable、enum、array items、additionalProperties 和 oneOf/anyOf。",
       "keywords": [
-        "json-schema-visualizer",
-        "json schema 可视化",
-        "diagram tool",
-        "DiagramPreview"
+        "JSON Schema 視覺化",
+        "JSON Schema online",
+        "API schema preview",
+        "JSON Schema form",
+        "契約 review"
       ],
       "h1": "JSON Schema 可视化",
       "intro": "粘贴 JSON Schema，查看属性、类型、必填字段、数组、枚举和组合结构树。",
@@ -1516,16 +1567,16 @@
       ],
       "faq": [
         {
-          "question": "最应该 review 哪些 schema 特性？",
-          "answer": "required、nullable、数组 item、enum、additionalProperties、oneOf/anyOf 通常最容易造成集成误解。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "它能校验数据吗？",
-          "answer": "这个页面重点是可视化和 review，最终校验仍应使用应用里的 validator 或专门 JSON Schema validator。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
         },
         {
-          "question": "如何让 schema 图更易读？",
-          "answer": "超大 schema 按资源拆分，description 保持短句，深层匿名对象能命名就命名。"
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -1920,13 +1971,14 @@
     "docker-compose-diagram": {
       "name": "Docker Compose 架構圖",
       "shortDescription": "把 Docker Compose 服务和依赖关系转换为清晰的架构图。",
-      "seoTitle": "Docker Compose 架構圖 - DiagramPreview",
-      "seoDescription": "把 Docker Compose 服务和依赖关系转换为清晰的架构图。",
+      "seoTitle": "Docker Compose 架構圖 - 服務依賴關係視覺化",
+      "seoDescription": "貼上 docker-compose.yml，檢查 services、depends_on、networks、volumes、ports 和本地拓撲。",
       "keywords": [
-        "docker-compose-diagram",
-        "docker compose 架構圖",
-        "diagram tool",
-        "developer documentation"
+        "Docker Compose diagram",
+        "compose visualizer",
+        "service dependency diagram",
+        "docker architecture",
+        "Docker 架構圖"
       ],
       "h1": "Docker Compose 架構圖",
       "intro": "粘贴 docker-compose.yml，可视化服务、depends_on、网络和卷。",
@@ -1966,8 +2018,20 @@
       ],
       "faq": [
         {
-          "question": "这个工具会用 AI 吗？",
-          "answer": "不会。它在浏览器本地解析并可视化输入内容。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
+        },
+        {
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
+        },
+        {
+          "question": "可以貼上私有內容嗎？",
+          "answer": "不建議貼上 secret、token、客戶資料或敏感基礎設施資訊。機密圖表請先移除私有值，或在可信環境中處理。"
         }
       ],
       "seoBody": [
@@ -2001,13 +2065,14 @@
     "kubernetes-manifest-visualizer": {
       "name": "Kubernetes Manifest 視覺化",
       "shortDescription": "把 Kubernetes manifest 转成资源树，查看 Deployment、Service、Ingress、标签和命名空间。",
-      "seoTitle": "Kubernetes Manifest 視覺化 - DiagramPreview",
-      "seoDescription": "把 Kubernetes manifest 转成资源树，查看 Deployment、Service、Ingress、标签和命名空间。",
+      "seoTitle": "Kubernetes Manifest 視覺化 - YAML 資源關係檢查工具",
+      "seoDescription": "貼上 Kubernetes YAML manifest，檢查 Deployment、Service、Ingress、labels、selectors、namespace、image 和 ports。",
       "keywords": [
-        "kubernetes-manifest-visualizer",
-        "kubernetes manifest 視覺化",
-        "diagram tool",
-        "developer documentation"
+        "Kubernetes manifest visualizer",
+        "Kubernetes YAML viewer",
+        "K8s diagram",
+        "Deployment Service Ingress",
+        "Kubernetes 視覺化"
       ],
       "h1": "Kubernetes Manifest 視覺化",
       "intro": "粘贴一个或多个 Kubernetes YAML 资源，查看 kind、name、namespace、labels 和 spec 摘要。",
@@ -2047,8 +2112,20 @@
       ],
       "faq": [
         {
-          "question": "这个工具会用 AI 吗？",
-          "answer": "不会。它在浏览器本地解析并可视化输入内容。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
+        },
+        {
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
+        },
+        {
+          "question": "可以貼上私有內容嗎？",
+          "answer": "不建議貼上 secret、token、客戶資料或敏感基礎設施資訊。機密圖表請先移除私有值，或在可信環境中處理。"
         }
       ],
       "seoBody": [
@@ -2244,12 +2321,14 @@
     "ai-drawio-generator": {
       "name": "AI Draw.io 產生器",
       "shortDescription": "根据架构、CI/CD、数据链路描述生成可编辑的 diagrams.net / draw.io XML。",
-      "seoTitle": "AI Draw.io 產生器 Online - DiagramPreview",
-      "seoDescription": "根据架构、CI/CD、数据链路描述生成可编辑的 diagrams.net / draw.io XML。",
+      "seoTitle": "AI Draw.io 生成器 - 生成可編輯 diagrams.net XML",
+      "seoDescription": "從架構、CI/CD、雲部署和資料流 prompt 生成可編輯 draw.io XML，方便交接和文件維護。",
       "keywords": [
-        "ai-drawio-generator",
-        "ai draw.io 產生器",
-        "ai draw.io generator"
+        "AI drawio generator",
+        "draw.io AI",
+        "diagrams.net XML generator",
+        "可編輯圖表",
+        "AI diagrams.net"
       ],
       "h1": "AI Draw.io 產生器",
       "intro": "根据架构、CI/CD、数据链路描述生成可编辑的 diagrams.net / draw.io XML。",
@@ -2297,16 +2376,16 @@
       ],
       "faq": [
         {
-          "question": "为什么生成 draw.io XML 而不是图片？",
-          "answer": "draw.io 文件可以继续编辑，团队能移动节点、改标签、加图标，并在 diagrams.net 里长期维护。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "prompt 里应该写什么？",
-          "answer": "写清主要角色、服务、数据库、队列、外部系统和关键流向。短但具体的 prompt 通常更容易生成可用图。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
         },
         {
-          "question": "生成的 .drawio 可以直接作为最终图吗？",
-          "answer": "建议当结构化草稿使用。发布前要预览、删掉 AI 编造的组件，并调整布局。"
+          "question": "可以搭配 AI 生成內容使用嗎？",
+          "answer": "可以。先用 AI 生成草稿，再檢查語法、憑空產生的節點、箭頭方向、契約欄位和範例，最後再發布。"
         }
       ],
       "seoBody": [
@@ -2570,12 +2649,14 @@
     "plantuml-to-drawio": {
       "name": "PlantUML 轉 Draw.io",
       "shortDescription": "将常见 PlantUML 时序圖、组件圖、类圖、活动圖轉換为可编辑 draw.io XML，并提供 SVG 預覽。",
-      "seoTitle": "PlantUML 轉 Draw.io Online - DiagramPreview",
-      "seoDescription": "将常见 PlantUML 时序圖、组件圖、类圖、活动圖轉換为可编辑 draw.io XML，并提供 SVG 預覽。",
+      "seoTitle": "PlantUML 轉 Draw.io - UML 轉 diagrams.net 可編輯檔案",
+      "seoDescription": "將 PlantUML 草稿轉成 draw.io XML，方便把文字 UML 交接成可編輯 diagrams.net 圖表。",
       "keywords": [
-        "plantuml-to-drawio",
-        "plantuml 轉 draw.io",
-        "plantuml to draw.io"
+        "PlantUML to drawio",
+        "UML to diagrams.net",
+        "PlantUML converter",
+        "editable UML diagram",
+        "UML 轉圖表"
       ],
       "h1": "PlantUML 轉 Draw.io",
       "intro": "将常见 PlantUML 时序圖、组件圖、类圖、活动圖轉換为可编辑 draw.io XML，并提供 SVG 預覽。",
@@ -2617,16 +2698,16 @@
       ],
       "faq": [
         {
-          "question": "转换会像素级一致吗？",
-          "answer": "不会。PlantUML 和 draw.io 的布局模型不同，目标是保留可编辑结构，而不是完全复刻视觉效果。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "哪些 PlantUML 图最适合转换？",
-          "answer": "时序图、组件图、类图和简单活动图最适合，因为实体和关系比较容易映射。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
         },
         {
-          "question": "什么时候应该保留原始 PlantUML？",
-          "answer": "如果图由代码或文档流水线生成，建议保留 PlantUML；draw.io 更适合协作编辑和展示润色。"
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -2750,12 +2831,14 @@
     "drawio-to-svg": {
       "name": "Draw.io 轉 SVG 預覽",
       "shortDescription": "将未压缩的 diagrams.net / draw.io XML 預覽为 SVG，并支持导出渲染结果。",
-      "seoTitle": "Draw.io 轉 SVG 預覽 Online - DiagramPreview",
-      "seoDescription": "将未压缩的 diagrams.net / draw.io XML 預覽为 SVG，并支持导出渲染结果。",
+      "seoTitle": "Draw.io 轉 SVG - diagrams.net XML 匯出檢查",
+      "seoDescription": "線上把 draw.io XML 預覽為 SVG，檢查頁面、物件、標籤、可見邊界和文件發布品質。",
       "keywords": [
-        "drawio-to-svg",
-        "draw.io 轉 svg 預覽",
-        "draw.io to svg preview"
+        "drawio to SVG",
+        "diagrams.net SVG",
+        "drawio export preview",
+        "mxfile to svg",
+        "SVG 匯出"
       ],
       "h1": "Draw.io 轉 SVG 預覽",
       "intro": "将未压缩的 diagrams.net / draw.io XML 預覽为 SVG，并支持导出渲染结果。",
@@ -2797,16 +2880,16 @@
       ],
       "faq": [
         {
-          "question": "为什么我的 draw.io 文件不能渲染？",
-          "answer": "很多 .drawio 文件是压缩格式，需要先导出或保存为未压缩 XML 再粘贴。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "它能替代 diagrams.net 吗？",
-          "answer": "不能。它是快速预览和导出界面，完整视觉编辑仍应使用 diagrams.net。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
         },
         {
-          "question": "导出 SVG 前应该检查什么？",
-          "answer": "检查页面选择、对象是否被裁切、标签是否可读，以及图里是否包含内部域名或敏感文本。"
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -3455,12 +3538,14 @@
     "graphql-schema-visualizer": {
       "name": "GraphQL Schema 視覺化",
       "shortDescription": "視覺化 GraphQL types、inputs、interfaces、fields 和关系。",
-      "seoTitle": "GraphQL Schema 視覺化 Online - DiagramPreview",
-      "seoDescription": "視覺化 GraphQL types、inputs、interfaces、fields 和关系。",
+      "seoTitle": "GraphQL Schema 視覺化 - Type 關係圖與 API 契約預覽",
+      "seoDescription": "貼上 GraphQL SDL，檢查 type、input、interface、enum、nullability、Query/Mutation 和破壞性變更。",
       "keywords": [
-        "graphql-schema-visualizer",
-        "graphql schema 視覺化",
-        "graphql schema visualizer"
+        "GraphQL schema visualizer",
+        "GraphQL SDL viewer",
+        "GraphQL type diagram",
+        "API contract review",
+        "GraphQL 視覺化"
       ],
       "h1": "GraphQL Schema 視覺化",
       "intro": "視覺化 GraphQL types、inputs、interfaces、fields 和关系。",
@@ -3499,12 +3584,16 @@
       ],
       "faq": [
         {
-          "question": "这个 GraphQL Schema 視覺化 工具适合什么场景？",
-          "answer": "視覺化 GraphQL types、inputs、interfaces、fields 和关系。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "是否需要登录？",
-          "answer": "不需要，当前工具页面可以直接在浏览器里使用。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -3537,12 +3626,14 @@
     "protobuf-schema-visualizer": {
       "name": "Protobuf Schema 視覺化",
       "shortDescription": "将 protobuf message、字段和引用关系視覺化为类圖。",
-      "seoTitle": "Protobuf Schema 視覺化 Online - DiagramPreview",
-      "seoDescription": "将 protobuf message、字段和引用关系視覺化为类圖。",
+      "seoTitle": "Protobuf Schema 視覺化 - message、欄位和 service 關係圖",
+      "seoDescription": "線上視覺化 Protobuf messages、field numbers、repeated、enum、service 和 request/response。",
       "keywords": [
-        "protobuf-schema-visualizer",
-        "protobuf schema 視覺化",
-        "protobuf schema visualizer"
+        "Protobuf visualizer",
+        "proto schema diagram",
+        "gRPC schema viewer",
+        "protobuf messages",
+        "API 契約"
       ],
       "h1": "Protobuf Schema 視覺化",
       "intro": "将 protobuf message、字段和引用关系視覺化为类圖。",
@@ -3581,12 +3672,16 @@
       ],
       "faq": [
         {
-          "question": "这个 Protobuf Schema 視覺化 工具适合什么场景？",
-          "answer": "将 protobuf message、字段和引用关系視覺化为类圖。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "是否需要登录？",
-          "answer": "不需要，当前工具页面可以直接在浏览器里使用。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -3701,12 +3796,14 @@
     "dbml-to-er-diagram": {
       "name": "DBML 轉 ER 圖",
       "shortDescription": "将 DBML 表定义和 Ref 关系轉換为 Mermaid ER 圖。",
-      "seoTitle": "DBML 轉 ER 圖 Online - DiagramPreview",
-      "seoDescription": "将 DBML 表定义和 Ref 关系轉換为 Mermaid ER 圖。",
+      "seoTitle": "DBML 轉 ER 圖 - 資料庫建模線上預覽",
+      "seoDescription": "貼上 DBML schema，視覺化資料表、refs、enums、註解和 cardinality，方便產品與工程 review。",
       "keywords": [
-        "dbml-to-er-diagram",
-        "dbml 轉 er 圖",
-        "dbml to er diagram"
+        "DBML to ER diagram",
+        "DBML visualizer",
+        "database modeling",
+        "ER diagram online",
+        "資料模型"
       ],
       "h1": "DBML 轉 ER 圖",
       "intro": "将 DBML 表定义和 Ref 关系轉換为 Mermaid ER 圖。",
@@ -3745,12 +3842,16 @@
       ],
       "faq": [
         {
-          "question": "这个 DBML 轉 ER 圖 工具适合什么场景？",
-          "answer": "将 DBML 表定义和 Ref 关系轉換为 Mermaid ER 圖。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
         },
         {
-          "question": "是否需要登录？",
-          "answer": "不需要，当前工具页面可以直接在浏览器里使用。"
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
         }
       ],
       "seoBody": [
@@ -4264,7 +4365,7 @@
       "seoDescription": "可觀測性套件產生器：用於開發者文件的線上預覽、校驗與匯出工具。",
       "keywords": [
         "可觀測性套件產生器",
-        null,
+        "可觀測性看板",
         "DiagramPreview"
       ],
       "h1": "可觀測性套件產生器",
@@ -4350,12 +4451,14 @@
     "postman-collection-sequence-diagram": {
       "name": "Postman Collection 轉時序圖",
       "shortDescription": "Postman Collection 轉時序圖：把 Postman Collection JSON 轉成介面调用时序圖，适合 API 文档和调试复盘。",
-      "seoTitle": "Postman Collection 轉時序圖 - DiagramPreview",
-      "seoDescription": "Postman Collection 轉時序圖：把 Postman Collection JSON 轉成介面调用时序圖，适合 API 文档和调试复盘。",
+      "seoTitle": "Postman Collection 轉時序圖 - API 請求流程視覺化",
+      "seoDescription": "把 Postman Collection JSON 轉成可 review 的 API 請求流程，適合文件、onboarding 和手動測試分析。",
       "keywords": [
-        "Postman Collection 轉時序圖",
-        "Postman collection JSON",
-        "developer diagrams"
+        "Postman sequence diagram",
+        "Postman collection visualizer",
+        "API request flow",
+        "Postman to Mermaid",
+        "API 測試流程"
       ],
       "h1": "Postman Collection 轉時序圖",
       "intro": "Postman Collection 轉時序圖：把 Postman Collection JSON 轉成介面调用时序圖，适合 API 文档和调试复盘。",
@@ -4394,8 +4497,20 @@
       ],
       "faq": [
         {
-          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
-          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
+        },
+        {
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
+        },
+        {
+          "question": "可以貼上私有內容嗎？",
+          "answer": "不建議貼上 secret、token、客戶資料或敏感基礎設施資訊。機密圖表請先移除私有值，或在可信環境中處理。"
         }
       ],
       "seoBody": [
@@ -4429,12 +4544,14 @@
     "har-file-sequence-diagram": {
       "name": "HAR 檔案轉時序圖",
       "shortDescription": "HAR 檔案轉時序圖：把瀏覽器 HAR 檔案轉成请求时序圖，适合前端介面调试和性能排查。",
-      "seoTitle": "HAR 檔案轉時序圖 - DiagramPreview",
-      "seoDescription": "HAR 檔案轉時序圖：把瀏覽器 HAR 檔案轉成请求时序圖，适合前端介面调试和性能排查。",
+      "seoTitle": "HAR 檔案轉時序圖 - 瀏覽器請求鏈路視覺化",
+      "seoDescription": "貼上 HAR JSON，把瀏覽器 requests、status codes、timings 和第三方呼叫轉成 API/前端調試時序圖。",
       "keywords": [
-        "HAR 檔案轉時序圖",
-        "HAR JSON",
-        "developer diagrams"
+        "HAR sequence diagram",
+        "HAR file viewer",
+        "API waterfall debugging",
+        "browser request sequence",
+        "HAR 調試"
       ],
       "h1": "HAR 檔案轉時序圖",
       "intro": "HAR 檔案轉時序圖：把瀏覽器 HAR 檔案轉成请求时序圖，适合前端介面调试和性能排查。",
@@ -4473,8 +4590,20 @@
       ],
       "faq": [
         {
-          "question": "可以使用 AI 產生或類似生產環境的來源嗎？",
-          "answer": "可以，但貼上前請移除密鑰、token、私有網域和客戶資料。"
+          "question": "這個工具可以在瀏覽器中使用嗎？",
+          "answer": "可以。大多數預覽、檢查與匯出都優先在瀏覽器端完成；AI 類工具只會把提示詞送到已設定的 API。"
+        },
+        {
+          "question": "發布前應該檢查什麼？",
+          "answer": "確認圖表或檔案符合真實流程、標籤可讀、敏感資料已移除，且匯出的 SVG/PNG 仍適合文件 review。"
+        },
+        {
+          "question": "它如何幫助文件工作流？",
+          "answer": "工具會把技術文字或檔案變成可 review 的視覺預覽，方便放進 README、ADR、runbook、issue 和 API 文件。"
+        },
+        {
+          "question": "可以貼上私有內容嗎？",
+          "answer": "不建議貼上 secret、token、客戶資料或敏感基礎設施資訊。機密圖表請先移除私有值，或在可信環境中處理。"
         }
       ],
       "seoBody": [
