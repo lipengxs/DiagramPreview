@@ -6941,6 +6941,76 @@
           "code": "body text on surface: >= 4.5:1\nlarge text: >= 3:1\nicon-only status: add label or shape"
         }
       ]
+    },
+    "webpage-to-markdown": {
+      "name": "Веб-страница в Markdown",
+      "shortDescription": "Преобразуйте URL страницы или вставленный HTML в чистый Markdown для документации, заметок, AI-промптов и миграций.",
+      "seoTitle": "Конвертер веб-страницы в Markdown - DiagramPreview",
+      "seoDescription": "Преобразуйте URL и HTML в Markdown с заголовком, ссылками, списками, блоками кода, предпросмотром и скачиванием .md.",
+      "keywords": [
+        "webpage to markdown",
+        "html в markdown",
+        "url в markdown",
+        "статья в markdown",
+        "markdown конвертер",
+        "DiagramPreview"
+      ],
+      "h1": "Конвертер веб-страницы в Markdown",
+      "intro": "Вставьте публичный URL или HTML и получите читаемый Markdown, который можно скопировать или скачать.",
+      "badges": [
+        "Без AI",
+        "Загрузка URL",
+        "Очистка HTML",
+        "Экспорт Markdown"
+      ],
+      "inputLabel": "URL страницы или HTML",
+      "outputLabel": "Markdown-результат",
+      "placeholder": "Вставьте публичный https:// URL или HTML...",
+      "emptyPreview": "Вставьте URL страницы или HTML, чтобы создать Markdown.",
+      "samples": {
+        "url": {
+          "label": "Публичный URL",
+          "code": "https://example.com"
+        },
+        "articleHtml": {
+          "label": "HTML статьи",
+          "code": "<article><h1>Launch checklist</h1><p>Review metadata, screenshots, links, and examples before publishing.</p><h2>Steps</h2><ul><li>Check the title</li><li>Export the Markdown</li></ul></article>"
+        },
+        "docsHtml": {
+          "label": "HTML документации",
+          "code": "<main><h1>API notes</h1><p>Use this endpoint after authentication.</p><pre>GET /api/projects</pre><p>Read the <a href=\"/docs/auth\">auth guide</a>.</p></main>"
+        }
+      },
+      "howToUse": [
+        "Вставьте публичный http или https URL, либо HTML, если страница приватная или недоступна для загрузки.",
+        "Проверьте заголовок, количество слов, ссылки и предпросмотр Markdown перед скачиванием .md.",
+        "Удалите чувствительные данные, tracking-параметры, навигацию и шаблонный текст перед использованием в документации или AI-промптах.",
+        "Храните исходный URL рядом с Markdown, если источник нужно будет цитировать или проверять."
+      ],
+      "useCases": [
+        "Преобразование публичных статей, документации, changelog и landing pages в Markdown-заметки.",
+        "Подготовка чистого Markdown-контекста для AI-промптов, миграции документации или внутренней базы знаний.",
+        "Конвертация вставленного HTML, когда URL требует логина, заблокирован или не является публичным."
+      ],
+      "faq": [
+        {
+          "question": "Можно загрузить любой URL?",
+          "answer": "Нет. Сервер принимает только публичные http и https страницы, блокирует localhost и приватные сети, ограничивает редиректы и размер страницы."
+        },
+        {
+          "question": "Сохраняются ли все визуальные детали?",
+          "answer": "Нет. Извлекается читаемый Markdown: заголовки, абзацы, ссылки, изображения, списки, цитаты и блоки кода. Макет, скрипты, формы и сложные виджеты удаляются."
+        },
+        {
+          "question": "Что делать с приватными страницами?",
+          "answer": "Скопируйте HTML из браузера и вставьте напрямую, предварительно удалив приватные данные или контент, который нельзя обрабатывать."
+        }
+      ],
+      "seoBody": [
+        "Веб-страница в Markdown помогает получить читаемый текст из публичных страниц или HTML без ручной очистки тегов.",
+        "Полезно для миграции документации, исследовательских заметок, статей поддержки, changelog, AI-контекста и переносимых Markdown-файлов.",
+        "Первая версия фокусируется на безопасной загрузке публичных URL и типовых HTML-структурах. Проверяйте Markdown перед публикацией или повторным использованием."
+      ]
     }
   },
   "hubs": {

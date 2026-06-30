@@ -6959,6 +6959,76 @@
           "code": "body text on surface: >= 4.5:1\nlarge text: >= 3:1\nicon-only status: add label or shape"
         }
       ]
+    },
+    "webpage-to-markdown": {
+      "name": "WebページをMarkdownへ",
+      "shortDescription": "WebページURLや貼り付けたHTMLを、ドキュメント、メモ、AIプロンプト、移行作業向けのきれいなMarkdownに変換します。",
+      "seoTitle": "WebページをMarkdownへ変換 - DiagramPreview",
+      "seoDescription": "WebページURLやHTMLを、タイトル、リンク、見出し、リスト、コードブロック、プレビュー、.mdダウンロード付きのMarkdownに変換します。",
+      "keywords": [
+        "webpage to markdown",
+        "html markdown 変換",
+        "url markdown 変換",
+        "記事 markdown 変換",
+        "markdown converter",
+        "DiagramPreview"
+      ],
+      "h1": "WebページをMarkdownへ変換",
+      "intro": "公開URLまたは生のHTMLを貼り付け、読みやすい本文をコピー・ダウンロード可能なMarkdownに変換します。",
+      "badges": [
+        "AI不要",
+        "URL取得",
+        "HTML整理",
+        "Markdown出力"
+      ],
+      "inputLabel": "WebページURLまたはHTML",
+      "outputLabel": "Markdown出力",
+      "placeholder": "公開 https:// URL または生HTMLを貼り付け...",
+      "emptyPreview": "WebページURLまたはHTMLを貼り付けるとMarkdownを生成します。",
+      "samples": {
+        "url": {
+          "label": "公開URL",
+          "code": "https://example.com"
+        },
+        "articleHtml": {
+          "label": "記事HTML",
+          "code": "<article><h1>Launch checklist</h1><p>Review metadata, screenshots, links, and examples before publishing.</p><h2>Steps</h2><ul><li>Check the title</li><li>Export the Markdown</li></ul></article>"
+        },
+        "docsHtml": {
+          "label": "ドキュメントHTML",
+          "code": "<main><h1>API notes</h1><p>Use this endpoint after authentication.</p><pre>GET /api/projects</pre><p>Read the <a href=\"/docs/auth\">auth guide</a>.</p></main>"
+        }
+      },
+      "howToUse": [
+        "公開 http/https URL を貼り付けます。ログインが必要、または取得できないページはHTMLを直接貼り付けます。",
+        "抽出されたタイトル、単語数、リンク、Markdownプレビューを確認してから .md をダウンロードします。",
+        "ドキュメントやAIプロンプトに使う前に、機密情報、トラッキングパラメータ、ナビゲーション、定型文を削除します。",
+        "引用や後日の確認が必要な場合は、元URLを変換後Markdownと一緒に残します。"
+      ],
+      "useCases": [
+        "公開記事、ドキュメントページ、変更履歴、ランディングページをMarkdownメモに変換。",
+        "AIプロンプト、ドキュメント移行、社内ナレッジベース向けのきれいなMarkdownコンテキストを準備。",
+        "ライブURLがログイン必須、ブロック済み、非公開の場合に貼り付けHTMLを変換。"
+      ],
+      "faq": [
+        {
+          "question": "どんなURLでも取得できますか？",
+          "answer": "いいえ。サーバーは公開 http/https ページのみ受け付け、localhostやプライベートネットワークをブロックし、リダイレクト回数とページサイズを制限します。"
+        },
+        {
+          "question": "見た目の詳細はすべて保持されますか？",
+          "answer": "いいえ。見出し、段落、リンク、画像、リスト、引用、コードブロックなど読みやすいMarkdownを抽出します。レイアウト、スクリプト、フォーム、複雑なウィジェットは削除されます。"
+        },
+        {
+          "question": "非公開ページはどう扱えばよいですか？",
+          "answer": "ブラウザからページHTMLをコピーして直接貼り付けてください。その前に非公開データや処理権限のない内容を削除してください。"
+        }
+      ],
+      "seoBody": [
+        "WebページをMarkdownへ変換することで、公開ページや貼り付けHTMLからタグを手作業で消さずに読みやすいテキストを取得できます。",
+        "ドキュメント移行、調査メモ、サポート記事、変更履歴要約、AIコンテキスト、持ち運び可能なMarkdownファイルに役立ちます。",
+        "初版は安全な公開URL取得と一般的なHTML構造に焦点を当てています。公開や再利用の前にMarkdownを確認してください。"
+      ]
     }
   },
   "hubs": {

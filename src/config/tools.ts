@@ -89,6 +89,7 @@ export type ToolSlug =
   | "sitemap-xml-viewer"
   | "http-header-parser"
   | "html-preview-sandbox"
+  | "webpage-to-markdown"
   | "css-gradient-preview"
   | "json-diff-viewer"
   | "base64-image-preview"
@@ -171,6 +172,7 @@ export type ToolConfig = {
     | "sitemap-xml"
     | "http-headers"
     | "html-preview"
+    | "webpage-markdown"
     | "css-gradient"
     | "json-diff"
     | "base64-image"
@@ -688,6 +690,19 @@ export const tools: ToolConfig[] = [
     implemented: true,
     renderer: "html-preview",
     sampleKeys: ["landing", "email", "component"]
+  },
+  {
+    slug: "webpage-to-markdown",
+    category: "converter",
+    navGroup: "converters",
+    icon: FileText,
+    popular: true,
+    recentlyAdded: true,
+    updatedAt: "2026-06-30",
+    priority: 69,
+    implemented: true,
+    renderer: "webpage-markdown",
+    sampleKeys: ["url", "articleHtml", "docsHtml"]
   },
   {
     slug: "css-gradient-preview",

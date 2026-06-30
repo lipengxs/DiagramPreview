@@ -7277,6 +7277,76 @@
           "code": "body text on surface: >= 4.5:1\nlarge text: >= 3:1\nicon-only status: add label or shape"
         }
       ]
+    },
+    "webpage-to-markdown": {
+      "name": "Webpage to Markdown",
+      "shortDescription": "Convert a webpage URL or pasted HTML into clean Markdown for docs, notes, AI prompts, and migration work.",
+      "seoTitle": "Webpage to Markdown Converter - DiagramPreview",
+      "seoDescription": "Convert webpage URLs and pasted HTML into clean Markdown with title, links, headings, lists, code blocks, preview, and .md download.",
+      "keywords": [
+        "webpage to markdown",
+        "html to markdown",
+        "url to markdown",
+        "article to markdown",
+        "markdown converter",
+        "DiagramPreview"
+      ],
+      "h1": "Webpage to Markdown Converter",
+      "intro": "Paste a public webpage URL or raw HTML and convert the readable page content into Markdown you can copy or download.",
+      "badges": [
+        "No AI",
+        "URL fetch",
+        "HTML cleanup",
+        "Markdown export"
+      ],
+      "inputLabel": "Webpage URL or HTML",
+      "outputLabel": "Markdown output",
+      "placeholder": "Paste a public https:// URL or raw HTML here...",
+      "emptyPreview": "Paste a webpage URL or HTML source to generate Markdown.",
+      "samples": {
+        "url": {
+          "label": "Public URL",
+          "code": "https://example.com"
+        },
+        "articleHtml": {
+          "label": "Article HTML",
+          "code": "<article><h1>Launch checklist</h1><p>Review metadata, screenshots, links, and examples before publishing.</p><h2>Steps</h2><ul><li>Check the title</li><li>Export the Markdown</li></ul></article>"
+        },
+        "docsHtml": {
+          "label": "Docs HTML",
+          "code": "<main><h1>API notes</h1><p>Use this endpoint after authentication.</p><pre>GET /api/projects</pre><p>Read the <a href=\"/docs/auth\">auth guide</a>.</p></main>"
+        }
+      },
+      "howToUse": [
+        "Paste a public http or https URL, or paste raw HTML when the source page is private or blocked from fetching.",
+        "Review the extracted title, word count, links, and Markdown preview before downloading the .md file.",
+        "Clean sensitive content, tracking parameters, navigation text, and boilerplate before using the Markdown in docs or AI prompts.",
+        "Keep the original URL beside the converted Markdown when the source needs to be cited or checked later."
+      ],
+      "useCases": [
+        "Turn public articles, docs pages, changelogs, and landing pages into Markdown notes.",
+        "Prepare clean Markdown context for AI prompts, documentation migration, or internal knowledge bases.",
+        "Convert pasted HTML snippets when a live URL is behind login, blocked by robots, or not public."
+      ],
+      "faq": [
+        {
+          "question": "Can this fetch any URL?",
+          "answer": "No. The server accepts public http and https pages only, blocks localhost and private network addresses, follows only a few redirects, and limits page size."
+        },
+        {
+          "question": "Does the converter preserve every visual detail?",
+          "answer": "No. It extracts readable Markdown such as headings, paragraphs, links, images, lists, blockquotes, and code blocks. Layout, scripts, forms, and complex widgets are intentionally removed."
+        },
+        {
+          "question": "What should I do with private pages?",
+          "answer": "Copy the page HTML from your browser and paste it directly, after removing private data or content you are not allowed to process."
+        }
+      ],
+      "seoBody": [
+        "Webpage to Markdown is a practical converter for people who need readable text from public pages or pasted HTML without manually cleaning tags.",
+        "The tool is useful for documentation migration, research notes, support articles, changelog summaries, AI prompt context, and turning web content into portable Markdown files.",
+        "The first version focuses on safe public URL fetching and common HTML structures. Always review the converted Markdown before publishing or using it as source material."
+      ]
     }
   },
   "hubs": {

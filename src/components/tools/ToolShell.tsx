@@ -284,6 +284,7 @@ function getRendererCapabilities(renderer: ToolRuntimeConfig["renderer"]) {
     "sitemap-xml",
     "http-headers",
     "html-preview",
+    "webpage-markdown",
     "css-gradient",
     "json-diff",
     "base64-image",
@@ -585,6 +586,17 @@ async function renderSource(
       const html = renderHtmlPreviewSandbox(source);
       return withHtmlArtifact(slug, html);
     }
+    case "webpage-markdown": {
+      const result = await convertWebpageToMarkdown(source);
+      return {
+        html: result.html,
+        artifact: {
+          filename: `${copyFileName(result.title || "webpage")}.md`,
+          mime: "text/markdown;charset=utf-8",
+          content: result.markdown
+        }
+      };
+    }
     case "css-gradient": {
       const {renderCssGradientPreview} = await import("@/lib/renderers/growth-tools");
       const html = renderCssGradientPreview(source);
@@ -658,4 +670,41 @@ function withHtmlArtifact(slug: ToolSlug, html: string): RenderState {
       content: `<!doctype html><html><head><meta charset="utf-8"><title>${slug} preview</title></head><body>${html}</body></html>`
     }
   };
+}
+
+async function convertWebpageToMarkdown(source: string) {
+  const response = await fetch("/api/tools/webpage-to-markdown", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({source})
+  });
+  const data = (await response.json()) as {
+    title?: string;
+    markdown?: string;
+    wordCount?: number;
+    linkCount?: number;
+    sourceUrl?: string;
+    error?: string;
+  };
+  if (!response.ok || !data.markdown) throw new Error(data.error || "Unable to convert webpage to Markdown.");
+
+  return {
+    title: data.title || "webpage",
+    markdown: data.markdown,
+    html: `
+      <div class="dp-preview">
+        <div class="dp-grid">
+          <div class="dp-card"><strong>Title</strong><span>${escapePreviewHtml(data.title || "Untitled")}</span></div>
+          <div class="dp-card"><strong>Words</strong><span>${data.wordCount || 0}</span></div>
+          <div class="dp-card"><strong>Links</strong><span>${data.linkCount || 0}</span></div>
+        </div>
+        <h2>Markdown output</h2>
+        <pre class="dp-code">${escapePreviewHtml(data.markdown)}</pre>
+      </div>
+    `
+  };
+}
+
+function escapePreviewHtml(value: string) {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }

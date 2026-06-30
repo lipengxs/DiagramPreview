@@ -7273,6 +7273,76 @@
           "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
         }
       ]
+    },
+    "webpage-to-markdown": {
+      "name": "网页转 Markdown",
+      "shortDescription": "将网页 URL 或粘贴的 HTML 转换为干净的 Markdown，适合文档、笔记、AI 提示词和内容迁移。",
+      "seoTitle": "网页转 Markdown 转换器 - DiagramPreview",
+      "seoDescription": "将网页 URL 和粘贴的 HTML 转换为干净 Markdown，保留标题、链接、标题层级、列表、代码块，并支持预览和 .md 下载。",
+      "keywords": [
+        "网页转 markdown",
+        "html 转 markdown",
+        "url 转 markdown",
+        "文章转 markdown",
+        "markdown 转换器",
+        "DiagramPreview"
+      ],
+      "h1": "网页转 Markdown 转换器",
+      "intro": "粘贴公开网页 URL 或原始 HTML，将可读正文转换成可复制、可下载的 Markdown。",
+      "badges": [
+        "无需 AI",
+        "URL 抓取",
+        "HTML 清理",
+        "Markdown 导出"
+      ],
+      "inputLabel": "网页 URL 或 HTML",
+      "outputLabel": "Markdown 输出",
+      "placeholder": "在这里粘贴公开的 https:// URL 或原始 HTML...",
+      "emptyPreview": "粘贴网页 URL 或 HTML 源码来生成 Markdown。",
+      "samples": {
+        "url": {
+          "label": "公开 URL",
+          "code": "https://example.com"
+        },
+        "articleHtml": {
+          "label": "文章 HTML",
+          "code": "<article><h1>Launch checklist</h1><p>Review metadata, screenshots, links, and examples before publishing.</p><h2>Steps</h2><ul><li>Check the title</li><li>Export the Markdown</li></ul></article>"
+        },
+        "docsHtml": {
+          "label": "文档 HTML",
+          "code": "<main><h1>API notes</h1><p>Use this endpoint after authentication.</p><pre>GET /api/projects</pre><p>Read the <a href=\"/docs/auth\">auth guide</a>.</p></main>"
+        }
+      },
+      "howToUse": [
+        "粘贴公开的 http 或 https URL；如果页面需要登录或无法抓取，也可以直接粘贴原始 HTML。",
+        "检查提取出的标题、词数、链接和 Markdown 预览，再下载 .md 文件。",
+        "用于文档或 AI 提示词前，先清理敏感内容、跟踪参数、导航文本和样板内容。",
+        "如果需要引用或后续核对，请把原始 URL 和转换后的 Markdown 放在一起。"
+      ],
+      "useCases": [
+        "将公开文章、文档页、更新日志和落地页转换为 Markdown 笔记。",
+        "为 AI 提示词、文档迁移或内部知识库准备干净的 Markdown 上下文。",
+        "当实时 URL 需要登录、被拦截或不是公开页面时，转换粘贴的 HTML 片段。"
+      ],
+      "faq": [
+        {
+          "question": "这个工具可以抓取任何 URL 吗？",
+          "answer": "不能。服务端只接受公开的 http 和 https 页面，会阻止 localhost、私有网络地址，限制重定向次数和页面大小。"
+        },
+        {
+          "question": "转换结果会保留所有视觉细节吗？",
+          "answer": "不会。它提取标题、段落、链接、图片 alt、列表、引用和代码块等可读 Markdown。布局、脚本、表单和复杂组件会被移除。"
+        },
+        {
+          "question": "私有页面应该怎么处理？",
+          "answer": "可以从浏览器复制页面 HTML 后粘贴进来，但请先移除私密数据或你无权处理的内容。"
+        }
+      ],
+      "seoBody": [
+        "网页转 Markdown 适合把公开页面或粘贴 HTML 中的可读内容快速整理成 Markdown，减少手动清理标签的工作。",
+        "它常用于文档迁移、研究笔记、支持文章、更新日志摘要、AI 提示词上下文，以及把网页内容转成可携带的 Markdown 文件。",
+        "当前版本专注安全的公开 URL 抓取和常见 HTML 结构。发布或复用前，请务必检查转换后的 Markdown。"
+      ]
     }
   },
   "hubs": {
