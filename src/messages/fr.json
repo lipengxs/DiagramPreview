@@ -7021,6 +7021,76 @@
           "code": "body text on surface: >= 4.5:1\nlarge text: >= 3:1\nicon-only status: add label or shape"
         }
       ]
+    },
+    "webpage-to-markdown": {
+      "name": "Page web vers Markdown",
+      "shortDescription": "Convertissez une URL de page web ou du HTML collé en Markdown propre pour docs, notes, prompts IA et migrations.",
+      "seoTitle": "Convertisseur page web vers Markdown - DiagramPreview",
+      "seoDescription": "Convertissez des URLs web et du HTML collé en Markdown propre avec titre, liens, titres, listes, blocs de code, aperçu et téléchargement .md.",
+      "keywords": [
+        "page web vers markdown",
+        "html vers markdown",
+        "url vers markdown",
+        "article vers markdown",
+        "convertisseur markdown",
+        "DiagramPreview"
+      ],
+      "h1": "Convertisseur page web vers Markdown",
+      "intro": "Collez une URL publique ou du HTML brut et convertissez le contenu lisible en Markdown à copier ou télécharger.",
+      "badges": [
+        "Sans IA",
+        "Récupération URL",
+        "Nettoyage HTML",
+        "Export Markdown"
+      ],
+      "inputLabel": "URL de page ou HTML",
+      "outputLabel": "Sortie Markdown",
+      "placeholder": "Collez ici une URL https:// publique ou du HTML brut...",
+      "emptyPreview": "Collez une URL ou du HTML pour générer du Markdown.",
+      "samples": {
+        "url": {
+          "label": "URL publique",
+          "code": "https://example.com"
+        },
+        "articleHtml": {
+          "label": "HTML d’article",
+          "code": "<article><h1>Launch checklist</h1><p>Review metadata, screenshots, links, and examples before publishing.</p><h2>Steps</h2><ul><li>Check the title</li><li>Export the Markdown</li></ul></article>"
+        },
+        "docsHtml": {
+          "label": "HTML de documentation",
+          "code": "<main><h1>API notes</h1><p>Use this endpoint after authentication.</p><pre>GET /api/projects</pre><p>Read the <a href=\"/docs/auth\">auth guide</a>.</p></main>"
+        }
+      },
+      "howToUse": [
+        "Collez une URL publique http ou https, ou du HTML brut si la page est privée ou bloquée.",
+        "Vérifiez le titre extrait, le nombre de mots, les liens et l’aperçu Markdown avant de télécharger le fichier .md.",
+        "Nettoyez les contenus sensibles, paramètres de suivi, navigation et texte répétitif avant d’utiliser le Markdown dans des docs ou prompts IA.",
+        "Gardez l’URL originale avec le Markdown converti si la source doit être citée ou vérifiée plus tard."
+      ],
+      "useCases": [
+        "Transformer articles publics, pages de documentation, changelogs et landing pages en notes Markdown.",
+        "Préparer un contexte Markdown propre pour prompts IA, migration de documentation ou bases de connaissances internes.",
+        "Convertir du HTML collé quand une URL nécessite une connexion, est bloquée ou n’est pas publique."
+      ],
+      "faq": [
+        {
+          "question": "Peut-il récupérer n’importe quelle URL ?",
+          "answer": "Non. Le serveur accepte seulement les pages publiques http et https, bloque localhost et les réseaux privés, suit peu de redirections et limite la taille."
+        },
+        {
+          "question": "Le convertisseur conserve-t-il tous les détails visuels ?",
+          "answer": "Non. Il extrait du Markdown lisible : titres, paragraphes, liens, images, listes, citations et blocs de code. Mise en page, scripts, formulaires et widgets complexes sont supprimés."
+        },
+        {
+          "question": "Que faire avec des pages privées ?",
+          "answer": "Copiez le HTML depuis votre navigateur et collez-le directement, après avoir retiré les données privées ou les contenus non autorisés."
+        }
+      ],
+      "seoBody": [
+        "Page web vers Markdown permet d’obtenir du texte lisible depuis des pages publiques ou du HTML collé sans nettoyer les balises à la main.",
+        "Utile pour migration de docs, notes de recherche, articles support, résumés de changelog, contexte IA et fichiers Markdown portables.",
+        "La première version vise la récupération sûre d’URLs publiques et les structures HTML courantes. Relisez toujours le Markdown avant publication ou réutilisation."
+      ]
     }
   },
   "hubs": {

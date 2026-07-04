@@ -7021,6 +7021,76 @@
           "code": "body text on surface: >= 4.5:1\nlarge text: >= 3:1\nicon-only status: add label or shape"
         }
       ]
+    },
+    "webpage-to-markdown": {
+      "name": "Webseite zu Markdown",
+      "shortDescription": "Konvertiere eine Webseiten-URL oder eingefügtes HTML in sauberes Markdown für Dokumentation, Notizen, KI-Prompts und Migrationen.",
+      "seoTitle": "Webseite zu Markdown Konverter - DiagramPreview",
+      "seoDescription": "Konvertiere Webseiten-URLs und eingefügtes HTML in sauberes Markdown mit Titel, Links, Überschriften, Listen, Codeblöcken, Vorschau und .md-Download.",
+      "keywords": [
+        "webseite zu markdown",
+        "html zu markdown",
+        "url zu markdown",
+        "artikel zu markdown",
+        "markdown konverter",
+        "DiagramPreview"
+      ],
+      "h1": "Webseite zu Markdown Konverter",
+      "intro": "Füge eine öffentliche URL oder rohes HTML ein und konvertiere den lesbaren Seiteninhalt in Markdown zum Kopieren oder Herunterladen.",
+      "badges": [
+        "Keine KI",
+        "URL-Abruf",
+        "HTML-Bereinigung",
+        "Markdown-Export"
+      ],
+      "inputLabel": "Webseiten-URL oder HTML",
+      "outputLabel": "Markdown-Ausgabe",
+      "placeholder": "Öffentliche https:// URL oder rohes HTML hier einfügen...",
+      "emptyPreview": "Füge eine Webseiten-URL oder HTML ein, um Markdown zu erzeugen.",
+      "samples": {
+        "url": {
+          "label": "Öffentliche URL",
+          "code": "https://example.com"
+        },
+        "articleHtml": {
+          "label": "Artikel-HTML",
+          "code": "<article><h1>Launch checklist</h1><p>Review metadata, screenshots, links, and examples before publishing.</p><h2>Steps</h2><ul><li>Check the title</li><li>Export the Markdown</li></ul></article>"
+        },
+        "docsHtml": {
+          "label": "Dokumentations-HTML",
+          "code": "<main><h1>API notes</h1><p>Use this endpoint after authentication.</p><pre>GET /api/projects</pre><p>Read the <a href=\"/docs/auth\">auth guide</a>.</p></main>"
+        }
+      },
+      "howToUse": [
+        "Füge eine öffentliche http- oder https-URL ein, oder rohes HTML, wenn die Seite privat oder blockiert ist.",
+        "Prüfe extrahierten Titel, Wortzahl, Links und Markdown-Vorschau, bevor du die .md-Datei herunterlädst.",
+        "Entferne sensible Inhalte, Tracking-Parameter, Navigation und Boilerplate, bevor du Markdown in Docs oder KI-Prompts nutzt.",
+        "Bewahre die Original-URL zusammen mit dem Markdown auf, wenn die Quelle später zitiert oder geprüft werden muss."
+      ],
+      "useCases": [
+        "Öffentliche Artikel, Dokumentationsseiten, Changelogs und Landingpages in Markdown-Notizen umwandeln.",
+        "Sauberen Markdown-Kontext für KI-Prompts, Dokumentationsmigrationen oder interne Wissensdatenbanken vorbereiten.",
+        "Eingefügtes HTML konvertieren, wenn eine Live-URL Login benötigt, blockiert ist oder nicht öffentlich ist."
+      ],
+      "faq": [
+        {
+          "question": "Kann das Tool jede URL abrufen?",
+          "answer": "Nein. Der Server akzeptiert nur öffentliche http- und https-Seiten, blockiert localhost und private Netzwerke, folgt nur wenigen Weiterleitungen und begrenzt die Seitengröße."
+        },
+        {
+          "question": "Bleiben alle visuellen Details erhalten?",
+          "answer": "Nein. Es extrahiert lesbares Markdown wie Überschriften, Absätze, Links, Bilder, Listen, Zitate und Codeblöcke. Layout, Skripte, Formulare und komplexe Widgets werden entfernt."
+        },
+        {
+          "question": "Was ist mit privaten Seiten?",
+          "answer": "Kopiere das Seiten-HTML aus deinem Browser und füge es direkt ein, nachdem private Daten oder nicht erlaubte Inhalte entfernt wurden."
+        }
+      ],
+      "seoBody": [
+        "Webseite zu Markdown ist ein praktischer Konverter, um lesbaren Text aus öffentlichen Seiten oder eingefügtem HTML zu gewinnen, ohne Tags manuell zu bereinigen.",
+        "Nützlich für Dokumentationsmigration, Recherche-Notizen, Support-Artikel, Changelog-Zusammenfassungen, KI-Kontext und portable Markdown-Dateien.",
+        "Die erste Version fokussiert sicheren Abruf öffentlicher URLs und übliche HTML-Strukturen. Prüfe das Markdown immer vor Veröffentlichung oder Wiederverwendung."
+      ]
     }
   },
   "hubs": {
