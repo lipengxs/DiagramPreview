@@ -14,6 +14,7 @@ export const seoCoreToolSlugs: ToolSlug[] = [
   "ai-diagram-generator",
   "ai-drawio-generator",
   "drawio-preview",
+  "mermaid-to-drawio",
   "drawio-to-svg",
   "plantuml-to-drawio",
   "d2-preview",
@@ -37,4 +38,4 @@ export const seoCoreBlogSlugs: BlogSlug[] = [
   "technical-seo-preview-robots-sitemap-open-graph"
 ];
 
-export const defaultToolUpdatedAt = "2026-06-25";
+export const defaultToolUpdatedAt = "2026-07-04";

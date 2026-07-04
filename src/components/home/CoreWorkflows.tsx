@@ -10,7 +10,7 @@ const workflows = [
   },
   {
     id: "drawio",
-    tools: ["drawio-preview", "ai-drawio-generator", "plantuml-to-drawio", "drawio-to-svg"]
+    tools: ["drawio-preview", "mermaid-to-drawio", "plantuml-to-drawio", "ai-drawio-generator", "drawio-to-svg"]
   },
   {
     id: "api",

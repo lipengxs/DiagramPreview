@@ -147,16 +147,19 @@
   "tools": {
     "mermaid-preview": {
       "name": "Mermaid Preview",
-      "shortDescription": "Live Mermaid editor with SVG preview and export actions.",
-      "seoTitle": "Mermaid Preview Online - Mermaid Editor and Live SVG Viewer",
-      "seoDescription": "Preview Mermaid diagrams online with a live editor, readable examples, syntax review tips, SVG/PNG export, and copy actions for documentation.",
+      "shortDescription": "Preview Mermaid diagrams online with a live editor, syntax checks, examples, and SVG/PNG export.",
+      "seoTitle": "Mermaid Preview Online - Live Mermaid Editor, Validator and Export",
+      "seoDescription": "Preview Mermaid diagrams online with a live editor, syntax validation tips, flowchart and sequence examples, SVG/PNG export, and no signup.",
       "keywords": [
         "mermaid preview",
         "mermaid editor online",
-        "mermaid live preview"
+        "mermaid live preview",
+        "online mermaid preview",
+        "preview mermaid diagram",
+        "mermaid validator"
       ],
       "h1": "Mermaid Preview",
-      "intro": "Write Mermaid syntax and preview flowcharts, sequence diagrams, classes, states, Gantt charts, and ER diagrams in a focused browser workspace.",
+      "intro": "Preview Mermaid diagrams online with a live editor for flowcharts, sequence diagrams, classes, states, Gantt charts, and ER diagrams. Validate generated Mermaid before you publish it in docs or pull requests.",
       "badges": [
         "Live SVG",
         "Browser renderer",
@@ -193,10 +196,10 @@
         }
       },
       "howToUse": [
-        "Paste Mermaid source, or start from a flowchart, sequence, class, state, Gantt, or ER sample.",
-        "Check the rendered SVG for broken syntax, cramped labels, reversed arrows, or branches that should be split into subgraphs.",
-        "Edit the source and wait for the preview to refresh before exporting SVG, PNG, or copying the source into a README.",
-        "When a generated diagram is too large, reduce it into smaller Mermaid diagrams rather than publishing a single unreadable graph."
+        "Paste Mermaid source from Markdown, a README, an AI answer, or one of the built-in flowchart, sequence, class, state, Gantt, or ER samples.",
+        "Use the live preview as a Mermaid validator: check the first line, quoted labels, arrows, branches, and syntax errors before sharing.",
+        "Edit the source until the rendered SVG is readable, then export SVG/PNG or copy the Mermaid back into documentation.",
+        "When a generated diagram is too large, split it into smaller Mermaid diagrams instead of publishing one unreadable system map."
       ],
       "useCases": [
         "README Mermaid preview",
@@ -206,6 +209,18 @@
         "Sequence diagram cleanup"
       ],
       "faq": [
+        {
+          "question": "How can I preview Mermaid online?",
+          "answer": "Paste Mermaid code into the editor and the page renders a live SVG preview. You can start from flowchart, sequence, class, state, Gantt, and ER samples when you do not want to begin from a blank editor."
+        },
+        {
+          "question": "Can this validate Mermaid syntax?",
+          "answer": "It helps you catch common Mermaid syntax problems by rendering the diagram immediately. If preview fails, check the diagram header, unmatched brackets, unquoted labels with punctuation, and mixed diagram syntax."
+        },
+        {
+          "question": "Does it support flowcharts and sequence diagrams?",
+          "answer": "Yes. The preview supports common Mermaid diagram types including flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and ER diagrams."
+        },
         {
           "question": "Why does a Mermaid diagram render in ChatGPT but fail here?",
           "answer": "Large language models often omit required diagram headers, quote labels inconsistently, or mix syntax from different Mermaid versions. Start by checking the first line, node labels with punctuation, and unmatched brackets."
@@ -224,9 +239,9 @@
         }
       ],
       "seoBody": [
-        "Mermaid Preview is a live editor for flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and ER diagrams. It is useful when an AI assistant, README draft, or architecture note gives you Mermaid code but no reliable visual check.",
-        "Use the preview loop to catch syntax errors, unreadable labels, overly dense branches, and direction mistakes before the diagram lands in a pull request or documentation page.",
-        "The source remains editable, so you can keep the Mermaid text as the source of truth while exporting SVG or PNG only when you need a shareable artifact."
+        "Mermaid Preview is a live online editor and validator for Mermaid flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and ER diagrams. It is useful when an AI assistant, README draft, or architecture note gives you Mermaid code but no reliable visual check.",
+        "Use the preview loop to catch syntax errors, unreadable labels, overly dense branches, and direction mistakes before the diagram lands in a pull request, Markdown page, or documentation site.",
+        "The Mermaid source remains editable, so you can keep text as the source of truth while exporting SVG or PNG only when you need a shareable artifact."
       ],
       "deepDives": [
         {
@@ -2848,18 +2863,21 @@
     },
     "plantuml-to-drawio": {
       "name": "PlantUML to Draw.io",
-      "shortDescription": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
-      "seoTitle": "PlantUML to Draw.io Online - Editable diagrams.net Converter",
-      "seoDescription": "Convert PlantUML sequence, component, class, and activity diagrams into editable draw.io XML for diagrams.net review and documentation handoff.",
+      "shortDescription": "Convert PlantUML sequence, component, class, and activity diagrams into editable draw.io / diagrams.net XML.",
+      "seoTitle": "PlantUML to Draw.io Converter - Editable Diagram XML Online",
+      "seoDescription": "Convert PlantUML diagrams into editable draw.io / diagrams.net XML online. Preview UML, export .drawio files, and keep shapes editable for documentation handoff.",
       "keywords": [
         "plantuml-to-drawio",
         "plantuml to draw.io",
         "plantuml to diagrams.net",
         "convert plantuml to drawio",
-        "editable uml diagram"
+        "editable uml diagram",
+        "plantuml viewer online",
+        "plantuml to drawio converter",
+        "draw.io plantuml"
       ],
       "h1": "PlantUML to Draw.io",
-      "intro": "Convert common PlantUML sequence, component, class, and activity diagrams into editable draw.io XML with SVG preview.",
+      "intro": "Convert PlantUML into editable draw.io / diagrams.net XML online. Preview the UML structure first, then download a .drawio file that teammates can open and adjust visually.",
       "badges": [
         "Live preview",
         "Export",
@@ -2884,10 +2902,10 @@
         }
       },
       "howToUse": [
-        "Paste a focused PlantUML diagram instead of a full document with unrelated macros.",
-        "Preview the generated draw.io structure and check that main nodes and edges are preserved.",
-        "Download the .drawio file and finish layout or styling inside diagrams.net.",
-        "Keep the PlantUML source beside the converted file if the text source remains the canonical version."
+        "Paste a focused PlantUML sequence, component, class, or activity diagram instead of a full document with unrelated macros.",
+        "Preview the generated draw.io structure and check that actors, components, classes, activities, and connector labels are preserved.",
+        "Download the .drawio file and open it in diagrams.net when you need visual layout, labels, or styling edits.",
+        "Keep the PlantUML source beside the converted file if the text source remains the canonical version for code review or documentation pipelines."
       ],
       "useCases": [
         "PlantUML migration",
@@ -2897,6 +2915,18 @@
         "Documentation conversion"
       ],
       "faq": [
+        {
+          "question": "Can I convert PlantUML to draw.io?",
+          "answer": "Yes. Paste a focused PlantUML diagram and export an editable .drawio file for diagrams.net. The conversion focuses on preserving structure so the result can be adjusted visually."
+        },
+        {
+          "question": "Is the converted PlantUML diagram editable in diagrams.net?",
+          "answer": "Yes. The output is draw.io / diagrams.net XML, so shapes, labels, and connectors can be edited after import. Layout may still need manual polishing."
+        },
+        {
+          "question": "Does this work with PlantUML sequence diagrams?",
+          "answer": "Yes. Sequence diagrams are one of the best fits because participants and messages map clearly into editable draw.io nodes and connectors."
+        },
         {
           "question": "Will conversion be pixel-perfect?",
           "answer": "No. PlantUML and draw.io have different layout models. The goal is editable structure, not exact visual reproduction."
@@ -2919,9 +2949,9 @@
         }
       ],
       "seoBody": [
-        "PlantUML to Draw.io converts common PlantUML sequence, component, class, and activity diagrams into editable diagrams.net XML.",
-        "The conversion is most useful when a text-first diagram needs to become a file that non-PlantUML users can edit visually.",
-        "Because PlantUML supports rich syntax, the first version focuses on preserving the main actors, components, classes, activities, and relationships rather than pixel-perfect layout."
+        "PlantUML to Draw.io converts common PlantUML sequence, component, class, and activity diagrams into editable draw.io / diagrams.net XML.",
+        "The converter is most useful when a text-first PlantUML diagram needs to become a .drawio file that non-PlantUML users can edit visually in diagrams.net.",
+        "Because PlantUML supports rich syntax, the conversion focuses on preserving main actors, components, classes, activities, connector labels, and relationships rather than pixel-perfect layout."
       ],
       "deepDives": [
         {
@@ -2958,16 +2988,21 @@
     },
     "mermaid-to-drawio": {
       "name": "Mermaid to Draw.io",
-      "shortDescription": "Convert common Mermaid flowcharts and sequence diagrams into editable draw.io XML with SVG preview.",
-      "seoTitle": "Mermaid to Draw.io Online - DiagramPreview",
-      "seoDescription": "Convert common Mermaid flowcharts and sequence diagrams into editable draw.io XML with SVG preview.",
+      "shortDescription": "Convert Mermaid diagrams to editable draw.io / diagrams.net XML from Markdown, README, or AI-generated source.",
+      "seoTitle": "Mermaid to Draw.io Converter - Export Editable diagrams.net XML",
+      "seoDescription": "Convert Mermaid diagrams to editable draw.io / diagrams.net XML online. Preview Mermaid, export .drawio files, and move Markdown diagrams into visual editing.",
       "keywords": [
         "mermaid-to-drawio",
         "mermaid to draw.io",
-        "mermaid to draw.io"
+        "convert mermaid to draw.io",
+        "mermaid to drawio",
+        "mermaid to draw.io converter",
+        "import mermaid into draw.io",
+        "mermaid to diagrams.net",
+        "mermaid markdown to drawio"
       ],
       "h1": "Mermaid to Draw.io",
-      "intro": "Convert common Mermaid flowcharts and sequence diagrams into editable draw.io XML with SVG preview.",
+      "intro": "Convert Mermaid diagrams from Markdown, README files, or AI output into editable draw.io / diagrams.net XML. Preview the result, then download a .drawio file for visual editing.",
       "badges": [
         "Live preview",
         "Export",
@@ -2992,10 +3027,10 @@
         }
       },
       "howToUse": [
-        "Paste a Mermaid flowchart or sequence diagram with clear labels.",
-        "Preview the generated draw.io SVG and check node order, edge labels, and missing branches.",
-        "Download the .drawio file and refine layout in diagrams.net.",
-        "Keep Mermaid as source when docs are code-owned, and draw.io as the presentation artifact when visual editing matters."
+        "Paste a Mermaid flowchart or sequence diagram from Markdown, a README, an AI answer, or a docs page.",
+        "Preview the generated draw.io structure and check node order, connector labels, missing branches, and Mermaid syntax issues.",
+        "Download the .drawio file and open it in diagrams.net when you need drag-and-drop editing or stakeholder review.",
+        "Keep Mermaid as the source when docs are code-owned, and use draw.io as the editable presentation artifact when visual editing matters."
       ],
       "useCases": [
         "Mermaid migration",
@@ -3005,6 +3040,22 @@
         "Architecture review decks"
       ],
       "faq": [
+        {
+          "question": "How do I convert Mermaid to draw.io?",
+          "answer": "Paste Mermaid code into the editor, review the generated preview, then download the .drawio file. Open that file in draw.io or diagrams.net to edit shapes, labels, and connectors visually."
+        },
+        {
+          "question": "Can draw.io import Mermaid diagrams?",
+          "answer": "draw.io can work with Mermaid in some workflows, but this converter creates editable draw.io / diagrams.net XML so the final file behaves like a normal .drawio diagram."
+        },
+        {
+          "question": "Can I export Mermaid from Markdown to draw.io XML?",
+          "answer": "Yes. Copy the Mermaid block from Markdown or a README, convert it here, and download editable draw.io XML as a .drawio file."
+        },
+        {
+          "question": "Is the output editable in diagrams.net?",
+          "answer": "Yes. The output is draw.io / diagrams.net XML, so you can move nodes, rename labels, adjust connectors, and polish layout after download."
+        },
         {
           "question": "Which Mermaid diagrams convert best?",
           "answer": "Simple flowcharts and sequence diagrams work best. Very complex Mermaid syntax may need manual cleanup after conversion."
@@ -3016,12 +3067,16 @@
         {
           "question": "Can I round-trip draw.io back to Mermaid?",
           "answer": "Not reliably. Treat conversion as a handoff from text-first authoring to visual editing."
+        },
+        {
+          "question": "Why does my Mermaid diagram fail to convert?",
+          "answer": "Most failures come from missing diagram headers, unsupported advanced Mermaid syntax, very long labels, or mixed diagram types. Start with a smaller valid flowchart or sequence diagram, then add complexity back gradually."
         }
       ],
       "seoBody": [
-        "Mermaid to Draw.io converts common Mermaid flowcharts and sequence diagrams into editable diagrams.net XML.",
-        "It helps when AI or README workflows create Mermaid code, but stakeholders later need a drag-and-drop draw.io file for review decks or wiki pages.",
-        "Use it as a bridge between text-based diagram authoring and visual diagram maintenance."
+        "Mermaid to Draw.io converts common Mermaid flowcharts and sequence diagrams into editable draw.io / diagrams.net XML for teams that need a visual .drawio file.",
+        "It helps when AI tools, Markdown docs, or README workflows create Mermaid code, but stakeholders later need a drag-and-drop diagram for review decks, wiki pages, or diagrams.net collaboration.",
+        "Use it as a bridge between text-based Mermaid authoring and visual diagram maintenance: keep Mermaid for source control, export draw.io XML when the diagram needs manual layout or non-developer editing."
       ],
       "deepDives": [
         {
