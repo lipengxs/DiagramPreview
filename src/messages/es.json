@@ -4014,9 +4014,9 @@
       "h1": "Visualizador de Expresiones Cron",
       "intro": "Visualizador de Expresiones Cron: Visualize cron fields, schedule intent, and documentation notes.",
       "badges": [
-        "Live preview",
-        "Browser workflow",
-        "Export SVG"
+        "Vista previa",
+        "Flujo en navegador",
+        "Exportar SVG"
       ],
       "emptyPreview": "El resultado generado aparecerá aquí.",
       "samples": {
@@ -4161,16 +4161,18 @@
     },
     "api-error-flow-diagram": {
       "name": "Diagrama de Flujo de Errores API",
-      "shortDescription": "Diagrama de Flujo de Errores API: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
-      "seoTitle": "Diagrama de Flujo de Errores API - DiagramPreview",
-      "seoDescription": "Diagrama de Flujo de Errores API: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "shortDescription": "Convierte códigos de estado, condiciones de fallo, reglas de reintento y acciones de recuperación en un diagrama de errores API.",
+      "seoTitle": "Diagrama de errores API online - Estados, reintentos y recuperación",
+      "seoDescription": "Crea un diagrama de flujo de errores API con códigos HTTP, condiciones de fallo, acciones del cliente, reglas de reintento y rutas de recuperación.",
       "keywords": [
         "Diagrama de Flujo de Errores API",
-        "API error rows",
+        "diagrama de errores api",
+        "flujo de codigos de estado api",
+        "diagrama de reintentos api",
         "DiagramPreview"
       ],
       "h1": "Diagrama de Flujo de Errores API",
-      "intro": "Diagrama de Flujo de Errores API: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "intro": "Convierte códigos de estado API, condiciones de fallo, reglas de reintento y acciones de recuperación en un diagrama para documentación, runbooks y revisiones de integración.",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4192,47 +4194,66 @@
         }
       },
       "howToUse": [
-        "Ejemplos: choose a starter example or paste your own source.",
-        "Review the generated preview and adjust labels, conditions, or configuration details.",
-        "Copy the source or export the rendered result when it is ready for documentation."
+        "Pega filas de error con código de estado, condición de fallo y acción de recuperación.",
+        "Revisa el flujo generado y separa errores corregibles por el usuario, autenticación, conflictos, límites de tasa y fallos del servidor.",
+        "Ajusta códigos de error, reglas de reintento, Retry-After y acciones de observabilidad.",
+        "Exporta el diagrama para documentación API, runbooks, notas de SDK o revisiones de arquitectura."
       ],
       "useCases": [
-        "README and engineering design docs",
-        "Architecture reviews and API documentation",
-        "AI-generated diagram validation before publishing"
+        "Documentación de errores API",
+        "Árboles de decisión de estados",
+        "Runbooks de reintento y fallback",
+        "Revisiones de integración cliente",
+        "Flujos de respuesta a incidentes"
       ],
       "faq": [
         {
+          "question": "¿Cómo creo un diagrama de errores API?",
+          "answer": "Enumera cada código de estado con la condición de fallo y la acción esperada. Después revisa el flujo y separa validación, autenticación, conflictos, límites de tasa y fallos del servidor."
+        },
+        {
+          "question": "¿Qué debe incluir un flujo de errores API?",
+          "answer": "Incluye códigos HTTP, códigos de error estables, si el cliente puede reintentar, la acción visible para el usuario y las métricas, logs o alertas necesarias para investigar."
+        },
+        {
+          "question": "¿Puedo documentar reglas de reintento?",
+          "answer": "Sí. Usa la acción para indicar reintento único, backoff exponencial, respetar Retry-After o no reintentar cuando la operación no es idempotente."
+        },
+        {
           "question": "¿Puedo usarlo con contenido generado por IA?",
           "answer": "Sí. Usa IA para el primer borrador, luego previsualiza y ajusta antes de publicarlo en la documentación."
+        },
+        {
+          "question": "¿Cuándo es mejor que una tabla de estados?",
+          "answer": "La tabla sirve como referencia. El diagrama es mejor cuando el equipo necesita revisar ramas, reintentos, fallback y cuándo una incidencia pasa de cliente a operación."
         }
       ],
       "seoBody": [
-        "Usa esta herramienta para documentación técnica, notas de arquitectura, runbooks, especificaciones de API y diagramas generados por IA.",
-        "Empieza con un ejemplo, sustitúyelo por tu fuente y conserva la salida junto al texto original para revisión.",
-        "Para documentación de producción, exporta SVG o PNG cuando sea posible y conserva el texto fuente en el repositorio."
+        "El diagrama de errores API convierte tablas de estados en un flujo legible para documentación, SDKs, soporte, runbooks y revisiones de incidentes.",
+        "Úsalo para separar errores de validación, autenticación, conflictos, límites de tasa, dependencias y errores reintentables del servidor.",
+        "Conserva las filas fuente junto al diagrama exportado para que los cambios futuros de la API sean fáciles de revisar y mantener."
       ],
-      "inputLabel": "API error rows",
+      "inputLabel": "Filas de error API",
       "outputLabel": "Vista previa",
       "placeholder": "Describe el servicio, flujo, datos o escenario de documentación...",
       "deepDives": [
         {
-          "title": "Demo: document API error handling as a flow",
-          "body": "Error handling is easier to review when status codes, client behavior, retry rules, and recovery actions are shown as a flowchart.",
+          "title": "Demo: documentar errores API como flujo",
+          "body": "El manejo de errores es más fácil de revisar cuando códigos de estado, comportamiento del cliente, reglas de reintento y recuperación aparecen en un flujo.",
           "bullets": [
-            "Separate user-fixable errors from server and dependency failures.",
-            "Mark retryable responses explicitly.",
-            "Include observability actions for incidents."
+            "Separa errores corregibles por el usuario de fallos del servidor o dependencias.",
+            "Marca explícitamente las respuestas que admiten reintento.",
+            "Incluye acciones de observabilidad para incidentes."
           ],
           "code": "400 invalid input -> show field error\n401 unauthorized -> refresh token\n409 conflict -> reload cart\n503 dependency timeout -> retry with backoff"
         },
         {
-          "title": "Review checklist: avoid ambiguous status codes",
-          "body": "An error flow diagram helps teams decide whether the same status code is being used for too many unrelated problems.",
+          "title": "Checklist: evita estados ambiguos",
+          "body": "Un diagrama de errores ayuda al equipo a decidir si el mismo estado HTTP está representando demasiados problemas no relacionados.",
           "bullets": [
-            "Check that each error response has a stable code and message.",
-            "Document whether clients may retry safely.",
-            "Map operational errors to logs, metrics, and alerts."
+            "Comprueba que cada respuesta tenga código y mensaje estables.",
+            "Documenta si el cliente puede reintentar de forma segura.",
+            "Mapea errores operativos a logs, métricas y alertas."
           ],
           "code": "HTTP 409\ncode: inventory_lock_conflict\nclient_action: reload inventory and retry once"
         }

@@ -4475,16 +4475,20 @@
     },
     "api-error-flow-diagram": {
       "name": "API Error Flow Diagram",
-      "shortDescription": "Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
-      "seoTitle": "API Error Flow Diagram - DiagramPreview",
-      "seoDescription": "Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "shortDescription": "Turn API status codes, failure conditions, retry rules, and recovery actions into a clear error flow diagram.",
+      "seoTitle": "API Error Flow Diagram Online - Map Status Codes and Retry Paths",
+      "seoDescription": "Create an API error flow diagram from status codes, failure conditions, client actions, retry rules, and recovery paths for API docs and runbooks.",
       "keywords": [
         "API Error Flow Diagram",
         "API error rows",
+        "api error flowchart",
+        "api status code flow",
+        "api retry flow diagram",
+        "api error handling diagram",
         "DiagramPreview"
       ],
       "h1": "API Error Flow Diagram",
-      "intro": "Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "intro": "Turn API status codes, failure conditions, retry rules, and recovery actions into an error flow diagram for API documentation, incident runbooks, and client integration reviews.",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4506,25 +4510,44 @@
         }
       },
       "howToUse": [
-        "Examples: choose a starter example or paste your own source.",
-        "Review the generated preview and adjust labels, conditions, or configuration details.",
-        "Copy the source or export the rendered result when it is ready for documentation."
+        "Paste API error rows in the format status code, failure condition, and client or server recovery action.",
+        "Preview the generated flow and check that retryable errors, user-fixable errors, and operational failures are separated clearly.",
+        "Adjust labels for status codes, error codes, retry guidance, and observability actions before publishing.",
+        "Export the diagram for API docs, runbooks, SDK handoff notes, or architecture reviews."
       ],
       "useCases": [
-        "README and engineering design docs",
-        "Architecture reviews and API documentation",
-        "AI-generated diagram validation before publishing"
+        "API error handling docs",
+        "Status code decision trees",
+        "Retry and backoff runbooks",
+        "Client integration reviews",
+        "Incident response playbooks"
       ],
       "faq": [
         {
+          "question": "How do I create an API error flow diagram?",
+          "answer": "List each status code with the failure condition and expected recovery action, then preview the flow. Keep user-fixable errors, authentication failures, conflicts, rate limits, and server failures in separate paths."
+        },
+        {
+          "question": "What should an API error flow include?",
+          "answer": "A useful flow includes HTTP status codes, stable application error codes, whether the client can retry, the user-facing action, and the logs, metrics, or alerts that help operators investigate."
+        },
+        {
+          "question": "Can I document retry behavior?",
+          "answer": "Yes. Use the action column to describe retry rules such as retry once, retry with exponential backoff, honor Retry-After, or do not retry because the request is not idempotent."
+        },
+        {
           "question": "Can I use this with AI-generated content?",
           "answer": "Yes. Use AI for a first draft, then preview and adjust the result before publishing it in documentation."
+        },
+        {
+          "question": "When is this better than a table of status codes?",
+          "answer": "Use a table for reference. Use an error flow diagram when reviewers need to understand branches, retry paths, fallback behavior, and where an incident should move from client handling to operational response."
         }
       ],
       "seoBody": [
-        "Use this tool when you need a fast browser workflow for developer documentation, architecture notes, runbooks, API specs, and AI-generated diagrams.",
-        "Start with one of the examples, replace it with your own source, and keep the generated output next to the original text so changes stay reviewable.",
-        "For production documentation, export SVG or PNG when available and keep the source text in your repository for future edits."
+        "API Error Flow Diagram turns status-code tables into a readable flowchart for API documentation, SDK handoff notes, support runbooks, and incident reviews.",
+        "Use it to separate validation errors, authentication failures, conflicts, rate limits, dependency failures, and retryable server errors so client teams know what to do next.",
+        "Keep the source rows next to the exported diagram so future API changes can update the flow without losing the original error-handling decisions."
       ],
       "inputLabel": "API error rows",
       "outputLabel": "Preview",

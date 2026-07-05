@@ -2,7 +2,7 @@ import type {BlogSlug} from "./blog";
 import type {Locale} from "./locales";
 import type {ToolSlug} from "./tools";
 
-export const seoFocusLocales: Locale[] = ["en", "zh-CN", "pt", "es", "ru"];
+export const seoFocusLocales: Locale[] = ["en", "zh-CN", "es", "de", "fr"];
 
 export const growthContentIndexableLocales: Locale[] = ["en"];
 
@@ -19,6 +19,7 @@ export const seoCoreToolSlugs: ToolSlug[] = [
   "plantuml-to-drawio",
   "d2-preview",
   "openapi-to-sequence",
+  "api-error-flow-diagram",
   "har-file-sequence-diagram",
   "postman-collection-sequence-diagram",
   "sql-to-er-diagram",
@@ -31,11 +32,12 @@ export const seoCoreToolSlugs: ToolSlug[] = [
 ];
 
 export const seoCoreBlogSlugs: BlogSlug[] = [
-  "chatgpt-mermaid-preview-workflow",
-  "drawio-file-preview-guide",
   "api-debugging-preview-har-postman-openapi",
   "schema-preview-workflow-json-schema-zod-typescript",
-  "technical-seo-preview-robots-sitemap-open-graph"
+  "social-card-svg-preview-publishing-workflow",
+  "config-preview-env-yaml-toml-before-deploy",
+  "technical-seo-preview-robots-sitemap-open-graph",
+  "script-preview-debugging-html-css-json-base64"
 ];
 
 export const defaultToolUpdatedAt = "2026-07-04";

@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import {defaultLocale, indexableLocales, type Locale} from "@/config/locales";
+import {defaultLocale, indexableLocales, locales, type Locale} from "@/config/locales";
 import {defaultToolUpdatedAt} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
 import type {ToolConfig, ToolSlug} from "@/config/tools";
@@ -75,7 +75,7 @@ export function buildMetadata({locale, path, title, description, keywords = []}:
 }
 
 function stripLocalePrefix(path: string) {
-  const matchedLocale = indexableLocales.find((candidate) => path === `/${candidate}` || path.startsWith(`/${candidate}/`));
+  const matchedLocale = locales.find((candidate) => path === `/${candidate}` || path.startsWith(`/${candidate}/`));
   if (!matchedLocale) return path.startsWith("/") ? path : `/${path}`;
   const stripped = path.slice(matchedLocale.length + 1);
   return stripped || "";

@@ -4030,9 +4030,9 @@
       "h1": "Visualiseur d’expression Cron",
       "intro": "Visualiseur d’expression Cron: Visualize cron fields, schedule intent, and documentation notes.",
       "badges": [
-        "Live preview",
-        "Browser workflow",
-        "Export SVG"
+        "Aperçu en direct",
+        "Workflow navigateur",
+        "Exporter SVG"
       ],
       "emptyPreview": "Le résultat généré apparaîtra ici.",
       "samples": {
@@ -4177,16 +4177,18 @@
     },
     "api-error-flow-diagram": {
       "name": "Diagramme de flux d’erreurs API",
-      "shortDescription": "Diagramme de flux d’erreurs API: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
-      "seoTitle": "Diagramme de flux d’erreurs API - DiagramPreview",
-      "seoDescription": "Diagramme de flux d’erreurs API: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "shortDescription": "Transformez les codes d’état API, conditions d’échec, règles de retry et actions de récupération en diagramme clair.",
+      "seoTitle": "Diagramme d’erreurs API en ligne - Statuts, retry et récupération",
+      "seoDescription": "Créez un diagramme de flux d’erreurs API avec codes HTTP, conditions d’échec, actions client, règles de retry et chemins de récupération.",
       "keywords": [
         "Diagramme de flux d’erreurs API",
-        "API error rows",
+        "diagramme erreurs api",
+        "flux codes statut api",
+        "diagramme retry api",
         "DiagramPreview"
       ],
       "h1": "Diagramme de flux d’erreurs API",
-      "intro": "Diagramme de flux d’erreurs API: Turn API status codes, failure conditions, and recovery actions into an error flow diagram.",
+      "intro": "Transformez les codes d’état API, conditions d’échec, règles de retry et actions de récupération en diagramme pour documentation API, runbooks et revues d’intégration.",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4208,47 +4210,66 @@
         }
       },
       "howToUse": [
-        "Exemples: choose a starter example or paste your own source.",
-        "Review the generated preview and adjust labels, conditions, or configuration details.",
-        "Copy the source or export the rendered result when it is ready for documentation."
+        "Collez des lignes d’erreur avec code d’état, condition d’échec et action de récupération.",
+        "Vérifiez le flux généré et séparez erreurs utilisateur, authentification, conflits, rate limits et erreurs serveur.",
+        "Ajoutez codes applicatifs, règles de retry, Retry-After et actions d’observabilité.",
+        "Exportez le diagramme pour documentation API, runbooks, notes SDK ou revues d’architecture."
       ],
       "useCases": [
-        "README and engineering design docs",
-        "Architecture reviews and API documentation",
-        "AI-generated diagram validation before publishing"
+        "Documentation d’erreurs API",
+        "Arbres de décision de statuts",
+        "Runbooks de retry et fallback",
+        "Revues d’intégration client",
+        "Flux de réponse incident"
       ],
       "faq": [
         {
+          "question": "Comment créer un diagramme d’erreurs API ?",
+          "answer": "Listez chaque code d’état avec la condition d’échec et l’action attendue, puis prévisualisez le flux. Séparez validation, authentification, conflits, rate limits et erreurs serveur."
+        },
+        {
+          "question": "Que doit contenir un flux d’erreurs API ?",
+          "answer": "Incluez codes HTTP, codes applicatifs stables, possibilité de retry, action visible par l’utilisateur, ainsi que logs, métriques ou alertes utiles pour l’investigation."
+        },
+        {
+          "question": "Puis-je documenter les règles de retry ?",
+          "answer": "Oui. Utilisez l’action pour préciser retry unique, backoff exponentiel, respect de Retry-After ou absence de retry si l’opération n’est pas idempotente."
+        },
+        {
           "question": "Puis-je l’utiliser avec du contenu généré par IA ?",
           "answer": "Oui. Utilisez l’IA pour le premier brouillon, puis prévisualisez et ajustez avant publication."
+        },
+        {
+          "question": "Quand est-ce mieux qu’une table de codes ?",
+          "answer": "La table sert de référence. Le diagramme est préférable pour revoir les branches, retries, fallbacks et passages vers la réponse opérationnelle."
         }
       ],
       "seoBody": [
-        "Utilisez cet outil pour la documentation développeur, les notes d’architecture, les runbooks, les spécifications API et les diagrammes générés par IA.",
-        "Commencez avec un exemple, remplacez-le par votre source et gardez la sortie avec le texte original pour la revue.",
-        "Pour la documentation de production, exportez en SVG ou PNG si possible et conservez la source dans le dépôt."
+        "Le diagramme d’erreurs API transforme une table de statuts en flux lisible pour documentation, SDK, support, runbooks et revues d’incident.",
+        "Utilisez-le pour distinguer validation, authentification, conflits, rate limits, dépendances en échec et erreurs serveur retryables.",
+        "Conservez les lignes source avec le diagramme exporté afin que les futures évolutions d’API restent faciles à relire et maintenir."
       ],
-      "inputLabel": "API error rows",
+      "inputLabel": "Lignes d’erreur API",
       "outputLabel": "Aperçu",
       "placeholder": "Décrivez le service, le workflow, le flux de données ou le scénario documentaire...",
       "deepDives": [
         {
-          "title": "Demo: document API error handling as a flow",
-          "body": "Error handling is easier to review when status codes, client behavior, retry rules, and recovery actions are shown as a flowchart.",
+          "title": "Démo : documenter les erreurs API en flux",
+          "body": "La gestion des erreurs est plus facile à relire lorsque codes d’état, comportement client, règles de retry et récupération sont visibles dans un flowchart.",
           "bullets": [
-            "Separate user-fixable errors from server and dependency failures.",
-            "Mark retryable responses explicitly.",
-            "Include observability actions for incidents."
+            "Séparez erreurs corrigeables par l’utilisateur, erreurs serveur et dépendances.",
+            "Marquez explicitement les réponses retryables.",
+            "Ajoutez les actions d’observabilité utiles aux incidents."
           ],
           "code": "400 invalid input -> show field error\n401 unauthorized -> refresh token\n409 conflict -> reload cart\n503 dependency timeout -> retry with backoff"
         },
         {
-          "title": "Review checklist: avoid ambiguous status codes",
-          "body": "An error flow diagram helps teams decide whether the same status code is being used for too many unrelated problems.",
+          "title": "Checklist : éviter les statuts ambigus",
+          "body": "Un diagramme d’erreurs aide l’équipe à vérifier si le même code HTTP couvre trop de problèmes sans lien.",
           "bullets": [
-            "Check that each error response has a stable code and message.",
-            "Document whether clients may retry safely.",
-            "Map operational errors to logs, metrics, and alerts."
+            "Vérifiez que chaque réponse possède un code et un message stables.",
+            "Documentez si le client peut relancer en sécurité.",
+            "Associez les erreurs opérationnelles aux logs, métriques et alertes."
           ],
           "code": "HTTP 409\ncode: inventory_lock_conflict\nclient_action: reload inventory and retry once"
         }

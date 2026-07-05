@@ -4264,9 +4264,9 @@
       "h1": "Cron 表达式可视化",
       "intro": "Cron 表达式可视化：用于开发者文档的在线预览、校验和导出工具。",
       "badges": [
-        "Live preview",
-        "Browser workflow",
-        "Export SVG"
+        "实时预览",
+        "浏览器工作流",
+        "导出 SVG"
       ],
       "emptyPreview": "生成结果会显示在这里。",
       "samples": {
@@ -4411,16 +4411,18 @@
     },
     "api-error-flow-diagram": {
       "name": "API 错误流程图",
-      "shortDescription": "API 错误流程图：用于开发者文档的在线预览、校验和导出工具。",
-      "seoTitle": "API 错误流程图 - DiagramPreview",
-      "seoDescription": "API 错误流程图：用于开发者文档的在线预览、校验和导出工具。",
+      "shortDescription": "把 API 状态码、失败条件、重试规则和恢复动作整理成清晰的错误流程图。",
+      "seoTitle": "API 错误流程图在线生成 - 状态码、重试路径和恢复动作",
+      "seoDescription": "在线生成 API 错误流程图，梳理 HTTP 状态码、业务错误码、失败条件、客户端动作、重试规则和恢复路径，适合 API 文档与 runbook。",
       "keywords": [
         "API 错误流程图",
-        "API error rows",
+        "API 状态码流程图",
+        "API 重试流程图",
+        "API 错误处理图",
         "DiagramPreview"
       ],
       "h1": "API 错误流程图",
-      "intro": "API 错误流程图：用于开发者文档的在线预览、校验和导出工具。",
+      "intro": "把 API 状态码、失败条件、重试规则和恢复动作整理成错误流程图，用于 API 文档、故障 runbook、SDK 交接和客户端集成评审。",
       "badges": [
         "Live preview",
         "Browser workflow",
@@ -4442,47 +4444,66 @@
         }
       },
       "howToUse": [
-        "示例: choose a starter example or paste your own source.",
-        "Review the generated preview and adjust labels, conditions, or configuration details.",
-        "Copy the source or export the rendered result when it is ready for documentation."
+        "按状态码、失败条件、恢复动作的格式粘贴 API 错误行。",
+        "预览生成的流程图，检查可由用户修复的错误、认证失败、冲突、限流和服务端故障是否分支清楚。",
+        "补充业务错误码、是否可重试、Retry-After、告警和日志排查动作。",
+        "导出图表，用于 API 文档、runbook、SDK 说明或架构评审。"
       ],
       "useCases": [
-        "README and engineering design docs",
-        "Architecture reviews and API documentation",
-        "AI-generated diagram validation before publishing"
+        "API 错误处理文档",
+        "状态码决策树",
+        "重试与降级 runbook",
+        "客户端集成评审",
+        "故障响应流程"
       ],
       "faq": [
         {
+          "question": "怎么生成 API 错误流程图？",
+          "answer": "把每个状态码、失败条件和恢复动作列成一行，然后预览流程图。建议把参数校验、认证失败、冲突、限流、依赖超时和服务端错误拆成不同分支。"
+        },
+        {
+          "question": "API 错误流程图应该包含什么？",
+          "answer": "建议包含 HTTP 状态码、稳定的业务错误码、客户端是否可以重试、用户看到的处理动作，以及服务端排查需要看的日志、指标或告警。"
+        },
+        {
+          "question": "可以描述重试策略吗？",
+          "answer": "可以。在恢复动作里写清楚是否重试、重试一次、指数退避、遵守 Retry-After，或者因为请求非幂等而不能重试。"
+        },
+        {
           "question": "可以配合 AI 生成内容使用吗？",
           "answer": "可以。先用 AI 生成初稿，再在这里预览、检查和调整，最后放进文档。"
+        },
+        {
+          "question": "什么时候比状态码表格更适合？",
+          "answer": "表格适合查阅，流程图适合评审分支逻辑、重试路径、降级动作，以及什么时候从客户端处理转为运维响应。"
         }
       ],
       "seoBody": [
-        "这个工具适合开发者文档、架构说明、运维 runbook、API 规范和 AI 生成图表后的检查流程。",
-        "可以从示例开始，替换成自己的源码，并把输出结果和原始文本放在一起，方便后续评审和修改。",
-        "正式发布时优先导出 SVG 或 PNG，同时把源文本保留在仓库中，避免图表变成难维护的截图。"
+        "API 错误流程图可以把状态码表格变成更容易评审的流程图，适合 API 文档、SDK 交接、客服排障、故障复盘和 runbook。",
+        "用它区分参数校验错误、认证失败、业务冲突、限流、依赖故障和可重试的服务端错误，让客户端和后端都知道下一步动作。",
+        "建议把源错误行和导出的图表一起保存，这样 API 错误码调整时，可以继续维护流程图，而不是重新画一张截图。"
       ],
-      "inputLabel": "API error rows",
+      "inputLabel": "API 错误行",
       "outputLabel": "预览",
       "placeholder": "描述服务、工作流、数据链路或文档场景...",
       "deepDives": [
         {
-          "title": "Demo：把 API 错误处理画成流程",
-          "body": "错误流程图能把 status code、客户端行为、重试规则和恢复动作放在一起 review。",
+          "title": "示例：把 API 错误处理画成流程",
+          "body": "错误流程图能把状态码、客户端行为、重试规则和恢复动作放在一起评审，避免错误处理只停留在表格里。",
           "bullets": [
-            "先用一个小而完整的示例确认结构，再粘贴完整生产内容。",
-            "检查预览是否清楚展示 ownership、结构、标签和风险字段。",
-            "保留源码和导出结果，方便后续 reviewer 复现。"
+            "把用户可修复错误和服务端、依赖故障分开。",
+            "明确标出哪些响应可以安全重试。",
+            "给线上故障补充日志、指标或告警排查动作。"
           ],
           "code": "400 invalid input -> show field error\n401 unauthorized -> refresh token\n503 timeout -> retry with backoff"
         },
         {
-          "title": "API 错误流程图 Review 清单",
-          "body": "避免一个 status code 表达太多不相关问题。",
+          "title": "API 错误流程图评审清单",
+          "body": "错误流程图能帮助团队判断一个状态码是否承载了太多不相关问题，也能让 SDK、前端和后端对恢复动作达成一致。",
           "bullets": [
-            "分享示例前移除 secret、token、客户数据和私有基础设施值。",
-            "每次修改输入后，都把渲染结果和原始源码对照。",
-            "当预览简化复杂运行时行为时，应把假设写出来。"
+            "检查每个错误响应是否有稳定的 code 和 message。",
+            "写清楚客户端是否可以重试，以及重试条件。",
+            "把关键运行时错误映射到日志、指标和告警。"
           ],
           "code": "输入 -> 预览 -> 检查风险字段 -> 修改源码 -> 导出或分享"
         }
