@@ -6,6 +6,8 @@ export const seoFocusLocales: Locale[] = ["en", "zh-CN", "es", "de", "fr"];
 
 export const growthContentIndexableLocales: Locale[] = ["en"];
 
+export const blogIndexableLocales: Locale[] = ["en", "zh-CN"];
+
 export const seoCoreToolSlugs: ToolSlug[] = [
   "mermaid-preview",
   "plantuml-preview",

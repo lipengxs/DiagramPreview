@@ -1,10 +1,26 @@
 import {useTranslations} from "next-intl";
-import {tools} from "@/config/tools";
+import {getTool, tools, type ToolSlug} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
+
+const seoPriorityTools: ToolSlug[] = [
+  "mermaid-preview",
+  "mermaid-to-drawio",
+  "plantuml-to-drawio",
+  "plantuml-preview",
+  "drawio-preview",
+  "openapi-to-sequence",
+  "api-error-flow-diagram",
+  "json-schema-visualizer"
+];
 
 export function PopularTools() {
   const t = useTranslations();
-  const popularTools = tools.filter((tool) => tool.popular).slice(0, 8);
+  const fallbackTools = tools.filter((tool) => tool.popular && !seoPriorityTools.includes(tool.slug));
+  const popularTools = seoPriorityTools
+    .map((slug) => getTool(slug))
+    .filter((tool): tool is NonNullable<typeof tool> => Boolean(tool))
+    .concat(fallbackTools)
+    .slice(0, 8);
 
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

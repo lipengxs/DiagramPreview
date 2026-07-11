@@ -1,6 +1,6 @@
 import type {MetadataRoute} from "next";
 import {sitemapBlogPosts} from "@/config/blog";
-import {indexableLocales} from "@/config/locales";
+import {blogIndexableLocales} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
 import {sitemapResponse} from "@/lib/sitemap-xml";
 
@@ -9,7 +9,7 @@ export const dynamic = "force-static";
 export function GET() {
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const locale of indexableLocales) {
+  for (const locale of blogIndexableLocales) {
     entries.push({
       url: `${siteConfig.url}/${locale}/blog`,
       lastModified: latestDate(),

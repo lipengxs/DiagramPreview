@@ -1,6 +1,6 @@
 import type {MetadataRoute} from "next";
 import {sitemapBlogPosts} from "@/config/blog";
-import {growthContentIndexableLocales, seoCoreBlogSlugs, seoCoreToolSlugs, seoFocusLocales} from "@/config/seo-focus";
+import {blogIndexableLocales, growthContentIndexableLocales, seoCoreBlogSlugs, seoCoreToolSlugs, seoFocusLocales} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
 import {toolHubs} from "@/config/navigation";
 import {tools} from "@/config/tools";
@@ -41,12 +41,14 @@ export function GET() {
       });
     }
 
-    entries.push({
-      url: `${siteConfig.url}/${locale}/blog`,
-      lastModified: getLatestBlogDate(),
-      changeFrequency: "weekly",
-      priority: 0.72
-    });
+    if (blogIndexableLocales.includes(locale)) {
+      entries.push({
+        url: `${siteConfig.url}/${locale}/blog`,
+        lastModified: getLatestBlogDate(),
+        changeFrequency: "weekly",
+        priority: 0.72
+      });
+    }
 
     if (growthContentIndexableLocales.includes(locale)) {
       entries.push({
@@ -73,13 +75,15 @@ export function GET() {
       }
     }
 
-    for (const post of coreBlogs) {
-      entries.push({
-        url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
-        lastModified: new Date(post.date),
-        changeFrequency: "monthly",
-        priority: post.tier === "core" ? 0.76 : 0.7
-      });
+    if (blogIndexableLocales.includes(locale)) {
+      for (const post of coreBlogs) {
+        entries.push({
+          url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
+          lastModified: new Date(post.date),
+          changeFrequency: "monthly",
+          priority: post.tier === "core" ? 0.76 : 0.7
+        });
+      }
     }
   }
 

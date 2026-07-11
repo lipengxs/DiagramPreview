@@ -3,7 +3,9 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import {ArrowRight, CalendarDays} from "lucide-react";
 import {blogTopics, coreBlogPosts, getVisibleBlogPostsByTopic, type BlogPostConfig, type BlogTopic} from "@/config/blog";
 import type {Locale} from "@/config/locales";
+import {blogIndexableLocales} from "@/config/seo-focus";
 import {Link} from "@/i18n/navigation";
+import {absoluteUrl} from "@/lib/paths";
 import {buildMetadata} from "@/lib/seo";
 
 type BlogPageProps = {
@@ -82,13 +84,23 @@ export async function generateMetadata({params}: BlogPageProps): Promise<Metadat
   const {locale} = await params;
   const t = await getTranslations({locale});
 
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: `/${locale}/blog`,
     title: t("blog.index.seoTitle"),
     description: t("blog.index.description"),
     keywords: t.raw("blog.index.keywords")
   });
+
+  if (blogIndexableLocales.includes(locale)) {
+    return metadata;
+  }
+
+  return {
+    ...metadata,
+    alternates: {canonical: absoluteUrl("/en/blog")},
+    robots: {index: false, follow: true}
+  };
 }
 
 export default async function BlogPage({params}: BlogPageProps) {

@@ -1095,7 +1095,30 @@ export function getTool(slug: string) {
   return tools.find((tool) => tool.slug === slug);
 }
 
-export function getRelatedTools(slug: ToolSlug) {
+const relatedToolMap: Partial<Record<ToolSlug, ToolSlug[]>> = {
+  "mermaid-preview": ["mermaid-to-drawio", "text-to-mermaid", "mermaid-ai-fixer"],
+  "mermaid-to-drawio": ["mermaid-preview", "plantuml-to-drawio", "drawio-preview"],
+  "plantuml-to-drawio": ["plantuml-preview", "mermaid-to-drawio", "drawio-preview"],
+  "plantuml-preview": ["plantuml-to-drawio", "mermaid-preview", "ai-plantuml-generator"],
+  "drawio-preview": ["mermaid-to-drawio", "plantuml-to-drawio", "drawio-to-svg"],
+  "openapi-to-sequence": ["api-error-flow-diagram", "postman-collection-sequence-diagram", "har-file-sequence-diagram"],
+  "api-error-flow-diagram": ["openapi-to-sequence", "postman-collection-sequence-diagram", "har-file-sequence-diagram"],
+  "postman-collection-sequence-diagram": ["openapi-to-sequence", "har-file-sequence-diagram", "api-error-flow-diagram"],
+  "har-file-sequence-diagram": ["openapi-to-sequence", "postman-collection-sequence-diagram", "api-error-flow-diagram"],
+  "json-schema-visualizer": ["zod-schema-visualizer", "typescript-interface-visualizer", "json-schema-form-preview"],
+  "sql-to-er-diagram": ["dbml-to-er-diagram", "prisma-schema-diagram", "json-schema-visualizer"],
+  "dbml-to-er-diagram": ["sql-to-er-diagram", "prisma-schema-diagram", "json-schema-visualizer"]
+};
+
+export function getRelatedTools(slug: ToolSlug): ToolConfig[] {
+  const explicitRelatedTools = relatedToolMap[slug]
+    ?.map((relatedSlug) => getTool(relatedSlug))
+    .filter((tool): tool is ToolConfig => Boolean(tool));
+
+  if (explicitRelatedTools?.length) {
+    return explicitRelatedTools;
+  }
+
   const tool = getTool(slug);
   if (!tool) {
     return tools.slice(0, 3);

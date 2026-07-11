@@ -2,7 +2,7 @@ import type {MetadataRoute} from "next";
 import {sitemapBlogPosts} from "@/config/blog";
 import {indexableLocales} from "@/config/locales";
 import {toolHubs} from "@/config/navigation";
-import {growthContentIndexableLocales} from "@/config/seo-focus";
+import {blogIndexableLocales, growthContentIndexableLocales} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
 import {staticPageSlugs} from "@/config/static-pages";
 import {tools} from "@/config/tools";
@@ -30,12 +30,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    urls.push({
-      url: `${siteConfig.url}/${locale}/blog`,
-      lastModified: latestContentDate,
-      changeFrequency: "weekly",
-      priority: 0.72
-    });
+    if (blogIndexableLocales.includes(locale)) {
+      urls.push({
+        url: `${siteConfig.url}/${locale}/blog`,
+        lastModified: latestContentDate,
+        changeFrequency: "weekly",
+        priority: 0.72
+      });
+    }
 
     if (growthContentIndexableLocales.includes(locale)) {
       urls.push({
@@ -62,13 +64,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }
     }
 
-    for (const post of sitemapBlogPosts) {
-      urls.push({
-        url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
-        lastModified: new Date(post.date),
-        changeFrequency: "monthly",
-        priority: 0.68
-      });
+    if (blogIndexableLocales.includes(locale)) {
+      for (const post of sitemapBlogPosts) {
+        urls.push({
+          url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
+          lastModified: new Date(post.date),
+          changeFrequency: "monthly",
+          priority: 0.68
+        });
+      }
     }
 
     for (const tool of tools) {

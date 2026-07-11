@@ -9773,10 +9773,10 @@
         ]
       },
       "api-debugging-preview-har-postman-openapi": {
-        "title": "A practical API debugging loop: OpenAPI, Postman, HAR, jq, and JSONPath",
-        "seoTitle": "A practical API debugging loop: OpenAPI, Postman, HAR, jq, and JSONPath - DiagramPreview",
-        "description": "A hands-on API debugging workflow with OpenAPI sequence previews, Postman request order checks, HAR waterfalls, jq filters, JSONPath extraction, and HTTP header review.",
-        "excerpt": "A hands-on API debugging workflow with OpenAPI sequence previews, Postman request order checks, HAR waterfalls, jq filters, JSONPath extraction, and HTTP header review.",
+        "title": "API debugging workflow with OpenAPI, Postman, HAR and JSONPath",
+        "seoTitle": "API Debugging Workflow: OpenAPI, Postman, HAR and JSONPath",
+        "description": "Debug API issues by comparing OpenAPI contracts, Postman request order, HAR waterfalls, jq filters, JSONPath checks, and HTTP headers.",
+        "excerpt": "Debug API issues by comparing OpenAPI contracts, Postman request order, HAR waterfalls, jq filters, JSONPath checks, and HTTP headers.",
         "readingTime": "14 min read",
         "keywords": [
           "api debugging workflow",
@@ -9862,10 +9862,10 @@
         ]
       },
       "schema-preview-workflow-json-schema-zod-typescript": {
-        "title": "Schema preview workflow: TypeScript, Zod, JSON Schema, and form previews",
-        "seoTitle": "Schema preview workflow: TypeScript, Zod, JSON Schema, and form previews - DiagramPreview",
-        "description": "A deeper schema documentation workflow with TypeScript interfaces, Zod runtime validation, JSON Schema contracts, generated form previews, and common mismatch examples.",
-        "excerpt": "A deeper schema documentation workflow with TypeScript interfaces, Zod runtime validation, JSON Schema contracts, generated form previews, and common mismatch examples.",
+        "title": "Schema preview workflow for TypeScript, Zod, JSON Schema and forms",
+        "seoTitle": "Schema Preview Workflow: TypeScript, Zod, JSON Schema and Forms",
+        "description": "Compare TypeScript interfaces, Zod validation, JSON Schema contracts, and generated form previews to catch schema drift before release.",
+        "excerpt": "Compare TypeScript interfaces, Zod validation, JSON Schema contracts, and generated form previews to catch schema drift before release.",
         "readingTime": "14 min read",
         "keywords": [
           "schema preview workflow",
@@ -9938,10 +9938,10 @@
         ]
       },
       "social-card-svg-preview-publishing-workflow": {
-        "title": "Before publishing technical docs, preview Markdown, SVG, Open Graph, and screenshots",
-        "seoTitle": "Before publishing technical docs, preview Markdown, SVG, Open Graph, and screenshots - DiagramPreview",
-        "description": "A publishing checklist for technical articles with Markdown previews, SVG cover checks, Open Graph cards, screenshots, code examples, and common launch mistakes.",
-        "excerpt": "A publishing checklist for technical articles with Markdown previews, SVG cover checks, Open Graph cards, screenshots, code examples, and common launch mistakes.",
+        "title": "Publishing preview for Markdown, SVG, Open Graph and screenshots",
+        "seoTitle": "Publishing Preview: Markdown, SVG, Open Graph and Screenshots",
+        "description": "Preview Markdown, SVG covers, Open Graph cards, screenshots, and code examples before publishing technical docs or launch posts.",
+        "excerpt": "Preview Markdown, SVG covers, Open Graph cards, screenshots, and code examples before publishing technical docs or launch posts.",
         "readingTime": "14 min read",
         "keywords": [
           "technical blog publishing checklist",
@@ -10163,10 +10163,10 @@
         ]
       },
       "config-preview-env-yaml-toml-before-deploy": {
-        "title": "Preview .env, YAML, TOML, and Nginx config before deployment breaks",
-        "seoTitle": "Preview .env, YAML, TOML, and Nginx config before deployment breaks - DiagramPreview",
-        "description": "A deployment-focused configuration preview guide with .env diff checks, YAML path lookups, TOML structure review, Nginx location matching, and production mistake examples.",
-        "excerpt": "A deployment-focused configuration preview guide with .env diff checks, YAML path lookups, TOML structure review, Nginx location matching, and production mistake examples.",
+        "title": "Config preview before deploy: .env, YAML, TOML and Nginx",
+        "seoTitle": "Config Preview Before Deploy: .env, YAML, TOML and Nginx",
+        "description": "Catch deployment mistakes with .env diff checks, YAML path lookups, TOML review, Nginx location matching, and config preview examples.",
+        "excerpt": "Catch deployment mistakes with .env diff checks, YAML path lookups, TOML review, Nginx location matching, and config preview examples.",
         "readingTime": "14 min read",
         "keywords": [
           "env diff checker",
@@ -10252,10 +10252,10 @@
         ]
       },
       "technical-seo-preview-robots-sitemap-open-graph": {
-        "title": "Technical SEO preview workflow: robots.txt, sitemap.xml, Open Graph, and SVG covers",
-        "seoTitle": "Technical SEO preview workflow: robots.txt, sitemap.xml, Open Graph, and SVG covers - DiagramPreview",
-        "description": "A technical SEO preview guide for checking robots.txt rules, sitemap XML quality, hreflang alternates, Open Graph cards, SVG covers, and publish-ready screenshots.",
-        "excerpt": "A technical SEO preview guide for checking robots.txt rules, sitemap XML quality, hreflang alternates, Open Graph cards, SVG covers, and publish-ready screenshots.",
+        "title": "Technical SEO preview for robots.txt, sitemaps, hreflang and OG",
+        "seoTitle": "Technical SEO Preview: robots.txt, Sitemaps, Hreflang and OG",
+        "description": "Check robots.txt rules, sitemap XML quality, hreflang alternates, Open Graph cards, SVG covers, and screenshots before publishing.",
+        "excerpt": "Check robots.txt rules, sitemap XML quality, hreflang alternates, Open Graph cards, SVG covers, and screenshots before publishing.",
         "readingTime": "14 min read",
         "keywords": [
           "technical seo preview",
@@ -10336,9 +10336,9 @@
         ]
       },
       "script-preview-debugging-html-css-json-base64": {
-        "title": "Preview AI-generated HTML, CSS, JSON, and Base64 before you publish",
-        "seoTitle": "Preview AI-generated HTML, CSS, JSON Diff, and Base64 images before publishing",
-        "description": "A practical developer workflow for previewing AI-generated HTML, CSS, JSON, Base64, cURL, URL query, shadow, and color snippets before they reach docs, issues, blogs, or production examples.",
+        "title": "Preview AI HTML, CSS, JSON and Base64 before publishing",
+        "seoTitle": "Preview AI HTML, CSS, JSON and Base64 Before Publishing",
+        "description": "Preview AI-generated HTML, CSS, JSON diffs, Base64 images, cURL commands, URL query strings, shadows, and color snippets before publishing.",
         "excerpt": "AI can generate snippets, but it does not open the browser, compare payloads, inspect requests, gradients, shadows, palettes, or embedded image size for you.",
         "keywords": [
           "html preview sandbox",

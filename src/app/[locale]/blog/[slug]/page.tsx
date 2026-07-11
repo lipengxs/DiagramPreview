@@ -4,6 +4,7 @@ import {notFound} from "next/navigation";
 import {CalendarDays, Clock3} from "lucide-react";
 import {blogPosts, getBlogPost, getCanonicalBlogPost} from "@/config/blog";
 import type {Locale} from "@/config/locales";
+import {blogIndexableLocales} from "@/config/seo-focus";
 import {tools} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
 import {absoluteUrl} from "@/lib/paths";
@@ -31,6 +32,14 @@ export async function generateMetadata({params}: BlogPostPageProps): Promise<Met
     description: t(`blog.posts.${post.slug}.description`),
     keywords: t.raw(`blog.posts.${post.slug}.keywords`)
   });
+
+  if (!blogIndexableLocales.includes(locale)) {
+    return {
+      ...metadata,
+      alternates: {canonical: absoluteUrl(`/en/blog/${canonicalPost?.slug ?? slug}`)},
+      robots: {index: false, follow: true}
+    };
+  }
 
   return post.tier === "merge" ? {...metadata, robots: {index: false, follow: true}} : metadata;
 }
