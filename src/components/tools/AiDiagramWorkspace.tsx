@@ -1,10 +1,14 @@
 "use client";
 
-import {Copy, Download, ImageDown, Link2, Sparkles, WandSparkles} from "lucide-react";
+import {Copy, Download, ImageDown, Link2, Sparkles, Star, WandSparkles} from "lucide-react";
 import {useEffect, useState} from "react";
 import {Button} from "@/components/ui/Button";
+import {NextStepRecommendations} from "./NextStepRecommendations";
+import {trackEvent, type AnalyticsEventName} from "@/lib/analytics";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
 import {copyText, downloadText} from "@/lib/exporters/svg";
+import {isFavoriteTool, setFavoriteTool} from "@/lib/favorite-tools";
+import {recordRecentTool} from "@/lib/recent-tools";
 import {renderMermaid} from "@/lib/renderers/mermaid";
 import {absoluteSourceUrl} from "@/lib/source-links";
 
@@ -42,6 +46,7 @@ type AiDiagramWorkspaceProps = {
     samples: Record<string, {label: string; prompt: string; code?: string; diagramType?: string}>;
   };
   sampleKeys: string[];
+  relatedTools?: Array<{slug: string; name: string; description: string}>;
 };
 
 const diagramTypes = ["flowchart", "sequenceDiagram", "classDiagram", "stateDiagram-v2", "erDiagram", "gantt"];
@@ -51,8 +56,9 @@ const grafanaDashboardTypes = ["prometheus", "loki", "node-exporter", "api-servi
 const prometheusRuleTypes = ["api-service", "infrastructure", "kubernetes", "database", "queue", "slo"];
 const observabilityPackTypes = ["api-service", "kubernetes", "worker", "database", "queue", "slo"];
 
-export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermaid", copy, sampleKeys}: AiDiagramWorkspaceProps) {
+export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermaid", copy, sampleKeys, relatedTools = []}: AiDiagramWorkspaceProps) {
   const statusCopy = getAiStatusCopy(locale);
+  const uiCopy = getUiCopy(locale);
   const firstSample = copy.samples[sampleKeys[0]];
   const availableDiagramTypes =
     outputLanguage === "plantuml"
@@ -77,6 +83,20 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
   const [fallbackErrors, setFallbackErrors] = useState<Array<{provider: string; status?: number; message: string}>>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [favorite, setFavorite] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
+
+  useEffect(() => {
+    recordRecentTool(window.localStorage, slug);
+    setFavorite(isFavoriteTool(window.localStorage, slug));
+    trackEvent("tool_open", {
+      tool_slug: slug,
+      renderer: "ai",
+      mode,
+      output_language: outputLanguage,
+      implemented: true
+    });
+  }, [mode, outputLanguage, slug]);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -106,6 +126,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             setSvg("");
             setImageUrl(plantUmlSvgUrl(generatedCode));
             setError("");
+            trackRenderSuccess("image");
           }
           return;
         }
@@ -118,6 +139,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             setSvg(result.svg);
             setImageUrl("");
             setError("");
+            trackRenderSuccess("svg");
           }
           return;
         }
@@ -132,6 +154,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             setSvg("");
             setImageUrl("");
             setError("");
+            trackRenderSuccess("html");
           }
           return;
         }
@@ -142,6 +165,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
           setSvg(nextSvg);
           setImageUrl("");
           setError("");
+          trackRenderSuccess("svg");
         }
       } catch (renderError) {
         if (!cancelled) {
@@ -149,6 +173,12 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
           setSvg("");
           setImageUrl("");
           setError(renderError instanceof Error ? renderError.message : copy.error);
+          trackEvent("tool_render_error", {
+            tool_slug: slug,
+            renderer: "ai",
+            mode,
+            output_language: outputLanguage
+          });
         }
       }
     }
@@ -157,13 +187,19 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
     return () => {
       cancelled = true;
     };
-  }, [copy.error, generatedCode, outputLanguage]);
+  }, [copy.error, generatedCode, mode, outputLanguage, slug]);
 
   async function generate() {
     setLoading(true);
     setError("");
     setProvider("");
     setFallbackErrors([]);
+    trackEvent("ai_generate_start", {
+      tool_slug: slug,
+      mode,
+      output_language: outputLanguage,
+      diagram_type: diagramType
+    });
 
     try {
       const response = await fetch("/api/ai/generate-diagram", {
@@ -189,8 +225,20 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       setGeneratedCode(data.code);
       setProvider(data.provider || "");
       setFallbackErrors(data.fallbackErrors || []);
+      trackEvent("ai_generate_success", {
+        tool_slug: slug,
+        mode,
+        output_language: outputLanguage,
+        provider: data.provider || "unknown"
+      });
+      showToast(uiCopy.generated);
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : copy.error);
+      trackEvent("ai_generate_error", {
+        tool_slug: slug,
+        mode,
+        output_language: outputLanguage
+      });
     } finally {
       setLoading(false);
     }
@@ -211,6 +259,10 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
               className="h-9 rounded-md border border-slate-200 px-3 text-sm font-medium text-slate-700 transition hover:border-primary hover:bg-blue-50 hover:text-primary"
               type="button"
               onClick={() => {
+                trackEvent("tool_sample_load", {
+                  tool_slug: slug,
+                  sample_key: key
+                });
                 setPrompt(sample.prompt);
                 setExistingCode(sample.code ?? "");
                 setGeneratedCode(sample.code ?? "");
@@ -223,6 +275,20 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
               {sample.label}
             </button>
           ))}
+          <Button
+            type="button"
+            className="ml-auto"
+            onClick={() => {
+              const nextFavorite = !favorite;
+              setFavorite(nextFavorite);
+              setFavoriteTool(window.localStorage, slug, nextFavorite);
+              trackEvent(nextFavorite ? "tool_favorite_add" : "tool_favorite_remove", {tool_slug: slug});
+              showToast(nextFavorite ? uiCopy.favoriteAdded : uiCopy.favoriteRemoved);
+            }}
+          >
+            <Star className={favorite ? "h-4 w-4 fill-amber-400 text-amber-500" : "h-4 w-4"} />
+            {favorite ? uiCopy.favorited : uiCopy.favorite}
+          </Button>
         </div>
 
         <div className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
@@ -279,25 +345,25 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
 
         <div className="grid gap-4">
           <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-2 shadow-sm">
-            <Button onClick={() => void copyText(generatedCode)} disabled={!generatedCode}>
+            <Button onClick={() => void runAction(copy.copyCode, "tool_copy_code", () => copyText(generatedCode))} disabled={!generatedCode}>
               <Copy className="h-4 w-4" />
               {copy.copyCode}
             </Button>
-            <Button onClick={() => svg && downloadText(`${slug}.svg`, svg, "image/svg+xml;charset=utf-8")} disabled={!svg}>
+            <Button onClick={() => svg && void runAction(copy.exportSvg, "tool_export_svg", () => downloadText(`${slug}.svg`, svg, "image/svg+xml;charset=utf-8"))} disabled={!svg}>
               <Download className="h-4 w-4" />
               {copy.exportSvg}
             </Button>
-            <Button onClick={() => svg && void downloadSvgAsPng(svg, `${slug}.png`)} disabled={!svg}>
+            <Button onClick={() => svg && void runAction(copy.exportPng, "tool_export_png", () => downloadSvgAsPng(svg, `${slug}.png`))} disabled={!svg}>
               <ImageDown className="h-4 w-4" />
               {copy.exportPng}
             </Button>
-            <Button onClick={() => downloadText(fileNameFor(slug, outputLanguage), generatedCode, mimeFor(outputLanguage))} disabled={!generatedCode}>
+            <Button onClick={() => void runAction(copy.downloadFile, "tool_download_file", () => downloadText(fileNameFor(slug, outputLanguage), generatedCode, mimeFor(outputLanguage)))} disabled={!generatedCode}>
               <Download className="h-4 w-4" />
               {copy.downloadFile}
             </Button>
-            <Button onClick={() => void copyText(absoluteSourceUrl(window.location.origin, window.location.pathname, generatedCode || prompt))} disabled={!generatedCode && !prompt}>
+            <Button onClick={() => void runAction(uiCopy.shareLink, "tool_share_link", () => copyText(absoluteSourceUrl(window.location.origin, window.location.pathname, generatedCode || prompt)))} disabled={!generatedCode && !prompt}>
               <Link2 className="h-4 w-4" />
-              {locale.startsWith("zh") ? "分享链接" : "Share link"}
+              {uiCopy.shareLink}
             </Button>
           </div>
 
@@ -339,10 +405,88 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
               )}
             </div>
           </div>
+          <NextStepRecommendations
+            relatedTools={relatedTools}
+            title={uiCopy.nextTitle}
+            description={uiCopy.nextDescription}
+            actionLabel={uiCopy.nextAction}
+            currentSlug={slug}
+          />
         </div>
+      </div>
+      <div aria-live="polite" className="pointer-events-none fixed bottom-5 right-5 z-50">
+        {toast ? <div className="rounded-md bg-ink px-4 py-3 text-sm font-semibold text-white shadow-xl">{toast}</div> : null}
       </div>
     </section>
   );
+
+  function trackRenderSuccess(kind: string) {
+    trackEvent("tool_render_success", {
+      tool_slug: slug,
+      renderer: "ai",
+      mode,
+      output_language: outputLanguage,
+      preview_kind: kind
+    });
+  }
+
+  async function runAction(label: string, eventName: AnalyticsEventName, action: () => void | Promise<void>) {
+    try {
+      await action();
+      trackEvent(eventName, {
+        tool_slug: slug,
+        renderer: "ai",
+        success: true
+      });
+      showToast(successMessage(label, locale));
+    } catch {
+      trackEvent(eventName, {
+        tool_slug: slug,
+        renderer: "ai",
+        success: false
+      });
+      showToast(failureMessage(label, locale));
+    }
+  }
+
+  function showToast(message: string) {
+    setToast(message);
+    window.setTimeout(() => setToast(null), 1800);
+  }
+}
+
+function getUiCopy(locale: string) {
+  return locale.startsWith("zh")
+    ? {
+        favorite: "收藏",
+        favorited: "已收藏",
+        favoriteAdded: "已加入收藏",
+        favoriteRemoved: "已取消收藏",
+        generated: "生成完成",
+        shareLink: "分享链接",
+        nextTitle: "下一步可以继续",
+        nextDescription: "把生成结果带到相关工具里继续预览、转换或排查。",
+        nextAction: "打开"
+      }
+    : {
+        favorite: "Favorite",
+        favorited: "Favorited",
+        favoriteAdded: "Added to favorites",
+        favoriteRemoved: "Removed from favorites",
+        generated: "Generated",
+        shareLink: "Share link",
+        nextTitle: "Continue with a related tool",
+        nextDescription: "Move this output into a nearby workflow for preview, conversion, or debugging.",
+        nextAction: "Open"
+      };
+}
+
+function successMessage(label: string, locale: string) {
+  return locale.startsWith("zh") ? `已完成：${label}` : `${label} done`;
+}
+
+function failureMessage(label: string, locale: string) {
+  return locale.startsWith("zh") ? `操作失败：${label}` : `${label} failed`;
 }
 
 function fileNameFor(slug: string, outputLanguage: NonNullable<AiDiagramWorkspaceProps["outputLanguage"]>) {

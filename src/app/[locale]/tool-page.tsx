@@ -118,8 +118,10 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
           sampleKeys: tool.sampleKeys
         }}
         copy={copy}
+        relatedTools={relatedTools}
       />
       <ToolSeoSections
+        currentSlug={slug}
         toolName={t(`tools.${slug}.name`)}
         toolDescription={t(`tools.${slug}.shortDescription`)}
         howTitle={t("common.seoSections.howToUse")}

@@ -1,8 +1,9 @@
-import {Link} from "@/i18n/navigation";
 import type {ReactNode} from "react";
+import {TrackedToolLink} from "./TrackedToolLink";
 
 type ToolSeoSectionsProps = {
   locale: string;
+  currentSlug: string;
   toolName: string;
   toolDescription: string;
   maturity?: {
@@ -40,6 +41,7 @@ export type ToolDeepDive = {
 
 export function ToolSeoSections({
   locale,
+  currentSlug,
   toolName,
   toolDescription,
   maturity,
@@ -83,10 +85,18 @@ export function ToolSeoSections({
       <InfoBlock title={relatedTitle}>
         <div className="grid gap-3">
           {relatedTools.map((tool) => (
-            <Link key={tool.slug} href={`/${tool.slug}`} className="rounded-md border border-slate-200 p-3 hover:border-primary hover:bg-blue-50">
+            <TrackedToolLink
+              key={tool.slug}
+              href={`/${tool.slug}`}
+              className="rounded-md border border-slate-200 p-3 hover:border-primary hover:bg-blue-50"
+              eventName="tool_related_click"
+              toolSlug={currentSlug}
+              targetToolSlug={tool.slug}
+              source="seo_related_tools"
+            >
               <div className="font-semibold text-ink">{tool.name}</div>
               <p className="mt-1 text-sm leading-6 text-slate-600">{tool.description}</p>
-            </Link>
+            </TrackedToolLink>
           ))}
         </div>
       </InfoBlock>

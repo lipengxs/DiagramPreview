@@ -1,12 +1,18 @@
 import {useTranslations} from "next-intl";
 import type {ReactNode} from "react";
+import {seoPriorityHomeToolSlugs} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
-import {tools} from "@/config/tools";
+import {getTool, tools} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
 
 export function SiteFooter() {
   const t = useTranslations();
-  const popularTools = tools.filter((tool) => tool.popular).slice(0, 8);
+  const fallbackTools = tools.filter((tool) => tool.popular && !seoPriorityHomeToolSlugs.includes(tool.slug));
+  const popularTools = seoPriorityHomeToolSlugs
+    .map((slug) => getTool(slug))
+    .filter((tool): tool is NonNullable<typeof tool> => Boolean(tool))
+    .concat(fallbackTools)
+    .slice(0, 8);
 
   return (
     <footer className="border-t border-slate-200 bg-white">

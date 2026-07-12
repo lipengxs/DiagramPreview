@@ -1,14 +1,20 @@
 "use client";
 
+import {Star} from "lucide-react";
 import {useEffect, useMemo, useState} from "react";
 import {CodeEditor} from "./CodeEditor";
 import {ExportToolbar} from "./ExportToolbar";
+import {NextStepRecommendations} from "./NextStepRecommendations";
 import {PreviewPane} from "./PreviewPane";
+import {Button} from "@/components/ui/Button";
 import {detectInputTool} from "@/lib/input-detector";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
 import {printPreview} from "@/lib/exporters/pdf";
 import {copyText, downloadText} from "@/lib/exporters/svg";
 import {absoluteSourceUrl, markdownSnippet} from "@/lib/source-links";
+import {recordRecentTool} from "@/lib/recent-tools";
+import {isFavoriteTool, setFavoriteTool} from "@/lib/favorite-tools";
+import {trackEvent, type AnalyticsEventName} from "@/lib/analytics";
 import type {TreeNode} from "@/lib/renderers/tree";
 import type {ToolConfig, ToolSlug} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
@@ -61,6 +67,7 @@ export type ToolCopy = {
 type ToolShellProps = {
   tool: ToolRuntimeConfig;
   copy: ToolCopy;
+  relatedTools?: Array<{slug: string; name: string; description: string}>;
 };
 
 export type ToolRuntimeConfig = {
@@ -83,13 +90,26 @@ type RenderState = {
   error?: string;
 };
 
-export function ToolShell({tool, copy}: ToolShellProps) {
+export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   const firstSample = useMemo(() => copy.samples[tool.sampleKeys[0]], [copy.samples, tool.sampleKeys]);
   const [source, setSource] = useState(firstSample?.code ?? "");
   const [status, setStatus] = useState(copy.statusReady);
   const [renderState, setRenderState] = useState<RenderState>({});
+  const [toast, setToast] = useState<string | null>(null);
+  const [favorite, setFavorite] = useState(false);
   const detectedTool = useMemo(() => detectInputTool(source), [source]);
   const suggestedTool = detectedTool?.slug !== tool.slug ? detectedTool : null;
+  const uiCopy = getUiCopy(copy);
+
+  useEffect(() => {
+    recordRecentTool(window.localStorage, tool.slug);
+    setFavorite(isFavoriteTool(window.localStorage, tool.slug));
+    trackEvent("tool_open", {
+      tool_slug: tool.slug,
+      renderer: tool.renderer,
+      implemented: tool.implemented
+    });
+  }, [tool.implemented, tool.renderer, tool.slug]);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -115,6 +135,13 @@ export function ToolShell({tool, copy}: ToolShellProps) {
         if (!cancelled) {
           setRenderState(nextState);
           setStatus(copy.statusReady);
+          trackEvent("tool_render_success", {
+            tool_slug: tool.slug,
+            renderer: tool.renderer,
+            has_svg: Boolean(nextState.svg),
+            has_html: Boolean(nextState.html),
+            has_artifact: Boolean(nextState.artifact)
+          });
         }
       } catch (error) {
         if (!cancelled) {
@@ -122,6 +149,10 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             error: error instanceof Error && error.message ? error.message : copy.renderError
           });
           setStatus(copy.statusReady);
+          trackEvent("tool_render_error", {
+            tool_slug: tool.slug,
+            renderer: tool.renderer
+          });
         }
       }
     }, 300);
@@ -130,7 +161,7 @@ export function ToolShell({tool, copy}: ToolShellProps) {
       cancelled = true;
       window.clearTimeout(timeout);
     };
-  }, [copy.renderError, copy.statusReady, copy.statusRendering, source, tool.renderer]);
+  }, [copy, copy.renderError, copy.statusReady, copy.statusRendering, source, tool.renderer, tool.slug]);
 
   const sampleButtons = tool.sampleKeys
     .map((key) => [key, copy.samples[key]] as const)
@@ -159,12 +190,34 @@ export function ToolShell({tool, copy}: ToolShellProps) {
               <button
                 key={key}
                 className="h-9 rounded-md border border-slate-200 px-3 text-sm font-medium text-slate-700 transition hover:border-primary hover:bg-blue-50 hover:text-primary"
-                onClick={() => setSource(sample.code)}
+                onClick={() => {
+                  trackEvent("tool_sample_load", {
+                    tool_slug: tool.slug,
+                    sample_key: key
+                  });
+                  setSource(sample.code);
+                }}
                 type="button"
               >
                 {sample.label}
               </button>
             ))}
+            <Button
+              type="button"
+              className="ml-auto"
+              onClick={() => {
+                const nextFavorite = !favorite;
+                setFavorite(nextFavorite);
+                setFavoriteTool(window.localStorage, tool.slug, nextFavorite);
+                trackEvent(nextFavorite ? "tool_favorite_add" : "tool_favorite_remove", {
+                  tool_slug: tool.slug
+                });
+                showToast(nextFavorite ? uiCopy.favoriteAdded : uiCopy.favoriteRemoved);
+              }}
+            >
+              <Star className={favorite ? "h-4 w-4 fill-amber-400 text-amber-500" : "h-4 w-4"} />
+              {favorite ? uiCopy.favorited : uiCopy.favorite}
+            </Button>
           </div>
           <ExportToolbar
             actions={copy.actions}
@@ -176,18 +229,28 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             showExportSvg={capabilities.svg}
             showExportPng={capabilities.svg}
             showPrint={capabilities.print}
-            onCopyCode={() => void copyText(source)}
-            onCopyHtml={() => void copyText(renderState.html ?? "")}
-            onCopyMarkdown={() => void copyText(markdownSnippet(source, shareUrl(tool.slug, source), tool.renderer))}
-            onShareLink={() => void copyText(shareUrl(tool.slug, source))}
-            onExportSvg={() => renderState.svg && downloadText(`${tool.slug}.svg`, renderState.svg, "image/svg+xml;charset=utf-8")}
-            onExportPng={() => renderState.svg && void downloadSvgAsPng(renderState.svg, `${tool.slug}.png`)}
+            onCopyCode={() => void runAction(copy.actions.copyCode, "tool_copy_code", () => copyText(source))}
+            onCopyHtml={() => void runAction(copy.actions.copyHtml, "tool_copy_html", () => copyText(renderState.html ?? ""))}
+            onCopyMarkdown={() => void runAction(copy.actions.copyMarkdown ?? "Markdown", "tool_copy_markdown", () => copyText(markdownSnippet(source, shareUrl(tool.slug, source), tool.renderer)))}
+            onShareLink={() => void runAction(copy.actions.shareLink ?? "Share", "tool_share_link", () => copyText(shareUrl(tool.slug, source)))}
+            onExportSvg={() =>
+              renderState.svg &&
+              void runAction(copy.actions.exportSvg, "tool_export_svg", () => {
+                downloadText(`${tool.slug}.svg`, renderState.svg ?? "", "image/svg+xml;charset=utf-8");
+              })
+            }
+            onExportPng={() => renderState.svg && void runAction(copy.actions.exportPng, "tool_export_png", () => downloadSvgAsPng(renderState.svg ?? "", `${tool.slug}.png`))}
             onDownloadFile={() =>
               renderState.artifact &&
-              downloadText(renderState.artifact.filename, renderState.artifact.content, renderState.artifact.mime)
+              void runAction(copy.actions.downloadFile ?? "Download", "tool_download_file", () => {
+                downloadText(renderState.artifact?.filename ?? `${tool.slug}.txt`, renderState.artifact?.content ?? "", renderState.artifact?.mime ?? "text/plain;charset=utf-8");
+              })
             }
-            onPrint={printPreview}
-            onClear={() => setSource("")}
+            onPrint={() => void runAction(copy.actions.exportPdf, "tool_export_pdf", printPreview)}
+            onClear={() => {
+              trackEvent("tool_clear", {tool_slug: tool.slug});
+              setSource("");
+            }}
           />
         </div>
         {suggestedTool ? (
@@ -196,7 +259,11 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             <p className="mt-1">
               This input may work better in the matching tool.
               {" "}
-              <Link href={`/${suggestedTool.slug}?source=${encodeURIComponent(source)}`} className="font-semibold text-primary hover:underline">
+              <Link
+                href={`/${suggestedTool.slug}?source=${encodeURIComponent(source)}`}
+                className="font-semibold text-primary hover:underline"
+                onClick={() => trackEvent("tool_detected_tool_click", {tool_slug: tool.slug, target_tool_slug: suggestedTool.slug})}
+              >
                 Open {suggestedTool.label} tool
               </Link>
             </p>
@@ -217,9 +284,78 @@ export function ToolShell({tool, copy}: ToolShellProps) {
             className="min-h-[560px] border-slate-300"
           />
         </div>
+        <NextStepRecommendations
+          relatedTools={relatedTools}
+          title={uiCopy.nextTitle}
+          description={uiCopy.nextDescription}
+          actionLabel={uiCopy.nextAction}
+          currentSlug={tool.slug}
+        />
+      </div>
+      <div aria-live="polite" className="pointer-events-none fixed bottom-5 right-5 z-50">
+        {toast ? <div className="rounded-md bg-ink px-4 py-3 text-sm font-semibold text-white shadow-xl">{toast}</div> : null}
       </div>
     </section>
   );
+
+  async function runAction(label: string, eventName: AnalyticsEventName, action: () => void | Promise<void>) {
+    try {
+      await action();
+      trackEvent(eventName, {
+        tool_slug: tool.slug,
+        renderer: tool.renderer,
+        success: true
+      });
+      showToast(successMessage(label));
+    } catch {
+      trackEvent(eventName, {
+        tool_slug: tool.slug,
+        renderer: tool.renderer,
+        success: false
+      });
+      showToast(failureMessage(label));
+    }
+  }
+
+  function showToast(message: string) {
+    setToast(message);
+    window.setTimeout(() => setToast(null), 1800);
+  }
+}
+
+function getUiCopy(copy: ToolCopy) {
+  const zh = hasCjk(copy.actions.copyCode);
+  return zh
+    ? {
+        favorite: "收藏",
+        favorited: "已收藏",
+        favoriteAdded: "已加入收藏",
+        favoriteRemoved: "已取消收藏",
+        nextTitle: "下一步可以继续",
+        nextDescription: "把当前预览结果带到相关工具里继续转换、排查或导出。",
+        nextAction: "打开"
+      }
+    : {
+        favorite: "Favorite",
+        favorited: "Favorited",
+        favoriteAdded: "Added to favorites",
+        favoriteRemoved: "Removed from favorites",
+        nextTitle: "Continue with a related tool",
+        nextDescription: "Move this preview into a nearby workflow for conversion, debugging, or export.",
+        nextAction: "Open"
+      };
+}
+
+function successMessage(label: string) {
+  return hasCjk(label) ? `已完成：${label}` : `${label} done`;
+}
+
+function failureMessage(label: string) {
+  return hasCjk(label) ? `操作失败：${label}` : `${label} failed`;
+}
+
+function hasCjk(value: string) {
+  return /[\u3400-\u9fff]/.test(value);
 }
 
 function shareUrl(slug: ToolSlug, source: string) {

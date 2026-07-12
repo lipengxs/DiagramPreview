@@ -104,6 +104,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
         mode={mode}
         outputLanguage={outputLanguages[slug] || "mermaid"}
         sampleKeys={tool.sampleKeys}
+        relatedTools={relatedTools}
         copy={{
           promptLabel: t(`tools.${slug}.ai.promptLabel`),
           promptPlaceholder: t(`tools.${slug}.ai.promptPlaceholder`),
@@ -126,6 +127,7 @@ export async function AiToolPage({params, slug}: AiToolRouteProps & {slug: ToolS
       />
       <ToolSeoSections
         locale={locale}
+        currentSlug={slug}
         toolName={t(`tools.${slug}.name`)}
         toolDescription={t(`tools.${slug}.shortDescription`)}
         howTitle={t("common.seoSections.howToUse")}

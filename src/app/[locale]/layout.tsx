@@ -7,6 +7,7 @@ import type {ReactNode} from "react";
 import "../globals.css";
 import {SiteFooter} from "@/components/layout/SiteFooter";
 import {SiteHeader} from "@/components/layout/SiteHeader";
+import {tools} from "@/config/tools";
 import {routing} from "@/i18n/routing";
 import type {Locale} from "@/config/locales";
 
@@ -36,11 +37,12 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const clientMessages = pickClientMessages(messages);
 
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={clientMessages}>
           <SiteHeader locale={locale as Locale} />
           <main>{children}</main>
           <SiteFooter />
@@ -57,4 +59,23 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
       </body>
     </html>
   );
+}
+
+type LocaleMessages = Awaited<ReturnType<typeof getMessages>>;
+
+function pickClientMessages(messages: LocaleMessages) {
+  const source = messages as Record<string, unknown>;
+  const toolMessages = source.tools as Record<string, Record<string, unknown>> | undefined;
+
+  return {
+    common: source.common,
+    tools: Object.fromEntries(
+      tools.map((tool) => [
+        tool.slug,
+        {
+          name: toolMessages?.[tool.slug]?.name
+        }
+      ])
+    )
+  };
 }

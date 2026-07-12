@@ -2,10 +2,13 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import type {Metadata} from "next";
 import type {ReactNode} from "react";
 import {CoreWorkflows} from "@/components/home/CoreWorkflows";
+import {FavoriteTools} from "@/components/home/FavoriteTools";
 import {PopularTools} from "@/components/home/PopularTools";
+import {RecentlyUsedTools} from "@/components/home/RecentlyUsedTools";
 import {ToolCategoryGrid} from "@/components/home/ToolCategoryGrid";
 import {ToolSearch, type SearchTool} from "@/components/home/ToolSearch";
 import {type Locale} from "@/config/locales";
+import {seoPriorityHomeToolSlugs} from "@/config/seo-focus";
 import {tools} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
 import {absoluteUrl} from "@/lib/paths";
@@ -39,6 +42,9 @@ export default async function HomePage({params}: HomePageProps) {
     description: t(`tools.${tool.slug}.shortDescription`),
     category: t(`common.category.${tool.category}`)
   }));
+  const defaultSearchTools = seoPriorityHomeToolSlugs
+    .map((slug) => searchTools.find((tool) => tool.slug === slug))
+    .filter((tool): tool is SearchTool => Boolean(tool));
   const pageDescription = t("home.metadata.description");
   const websiteLd = websiteJsonLd({
     locale,
@@ -59,6 +65,7 @@ export default async function HomePage({params}: HomePageProps) {
           </div>
           <ToolSearch
             tools={searchTools}
+            defaultTools={defaultSearchTools}
             placeholder={t("home.hero.searchPlaceholder")}
             actionLabel={t("common.actions.openTool")}
           />
@@ -66,6 +73,16 @@ export default async function HomePage({params}: HomePageProps) {
       </section>
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:px-8">
+        <FavoriteTools
+          tools={searchTools}
+          title={locale.startsWith("zh") ? "收藏工具" : "Favorite tools"}
+          actionLabel={t("common.actions.openTool")}
+        />
+        <RecentlyUsedTools
+          tools={searchTools}
+          title={locale.startsWith("zh") ? "最近使用" : "Recently used"}
+          actionLabel={t("common.actions.openTool")}
+        />
         <HomeSection title={locale.startsWith("zh") ? "核心工作流" : "Core Workflows"}>
           <CoreWorkflows />
         </HomeSection>
@@ -91,7 +108,8 @@ export default async function HomePage({params}: HomePageProps) {
                 className="aspect-video h-full w-full bg-slate-950 object-cover"
                 controls
                 playsInline
-                preload="metadata"
+                preload="none"
+                poster="/og-image.png"
                 aria-label={t("home.demo.videoLabel")}
               >
                 <source src="/product-hunt-demo/product-hunt-demo-with-voice.mp4" type="video/mp4" />

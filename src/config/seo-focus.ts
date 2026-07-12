@@ -33,6 +33,17 @@ export const seoCoreToolSlugs: ToolSlug[] = [
   "kubernetes-manifest-visualizer"
 ];
 
+export const seoPriorityHomeToolSlugs: ToolSlug[] = [
+  "mermaid-preview",
+  "mermaid-to-drawio",
+  "plantuml-to-drawio",
+  "plantuml-preview",
+  "drawio-preview",
+  "openapi-to-sequence",
+  "api-error-flow-diagram",
+  "json-schema-visualizer"
+];
+
 export const seoCoreBlogSlugs: BlogSlug[] = [
   "api-debugging-preview-har-postman-openapi",
   "schema-preview-workflow-json-schema-zod-typescript",
