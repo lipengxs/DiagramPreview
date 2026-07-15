@@ -27,7 +27,7 @@ export function SiteHeader({locale}: SiteHeaderProps) {
           <a href={siteConfig.feedbackUrl} target="_blank" rel="noreferrer" aria-label={t("common.actions.feedback")}>
             <Button variant="ghost" className="border border-slate-700 px-2.5 lg:px-3">
               <MessageSquareText className="h-4 w-4" />
-              <span className="hidden lg:inline">{t("common.actions.feedback")}</span>
+              <span className="hidden xl:inline">{t("common.actions.feedback")}</span>
             </Button>
           </a>
         </div>

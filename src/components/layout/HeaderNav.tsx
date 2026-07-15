@@ -14,9 +14,7 @@ export function HeaderNav() {
 
   return (
     <nav className="order-3 flex w-full gap-1 overflow-x-auto text-sm text-slate-300 md:order-none md:ml-5 md:w-auto md:flex-1">
-      {toolMenuSections.map((section) => (
-        <ToolCategoryMenu key={section.id} section={section} />
-      ))}
+      <ToolsMegaMenu />
       {resourceLinks.map((item) => (
         <Link key={item.href} href={item.href} className="whitespace-nowrap rounded-md px-3 py-2 hover:bg-slate-800 hover:text-white">
           {item.label}
@@ -53,56 +51,77 @@ function getResourceLinks(locale: string) {
   ];
 }
 
-function ToolCategoryMenu({section}: {section: ToolMenuSection}) {
+function ToolsMegaMenu() {
   const t = useTranslations();
-  const sectionTools = getSectionTools(section);
 
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="inline-flex whitespace-nowrap rounded-md px-3 py-2 outline-none hover:bg-slate-800 hover:text-white data-[state=open]:bg-slate-800 data-[state=open]:text-white">
-        <span>{t(section.labelKey)}</span>
+        <span>{t("common.nav.tools")}</span>
         <ChevronDown className="ml-1 mt-0.5 h-4 w-4" />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
           align="start"
           sideOffset={10}
-          className="z-50 max-h-[min(680px,calc(100vh-6rem))] w-[min(560px,calc(100vw-2rem))] overflow-y-auto rounded-lg border border-slate-200 bg-white p-3 text-slate-800 shadow-xl"
+          className="z-50 max-h-[min(720px,calc(100vh-6rem))] w-[min(960px,calc(100vw-2rem))] overflow-y-auto rounded-lg border border-slate-200 bg-white p-3 text-slate-800 shadow-xl"
         >
-          <div className="mb-3 flex items-center justify-between gap-3 rounded-md bg-surface p-3">
+          <div className="mb-3 rounded-md bg-surface p-3">
             <div className="flex items-center gap-2">
-              <div className="font-semibold text-ink">{t(section.labelKey)}</div>
+              <PanelsTopLeft className="h-4 w-4 text-primary" />
+              <div className="font-semibold text-ink">{t("common.nav.tools")}</div>
               <span className="rounded-md bg-white px-1.5 py-0.5 text-[11px] font-semibold text-slate-500 ring-1 ring-slate-200">
-                {sectionTools.length}
+                {sortedTools.length}
               </span>
             </div>
-            <Link
-              href={section.href}
-              className="inline-flex flex-none items-center gap-1 rounded-md bg-white px-2.5 py-1.5 text-xs font-semibold text-primary ring-1 ring-blue-100 hover:bg-blue-50"
-            >
-              <PanelsTopLeft className="h-3.5 w-3.5" />
-              {t("common.nav.viewAll")}
-            </Link>
           </div>
-          <div className="grid gap-1.5 sm:grid-cols-2">
-            {sectionTools.map((tool) => {
-              const Icon = tool.icon;
-              return (
-                <DropdownMenu.Item key={tool.slug} asChild>
-                  <Link
-                    href={`/${tool.slug}`}
-                    className="flex min-h-11 items-start gap-2 rounded-md px-2.5 py-2 text-sm leading-5 outline-none hover:bg-blue-50"
-                  >
-                    <Icon className="mt-0.5 h-4 w-4 flex-none text-primary" />
-                    <span className="whitespace-normal break-words text-slate-700">{t(`tools.${tool.slug}.name`)}</span>
-                  </Link>
-                </DropdownMenu.Item>
-              );
-            })}
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {toolMenuSections.map((section) => (
+              <ToolMenuGroup key={section.id} section={section} />
+            ))}
           </div>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
+  );
+}
+
+function ToolMenuGroup({section}: {section: ToolMenuSection}) {
+  const t = useTranslations();
+  const sectionTools = getSectionTools(section);
+
+  return (
+    <section className="min-w-0 rounded-md border border-slate-200 bg-white p-3">
+      <div className="mb-2 flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <div className="truncate text-sm font-semibold text-ink">{t(section.labelKey)}</div>
+          <div className="mt-0.5 text-xs font-medium text-slate-500">{sectionTools.length}</div>
+        </div>
+        <Link
+          href={section.href}
+          className="inline-flex flex-none items-center gap-1 rounded-md bg-blue-50 px-2 py-1.5 text-xs font-semibold text-primary hover:bg-blue-100"
+        >
+          <PanelsTopLeft className="h-3.5 w-3.5" />
+          {t("common.nav.viewAll")}
+        </Link>
+      </div>
+      <div className="grid gap-1">
+        {sectionTools.map((tool) => {
+          const Icon = tool.icon;
+          return (
+            <DropdownMenu.Item key={tool.slug} asChild>
+              <Link
+                href={`/${tool.slug}`}
+                className="flex min-h-9 items-start gap-2 rounded-md px-2 py-1.5 text-sm leading-5 outline-none hover:bg-blue-50"
+              >
+                <Icon className="mt-0.5 h-4 w-4 flex-none text-primary" />
+                <span className="min-w-0 break-words text-slate-700">{t(`tools.${tool.slug}.name`)}</span>
+              </Link>
+            </DropdownMenu.Item>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
