@@ -5,6 +5,7 @@ import type {Locale} from "@/config/locales";
 import {growthContentIndexableLocales} from "@/config/seo-focus";
 import {getWorkflow, workflows} from "@/config/workflows";
 import {getTool} from "@/config/tools";
+import {WaitlistCta} from "@/components/growth/WaitlistCta";
 import {Link} from "@/i18n/navigation";
 import {breadcrumbJsonLd, buildMetadata, faqJsonLd, howToJsonLd} from "@/lib/seo";
 import {absoluteUrl} from "@/lib/paths";
@@ -152,6 +153,8 @@ export default async function WorkflowPage({params}: WorkflowPageProps) {
             })}
           </div>
         </section>
+
+        <WaitlistCta locale={locale} source="workflow" />
       </article>
     </>
   );

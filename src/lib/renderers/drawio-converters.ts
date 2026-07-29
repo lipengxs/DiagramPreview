@@ -7,14 +7,18 @@ export type DrawioConversionResult = {
 
 export function convertPlantUmlToDrawio(source: string): DrawioConversionResult {
   const cleaned = source.replace(/@startuml|@enduml/gi, "");
-  const sequenceEdges = parseArrowLines(cleaned, /([\w .-]+)\s*(?:->|-->|->>|-->>)\s*([\w .-]+)\s*:?\s*(.*)/);
-  const classLabels = Array.from(cleaned.matchAll(/\b(?:class|interface|component|actor|participant|database|queue)\s+"?([\w .-]+)"?/gi)).map(
-    (match) => match[1]
-  );
-  const relationEdges = parseArrowLines(cleaned, /"?([\w .-]+)"?\s*(?:--|-->|\.\.>|<\|--|\*--|o--)\s*"?([\w .-]+)"?\s*:?\s*(.*)/);
-  const labels = unique([...classLabels, ...sequenceEdges.flatMap((edge) => [edge.source, edge.target]), ...relationEdges.flatMap((edge) => [edge.source, edge.target])]);
-  const nodes = gridLayout(labels.length ? labels : ["Start", "Process", "Result"]);
-  const idMap = new Map(nodes.map((node) => [node.label, node.id]));
+  const aliases = parsePlantUmlDeclarations(cleaned);
+  const sequenceEdges = parseArrowLines(cleaned, /"?([\w .-]+)"?\s*(?:->|-->|->>|-->>)\s*"?([\w .-]+)"?\s*:?\s*(.*)/);
+  const relationEdges = parseArrowLines(cleaned, /"?([\w .-]+)"?\s*(?:--|-->|\.\.>|<\|--|\*--|o--|<--|<\.\.)\s*"?([\w .-]+)"?\s*:?\s*(.*)/);
+  const edgeKeys = [...sequenceEdges, ...relationEdges].flatMap((edge) => [edge.source, edge.target]);
+  const keys = uniqueKeys([...aliases.keys(), ...edgeKeys]);
+
+  if (!keys.length) {
+    throw new Error("No supported PlantUML actors, participants, classes, components, or arrows were found.");
+  }
+
+  const nodes = gridLayout(keys.map((key) => aliases.get(key) || key));
+  const idMap = new Map(keys.map((key, index) => [key, nodes[index].id]));
   const edges = [...sequenceEdges, ...relationEdges].slice(0, 40).map((edge, index) => ({
     id: `edge_${index + 1}`,
     source: idMap.get(edge.source) || safeId(edge.source),
@@ -27,15 +31,19 @@ export function convertPlantUmlToDrawio(source: string): DrawioConversionResult 
 }
 
 export function convertMermaidToDrawio(source: string): DrawioConversionResult {
-  const edges = parseArrowLines(source, /([\w .-]+)(?:\[[^\]]+\])?\s*(?:-->|---|-.->|==>)\s*([\w .-]+)(?:\[[^\]]+\])?:?\s*(.*)/);
-  const sequenceEdges = parseArrowLines(source, /([\w .-]+)\s*(?:->>|-->>|->|-->)\s*([\w .-]+)\s*:?\s*(.*)/);
-  const nodeLabels = Array.from(source.matchAll(/([A-Za-z][\w-]*)\s*(?:\["([^"]+)"\]|\[([^\]]+)\]|\("([^"]+)"\))/g)).map(
-    (match) => match[2] || match[3] || match[4] || match[1]
-  );
+  const aliases = parseMermaidNodeDeclarations(source);
+  const edges = parseArrowLines(source, /([A-Za-z][\w.-]*)(?:\s*(?:\[[^\]]+\]|\([^)]+\)|\{[^}]+\}))?\s*(?:-->|---|-.->|==>|--[^-]+-->)\s*([A-Za-z][\w.-]*)(?:\s*(?:\[[^\]]+\]|\([^)]+\)|\{[^}]+\}))?\s*:?\s*(.*)/);
+  const sequenceParticipants = parseMermaidParticipants(source);
+  const sequenceEdges = parseArrowLines(source, /"?([\w .-]+)"?\s*(?:->>|-->>|->|-->)\s*"?([\w .-]+)"?\s*:?\s*(.*)/);
   const allEdges = [...edges, ...sequenceEdges];
-  const labels = unique([...nodeLabels, ...allEdges.flatMap((edge) => [edge.source, edge.target])]);
-  const nodes = gridLayout(labels.length ? labels : ["Input", "Process", "Output"]);
-  const idMap = new Map(nodes.map((node) => [node.label, node.id]));
+  const keys = uniqueKeys([...aliases.keys(), ...sequenceParticipants.keys(), ...allEdges.flatMap((edge) => [edge.source, edge.target])]);
+
+  if (!keys.length) {
+    throw new Error("No supported Mermaid nodes, participants, or arrows were found.");
+  }
+
+  const nodes = gridLayout(keys.map((key) => aliases.get(key) || sequenceParticipants.get(key) || key));
+  const idMap = new Map(keys.map((key, index) => [key, nodes[index].id]));
   const document: DrawioDocument = {
     title: "Mermaid to Draw.io",
     nodes,
@@ -58,6 +66,7 @@ function parseArrowLines(source: string, pattern: RegExp) {
   return source
     .split(/\r?\n/)
     .map((line) => line.trim())
+    .map((line) => line.replace(/^[-*]\s+/, ""))
     .map((line) => line.match(pattern))
     .filter((match): match is RegExpMatchArray => Boolean(match))
     .map((match) => ({
@@ -68,10 +77,36 @@ function parseArrowLines(source: string, pattern: RegExp) {
     .filter((edge) => edge.source && edge.target);
 }
 
+function parseMermaidNodeDeclarations(source: string) {
+  const aliases = new Map<string, string>();
+  for (const match of source.matchAll(/\b([A-Za-z][\w.-]*)\s*(?:\["([^"]+)"\]|\[([^\]]+)\]|\("([^"]+)"\)|\(([^)]+)\)|\{"([^"]+)"\}|\{([^}]+)\})/g)) {
+    aliases.set(cleanLabel(match[1]), cleanLabel(match[2] || match[3] || match[4] || match[5] || match[6] || match[7] || match[1]));
+  }
+  return aliases;
+}
+
+function parseMermaidParticipants(source: string) {
+  const aliases = new Map<string, string>();
+  for (const match of source.matchAll(/\b(?:participant|actor)\s+([\w.-]+)(?:\s+as\s+(.+))?/gi)) {
+    aliases.set(cleanLabel(match[1]), cleanLabel(match[2] || match[1]));
+  }
+  return aliases;
+}
+
+function parsePlantUmlDeclarations(source: string) {
+  const aliases = new Map<string, string>();
+  for (const match of source.matchAll(/\b(?:class|interface|component|actor|participant|database|queue|boundary|control|entity)\s+(?:"([^"]+)"|([\w .-]+))(?:\s+as\s+([\w.-]+))?/gi)) {
+    const label = cleanLabel(match[1] || match[2] || "");
+    const key = cleanLabel(match[3] || label);
+    if (key && label) aliases.set(key, label);
+  }
+  return aliases;
+}
+
 function cleanLabel(value: string) {
   return value.replace(/["'`;{}()[\]]/g, "").trim();
 }
 
-function unique(values: string[]) {
+function uniqueKeys(values: string[]) {
   return Array.from(new Set(values.map(cleanLabel).filter(Boolean))).slice(0, 36);
 }

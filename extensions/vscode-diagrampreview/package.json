@@ -1,0 +1,73 @@
+{
+  "name": "diagrampreview-vscode",
+  "displayName": "DiagramPreview",
+  "description": "Preview, convert, and review diagram source from VS Code with DiagramPreview.",
+  "version": "0.1.0",
+  "publisher": "diagrampreview",
+  "license": "ISC",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": ["Visualization", "Other"],
+  "activationEvents": [
+    "onCommand:diagramPreview.previewSelection",
+    "onCommand:diagramPreview.openSelectionInWeb",
+    "onCommand:diagramPreview.convertMermaidToDrawio",
+    "onCommand:diagramPreview.convertPlantumlToDrawio",
+    "onCommand:diagramPreview.reviewDiagram"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "diagramPreview.previewSelection",
+        "title": "DiagramPreview: Preview Selection"
+      },
+      {
+        "command": "diagramPreview.openSelectionInWeb",
+        "title": "DiagramPreview: Open Selection in Web"
+      },
+      {
+        "command": "diagramPreview.convertMermaidToDrawio",
+        "title": "DiagramPreview: Convert Mermaid to draw.io"
+      },
+      {
+        "command": "diagramPreview.convertPlantumlToDrawio",
+        "title": "DiagramPreview: Convert PlantUML to draw.io"
+      },
+      {
+        "command": "diagramPreview.reviewDiagram",
+        "title": "DiagramPreview: Review Diagram with AI"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "diagramPreview.previewSelection",
+          "when": "editorHasSelection",
+          "group": "navigation@10"
+        },
+        {
+          "command": "diagramPreview.openSelectionInWeb",
+          "when": "editorHasSelection",
+          "group": "navigation@11"
+        },
+        {
+          "command": "diagramPreview.reviewDiagram",
+          "when": "editorHasSelection",
+          "group": "navigation@12"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DiagramPreview",
+      "properties": {
+        "diagramPreview.webBaseUrl": {
+          "type": "string",
+          "default": "https://diagrampreview.com/en",
+          "description": "Base URL used by Open in DiagramPreview commands."
+        }
+      }
+    }
+  }
+}

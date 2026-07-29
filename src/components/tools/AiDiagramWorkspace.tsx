@@ -2,6 +2,7 @@
 
 import {Copy, Download, ImageDown, Link2, Sparkles, Star, WandSparkles} from "lucide-react";
 import {useEffect, useState} from "react";
+import {WaitlistCta} from "@/components/growth/WaitlistCta";
 import {Button} from "@/components/ui/Button";
 import {NextStepRecommendations} from "./NextStepRecommendations";
 import {trackEvent, type AnalyticsEventName} from "@/lib/analytics";
@@ -11,6 +12,14 @@ import {isFavoriteTool, setFavoriteTool} from "@/lib/favorite-tools";
 import {recordRecentTool} from "@/lib/recent-tools";
 import {renderMermaid} from "@/lib/renderers/mermaid";
 import {absoluteSourceUrl} from "@/lib/source-links";
+import {
+  readWorkspaceDraft,
+  recordConversionHistory,
+  recordExportHistory,
+  recordWorkspaceDraft,
+  removeWorkspaceDraft,
+  type WorkspaceHistoryEntry
+} from "@/lib/workspace-history";
 
 type AiDiagramWorkspaceProps = {
   locale: string;
@@ -85,6 +94,9 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
   const [loading, setLoading] = useState(false);
   const [favorite, setFavorite] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
+  const [draftToRestore, setDraftToRestore] = useState<WorkspaceHistoryEntry | null>(null);
+  const [draftDismissed, setDraftDismissed] = useState(false);
+  const [showWorkflowWaitlist, setShowWorkflowWaitlist] = useState(false);
 
   useEffect(() => {
     recordRecentTool(window.localStorage, slug);
@@ -104,8 +116,45 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
     if (sharedSource) {
       setPrompt(sharedSource);
       setGeneratedCode(sharedSource);
+      return;
     }
-  }, []);
+
+    const draft = readWorkspaceDraft(window.localStorage, slug);
+    if (draft && draft.source.trim() && draft.source !== (firstSample?.code || firstSample?.prompt || "")) {
+      setDraftToRestore(draft);
+    }
+  }, [firstSample?.code, firstSample?.prompt, slug]);
+
+  useEffect(() => {
+    const source = generatedCode.trim() ? generatedCode : prompt;
+
+    if (!source.trim()) {
+      removeWorkspaceDraft(window.localStorage, slug);
+      setDraftToRestore(null);
+      return;
+    }
+
+    if (source === (firstSample?.code || firstSample?.prompt || "")) {
+      return;
+    }
+
+    const timeout = window.setTimeout(() => {
+      recordWorkspaceDraft(window.localStorage, {
+        toolSlug: slug,
+        source,
+        artifactType: generatedCode.trim() ? "ai-output" : "draft"
+      });
+      trackEvent("workspace_draft_saved", {
+        tool_slug: slug,
+        renderer: "ai",
+        mode,
+        output_language: outputLanguage,
+        source_length: source.length
+      });
+    }, 700);
+
+    return () => window.clearTimeout(timeout);
+  }, [firstSample?.code, firstSample?.prompt, generatedCode, mode, outputLanguage, prompt, slug]);
 
   useEffect(() => {
     let cancelled = false;
@@ -291,6 +340,37 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
           </Button>
         </div>
 
+        {draftToRestore && !draftDismissed ? (
+          <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+            <div className="font-semibold">{uiCopy.restoreTitle}</div>
+            <p className="mt-1">{uiCopy.restoreDescription}</p>
+            <p className="mt-2 line-clamp-2 rounded-md bg-white/70 px-3 py-2 text-xs text-amber-900">{draftToRestore.sourcePreview}</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Button
+                type="button"
+                variant="primary"
+                onClick={() => {
+                  setPrompt(draftToRestore.source);
+                  setGeneratedCode(draftToRestore.source);
+                  setDraftDismissed(true);
+                  trackEvent("workspace_draft_restored", {tool_slug: slug, renderer: "ai", mode});
+                }}
+              >
+                {uiCopy.restoreAction}
+              </Button>
+              <Button
+                type="button"
+                onClick={() => {
+                  setDraftDismissed(true);
+                  trackEvent("workspace_draft_dismissed", {tool_slug: slug, renderer: "ai", mode});
+                }}
+              >
+                {uiCopy.restoreDismiss}
+              </Button>
+            </div>
+          </div>
+        ) : null}
+
         <div className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
           <div className="grid gap-4 lg:grid-cols-[280px_1fr]">
             <div>
@@ -349,15 +429,41 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
               <Copy className="h-4 w-4" />
               {copy.copyCode}
             </Button>
-            <Button onClick={() => svg && void runAction(copy.exportSvg, "tool_export_svg", () => downloadText(`${slug}.svg`, svg, "image/svg+xml;charset=utf-8"))} disabled={!svg}>
+            <Button
+              onClick={() =>
+                svg &&
+                void runAction(copy.exportSvg, "tool_export_svg", () => {
+                  downloadText(`${slug}.svg`, svg, "image/svg+xml;charset=utf-8");
+                  recordExport("svg");
+                })
+              }
+              disabled={!svg}
+            >
               <Download className="h-4 w-4" />
               {copy.exportSvg}
             </Button>
-            <Button onClick={() => svg && void runAction(copy.exportPng, "tool_export_png", () => downloadSvgAsPng(svg, `${slug}.png`))} disabled={!svg}>
+            <Button
+              onClick={() =>
+                svg &&
+                void runAction(copy.exportPng, "tool_export_png", () => {
+                  void downloadSvgAsPng(svg, `${slug}.png`);
+                  recordExport("png");
+                })
+              }
+              disabled={!svg}
+            >
               <ImageDown className="h-4 w-4" />
               {copy.exportPng}
             </Button>
-            <Button onClick={() => void runAction(copy.downloadFile, "tool_download_file", () => downloadText(fileNameFor(slug, outputLanguage), generatedCode, mimeFor(outputLanguage)))} disabled={!generatedCode}>
+            <Button
+              onClick={() =>
+                void runAction(copy.downloadFile, "tool_download_file", () => {
+                  downloadText(fileNameFor(slug, outputLanguage), generatedCode, mimeFor(outputLanguage));
+                  recordConversion(outputLanguage);
+                })
+              }
+              disabled={!generatedCode}
+            >
               <Download className="h-4 w-4" />
               {copy.downloadFile}
             </Button>
@@ -412,6 +518,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             actionLabel={uiCopy.nextAction}
             currentSlug={slug}
           />
+          {showWorkflowWaitlist ? <WaitlistCta locale={locale} source="tool" toolSlug={slug} compact /> : null}
         </div>
       </div>
       <div aria-live="polite" className="pointer-events-none fixed bottom-5 right-5 z-50">
@@ -453,6 +560,24 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
     setToast(message);
     window.setTimeout(() => setToast(null), 1800);
   }
+
+  function recordExport(artifactType: string) {
+    recordExportHistory(window.localStorage, {
+      toolSlug: slug,
+      source: generatedCode || prompt,
+      artifactType
+    });
+    setShowWorkflowWaitlist(true);
+  }
+
+  function recordConversion(artifactType: string) {
+    recordConversionHistory(window.localStorage, {
+      toolSlug: slug,
+      source: generatedCode || prompt,
+      artifactType
+    });
+    setShowWorkflowWaitlist(true);
+  }
 }
 
 function getUiCopy(locale: string) {
@@ -466,7 +591,11 @@ function getUiCopy(locale: string) {
         shareLink: "分享链接",
         nextTitle: "下一步可以继续",
         nextDescription: "把生成结果带到相关工具里继续预览、转换或排查。",
-        nextAction: "打开"
+        nextAction: "打开",
+        restoreTitle: "发现本地草稿",
+        restoreDescription: "这个草稿只保存在当前浏览器。恢复后会覆盖当前 prompt 和生成结果。",
+        restoreAction: "恢复草稿",
+        restoreDismiss: "暂不恢复"
       }
     : {
         favorite: "Favorite",
@@ -477,7 +606,11 @@ function getUiCopy(locale: string) {
         shareLink: "Share link",
         nextTitle: "Continue with a related tool",
         nextDescription: "Move this output into a nearby workflow for preview, conversion, or debugging.",
-        nextAction: "Open"
+        nextAction: "Open",
+        restoreTitle: "Local draft found",
+        restoreDescription: "This draft is stored only in this browser. Restoring it will replace the current prompt and output.",
+        restoreAction: "Restore draft",
+        restoreDismiss: "Not now"
       };
 }
 

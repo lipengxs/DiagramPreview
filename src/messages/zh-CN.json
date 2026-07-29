@@ -17,6 +17,8 @@
       "search": "搜索",
       "copyCode": "复制代码",
       "copyHtml": "复制 HTML",
+      "copyMarkdown": "复制 Markdown",
+      "shareLink": "分享链接",
       "exportSvg": "SVG",
       "exportPng": "PNG",
       "exportPdf": "PDF",
@@ -674,6 +676,14 @@
         "xml": {
           "label": "XML",
           "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+        },
+        "pages": {
+          "label": "多页面文件",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"系统上下文\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"客户端\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API 服务\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\" value=\"HTTPS\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram><diagram name=\"错误流\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"timeout\" value=\"超时路径\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"120\" y=\"120\" width=\"160\" height=\"60\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "serviceMap": {
+          "label": "服务关系图",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"服务关系\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"web\" value=\"Web 应用\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"100\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"worker\" value=\"Worker\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"40\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"数据库\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"160\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_worker\" edge=\"1\" parent=\"1\" source=\"web\" target=\"worker\" value=\"队列任务\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_db\" edge=\"1\" parent=\"1\" source=\"web\" target=\"db\" value=\"读写\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
         }
       },
       "howToUse": [
@@ -5599,7 +5609,7 @@
         },
         "checkout": {
           "label": "结账 form",
-          "code": "{\n  \"title\": \"Checkout\",\n  \"type\": \"object\",\n  \"required\": [\n    \"cardholder\",\n    \"amount\"\n  ],\n  \"properties\": {\n    \"cardholder\": {\n      \"type\": \"string\"\n    },\n    \"amount\": {\n      \"type\": \"number\",\n      \"description\": \"Payment amount in USD\"\n    },\n    \"currency\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"USD\",\n        \"EUR\",\n        \"JPY\"\n      ]\n    },\n    \"items\": {\n      \"type\": \"array\",\n      \"description\": \"Line items\"\n    }\n  }\n}"
+          "code": "{\n  \"title\": \"Checkout\",\n  \"type\": \"object\",\n  \"required\": [\n    \"cardholder\",\n    \"amount\",\n    \"billingAddress\"\n  ],\n  \"properties\": {\n    \"cardholder\": {\n      \"type\": \"string\"\n    },\n    \"amount\": {\n      \"type\": \"number\",\n      \"description\": \"Payment amount in USD\"\n    },\n    \"currency\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"USD\",\n        \"EUR\",\n        \"JPY\"\n      ],\n      \"default\": \"USD\"\n    },\n    \"items\": {\n      \"type\": \"array\",\n      \"description\": \"Line items\",\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"sku\",\n          \"quantity\"\n        ],\n        \"properties\": {\n          \"sku\": {\n            \"type\": \"string\"\n          },\n          \"quantity\": {\n            \"type\": \"integer\",\n            \"default\": 1\n          }\n        }\n      }\n    },\n    \"billingAddress\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"country\",\n        \"postalCode\"\n      ],\n      \"properties\": {\n        \"country\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"US\",\n            \"DE\",\n            \"JP\"\n          ]\n        },\n        \"postalCode\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}"
         },
         "settings": {
           "label": "设置表单",

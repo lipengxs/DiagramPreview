@@ -1033,7 +1033,7 @@ export const tools: ToolConfig[] = [
     priority: 58,
     implemented: true,
     renderer: "drawio",
-    sampleKeys: ["xml"]
+    sampleKeys: ["xml", "pages", "serviceMap"]
   },
   {
     slug: "mind-map-preview",
@@ -1098,6 +1098,7 @@ export function getTool(slug: string) {
 const relatedToolMap: Partial<Record<ToolSlug, ToolSlug[]>> = {
   "mermaid-preview": ["mermaid-to-drawio", "text-to-mermaid", "mermaid-ai-fixer"],
   "mermaid-to-drawio": ["mermaid-preview", "plantuml-to-drawio", "drawio-preview"],
+  "mermaid-ai-fixer": ["mermaid-preview", "mermaid-to-drawio", "text-to-mermaid"],
   "plantuml-to-drawio": ["plantuml-preview", "mermaid-to-drawio", "drawio-preview"],
   "plantuml-preview": ["plantuml-to-drawio", "mermaid-preview", "ai-plantuml-generator"],
   "drawio-preview": ["mermaid-to-drawio", "plantuml-to-drawio", "drawio-to-svg"],
@@ -1106,6 +1107,7 @@ const relatedToolMap: Partial<Record<ToolSlug, ToolSlug[]>> = {
   "postman-collection-sequence-diagram": ["openapi-to-sequence", "har-file-sequence-diagram", "api-error-flow-diagram"],
   "har-file-sequence-diagram": ["openapi-to-sequence", "postman-collection-sequence-diagram", "api-error-flow-diagram"],
   "json-schema-visualizer": ["zod-schema-visualizer", "typescript-interface-visualizer", "json-schema-form-preview"],
+  "json-schema-form-preview": ["json-schema-visualizer", "zod-schema-visualizer", "typescript-interface-visualizer"],
   "sql-to-er-diagram": ["dbml-to-er-diagram", "prisma-schema-diagram", "json-schema-visualizer"],
   "dbml-to-er-diagram": ["sql-to-er-diagram", "prisma-schema-diagram", "json-schema-visualizer"]
 };

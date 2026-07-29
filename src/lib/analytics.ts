@@ -23,7 +23,12 @@ export type AnalyticsEventName =
   | "tool_render_success"
   | "tool_sample_load"
   | "tool_search_query"
-  | "tool_share_link";
+  | "tool_share_link"
+  | "waitlist_open"
+  | "waitlist_submit"
+  | "workspace_draft_dismissed"
+  | "workspace_draft_restored"
+  | "workspace_draft_saved";
 
 declare global {
   interface Window {

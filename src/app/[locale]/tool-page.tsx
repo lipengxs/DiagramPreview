@@ -50,6 +50,7 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
   const maturity = getToolMaturityCopy(locale, tool.renderer);
 
   const copy: ToolCopy = {
+    locale,
     inputLabel: t(`tools.${slug}.inputLabel`),
     outputLabel: t(`tools.${slug}.outputLabel`),
     placeholder: t(`tools.${slug}.placeholder`),
@@ -68,8 +69,8 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
       exportPng: t("common.actions.exportPng"),
       exportPdf: t("common.actions.exportPdf"),
       downloadFile: t("common.actions.downloadFile"),
-      copyMarkdown: locale.startsWith("zh") ? "复制 Markdown" : "Copy Markdown",
-      shareLink: locale.startsWith("zh") ? "分享链接" : "Share link",
+      copyMarkdown: t("common.actions.copyMarkdown"),
+      shareLink: t("common.actions.shareLink"),
       clear: t("common.actions.clear"),
       loadSample: t("common.actions.loadSample")
     },

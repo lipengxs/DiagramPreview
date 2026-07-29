@@ -79,3 +79,91 @@ select {
   color: #e2e8f0;
   padding: 1rem;
 }
+
+.json-schema-form-preview form {
+  display: grid;
+  gap: 1rem;
+}
+
+.json-schema-form-preview fieldset {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+  border: 0;
+  padding: 0;
+}
+
+.json-schema-form-preview legend {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.json-schema-form-preview .form-group,
+.json-schema-form-preview .field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.json-schema-form-preview label {
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: #0f172a;
+}
+
+.json-schema-form-preview .required {
+  color: #dc2626;
+}
+
+.json-schema-form-preview input,
+.json-schema-form-preview select,
+.json-schema-form-preview textarea {
+  min-height: 2.5rem;
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #0f172a;
+  outline: none;
+}
+
+.json-schema-form-preview input:focus,
+.json-schema-form-preview select:focus,
+.json-schema-form-preview textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+}
+
+.json-schema-form-preview input[type="checkbox"],
+.json-schema-form-preview input[type="radio"] {
+  min-height: 1rem;
+  width: 1rem;
+}
+
+.json-schema-form-preview .checkbox label,
+.json-schema-form-preview .radio label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.json-schema-form-preview .help-block,
+.json-schema-form-preview .field-description {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.json-schema-form-preview .errors,
+.json-schema-form-preview .error-detail {
+  border-radius: 0.375rem;
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #b91c1c;
+}

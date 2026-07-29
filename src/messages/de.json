@@ -17,6 +17,8 @@
       "search": "Suchen",
       "copyCode": "Code kopieren",
       "copyHtml": "HTML kopieren",
+      "copyMarkdown": "Markdown kopieren",
+      "shareLink": "Link teilen",
       "exportSvg": "SVG",
       "exportPng": "PNG",
       "exportPdf": "PDF",
@@ -639,6 +641,14 @@
         "xml": {
           "label": "XML",
           "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+        },
+        "pages": {
+          "label": "Zwei Seiten",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"Context\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\" value=\"HTTPS\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram><diagram name=\"Error Flow\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"timeout\" value=\"Timeout path\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"120\" y=\"120\" width=\"160\" height=\"60\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "serviceMap": {
+          "label": "Service-Map",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"Service Map\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"web\" value=\"Web app\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"100\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"worker\" value=\"Worker\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"40\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"160\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_worker\" edge=\"1\" parent=\"1\" source=\"web\" target=\"worker\" value=\"queue job\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_db\" edge=\"1\" parent=\"1\" source=\"web\" target=\"db\" value=\"read/write\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
         }
       },
       "howToUse": [

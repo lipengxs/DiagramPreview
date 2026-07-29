@@ -1,12 +1,15 @@
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import type {Metadata} from "next";
 import type {ReactNode} from "react";
+import {WaitlistCta} from "@/components/growth/WaitlistCta";
 import {CoreWorkflows} from "@/components/home/CoreWorkflows";
 import {FavoriteTools} from "@/components/home/FavoriteTools";
 import {PopularTools} from "@/components/home/PopularTools";
+import {ProductCapabilityStrip} from "@/components/home/ProductCapabilityStrip";
 import {RecentlyUsedTools} from "@/components/home/RecentlyUsedTools";
 import {ToolCategoryGrid} from "@/components/home/ToolCategoryGrid";
 import {ToolSearch, type SearchTool} from "@/components/home/ToolSearch";
+import {WorkflowEntrypoints} from "@/components/home/WorkflowEntrypoints";
 import {type Locale} from "@/config/locales";
 import {seoPriorityHomeToolSlugs} from "@/config/seo-focus";
 import {tools} from "@/config/tools";
@@ -80,15 +83,22 @@ export default async function HomePage({params}: HomePageProps) {
         />
         <RecentlyUsedTools
           tools={searchTools}
-          title={locale.startsWith("zh") ? "最近使用" : "Recently used"}
-          actionLabel={t("common.actions.openTool")}
+          title={locale.startsWith("zh") ? "继续最近使用" : "Continue recently used"}
+          actionLabel={locale.startsWith("zh") ? "继续" : "Continue"}
         />
+        <HomeSection title={locale.startsWith("zh") ? "开发者图表工作台" : "Developer Diagram Workspace"}>
+          <ProductCapabilityStrip locale={locale} />
+        </HomeSection>
+        <HomeSection title={locale.startsWith("zh") ? "三条高频工作链路" : "Three high-intent workflows"}>
+          <WorkflowEntrypoints locale={locale} />
+        </HomeSection>
         <HomeSection title={locale.startsWith("zh") ? "核心工作流" : "Core Workflows"}>
           <CoreWorkflows />
         </HomeSection>
         <HomeSection title={locale.startsWith("zh") ? "从样例开始" : "Start from an example"}>
           <GrowthEntrySection locale={locale} />
         </HomeSection>
+        <WaitlistCta locale={locale} source="plugin" />
         <HomeSection title={t("home.sections.demo")}>
           <div className="grid gap-5 rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-5">
             <div className="flex flex-col justify-center">

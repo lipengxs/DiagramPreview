@@ -17,6 +17,8 @@
       "search": "Search",
       "copyCode": "Copy code",
       "copyHtml": "Copy HTML",
+      "copyMarkdown": "Copy Markdown",
+      "shareLink": "Share link",
       "exportSvg": "SVG",
       "exportPng": "PNG",
       "exportPdf": "PDF",
@@ -685,6 +687,14 @@
         "xml": {
           "label": "Minimal XML",
           "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"System Context\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"app\" value=\"Web app\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"120\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "pages": {
+          "label": "Two-page file",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"Context\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"client\" value=\"Client\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"api\" value=\"API\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"80\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge1\" edge=\"1\" parent=\"1\" source=\"client\" target=\"api\" value=\"HTTPS\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram><diagram name=\"Error Flow\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"timeout\" value=\"Timeout path\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"120\" y=\"120\" width=\"160\" height=\"60\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "serviceMap": {
+          "label": "Service map",
+          "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"Service Map\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"web\" value=\"Web app\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"100\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"worker\" value=\"Worker\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"40\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"160\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_worker\" edge=\"1\" parent=\"1\" source=\"web\" target=\"worker\" value=\"queue job\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_db\" edge=\"1\" parent=\"1\" source=\"web\" target=\"db\" value=\"read/write\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
         }
       },
       "howToUse": [
@@ -5660,7 +5670,7 @@
         },
         "checkout": {
           "label": "Checkout form",
-          "code": "{\n  \"title\": \"Checkout\",\n  \"type\": \"object\",\n  \"required\": [\n    \"cardholder\",\n    \"amount\"\n  ],\n  \"properties\": {\n    \"cardholder\": {\n      \"type\": \"string\"\n    },\n    \"amount\": {\n      \"type\": \"number\",\n      \"description\": \"Payment amount in USD\"\n    },\n    \"currency\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"USD\",\n        \"EUR\",\n        \"JPY\"\n      ]\n    },\n    \"items\": {\n      \"type\": \"array\",\n      \"description\": \"Line items\"\n    }\n  }\n}"
+          "code": "{\n  \"title\": \"Checkout\",\n  \"type\": \"object\",\n  \"required\": [\n    \"cardholder\",\n    \"amount\",\n    \"billingAddress\"\n  ],\n  \"properties\": {\n    \"cardholder\": {\n      \"type\": \"string\"\n    },\n    \"amount\": {\n      \"type\": \"number\",\n      \"description\": \"Payment amount in USD\"\n    },\n    \"currency\": {\n      \"type\": \"string\",\n      \"enum\": [\n        \"USD\",\n        \"EUR\",\n        \"JPY\"\n      ],\n      \"default\": \"USD\"\n    },\n    \"items\": {\n      \"type\": \"array\",\n      \"description\": \"Line items\",\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"sku\",\n          \"quantity\"\n        ],\n        \"properties\": {\n          \"sku\": {\n            \"type\": \"string\"\n          },\n          \"quantity\": {\n            \"type\": \"integer\",\n            \"default\": 1\n          }\n        }\n      }\n    },\n    \"billingAddress\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"country\",\n        \"postalCode\"\n      ],\n      \"properties\": {\n        \"country\": {\n          \"type\": \"string\",\n          \"enum\": [\n            \"US\",\n            \"DE\",\n            \"JP\"\n          ]\n        },\n        \"postalCode\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  }\n}"
         },
         "settings": {
           "label": "Settings form",

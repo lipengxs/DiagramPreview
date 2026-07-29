@@ -4,7 +4,10 @@ export type WorkflowSlug =
   | "ai-generated-mermaid-workflow"
   | "open-drawio-file-online"
   | "api-debugging-sequence-diagram"
-  | "schema-visualization-workflow";
+  | "schema-visualization-workflow"
+  | "mermaid-to-drawio-documentation-workflow"
+  | "devops-config-visualization-workflow"
+  | "technical-publishing-preview-workflow";
 
 export type WorkflowConfig = {
   slug: WorkflowSlug;
@@ -80,6 +83,34 @@ export const workflows: WorkflowConfig[] = [
     ]
   },
   {
+    slug: "mermaid-to-drawio-documentation-workflow",
+    title: "Mermaid to draw.io documentation workflow",
+    description: "Review Mermaid source from AI or docs, convert it to editable draw.io XML, then export stable assets for technical documentation.",
+    keywords: ["mermaid to drawio workflow", "convert mermaid to draw.io documentation", "editable diagram docs"],
+    tools: ["mermaid-preview", "mermaid-ai-fixer", "mermaid-to-drawio", "drawio-preview", "drawio-to-svg"],
+    example: {
+      title: "Editable architecture handoff",
+      description: "Use a small Mermaid flow to check labels, convert to draw.io, then preview the editable XML before publishing.",
+      tool: "mermaid-to-drawio",
+      source: "flowchart LR\n  Product[Product spec] --> AI[AI Mermaid draft]\n  AI --> Preview[Preview and fix]\n  Preview --> Drawio[Editable draw.io]\n  Drawio --> Docs[README and architecture docs]"
+    },
+    steps: [
+      {title: "Preview before converting", body: "Render Mermaid first so syntax errors, long labels, and unreadable layout are fixed while the source is still easy to edit."},
+      {title: "Convert to editable draw.io", body: "Use Mermaid to draw.io when teammates need to adjust spacing, grouping, or annotations in diagrams.net."},
+      {title: "Export the final asset", body: "Preview the draw.io XML, then export SVG or PNG for README files, PR descriptions, and design handoff notes."}
+    ],
+    faq: [
+      {
+        question: "Why not paste AI Mermaid directly into docs?",
+        answer: "AI Mermaid often needs syntax cleanup and label review. Previewing first prevents broken diagrams from reaching a README or architecture page."
+      },
+      {
+        question: "When is draw.io better than Mermaid?",
+        answer: "Use draw.io when non-code teammates need editable diagrams, precise layout, or visual annotations beyond simple Mermaid source."
+      }
+    ]
+  },
+  {
     slug: "api-debugging-sequence-diagram",
     title: "API debugging to sequence diagram",
     description: "Turn OpenAPI paths, Postman collections, HAR traffic, and error notes into sequence diagrams for backend review.",
@@ -132,6 +163,62 @@ export const workflows: WorkflowConfig[] = [
       {
         question: "How does schema visualization help SEO content?",
         answer: "It turns an abstract converter page into a concrete documentation workflow with examples, internal links, and intent-matched explanations."
+      }
+    ]
+  },
+  {
+    slug: "devops-config-visualization-workflow",
+    title: "DevOps config visualization workflow",
+    description: "Preview Docker, Kubernetes, Nginx, GitHub Actions, Helm, and Terraform sources as reviewable infrastructure diagrams.",
+    keywords: ["devops config visualization", "kubernetes manifest diagram", "github actions workflow diagram", "terraform architecture diagram"],
+    tools: ["docker-compose-diagram", "kubernetes-manifest-visualizer", "github-actions-workflow-diagram", "helm-values-visualizer", "nginx-config-visualizer", "terraform-architecture-diagram"],
+    example: {
+      title: "Docker Compose service map",
+      description: "Start from a Compose file to expose service dependencies, ports, and data stores before deployment review.",
+      tool: "docker-compose-diagram",
+      source: "services:\n  web:\n    image: app:latest\n    ports:\n      - \"3000:3000\"\n    depends_on:\n      - api\n  api:\n    image: api:latest\n    environment:\n      DATABASE_URL: postgres://db/app\n    depends_on:\n      - db\n  db:\n    image: postgres:16"
+    },
+    steps: [
+      {title: "Visualize dependency shape", body: "Turn config files into a map that shows services, ports, jobs, ingress rules, and infrastructure links."},
+      {title: "Review operational risk", body: "Check whether hidden dependencies, missing health checks, exposed ports, or routing rules need to be documented."},
+      {title: "Publish the review artifact", body: "Export a diagram for PR review, runbooks, onboarding docs, or incident follow-up notes."}
+    ],
+    faq: [
+      {
+        question: "Which DevOps files should become diagrams?",
+        answer: "Diagram configs with multiple services, jobs, routing rules, cloud resources, or deployment dependencies. Single-purpose snippets usually need only code review."
+      },
+      {
+        question: "Does this replace infrastructure-as-code review?",
+        answer: "No. It gives reviewers a visual map so they can ask better questions while still reviewing the original source."
+      }
+    ]
+  },
+  {
+    slug: "technical-publishing-preview-workflow",
+    title: "Technical publishing preview workflow",
+    description: "Preview Markdown, SVG, Open Graph, draw.io, and generated diagrams before publishing technical content.",
+    keywords: ["technical publishing preview", "markdown diagram preview", "readme diagram workflow", "open graph preview debugger"],
+    tools: ["markdown-preview", "mermaid-preview", "drawio-preview", "svg-code-preview-editor", "open-graph-preview-debugger", "drawio-to-svg"],
+    example: {
+      title: "README release checklist",
+      description: "Preview release notes with embedded diagrams and social metadata before publishing a technical page.",
+      tool: "markdown-preview",
+      source: "# Release architecture\n\n```mermaid\nsequenceDiagram\n  participant User\n  participant Web\n  participant API\n  User->>Web: Open preview\n  Web->>API: Load exported diagram\n  API-->>Web: SVG asset\n```\n\nShare the updated architecture in README, docs, and release notes."
+    },
+    steps: [
+      {title: "Preview the document body", body: "Render Markdown and diagram snippets locally so headings, code fences, and embedded diagrams are readable."},
+      {title: "Check visual assets", body: "Inspect SVG and draw.io exports before they are committed to documentation or attached to a PR."},
+      {title: "Debug publishing metadata", body: "Use Open Graph preview checks so shared technical pages show the right title, description, and image."}
+    ],
+    faq: [
+      {
+        question: "What should be checked before publishing diagram-heavy docs?",
+        answer: "Check rendered Markdown, diagram syntax, exported asset readability, file format portability, and social preview metadata."
+      },
+      {
+        question: "Why keep preview tools in the publishing workflow?",
+        answer: "They catch broken code fences, oversized diagrams, missing metadata, and unreadable exports before readers or reviewers see them."
       }
     ]
   }

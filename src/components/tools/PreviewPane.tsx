@@ -1,6 +1,7 @@
 "use client";
 
 import {AlertCircle, FileSearch2} from "lucide-react";
+import type {ReactNode} from "react";
 import type {TreeNode} from "@/lib/renderers/tree";
 import {cn} from "@/lib/utils";
 
@@ -18,6 +19,7 @@ type PreviewPaneProps = {
   };
   normalizePreviewHeadings?: boolean;
   className?: string;
+  children?: ReactNode;
 };
 
 export function PreviewPane({
@@ -30,7 +32,8 @@ export function PreviewPane({
   tree,
   fallback,
   normalizePreviewHeadings,
-  className
+  className,
+  children
 }: PreviewPaneProps) {
   const previewHtml = normalizePreviewHeadings && html ? demotePreviewHeadings(html) : html;
 
@@ -52,6 +55,8 @@ export function PreviewPane({
             <h2 className="mt-4 text-base font-semibold text-ink">{fallback.title}</h2>
             <p className="mt-2 max-w-md text-sm leading-6 text-slate-600">{fallback.body}</p>
           </div>
+        ) : children ? (
+          children
         ) : tree ? (
           <TreeView node={tree} />
         ) : imageUrl ? (
