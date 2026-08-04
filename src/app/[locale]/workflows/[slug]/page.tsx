@@ -154,7 +154,7 @@ export default async function WorkflowPage({params}: WorkflowPageProps) {
           </div>
         </section>
 
-        <WaitlistCta locale={locale} source="workflow" />
+        <WaitlistCta locale={locale} source="workflow" intent="team_workspace" />
       </article>
     </>
   );

@@ -4,16 +4,19 @@ import {useState} from "react";
 import {Button} from "@/components/ui/Button";
 import {trackEvent} from "@/lib/analytics";
 
+export type MonetizationIntent = "ai_review" | "batch_conversion" | "advanced_export" | "plugin_pro" | "team_workspace";
+
 type WaitlistCtaProps = {
   locale: string;
-  source: "tool" | "workflow" | "plugin";
+  source: "tool" | "workflow" | "plugin" | "home";
   toolSlug?: string;
+  intent?: MonetizationIntent;
   compact?: boolean;
 };
 
-export function WaitlistCta({locale, source, toolSlug, compact = false}: WaitlistCtaProps) {
+export function WaitlistCta({locale, source, toolSlug, intent = source === "plugin" ? "plugin_pro" : source === "workflow" ? "team_workspace" : "batch_conversion", compact = false}: WaitlistCtaProps) {
   const isChineseLocale = locale.startsWith("zh");
-  const copy = getCopy(isChineseLocale, source);
+  const copy = getCopy(isChineseLocale, source, intent);
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [useCase, setUseCase] = useState("");
@@ -25,14 +28,15 @@ export function WaitlistCta({locale, source, toolSlug, compact = false}: Waitlis
     trackEvent("waitlist_submit", {
       source,
       tool_slug: toolSlug,
-      team_size: teamSize
+      team_size: teamSize,
+      intent
     });
 
     try {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({email, useCase, teamSize, source, toolSlug})
+        body: JSON.stringify({email, useCase, teamSize, source, toolSlug, intent})
       });
 
       if (!response.ok) {
@@ -60,7 +64,7 @@ export function WaitlistCta({locale, source, toolSlug, compact = false}: Waitlis
           variant="primary"
           onClick={() => {
             setOpen((value) => !value);
-            trackEvent("waitlist_open", {source, tool_slug: toolSlug});
+            trackEvent("waitlist_open", {source, tool_slug: toolSlug, intent});
           }}
         >
           {copy.action}
@@ -106,19 +110,20 @@ export function WaitlistCta({locale, source, toolSlug, compact = false}: Waitlis
   );
 }
 
-function getCopy(isChineseLocale: boolean, source: WaitlistCtaProps["source"]) {
+function getCopy(isChineseLocale: boolean, source: WaitlistCtaProps["source"], intent: MonetizationIntent) {
   if (isChineseLocale) {
-    const title =
-      source === "plugin"
-        ? "想要 VS Code 插件增强版？"
-        : source === "workflow"
-          ? "需要团队图表工作流或批量转换？"
-          : "需要批量转换或团队交付能力？";
+    const title = {
+      ai_review: "需要更深入的 AI 图表 Review？",
+      batch_conversion: "需要批量转换一批图表文件？",
+      advanced_export: "需要高级导出或私有分享？",
+      plugin_pro: "想要 VS Code 插件增强版？",
+      team_workspace: "需要团队图表工作流？"
+    }[intent];
 
     return {
-      eyebrow: "Team workflow waitlist",
+      eyebrow: "付费能力验证",
       title,
-      body: "我们正在验证批量转换、高级导出、私有分享、团队模板库和 AI review 额度。告诉我们你的场景，优先安排。",
+      body: "我们正在验证批量转换、高级导出、私有分享、团队模板库、插件增强和 AI Review 额度。告诉我们你的场景，优先安排。",
       action: "加入候补",
       emailPlaceholder: "工作邮箱",
       useCasePlaceholder: "你的使用场景，例如：一次转换 80 个 Mermaid、团队模板库、PR 图表 review...",
@@ -131,15 +136,16 @@ function getCopy(isChineseLocale: boolean, source: WaitlistCtaProps["source"]) {
     };
   }
 
-  const title =
-    source === "plugin"
-      ? "Want the enhanced VS Code workflow?"
-      : source === "workflow"
-        ? "Need team workflows or batch conversion?"
-        : "Need batch conversion or team delivery?";
+  const title = {
+    ai_review: "Need deeper AI diagram review?",
+    batch_conversion: "Need batch conversion?",
+    advanced_export: "Need advanced export or private sharing?",
+    plugin_pro: "Want the enhanced VS Code workflow?",
+    team_workspace: "Need a team diagram workflow?"
+  }[intent];
 
   return {
-    eyebrow: "Team workflow waitlist",
+    eyebrow: "Paid workflow validation",
     title,
     body: "We are validating batch conversion, advanced export, private sharing, team templates, and AI review credits.",
     action: "Join waitlist",

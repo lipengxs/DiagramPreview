@@ -1,9 +1,15 @@
 type AnalyticsParams = Record<string, string | number | boolean | undefined>;
 
 export type AnalyticsEventName =
+  | "advanced_export_intent"
   | "ai_generate_error"
   | "ai_generate_start"
   | "ai_generate_success"
+  | "ai_review_start"
+  | "ai_review_success"
+  | "batch_conversion_intent"
+  | "monetization_cta_click"
+  | "monetization_cta_view"
   | "tool_clear"
   | "tool_copy_code"
   | "tool_copy_html"
@@ -14,6 +20,8 @@ export type AnalyticsEventName =
   | "tool_export_pdf"
   | "tool_export_png"
   | "tool_export_svg"
+  | "tool_conversion_success"
+  | "tool_export_success"
   | "tool_favorite_add"
   | "tool_favorite_remove"
   | "tool_next_step_click"

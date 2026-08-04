@@ -3,7 +3,10 @@
 import {Copy, Download, ImageDown, Link2, Sparkles, Star, WandSparkles} from "lucide-react";
 import {useEffect, useState} from "react";
 import {WaitlistCta} from "@/components/growth/WaitlistCta";
+import {MonetizationIntentCta} from "@/components/growth/MonetizationIntentCta";
+import type {MonetizationIntent} from "@/components/growth/WaitlistCta";
 import {Button} from "@/components/ui/Button";
+import {AiReviewPanel} from "./AiReviewPanel";
 import {NextStepRecommendations} from "./NextStepRecommendations";
 import {trackEvent, type AnalyticsEventName} from "@/lib/analytics";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
@@ -97,6 +100,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
   const [draftToRestore, setDraftToRestore] = useState<WorkspaceHistoryEntry | null>(null);
   const [draftDismissed, setDraftDismissed] = useState(false);
   const [showWorkflowWaitlist, setShowWorkflowWaitlist] = useState(false);
+  const [postActionIntent, setPostActionIntent] = useState<MonetizationIntent>("advanced_export");
 
   useEffect(() => {
     recordRecentTool(window.localStorage, slug);
@@ -518,7 +522,13 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             actionLabel={uiCopy.nextAction}
             currentSlug={slug}
           />
-          {showWorkflowWaitlist ? <WaitlistCta locale={locale} source="tool" toolSlug={slug} compact /> : null}
+          {generatedCode ? (
+            <>
+              <AiReviewPanel locale={locale} toolSlug={slug} renderer={reviewRendererFor(outputLanguage)} source={generatedCode} />
+              <MonetizationIntentCta locale={locale} source="tool" toolSlug={slug} intent="ai_review" compact />
+            </>
+          ) : null}
+          {showWorkflowWaitlist ? <WaitlistCta locale={locale} source="tool" toolSlug={slug} intent={postActionIntent} compact /> : null}
         </div>
       </div>
       <div aria-live="polite" className="pointer-events-none fixed bottom-5 right-5 z-50">
@@ -567,6 +577,13 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       source: generatedCode || prompt,
       artifactType
     });
+    trackEvent("tool_export_success", {
+      tool_slug: slug,
+      renderer: "ai",
+      source_length: (generatedCode || prompt).length,
+      intent: "advanced_export"
+    });
+    setPostActionIntent("advanced_export");
     setShowWorkflowWaitlist(true);
   }
 
@@ -576,8 +593,21 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       source: generatedCode || prompt,
       artifactType
     });
+    trackEvent("tool_conversion_success", {
+      tool_slug: slug,
+      renderer: "ai",
+      source_length: (generatedCode || prompt).length,
+      intent: "batch_conversion"
+    });
+    setPostActionIntent("batch_conversion");
     setShowWorkflowWaitlist(true);
   }
+}
+
+function reviewRendererFor(outputLanguage: NonNullable<AiDiagramWorkspaceProps["outputLanguage"]>) {
+  if (outputLanguage === "plantuml") return "plantuml";
+  if (outputLanguage === "mermaid") return "mermaid";
+  return "ai";
 }
 
 function getUiCopy(locale: string) {

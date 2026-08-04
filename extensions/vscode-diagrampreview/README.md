@@ -9,6 +9,11 @@ Preview, convert, and review selected diagram source from VS Code.
 - `diagramPreview.convertMermaidToDrawio`: open the selected Mermaid source in the Mermaid to draw.io converter.
 - `diagramPreview.convertPlantumlToDrawio`: open the selected PlantUML source in the PlantUML to draw.io converter.
 - `diagramPreview.reviewDiagram`: ask for confirmation, then open the AI review workflow in the browser.
+- `diagramPreview.openPluginProBeta`: open the enhanced plugin workflow beta page without sending selected source.
+
+## Enhanced Workflow Beta
+
+The current MVP stays free and local-first. The enhanced workflow being validated includes repo diagram scan, right-click AI Review, batch Mermaid / PlantUML conversion, draw.io / SVG export, and recent diagram history. Joining the beta does not upload source from VS Code.
 
 ## Privacy Boundary
 
@@ -16,6 +21,7 @@ Preview, convert, and review selected diagram source from VS Code.
 - Mermaid rendering in the MVP Webview loads Mermaid from a CDN. The selected source is rendered locally in the Webview.
 - `Open Selection in Web` and conversion commands explicitly open `https://diagrampreview.com` with the selected source encoded in the URL.
 - `Review Diagram with AI` shows a confirmation warning before opening the remote AI workflow.
+- `Join Enhanced Plugin Workflow Beta` opens DiagramPreview without selected source and is only used to register product interest.
 - The MVP has no account, sync, telemetry, or team features.
 
 ## Manual Test Checklist

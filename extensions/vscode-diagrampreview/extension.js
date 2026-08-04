@@ -6,7 +6,8 @@ function activate(context) {
     vscode.commands.registerCommand("diagramPreview.openSelectionInWeb", () => openSelectionInWeb("mermaid-preview")),
     vscode.commands.registerCommand("diagramPreview.convertMermaidToDrawio", () => openSelectionInWeb("mermaid-to-drawio")),
     vscode.commands.registerCommand("diagramPreview.convertPlantumlToDrawio", () => openSelectionInWeb("plantuml-to-drawio")),
-    vscode.commands.registerCommand("diagramPreview.reviewDiagram", reviewDiagram)
+    vscode.commands.registerCommand("diagramPreview.reviewDiagram", reviewDiagram),
+    vscode.commands.registerCommand("diagramPreview.openPluginProBeta", openPluginProBeta)
   );
 }
 
@@ -62,6 +63,11 @@ async function reviewDiagram() {
   if (answer === "Open AI Review") {
     await openSelectionInWeb("mermaid-ai-fixer");
   }
+}
+
+async function openPluginProBeta() {
+  const baseUrl = vscode.workspace.getConfiguration("diagramPreview").get("webBaseUrl", "https://diagrampreview.com/en");
+  await vscode.env.openExternal(vscode.Uri.parse(`${trimSlash(baseUrl)}?source=plugin&intent=plugin_pro`));
 }
 
 function selectedText() {

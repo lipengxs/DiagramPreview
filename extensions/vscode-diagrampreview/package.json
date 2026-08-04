@@ -14,7 +14,8 @@
     "onCommand:diagramPreview.openSelectionInWeb",
     "onCommand:diagramPreview.convertMermaidToDrawio",
     "onCommand:diagramPreview.convertPlantumlToDrawio",
-    "onCommand:diagramPreview.reviewDiagram"
+    "onCommand:diagramPreview.reviewDiagram",
+    "onCommand:diagramPreview.openPluginProBeta"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -38,6 +39,10 @@
       {
         "command": "diagramPreview.reviewDiagram",
         "title": "DiagramPreview: Review Diagram with AI"
+      },
+      {
+        "command": "diagramPreview.openPluginProBeta",
+        "title": "DiagramPreview: Join Enhanced Plugin Workflow Beta"
       }
     ],
     "menus": {
@@ -56,6 +61,10 @@
           "command": "diagramPreview.reviewDiagram",
           "when": "editorHasSelection",
           "group": "navigation@12"
+        },
+        {
+          "command": "diagramPreview.openPluginProBeta",
+          "group": "navigation@13"
         }
       ]
     },

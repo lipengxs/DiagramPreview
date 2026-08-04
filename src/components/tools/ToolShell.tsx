@@ -7,7 +7,10 @@ import {CodeEditor} from "./CodeEditor";
 import {ExportToolbar} from "./ExportToolbar";
 import {NextStepRecommendations} from "./NextStepRecommendations";
 import {PreviewPane} from "./PreviewPane";
+import {AiReviewPanel} from "./AiReviewPanel";
+import {BatchConversionBeta} from "./BatchConversionBeta";
 import {WaitlistCta} from "@/components/growth/WaitlistCta";
+import type {MonetizationIntent} from "@/components/growth/WaitlistCta";
 import {Button} from "@/components/ui/Button";
 import {detectInputTool} from "@/lib/input-detector";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
@@ -125,6 +128,7 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   const [draftToRestore, setDraftToRestore] = useState<WorkspaceHistoryEntry | null>(null);
   const [draftDismissed, setDraftDismissed] = useState(false);
   const [showWorkflowWaitlist, setShowWorkflowWaitlist] = useState(false);
+  const [postActionIntent, setPostActionIntent] = useState<MonetizationIntent>("advanced_export");
   const detectedTool = useMemo(() => detectInputTool(source), [source]);
   const suggestedTool = detectedTool?.slug !== tool.slug ? detectedTool : null;
   const uiCopy = getUiCopy(copy);
@@ -399,7 +403,9 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
           actionLabel={uiCopy.nextAction}
           currentSlug={tool.slug}
         />
-        {showWorkflowWaitlist ? <WaitlistCta locale={uiCopy.locale} source="tool" toolSlug={tool.slug} compact /> : null}
+        <AiReviewPanel locale={uiCopy.locale} toolSlug={tool.slug} renderer={tool.renderer} source={source} />
+        <BatchConversionBeta locale={uiCopy.locale} toolSlug={tool.slug} renderer={tool.renderer} source={source} />
+        {showWorkflowWaitlist ? <WaitlistCta locale={uiCopy.locale} source="tool" toolSlug={tool.slug} intent={postActionIntent} compact /> : null}
       </div>
       <div aria-live="polite" className="pointer-events-none fixed bottom-5 right-5 z-50">
         {toast ? <div className="rounded-md bg-ink px-4 py-3 text-sm font-semibold text-white shadow-xl">{toast}</div> : null}
@@ -437,6 +443,13 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
       source,
       artifactType
     });
+    trackEvent("tool_export_success", {
+      tool_slug: tool.slug,
+      renderer: tool.renderer,
+      source_length: source.length,
+      intent: "advanced_export"
+    });
+    setPostActionIntent("advanced_export");
     setShowWorkflowWaitlist(true);
   }
 
@@ -446,6 +459,13 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
       source,
       artifactType
     });
+    trackEvent("tool_conversion_success", {
+      tool_slug: tool.slug,
+      renderer: tool.renderer,
+      source_length: source.length,
+      intent: "batch_conversion"
+    });
+    setPostActionIntent("batch_conversion");
     setShowWorkflowWaitlist(true);
   }
 }

@@ -98,7 +98,7 @@ export default async function HomePage({params}: HomePageProps) {
         <HomeSection title={locale.startsWith("zh") ? "从样例开始" : "Start from an example"}>
           <GrowthEntrySection locale={locale} />
         </HomeSection>
-        <WaitlistCta locale={locale} source="plugin" />
+        <WaitlistCta locale={locale} source="plugin" intent="plugin_pro" />
         <HomeSection title={t("home.sections.demo")}>
           <div className="grid gap-5 rounded-lg border border-slate-200 bg-white p-4 shadow-sm lg:grid-cols-[0.9fr_1.1fr] lg:p-5">
             <div className="flex flex-col justify-center">
