@@ -1,4 +1,6 @@
 import type {ReactNode} from "react";
+import {getSeoToolIntent} from "@/config/seo-tool-intent";
+import {Link} from "@/i18n/navigation";
 import {TrackedToolLink} from "./TrackedToolLink";
 
 type ToolSeoSectionsProps = {
@@ -58,6 +60,8 @@ export function ToolSeoSections({
   deepDives = []
 }: ToolSeoSectionsProps) {
   const helperCopy = getHelperCopy(locale, toolName, toolDescription);
+  const intentCopy = getIntentLabels(locale);
+  const seoIntent = getSeoToolIntent(currentSlug, locale);
 
   return (
     <section className="mx-auto grid max-w-7xl min-w-0 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
@@ -141,6 +145,37 @@ export function ToolSeoSections({
               {section.caption ? <p className="mt-3 text-xs leading-5 text-slate-500">{section.caption}</p> : null}
             </article>
           ))}
+        </div>
+      ) : null}
+      {seoIntent ? (
+        <div className="grid min-w-0 gap-4 lg:col-span-2 lg:grid-cols-3">
+          <InfoBlock title={intentCopy.intentTitle}>
+            <div className="grid gap-3 text-sm leading-7 text-slate-600">
+              <p>{seoIntent.intent}</p>
+              <h3 className="text-base font-semibold text-ink">{intentCopy.bestForTitle}</h3>
+              <BulletList items={seoIntent.bestFor} />
+            </div>
+          </InfoBlock>
+          <InfoBlock title={intentCopy.boundaryTitle}>
+            <div className="grid gap-3 text-sm leading-7 text-slate-600">
+              <h3 className="text-base font-semibold text-ink">{intentCopy.notForTitle}</h3>
+              <BulletList items={seoIntent.notFor} />
+              <h3 className="text-base font-semibold text-ink">{intentCopy.failureTitle}</h3>
+              <BulletList items={seoIntent.failureModes} />
+            </div>
+          </InfoBlock>
+          <InfoBlock title={intentCopy.workflowTitle}>
+            <div className="grid gap-3 text-sm leading-7 text-slate-600">
+              <h3 className="text-base font-semibold text-ink">{seoIntent.workflow}</h3>
+              <p>{seoIntent.workflowBody}</p>
+              <Link
+                href={`/workflows/${seoIntent.workflowSlug}`}
+                className="w-fit rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                {intentCopy.workflowAction}
+              </Link>
+            </div>
+          </InfoBlock>
         </div>
       ) : null}
       <InfoBlock title={helperCopy.reviewTitle}>
@@ -306,6 +341,43 @@ function InfoBlock({title, children}: {title: string; children: ReactNode}) {
       {children}
     </div>
   );
+}
+
+function BulletList({items}: {items: string[]}) {
+  return (
+    <ul className="grid gap-2">
+      {items.map((item) => (
+        <li key={item} className="flex gap-3">
+          <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-primary" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function getIntentLabels(locale: string) {
+  if (locale.startsWith("zh")) {
+    return {
+      intentTitle: "搜索意图与使用边界",
+      bestForTitle: "适合",
+      boundaryTitle: "不适合与常见失败",
+      notForTitle: "不适合",
+      failureTitle: "常见失败原因",
+      workflowTitle: "下一步工作流",
+      workflowAction: "查看完整工作流"
+    };
+  }
+
+  return {
+    intentTitle: "Search intent and fit",
+    bestForTitle: "Best for",
+    boundaryTitle: "Not for and common failures",
+    notForTitle: "Not for",
+    failureTitle: "Common failure modes",
+    workflowTitle: "Next workflow",
+    workflowAction: "Open workflow"
+  };
 }
 
 export function summarizeToolSamples(samples: Record<string, SampleValue>, limit = 3) {

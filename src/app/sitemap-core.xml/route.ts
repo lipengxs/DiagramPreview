@@ -1,6 +1,14 @@
 import type {MetadataRoute} from "next";
 import {sitemapBlogPosts} from "@/config/blog";
-import {blogIndexableLocales, growthContentIndexableLocales, seoCoreBlogSlugs, seoCoreToolSlugs, seoFocusLocales} from "@/config/seo-focus";
+import {
+  blogIndexableLocales,
+  seoSubmissionBlogSlugs,
+  seoSubmissionHomeLocales,
+  seoSubmissionHubLocales,
+  seoSubmissionLocales,
+  seoSubmissionToolSlugs,
+  seoSubmissionWorkflowSlugs
+} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
 import {toolHubs} from "@/config/navigation";
 import {tools} from "@/config/tools";
@@ -12,17 +20,20 @@ export const dynamic = "force-static";
 
 export function GET() {
   const entries: MetadataRoute.Sitemap = [];
-  const coreTools = tools.filter((tool) => seoCoreToolSlugs.includes(tool.slug));
-  const coreBlogs = sitemapBlogPosts.filter((post) => seoCoreBlogSlugs.includes(post.slug));
+  const coreTools = tools.filter((tool) => seoSubmissionToolSlugs.includes(tool.slug));
+  const coreBlogs = sitemapBlogPosts.filter((post) => seoSubmissionBlogSlugs.includes(post.slug));
+  const coreWorkflows = workflows.filter((workflow) => seoSubmissionWorkflowSlugs.includes(workflow.slug));
 
-  for (const locale of seoFocusLocales) {
+  for (const locale of seoSubmissionHomeLocales) {
     entries.push({
       url: `${siteConfig.url}/${locale}`,
       lastModified: getLatestBlogDate(),
       changeFrequency: "weekly",
       priority: 1
     });
+  }
 
+  for (const locale of seoSubmissionHubLocales) {
     for (const hub of toolHubs) {
       entries.push({
         url: `${siteConfig.url}/${locale}${hub.href}`,
@@ -31,7 +42,9 @@ export function GET() {
         priority: hub.slug === "tools" ? 0.9 : 0.82
       });
     }
+  }
 
+  for (const locale of seoSubmissionLocales) {
     for (const tool of coreTools) {
       entries.push({
         url: `${siteConfig.url}/${locale}/${tool.slug}`,
@@ -48,34 +61,7 @@ export function GET() {
         changeFrequency: "weekly",
         priority: 0.72
       });
-    }
 
-    if (growthContentIndexableLocales.includes(locale)) {
-      entries.push({
-        url: `${siteConfig.url}/${locale}/templates`,
-        lastModified: getLatestBlogDate(),
-        changeFrequency: "weekly",
-        priority: 0.8
-      });
-
-      entries.push({
-        url: `${siteConfig.url}/${locale}/workflows`,
-        lastModified: getLatestBlogDate(),
-        changeFrequency: "weekly",
-        priority: 0.8
-      });
-
-      for (const workflow of workflows) {
-        entries.push({
-          url: `${siteConfig.url}/${locale}/workflows/${workflow.slug}`,
-          lastModified: getLatestBlogDate(),
-          changeFrequency: "monthly",
-          priority: 0.76
-        });
-      }
-    }
-
-    if (blogIndexableLocales.includes(locale)) {
       for (const post of coreBlogs) {
         entries.push({
           url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
@@ -85,6 +71,15 @@ export function GET() {
         });
       }
     }
+  }
+
+  for (const workflow of coreWorkflows) {
+    entries.push({
+      url: `${siteConfig.url}/en/workflows/${workflow.slug}`,
+      lastModified: getLatestBlogDate(),
+      changeFrequency: "monthly",
+      priority: 0.76
+    });
   }
 
   return sitemapResponse(entries);

@@ -1,6 +1,7 @@
 import type {BlogSlug} from "./blog";
 import type {Locale} from "./locales";
 import type {ToolSlug} from "./tools";
+import type {WorkflowSlug} from "./workflows";
 
 export const seoFocusLocales: Locale[] = ["en", "zh-CN", "es", "de", "fr"];
 
@@ -33,6 +34,33 @@ export const seoCoreToolSlugs: ToolSlug[] = [
   "kubernetes-manifest-visualizer"
 ];
 
+export const seoSubmissionLocales: Locale[] = ["en", "zh-CN", "es", "de", "fr"];
+
+export const seoSubmissionHomeLocales: Locale[] = ["en", "zh-CN"];
+
+export const seoSubmissionHubLocales: Locale[] = ["en"];
+
+export const seoSubmissionToolSlugs: ToolSlug[] = [
+  "text-to-mermaid",
+  "mermaid-preview",
+  "mermaid-to-drawio",
+  "plantuml-to-drawio",
+  "drawio-preview",
+  "openapi-to-sequence",
+  "api-error-flow-diagram",
+  "json-schema-visualizer",
+  "json-schema-form-preview",
+  "protobuf-schema-visualizer"
+];
+
+export const seoSubmissionWorkflowSlugs: WorkflowSlug[] = [
+  "ai-generated-mermaid-workflow",
+  "mermaid-to-drawio-documentation-workflow",
+  "api-debugging-sequence-diagram",
+  "schema-visualization-workflow",
+  "open-drawio-file-online"
+];
+
 export const seoPriorityHomeToolSlugs: ToolSlug[] = [
   "mermaid-preview",
   "mermaid-to-drawio",
@@ -52,5 +80,7 @@ export const seoCoreBlogSlugs: BlogSlug[] = [
   "technical-seo-preview-robots-sitemap-open-graph",
   "script-preview-debugging-html-css-json-base64"
 ];
+
+export const seoSubmissionBlogSlugs: BlogSlug[] = seoCoreBlogSlugs;
 
 export const defaultToolUpdatedAt = "2026-07-04";

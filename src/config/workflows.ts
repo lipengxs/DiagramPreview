@@ -31,7 +31,7 @@ export const workflows: WorkflowConfig[] = [
     title: "AI-generated Mermaid workflow",
     description: "Generate, preview, fix, and export Mermaid diagrams before they go into README files or architecture docs.",
     keywords: ["ai generated mermaid", "mermaid workflow", "preview mermaid from chatgpt"],
-    tools: ["text-to-mermaid", "mermaid-preview", "mermaid-ai-fixer"],
+    tools: ["text-to-mermaid", "mermaid-preview", "mermaid-ai-fixer", "mermaid-to-drawio", "drawio-preview"],
     example: {
       title: "Next.js AI diagram prompt",
       description: "Use this prompt to generate a Mermaid architecture diagram for a browser, API route, AI provider, renderer, and export flow.",
@@ -59,7 +59,7 @@ export const workflows: WorkflowConfig[] = [
     title: "Open draw.io file online",
     description: "Inspect diagrams.net XML, check pages and objects, then convert or export draw.io files for documentation.",
     keywords: ["open drawio file online", "draw.io viewer", "diagrams.net xml preview"],
-    tools: ["drawio-preview", "ai-drawio-generator", "plantuml-to-drawio", "drawio-to-svg"],
+    tools: ["drawio-preview", "mermaid-to-drawio", "plantuml-to-drawio", "drawio-to-svg", "ai-drawio-generator"],
     example: {
       title: "Minimal diagrams.net XML",
       description: "Open a tiny draw.io XML document first to confirm preview, page detection, and conversion behavior.",
@@ -143,7 +143,7 @@ export const workflows: WorkflowConfig[] = [
     title: "Schema visualization workflow",
     description: "Review JSON Schema, Protobuf, GraphQL, SQL, and DBML contracts visually before publishing API docs.",
     keywords: ["schema visualization workflow", "json schema visualizer", "protobuf schema visualizer"],
-    tools: ["json-schema-visualizer", "protobuf-schema-visualizer", "graphql-schema-visualizer", "sql-to-er-diagram", "dbml-to-er-diagram"],
+    tools: ["json-schema-visualizer", "json-schema-form-preview", "protobuf-schema-visualizer", "graphql-schema-visualizer", "sql-to-er-diagram", "dbml-to-er-diagram"],
     example: {
       title: "Plan contract JSON Schema",
       description: "Preview required fields, enum values, and flexible metadata before putting a JSON Schema into docs.",
