@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "indexnow": "node scripts/submit-indexnow.mjs",
+    "seo:audit": "node scripts/audit-core-content.mjs && node scripts/audit-seo-submission.mjs",
+    "seo:report": "node scripts/generate-seo-report.mjs",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

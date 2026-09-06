@@ -1096,6 +1096,7 @@ export function getTool(slug: string) {
 }
 
 const relatedToolMap: Partial<Record<ToolSlug, ToolSlug[]>> = {
+  "text-to-mermaid": ["mermaid-preview", "mermaid-to-drawio", "mermaid-ai-fixer"],
   "mermaid-preview": ["mermaid-to-drawio", "text-to-mermaid", "mermaid-ai-fixer"],
   "mermaid-to-drawio": ["mermaid-preview", "plantuml-to-drawio", "drawio-preview"],
   "mermaid-ai-fixer": ["mermaid-preview", "mermaid-to-drawio", "text-to-mermaid"],
@@ -1106,8 +1107,9 @@ const relatedToolMap: Partial<Record<ToolSlug, ToolSlug[]>> = {
   "api-error-flow-diagram": ["openapi-to-sequence", "postman-collection-sequence-diagram", "har-file-sequence-diagram"],
   "postman-collection-sequence-diagram": ["openapi-to-sequence", "har-file-sequence-diagram", "api-error-flow-diagram"],
   "har-file-sequence-diagram": ["openapi-to-sequence", "postman-collection-sequence-diagram", "api-error-flow-diagram"],
-  "json-schema-visualizer": ["zod-schema-visualizer", "typescript-interface-visualizer", "json-schema-form-preview"],
-  "json-schema-form-preview": ["json-schema-visualizer", "zod-schema-visualizer", "typescript-interface-visualizer"],
+  "json-schema-visualizer": ["json-schema-form-preview", "protobuf-schema-visualizer", "zod-schema-visualizer"],
+  "json-schema-form-preview": ["json-schema-visualizer", "protobuf-schema-visualizer", "typescript-interface-visualizer"],
+  "protobuf-schema-visualizer": ["json-schema-visualizer", "json-schema-form-preview", "graphql-schema-visualizer"],
   "sql-to-er-diagram": ["dbml-to-er-diagram", "prisma-schema-diagram", "json-schema-visualizer"],
   "dbml-to-er-diagram": ["sql-to-er-diagram", "prisma-schema-diagram", "json-schema-visualizer"]
 };

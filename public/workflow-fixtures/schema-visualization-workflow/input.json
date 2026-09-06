@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Subscription request",
+  "type": "object",
+  "required": ["email", "plan"],
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Account owner email"
+    },
+    "plan": {
+      "type": "string",
+      "enum": ["free", "pro"],
+      "default": "free"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {"type": "string"},
+          "role": {"type": "string", "enum": ["admin", "editor", "viewer"]}
+        }
+      }
+    }
+  }
+}

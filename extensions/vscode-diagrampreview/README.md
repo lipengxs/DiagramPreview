@@ -32,3 +32,15 @@ The current MVP stays free and local-first. The enhanced workflow being validate
 - Select JSON Schema in `.json`, then run `DiagramPreview: Preview Selection`.
 - Run both draw.io conversion commands and confirm the browser opens the matching DiagramPreview tool.
 - Run `DiagramPreview: Review Diagram with AI` and confirm the privacy warning appears before opening the browser.
+
+## Reproducible Workflow Fixtures
+
+Use the repository fixtures to test the same source in VS Code and on the website:
+
+- `public/workflow-fixtures/ai-generated-mermaid-workflow/input.txt`
+- `public/workflow-fixtures/open-drawio-file-online/input.drawio`
+- `public/workflow-fixtures/mermaid-to-drawio-documentation-workflow/input.mmd`
+- `public/workflow-fixtures/api-debugging-sequence-diagram/input.yaml`
+- `public/workflow-fixtures/schema-visualization-workflow/input.json`
+
+The adjacent README for each fixture describes the expected result, failure cases, and documentation handoff. Do not add fixture source to telemetry or remote requests during local preview tests.

@@ -21,6 +21,11 @@ export type WorkflowConfig = {
     tool: ToolSlug;
     source: string;
   };
+  resources?: {
+    fixturePath: string;
+    fixtureLabel: string;
+    guidePath: string;
+  };
   steps: Array<{title: string; body: string}>;
   faq: Array<{question: string; answer: string}>;
 };
@@ -37,6 +42,11 @@ export const workflows: WorkflowConfig[] = [
       description: "Use this prompt to generate a Mermaid architecture diagram for a browser, API route, AI provider, renderer, and export flow.",
       tool: "text-to-mermaid",
       source: "Browser sends diagram text to a Next.js API route. The API route calls an AI provider and returns Mermaid code. The browser renders the diagram as SVG, then lets the user export SVG, PNG, or Markdown source."
+    },
+    resources: {
+      fixturePath: "/workflow-fixtures/ai-generated-mermaid-workflow/input.txt",
+      fixtureLabel: "AI Mermaid prompt fixture",
+      guidePath: "/workflow-fixtures/ai-generated-mermaid-workflow/README.md"
     },
     steps: [
       {title: "Generate a small first draft", body: "Start with a short prompt and ask for one Mermaid diagram type instead of a full system map."},
@@ -66,6 +76,11 @@ export const workflows: WorkflowConfig[] = [
       tool: "drawio-preview",
       source: "<mxfile host=\"DiagramPreview\"><diagram name=\"System\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/></root></mxGraphModel></diagram></mxfile>"
     },
+    resources: {
+      fixturePath: "/workflow-fixtures/open-drawio-file-online/input.drawio",
+      fixtureLabel: "Draw.io XML fixture",
+      guidePath: "/workflow-fixtures/open-drawio-file-online/README.md"
+    },
     steps: [
       {title: "Open the XML safely", body: "Paste .drawio XML first to check whether the file is complete and whether page names are meaningful."},
       {title: "Review portability", body: "Look for hidden draft content, external images, oversized labels, and pages that should be split before sharing."},
@@ -93,6 +108,11 @@ export const workflows: WorkflowConfig[] = [
       description: "Use a small Mermaid flow to check labels, convert to draw.io, then preview the editable XML before publishing.",
       tool: "mermaid-to-drawio",
       source: "flowchart LR\n  Product[Product spec] --> AI[AI Mermaid draft]\n  AI --> Preview[Preview and fix]\n  Preview --> Drawio[Editable draw.io]\n  Drawio --> Docs[README and architecture docs]"
+    },
+    resources: {
+      fixturePath: "/workflow-fixtures/mermaid-to-drawio-documentation-workflow/input.mmd",
+      fixtureLabel: "Mermaid handoff fixture",
+      guidePath: "/workflow-fixtures/mermaid-to-drawio-documentation-workflow/README.md"
     },
     steps: [
       {title: "Preview before converting", body: "Render Mermaid first so syntax errors, long labels, and unreadable layout are fixed while the source is still easy to edit."},
@@ -122,6 +142,11 @@ export const workflows: WorkflowConfig[] = [
       tool: "openapi-to-sequence",
       source: "openapi: 3.0.0\npaths:\n  /checkout:\n    post:\n      summary: Create checkout session\n      responses:\n        \"201\":\n          description: Checkout created\n        \"402\":\n          description: Payment required\n  /checkout/{id}:\n    get:\n      summary: Read checkout status\n      responses:\n        \"200\":\n          description: Checkout status"
     },
+    resources: {
+      fixturePath: "/workflow-fixtures/api-debugging-sequence-diagram/input.yaml",
+      fixtureLabel: "OpenAPI debugging fixture",
+      guidePath: "/workflow-fixtures/api-debugging-sequence-diagram/README.md"
+    },
     steps: [
       {title: "Start from the contract", body: "Use a focused OpenAPI path group so the diagram explains one workflow instead of the entire API."},
       {title: "Compare request order", body: "Preview Postman or HAR traffic to see whether runtime calls match the documented sequence."},
@@ -149,6 +174,11 @@ export const workflows: WorkflowConfig[] = [
       description: "Preview required fields, enum values, and flexible metadata before putting a JSON Schema into docs.",
       tool: "json-schema-visualizer",
       source: "{\n  \"type\": \"object\",\n  \"required\": [\"email\", \"plan\"],\n  \"properties\": {\n    \"email\": {\"type\": \"string\", \"format\": \"email\"},\n    \"plan\": {\"type\": \"string\", \"enum\": [\"free\", \"pro\"]},\n    \"metadata\": {\"type\": \"object\", \"additionalProperties\": true}\n  }\n}"
+    },
+    resources: {
+      fixturePath: "/workflow-fixtures/schema-visualization-workflow/input.json",
+      fixtureLabel: "JSON Schema contract fixture",
+      guidePath: "/workflow-fixtures/schema-visualization-workflow/README.md"
     },
     steps: [
       {title: "Preview the contract shape", body: "Use a visual map to inspect required fields, nested objects, enums, and references."},

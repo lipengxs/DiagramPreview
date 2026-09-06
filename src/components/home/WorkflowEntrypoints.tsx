@@ -106,7 +106,7 @@ export function WorkflowEntrypoints({locale}: {locale: Locale}) {
                 );
               })}
             </div>
-            <Link href={entry.href} className="mt-4 inline-flex h-9 items-center justify-center rounded-md bg-primary px-3 text-sm font-semibold text-white hover:bg-blue-700">
+            <Link href={entry.href} locale="en" className="mt-4 inline-flex h-9 items-center justify-center rounded-md bg-primary px-3 text-sm font-semibold text-white hover:bg-blue-700">
               {isChineseLocale ? "查看完整流程" : "View workflow"}
             </Link>
           </section>

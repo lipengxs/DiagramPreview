@@ -6,7 +6,7 @@ const endpoint = process.env.INDEXNOW_ENDPOINT || "https://www.bing.com/indexnow
 const dryRun = process.argv.includes("--dry-run");
 const explicitUrls = process.argv.slice(2).filter((value) => value.startsWith("http"));
 
-const urlList = explicitUrls.length ? explicitUrls : await loadSitemapUrls(`${siteUrl}/sitemap.xml`);
+const urlList = explicitUrls.length ? explicitUrls : await loadSitemapUrls(`${siteUrl}/sitemap-core.xml`);
 
 if (!urlList.length) {
   throw new Error("No URLs found to submit to IndexNow.");

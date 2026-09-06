@@ -14,6 +14,9 @@ type SeoToolIntent = {
   workflowSlug: WorkflowSlug;
   en: LocalizedIntent;
   zh: LocalizedIntent;
+  es?: LocalizedIntent;
+  de?: LocalizedIntent;
+  fr?: LocalizedIntent;
 };
 
 const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
@@ -110,6 +113,14 @@ const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
       failureModes: ["不完整 mxfile XML 无法预览", "外链图片可能不可移植", "隐藏草稿页可能泄露未完成内容"],
       workflow: "Draw.io 检查与导出工作流",
       workflowBody: "先检查 draw.io 结构，确认干净后再导出 SVG 或进入转换流程。"
+    },
+    de: {
+      intent: "Draw.io-XML online öffnen und vor der Übergabe Seiten, Objekte, ausgeblendete Inhalte und externe Ressourcen prüfen.",
+      bestFor: ["Diagrams.net-Dateien ohne Installation prüfen", "Seiten- und Objektstruktur kontrollieren", "Übergabedateien vor dem Teilen untersuchen"],
+      notFor: ["Vollständige Bearbeitung wie in diagrams.net", "Ungeprüfte versteckte Seiten übernehmen", "XML mit unbekannten externen Ressourcen veröffentlichen"],
+      failureModes: ["Unvollständiges mxfile-XML kann nicht gerendert werden", "Externe Bilder sind beim Weitergeben eventuell nicht verfügbar", "Ausgeblendete Entwurfsseiten können unfertige Inhalte enthalten"],
+      workflow: "Draw.io prüfen und exportieren",
+      workflowBody: "Zuerst Seiten, Objekte und Ressourcen kontrollieren. Erst danach die Datei als SVG exportieren oder in einen Konvertierungsablauf übernehmen."
     }
   },
   "openapi-to-sequence": {
@@ -129,6 +140,14 @@ const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
       failureModes: ["超大 spec 会生成不可读图", "缺少 operationId 或 tags 会降低参与者清晰度", "没有 4xx/5xx 会削弱排障价值"],
       workflow: "OpenAPI 排障时序图工作流",
       workflowBody: "从窄 path group 开始，包含成功和失败响应，再连接到 API error flow review。"
+    },
+    fr: {
+      intent: "Transformer un parcours OpenAPI ciblé en diagramme de séquence pour examiner les appels, l'authentification et les erreurs d'une API.",
+      bestFor: ["Un parcours API par diagramme", "Analyse des réponses 4xx et 5xx", "Revue des délais, nouvelles tentatives et dépendances"],
+      notFor: ["Afficher une spécification OpenAPI entière sur un seul diagramme", "Remplacer la validation du contrat", "Masquer les erreurs et les règles d'authentification"],
+      failureModes: ["Une spécification trop large produit un diagramme illisible", "Des operationId ou tags absents rendent les acteurs ambigus", "Sans réponses 4xx et 5xx, le diagramme aide peu au diagnostic"],
+      workflow: "Diagnostic OpenAPI par diagramme de séquence",
+      workflowBody: "Commencez par un petit groupe de chemins, conservez les réponses de succès et d'échec, puis reliez le résultat au flux d'erreur API."
     }
   },
   "api-error-flow-diagram": {
@@ -205,6 +224,14 @@ const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
       failureModes: ["缺少 imports 可能隐藏上下文", "字段重命名需要兼容性 review", "service 和 message 应配套文档化"],
       workflow: "Protobuf schema 文档工作流",
       workflowBody: "先可视化 message 和 service，比较破坏性变更风险，再链接到 schema 文档。"
+    },
+    es: {
+      intent: "Revisar visualmente mensajes, servicios, enums y números de campo Protobuf antes de publicar documentación gRPC o entregar un contrato a un SDK.",
+      bestFor: ["Revisión conjunta de messages y services", "Cambios de campos, enums y repeated", "Documentación de contratos gRPC para equipos SDK"],
+      notFor: ["Compilar archivos .proto", "Sustituir pruebas de compatibilidad", "Pegar todo un repositorio Protobuf en una sola vista"],
+      failureModes: ["Imports ausentes pueden ocultar tipos relacionados", "Renombrar o reutilizar números de campo puede romper compatibilidad", "Separar services de sus messages reduce el contexto de la revisión"],
+      workflow: "Documentación visual de contratos Protobuf",
+      workflowBody: "Visualiza messages y services juntos, revisa el riesgo de cambios incompatibles y enlaza el resultado desde la documentación de la API o del SDK."
     }
   }
 };
@@ -212,6 +239,7 @@ const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
 export function getSeoToolIntent(slug: string, locale: string) {
   const intent = toolIntent[slug as ToolSlug];
   if (!intent) return undefined;
-  const copy = locale.startsWith("zh") ? intent.zh : intent.en;
+  const localizedKey = locale.startsWith("zh") ? "zh" : locale;
+  const copy = localizedKey === "es" || localizedKey === "de" || localizedKey === "fr" ? intent[localizedKey] ?? intent.en : localizedKey === "zh" ? intent.zh : intent.en;
   return {...copy, workflowSlug: intent.workflowSlug};
 }

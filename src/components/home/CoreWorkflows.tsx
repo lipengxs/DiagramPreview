@@ -1,3 +1,4 @@
+import {ArrowRight} from "lucide-react";
 import {useLocale, useTranslations} from "next-intl";
 import {seoCoreToolSlugs} from "@/config/seo-focus";
 import {getTool} from "@/config/tools";
@@ -6,19 +7,23 @@ import {Link} from "@/i18n/navigation";
 const workflows = [
   {
     id: "mermaid",
-    tools: ["mermaid-preview", "text-to-mermaid", "mermaid-ai-fixer", "plantuml-preview"]
+    workflow: "ai-generated-mermaid-workflow",
+    tools: ["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio"]
   },
   {
     id: "drawio",
-    tools: ["drawio-preview", "mermaid-to-drawio", "plantuml-to-drawio", "ai-drawio-generator", "drawio-to-svg"]
+    workflow: "open-drawio-file-online",
+    tools: ["drawio-preview", "mermaid-to-drawio", "plantuml-to-drawio"]
   },
   {
     id: "api",
-    tools: ["openapi-to-sequence", "postman-collection-sequence-diagram", "har-file-sequence-diagram", "api-error-flow-diagram"]
+    workflow: "api-debugging-sequence-diagram",
+    tools: ["openapi-to-sequence", "api-error-flow-diagram"]
   },
   {
     id: "schema",
-    tools: ["json-schema-visualizer", "protobuf-schema-visualizer", "graphql-schema-visualizer", "sql-to-er-diagram"]
+    workflow: "schema-visualization-workflow",
+    tools: ["json-schema-visualizer", "json-schema-form-preview", "protobuf-schema-visualizer"]
   }
 ] as const;
 
@@ -53,6 +58,14 @@ export function CoreWorkflows() {
               );
             })}
           </div>
+          <Link
+            href={`/workflows/${workflow.workflow}`}
+            locale="en"
+            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-blue-700"
+          >
+            {locale.startsWith("zh") ? "查看完整工作流" : "Open workflow"}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </section>
       ))}
     </div>

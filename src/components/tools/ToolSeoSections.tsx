@@ -170,6 +170,7 @@ export function ToolSeoSections({
               <p>{seoIntent.workflowBody}</p>
               <Link
                 href={`/workflows/${seoIntent.workflowSlug}`}
+                locale="en"
                 className="w-fit rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
               >
                 {intentCopy.workflowAction}
@@ -366,6 +367,42 @@ function getIntentLabels(locale: string) {
       failureTitle: "常见失败原因",
       workflowTitle: "下一步工作流",
       workflowAction: "查看完整工作流"
+    };
+  }
+
+  if (locale === "es") {
+    return {
+      intentTitle: "Intención de búsqueda y uso",
+      bestForTitle: "Adecuado para",
+      boundaryTitle: "Límites y fallos habituales",
+      notForTitle: "No adecuado para",
+      failureTitle: "Fallos habituales",
+      workflowTitle: "Siguiente flujo de trabajo",
+      workflowAction: "Abrir flujo completo"
+    };
+  }
+
+  if (locale === "de") {
+    return {
+      intentTitle: "Suchabsicht und Einsatz",
+      bestForTitle: "Geeignet für",
+      boundaryTitle: "Grenzen und häufige Fehler",
+      notForTitle: "Nicht geeignet für",
+      failureTitle: "Häufige Fehler",
+      workflowTitle: "Nächster Arbeitsablauf",
+      workflowAction: "Arbeitsablauf öffnen"
+    };
+  }
+
+  if (locale === "fr") {
+    return {
+      intentTitle: "Intention de recherche et usage",
+      bestForTitle: "Adapté à",
+      boundaryTitle: "Limites et échecs fréquents",
+      notForTitle: "Non adapté à",
+      failureTitle: "Échecs fréquents",
+      workflowTitle: "Étape suivante",
+      workflowAction: "Ouvrir le workflow"
     };
   }
 

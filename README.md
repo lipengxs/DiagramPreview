@@ -107,6 +107,25 @@ The project includes:
 - Yandex verification meta
 - Google Analytics tag
 - IndexNow key file and submission script
+- A 35-URL evidence-based core sitemap for focused search submission
+- Automated deployed-page auditing and GSC/Bing weekly reporting
+
+Run the SEO checks with:
+
+```bash
+npm run seo:audit -- https://diagrampreview.com
+npm run seo:report -- <gsc-performance.zip> <bing-performance.csv> [gsc-coverage.zip]
+```
+
+## Reusable Workflow Fixtures
+
+The five core workflows include downloadable inputs and handoff guides under:
+
+```text
+public/workflow-fixtures/
+```
+
+Each guide records the expected result, common failures, README handoff pattern, and related DiagramPreview tools. The same fixtures can be used for website smoke tests, GitHub documentation, and VS Code extension checks.
 
 ## Marketing Materials
 

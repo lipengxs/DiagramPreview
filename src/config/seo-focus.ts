@@ -34,24 +34,43 @@ export const seoCoreToolSlugs: ToolSlug[] = [
   "kubernetes-manifest-visualizer"
 ];
 
-export const seoSubmissionLocales: Locale[] = ["en", "zh-CN", "es", "de", "fr"];
+export type SeoSubmissionTargets = Partial<Record<Locale, ToolSlug[]>>;
+
+export const seoSubmissionLocales: Locale[] = ["en", "zh-CN", "es", "fr", "de"];
 
 export const seoSubmissionHomeLocales: Locale[] = ["en", "zh-CN"];
 
 export const seoSubmissionHubLocales: Locale[] = ["en"];
 
-export const seoSubmissionToolSlugs: ToolSlug[] = [
-  "text-to-mermaid",
-  "mermaid-preview",
-  "mermaid-to-drawio",
-  "plantuml-to-drawio",
-  "drawio-preview",
-  "openapi-to-sequence",
-  "api-error-flow-diagram",
-  "json-schema-visualizer",
-  "json-schema-form-preview",
-  "protobuf-schema-visualizer"
-];
+export const seoSubmissionBlogLocales: Locale[] = ["en"];
+
+export const seoSubmissionHubSlugs = ["tools", "converters", "preview-tools", "developer-diagrams", "data-visualizers"] as const;
+
+export const seoSubmissionToolSlugsByLocale: SeoSubmissionTargets = {
+  en: [
+    "text-to-mermaid",
+    "mermaid-preview",
+    "mermaid-to-drawio",
+    "plantuml-to-drawio",
+    "drawio-preview",
+    "openapi-to-sequence",
+    "api-error-flow-diagram",
+    "json-schema-visualizer",
+    "json-schema-form-preview",
+    "protobuf-schema-visualizer"
+  ],
+  "zh-CN": [
+    "text-to-mermaid",
+    "mermaid-preview",
+    "mermaid-to-drawio",
+    "drawio-preview",
+    "openapi-to-sequence",
+    "json-schema-visualizer"
+  ],
+  es: ["protobuf-schema-visualizer"],
+  fr: ["openapi-to-sequence"],
+  de: ["drawio-preview"]
+};
 
 export const seoSubmissionWorkflowSlugs: WorkflowSlug[] = [
   "ai-generated-mermaid-workflow",
@@ -62,10 +81,10 @@ export const seoSubmissionWorkflowSlugs: WorkflowSlug[] = [
 ];
 
 export const seoPriorityHomeToolSlugs: ToolSlug[] = [
+  "text-to-mermaid",
   "mermaid-preview",
   "mermaid-to-drawio",
   "plantuml-to-drawio",
-  "plantuml-preview",
   "drawio-preview",
   "openapi-to-sequence",
   "api-error-flow-diagram",
@@ -73,12 +92,9 @@ export const seoPriorityHomeToolSlugs: ToolSlug[] = [
 ];
 
 export const seoCoreBlogSlugs: BlogSlug[] = [
+  "chatgpt-mermaid-preview-workflow",
   "api-debugging-preview-har-postman-openapi",
-  "schema-preview-workflow-json-schema-zod-typescript",
-  "social-card-svg-preview-publishing-workflow",
-  "config-preview-env-yaml-toml-before-deploy",
-  "technical-seo-preview-robots-sitemap-open-graph",
-  "script-preview-debugging-html-css-json-base64"
+  "schema-preview-workflow-json-schema-zod-typescript"
 ];
 
 export const seoSubmissionBlogSlugs: BlogSlug[] = seoCoreBlogSlugs;

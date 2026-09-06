@@ -1395,20 +1395,20 @@
           "label": "API animaux",
           "code": "openapi: 3.0.3\ninfo:\n  title: Pet Store\n  version: 1.0.0\npaths:\n  /pets:\n    get:\n      summary: List pets\n    post:\n      summary: Create pet\n  /pets/{petId}:\n    get:\n      summary: Get pet details\n    delete:\n      summary: Delete pet"
         },
-        "auth": {
-          "label": "API auth",
-          "code": "openapi: 3.1.0\ninfo:\n  title: Auth Service\n  version: 1.0.0\npaths:\n  /login:\n    post:\n      summary: Validate credentials\n  /sessions/{id}:\n    get:\n      summary: Read session\n    delete:\n      summary: Revoke session"
+      "auth": {
+        "label": "API auth",
+        "code": "openapi: 3.1.0\ninfo:\n  title: Auth Service\n  version: 1.0.0\npaths:\n  /login:\n    post:\n      operationId: createSession\n      responses:\n        \"201\": {description: Session créée}\n        \"401\": {description: Identifiants invalides}\n        \"429\": {description: Trop de tentatives}"
         },
-        "orders": {
-          "label": "API commandes",
-          "code": "openapi: 3.0.0\ninfo:\n  title: Orders\n  version: 1.0.0\npaths:\n  /orders:\n    post:\n      summary: Create order\n  /orders/{orderId}/pay:\n    post:\n      summary: Start payment\n  /orders/{orderId}/shipments:\n    get:\n      summary: List shipments"
+      "orders": {
+        "label": "API commandes",
+        "code": "openapi: 3.0.0\ninfo:\n  title: Orders\n  version: 1.0.0\npaths:\n  /orders/{orderId}/pay:\n    post:\n      operationId: authorizePayment\n      responses:\n        \"200\": {description: Paiement autorisé}\n        \"402\": {description: Paiement refusé}\n        \"504\": {description: Délai du prestataire dépassé}"
         }
       },
       "howToUse": [
-        "Collez OpenAPI JSON ou YAML ou chargez un exemple.",
-        "Vérifiez séquence Mermaid générée dans la prévisualisation et repérez les problèmes de syntaxe, de libellés ou de structure.",
-        "Contrôlez Vérifier syntaxe et rendu., Comparer libellés, relations et ordre avec le système réel., Supprimer les valeurs sensibles avant partage. avant publication, export ou partage.",
-        "Conservez la source avec le résultat exporté pour rendre les reviews futures traçables."
+      "Collez un petit groupe de paths OpenAPI correspondant à un seul parcours utilisateur.",
+      "Vérifiez les acteurs, operationId, requestBody et réponses générés dans la séquence Mermaid.",
+      "Ajoutez les branches 401, 403, 429, 5xx, timeout et retry utiles au diagnostic.",
+      "Comparez le diagramme au trafic HAR ou aux logs avant de le publier dans la documentation."
       ],
       "useCases": [
         "Documentation API",
@@ -1417,47 +1417,58 @@
         "Review de contrat"
       ],
       "faq": [
-        {
-          "question": "Cet outil fonctionne-t-il dans le navigateur ?",
-          "answer": "Oui. La plupart des prévisualisations, vérifications et exports se font dans le navigateur. Les outils IA envoient seulement le prompt à l’API configurée."
-        },
-        {
-          "question": "Que vérifier avant publication ?",
-          "answer": "Vérifiez que le diagramme ou fichier reflète le flux réel, que les libellés sont lisibles, que les données sensibles sont supprimées et que l’export SVG/PNG reste reviewable."
-        },
-        {
-          "question": "Comment cela aide-t-il la documentation ?",
-          "answer": "L’outil transforme du texte ou des fichiers techniques en prévisualisation visuelle reviewable pour README, ADR, runbooks, issues et documentation API."
-        }
+      {
+        "question": "Pourquoi limiter le diagramme à quelques paths OpenAPI ?",
+        "answer": "Une spécification entière mélange plusieurs parcours et devient vite illisible. Un groupe de paths par scénario rend l’ordre des appels et les erreurs plus faciles à vérifier."
+      },
+      {
+        "question": "Comment représenter une erreur d’authentification ou un timeout ?",
+        "answer": "Déclarez les réponses 401/403 ou 504 dans l’opération concernée. Ajoutez ensuite le comportement de retry ou d’arrêt dans le diagramme d’erreur associé."
+      },
+      {
+        "question": "Le diagramme remplace-t-il la validation OpenAPI ?",
+        "answer": "Non. Il sert à relire le parcours et la responsabilité des acteurs. Conservez un validateur OpenAPI et des tests de contrat pour vérifier la spécification."
+      }
       ],
       "seoBody": [
-        "OpenAPI vers diagramme de séquence aide les équipes à vérifier visuellement OpenAPI JSON ou YAML avant publication, au lieu de relire uniquement du texte brut ou des captures.",
-        "La prévisualisation convient à la documentation technique, aux reviews API, aux décisions d’architecture, à l’onboarding et aux brouillons générés par IA.",
-        "Avant export, vérifiez Vérifier syntaxe et rendu., Comparer libellés, relations et ordre avec le système réel., Supprimer les valeurs sensibles avant partage. et retirez les valeurs sensibles."
+      "OpenAPI vers diagramme de séquence transforme un parcours de contrat en échanges lisibles entre client, passerelle, service et dépendances.",
+      "Le résultat est utile pour relire l’authentification, le requestBody, les réponses 4xx/5xx et les délais avant une revue backend ou un incident.",
+      "Le diagramme complète la spécification OpenAPI : validez toujours le contrat et comparez la séquence au comportement observé dans les traces ou fichiers HAR."
       ],
       "deepDives": [
         {
-          "title": "Démo : transformer OpenAPI JSON ou YAML en prévisualisation reviewable",
-          "body": "OpenAPI vers diagramme de séquence est plus utile lorsque l’entrée reste assez ciblée pour être comprise en review. Commencez par un extrait court, puis élargissez si nécessaire.",
+        "title": "Cas 1 : relire authentification et limitation de débit",
+        "body": "Un parcours de connexion doit montrer le succès, les identifiants invalides et la limitation après plusieurs tentatives. Ces réponses changent la responsabilité du client et du service.",
           "bullets": [
-            "Commencer avec un exemple réduit.",
-            "Comparer les libellés et relations avec la documentation réelle.",
-            "Exporter seulement après une vérification humaine."
+          "Conserver operationId pour nommer précisément l’appel.",
+          "Inclure 201, 401 et 429 dans la même opération.",
+          "Documenter si le client peut réessayer et après quel délai."
           ],
           "code": "paths:\n  /checkout:\n    post:\n      operationId: createCheckout",
-          "caption": "Un extrait ciblé est plus facile à déboguer qu’un dump complet."
+        "caption": "Un scénario d’authentification ciblé se compare facilement aux logs."
         },
         {
-          "title": "Checklist de review OpenAPI vers diagramme de séquence",
-          "body": "Le review ne consiste pas seulement à vérifier que le rendu fonctionne. Il faut confirmer que la prévisualisation porte bien le sens technique attendu.",
+        "title": "Cas 2 : distinguer refus métier et timeout prestataire",
+        "body": "Un paiement refusé en 402 et un prestataire indisponible en 504 ne déclenchent pas la même action. Le diagramme doit rendre cette différence visible.",
           "bullets": [
-            "Vérifier syntaxe et rendu.",
-            "Comparer libellés, relations et ordre avec le système réel.",
-            "Supprimer les valeurs sensibles avant partage."
+          "Ne pas appliquer automatiquement le même retry à toutes les erreurs.",
+          "Montrer la dépendance externe responsable du délai.",
+          "Ajouter une condition d’arrêt explicite à toute boucle de retry."
           ],
-          "code": "entrée -> prévisualisation -> vérification métier -> export ou lien",
-          "caption": "La prévisualisation ne remplace pas la review métier, mais elle raccourcit le chemin."
-        }
+        "code": "responses:\n  \"402\": {description: Paiement refusé}\n  \"504\": {description: Délai du prestataire dépassé}",
+        "caption": "Les codes proches dans le contrat peuvent représenter des décisions opérationnelles très différentes."
+      },
+      {
+        "title": "Échec fréquent : une spécification trop large",
+        "body": "Si le rendu contient des dizaines d’endpoints, réduisez la source au parcours étudié et gardez seulement les schemas référencés par ces opérations.",
+        "bullets": [
+          "Un diagramme par parcours ou incident.",
+          "Conserver les réponses d’erreur qui changent le flux.",
+          "Comparer ensuite le résultat au trafic réel."
+        ],
+        "code": "paths:\n  /checkout:\n    post: ...\n  /checkout/{id}:\n    get: ...",
+        "caption": "Réduire le périmètre améliore le rendu et la qualité de la revue."
+      }
       ]
     },
     "sql-to-er-diagram": {

@@ -3690,69 +3690,80 @@
           "label": "Orders",
           "code": "syntax = \"proto3\";\nmessage Order {\n  string id = 1;\n  User user = 2;\n  repeated Item items = 3;\n}\nmessage User { string id = 1; string email = 2; }\nmessage Item { string sku = 1; int32 quantity = 2; }"
         },
-        "events": {
-          "label": "Events",
-          "code": "message Event { string id = 1; string type = 2; Payload payload = 3; }\nmessage Payload { string json = 1; }"
+      "events": {
+        "label": "Evolución de enum",
+        "code": "syntax = \"proto3\";\nmessage Event {\n  string id = 1;\n  EventType type = 2;\n  reserved 3;\n}\nenum EventType {\n  EVENT_TYPE_UNSPECIFIED = 0;\n  ORDER_CREATED = 1;\n  ORDER_CANCELLED = 2;\n}"
         },
-        "service": {
-          "label": "Service",
-          "code": "service OrderService { rpc GetOrder (GetOrderRequest) returns (Order); }\nmessage GetOrderRequest { string id = 1; }\nmessage Order { string id = 1; }"
+      "service": {
+        "label": "Servicio gRPC",
+        "code": "syntax = \"proto3\";\nservice OrderService {\n  rpc GetOrder (GetOrderRequest) returns (Order);\n}\nmessage GetOrderRequest { string id = 1; }\nmessage Order { string id = 1; string status = 2; }"
         }
       },
       "howToUse": [
-        "Pega schema Protobuf o carga un ejemplo.",
-        "Revisa mapa de messages y services en la vista previa y marca problemas de sintaxis, etiquetas o estructura.",
-        "Comprueba Comprobar sintaxis y renderizado., Comparar etiquetas, relaciones y orden con el sistema real., Eliminar valores sensibles antes de compartir. antes de publicar, exportar o compartir.",
-        "Guarda la fuente junto con el resultado exportado para que futuras reviews sean reproducibles."
+      "Pega un fragmento .proto centrado en un servicio o una familia de mensajes.",
+      "Revisa cómo se conectan los RPC con sus mensajes de solicitud y respuesta.",
+      "Comprueba números de campo, reserved, repeated y enums antes de aprobar un cambio de contrato.",
+      "Guarda el archivo .proto junto al diagrama exportado para que la revisión sea reproducible."
       ],
       "useCases": [
         "Docs gRPC",
         "Evolución de contrato",
-        "Reviews de service",
-        "Modelos message"
+      "Revisión de servicios",
+      "Compatibilidad de campos y enums"
       ],
       "faq": [
-        {
-          "question": "¿Visualizador Protobuf Schema funciona en el navegador?",
-          "answer": "Sí. La mayor parte de la previsualización, validación y exportación ocurre en el navegador. Las herramientas con IA solo envían el prompt a la API configurada."
-        },
-        {
-          "question": "¿Qué debo revisar antes de publicar?",
-          "answer": "Comprueba que el diagrama o archivo refleje el flujo real, que las etiquetas sean legibles, que no haya datos sensibles y que el SVG/PNG exportado siga siendo revisable."
-        },
-        {
-          "question": "¿Cómo ayuda en la documentación?",
-          "answer": "La herramienta convierte texto o archivos técnicos en una vista visual revisable que puedes enlazar desde README, ADR, runbooks, issues y documentación de API."
-        }
+      {
+        "question": "¿Qué cambios de Protobuf pueden romper consumidores existentes?",
+        "answer": "Reutilizar un número de campo, cambiar un tipo incompatible o eliminar valores enum sin reservarlos puede romper la compatibilidad. La vista ayuda a localizar esos elementos, pero la validación final debe hacerse con las herramientas de compatibilidad del repositorio."
+      },
+      {
+        "question": "¿Conviene visualizar todo el repositorio de archivos .proto?",
+        "answer": "No en una sola vista. Empieza por un servicio y sus mensajes relacionados; así es más fácil detectar dependencias, imports ausentes y riesgos de evolución."
+      },
+      {
+        "question": "¿Cómo documento un servicio gRPC con esta vista?",
+        "answer": "Incluye los RPC, los mensajes request/response y los enums que cambian el comportamiento. Enlaza el .proto original desde la documentación para mantener la fuente de verdad."
+      }
       ],
       "seoBody": [
-        "Visualizador Protobuf Schema ayuda a los equipos a revisar visualmente schema Protobuf antes de publicar, en lugar de depender solo de texto bruto o capturas.",
-        "La vista previa sirve para documentación técnica, reviews de API, decisiones de arquitectura, onboarding y borradores generados por IA.",
-        "Antes de exportar, revisa Comprobar sintaxis y renderizado., Comparar etiquetas, relaciones y orden con el sistema real., Eliminar valores sensibles antes de compartir. y elimina valores sensibles."
+      "El visualizador de Protobuf muestra messages, fields, enums y services como un mapa de contrato que puede revisarse junto al archivo .proto.",
+      "Resulta especialmente útil al preparar documentación gRPC, explicar un servicio a un equipo SDK o revisar si un cambio mantiene números de campo y valores reservados.",
+      "La visualización no compila el schema ni sustituye las pruebas de compatibilidad; úsala para encontrar relaciones y concentrar la revisión técnica."
       ],
       "deepDives": [
         {
-          "title": "Demo: convertir schema Protobuf en una vista revisable",
-          "body": "Visualizador Protobuf Schema es más útil cuando la entrada es lo bastante pequeña para entenderse durante la review. Empieza con un fragmento enfocado y amplíalo después.",
+        "title": "Caso 1: documentar un servicio gRPC con sus mensajes",
+        "body": "Un RPC aislado dice poco. Incluye el request, el response y los mensajes anidados para que quien consume la API pueda seguir el contrato sin saltar entre varios archivos.",
           "bullets": [
-            "Empezar con un ejemplo pequeño.",
-            "Comparar etiquetas y relaciones con la documentación real.",
-            "Exportar solo después de una revisión manual."
+          "Mantener juntos el service y sus messages directos.",
+          "Revisar cardinalidad repeated y tipos compartidos.",
+          "Enlazar el archivo .proto original desde la documentación."
           ],
           "code": "message Order { string id = 1; repeated Item items = 2; }",
-          "caption": "Un fragmento enfocado se depura mejor que un volcado completo."
+        "caption": "Un servicio enfocado se entiende mejor que un volcado completo del repositorio."
         },
         {
-          "title": "Checklist de review de Visualizador Protobuf Schema",
-          "body": "La review no consiste solo en comprobar que algo renderiza. Lo importante es confirmar que la vista previa comunica correctamente la intención técnica.",
+        "title": "Caso 2: revisar la evolución de campos y enums",
+        "body": "Antes de publicar una nueva versión, comprueba que los números eliminados estén reservados y que los enums mantengan un valor cero seguro.",
           "bullets": [
-            "Comprobar sintaxis y renderizado.",
-            "Comparar etiquetas, relaciones y orden con el sistema real.",
-            "Eliminar valores sensibles antes de compartir."
+          "No reutilizar números de campo eliminados.",
+          "Reservar nombres y números retirados.",
+          "Revisar cómo interpretan los clientes los nuevos valores enum."
           ],
-          "code": "entrada -> vista previa -> revisión técnica -> exportar o enlazar",
-          "caption": "La vista previa no sustituye la revisión técnica, pero reduce el camino hasta ella."
-        }
+        "code": "message Event {\n  reserved 3, 4;\n  EventType type = 2;\n}\nenum EventType { UNKNOWN = 0; CREATED = 1; }",
+        "caption": "La vista identifica el cambio; buf breaking y las pruebas del repositorio deben confirmar la compatibilidad."
+      },
+      {
+        "title": "Fallo frecuente: imports que ocultan parte del contrato",
+        "body": "Si el fragmento usa tipos declarados en otro archivo, la vista puede quedar incompleta. Añade una versión mínima del tipo importado o revisa el conjunto de archivos en el repositorio.",
+        "bullets": [
+          "Buscar tipos referenciados que no aparecen como messages.",
+          "No inventar definiciones para completar el diagrama.",
+          "Mantener package y nombres completos cuando existan colisiones."
+        ],
+        "code": "import \"google/protobuf/timestamp.proto\";\nmessage Order { google.protobuf.Timestamp created_at = 1; }",
+        "caption": "Los imports forman parte del contexto del contrato aunque no se dibujen completos."
+      }
       ]
     },
     "asyncapi-event-flow-diagram": {

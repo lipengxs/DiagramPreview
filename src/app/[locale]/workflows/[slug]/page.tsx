@@ -1,4 +1,5 @@
 import type {Metadata} from "next";
+import {Download, FileText} from "lucide-react";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import type {Locale} from "@/config/locales";
@@ -123,6 +124,36 @@ export default async function WorkflowPage({params}: WorkflowPageProps) {
             </pre>
           </div>
         </section>
+
+        {workflow.resources ? (
+          <section className="rounded-lg border border-slate-200 bg-white p-5">
+            <h2 className="text-xl font-bold text-ink">{isChineseLocale ? "可复用工作流资源" : "Reusable workflow resources"}</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600">
+              {isChineseLocale
+                ? "下载一份可复现输入，并查看预期结果、失败案例和文档嵌入方式。"
+                : "Download a reproducible input and review the expected result, failure cases, and documentation handoff pattern."}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href={workflow.resources.fixturePath}
+                download
+                className="inline-flex h-9 items-center gap-2 rounded-md bg-primary px-3 text-sm font-semibold text-white hover:bg-blue-700"
+              >
+                <Download className="h-4 w-4" />
+                {isChineseLocale ? "下载输入样例" : `Download ${workflow.resources.fixtureLabel}`}
+              </a>
+              <a
+                href={workflow.resources.guidePath}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-9 items-center gap-2 rounded-md border border-slate-200 px-3 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary"
+              >
+                <FileText className="h-4 w-4" />
+                {isChineseLocale ? "查看交付指南" : "Open handoff guide"}
+              </a>
+            </div>
+          </section>
+        ) : null}
 
         <section className="rounded-lg border border-slate-200 bg-white p-5">
           <h2 className="text-xl font-bold text-ink">{isChineseLocale ? "常见问题" : "Workflow FAQ"}</h2>

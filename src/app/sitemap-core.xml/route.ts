@@ -1,12 +1,13 @@
 import type {MetadataRoute} from "next";
 import {sitemapBlogPosts} from "@/config/blog";
 import {
-  blogIndexableLocales,
   seoSubmissionBlogSlugs,
+  seoSubmissionBlogLocales,
   seoSubmissionHomeLocales,
   seoSubmissionHubLocales,
+  seoSubmissionHubSlugs,
   seoSubmissionLocales,
-  seoSubmissionToolSlugs,
+  seoSubmissionToolSlugsByLocale,
   seoSubmissionWorkflowSlugs
 } from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
@@ -20,7 +21,6 @@ export const dynamic = "force-static";
 
 export function GET() {
   const entries: MetadataRoute.Sitemap = [];
-  const coreTools = tools.filter((tool) => seoSubmissionToolSlugs.includes(tool.slug));
   const coreBlogs = sitemapBlogPosts.filter((post) => seoSubmissionBlogSlugs.includes(post.slug));
   const coreWorkflows = workflows.filter((workflow) => seoSubmissionWorkflowSlugs.includes(workflow.slug));
 
@@ -34,7 +34,10 @@ export function GET() {
   }
 
   for (const locale of seoSubmissionHubLocales) {
-    for (const hub of toolHubs) {
+    const submissionHubs = toolHubs.filter((candidate) =>
+      seoSubmissionHubSlugs.includes(candidate.slug as (typeof seoSubmissionHubSlugs)[number])
+    );
+    for (const hub of submissionHubs) {
       entries.push({
         url: `${siteConfig.url}/${locale}${hub.href}`,
         lastModified: getLatestBlogDate(),
@@ -45,7 +48,10 @@ export function GET() {
   }
 
   for (const locale of seoSubmissionLocales) {
-    for (const tool of coreTools) {
+    const submissionSlugs = seoSubmissionToolSlugsByLocale[locale] ?? [];
+    for (const slug of submissionSlugs) {
+      const tool = tools.find((candidate) => candidate.slug === slug);
+      if (!tool) continue;
       entries.push({
         url: `${siteConfig.url}/${locale}/${tool.slug}`,
         lastModified: getToolLastModified(tool),
@@ -53,23 +59,23 @@ export function GET() {
         priority: tool.popular ? 0.95 : 0.86
       });
     }
+  }
 
-    if (blogIndexableLocales.includes(locale)) {
+  for (const locale of seoSubmissionBlogLocales) {
+    entries.push({
+      url: `${siteConfig.url}/${locale}/blog`,
+      lastModified: getLatestBlogDate(),
+      changeFrequency: "weekly",
+      priority: 0.72
+    });
+
+    for (const post of coreBlogs) {
       entries.push({
-        url: `${siteConfig.url}/${locale}/blog`,
-        lastModified: getLatestBlogDate(),
-        changeFrequency: "weekly",
-        priority: 0.72
+        url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: "monthly",
+        priority: post.tier === "core" ? 0.76 : 0.7
       });
-
-      for (const post of coreBlogs) {
-        entries.push({
-          url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
-          lastModified: new Date(post.date),
-          changeFrequency: "monthly",
-          priority: post.tier === "core" ? 0.76 : 0.7
-        });
-      }
     }
   }
 

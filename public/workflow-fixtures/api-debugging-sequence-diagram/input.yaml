@@ -1,0 +1,28 @@
+openapi: 3.0.3
+info:
+  title: Checkout API
+  version: 1.0.0
+paths:
+  /checkout:
+    post:
+      operationId: createCheckout
+      tags: [Checkout]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [cartId]
+              properties:
+                cartId:
+                  type: string
+      responses:
+        "201":
+          description: Checkout created
+        "401":
+          description: Session expired
+        "402":
+          description: Payment declined
+        "504":
+          description: Payment provider timeout

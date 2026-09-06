@@ -1,0 +1,7 @@
+Create a Mermaid sequenceDiagram for backend reviewers.
+
+Scope: checkout payment authorization only.
+Required actors: Browser, Checkout API, Auth Service, Payment Provider, Order Database.
+Required outcomes: approved payment, declined payment, provider timeout.
+Do not add inventory, shipping, email, or analytics services.
+Keep message labels under five words and do not invent retries.
