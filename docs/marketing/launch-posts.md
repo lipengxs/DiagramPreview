@@ -12,6 +12,9 @@ This folder splits the launch and comment materials into smaller files so each c
 - [comment-templates.md](./comment-templates.md): natural comment templates for Chinese and English communities.
 - [platform-playbook.md](./platform-playbook.md): channel-specific posting strategy and anti-spam notes.
 - [next-tool-ideas.md](./next-tool-ideas.md): future tool ideas that fit the current site theme.
+- [outreach-channel-plan.md](./outreach-channel-plan.md): expansion plan for outbound links and intros across ZH/EN/JA/KO/DE/FR/ES/PT/RU (20+ channels each).
+- [multilingual-promo-posts.md](./multilingual-promo-posts.md): per-locale short/medium/long promo copy, plus which sites can be scheduled or API-published safely.
+- [posting-login-and-copy.md](./posting-login-and-copy.md): site-by-site login method and the post to paste (Chinese communities plus 10+ sites per other language).
 
 ## Recommended First Wave
 
