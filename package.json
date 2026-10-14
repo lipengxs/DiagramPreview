@@ -10,6 +10,9 @@
     "indexnow": "node scripts/submit-indexnow.mjs",
     "seo:audit": "node scripts/audit-core-content.mjs && node scripts/audit-seo-submission.mjs",
     "seo:report": "node scripts/generate-seo-report.mjs",
+    "test:core-tools": "tsx --test tests/core-tools.test.ts",
+    "pretest:e2e": "npm run build",
+    "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
@@ -43,6 +46,7 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.9.2",
     "@types/plantuml-encoder": "^1.4.2",
@@ -55,6 +59,7 @@
     "postcss": "^8.5.15",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3"
   }
 }

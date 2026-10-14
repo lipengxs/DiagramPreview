@@ -60,7 +60,7 @@ export function BatchConversionBeta({locale, toolSlug, renderer, source}: BatchC
       try {
         if (renderer === "mermaid-to-drawio") {
           const {convertMermaidToDrawio} = await import("@/lib/renderers/drawio-converters");
-          const result = convertMermaidToDrawio(item);
+          const result = await convertMermaidToDrawio(item);
           zip.file(`${baseName}.drawio`, result.xml);
           zip.file(`${baseName}.svg`, result.svg);
         } else if (renderer === "plantuml-to-drawio") {
@@ -93,6 +93,13 @@ export function BatchConversionBeta({locale, toolSlug, renderer, source}: BatchC
       source_length: batchSource.length,
       item_count: items.length,
       success: nextResults.some((result) => result.ok),
+      intent: "batch_conversion"
+    });
+    trackEvent("tool_export_success", {
+      tool_slug: toolSlug,
+      renderer,
+      source_length: batchSource.length,
+      artifact_type: "zip",
       intent: "batch_conversion"
     });
   }

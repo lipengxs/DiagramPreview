@@ -28,6 +28,7 @@ export type AnalyticsEventName =
   | "tool_open"
   | "tool_related_click"
   | "tool_render_error"
+  | "tool_render_qualified"
   | "tool_render_success"
   | "tool_sample_load"
   | "tool_search_query"
@@ -40,7 +41,7 @@ export type AnalyticsEventName =
 
 declare global {
   interface Window {
-    gtag?: (command: "event", eventName: AnalyticsEventName, params?: AnalyticsParams) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 

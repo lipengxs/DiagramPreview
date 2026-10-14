@@ -1,5 +1,3 @@
-import {downloadText} from "./svg";
-
 export async function downloadSvgAsPng(svg: string, filename: string) {
   const image = new Image();
   const svgBlob = new Blob([svg], {type: "image/svg+xml;charset=utf-8"});
@@ -30,8 +28,6 @@ export async function downloadSvgAsPng(svg: string, filename: string) {
     anchor.href = pngUrl;
     anchor.download = filename;
     anchor.click();
-  } catch {
-    downloadText(filename.replace(/\.png$/, ".svg"), svg, "image/svg+xml;charset=utf-8");
   } finally {
     URL.revokeObjectURL(url);
   }

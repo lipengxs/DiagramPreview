@@ -12,6 +12,8 @@ type PreviewPaneProps = {
   error?: string;
   html?: string;
   imageUrl?: string;
+  onImageLoad?: () => void;
+  onImageError?: () => void;
   tree?: TreeNode;
   fallback?: {
     title: string;
@@ -29,6 +31,8 @@ export function PreviewPane({
   error,
   html,
   imageUrl,
+  onImageLoad,
+  onImageError,
   tree,
   fallback,
   normalizePreviewHeadings,
@@ -61,7 +65,7 @@ export function PreviewPane({
           <TreeView node={tree} />
         ) : imageUrl ? (
           <div className="flex h-full min-h-80 items-center justify-center">
-            <img src={imageUrl} alt={label} className="max-h-full max-w-full" />
+            <img src={imageUrl} alt={label} className="max-h-full max-w-full" onLoad={onImageLoad} onError={onImageError} />
           </div>
         ) : previewHtml ? (
           <div className="markdown-preview diagram-preview-output" dangerouslySetInnerHTML={{__html: previewHtml}} />

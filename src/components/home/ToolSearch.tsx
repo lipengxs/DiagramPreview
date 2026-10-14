@@ -61,7 +61,7 @@ export function ToolSearch({tools, defaultTools, placeholder, actionLabel}: Tool
               onClick={() =>
                 trackEvent("tool_entry_click", {
                   tool_slug: tool.slug,
-                  source: "home_search",
+                  entry_surface: "home_search",
                   has_query: Boolean(normalizedQuery),
                   query_length: normalizedQuery.length
                 })

@@ -20,7 +20,7 @@ export function MonetizationIntentCta({locale, source, toolSlug, intent, compact
 
   useEffect(() => {
     trackEvent("monetization_cta_view", {
-      source,
+      entry_surface: source,
       tool_slug: toolSlug,
       intent
     });
@@ -29,14 +29,14 @@ export function MonetizationIntentCta({locale, source, toolSlug, intent, compact
   function onOpen() {
     setOpen((value) => !value);
     trackEvent("monetization_cta_click", {
-      source,
+      entry_surface: source,
       tool_slug: toolSlug,
       intent
     });
     const intentEvent = intentEventName(intent);
     if (intentEvent) {
       trackEvent(intentEvent, {
-        source,
+        entry_surface: source,
         tool_slug: toolSlug,
         intent
       });
@@ -137,4 +137,3 @@ function getCopy(locale: string, intent: MonetizationIntent) {
 
   return copies[intent];
 }
-

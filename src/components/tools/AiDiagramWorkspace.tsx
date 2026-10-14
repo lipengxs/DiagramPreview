@@ -14,7 +14,7 @@ import {copyText, downloadText} from "@/lib/exporters/svg";
 import {isFavoriteTool, setFavoriteTool} from "@/lib/favorite-tools";
 import {recordRecentTool} from "@/lib/recent-tools";
 import {renderMermaid} from "@/lib/renderers/mermaid";
-import {absoluteSourceUrl} from "@/lib/source-links";
+import {absoluteSourceUrl, sharedSourceFromUrl} from "@/lib/source-links";
 import {
   readWorkspaceDraft,
   recordConversionHistory,
@@ -115,8 +115,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
   }, [mode, outputLanguage, slug]);
 
   useEffect(() => {
-    const url = new URL(window.location.href);
-    const sharedSource = url.searchParams.get("source");
+    const sharedSource = sharedSourceFromUrl(window.location.href);
     if (sharedSource) {
       setPrompt(sharedSource);
       setGeneratedCode(sharedSource);
@@ -449,8 +448,8 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             <Button
               onClick={() =>
                 svg &&
-                void runAction(copy.exportPng, "tool_export_png", () => {
-                  void downloadSvgAsPng(svg, `${slug}.png`);
+                void runAction(copy.exportPng, "tool_export_png", async () => {
+                  await downloadSvgAsPng(svg, `${slug}.png`);
                   recordExport("png");
                 })
               }
@@ -597,6 +596,13 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       tool_slug: slug,
       renderer: "ai",
       source_length: (generatedCode || prompt).length,
+      intent: "batch_conversion"
+    });
+    trackEvent("tool_export_success", {
+      tool_slug: slug,
+      renderer: "ai",
+      source_length: (generatedCode || prompt).length,
+      artifact_type: artifactType,
       intent: "batch_conversion"
     });
     setPostActionIntent("batch_conversion");

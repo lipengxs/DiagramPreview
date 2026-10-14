@@ -6,8 +6,8 @@ This document lists the GA events used to understand tool discovery, retention, 
 
 | Event | Trigger | Key parameters |
 | --- | --- | --- |
-| `tool_entry_click` | A user opens a tool from homepage search or Popular Tools. | `tool_slug`, `target_tool_slug`, `source`, `has_query`, `query_length` |
-| `tool_related_click` | A user opens a related tool from the SEO content section. | `tool_slug`, `target_tool_slug`, `source` |
+| `tool_entry_click` | A user opens a tool from homepage search or Popular Tools. | `tool_slug`, `target_tool_slug`, `entry_surface`, `has_query`, `query_length` |
+| `tool_related_click` | A user opens a related tool from the SEO content section. | `tool_slug`, `target_tool_slug`, `entry_surface` |
 | `tool_next_step_click` | A user opens a related tool from the workspace next-step module. | `tool_slug`, `target_tool_slug` |
 | `tool_detected_tool_click` | A user follows the detected matching-tool prompt. | `tool_slug`, `target_tool_slug` |
 
@@ -24,7 +24,8 @@ This document lists the GA events used to understand tool discovery, retention, 
 
 | Event | Trigger | Key parameters |
 | --- | --- | --- |
-| `tool_render_success` | A preview renders successfully. | `tool_slug`, `renderer`, `has_svg`, `has_html`, `has_artifact`, `preview_kind` |
+| `tool_render_success` | A preview renders successfully. | `tool_slug`, `renderer`, `render_origin`, `has_svg`, `has_html`, `has_artifact`, `preview_kind` |
+| `tool_render_qualified` | A user-initiated source renders successfully for the first time in the page session. Default sample rendering is excluded. | `tool_slug`, `renderer`, `render_origin`, `source_length` |
 | `tool_render_error` | A preview render fails. | `tool_slug`, `renderer`, `mode`, `output_language` |
 | `tool_copy_code` | A user copies source/generated code. | `tool_slug`, `renderer`, `success` |
 | `tool_copy_html` | A user copies rendered HTML. | `tool_slug`, `renderer`, `success` |
@@ -52,17 +53,19 @@ This document lists the GA events used to understand tool discovery, retention, 
 
 | Event | Trigger | Key parameters |
 | --- | --- | --- |
-| `monetization_cta_view` | A paid-workflow validation CTA renders. | `source`, `tool_slug`, `intent` |
-| `monetization_cta_click` | A user opens a paid-workflow validation CTA. | `source`, `tool_slug`, `intent` |
+| `monetization_cta_view` | A paid-workflow validation CTA renders. | `entry_surface`, `tool_slug`, `intent` |
+| `monetization_cta_click` | A user opens a paid-workflow validation CTA. | `entry_surface`, `tool_slug`, `intent` |
 | `batch_conversion_intent` | A user interacts with the batch conversion beta. | `tool_slug`, `renderer`, `source_length`, `item_count`, `intent` |
-| `advanced_export_intent` | A user interacts with advanced export validation. | `source`, `tool_slug`, `intent` |
-| `waitlist_open` | A user opens the waitlist form. | `source`, `tool_slug`, `intent` |
-| `waitlist_submit` | A user submits the waitlist form. | `source`, `tool_slug`, `team_size`, `intent` |
+| `advanced_export_intent` | A user interacts with advanced export validation. | `entry_surface`, `tool_slug`, `intent` |
+| `waitlist_open` | A user opens the waitlist form. | `entry_surface`, `tool_slug`, `intent` |
+| `waitlist_submit` | A user submits the waitlist form. | `entry_surface`, `tool_slug`, `team_size`, `intent` |
 
 ## Review Notes
 
 - Do not send raw diagram source, prompts, uploaded content, generated code, or full search text to GA.
 - Use `tool_slug` as the primary dimension for tool-level reporting.
-- Use `source` to compare homepage search, Popular Tools, SEO related links, and workspace next-step recommendations.
+- Use `entry_surface` to compare homepage search, Popular Tools, SEO related links, and workspace next-step recommendations. Avoid the reserved `source` analytics parameter.
 - Use `success=false` action events to identify browser permission or export failures.
+- Mark `tool_render_qualified` and `tool_export_success` as GA4 key events. Do not mark automatic `tool_render_success` as a key event.
+- Manual `page_view` removes diagram `source` from query strings and fragments before sending `page_location`.
 - Monetization events may include source length or item count, but never raw source, prompt, generated code, or diagram content.

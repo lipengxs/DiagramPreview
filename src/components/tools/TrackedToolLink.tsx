@@ -31,7 +31,7 @@ export function TrackedToolLink({
         trackEvent(eventName, {
           tool_slug: toolSlug ?? targetToolSlug,
           target_tool_slug: targetToolSlug,
-          source
+          entry_surface: source
         })
       }
     >

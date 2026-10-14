@@ -2,7 +2,7 @@
 
 import {Star} from "lucide-react";
 import dynamic from "next/dynamic";
-import {useEffect, useMemo, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import {CodeEditor} from "./CodeEditor";
 import {ExportToolbar} from "./ExportToolbar";
 import {NextStepRecommendations} from "./NextStepRecommendations";
@@ -16,7 +16,7 @@ import {detectInputTool} from "@/lib/input-detector";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
 import {printPreview} from "@/lib/exporters/pdf";
 import {copyText, downloadText} from "@/lib/exporters/svg";
-import {absoluteSourceUrl, markdownSnippet} from "@/lib/source-links";
+import {absoluteSourceUrl, markdownSnippet, sharedSourceFromUrl, sourceUrl} from "@/lib/source-links";
 import {recordRecentTool} from "@/lib/recent-tools";
 import {isFavoriteTool, setFavoriteTool} from "@/lib/favorite-tools";
 import {trackEvent, type AnalyticsEventName} from "@/lib/analytics";
@@ -115,8 +115,11 @@ type RenderState = {
     content: string;
   };
   formSchema?: RJSFSchema;
+  notices?: string[];
   error?: string;
 };
+
+type RenderOrigin = "default_sample" | "user_edit" | "sample_click" | "shared_source" | "draft_restore";
 
 export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   const firstSample = useMemo(() => copy.samples[tool.sampleKeys[0]], [copy.samples, tool.sampleKeys]);
@@ -129,6 +132,8 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   const [draftDismissed, setDraftDismissed] = useState(false);
   const [showWorkflowWaitlist, setShowWorkflowWaitlist] = useState(false);
   const [postActionIntent, setPostActionIntent] = useState<MonetizationIntent>("advanced_export");
+  const renderOriginRef = useRef<RenderOrigin>("default_sample");
+  const qualifiedRenderTrackedRef = useRef(false);
   const detectedTool = useMemo(() => detectInputTool(source), [source]);
   const suggestedTool = detectedTool?.slug !== tool.slug ? detectedTool : null;
   const uiCopy = getUiCopy(copy);
@@ -144,9 +149,9 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   }, [tool.implemented, tool.renderer, tool.slug]);
 
   useEffect(() => {
-    const url = new URL(window.location.href);
-    const sharedSource = url.searchParams.get("source");
+    const sharedSource = sharedSourceFromUrl(window.location.href);
     if (sharedSource) {
+      renderOriginRef.current = "shared_source";
       setSource(sharedSource);
       return;
     }
@@ -199,14 +204,8 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
         const nextState = await renderSource(tool.renderer, source, copy, tool.slug);
         if (!cancelled) {
           setRenderState(nextState);
-          setStatus(copy.statusReady);
-          trackEvent("tool_render_success", {
-            tool_slug: tool.slug,
-            renderer: tool.renderer,
-            has_svg: Boolean(nextState.svg),
-            has_html: Boolean(nextState.html),
-            has_artifact: Boolean(nextState.artifact)
-          });
+          setStatus(nextState.imageUrl ? copy.statusRendering : copy.statusReady);
+          if (!nextState.imageUrl) trackRenderSuccess(nextState);
         }
       } catch (error) {
         if (!cancelled) {
@@ -260,6 +259,8 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
                     tool_slug: tool.slug,
                     sample_key: key
                   });
+                  renderOriginRef.current = "sample_click";
+                  if (sample.code === source && hasRenderedOutput(renderState)) trackQualifiedRender("sample_click");
                   setSource(sample.code);
                 }}
                 type="button"
@@ -307,8 +308,8 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             }
             onExportPng={() =>
               renderState.svg &&
-              void runAction(copy.actions.exportPng, "tool_export_png", () => {
-                void downloadSvgAsPng(renderState.svg ?? "", `${tool.slug}.png`);
+              void runAction(copy.actions.exportPng, "tool_export_png", async () => {
+                await downloadSvgAsPng(renderState.svg ?? "", `${tool.slug}.png`);
                 recordExport("png");
               })
             }
@@ -322,7 +323,6 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             onPrint={() =>
               void runAction(copy.actions.exportPdf, "tool_export_pdf", () => {
                 printPreview();
-                recordExport("pdf");
               })
             }
             onClear={() => {
@@ -341,13 +341,21 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
               This input may work better in the matching tool.
               {" "}
               <Link
-                href={`/${suggestedTool.slug}?source=${encodeURIComponent(source)}`}
+                href={sourceUrl(`/${suggestedTool.slug}`, source)}
                 className="font-semibold text-primary hover:underline"
                 onClick={() => trackEvent("tool_detected_tool_click", {tool_slug: tool.slug, target_tool_slug: suggestedTool.slug})}
               >
                 Open {suggestedTool.label} tool
               </Link>
             </p>
+          </div>
+        ) : null}
+        {renderState.notices?.length ? (
+          <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+            <div className="font-semibold">{hasCjk(copy.inputLabel) ? "转换与隐私提示" : "Conversion and privacy notes"}</div>
+            <ul className="mt-2 grid gap-1">
+              {renderState.notices.map((notice) => <li key={notice}>- {notice}</li>)}
+            </ul>
           </div>
         ) : null}
         {draftToRestore && !draftDismissed ? (
@@ -360,6 +368,7 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
                 type="button"
                 variant="primary"
                 onClick={() => {
+                  renderOriginRef.current = "draft_restore";
                   setSource(draftToRestore.source);
                   setDraftDismissed(true);
                   trackEvent("workspace_draft_restored", {tool_slug: tool.slug, renderer: tool.renderer});
@@ -380,7 +389,15 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
           </div>
         ) : null}
         <div className="grid gap-5">
-          <CodeEditor label={copy.inputLabel} value={source} placeholder={copy.placeholder} onChange={setSource} />
+          <CodeEditor
+            label={copy.inputLabel}
+            value={source}
+            placeholder={copy.placeholder}
+            onChange={(value) => {
+              renderOriginRef.current = "user_edit";
+              setSource(value);
+            }}
+          />
           <PreviewPane
             label={copy.outputLabel}
             status={status}
@@ -388,6 +405,15 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             error={renderState.error}
             html={renderState.html}
             imageUrl={renderState.imageUrl}
+            onImageLoad={() => {
+              setStatus(copy.statusReady);
+              trackRenderSuccess(renderState);
+            }}
+            onImageError={() => {
+              setStatus(copy.statusReady);
+              setRenderState({error: renderErrorMessage(new Error("The remote renderer did not return an image."), copy.renderError, tool.renderer)});
+              trackEvent("tool_render_error", {tool_slug: tool.slug, renderer: tool.renderer, reason: "remote_image_load"});
+            }}
             tree={renderState.tree}
             fallback={fallback}
             normalizePreviewHeadings={tool.renderer !== "markdown"}
@@ -465,8 +491,40 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
       source_length: source.length,
       intent: "batch_conversion"
     });
+    trackEvent("tool_export_success", {
+      tool_slug: tool.slug,
+      renderer: tool.renderer,
+      source_length: source.length,
+      artifact_type: artifactType,
+      intent: "batch_conversion"
+    });
     setPostActionIntent("batch_conversion");
     setShowWorkflowWaitlist(true);
+  }
+
+  function trackRenderSuccess(nextState: RenderState) {
+    const origin = renderOriginRef.current;
+    trackEvent("tool_render_success", {
+      tool_slug: tool.slug,
+      renderer: tool.renderer,
+      render_origin: origin,
+      has_svg: Boolean(nextState.svg),
+      has_html: Boolean(nextState.html),
+      has_artifact: Boolean(nextState.artifact)
+    });
+
+    trackQualifiedRender(origin);
+  }
+
+  function trackQualifiedRender(origin: RenderOrigin) {
+    if (origin === "default_sample" || qualifiedRenderTrackedRef.current) return;
+    qualifiedRenderTrackedRef.current = true;
+    trackEvent("tool_render_qualified", {
+      tool_slug: tool.slug,
+      renderer: tool.renderer,
+      render_origin: origin,
+      source_length: source.length
+    });
   }
 }
 
@@ -658,6 +716,38 @@ function renderErrorMessage(error: unknown, fallback: string, renderer: ToolRunt
   return hint ? `${message} ${hint}` : message;
 }
 
+function conversionNotices(
+  diagramType: string,
+  stats: {nodes: number; edges: number},
+  warnings: string[],
+  localizedInputLabel?: string
+) {
+  if (!hasCjk(localizedInputLabel || "")) {
+    return [`Detected ${diagramType}: ${stats.nodes} nodes, ${stats.edges} relationships.`, ...warnings];
+  }
+
+  return [
+    `识别为 ${diagramType}：${stats.nodes} 个节点，${stats.edges} 条关系。`,
+    ...warnings.map(translateConversionWarningToZh)
+  ];
+}
+
+function hasRenderedOutput(state: RenderState) {
+  return Boolean(state.svg || state.html || state.imageUrl || state.tree || state.artifact || state.formSchema);
+}
+
+function translateConversionWarningToZh(warning: string) {
+  if (warning.startsWith("Subgraph boundaries")) return "subgraph 边界会被展开，请在 diagrams.net 中检查分组。";
+  if (warning.startsWith("Mermaid styling")) return "Mermaid 样式不会保留到可编辑的 draw.io XML。";
+  if (warning.startsWith("Click actions")) return "click 动作和链接不会保留到 draw.io XML。";
+  if (warning.startsWith("Sequence groups")) return "时序图分组和 note 会被展开，请检查导出布局。";
+  const nodeLimit = warning.match(/^Only the first 36 of (\d+) nodes/);
+  if (nodeLimit) return `共识别 ${nodeLimit[1]} 个节点，仅导出前 36 个。`;
+  const edgeLimit = warning.match(/^Only the first 40 of (\d+) relationships/);
+  if (edgeLimit) return `共识别 ${edgeLimit[1]} 条关系，仅导出前 40 条。`;
+  return warning;
+}
+
 function shareUrl(slug: ToolSlug, source: string) {
   if (typeof window === "undefined") {
     return "";
@@ -771,7 +861,14 @@ async function renderSource(
     }
     case "plantuml": {
       const {plantUmlSvgUrl} = await import("@/lib/renderers/plantuml");
-      return {imageUrl: plantUmlSvgUrl(source)};
+      return {
+        imageUrl: plantUmlSvgUrl(source),
+        notices: [
+          hasCjk(copy.inputLabel)
+            ? "PlantUML 源码会发送到公共 PlantUML 渲染服务。敏感图请使用可信的私有 renderer。"
+            : "PlantUML source is sent to the public PlantUML renderer. Use a trusted private renderer for sensitive diagrams."
+        ]
+      };
     }
     case "json": {
       const {parseJsonTree} = await import("@/lib/renderers/tree");
@@ -832,15 +929,17 @@ async function renderSource(
       return {
         html: result.svg,
         svg: result.svg,
+        notices: conversionNotices(result.diagramType, result.stats, result.warnings, copy.inputLabel),
         artifact: {filename: `${copyFileName("plantuml-diagram")}.drawio`, mime: "application/xml;charset=utf-8", content: result.xml}
       };
     }
     case "mermaid-to-drawio": {
       const {convertMermaidToDrawio} = await import("@/lib/renderers/drawio-converters");
-      const result = convertMermaidToDrawio(source);
+      const result = await convertMermaidToDrawio(source);
       return {
         html: result.svg,
         svg: result.svg,
+        notices: conversionNotices(result.diagramType, result.stats, result.warnings, copy.inputLabel),
         artifact: {filename: `${copyFileName("mermaid-diagram")}.drawio`, mime: "application/xml;charset=utf-8", content: result.xml}
       };
     }

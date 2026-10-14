@@ -478,6 +478,7 @@ export const tools: ToolConfig[] = [
     recentlyAdded: true,
     priority: 71,
     implemented: true,
+    updatedAt: "2026-10-13",
     renderer: "mermaid-to-drawio",
     sampleKeys: ["flowchart", "sequence", "architecture"]
   },
@@ -939,6 +940,7 @@ export const tools: ToolConfig[] = [
     popular: true,
     priority: 90,
     implemented: true,
+    updatedAt: "2026-10-13",
     renderer: "plantuml",
     sampleKeys: ["sequence", "class", "usecase", "activity"]
   },

@@ -26,7 +26,7 @@ export function WaitlistCta({locale, source, toolSlug, intent = source === "plug
   async function submit() {
     setStatus("loading");
     trackEvent("waitlist_submit", {
-      source,
+      entry_surface: source,
       tool_slug: toolSlug,
       team_size: teamSize,
       intent
@@ -64,7 +64,7 @@ export function WaitlistCta({locale, source, toolSlug, intent = source === "plug
           variant="primary"
           onClick={() => {
             setOpen((value) => !value);
-            trackEvent("waitlist_open", {source, tool_slug: toolSlug, intent});
+            trackEvent("waitlist_open", {entry_surface: source, tool_slug: toolSlug, intent});
           }}
         >
           {copy.action}

@@ -51,13 +51,13 @@ export const seoSubmissionToolSlugsByLocale: SeoSubmissionTargets = {
     "text-to-mermaid",
     "mermaid-preview",
     "mermaid-to-drawio",
+    "plantuml-preview",
     "plantuml-to-drawio",
     "drawio-preview",
     "openapi-to-sequence",
     "api-error-flow-diagram",
     "json-schema-visualizer",
-    "json-schema-form-preview",
-    "protobuf-schema-visualizer"
+    "json-schema-form-preview"
   ],
   "zh-CN": [
     "text-to-mermaid",

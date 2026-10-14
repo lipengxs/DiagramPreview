@@ -82,6 +82,11 @@ const workflowPaths = [
     tools: ["text-to-mermaid", "mermaid-preview", "mermaid-ai-fixer", "mermaid-to-drawio", "drawio-preview"]
   },
   {
+    label: "PlantUML handoff workflow",
+    labelZh: "PlantUML 交付工作流",
+    tools: ["plantuml-preview", "plantuml-to-drawio", "drawio-preview"]
+  },
+  {
     label: "API debugging workflow",
     labelZh: "API 排障工作流",
     tools: ["openapi-to-sequence", "postman-collection-sequence-diagram", "har-file-sequence-diagram", "api-error-flow-diagram"]

@@ -7,7 +7,7 @@ const EXPECTED_CORE_PATHS = [
   "/en/preview-tools",
   "/en/developer-diagrams",
   "/en/data-visualizers",
-  ...["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "plantuml-to-drawio", "drawio-preview", "openapi-to-sequence", "api-error-flow-diagram", "json-schema-visualizer", "json-schema-form-preview", "protobuf-schema-visualizer"].map((slug) => `/en/${slug}`),
+  ...["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "plantuml-preview", "plantuml-to-drawio", "drawio-preview", "openapi-to-sequence", "api-error-flow-diagram", "json-schema-visualizer", "json-schema-form-preview"].map((slug) => `/en/${slug}`),
   ...["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "drawio-preview", "openapi-to-sequence", "json-schema-visualizer"].map((slug) => `/zh-CN/${slug}`),
   "/es/protobuf-schema-visualizer",
   "/fr/openapi-to-sequence",

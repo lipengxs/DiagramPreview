@@ -3,13 +3,14 @@ import {getMessages, setRequestLocale} from "next-intl/server";
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
 import Script from "next/script";
-import type {ReactNode} from "react";
+import {Suspense, type ReactNode} from "react";
 import "../globals.css";
 import {SiteFooter} from "@/components/layout/SiteFooter";
 import {SiteHeader} from "@/components/layout/SiteHeader";
 import {tools} from "@/config/tools";
 import {routing} from "@/i18n/routing";
 import type {Locale} from "@/config/locales";
+import {GoogleAnalyticsPageView} from "@/components/analytics/GoogleAnalyticsPageView";
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -53,9 +54,12 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-ED9W50FK0X');
+            gtag('config', 'G-ED9W50FK0X', {send_page_view: false});
           `}
         </Script>
+        <Suspense fallback={null}>
+          <GoogleAnalyticsPageView />
+        </Suspense>
       </body>
     </html>
   );

@@ -3,17 +3,29 @@ import type {ToolConfig} from "@/config/tools";
 export function sourceUrl(path: string, source: string) {
   const url = new URL(path, "https://diagrampreview.com");
   if (source.trim()) {
-    url.searchParams.set("source", source);
+    url.hash = sourceHash(source);
   }
-  return `${url.pathname}${url.search}`;
+  return `${url.pathname}${url.search}${url.hash}`;
 }
 
 export function absoluteSourceUrl(origin: string, pathname: string, source: string) {
   const url = new URL(pathname, origin);
   if (source.trim()) {
-    url.searchParams.set("source", source);
+    url.hash = sourceHash(source);
   }
   return url.toString();
+}
+
+export function sharedSourceFromUrl(value: string) {
+  const url = new URL(value);
+  const hashSource = new URLSearchParams(url.hash.replace(/^#/, "")).get("source");
+  return hashSource || url.searchParams.get("source") || "";
+}
+
+function sourceHash(source: string) {
+  const params = new URLSearchParams();
+  params.set("source", source);
+  return params.toString();
 }
 
 export function markdownSnippet(source: string, url: string, renderer: ToolConfig["renderer"]) {
