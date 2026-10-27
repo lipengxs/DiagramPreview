@@ -1,6 +1,7 @@
 import type {ToolSlug} from "./tools";
+import {designSpecSources} from "./design-spec-template";
 
-export type TemplateCategory = "mermaid" | "drawio" | "api" | "schema" | "devops";
+export type TemplateCategory = "documentation" | "mermaid" | "drawio" | "api" | "schema" | "devops";
 
 export type TemplateConfig = {
   slug: string;
@@ -9,9 +10,16 @@ export type TemplateConfig = {
   title: string;
   description: string;
   source: string;
+  downloadHref?: string;
+  translations?: Record<string, {title: string; description: string; source: string; downloadHref?: string}>;
 };
 
 export const templateCategories: Array<{id: TemplateCategory; title: string; description: string}> = [
+  {
+    id: "documentation",
+    title: "Design specification templates",
+    description: "Editable Markdown specifications for consistent UI behavior and review."
+  },
   {
     id: "mermaid",
     title: "Mermaid documentation templates",
@@ -40,6 +48,23 @@ export const templateCategories: Array<{id: TemplateCategory; title: string; des
 ];
 
 export const templates: TemplateConfig[] = [
+  {
+    slug: "workspace-design-spec",
+    category: "documentation",
+    tool: "markdown-preview",
+    title: "Markdown design specification",
+    description: "A workspace settings specification with design tokens, component states, responsive rules, and acceptance criteria.",
+    source: designSpecSources.en,
+    downloadHref: "/templates/design-specs/workspace-settings.en.md",
+    translations: {
+      "zh-CN": {
+        title: "Markdown 设计规范模板",
+        description: "工作区设置完整示例，包含设计变量、组件状态、响应式规则和验收清单。",
+        source: designSpecSources["zh-CN"],
+        downloadHref: "/templates/design-specs/workspace-settings.zh-CN.md"
+      }
+    }
+  },
   {
     slug: "readme-service-flow",
     category: "mermaid",
@@ -137,3 +162,7 @@ export const templates: TemplateConfig[] = [
     source: "apiVersion: v1\nkind: Service\nmetadata:\n  name: diagram-preview\nspec:\n  selector:\n    app: diagram-preview\n  ports:\n    - port: 80\n      targetPort: 3000"
   }
 ];
+
+export function getLocalizedTemplates(locale: string) {
+  return templates.map((template) => ({...template, ...template.translations?.[locale]}));
+}

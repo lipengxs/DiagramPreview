@@ -10,14 +10,14 @@ type CodeEditorProps = {
 
 export function CodeEditor({label, value, placeholder, onChange, minHeightClassName = "min-h-[320px]"}: CodeEditorProps) {
   return (
-    <label className={`flex ${minHeightClassName} flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-950`}>
+    <label className={`flex min-w-0 ${minHeightClassName} flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-950`}>
       <span className="border-b border-slate-800 px-4 py-3 text-sm font-semibold text-slate-200">{label}</span>
       <textarea
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         spellCheck={false}
-        className="min-h-0 flex-1 resize-none bg-slate-950 p-4 font-mono text-sm leading-6 text-slate-100 outline-none placeholder:text-slate-500"
+        className="min-h-0 min-w-0 w-full flex-1 resize-none overflow-auto bg-slate-950 p-4 font-mono text-sm leading-6 text-slate-100 outline-none placeholder:text-slate-500"
       />
     </label>
   );

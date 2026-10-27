@@ -8,19 +8,24 @@ const EXPECTED_CORE_PATHS = [
   "/en/developer-diagrams",
   "/en/data-visualizers",
   ...["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "plantuml-preview", "plantuml-to-drawio", "drawio-preview", "openapi-to-sequence", "api-error-flow-diagram", "json-schema-visualizer", "json-schema-form-preview"].map((slug) => `/en/${slug}`),
-  ...["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "drawio-preview", "openapi-to-sequence", "json-schema-visualizer"].map((slug) => `/zh-CN/${slug}`),
+  ...["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "drawio-preview", "plantuml-preview", "d2-preview", "openapi-to-sequence", "json-schema-visualizer"].map((slug) => `/zh-CN/${slug}`),
   "/es/protobuf-schema-visualizer",
+  "/es/drawio-preview",
   "/fr/openapi-to-sequence",
   "/de/drawio-preview",
   ...["ai-generated-mermaid-workflow", "open-drawio-file-online", "mermaid-to-drawio-documentation-workflow", "api-debugging-sequence-diagram", "schema-visualization-workflow"].map((slug) => `/en/workflows/${slug}`),
   "/en/blog",
   "/en/blog/chatgpt-mermaid-preview-workflow",
   "/en/blog/api-debugging-preview-har-postman-openapi",
-  "/en/blog/schema-preview-workflow-json-schema-zod-typescript"
+  "/en/blog/schema-preview-workflow-json-schema-zod-typescript",
+  "/en/blog/plantuml-to-drawio-editable-diagram"
 ];
 const EXPECTED_CORE_URLS = EXPECTED_CORE_PATHS.length;
+if (EXPECTED_CORE_URLS !== 39) throw new Error("The reviewed core search list must contain 39 URLs.");
 const baseUrl = normalizeBaseUrl(process.argv[2] || process.env.SITE_URL || DEFAULT_BASE_URL);
 const failures = [];
+const pageCache = new Map();
+let alternateChecks = 0;
 
 const robotsResponse = await fetchChecked(new URL("/robots.txt", baseUrl), "robots.txt");
 const robots = await robotsResponse.text();
@@ -57,16 +62,29 @@ for (const pathname of actualPaths) {
 const results = await mapWithConcurrency(uniqueUrls, 8, async (canonicalUrl) => {
   const target = new URL(new URL(canonicalUrl).pathname, baseUrl);
   try {
-    const response = await fetch(target, {redirect: "manual", headers: {"user-agent": "DiagramPreviewSeoAudit/1.0"}});
+    const response = await readPage(target);
     const issues = [];
     if (response.status !== 200) issues.push(`HTTP ${response.status}`);
-    if (response.status >= 300 && response.status < 400) issues.push(`redirects to ${response.headers.get("location") || "unknown"}`);
-    const html = await response.text();
+    if (response.status >= 300 && response.status < 400) issues.push(`redirects to ${response.location || "unknown"}`);
+    const html = response.html;
     const canonical = extractTagAttribute(html, "link", "rel", "canonical", "href");
     const robotsValue = extractTagAttribute(html, "meta", "name", "robots", "content")?.toLowerCase();
     if (canonical !== canonicalUrl) issues.push(`canonical is ${canonical || "missing"}`);
     if (!robotsValue?.includes("index") || !robotsValue.includes("follow") || robotsValue.includes("noindex")) {
       issues.push(`robots meta is ${robotsValue || "missing"}`);
+    }
+    const languages = languageLinks(html);
+    const currentLocale = new URL(canonicalUrl).pathname.split("/")[1];
+    if (languages[currentLocale] !== canonicalUrl) issues.push("hreflang is missing its self-reference");
+    for (const [language, href] of Object.entries(languages)) {
+      alternateChecks++;
+      const alternate = new URL(href);
+      if (alternate.origin !== new URL(canonicalUrl).origin) {issues.push(`hreflang ${language} uses an unexpected origin`); continue;}
+      const translated = await readPage(new URL(alternate.pathname, baseUrl));
+      const translatedCanonical = extractTagAttribute(translated.html, "link", "rel", "canonical", "href");
+      const translatedRobots = extractTagAttribute(translated.html, "meta", "name", "robots", "content");
+      if (translated.status !== 200 || translatedCanonical !== href || !translatedRobots || /noindex/i.test(translatedRobots)) issues.push(`hreflang ${language} must point to an indexable self-canonical HTTP 200 page: ${href}`);
+      if (language !== "x-default" && languageLinks(translated.html)[currentLocale] !== canonicalUrl) issues.push(`hreflang ${language} does not link back to ${currentLocale}`);
     }
     return {url: canonicalUrl, issues};
   } catch (error) {
@@ -81,13 +99,32 @@ for (const result of results) {
 console.log(`SEO submission audit: ${baseUrl}`);
 console.log(`Core sitemap URLs: ${sitemapUrls.length} (${uniqueUrls.length} unique)`);
 console.log(`Pages checked: ${results.length}`);
+console.log(`Hreflang targets checked: ${alternateChecks} (cached by URL, with reciprocal references)`);
 
 if (failures.length) {
   console.error(`Audit failed with ${failures.length} issue(s):`);
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log("Audit passed: robots, sitemap, status, canonical, and robots meta are consistent.");
+  console.log("Audit passed: robots, sitemap, status, canonical, robots meta, and page-level hreflang are consistent.");
+}
+
+function readPage(url) {
+  const key = String(url);
+  if (!pageCache.has(key)) pageCache.set(key, (async () => {
+    const response = await fetch(url, {redirect: "manual", headers: {"user-agent": "DiagramPreviewSeoAudit/1.0"}});
+    return {status: response.status, location: response.headers.get("location"), html: await response.text()};
+  })());
+  return pageCache.get(key);
+}
+
+function languageLinks(html) {
+  const result = {};
+  for (const tag of html.match(/<link\b[^>]*>/gi) || []) {
+    const attrs = Object.fromEntries([...tag.matchAll(/([:\w-]+)\s*=\s*(["'])(.*?)\2/g)].map((match) => [match[1].toLowerCase(), match[3]]));
+    if (attrs.rel === "alternate" && attrs.hreflang && attrs.href) result[attrs.hreflang] = attrs.href;
+  }
+  return result;
 }
 
 async function fetchChecked(url, label) {

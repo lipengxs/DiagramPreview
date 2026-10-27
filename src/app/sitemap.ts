@@ -10,7 +10,7 @@ import {workflows} from "@/config/workflows";
 import {getToolLastModified} from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const latestContentDate = latestDate(sitemapBlogPosts.map((post) => post.date));
+  const latestContentDate = latestDate(sitemapBlogPosts.map((post) => post.updatedAt ?? post.date));
   const urls: MetadataRoute.Sitemap = [];
 
   for (const locale of indexableLocales) {
@@ -68,7 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       for (const post of sitemapBlogPosts) {
         urls.push({
           url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
-          lastModified: new Date(post.date),
+          lastModified: new Date(post.updatedAt ?? post.date),
           changeFrequency: "monthly",
           priority: 0.68
         });

@@ -28,5 +28,9 @@ export function recordRecentTool(storage: Storage, slug: string, now = Date.now(
     .concat(readRecentTools(storage).filter((entry) => entry.slug !== slug))
     .slice(0, maxRecentTools);
 
-  storage.setItem(recentToolsStorageKey, JSON.stringify(nextEntries));
+  try {
+    storage.setItem(recentToolsStorageKey, JSON.stringify(nextEntries));
+  } catch {
+    // Recent history is optional; a full quota must not prevent workspace startup.
+  }
 }

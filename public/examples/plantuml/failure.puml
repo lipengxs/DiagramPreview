@@ -1,0 +1,4 @@
+@startuml
+Alice -> Bob: ping
+this is invalid syntax ???
+@enduml

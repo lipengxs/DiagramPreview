@@ -1,0 +1,6 @@
+flowchart LR
+ Client -->|HTTPS| Gateway
+ Gateway -->|REST| Orders
+ Orders -->|SQL| Database
+ Orders -->|order.created| Queue
+ Queue -->|consume| Worker

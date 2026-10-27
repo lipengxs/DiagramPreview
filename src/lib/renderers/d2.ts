@@ -7,28 +7,36 @@ type D2Edge = {
 };
 
 export function renderD2Preview(source: string) {
+  const atom = /^(?:"[^"\n]+"|[\p{L}\p{N}_-]+)$/u;
+  const reserved = /^(?:direction|shape|style|classes|vars|layout|grid-rows|grid-columns|icon|near|label|tooltip|link|constraint)$/i;
+  const unsupported = () => new Error("Unsupported D2 syntax. This basic preview supports flat nodes, labels and -> chains only; use the official D2 renderer for containers, styles, attributes or sequence diagrams.");
   const labels = new Map<string, string>();
   const edges: D2Edge[] = [];
   const nodeOrder: string[] = [];
 
   const addNode = (raw: string) => {
+    if (!atom.test(raw.trim()) || reserved.test(raw.trim())) throw unsupported();
     const id = normalizeNodeId(raw);
     if (!id) return id;
     if (!nodeOrder.includes(id)) nodeOrder.push(id);
+    if (nodeOrder.length > 100) throw new Error("D2 preview limit: 100 nodes and 200 relationships. Split the diagram.");
     return id;
   };
 
   for (const rawLine of source.split(/\r?\n/)) {
     const line = rawLine.trim();
     if (!line || line.startsWith("#") || line.startsWith("//")) continue;
+    if (/[{};\[\]<>]/.test(line.replaceAll("->", "")) || line.includes("#") || line.includes("--")) throw unsupported();
 
     if (line.includes("->")) {
       const [chainPart, edgeLabel] = splitEdgeLabel(line);
-      const parts = chainPart.split("->").map(normalizeNodeId).filter(Boolean);
+      const parts = chainPart.split("->").map((part) => part.trim());
+      if (parts.some((part) => !part)) throw unsupported();
       for (let index = 0; index < parts.length - 1; index += 1) {
         const from = addNode(parts[index]);
         const to = addNode(parts[index + 1]);
         if (from && to) edges.push({from, to, label: edgeLabel});
+        if (edges.length > 200) throw new Error("D2 preview limit: 100 nodes and 200 relationships. Split the diagram.");
       }
       continue;
     }

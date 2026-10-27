@@ -21,11 +21,12 @@ export function ToolCategoryGrid() {
               {t(hub.titleKey)}
             </Link>
             <div className="mt-4 flex flex-col gap-2">
-              {categoryTools.map((tool) => (
+              {categoryTools.slice(0, 4).map((tool) => (
                 <Link key={tool.slug} href={`/${tool.slug}`} className="text-sm text-slate-600 hover:text-primary">
                   {t(`tools.${tool.slug}.name`)}
                 </Link>
               ))}
+              <Link href={hub.href} className="mt-2 text-sm font-semibold text-primary hover:underline">{t(hub.titleKey)} →</Link>
             </div>
           </div>
         );

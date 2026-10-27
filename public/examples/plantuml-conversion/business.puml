@@ -1,0 +1,7 @@
+@startuml
+component Web
+component API
+database Database
+Web -> API: HTTPS
+API -> Database: SQL
+@enduml

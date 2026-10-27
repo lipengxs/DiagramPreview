@@ -14,6 +14,8 @@ type PreviewPaneProps = {
   imageUrl?: string;
   onImageLoad?: () => void;
   onImageError?: () => void;
+  onRetry?: () => void;
+  retryLabel?: string;
   tree?: TreeNode;
   fallback?: {
     title: string;
@@ -33,6 +35,8 @@ export function PreviewPane({
   imageUrl,
   onImageLoad,
   onImageError,
+  onRetry,
+  retryLabel = "Retry rendering",
   tree,
   fallback,
   normalizePreviewHeadings,
@@ -51,7 +55,10 @@ export function PreviewPane({
         {error ? (
           <div className="flex items-start gap-3 rounded-md border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700">
             <AlertCircle className="mt-0.5 h-5 w-5 flex-none" />
-            <span>{error}</span>
+            <div>
+              <p>{error}</p>
+              {onRetry ? <button type="button" onClick={onRetry} className="mt-3 rounded-md border border-red-300 bg-white px-3 py-2 font-semibold hover:bg-red-100">{retryLabel}</button> : null}
+            </div>
           </div>
         ) : fallback ? (
           <div className="flex h-full min-h-80 flex-col items-center justify-center rounded-md border border-dashed border-slate-300 bg-surface p-6 text-center">

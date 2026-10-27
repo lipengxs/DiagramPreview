@@ -11,17 +11,19 @@ export type SeoInput = {
   title: string;
   description: string;
   keywords?: string[];
+  pageLocales?: readonly Locale[];
 };
 
-export function buildMetadata({locale, path, title, description, keywords = []}: SeoInput): Metadata {
-  const isIndexableLocale = indexableLocales.includes(locale);
+export function buildMetadata({locale, path, title, description, keywords = [], pageLocales = indexableLocales}: SeoInput): Metadata {
+  const eligibleLocales = pageLocales.filter((candidate) => indexableLocales.includes(candidate));
+  const isIndexableLocale = eligibleLocales.includes(locale);
   const pathWithoutLocale = stripLocalePrefix(path);
-  const canonicalPath = isIndexableLocale ? path : `/${indexableLocales[0]}${pathWithoutLocale}`;
+  const canonicalPath = isIndexableLocale ? path : `/${eligibleLocales[0] ?? defaultLocale}${pathWithoutLocale}`;
   const canonical = absoluteUrl(canonicalPath);
   const languageAlternates = Object.fromEntries(
-    indexableLocales.map((candidate) => [candidate, absoluteUrl(`/${candidate}${pathWithoutLocale}`)])
+    eligibleLocales.map((candidate) => [candidate, absoluteUrl(`/${candidate}${pathWithoutLocale}`)])
   );
-  languageAlternates["x-default"] = absoluteUrl(`/${defaultLocale}${pathWithoutLocale}`);
+  languageAlternates["x-default"] = absoluteUrl(`/${eligibleLocales.includes(defaultLocale) ? defaultLocale : eligibleLocales[0] ?? defaultLocale}${pathWithoutLocale}`);
 
   return {
     metadataBase: new URL(siteConfig.url),
@@ -38,7 +40,7 @@ export function buildMetadata({locale, path, title, description, keywords = []}:
     },
     alternates: {
       canonical,
-      languages: languageAlternates
+      ...(isIndexableLocale ? {languages: languageAlternates} : {})
     },
     robots: isIndexableLocale
       ? {

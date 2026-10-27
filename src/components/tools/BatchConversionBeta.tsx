@@ -13,6 +13,7 @@ type BatchConversionBetaProps = {
   toolSlug: ToolSlug;
   renderer: ToolConfig["renderer"];
   source: string;
+  renderOrigin: string;
 };
 
 type BatchResult = {
@@ -23,11 +24,12 @@ type BatchResult = {
 
 const supportedRenderers = new Set(["mermaid-to-drawio", "plantuml-to-drawio", "openapi"]);
 
-export function BatchConversionBeta({locale, toolSlug, renderer, source}: BatchConversionBetaProps) {
+export function BatchConversionBeta({locale, toolSlug, renderer, source, renderOrigin}: BatchConversionBetaProps) {
   const copy = getCopy(locale);
   const [batchSource, setBatchSource] = useState(source);
   const [results, setResults] = useState<BatchResult[]>([]);
   const [running, setRunning] = useState(false);
+  const [downloadError, setDownloadError] = useState(false);
   const [batchEdited, setBatchEdited] = useState(false);
   const supported = supportedRenderers.has(renderer);
   const items = useMemo(() => splitBatch(batchSource), [batchSource]);
@@ -44,9 +46,12 @@ export function BatchConversionBeta({locale, toolSlug, renderer, source}: BatchC
 
   async function runBatch() {
     setRunning(true);
+    setDownloadError(false);
+    const origin = batchEdited ? "user_edit" : renderOrigin;
     trackEvent("batch_conversion_intent", {
       tool_slug: toolSlug,
       renderer,
+      render_origin: origin,
       source_length: batchSource.length,
       item_count: items.length,
       intent: "batch_conversion"
@@ -83,25 +88,28 @@ export function BatchConversionBeta({locale, toolSlug, renderer, source}: BatchC
     zip.file("README.md", readmeFor(toolSlug, nextResults, copy));
     zip.file("failures.json", JSON.stringify(nextResults.filter((result) => !result.ok), null, 2));
 
-    const blob = await zip.generateAsync({type: "blob"});
-    downloadBlob(blob, `${toolSlug}-batch-beta.zip`);
     setResults(nextResults);
-    setRunning(false);
-    trackEvent("tool_conversion_success", {
-      tool_slug: toolSlug,
-      renderer,
-      source_length: batchSource.length,
-      item_count: items.length,
-      success: nextResults.some((result) => result.ok),
-      intent: "batch_conversion"
-    });
-    trackEvent("tool_export_success", {
-      tool_slug: toolSlug,
-      renderer,
-      source_length: batchSource.length,
-      artifact_type: "zip",
-      intent: "batch_conversion"
-    });
+    const successCount = nextResults.filter((result) => result.ok).length;
+    const params = {
+      tool_slug: toolSlug, renderer, render_origin: origin,
+      source_length: batchSource.length, item_count: items.length,
+      success_count: successCount, failure_count: items.length - successCount,
+      intent: "batch_conversion", artifact_type: "zip"
+    };
+    trackEvent("batch_conversion_complete", {...params, success: successCount > 0});
+    try {
+      const blob = await zip.generateAsync({type: "blob"});
+      downloadBlob(blob, `${toolSlug}-batch-beta.zip`);
+      if (successCount > 0) {
+        trackEvent("tool_conversion_success", {...params, success: true});
+        trackEvent("tool_export_success", {...params, export_stage: "download_initiated"});
+      }
+    } catch {
+      setDownloadError(true);
+      trackEvent("batch_conversion_error", {...params, success: false});
+    } finally {
+      setRunning(false);
+    }
   }
 
   return (
@@ -127,6 +135,7 @@ export function BatchConversionBeta({locale, toolSlug, renderer, source}: BatchC
         className="mt-4 min-h-44 w-full rounded-md border border-purple-100 bg-white p-3 font-mono text-xs leading-5 text-slate-800 outline-none focus:ring-2 focus:ring-primary"
       />
       <p className="mt-2 text-xs leading-5 text-slate-500">{copy.hint.replace("{count}", String(items.length))}</p>
+      {downloadError ? <p role="alert" className="mt-3 text-sm text-red-700">{copy.failed}</p> : null}
       {results.length ? (
         <div className="mt-4 grid gap-2 text-sm">
           {results.map((result) => (

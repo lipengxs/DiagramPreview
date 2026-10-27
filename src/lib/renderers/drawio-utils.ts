@@ -5,6 +5,7 @@ export type DrawioNode = {
   y: number;
   width?: number;
   height?: number;
+  shape?: "rectangle" | "rounded" | "ellipse" | "diamond";
 };
 
 export type DrawioEdge = {
@@ -12,6 +13,9 @@ export type DrawioEdge = {
   source: string;
   target: string;
   label?: string;
+  startArrow?: "none" | "block" | "open" | "oval" | "cross";
+  endArrow?: "none" | "block" | "open" | "oval" | "cross";
+  dashed?: boolean;
 };
 
 export type DrawioDocument = {
@@ -26,11 +30,11 @@ export function createDrawioXml(document: DrawioDocument) {
     `<mxCell id="1" parent="0"/>`,
     ...document.nodes.map(
       (node) =>
-        `<mxCell id="${escapeAttr(node.id)}" value="${escapeAttr(node.label)}" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#0f172a;" vertex="1" parent="1"><mxGeometry x="${node.x}" y="${node.y}" width="${node.width || 150}" height="${node.height || 56}" as="geometry"/></mxCell>`
+        `<mxCell id="${escapeAttr(node.id)}" value="${escapeAttr(node.label)}" style="${node.shape === "ellipse" ? "ellipse;" : node.shape === "diamond" ? "rhombus;" : `rounded=${node.shape === "rectangle" ? 0 : 1};`}whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#2563eb;fontColor=#0f172a;" vertex="1" parent="1"><mxGeometry x="${node.x}" y="${node.y}" width="${node.width || 150}" height="${node.height || 56}" as="geometry"/></mxCell>`
     ),
     ...document.edges.map(
       (edge) =>
-        `<mxCell id="${escapeAttr(edge.id)}" value="${escapeAttr(edge.label || "")}" style="endArrow=block;html=1;rounded=0;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="${escapeAttr(edge.source)}" target="${escapeAttr(edge.target)}"><mxGeometry relative="1" as="geometry"/></mxCell>`
+        `<mxCell id="${escapeAttr(edge.id)}" value="${escapeAttr(edge.label || "")}" style="startArrow=${edge.startArrow || "none"};endArrow=${edge.endArrow || "block"};dashed=${edge.dashed ? 1 : 0};html=0;rounded=0;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="${escapeAttr(edge.source)}" target="${escapeAttr(edge.target)}"><mxGeometry relative="1" as="geometry"/></mxCell>`
     )
   ];
 
@@ -95,7 +99,10 @@ export function renderDrawioShapeSvg(document: DrawioDocument) {
       const y2 = target.y + (target.height || 56) / 2;
       const labelX = (x1 + x2) / 2;
       const labelY = (y1 + y2) / 2 - 8;
-      return `<path d="M ${x1} ${y1} L ${x2} ${y2}" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>${
+      const path = edge.source === edge.target ? `M ${x1} ${source.y} C ${x1 - 100} ${source.y - 70}, ${x1 + 100} ${source.y - 70}, ${x1 + 12} ${source.y}` : `M ${x1} ${y1} L ${x2} ${y2}`;
+      const start = edge.startArrow || "none";
+      const end = edge.endArrow || "block";
+      return `<path d="${path}" stroke="#64748b" stroke-width="2" fill="none"${edge.dashed ? ' stroke-dasharray="6 4"' : ""}${start === "none" ? "" : ` marker-start="url(#arrow-${start})"`}${end === "none" ? "" : ` marker-end="url(#arrow-${end})"`}/>${
         edge.label
           ? `<text x="${labelX}" y="${labelY}" text-anchor="middle" font-size="12" font-family="Inter, ui-sans-serif, system-ui" fill="#475569">${escapeXml(edge.label)}</text>`
           : ""
@@ -107,12 +114,23 @@ export function renderDrawioShapeSvg(document: DrawioDocument) {
     .map((node) => {
       const width = node.width || 150;
       const height = node.height || 56;
-      return `<rect x="${node.x}" y="${node.y}" width="${width}" height="${height}" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/><text x="${node.x + width / 2}" y="${node.y + height / 2 + 4}" text-anchor="middle" font-size="13" font-family="Inter, ui-sans-serif, system-ui" fill="#0f172a">${escapeXml(node.label)}</text>`;
+      const shape = node.shape === "ellipse"
+        ? `<ellipse cx="${node.x + width / 2}" cy="${node.y + height / 2}" rx="${width / 2}" ry="${height / 2}"`
+        : node.shape === "diamond"
+          ? `<polygon points="${node.x + width / 2},${node.y} ${node.x + width},${node.y + height / 2} ${node.x + width / 2},${node.y + height} ${node.x},${node.y + height / 2}"`
+          : `<rect x="${node.x}" y="${node.y}" width="${width}" height="${height}" rx="${node.shape === "rectangle" ? 0 : 8}"`;
+      const lines = node.label.split("\n");
+      return `${shape} fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/><text x="${node.x + width / 2}" y="${node.y + height / 2 + 4 - (lines.length - 1) * 8}" text-anchor="middle" font-size="13" font-family="Inter, ui-sans-serif, system-ui" fill="#0f172a">${lines.map((line, index) => `<tspan x="${node.x + width / 2}" dy="${index ? 16 : 0}">${escapeXml(line)}</tspan>`).join("")}</text>`;
     })
     .join("");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxX} ${maxY}" role="img" aria-label="${escapeAttr(document.title)} diagram">
-    <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+    <defs>${[
+      ["block", '<path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>'],
+      ["open", '<path d="M0,0 L9,3 L0,6" stroke="#64748b" fill="none"/>'],
+      ["oval", '<circle cx="4" cy="3" r="3" fill="#64748b"/>'],
+      ["cross", '<path d="M1,0 L7,6 M1,6 L7,0" stroke="#64748b"/>']
+    ].map(([kind, shape]) => `<marker id="arrow-${kind}" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto-start-reverse" markerUnits="strokeWidth">${shape}</marker>`).join("")}</defs>
     <rect width="${maxX}" height="${maxY}" fill="#f8fafc"/>
     ${edgeSvg}
     ${nodeSvg}
@@ -121,7 +139,7 @@ export function renderDrawioShapeSvg(document: DrawioDocument) {
 
 export function gridLayout(labels: string[], columns = 3) {
   return labels.map((label, index) => ({
-    id: safeId(label || `node_${index + 1}`),
+    id: `node_${index + 1}`,
     label: label || `Node ${index + 1}`,
     x: 60 + (index % columns) * 220,
     y: 60 + Math.floor(index / columns) * 120
@@ -134,7 +152,7 @@ export function safeId(value: string) {
 }
 
 export function escapeAttr(value: string) {
-  return escapeXml(value).replace(/"/g, "&quot;");
+  return escapeXml(value).replace(/"/g, "&quot;").replace(/\n/g, "&#10;").replace(/\r/g, "&#13;");
 }
 
 export function escapeXml(value: string) {

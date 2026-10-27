@@ -1,0 +1,12 @@
+@startuml
+actor Customer
+participant Web
+participant API
+database DB
+Customer -> Web: Sign in
+Web -> API: POST /session
+API -> DB: Find account
+DB --> API: Account
+API --> Web: Session token
+Web --> Customer: Signed in
+@enduml

@@ -6,6 +6,17 @@ export type InputDetection = {
   confidence: "high" | "medium";
 };
 
+export function acceptsDetectedInput(slug: ToolSlug, detected: InputDetection): boolean {
+  if (slug === detected.slug) return true;
+  const compatibleTools: Partial<Record<ToolSlug, ToolSlug[]>> = {
+    "mermaid-preview": ["mermaid-to-drawio", "mermaid-ai-fixer"],
+    "plantuml-preview": ["plantuml-to-drawio"],
+    "drawio-preview": ["drawio-to-svg"],
+    "json-schema-visualizer": ["json-schema-form-preview"]
+  };
+  return compatibleTools[detected.slug]?.includes(slug) ?? false;
+}
+
 export function detectInputTool(source: string): InputDetection | null {
   const value = source.trim();
   if (value.length < 12) return null;
@@ -18,12 +29,12 @@ export function detectInputTool(source: string): InputDetection | null {
     return {slug: "drawio-preview", label: "draw.io XML", confidence: "high"};
   }
 
-  if (/^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|stateDiagram-v2|erDiagram|gantt|journey|pie)\b/i.test(value)) {
-    return {slug: "mermaid-preview", label: "Mermaid", confidence: "high"};
-  }
-
   if (/^(digraph|graph)\s+[\w"]*\s*\{/i.test(value)) {
     return {slug: "graphviz-preview", label: "Graphviz DOT", confidence: "high"};
+  }
+
+  if (/^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|stateDiagram-v2|erDiagram|gantt|journey|pie)\b/i.test(value)) {
+    return {slug: "mermaid-preview", label: "Mermaid", confidence: "high"};
   }
 
   if (/\bCREATE\s+TABLE\b/i.test(value)) {

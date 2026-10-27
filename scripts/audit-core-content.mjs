@@ -13,8 +13,8 @@ const submissionTargets = {
     "json-schema-visualizer",
     "json-schema-form-preview"
   ],
-  "zh-CN": ["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "drawio-preview", "openapi-to-sequence", "json-schema-visualizer"],
-  es: ["protobuf-schema-visualizer"],
+  "zh-CN": ["text-to-mermaid", "mermaid-preview", "mermaid-to-drawio", "drawio-preview", "plantuml-preview", "d2-preview", "openapi-to-sequence", "json-schema-visualizer"],
+  es: ["protobuf-schema-visualizer", "drawio-preview"],
   fr: ["openapi-to-sequence"],
   de: ["drawio-preview"]
 };

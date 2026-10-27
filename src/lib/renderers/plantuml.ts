@@ -1,8 +1,7 @@
 import plantumlEncoder from "plantuml-encoder";
+import {validatePlantUmlSource} from "../plantuml-limits";
 
 export function plantUmlSvgUrl(source: string) {
-  if (!/^\s*@startuml\b/im.test(source) || !/@enduml\s*$/im.test(source)) {
-    throw new Error("PlantUML source must include @startuml and @enduml.");
-  }
+  validatePlantUmlSource(source);
   return `https://www.plantuml.com/plantuml/svg/${plantumlEncoder.encode(source)}`;
 }

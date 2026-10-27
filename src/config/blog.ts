@@ -1,4 +1,7 @@
 export type BlogSlug =
+  | "figma-specs-guide"
+  | "figma-code-layers-guide"
+  | "design-spec-markdown-template"
   | "mermaid-preview-guide"
   | "plantuml-online-preview-workflow"
   | "markdown-mermaid-documentation"
@@ -60,12 +63,47 @@ export type BlogPostConfig = {
   slug: BlogSlug;
   image: string;
   date: string;
+  updatedAt?: string;
   tools: string[];
   tier?: BlogPostTier;
   canonicalSlug?: BlogSlug;
+  relatedPosts?: BlogSlug[];
+};
+
+export type BlogSection = {
+  heading: string;
+  paragraphs: string[];
+  code?: {language: string; content: string; caption?: string};
+  image?: {src: string; alt: string; caption?: string};
+  links?: Array<{label: string; href: string; kind: "internal" | "external"}>;
+  templateSlug?: string;
 };
 
 export const blogPosts: BlogPostConfig[] = [
+  {
+    slug: "figma-specs-guide",
+    image: "/blog/figma-specs-guide.png",
+    date: "2026-10-24",
+    tools: ["markdown-preview"],
+    tier: "supporting",
+    relatedPosts: ["design-spec-markdown-template", "figma-code-layers-guide"]
+  },
+  {
+    slug: "figma-code-layers-guide",
+    image: "/blog/figma-code-layers-guide.png",
+    date: "2026-10-24",
+    tools: ["markdown-preview"],
+    tier: "supporting",
+    relatedPosts: ["figma-specs-guide", "design-spec-markdown-template"]
+  },
+  {
+    slug: "design-spec-markdown-template",
+    image: "/blog/design-spec-markdown-template.png",
+    date: "2026-10-24",
+    tools: ["markdown-preview", "mermaid-preview"],
+    tier: "supporting",
+    relatedPosts: ["figma-specs-guide", "figma-code-layers-guide", "markdown-mermaid-documentation"]
+  },
   {
     slug: "mermaid-preview-guide",
     image: "/blog/mermaid-preview-guide.png",
@@ -118,6 +156,7 @@ export const blogPosts: BlogPostConfig[] = [
     slug: "plantuml-to-drawio-editable-diagram",
     image: "/blog/plantuml-to-drawio-editable-diagram.png",
     date: "2026-06-12",
+    updatedAt: "2026-10-25",
     tools: ["plantuml-to-drawio", "drawio-preview", "drawio-to-svg"]
   },
   {
@@ -413,6 +452,9 @@ export const blogTopics: {slug: BlogTopic; title: string; description: string}[]
 ];
 
 export const blogPostTopics = {
+  "figma-specs-guide": "publishing-preview",
+  "figma-code-layers-guide": "publishing-preview",
+  "design-spec-markdown-template": "publishing-preview",
   "mermaid-preview-guide": "diagram-authoring",
   "plantuml-online-preview-workflow": "diagram-authoring",
   "markdown-mermaid-documentation": "diagram-authoring",

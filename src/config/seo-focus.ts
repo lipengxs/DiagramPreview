@@ -64,10 +64,12 @@ export const seoSubmissionToolSlugsByLocale: SeoSubmissionTargets = {
     "mermaid-preview",
     "mermaid-to-drawio",
     "drawio-preview",
+    "plantuml-preview",
+    "d2-preview",
     "openapi-to-sequence",
     "json-schema-visualizer"
   ],
-  es: ["protobuf-schema-visualizer"],
+  es: ["protobuf-schema-visualizer", "drawio-preview"],
   fr: ["openapi-to-sequence"],
   de: ["drawio-preview"]
 };
@@ -84,7 +86,7 @@ export const seoPriorityHomeToolSlugs: ToolSlug[] = [
   "text-to-mermaid",
   "mermaid-preview",
   "mermaid-to-drawio",
-  "plantuml-to-drawio",
+  "plantuml-preview",
   "drawio-preview",
   "openapi-to-sequence",
   "api-error-flow-diagram",
@@ -97,6 +99,6 @@ export const seoCoreBlogSlugs: BlogSlug[] = [
   "schema-preview-workflow-json-schema-zod-typescript"
 ];
 
-export const seoSubmissionBlogSlugs: BlogSlug[] = seoCoreBlogSlugs;
+export const seoSubmissionBlogSlugs: BlogSlug[] = [...seoCoreBlogSlugs, "plantuml-to-drawio-editable-diagram"];
 
 export const defaultToolUpdatedAt = "2026-07-04";

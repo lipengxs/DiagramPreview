@@ -360,6 +360,7 @@ export const tools: ToolConfig[] = [
     recentlyAdded: true,
     priority: 77,
     implemented: true,
+    updatedAt: "2026-10-25",
     renderer: "plantuml-to-drawio",
     sampleKeys: ["sequence", "component", "class"]
   },
@@ -478,7 +479,7 @@ export const tools: ToolConfig[] = [
     recentlyAdded: true,
     priority: 71,
     implemented: true,
-    updatedAt: "2026-10-13",
+    updatedAt: "2026-10-25",
     renderer: "mermaid-to-drawio",
     sampleKeys: ["flowchart", "sequence", "architecture"]
   },
@@ -940,7 +941,7 @@ export const tools: ToolConfig[] = [
     popular: true,
     priority: 90,
     implemented: true,
-    updatedAt: "2026-10-13",
+    updatedAt: "2026-10-25",
     renderer: "plantuml",
     sampleKeys: ["sequence", "class", "usecase", "activity"]
   },
@@ -1023,6 +1024,7 @@ export const tools: ToolConfig[] = [
     recentlyAdded: true,
     priority: 70,
     implemented: true,
+    updatedAt: "2026-10-25",
     renderer: "d2",
     sampleKeys: ["architecture", "service", "sequence"]
   },
@@ -1034,8 +1036,9 @@ export const tools: ToolConfig[] = [
     recentlyAdded: true,
     priority: 58,
     implemented: true,
+    updatedAt: "2026-10-25",
     renderer: "drawio",
-    sampleKeys: ["xml", "pages", "serviceMap"]
+    sampleKeys: ["xml", "compressed", "pages", "serviceMap"]
   },
   {
     slug: "mind-map-preview",

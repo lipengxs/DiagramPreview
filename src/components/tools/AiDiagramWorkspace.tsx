@@ -1,7 +1,7 @@
 "use client";
 
 import {Copy, Download, ImageDown, Link2, Sparkles, Star, WandSparkles} from "lucide-react";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {WaitlistCta} from "@/components/growth/WaitlistCta";
 import {MonetizationIntentCta} from "@/components/growth/MonetizationIntentCta";
 import type {MonetizationIntent} from "@/components/growth/WaitlistCta";
@@ -17,7 +17,6 @@ import {renderMermaid} from "@/lib/renderers/mermaid";
 import {absoluteSourceUrl, sharedSourceFromUrl} from "@/lib/source-links";
 import {
   readWorkspaceDraft,
-  recordConversionHistory,
   recordExportHistory,
   recordWorkspaceDraft,
   removeWorkspaceDraft,
@@ -90,7 +89,10 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
   const [generatedCode, setGeneratedCode] = useState(firstSample?.code ?? "");
   const [html, setHtml] = useState("");
   const [svg, setSvg] = useState("");
+  const [renderedCode, setRenderedCode] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const renderOrigin = useRef("default_sample");
+  const qualifiedRenderTracked = useRef(false);
   const [provider, setProvider] = useState("");
   const [fallbackErrors, setFallbackErrors] = useState<Array<{provider: string; status?: number; message: string}>>([]);
   const [error, setError] = useState("");
@@ -117,6 +119,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
   useEffect(() => {
     const sharedSource = sharedSourceFromUrl(window.location.href);
     if (sharedSource) {
+      renderOrigin.current = "shared_source";
       setPrompt(sharedSource);
       setGeneratedCode(sharedSource);
       return;
@@ -142,12 +145,12 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
     }
 
     const timeout = window.setTimeout(() => {
-      recordWorkspaceDraft(window.localStorage, {
+      const saved = recordWorkspaceDraft(window.localStorage, {
         toolSlug: slug,
         source,
         artifactType: generatedCode.trim() ? "ai-output" : "draft"
       });
-      trackEvent("workspace_draft_saved", {
+      if (saved) trackEvent("workspace_draft_saved", {
         tool_slug: slug,
         renderer: "ai",
         mode,
@@ -176,9 +179,10 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
           if (!cancelled) {
             setHtml("");
             setSvg("");
+            setRenderedCode(generatedCode);
             setImageUrl(plantUmlSvgUrl(generatedCode));
             setError("");
-            trackRenderSuccess("image");
+            // Remote image success is recorded by onLoad, after it actually loads.
           }
           return;
         }
@@ -189,6 +193,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
           if (!cancelled) {
             setHtml(result.svg);
             setSvg(result.svg);
+            setRenderedCode(generatedCode);
             setImageUrl("");
             setError("");
             trackRenderSuccess("svg");
@@ -215,6 +220,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
         if (!cancelled) {
           setHtml(nextSvg);
           setSvg(nextSvg);
+          setRenderedCode(generatedCode);
           setImageUrl("");
           setError("");
           trackRenderSuccess("svg");
@@ -274,6 +280,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
         throw new Error(formatAiError(data.error || responseText || copy.error, data.providers || [], statusCopy));
       }
 
+      renderOrigin.current = "ai_generated";
       setGeneratedCode(data.code);
       setProvider(data.provider || "");
       setFallbackErrors(data.fallbackErrors || []);
@@ -315,6 +322,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
                   tool_slug: slug,
                   sample_key: key
                 });
+                renderOrigin.current = "sample_click";
                 setPrompt(sample.prompt);
                 setExistingCode(sample.code ?? "");
                 setGeneratedCode(sample.code ?? "");
@@ -353,6 +361,8 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
                 type="button"
                 variant="primary"
                 onClick={() => {
+                  renderOrigin.current = "draft_restore";
+                  setProvider("");
                   setPrompt(draftToRestore.source);
                   setGeneratedCode(draftToRestore.source);
                   setDraftDismissed(true);
@@ -434,26 +444,27 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             </Button>
             <Button
               onClick={() =>
-                svg &&
+                svg && renderedCode === generatedCode &&
                 void runAction(copy.exportSvg, "tool_export_svg", () => {
                   downloadText(`${slug}.svg`, svg, "image/svg+xml;charset=utf-8");
                   recordExport("svg");
                 })
               }
-              disabled={!svg}
+              disabled={!svg || renderedCode !== generatedCode}
             >
               <Download className="h-4 w-4" />
               {copy.exportSvg}
             </Button>
             <Button
               onClick={() =>
-                svg &&
+                svg && renderedCode === generatedCode &&
                 void runAction(copy.exportPng, "tool_export_png", async () => {
+                  const origin = renderOrigin.current;
                   await downloadSvgAsPng(svg, `${slug}.png`);
-                  recordExport("png");
+                  recordExport("png", origin);
                 })
               }
-              disabled={!svg}
+              disabled={!svg || renderedCode !== generatedCode}
             >
               <ImageDown className="h-4 w-4" />
               {copy.exportPng}
@@ -462,7 +473,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
               onClick={() =>
                 void runAction(copy.downloadFile, "tool_download_file", () => {
                   downloadText(fileNameFor(slug, outputLanguage), generatedCode, mimeFor(outputLanguage));
-                  recordConversion(outputLanguage);
+                  recordExport(outputLanguage);
                 })
               }
               disabled={!generatedCode}
@@ -482,7 +493,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
             </span>
             <textarea
               value={generatedCode}
-              onChange={(event) => setGeneratedCode(event.target.value)}
+              onChange={(event) => {renderOrigin.current = "user_edit"; setProvider(""); setGeneratedCode(event.target.value);}}
               spellCheck={false}
               className="min-h-0 flex-1 resize-none bg-slate-950 p-4 font-mono text-sm leading-6 text-slate-100 outline-none placeholder:text-slate-500"
             />
@@ -503,7 +514,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
                 <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700">{error}</div>
               ) : imageUrl ? (
                 <div className="flex h-full min-h-[480px] items-center justify-center">
-                  <img src={imageUrl} alt={copy.previewLabel} className="max-h-full max-w-full" />
+                  <img src={imageUrl} alt={copy.previewLabel} className="max-h-full max-w-full" onLoad={() => {if (renderedCode === generatedCode) trackRenderSuccess("image");}} onError={() => trackEvent("tool_render_error", {tool_slug: slug, renderer: "ai", render_origin: renderOrigin.current, reason: "remote_image_load"})} />
                 </div>
               ) : html ? (
                 <div className="diagram-preview-output" dangerouslySetInnerHTML={{__html: html}} />
@@ -542,8 +553,14 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       renderer: "ai",
       mode,
       output_language: outputLanguage,
+      render_origin: renderOrigin.current,
+      provider: provider || "none",
       preview_kind: kind
     });
+    if (renderOrigin.current !== "default_sample" && !qualifiedRenderTracked.current) {
+      qualifiedRenderTracked.current = true;
+      trackEvent("tool_render_qualified", {tool_slug: slug, renderer: "ai", render_origin: renderOrigin.current, provider: provider || "none", source_length: generatedCode.length});
+    }
   }
 
   async function runAction(label: string, eventName: AnalyticsEventName, action: () => void | Promise<void>) {
@@ -552,6 +569,8 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       trackEvent(eventName, {
         tool_slug: slug,
         renderer: "ai",
+        render_origin: renderOrigin.current,
+        provider: provider || "none",
         success: true
       });
       showToast(successMessage(label, locale));
@@ -559,6 +578,8 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       trackEvent(eventName, {
         tool_slug: slug,
         renderer: "ai",
+        render_origin: renderOrigin.current,
+        provider: provider || "none",
         success: false
       });
       showToast(failureMessage(label, locale));
@@ -570,7 +591,7 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
     window.setTimeout(() => setToast(null), 1800);
   }
 
-  function recordExport(artifactType: string) {
+  function recordExport(artifactType: string, origin = renderOrigin.current) {
     recordExportHistory(window.localStorage, {
       toolSlug: slug,
       source: generatedCode || prompt,
@@ -580,32 +601,13 @@ export function AiDiagramWorkspace({locale, slug, mode, outputLanguage = "mermai
       tool_slug: slug,
       renderer: "ai",
       source_length: (generatedCode || prompt).length,
+      artifact_type: artifactType,
+      render_origin: origin,
+      provider: provider || "none",
+      export_stage: "download_initiated",
       intent: "advanced_export"
     });
     setPostActionIntent("advanced_export");
-    setShowWorkflowWaitlist(true);
-  }
-
-  function recordConversion(artifactType: string) {
-    recordConversionHistory(window.localStorage, {
-      toolSlug: slug,
-      source: generatedCode || prompt,
-      artifactType
-    });
-    trackEvent("tool_conversion_success", {
-      tool_slug: slug,
-      renderer: "ai",
-      source_length: (generatedCode || prompt).length,
-      intent: "batch_conversion"
-    });
-    trackEvent("tool_export_success", {
-      tool_slug: slug,
-      renderer: "ai",
-      source_length: (generatedCode || prompt).length,
-      artifact_type: artifactType,
-      intent: "batch_conversion"
-    });
-    setPostActionIntent("batch_conversion");
     setShowWorkflowWaitlist(true);
   }
 }

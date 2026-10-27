@@ -1,0 +1,308 @@
+{
+  "figma-specs-guide": {
+    "title": "Figma Specs: access, Markdown, and AI credits",
+    "seoTitle": "Figma Specs Guide: Access, Markdown and AI Credits",
+    "description": "Learn where to open Figma Specs, why the entry may be missing, what consumes AI credits, and how to prepare a reusable Markdown design specification.",
+    "excerpt": "Learn where to open Figma Specs, why the entry may be missing, what consumes AI credits, and how to prepare a reusable Markdown design specification.",
+    "readingTime": "6 min",
+    "keywords": [
+      "Figma Specs",
+      "Figma Specs tutorial",
+      "Figma Specs access",
+      "Figma Specs pricing",
+      "Markdown design specification"
+    ],
+    "sections": [
+      {
+        "heading": "What Figma Specs is for",
+        "paragraphs": [
+          "Figma Specs gives requirements and design decisions a home next to the work they describe. A Spec can be a standalone file or sit inside a Figma Design file or FigJam board. Teams and connected coding agents can use that context when discussing, creating, or changing a design.",
+          "Think of a workspace settings screen: the frame shows the layout, while the Spec explains who may edit it, which fields are required, what happens when saving fails, and how reviewers decide that the work is finished. Those rules are harder to infer from a screenshot alone.",
+          "Product details below were checked against Figma’s official documentation on October 24, 2026. Beta availability and billing rules can change; consult the linked documentation before making a purchasing decision."
+        ],
+        "links": [
+          {
+            "label": "Official Config India 2026 announcements",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Where to open Specs and why you may not see it",
+        "paragraphs": [
+          "When Specs is enabled for your account, choose Spec at the top of the file browser to create a standalone file. Figma also documents figma.com/spec/new as a direct entry. In a Figma Design file or FigJam board, use the Spec toolbar control to place the document beside your work.",
+          "The official announcement lists Education, Professional, Organization, Enterprise, and Government plans. Do not assume that a free Starter account includes Specs. Viewing a Spec requires view access; changing it requires edit access.",
+          "The rollout is gradual. A colleague seeing the button does not mean every account in the same team has access yet. Check your plan and file permissions first; if those are appropriate and the entry is absent, use the official rollout guidance rather than looking for an unofficial unlock."
+        ],
+        "links": [
+          {
+            "label": "Open a new Spec in Figma",
+            "href": "https://figma.com/spec/new",
+            "kind": "external"
+          },
+          {
+            "label": "Official Specs guide",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Markdown shortcuts are not a complete compatibility promise",
+        "paragraphs": [
+          "Specs supports blocks such as headings, lists, quotes, code blocks, images, and Figma file embeds. Some blocks can be created with Markdown shorthand: # for a heading, - for a list, and a fenced block for code. Use the slash menu for available block types.",
+          "This does not establish support for every Markdown extension, bulk .md importing, Mermaid rendering, or round-trip preservation of embeds and comments. Prepare ordinary text and lists first, then verify the resulting content in your own Figma file.",
+          "DiagramPreview’s Markdown preview is useful for checking document structure before handoff. Its preview is not a simulation of Figma’s block editor, and this site does not automatically publish documents to Figma."
+        ]
+      },
+      {
+        "heading": "Does using Specs cost AI credits?",
+        "paragraphs": [
+          "Figma’s Specs guide distinguishes manual editing from agent work: writing and editing content directly does not use the agent and does not cost AI credits. Asking the agent to create or update a Spec consumes credits according to the task and context.",
+          "Do not treat “manual editing uses no AI credits” as “every account gets Specs for free.” Plan eligibility and AI usage are separate questions. Inspect the usage receipt after a prompt to understand what your actual request consumed."
+        ],
+        "links": [
+          {
+            "label": "Specs billing FAQ",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          },
+          {
+            "label": "How Figma AI credits work",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Start with behavior, then add visual rules",
+        "paragraphs": [
+          "For a useful first Spec, write the user goal and non-goals, identify the relevant frame or component, and describe the normal, loading, empty, error, and success states. Add named color and spacing rules only after the behavior is clear.",
+          "End with observable acceptance criteria. “Make it polished” gives reviewers little to check; “a failed save keeps the draft and provides a retry action” can be demonstrated in a prototype.",
+          "The companion template includes a full workspace settings example. Adapt it locally, preview the headings and lists, and then transfer the appropriate content into your team’s chosen documentation tool."
+        ],
+        "links": [
+          {
+            "label": "Use the Markdown design specification template",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "How Specs fits with Code Layers and MCP",
+        "paragraphs": [
+          "Specs holds requirements and context; Code Layers holds running code on the Figma canvas. A Spec can describe the behavior that an interactive prototype must demonstrate. Code Layers is not proof that authentication, accessibility, or production error handling has been validated.",
+          "Figma’s documentation also describes connected coding agents reading, creating, and updating Specs through its MCP tools and figma-spec skill. Client support, permissions, and usage limits still apply. Start with a small document and check the result before using that workflow across a team."
+        ],
+        "links": [
+          {
+            "label": "Code Layers access and cost guide",
+            "href": "/blog/figma-code-layers-guide",
+            "kind": "internal"
+          },
+          {
+            "label": "Figma MCP client catalog",
+            "href": "https://www.figma.com/mcp-catalog",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  },
+  "figma-code-layers-guide": {
+    "title": "Figma Code Layers: beta access, missing entry, and cost",
+    "seoTitle": "Figma Code Layers Beta: How to Access It and What It Costs",
+    "description": "Find the Code Layers entry, understand the gradual beta rollout and paid-plan promotion, and prepare an acceptance checklist for your first interactive prototype.",
+    "excerpt": "Find the Code Layers entry, understand the gradual beta rollout and paid-plan promotion, and prepare an acceptance checklist for your first interactive prototype.",
+    "readingTime": "6 min",
+    "keywords": [
+      "Figma code layers",
+      "Figma code layers beta",
+      "Figma code layers waitlist",
+      "Figma Code Layers pricing",
+      "Figma interactive prototype"
+    ],
+    "sections": [
+      {
+        "heading": "What a Code Layer does",
+        "paragraphs": [
+          "A Code Layer contains running code directly on the Figma Design canvas. It lets a team try interactions, compare alternatives, and review behavior alongside visual design work. It is especially useful when a static frame cannot show loading, validation, or retry behavior.",
+          "The following access and cost information was checked against Figma’s Config India documentation on October 24, 2026. This is a documentation-based guide, not a claim that every account has received the beta."
+        ],
+        "links": [
+          {
+            "label": "Official Code Layers release and FAQ",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "How to find the entry",
+        "paragraphs": [
+          "Open a Figma Design file where you have edit access. Once the feature is available to your account, the toolbar includes a Code icon. The official release lists Starter, Professional, Organization, Enterprise, and eligible Education plans; K–12 Education is excluded.",
+          "Choose a small screen for your first experiment, such as workspace settings. Write down the expected states before asking the agent to generate a prototype. This makes it easier to tell whether a visually convincing result actually implements the requested interaction."
+        ],
+        "links": [
+          {
+            "label": "Official Code Layers getting-started guide",
+            "href": "https://help.figma.com/hc/en-us/articles/44193259600535",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Why Code Layers may be missing",
+        "paragraphs": [
+          "First check that you are in Figma Design and can edit the file. Next check the plan and your organization’s AI settings. Enterprise administrators can disable AI features, which also disables Code Layers.",
+          "The beta rolls out over several weeks, so users on the same team may receive access at different times. Search results mentioning a waitlist may describe an earlier stage of the release. The current official announcement describes an open beta with gradual rollout; it does not promise immediate access for every account.",
+          "If the entry is still absent after checking access and settings, follow the official availability updates or contact Figma support with your plan and permission details. Installing an unrelated plugin is not an official activation method."
+        ]
+      },
+      {
+        "heading": "Is Code Layers free? Read the promotion carefully",
+        "paragraphs": [
+          "In the October 24, 2026 documentation snapshot, Figma states that generating and editing code within Code Layers on paid plans does not consume AI credits through November 4, 2026. This is a dated promotional condition, not a permanent free tier.",
+          "A single prompt may trigger several kinds of agent work. Only the eligible Code Layer generation and editing tasks are covered by that promotion; other agent work can still consume credits. Do not extend the paid-plan promotion to Starter accounts.",
+          "The same announcement says that after November 4, Code Layer tasks use AI credits like other agent features. Usage varies with task complexity. Check the current policy and your prompt receipt rather than estimating a fixed number of credits from a generic example."
+        ],
+        "links": [
+          {
+            "label": "Promotion terms and Code Layers FAQ",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          },
+          {
+            "label": "Official AI credit usage explanation",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Four documented starting points",
+        "paragraphs": [
+          "Start from a design: select frames on the canvas and ask the agent to turn them into a Code Layer. Start from scratch: add an empty Code Layer and describe a small interaction.",
+          "Start from existing code: connect and clone a GitHub repository to work from an existing frontend. Start from a webpage: the official Figma Chrome extension can capture code for pasting onto the canvas. Follow the official setup and permissions for each route.",
+          "Pick one starting point for the first prototype. Mixing imported code, new backend behavior, and a new visual system in a single request makes failures harder to diagnose."
+        ],
+        "links": [
+          {
+            "label": "Figma Chrome extension",
+            "href": "https://figma.com/downloads/chrome-extension/",
+            "kind": "external"
+          },
+          {
+            "label": "Prepare a design specification first",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "Review behavior before calling the prototype done",
+        "paragraphs": [
+          "For a settings form, check that invalid input cannot be submitted, saving prevents duplicate requests, a failed request preserves the draft, and the success message is announced accessibly. Also review keyboard operation and a narrow viewport.",
+          "Use the companion specification as the acceptance checklist. It uses synthetic data and simulated requests, so a reviewer can check behavior without treating the example as a production-ready application."
+        ],
+        "links": [
+          {
+            "label": "Get the workspace settings specification",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "design-spec-markdown-template": {
+    "title": "A Markdown design specification template you can preview and download",
+    "seoTitle": "Markdown Design Specification Template: UI States and Acceptance Criteria",
+    "description": "Download a complete workspace settings design specification, edit it in Markdown preview, and reuse its tokens, component states, responsive rules, and acceptance checklist.",
+    "excerpt": "Download a complete workspace settings design specification, edit it in Markdown preview, and reuse its tokens, component states, responsive rules, and acceptance checklist.",
+    "readingTime": "6 min",
+    "keywords": [
+      "design specification template",
+      "Markdown design spec",
+      "Figma Specs template",
+      "UI specification template",
+      "AI design guidelines"
+    ],
+    "sections": [
+      {
+        "heading": "A useful specification describes decisions",
+        "paragraphs": [
+          "A screenshot can show a button, but it cannot fully explain when that button is disabled, what happens during a request, or whether a failed request keeps the user’s draft. A useful specification makes those decisions visible to designers, developers, and AI assistants.",
+          "This independent DiagramPreview template describes a workspace settings form. It is ordinary Markdown you can adapt for a repository, review document, or Figma Specs workflow. It is not an official Figma template, an automatic import format, or a promise of exact rendering compatibility."
+        ],
+        "links": [
+          {
+            "label": "Understand Figma Specs access and Markdown support",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "Open, edit, or download the full example",
+        "paragraphs": [
+          "Open the template to load this exact source into DiagramPreview’s existing Markdown editor. Change the project name, behavior, and design rules, then inspect the rendered headings, lists, and checklist. The download below contains the same source.",
+          "The preview link carries example text in its URL fragment. If you later share a link containing your edited source, anyone receiving that link can read that source. Remove private project details before sharing."
+        ],
+        "templateSlug": "workspace-design-spec"
+      },
+      {
+        "heading": "Adapt the rules to your product",
+        "paragraphs": [
+          "Replace the example’s scope first. A billing form, an invitation flow, and a notification settings page have different permissions and failure modes. Delete states that do not apply and add the ones your real workflow needs.",
+          "Next replace colors, typography, and spacing with your existing design tokens. Include where each token is used: a hexadecimal value alone does not tell an implementer whether it belongs to a background, border, or error message.",
+          "Keep unresolved decisions separate from approved rules. The example deliberately leaves the production endpoint and authorization contract for engineering to confirm. An assistant should report those gaps rather than inventing a backend."
+        ]
+      },
+      {
+        "heading": "Give an AI assistant a bounded request",
+        "paragraphs": [
+          "Attach the edited specification and the relevant design or component references. Ask for one screen and state the boundaries explicitly. The following prompt is a starting point; it does not rely on any particular AI vendor."
+        ],
+        "code": {
+          "language": "text",
+          "content": "Build a workspace settings prototype using the attached specification.\nReuse the named tokens and existing components.\nImplement default, loading, success, error, and disabled states.\nUse synthetic data and simulated requests only.\nList unresolved decisions instead of inventing API or authorization rules.\nReport each acceptance item as demonstrated, missing, or requiring human review.",
+          "caption": "A reusable prompt for reviewing the specification against a small prototype."
+        }
+      },
+      {
+        "heading": "Verify the result against the acceptance checklist",
+        "paragraphs": [
+          "Run the invalid-input, repeated-submit, network-failure, and success paths yourself. Compare each observed result with the corresponding checklist item. A generated report is useful context, but it is not evidence that the prototype was tested.",
+          "Review keyboard focus and the narrow layout as well as the happy path. Record what was observed, where it was checked, and which decisions remain open. Keep the specification next to the implementation so later changes can be reviewed against it."
+        ]
+      },
+      {
+        "heading": "Add diagrams when the flow needs them",
+        "paragraphs": [
+          "For a single form, numbered interaction steps may be enough. For branching approvals or multi-service behavior, add a separate flowchart or sequence diagram and link it from the specification.",
+          "DiagramPreview supports Mermaid in its own Markdown workflow. That does not establish native Mermaid support in Figma Specs. For a Figma handoff, verify the accepted embed or image workflow and keep the diagram source separately for future editing."
+        ],
+        "links": [
+          {
+            "label": "Markdown and Mermaid documentation workflow",
+            "href": "/blog/markdown-mermaid-documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Browse reusable templates",
+            "href": "/templates#documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Official Figma Specs guide",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  }
+}

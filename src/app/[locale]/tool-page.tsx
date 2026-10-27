@@ -4,6 +4,8 @@ import type {Metadata} from "next";
 import {ToolHeader} from "@/components/tools/ToolHeader";
 import {summarizeToolSamples, ToolSeoSections, type ToolDeepDive} from "@/components/tools/ToolSeoSections";
 import {ToolShell, type ToolCopy} from "@/components/tools/ToolShell";
+import {ToolEvidence} from "@/components/tools/ToolEvidence";
+import {evidenceForPage} from "@/config/tool-evidence";
 import {type Locale} from "@/config/locales";
 import {getRelatedTools, getTool, type ToolSlug} from "@/config/tools";
 import {buildMetadata, faqJsonLd, softwareApplicationJsonLd} from "@/lib/seo";
@@ -112,6 +114,7 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
         maturityLabel={maturity.label}
       />
       <ToolShell
+        key={`${locale}:${tool.slug}`}
         tool={{
           slug: tool.slug,
           implemented: tool.implemented,
@@ -121,6 +124,7 @@ export async function ToolPage({params, slug}: ToolRouteProps & {slug: ToolSlug}
         copy={copy}
         relatedTools={relatedTools}
       />
+      {evidenceForPage(slug, locale) ? <ToolEvidence family={evidenceForPage(slug, locale)!} locale={locale} /> : null}
       <ToolSeoSections
         currentSlug={slug}
         toolName={t(`tools.${slug}.name`)}

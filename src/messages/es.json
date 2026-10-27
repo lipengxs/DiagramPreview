@@ -614,7 +614,7 @@
     },
     "drawio-preview": {
       "name": "Visor draw.io",
-      "shortDescription": "Visor draw.io para vista previa, review y exportación en documentación de desarrollo.",
+      "shortDescription": "Abre archivos draw.io locales, cambia de página, amplía y exporta la página actual.",
       "seoTitle": "Abrir draw.io online - Visor diagrams.net e inspección XML",
       "seoDescription": "Abre archivos .drawio y mxfile XML en el navegador para revisar páginas, objetos, etiquetas, imágenes externas y problemas antes de compartir o exportar.",
       "keywords": [
@@ -625,20 +625,20 @@
         "mxfile viewer"
       ],
       "h1": "Visor draw.io",
-      "intro": "Pega archivo .drawio o XML mxfile y revisa archivo diagrams.net en el navegador. Útil para documentación técnica, reviews y borradores de IA antes de publicar.",
+      "intro": "Elige un archivo .drawio / XML o pega XML de diagrams.net. Previsualiza formas básicas y páginas comprimidas en este navegador; exporta la página seleccionada como SVG, PNG o .drawio.",
       "badges": [
         "draw.io",
         "XML",
         "Viewer"
       ],
       "inputLabel": "Entrada",
-      "outputLabel": "Resultado",
+      "outputLabel": "Vista del diagrama",
       "placeholder": "Pega aquí el código fuente, configuración o contenido del archivo...",
       "emptyPreview": "La vista previa aparecerá aquí cuando haya una entrada válida.",
       "samples": {
         "xml": {
           "label": "XML",
-          "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+          "code": "<mxfile><diagram id=\"quick-start\" name=\"Inicio rápido\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"start\" value=\"Inicio\" style=\"rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"40\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"check\" value=\"¿Listo?\" style=\"rhombus;fillColor=#fef3c7;strokeColor=#d97706;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"240\" y=\"50\" width=\"120\" height=\"80\" as=\"geometry\"/></mxCell><mxCell id=\"done\" value=\"Listo\" style=\"ellipse;fillColor=#dcfce7;strokeColor=#16a34a;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"440\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" value=\"\" edge=\"1\" parent=\"1\" source=\"start\" target=\"check\" style=\"endArrow=block;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" value=\"Yes\" edge=\"1\" parent=\"1\" source=\"check\" target=\"done\" style=\"endArrow=block;dashed=1;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
         },
         "pages": {
           "label": "Dos páginas",
@@ -647,13 +647,17 @@
         "serviceMap": {
           "label": "Mapa de servicios",
           "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"Service Map\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"web\" value=\"Web app\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"100\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"worker\" value=\"Worker\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"40\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"Database\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"160\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_worker\" edge=\"1\" parent=\"1\" source=\"web\" target=\"worker\" value=\"queue job\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_db\" edge=\"1\" parent=\"1\" source=\"web\" target=\"db\" value=\"read/write\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "compressed": {
+          "label": "Comprimido",
+          "code": "<mxfile><diagram id=\"compressed\" name=\"Inicio rápido\">xZTdboIwFMefpvdAFbfLyaZZsj3ALgs9QGPhmLb48fbraKNo0ZhNswuS8wnn/8vhEJo1u6Vi6/oTOUhC3wjNFKJxVrPLQEqSRIIT+kqSJLIPSRYXsnGfjdZMQWtuadCGKeOaNkx24KLvrSgEurA2e+nDCruWw09nTOi8FFJmKFH1ScpzYKUtnGujcAWDTDJNKeQ2478DysDu4rx9yA+7BGzAqL0t8Q0TJyfaOzf17lZwU/t+rziqQVS1Oa1j2vnV4cVHNtbweMZRFTUUqwAVyRIyX3wIbZDQRYisxibvdIirhJIWszFc/Hk2i9L74DrnNb2R19MdeHFsIcDlQJ1Tso1irWFkqYqygFFKccrohN1pqf5xqyAOV6oPAK/guh6LEDtVQPAnW6sCE2ztEHjLX5TCrfVyibbAcQwJKZDMiM3pJH/SmwR6v0D/TvJA21DycfGuK+ZM14dr9hj51j3e8j53cuq/AQ==</diagram></mxfile>"
         }
       },
       "howToUse": [
-        "Pega archivo .drawio o XML mxfile o carga un ejemplo.",
-        "Revisa archivo diagrams.net en la vista previa y marca problemas de sintaxis, etiquetas o estructura.",
-        "Comprueba Comprobar sintaxis y renderizado., Comparar etiquetas, relaciones y orden con el sistema real., Eliminar valores sensibles antes de compartir. antes de publicar, exportar o compartir.",
-        "Guarda la fuente junto con el resultado exportado para que futuras reviews sean reproducibles."
+        "Abre un archivo .drawio / XML local, pega XML o carga un ejemplo. Su contenido no se sube; los borradores pueden guardarse en este navegador.",
+        "Selecciona una página y revisa formas, etiquetas y conectores. Usa el zoom o Ajustar al ancho.",
+        "Los grupos, objetos ocultos, imágenes y formas personalizadas requieren diagrams.net. Las páginas no compatibles no se exportan como imágenes.",
+        "SVG y PNG exportan la vista seleccionada. Descargar archivo guarda solo la página actual como .drawio editable. Conserva el original con todas las páginas."
       ],
       "useCases": [
         "Abrir archivos draw.io",
@@ -663,22 +667,22 @@
       ],
       "faq": [
         {
-          "question": "¿Abrir draw.io online funciona en el navegador?",
-          "answer": "Sí. La mayor parte de la previsualización, validación y exportación ocurre en el navegador. Las herramientas con IA solo envían el prompt a la API configurada."
+          "question": "¿Se suben mis archivos?",
+          "answer": "No. Los archivos se leen y descomprimen en este navegador. No se carga un visor externo ni recursos remotos. Los borradores locales pueden guardarse en este navegador."
         },
         {
-          "question": "¿Qué debo revisar antes de publicar?",
-          "answer": "Comprueba que el diagrama o archivo refleje el flujo real, que las etiquetas sean legibles, que no haya datos sensibles y que el SVG/PNG exportado siga siendo revisable."
+          "question": "¿Qué archivos y formas admite?",
+          "answer": "XML mxfile, diagram y mxGraphModel, con páginas sin comprimir o raw-deflate. Admite formas básicas y conectores en páginas planas. Grupos, imágenes y formas personalizadas requieren diagrams.net."
         },
         {
-          "question": "¿Cómo ayuda en la documentación?",
-          "answer": "La herramienta convierte texto o archivos técnicos en una vista visual revisable que puedes enlazar desde README, ADR, runbooks, issues y documentación de API."
+          "question": "¿Qué se descarga?",
+          "answer": "SVG y PNG contienen la vista básica de la página seleccionada. Descargar archivo guarda solo su XML editable como .drawio. Conserva el archivo original con todas las páginas y estilos."
         }
       ],
       "seoBody": [
-        "Visor draw.io ayuda a los equipos a revisar visualmente archivo .drawio o XML mxfile antes de publicar, en lugar de depender solo de texto bruto o capturas.",
-        "La vista previa sirve para documentación técnica, reviews de API, decisiones de arquitectura, onboarding y borradores generados por IA.",
-        "Antes de exportar, revisa Comprobar sintaxis y renderizado., Comparar etiquetas, relaciones y orden con el sistema real., Eliminar valores sensibles antes de compartir. y elimina valores sensibles."
+        "Este visor draw.io abre archivos locales y XML diagrams.net sin subir su contenido. Permite cambiar de página, ampliar y exportar la página actual.",
+        "El visor básico conserva coordenadas y admite rectángulos, elipses, rombos, texto, colores y conectores. Las etiquetas con formato se convierten a texto plano; el diseño y las flechas pueden diferir de diagrams.net.",
+        "Máximo: archivo de 2 MiB y 20 páginas, 500 celdas por página y 5000 en total. XML descomprimido: 2 MiB por página y 8 MiB en total. Las páginas no compatibles no permiten exportar imágenes."
       ],
       "deepDives": [
         {
@@ -689,7 +693,7 @@
             "Comparar etiquetas y relaciones con la documentación real.",
             "Exportar solo después de una revisión manual."
           ],
-          "code": "<mxfile><diagram name=\"Architecture\">...</diagram></mxfile>",
+          "code": "<mxfile><diagram id=\"quick-start\" name=\"Inicio rápido\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"start\" value=\"Inicio\" style=\"rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"40\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"check\" value=\"¿Listo?\" style=\"rhombus;fillColor=#fef3c7;strokeColor=#d97706;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"240\" y=\"50\" width=\"120\" height=\"80\" as=\"geometry\"/></mxCell><mxCell id=\"done\" value=\"Listo\" style=\"ellipse;fillColor=#dcfce7;strokeColor=#16a34a;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"440\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" value=\"\" edge=\"1\" parent=\"1\" source=\"start\" target=\"check\" style=\"endArrow=block;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" value=\"Yes\" edge=\"1\" parent=\"1\" source=\"check\" target=\"done\" style=\"endArrow=block;dashed=1;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>",
           "caption": "Un fragmento enfocado se depura mejor que un volcado completo."
         },
         {

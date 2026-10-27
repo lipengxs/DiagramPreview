@@ -1,23 +1,19 @@
 "use client";
 
 import {usePathname, useSearchParams} from "next/navigation";
-import {useEffect} from "react";
-import {sanitizedAnalyticsLocation} from "@/lib/analytics-location";
+import Script from "next/script";
+import {useEffect, useState} from "react";
+import {trackPageView} from "@/lib/analytics";
 
 export function GoogleAnalyticsPageView() {
+  const [initialized, setInitialized] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-
-    const location = sanitizedAnalyticsLocation(window.location.href);
-    window.gtag("event", "page_view", {
-      page_title: document.title,
-      page_location: location,
-      page_path: new URL(location).pathname
-    });
+    trackPageView();
+    setInitialized(true);
   }, [pathname, searchParams]);
 
-  return null;
+  return initialized ? <Script src="https://www.googletagmanager.com/gtag/js?id=G-ED9W50FK0X" strategy="afterInteractive" onLoad={trackPageView} /> : null;
 }

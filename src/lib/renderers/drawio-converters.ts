@@ -1,4 +1,5 @@
 import {createDrawioXml, gridLayout, renderDrawioShapeSvg, renderDrawioXmlToSvg, safeId, type DrawioDocument} from "./drawio-utils";
+import type {MermaidDrawioModel} from "./mermaid-drawio-model";
 
 export type DrawioConversionResult = {
   svg: string;
@@ -44,76 +45,40 @@ export function convertPlantUmlToDrawio(source: string): DrawioConversionResult 
 }
 
 export async function convertMermaidToDrawio(source: string): Promise<DrawioConversionResult> {
-  const diagramType = await validateMermaidForDrawio(source);
-  const aliases = diagramType === "flowchart" ? parseMermaidNodeDeclarations(source) : new Map<string, string>();
-  const edges = parseArrowLines(source, /([A-Za-z][\w.-]*)(?:\s*(?:\[[^\]]+\]|\([^)]+\)|\{[^}]+\}))?\s*(?:-->|---|-.->|==>|--[^-]+-->)\s*([A-Za-z][\w.-]*)(?:\s*(?:\[[^\]]+\]|\([^)]+\)|\{[^}]+\}))?\s*:?\s*(.*)/);
-  const sequenceParticipants = parseMermaidParticipants(source);
-  const sequenceEdges = parseSequenceArrowLines(source);
-  const allEdges = diagramType === "flowchart" ? edges : sequenceEdges;
-  const allKeys = uniqueKeys([...aliases.keys(), ...sequenceParticipants.keys(), ...allEdges.flatMap((edge) => [edge.source, edge.target])]);
+  const {parseMermaidForDrawio} = await import("./mermaid-drawio-parser");
+  return convertMermaidModelToDrawio(await parseMermaidForDrawio(source));
+}
 
-  if (!allKeys.length) {
-    throw new Error("No supported Mermaid nodes, participants, or arrows were found.");
+export function convertMermaidModelToDrawio(model: MermaidDrawioModel): DrawioConversionResult {
+  if (!model.nodes.length) throw new Error("No supported Mermaid nodes or participants were found.");
+  if (model.nodes.length > 36 || model.edges.length > 40) {
+    throw new Error(`Conversion stopped: ${model.nodes.length} nodes and ${model.edges.length} relationships exceed the supported limit of 36 nodes / 40 relationships. Split the diagram; no partial file was generated.`);
   }
-
-  const keys = allKeys.slice(0, 36);
-  const keySet = new Set(keys);
-  const nodes = gridLayout(keys.map((key) => aliases.get(key) || sequenceParticipants.get(key) || key));
+  const keys = model.nodes.map((node) => node.key);
+  if (new Set(keys).size !== keys.length) throw new Error("Duplicate Mermaid node IDs; export stopped.");
+  const nodes = gridLayout(model.nodes.map((node) => node.label)).map((node, index) => ({...node, label: model.nodes[index].label, shape: model.nodes[index].shape}));
   const idMap = new Map(keys.map((key, index) => [key, nodes[index].id]));
-  const includedEdges = allEdges.filter((edge) => keySet.has(edge.source) && keySet.has(edge.target)).slice(0, 40);
   const document: DrawioDocument = {
     title: "Mermaid to Draw.io",
     nodes,
-    edges: includedEdges.map((edge, index) => ({
-      id: `edge_${index + 1}`,
-      source: idMap.get(edge.source) || safeId(edge.source),
-      target: idMap.get(edge.target) || safeId(edge.target),
-      label: edge.label
-    }))
+    edges: model.edges.map((edge, index) => {
+      const source = idMap.get(edge.source);
+      const target = idMap.get(edge.target);
+      if (!source || !target) throw new Error("A Mermaid relationship has an unresolved endpoint; export stopped.");
+      return {...edge, id: `edge_${index + 1}`, source, target};
+    })
   };
-  const xml = createDrawioXml(document);
   return {
-    xml,
+    xml: createDrawioXml(document),
     svg: renderDrawioShapeSvg(document),
-    diagramType,
-    stats: {nodes: allKeys.length, edges: allEdges.length},
-    warnings: [...mermaidFeatureWarnings(source), ...sizeWarnings(allKeys.length, allEdges.length)]
+    diagramType: model.diagramType,
+    stats: {nodes: nodes.length, edges: document.edges.length},
+    warnings: model.warnings
   };
 }
 
 export function previewDrawioAsSvg(source: string): DrawioConversionResult {
   return {xml: source, svg: renderDrawioXmlToSvg(source), diagramType: "drawio", stats: {nodes: 0, edges: 0}, warnings: []};
-}
-
-async function validateMermaidForDrawio(source: string): Promise<"flowchart" | "sequence"> {
-  const declaredType = source.trimStart().match(/^([A-Za-z][\w-]*)/)?.[1] || "unknown";
-  const normalizedType = declaredType.toLowerCase();
-  const diagramType = normalizedType === "graph" || normalizedType === "flowchart"
-    ? "flowchart"
-    : normalizedType === "sequencediagram"
-      ? "sequence"
-      : undefined;
-
-  if (!diagramType) {
-    throw new Error(`Unsupported Mermaid diagram type: ${declaredType}. Use a flowchart or sequence diagram.`);
-  }
-
-  if (typeof document !== "undefined") {
-    const mermaid = (await import("mermaid")).default;
-    mermaid.setParseErrorHandler(() => {});
-    await mermaid.parse(source, {suppressErrors: false});
-  }
-
-  return diagramType;
-}
-
-function mermaidFeatureWarnings(source: string) {
-  const warnings: string[] = [];
-  if (/^\s*subgraph\b/im.test(source)) warnings.push("Subgraph boundaries are flattened; review grouping in diagrams.net.");
-  if (/^\s*(?:classDef|class|style|linkStyle)\b/im.test(source)) warnings.push("Mermaid styling is not preserved in editable draw.io XML.");
-  if (/^\s*click\b/im.test(source)) warnings.push("Click actions and links are not preserved in draw.io XML.");
-  if (/^\s*(?:note|alt|opt|loop|par|rect|critical|break)\b/im.test(source)) warnings.push("Sequence groups and notes are flattened; review the exported layout.");
-  return warnings;
 }
 
 function sizeWarnings(nodeCount: number, edgeCount: number) {
@@ -150,22 +115,6 @@ function parseSequenceArrowLines(source: string) {
       label: cleanLabel(match[5] || "")
     }))
     .filter((edge) => edge.source && edge.target);
-}
-
-function parseMermaidNodeDeclarations(source: string) {
-  const aliases = new Map<string, string>();
-  for (const match of source.matchAll(/\b([A-Za-z][\w.-]*)\s*(?:\["([^"]+)"\]|\[([^\]]+)\]|\("([^"]+)"\)|\(([^)]+)\)|\{"([^"]+)"\}|\{([^}]+)\})/g)) {
-    aliases.set(cleanLabel(match[1]), cleanLabel(match[2] || match[3] || match[4] || match[5] || match[6] || match[7] || match[1]));
-  }
-  return aliases;
-}
-
-function parseMermaidParticipants(source: string) {
-  const aliases = new Map<string, string>();
-  for (const match of source.matchAll(/\b(?:participant|actor)\s+([\w.-]+)(?:\s+as\s+(.+))?/gi)) {
-    aliases.set(cleanLabel(match[1]), cleanLabel(match[2] || match[1]));
-  }
-  return aliases;
 }
 
 function parsePlantUmlDeclarations(source: string) {

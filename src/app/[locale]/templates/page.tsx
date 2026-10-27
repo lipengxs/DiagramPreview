@@ -1,7 +1,8 @@
 import type {Metadata} from "next";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {growthContentIndexableLocales} from "@/config/seo-focus";
-import {templateCategories, templates} from "@/config/templates";
+import {templateCategories, getLocalizedTemplates} from "@/config/templates";
+import {TrackedToolLink} from "@/components/tools/TrackedToolLink";
 import {type Locale} from "@/config/locales";
 import {getTool} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
@@ -18,6 +19,7 @@ export async function generateMetadata({params}: TemplatesPageProps): Promise<Me
   const metadata = buildMetadata({
     locale,
     path: `/${locale}/templates`,
+    pageLocales: growthContentIndexableLocales,
     title: "Diagram Templates and Examples - DiagramPreview",
     description: "Paste-ready Mermaid, draw.io, API, schema, and DevOps diagram templates that open directly in DiagramPreview tools.",
     keywords: ["diagram templates", "mermaid templates", "drawio examples", "api sequence diagram examples"]
@@ -39,6 +41,7 @@ export default async function TemplatesPage({params}: TemplatesPageProps) {
   setRequestLocale(locale);
   const t = await getTranslations({locale});
   const isChineseLocale = locale.startsWith("zh");
+  const templates = getLocalizedTemplates(locale);
   const pageTitle = isChineseLocale ? "可直接打开的图表模板" : "Paste-ready diagram templates";
   const pageDescription = isChineseLocale
     ? "从 Mermaid、draw.io、API、Schema 和 DevOps 示例开始，直接打开对应工具并带入示例输入。"
@@ -72,10 +75,10 @@ export default async function TemplatesPage({params}: TemplatesPageProps) {
       {templateCategories.map((category) => {
         const categoryTemplates = templates.filter((template) => template.category === category.id);
         return (
-          <section key={category.id} className="grid gap-4">
+          <section key={category.id} id={category.id} className="grid scroll-mt-24 gap-4">
             <div>
-              <h2 className="text-xl font-bold text-ink">{category.title}</h2>
-              <p className="mt-1 text-sm leading-6 text-slate-600">{category.description}</p>
+              <h2 className="text-xl font-bold text-ink">{category.id === "documentation" && isChineseLocale ? "设计规范模板" : category.title}</h2>
+              <p className="mt-1 text-sm leading-6 text-slate-600">{category.id === "documentation" && isChineseLocale ? "可编辑的 Markdown 设计规范，用于明确 UI 行为与验收要求。" : category.description}</p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {categoryTemplates.map((template) => {
@@ -87,12 +90,20 @@ export default async function TemplatesPage({params}: TemplatesPageProps) {
                     <h3 className="mt-4 text-base font-semibold text-ink">{template.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{template.description}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <Link
+                      <TrackedToolLink
                         href={sourceUrl(`/${template.tool}`, template.source)}
+                        eventName="tool_entry_click"
+                        targetToolSlug={template.tool}
+                        source={`template:${template.slug}`}
                         className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
                       >
                         {isChineseLocale ? "打开模板" : "Open template"}
-                      </Link>
+                      </TrackedToolLink>
+                      {template.downloadHref ? (
+                        <a href={template.downloadHref} download className="rounded-md border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">
+                          {isChineseLocale ? "下载 Markdown" : "Download Markdown"}
+                        </a>
+                      ) : null}
                       <Link href={`/${template.tool}`} className="rounded-md border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">
                         {tool ? t(`tools.${tool.slug}.name`) : template.tool}
                       </Link>

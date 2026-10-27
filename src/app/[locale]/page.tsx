@@ -2,14 +2,11 @@ import {getTranslations, setRequestLocale} from "next-intl/server";
 import type {Metadata} from "next";
 import type {ReactNode} from "react";
 import {WaitlistCta} from "@/components/growth/WaitlistCta";
-import {CoreWorkflows} from "@/components/home/CoreWorkflows";
 import {FavoriteTools} from "@/components/home/FavoriteTools";
-import {PopularTools} from "@/components/home/PopularTools";
-import {ProductCapabilityStrip} from "@/components/home/ProductCapabilityStrip";
+import {PrimaryTasks} from "@/components/home/PrimaryTasks";
 import {RecentlyUsedTools} from "@/components/home/RecentlyUsedTools";
 import {ToolCategoryGrid} from "@/components/home/ToolCategoryGrid";
 import {ToolSearch, type SearchTool} from "@/components/home/ToolSearch";
-import {WorkflowEntrypoints} from "@/components/home/WorkflowEntrypoints";
 import {type Locale} from "@/config/locales";
 import {seoPriorityHomeToolSlugs} from "@/config/seo-focus";
 import {tools} from "@/config/tools";
@@ -76,6 +73,7 @@ export default async function HomePage({params}: HomePageProps) {
       </section>
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:px-8">
+        <PrimaryTasks locale={locale} />
         <FavoriteTools
           tools={searchTools}
           title={locale.startsWith("zh") ? "收藏工具" : "Favorite tools"}
@@ -86,15 +84,6 @@ export default async function HomePage({params}: HomePageProps) {
           title={locale.startsWith("zh") ? "继续最近使用" : "Continue recently used"}
           actionLabel={locale.startsWith("zh") ? "继续" : "Continue"}
         />
-        <HomeSection title={locale.startsWith("zh") ? "开发者图表工作台" : "Developer Diagram Workspace"}>
-          <ProductCapabilityStrip locale={locale} />
-        </HomeSection>
-        <HomeSection title={locale.startsWith("zh") ? "三条高频工作链路" : "Three high-intent workflows"}>
-          <WorkflowEntrypoints locale={locale} />
-        </HomeSection>
-        <HomeSection title={locale.startsWith("zh") ? "核心工作流" : "Core Workflows"}>
-          <CoreWorkflows />
-        </HomeSection>
         <HomeSection title={locale.startsWith("zh") ? "从样例开始" : "Start from an example"}>
           <GrowthEntrySection locale={locale} />
         </HomeSection>
@@ -128,23 +117,8 @@ export default async function HomePage({params}: HomePageProps) {
             </div>
           </div>
         </HomeSection>
-        <HomeSection title={t("home.sections.popular")}>
-          <PopularTools />
-        </HomeSection>
         <HomeSection title={t("home.sections.categories")}>
           <ToolCategoryGrid />
-        </HomeSection>
-        <HomeSection title={t("home.sections.recent")}>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {tools
-              .filter((tool) => tool.recentlyAdded)
-              .map((tool) => (
-                <a key={tool.slug} href={`/${locale}/${tool.slug}`} className="rounded-lg border border-slate-200 bg-white p-4 hover:border-primary">
-                  <div className="font-semibold text-ink">{t(`tools.${tool.slug}.name`)}</div>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{t(`tools.${tool.slug}.shortDescription`)}</p>
-                </a>
-              ))}
-          </div>
         </HomeSection>
         <HomeSection title={t("home.sections.why")}>
           <div className="grid gap-4 md:grid-cols-3">

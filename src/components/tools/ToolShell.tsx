@@ -4,6 +4,12 @@ import {Star} from "lucide-react";
 import dynamic from "next/dynamic";
 import {useEffect, useMemo, useRef, useState} from "react";
 import {CodeEditor} from "./CodeEditor";
+import {DrawioFileInput} from "./DrawioFileInput";
+import {DrawioViewer} from "./DrawioViewer";
+import {drawioErrorText, drawioViewerCopy} from "./drawio-viewer-copy";
+import {handoffCopy} from "./handoff-copy";
+import {DrawioViewerError, drawioPageXml, type DrawioViewerDocument} from "@/lib/renderers/drawio-viewer-model";
+import {renderDrawioPage} from "@/lib/renderers/drawio-viewer-svg";
 import {ExportToolbar} from "./ExportToolbar";
 import {NextStepRecommendations} from "./NextStepRecommendations";
 import {PreviewPane} from "./PreviewPane";
@@ -12,11 +18,12 @@ import {BatchConversionBeta} from "./BatchConversionBeta";
 import {WaitlistCta} from "@/components/growth/WaitlistCta";
 import type {MonetizationIntent} from "@/components/growth/WaitlistCta";
 import {Button} from "@/components/ui/Button";
-import {detectInputTool} from "@/lib/input-detector";
+import {acceptsDetectedInput, detectInputTool} from "@/lib/input-detector";
 import {downloadSvgAsPng} from "@/lib/exporters/png";
 import {printPreview} from "@/lib/exporters/pdf";
 import {copyText, downloadText} from "@/lib/exporters/svg";
-import {absoluteSourceUrl, markdownSnippet, sharedSourceFromUrl, sourceUrl} from "@/lib/source-links";
+import {absoluteSourceUrl, boundedSourceUrl, markdownSnippet, sharedSourceFromUrl} from "@/lib/source-links";
+import {sourceFile} from "@/lib/tool-handoff";
 import {recordRecentTool} from "@/lib/recent-tools";
 import {isFavoriteTool, setFavoriteTool} from "@/lib/favorite-tools";
 import {trackEvent, type AnalyticsEventName} from "@/lib/analytics";
@@ -105,6 +112,7 @@ export type ToolRuntimeConfig = {
 };
 
 type RenderState = {
+  drawio?: DrawioViewerDocument;
   html?: string;
   imageUrl?: string;
   tree?: TreeNode;
@@ -119,13 +127,18 @@ type RenderState = {
   error?: string;
 };
 
-type RenderOrigin = "default_sample" | "user_edit" | "sample_click" | "shared_source" | "draft_restore";
+type RenderOrigin = "default_sample" | "user_edit" | "sample_click" | "shared_source" | "draft_restore" | "file_upload";
 
 export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   const firstSample = useMemo(() => copy.samples[tool.sampleKeys[0]], [copy.samples, tool.sampleKeys]);
   const [source, setSource] = useState(firstSample?.code ?? "");
   const [status, setStatus] = useState(copy.statusReady);
   const [renderState, setRenderState] = useState<RenderState>({});
+  const [renderAttempt, setRenderAttempt] = useState(0);
+  const [renderedInput, setRenderedInput] = useState<{source: string; slug: ToolSlug; renderer: ToolRuntimeConfig["renderer"]} | null>(null);
+  const [drawioPageIndex, setDrawioPageIndex] = useState(0);
+  const [drawioUploadError, setDrawioUploadError] = useState<string | null>(null);
+  const [readingDrawio, setReadingDrawio] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [favorite, setFavorite] = useState(false);
   const [draftToRestore, setDraftToRestore] = useState<WorkspaceHistoryEntry | null>(null);
@@ -135,7 +148,7 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   const renderOriginRef = useRef<RenderOrigin>("default_sample");
   const qualifiedRenderTrackedRef = useRef(false);
   const detectedTool = useMemo(() => detectInputTool(source), [source]);
-  const suggestedTool = detectedTool?.slug !== tool.slug ? detectedTool : null;
+  const suggestedTool = detectedTool && !acceptsDetectedInput(tool.slug, detectedTool) ? detectedTool : null;
   const uiCopy = getUiCopy(copy);
 
   useEffect(() => {
@@ -163,6 +176,25 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   }, [firstSample?.code, tool.slug]);
 
   useEffect(() => {
+    const load = (event: Event) => {
+      const url = event instanceof CustomEvent ? String(event.detail) : window.location.href;
+      const shared = sharedSourceFromUrl(url);
+      if (!shared) return;
+      renderOriginRef.current = "shared_source";
+      setSource(shared);
+      if (event instanceof CustomEvent) document.querySelector("[data-tool-workspace]")?.scrollIntoView({behavior: "smooth", block: "start"});
+    };
+    window.addEventListener("hashchange", load);
+    window.addEventListener("popstate", load);
+    window.addEventListener("diagram-preview:load-source", load);
+    return () => {
+      window.removeEventListener("hashchange", load);
+      window.removeEventListener("popstate", load);
+      window.removeEventListener("diagram-preview:load-source", load);
+    };
+  }, []);
+
+  useEffect(() => {
     if (!source.trim()) {
       removeWorkspaceDraft(window.localStorage, tool.slug);
       setDraftToRestore(null);
@@ -174,12 +206,12 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
     }
 
     const timeout = window.setTimeout(() => {
-      recordWorkspaceDraft(window.localStorage, {
+      const saved = recordWorkspaceDraft(window.localStorage, {
         toolSlug: tool.slug,
         source,
         artifactType: "draft"
       });
-      trackEvent("workspace_draft_saved", {
+      if (saved) trackEvent("workspace_draft_saved", {
         tool_slug: tool.slug,
         renderer: tool.renderer,
         source_length: source.length
@@ -190,6 +222,8 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
   }, [firstSample?.code, source, tool.renderer, tool.slug]);
 
   useEffect(() => {
+    setDrawioUploadError(null);
+    setDrawioPageIndex(0);
     if (!source.trim()) {
       setRenderState({});
       setStatus(copy.statusReady);
@@ -197,20 +231,26 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
     }
 
     let cancelled = false;
+    const controller = new AbortController();
     setStatus(copy.statusRendering);
+    if (tool.renderer === "plantuml") setRenderState({notices: plantUmlNotices(copy)});
+    if (tool.renderer === "drawio") setRenderState({notices: drawioNotices(copy)});
 
     const timeout = window.setTimeout(async () => {
       try {
-        const nextState = await renderSource(tool.renderer, source, copy, tool.slug);
+        const nextState = await renderSource(tool.renderer, source, copy, tool.slug, controller.signal);
         if (!cancelled) {
           setRenderState(nextState);
+          setRenderedInput({source, slug: tool.slug, renderer: tool.renderer});
           setStatus(nextState.imageUrl ? copy.statusRendering : copy.statusReady);
-          if (!nextState.imageUrl) trackRenderSuccess(nextState);
+          if (!nextState.imageUrl && (tool.renderer !== "drawio" || nextState.drawio?.pages[0]?.graph)) trackRenderSuccess(nextState);
+          if (nextState.drawio?.pages[0]?.error) trackEvent("tool_render_error", {tool_slug: tool.slug, renderer: tool.renderer});
         }
       } catch (error) {
         if (!cancelled) {
           setRenderState({
-            error: renderErrorMessage(error, copy.renderError, tool.renderer)
+            error: error instanceof DrawioViewerError ? drawioErrorText(error, copy.locale) : renderErrorMessage(error, copy.renderError, tool.renderer),
+            notices: tool.renderer === "plantuml" ? plantUmlNotices(copy) : tool.renderer === "drawio" ? drawioNotices(copy) : undefined
           });
           setStatus(copy.statusReady);
           trackEvent("tool_render_error", {
@@ -223,9 +263,10 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
 
     return () => {
       cancelled = true;
+      controller.abort();
       window.clearTimeout(timeout);
     };
-  }, [copy, copy.renderError, copy.statusReady, copy.statusRendering, source, tool.renderer, tool.slug]);
+  }, [copy, copy.renderError, copy.statusReady, copy.statusRendering, source, tool.renderer, tool.slug, renderAttempt]);
 
   const sampleButtons = tool.sampleKeys
     .map((key) => [key, copy.samples[key]] as const)
@@ -238,17 +279,33 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
         body: copy.fallbackBody
       };
 
-  const canCopyHtml = Boolean(renderState.html);
-  const canExportSvg = Boolean(renderState.svg);
-  const canExportPng = Boolean(renderState.svg);
-  const canDownloadFile = Boolean(renderState.artifact);
+  const isCurrentResult = renderedInput?.source === source && renderedInput.slug === tool.slug && renderedInput.renderer === tool.renderer && !(tool.renderer === "drawio" && (readingDrawio || drawioUploadError));
+  const drawioPage = renderState.drawio?.pages[drawioPageIndex];
+  const drawioImage = useMemo(() => drawioPage?.graph ? renderDrawioPage(drawioPage.graph) : undefined, [drawioPage]);
+  const currentSvg = tool.renderer === "drawio" ? drawioImage?.svg : renderState.svg;
+  const currentHtml = tool.renderer === "drawio" ? currentSvg : renderState.html;
+  const exportBasename = tool.renderer === "drawio" ? `${tool.slug}-page-${drawioPageIndex + 1}` : tool.slug;
+  const canCopyHtml = isCurrentResult && Boolean(currentHtml);
+  const canExportSvg = isCurrentResult && Boolean(currentSvg);
+  const canExportPng = isCurrentResult && Boolean(currentSvg);
+  const drawioXml = drawioPage && drawioPageXml(drawioPage);
+  const downloadableArtifact = tool.renderer === "plantuml" && source.trim()
+    ? {filename: "plantuml-preview.puml", mime: "text/plain;charset=utf-8", content: source}
+    : tool.renderer === "drawio" && isCurrentResult && drawioXml
+    ? {filename: `${exportBasename}.drawio`, mime: "application/xml;charset=utf-8", content: drawioXml}
+    : isCurrentResult ? renderState.artifact : undefined;
+  const canDownloadFile = Boolean(downloadableArtifact);
   const capabilities = getRendererCapabilities(tool.renderer);
+  const transferCopy = handoffCopy(copy.locale);
+  const share = boundedSourceUrl(`/${tool.slug}`, source);
+  const suggestedLink = suggestedTool ? boundedSourceUrl(`/${suggestedTool.slug}`, source) : undefined;
+  const splitLayout = ["mermaid", "mermaid-to-drawio", "plantuml", "plantuml-to-drawio", "drawio"].includes(tool.renderer);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <div className="grid gap-5">
-        <div className="grid gap-3 lg:grid-cols-[1fr_auto] lg:items-start">
-          <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
+      <div className="grid min-w-0 gap-5">
+        <div className="grid min-w-0 gap-3">
+          <div className="flex min-w-0 flex-wrap items-center gap-2 rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
             <span className="text-sm font-semibold text-slate-700">{copy.samplesTitle}</span>
             {sampleButtons.map(([key, sample]) => (
               <button
@@ -291,33 +348,37 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             canExportSvg={canExportSvg}
             canExportPng={canExportPng}
             canDownloadFile={canDownloadFile}
+            canShare={!share.tooLarge}
             showCopyHtml={capabilities.html}
             showExportSvg={capabilities.svg}
             showExportPng={capabilities.svg}
             showPrint={capabilities.print}
             onCopyCode={() => void runAction(copy.actions.copyCode, "tool_copy_code", () => copyText(source))}
-            onCopyHtml={() => void runAction(copy.actions.copyHtml, "tool_copy_html", () => copyText(renderState.html ?? ""))}
-            onCopyMarkdown={() => void runAction(copy.actions.copyMarkdown ?? "Markdown", "tool_copy_markdown", () => copyText(markdownSnippet(source, shareUrl(tool.slug, source), tool.renderer)))}
-            onShareLink={() => void runAction(copy.actions.shareLink ?? "Share", "tool_share_link", () => copyText(shareUrl(tool.slug, source)))}
+            onCopyHtml={() => void runAction(copy.actions.copyHtml, "tool_copy_html", () => copyText(currentHtml ?? ""))}
+            onCopyMarkdown={() => !share.tooLarge && void runAction(copy.actions.copyMarkdown ?? "Markdown", "tool_copy_markdown", () => copyText(markdownSnippet(source, shareUrl(tool.slug, source), tool.renderer)))}
+            onShareLink={() => !share.tooLarge && void runAction(copy.actions.shareLink ?? "Share", "tool_share_link", () => copyText(shareUrl(tool.slug, source)))}
             onExportSvg={() =>
-              renderState.svg &&
+              canExportSvg && currentSvg &&
               void runAction(copy.actions.exportSvg, "tool_export_svg", () => {
-                downloadText(`${tool.slug}.svg`, renderState.svg ?? "", "image/svg+xml;charset=utf-8");
+                downloadText(`${exportBasename}.svg`, currentSvg ?? "", "image/svg+xml;charset=utf-8");
                 recordExport("svg");
               })
             }
             onExportPng={() =>
-              renderState.svg &&
+              canExportPng && currentSvg &&
               void runAction(copy.actions.exportPng, "tool_export_png", async () => {
-                await downloadSvgAsPng(renderState.svg ?? "", `${tool.slug}.png`);
-                recordExport("png");
+                const origin = renderOriginRef.current;
+                await downloadSvgAsPng(currentSvg ?? "", `${exportBasename}.png`);
+                recordExport("png", origin);
               })
             }
             onDownloadFile={() =>
-              renderState.artifact &&
+              downloadableArtifact &&
               void runAction(copy.actions.downloadFile ?? "Download", "tool_download_file", () => {
-                downloadText(renderState.artifact?.filename ?? `${tool.slug}.txt`, renderState.artifact?.content ?? "", renderState.artifact?.mime ?? "text/plain;charset=utf-8");
-                recordConversion(renderState.artifact?.mime ?? "file");
+                downloadText(downloadableArtifact.filename, downloadableArtifact.content, downloadableArtifact.mime);
+                if (tool.renderer === "plantuml") recordExport("puml");
+                else if (tool.renderer === "drawio") recordExport("drawio");
+                else recordConversion(downloadableArtifact.filename.split(".").pop() || "file");
               })
             }
             onPrint={() =>
@@ -334,6 +395,16 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             }}
           />
         </div>
+        {share.tooLarge ? <div role="status" className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-slate-700">
+          <p>{transferCopy.large} {transferCopy.shareLarge}</p>
+          <Button className="mt-2" onClick={() => downloadHandoff(sourceFile(detectedTool?.slug || tool.slug, source))}>{transferCopy.downloadSource}</Button>
+        </div> : null}
+        {tool.renderer === "drawio" ? <DrawioFileInput value={source} locale={copy.locale} onReading={setReadingDrawio} onError={setDrawioUploadError} onLoad={(value) => {
+          renderOriginRef.current = "file_upload";
+          setDrawioUploadError(null);
+          if (value === source && renderState.drawio?.pages[drawioPageIndex]?.graph) trackQualifiedRender("file_upload");
+          setSource(value);
+        }} /> : null}
         {suggestedTool ? (
           <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-slate-700">
             <div className="font-semibold text-ink">Detected {suggestedTool.label}</div>
@@ -341,18 +412,19 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
               This input may work better in the matching tool.
               {" "}
               <Link
-                href={sourceUrl(`/${suggestedTool.slug}`, source)}
+                href={suggestedLink!.href}
                 className="font-semibold text-primary hover:underline"
-                onClick={() => trackEvent("tool_detected_tool_click", {tool_slug: tool.slug, target_tool_slug: suggestedTool.slug})}
+                onClick={() => trackEvent("tool_detected_tool_click", {tool_slug: tool.slug, target_tool_slug: suggestedTool.slug, entry_surface: "detected_tool"})}
               >
                 Open {suggestedTool.label} tool
               </Link>
             </p>
+            {suggestedLink?.tooLarge ? <p className="mt-2">{transferCopy.large}</p> : null}
           </div>
         ) : null}
         {renderState.notices?.length ? (
           <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-            <div className="font-semibold">{hasCjk(copy.inputLabel) ? "转换与隐私提示" : "Conversion and privacy notes"}</div>
+            <div className="font-semibold">{uiCopy.locale.startsWith("zh") ? "转换与隐私提示" : "Conversion and privacy notes"}</div>
             <ul className="mt-2 grid gap-1">
               {renderState.notices.map((notice) => <li key={notice}>- {notice}</li>)}
             </ul>
@@ -388,11 +460,12 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             </div>
           </div>
         ) : null}
-        <div className="grid gap-5">
+        <div data-tool-workspace className={splitLayout ? "grid min-w-0 scroll-mt-32 gap-5 lg:h-[640px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]" : "grid min-w-0 scroll-mt-32 gap-5"}>
           <CodeEditor
             label={copy.inputLabel}
             value={source}
             placeholder={copy.placeholder}
+            minHeightClassName={splitLayout ? "min-h-[320px] lg:min-h-0 lg:h-full" : undefined}
             onChange={(value) => {
               renderOriginRef.current = "user_edit";
               setSource(value);
@@ -402,7 +475,13 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             label={copy.outputLabel}
             status={status}
             emptyText={copy.emptyPreview}
-            error={renderState.error}
+            error={tool.renderer === "drawio" ? drawioUploadError || renderState.error : renderState.error}
+            onRetry={tool.renderer === "plantuml" && renderState.error ? () => {
+              setRenderState({notices: plantUmlNotices(copy)});
+              setRenderedInput(null);
+              setRenderAttempt((attempt) => attempt + 1);
+            } : undefined}
+            retryLabel={uiCopy.locale.startsWith("zh") ? "重试渲染" : "Retry rendering"}
             html={renderState.html}
             imageUrl={renderState.imageUrl}
             onImageLoad={() => {
@@ -417,9 +496,14 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
             tree={renderState.tree}
             fallback={fallback}
             normalizePreviewHeadings={tool.renderer !== "markdown"}
-            className="min-h-[560px] border-slate-300"
+            className={splitLayout ? "min-h-[560px] min-w-0 border-slate-300 lg:min-h-0 lg:h-full" : "min-h-[560px] min-w-0 border-slate-300"}
           >
-            {renderState.formSchema ? <JsonSchemaFormPreview schema={renderState.formSchema} locale={uiCopy.locale} /> : null}
+            {renderState.drawio ? <DrawioViewer document={renderState.drawio} pageIndex={drawioPageIndex} image={drawioImage} current={isCurrentResult} locale={copy.locale} onSelectPage={(index) => {
+              setDrawioPageIndex(index);
+              renderOriginRef.current = "user_edit";
+              if (renderState.drawio?.pages[index].graph) trackRenderSuccess({...renderState, svg: renderDrawioPage(renderState.drawio.pages[index].graph!).svg});
+              else trackEvent("tool_render_error", {tool_slug: tool.slug, renderer: tool.renderer});
+            }} /> : renderState.formSchema ? <JsonSchemaFormPreview schema={renderState.formSchema} locale={uiCopy.locale} /> : null}
           </PreviewPane>
         </div>
         <NextStepRecommendations
@@ -428,9 +512,14 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
           description={uiCopy.nextDescription}
           actionLabel={uiCopy.nextAction}
           currentSlug={tool.slug}
+          source={source}
+          current={isCurrentResult && !renderState.error && status !== copy.statusRendering}
+          artifact={renderState.artifact}
+          locale={copy.locale}
+          onDownload={downloadHandoff}
         />
         <AiReviewPanel locale={uiCopy.locale} toolSlug={tool.slug} renderer={tool.renderer} source={source} />
-        <BatchConversionBeta locale={uiCopy.locale} toolSlug={tool.slug} renderer={tool.renderer} source={source} />
+        <BatchConversionBeta renderOrigin={renderOriginRef.current} locale={uiCopy.locale} toolSlug={tool.slug} renderer={tool.renderer} source={source} />
         {showWorkflowWaitlist ? <WaitlistCta locale={uiCopy.locale} source="tool" toolSlug={tool.slug} intent={postActionIntent} compact /> : null}
       </div>
       <div aria-live="polite" className="pointer-events-none fixed bottom-5 right-5 z-50">
@@ -439,12 +528,22 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
     </section>
   );
 
+  function downloadHandoff(file: {filename: string; mime: string; content: string}) {
+    void runAction(transferCopy.download, "tool_download_file", () => {
+      downloadText(file.filename, file.content, file.mime);
+      if (file === renderState.artifact && isCurrentResult) recordConversion(file.filename.split(".").pop() || "file");
+      else recordExport("source");
+    });
+  }
+
   async function runAction(label: string, eventName: AnalyticsEventName, action: () => void | Promise<void>) {
     try {
       await action();
       trackEvent(eventName, {
         tool_slug: tool.slug,
         renderer: tool.renderer,
+        render_origin: renderOriginRef.current,
+        ...(eventName === "tool_export_pdf" ? {export_stage: "print_invoked"} : {}),
         success: true
       });
       showToast(successMessage(label));
@@ -452,6 +551,7 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
       trackEvent(eventName, {
         tool_slug: tool.slug,
         renderer: tool.renderer,
+        render_origin: renderOriginRef.current,
         success: false
       });
       showToast(failureMessage(label));
@@ -463,7 +563,7 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
     window.setTimeout(() => setToast(null), 1800);
   }
 
-  function recordExport(artifactType: string) {
+  function recordExport(artifactType: string, origin = renderOriginRef.current) {
     recordExportHistory(window.localStorage, {
       toolSlug: tool.slug,
       source,
@@ -472,6 +572,9 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
     trackEvent("tool_export_success", {
       tool_slug: tool.slug,
       renderer: tool.renderer,
+      render_origin: origin,
+      export_stage: "download_initiated",
+      artifact_type: artifactType,
       source_length: source.length,
       intent: "advanced_export"
     });
@@ -486,6 +589,9 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
       artifactType
     });
     trackEvent("tool_conversion_success", {
+      render_origin: renderOriginRef.current,
+      artifact_type: artifactType,
+      success: true,
       tool_slug: tool.slug,
       renderer: tool.renderer,
       source_length: source.length,
@@ -495,6 +601,8 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
       tool_slug: tool.slug,
       renderer: tool.renderer,
       source_length: source.length,
+      render_origin: renderOriginRef.current,
+      export_stage: "download_initiated",
       artifact_type: artifactType,
       intent: "batch_conversion"
     });
@@ -508,7 +616,7 @@ export function ToolShell({tool, copy, relatedTools = []}: ToolShellProps) {
       tool_slug: tool.slug,
       renderer: tool.renderer,
       render_origin: origin,
-      has_svg: Boolean(nextState.svg),
+      has_svg: Boolean(nextState.svg || nextState.drawio?.pages[0]?.graph),
       has_html: Boolean(nextState.html),
       has_artifact: Boolean(nextState.artifact)
     });
@@ -538,7 +646,7 @@ function getUiCopy(copy: ToolCopy) {
       favoriteAdded: "Added to favorites",
       favoriteRemoved: "Removed from favorites",
       nextTitle: "Continue with a related tool",
-      nextDescription: "Move this preview into a nearby workflow for conversion, debugging, or export.",
+      nextDescription: "Compatible tools can carry your current source or converted XML. Other tools open separately.",
       nextAction: "Open",
       restoreTitle: "Local draft found",
       restoreDescription: "This draft is stored only in this browser. Restoring it will replace the current input.",
@@ -552,7 +660,7 @@ function getUiCopy(copy: ToolCopy) {
       favoriteAdded: "已加入收藏",
       favoriteRemoved: "已取消收藏",
       nextTitle: "下一步可以继续",
-      nextDescription: "把当前预览结果带到相关工具里继续转换、排查或导出。",
+      nextDescription: "兼容工具可携带当前源码或转换后的 XML；其他工具单独打开。",
       nextAction: "打开",
       restoreTitle: "发现本地草稿",
       restoreDescription: "这个草稿只保存在当前浏览器。恢复后会覆盖当前输入。",
@@ -580,7 +688,7 @@ function getUiCopy(copy: ToolCopy) {
       favoriteAdded: "Añadido a favoritos",
       favoriteRemoved: "Eliminado de favoritos",
       nextTitle: "Continúa con una herramienta relacionada",
-      nextDescription: "Lleva esta vista previa a un flujo cercano para convertir, depurar o exportar.",
+      nextDescription: "Las herramientas compatibles conservan el código actual o el XML convertido. Las demás se abren por separado.",
       nextAction: "Abrir",
       restoreTitle: "Borrador local encontrado",
       restoreDescription: "Este borrador solo está guardado en este navegador. Restaurarlo reemplazará la entrada actual.",
@@ -688,25 +796,38 @@ function hasCjk(value: string) {
   return /[\u3400-\u9fff]/.test(value);
 }
 
+function plantUmlNotices(copy: ToolCopy) {
+  return copy.locale?.startsWith("zh") || hasCjk(copy.inputLabel)
+    ? ["PlantUML 源码会经本站接口发送到公共 PlantUML 渲染服务。敏感图请使用可信的私有 renderer。", "预览与图片导出使用静态 SVG，图片、超链接和外部资源不会保留；原始源码可单独下载。"]
+    : ["PlantUML source is sent through this site's API to the public PlantUML renderer. Use a trusted private renderer for sensitive diagrams.", "Preview and image exports use static SVG. Images, hyperlinks, and external resources are omitted; the original source is available separately."];
+}
+
+function drawioNotices(copy: ToolCopy) {
+  const labels = drawioViewerCopy(copy.locale);
+  return [labels.scope, labels.source];
+}
+
 function renderErrorMessage(error: unknown, fallback: string, renderer: ToolRuntimeConfig["renderer"]) {
   const message = error instanceof Error && error.message ? error.message : fallback;
   const hintsEn: Partial<Record<ToolRuntimeConfig["renderer"], string>> = {
+    d2: "Use flat nodes, labels and -> chains. Containers, attributes, styles and sequence diagrams require the official D2 renderer.",
     mermaid: "Check diagram type, node IDs, brackets, quotes, and whether AI output included Markdown fences.",
     openapi: "Use a focused OpenAPI YAML/JSON document with a paths object, HTTP methods, responses, and optional requestBody schemas.",
     "api-error-flow": "Use rows like 401 | Missing token | Return login required, or load one of the error-flow samples.",
     "mermaid-to-drawio": "Supported conversion focuses on Mermaid flowchart and sequence structures with explicit nodes, participants, and arrows.",
     "plantuml-to-drawio": "Supported conversion focuses on PlantUML actors, participants, components, classes, databases, and arrows.",
-    drawio: "Paste uncompressed diagrams.net XML with drawable mxCell vertices. Compressed draw.io payloads are not supported yet.",
+    drawio: "Open .drawio or diagrams.net XML. This basic viewer supports flat pages with basic shapes and connectors.",
     "json-schema": "Paste a JSON Schema object with type, properties, required, enum, oneOf, anyOf, or allOf.",
     "json-schema-form": "Paste a JSON Schema object with non-empty properties so a form can be generated."
   };
   const hintsZh: Partial<Record<ToolRuntimeConfig["renderer"], string>> = {
+    d2: "仅支持平面节点、标签和 -> 连续关系；容器、属性、样式和时序图请使用官方 D2 渲染器。",
     mermaid: "请检查图表类型、节点 ID、括号、引号，以及 AI 输出里是否混入了 Markdown 代码围栏。",
     openapi: "请使用包含 paths、HTTP method、responses 和可选 requestBody schema 的 OpenAPI YAML/JSON。",
     "api-error-flow": "请使用类似 401 | Missing token | Return login required 的行格式，或先加载错误流示例。",
     "mermaid-to-drawio": "当前转换优先支持 Mermaid flowchart 和 sequence 的显式节点、participant 与箭头。",
     "plantuml-to-drawio": "当前转换优先支持 PlantUML actor、participant、component、class、database 和箭头关系。",
-    drawio: "请粘贴未压缩的 diagrams.net XML，且包含可绘制的 mxCell vertex。暂不支持压缩 draw.io payload。",
+    drawio: "请打开 .drawio 或 diagrams.net XML。基础版支持平面页面中的基础形状和连线。",
     "json-schema": "请粘贴包含 type、properties、required、enum、oneOf、anyOf 或 allOf 的 JSON Schema 对象。",
     "json-schema-form": "请粘贴包含非空 properties 的 JSON Schema 对象，才能生成表单。"
   };
@@ -720,9 +841,9 @@ function conversionNotices(
   diagramType: string,
   stats: {nodes: number; edges: number},
   warnings: string[],
-  localizedInputLabel?: string
+  localeOrLabel?: string
 ) {
-  if (!hasCjk(localizedInputLabel || "")) {
+  if (!localeOrLabel?.startsWith("zh") && !hasCjk(localeOrLabel || "")) {
     return [`Detected ${diagramType}: ${stats.nodes} nodes, ${stats.edges} relationships.`, ...warnings];
   }
 
@@ -733,7 +854,7 @@ function conversionNotices(
 }
 
 function hasRenderedOutput(state: RenderState) {
-  return Boolean(state.svg || state.html || state.imageUrl || state.tree || state.artifact || state.formSchema);
+  return Boolean(state.svg || state.html || state.imageUrl || state.tree || state.artifact || state.formSchema || state.drawio?.pages.some((page) => page.graph));
 }
 
 function translateConversionWarningToZh(warning: string) {
@@ -741,6 +862,10 @@ function translateConversionWarningToZh(warning: string) {
   if (warning.startsWith("Mermaid styling")) return "Mermaid 样式不会保留到可编辑的 draw.io XML。";
   if (warning.startsWith("Click actions")) return "click 动作和链接不会保留到 draw.io XML。";
   if (warning.startsWith("Sequence groups")) return "时序图分组和 note 会被展开，请检查导出布局。";
+  if (warning.startsWith("Sequence diagrams become")) return "时序图会转换为关系图，不保留消息顺序和生命线。";
+  if (warning.startsWith("Layout is regenerated")) return "布局会重新生成，请在 diagrams.net 中检查节点位置和连线路径。";
+  if (warning.startsWith("Some Mermaid node shapes")) return "部分 Mermaid 节点形状会简化为矩形。";
+  if (warning.startsWith("Formatted labels")) return "富文本标签会转换为纯文本。";
   const nodeLimit = warning.match(/^Only the first 36 of (\d+) nodes/);
   if (nodeLimit) return `共识别 ${nodeLimit[1]} 个节点，仅导出前 36 个。`;
   const edgeLimit = warning.match(/^Only the first 40 of (\d+) relationships/);
@@ -759,6 +884,8 @@ function shareUrl(slug: ToolSlug, source: string) {
 function getRendererCapabilities(renderer: ToolRuntimeConfig["renderer"]) {
   const svgRenderers = new Set<ToolRuntimeConfig["renderer"]>([
     "mermaid",
+    "drawio",
+    "plantuml",
     "graphviz",
     "d2",
     "mindmap",
@@ -823,7 +950,7 @@ function getRendererCapabilities(renderer: ToolRuntimeConfig["renderer"]) {
   return {
     html: svgRenderers.has(renderer) || htmlRenderers.has(renderer),
     svg: svgRenderers.has(renderer),
-    print: renderer !== "ai"
+    print: renderer !== "ai" && renderer !== "drawio"
   };
 }
 
@@ -831,7 +958,8 @@ async function renderSource(
   renderer: ToolRuntimeConfig["renderer"],
   source: string,
   copy: ToolCopy,
-  slug: ToolSlug
+  slug: ToolSlug,
+  signal?: AbortSignal
 ): Promise<RenderState> {
   switch (renderer) {
     case "mermaid": {
@@ -860,14 +988,27 @@ async function renderSource(
       return {html: svg, svg};
     }
     case "plantuml": {
-      const {plantUmlSvgUrl} = await import("@/lib/renderers/plantuml");
+      const {renderPlantUml, PlantUmlClientError} = await import("@/lib/renderers/plantuml-client");
+      let svg: string;
+      try {
+        svg = await renderPlantUml(source, signal);
+      } catch (error) {
+        if (copy.locale?.startsWith("zh") && error instanceof PlantUmlClientError) {
+          const messages: Record<string, string> = {
+            INVALID_SOURCE: "PlantUML 源码需包含 @startuml 和 @enduml，且每次只渲染一张图。请检查语法、include 和图表类型后重试。",
+            INPUT_TOO_LARGE: "请求超过 64 KiB，请将源码拆成较小的图后重试。",
+            RESPONSE_TOO_LARGE: "渲染结果超过 2 MiB，请将源码拆成较小的图。",
+            RENDER_TIMEOUT: "PlantUML 渲染超时，请重试或缩小图表。",
+            INVALID_RESPONSE: "渲染服务未返回可用的 SVG，请重试。"
+          };
+          throw new Error(messages[error.code] || "暂时无法连接公共 PlantUML 服务，请重试。源码仍可下载。");
+        }
+        throw error;
+      }
       return {
-        imageUrl: plantUmlSvgUrl(source),
-        notices: [
-          hasCjk(copy.inputLabel)
-            ? "PlantUML 源码会发送到公共 PlantUML 渲染服务。敏感图请使用可信的私有 renderer。"
-            : "PlantUML source is sent to the public PlantUML renderer. Use a trusted private renderer for sensitive diagrams."
-        ]
+        html: svg, svg,
+        artifact: {filename: "plantuml-preview.puml", mime: "text/plain;charset=utf-8", content: source},
+        notices: plantUmlNotices(copy)
       };
     }
     case "json": {
@@ -879,8 +1020,8 @@ async function renderSource(
       return {tree: parseYamlTree(source)};
     }
     case "drawio": {
-      const {parseDrawioSummary} = await import("@/lib/renderers/drawio");
-      return {tree: parseDrawioSummary(source, copy.drawioSummary)};
+      const {parseDrawioDocument} = await import("@/lib/renderers/drawio-viewer-parser");
+      return {drawio: await parseDrawioDocument(source, signal), notices: drawioNotices(copy)};
     }
     case "openapi": {
       const {renderOpenApiSequence} = await import("@/lib/renderers/openapi");
@@ -929,7 +1070,7 @@ async function renderSource(
       return {
         html: result.svg,
         svg: result.svg,
-        notices: conversionNotices(result.diagramType, result.stats, result.warnings, copy.inputLabel),
+        notices: conversionNotices(result.diagramType, result.stats, result.warnings, copy.locale || copy.inputLabel),
         artifact: {filename: `${copyFileName("plantuml-diagram")}.drawio`, mime: "application/xml;charset=utf-8", content: result.xml}
       };
     }
@@ -939,7 +1080,7 @@ async function renderSource(
       return {
         html: result.svg,
         svg: result.svg,
-        notices: conversionNotices(result.diagramType, result.stats, result.warnings, copy.inputLabel),
+        notices: conversionNotices(result.diagramType, result.stats, result.warnings, copy.locale || copy.inputLabel),
         artifact: {filename: `${copyFileName("mermaid-diagram")}.drawio`, mime: "application/xml;charset=utf-8", content: result.xml}
       };
     }

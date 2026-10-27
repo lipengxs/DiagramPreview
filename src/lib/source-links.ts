@@ -1,5 +1,17 @@
 import type {ToolConfig} from "@/config/tools";
 
+export const MAX_SOURCE_FRAGMENT_BYTES = 32 * 1024;
+
+// URLSearchParams produces ASCII percent encoding, so length is the encoded byte count.
+export function sourceFragmentBytes(source: string) {
+  return source.trim() ? 1 + sourceHash(source).length : 0;
+}
+
+export function boundedSourceUrl(path: string, source: string) {
+  const tooLarge = sourceFragmentBytes(source) > MAX_SOURCE_FRAGMENT_BYTES;
+  return {href: sourceUrl(path, tooLarge ? "" : source), tooLarge};
+}
+
 export function sourceUrl(path: string, source: string) {
   const url = new URL(path, "https://diagrampreview.com");
   if (source.trim()) {

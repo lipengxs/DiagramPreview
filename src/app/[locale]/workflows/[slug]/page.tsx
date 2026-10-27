@@ -27,6 +27,7 @@ export async function generateMetadata({params}: WorkflowPageProps): Promise<Met
   const metadata = buildMetadata({
     locale,
     path: `/${locale}/workflows/${workflow.slug}`,
+    pageLocales: growthContentIndexableLocales,
     title: `${workflow.title} - DiagramPreview`,
     description: workflow.description,
     keywords: workflow.keywords

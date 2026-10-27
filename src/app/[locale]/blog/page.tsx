@@ -87,6 +87,7 @@ export async function generateMetadata({params}: BlogPageProps): Promise<Metadat
   const metadata = buildMetadata({
     locale,
     path: `/${locale}/blog`,
+    pageLocales: blogIndexableLocales,
     title: t("blog.index.seoTitle"),
     description: t("blog.index.description"),
     keywords: t.raw("blog.index.keywords")

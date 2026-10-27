@@ -1,0 +1,308 @@
+{
+  "figma-specs-guide": {
+    "title": "Figma Specs 入门：入口、Markdown 支持与 AI 积分",
+    "seoTitle": "Figma Specs 教程：入口、支持套餐、Markdown 与 AI 积分",
+    "description": "了解 Figma Specs 在哪里打开、为什么看不到入口、哪些操作消耗 AI 积分，以及如何准备一份可复用的 Markdown 设计规范。",
+    "excerpt": "了解 Figma Specs 在哪里打开、为什么看不到入口、哪些操作消耗 AI 积分，以及如何准备一份可复用的 Markdown 设计规范。",
+    "readingTime": "6 分钟",
+    "keywords": [
+      "Figma Specs",
+      "Figma Specs 教程",
+      "Figma Specs 入口",
+      "Figma Specs 免费吗",
+      "Markdown 设计规范"
+    ],
+    "sections": [
+      {
+        "heading": "Figma Specs 解决什么问题",
+        "paragraphs": [
+          "Figma Specs 为需求、设计决策和上下文提供了一个紧邻设计的文档空间。它可以是独立文件，也可以放在 Figma Design 文件或 FigJam 画板中，供团队与连接的编程代理读取和协作。",
+          "以工作区设置页面为例：设计稿展示布局，规范则说明谁能修改、哪些字段必填、保存失败后怎么办，以及什么条件下可以验收。这些规则很难只凭一张截图准确推断。",
+          "本文中的功能信息于 2026 年 10 月 24 日依据 Figma 官方文档核对。公测开放范围和计费规则可能变化，订阅或采购前请查看文末及各节链接的官方说明。"
+        ],
+        "links": [
+          {
+            "label": "Config India 2026 官方更新说明",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "入口在哪里？为什么账号里看不到？",
+        "paragraphs": [
+          "账号获得访问权限后，可以在文件浏览器顶部选择 Spec 新建独立文件。官方还提供了 figma.com/spec/new 入口。在 Figma Design 文件或 FigJam 画板中，也可以使用工具栏的 Spec 控件，将文档放在设计旁。",
+          "官方发布说明列出了 Education、Professional、Organization、Enterprise 和 Government 套餐，不应据此认为免费 Starter 账号也包含 Specs。查看文档需要查看权限，修改内容需要编辑权限。",
+          "Specs 正在逐步开放，同事看到入口不代表同一团队的所有账号已经获得访问权限。先检查套餐与文件权限；符合要求但没有入口时，应查看官方开放进度，而不是寻找非官方的解锁方式。"
+        ],
+        "links": [
+          {
+            "label": "在 Figma 新建 Spec",
+            "href": "https://figma.com/spec/new",
+            "kind": "external"
+          },
+          {
+            "label": "Figma Specs 官方使用指南",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "支持 Markdown 快捷语法，不代表兼容全部扩展",
+        "paragraphs": [
+          "Specs 支持标题、列表、引用、代码块、图片和 Figma 文件嵌入等内容块。其中部分块可以用 Markdown 快捷语法创建，例如使用 # 创建标题、使用 - 创建列表、使用围栏语法创建代码块，也可以通过斜杠菜单选择内容块。",
+          "这些说明并不能证明它支持所有 Markdown 扩展、批量导入 .md、原生 Mermaid 渲染，或完整保留嵌入内容和评论的往返转换。建议先准备普通文字与列表，再在自己的 Figma 文件中检查最终效果。",
+          "DiagramPreview 的 Markdown 预览适合在交付前检查文档结构，但不是 Figma 块编辑器的模拟器，也不会自动把内容发布到 Figma。"
+        ]
+      },
+      {
+        "heading": "手动写文档和调用 AI，费用有什么区别？",
+        "paragraphs": [
+          "官方 Specs 指南区分了手动编辑与代理操作：直接编写和编辑文档不使用代理，也不消耗 AI credits；让代理创建或更新 Specs 会根据任务和上下文消耗积分。",
+          "「手动编辑不消耗 AI 积分」不等于「所有账号都能免费使用 Specs」。套餐资格与 AI 用量是两件事。使用代理后，可以查看提示对应的用量回执，了解这次实际操作消耗了多少积分。"
+        ],
+        "links": [
+          {
+            "label": "Specs 费用常见问题",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          },
+          {
+            "label": "Figma AI 积分说明",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "先写行为，再补视觉规范",
+        "paragraphs": [
+          "第一份规范可以从用户目标和不做什么开始，标明相关设计稿或组件，再逐项说明默认、加载、空状态、失败和成功时的行为。行为明确后，再补充有名称的颜色、字体与间距规则。",
+          "最后写可以实际验证的验收条件。「做得精致一点」很难验收；「保存失败后保留草稿并提供重试」则可以在原型中演示和检查。",
+          "配套模板给出了完整的工作区设置示例。可以先修改内容、检查结构，再把适合的部分转入团队实际使用的文档工具。"
+        ],
+        "links": [
+          {
+            "label": "使用 Markdown 设计规范模板",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "Specs、Code Layers 与 MCP 怎么配合？",
+        "paragraphs": [
+          "Specs 存放需求与上下文，Code Layers 在 Figma 画布上承载运行中的代码。规范可以描述交互原型必须展示的行为，但出现了可运行的原型，不代表授权、无障碍和生产环境异常处理已经完成验证。",
+          "官方文档还介绍了连接的编程代理通过 MCP 工具与 figma-spec 技能读取、创建和更新 Specs 的方式。客户端支持、权限和调用限制仍然适用，适合先用小文档验证效果，再推广到团队流程。"
+        ],
+        "links": [
+          {
+            "label": "Code Layers 入口与费用指南",
+            "href": "/blog/figma-code-layers-guide",
+            "kind": "internal"
+          },
+          {
+            "label": "Figma MCP 客户端目录",
+            "href": "https://www.figma.com/mcp-catalog",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  },
+  "figma-code-layers-guide": {
+    "title": "Figma Code Layers 公测：如何开启、入口缺失与费用说明",
+    "seoTitle": "Figma Code Layers 公测教程：入口、开放范围与收费规则",
+    "description": "查找 Code Layers 入口，了解公测分批开放、付费套餐优惠期与 AI 积分规则，并为首个交互原型准备验收清单。",
+    "excerpt": "查找 Code Layers 入口，了解公测分批开放、付费套餐优惠期与 AI 积分规则，并为首个交互原型准备验收清单。",
+    "readingTime": "6 分钟",
+    "keywords": [
+      "Figma code layers",
+      "Figma code layers beta",
+      "Figma code layers waitlist",
+      "Code Layers 怎么开启",
+      "Code Layers 收费"
+    ],
+    "sections": [
+      {
+        "heading": "Code Layers 能做什么",
+        "paragraphs": [
+          "Code Layer 在 Figma Design 画布中承载实际运行的代码，让团队可以在视觉设计旁尝试交互、比较方案、评审行为。对于加载、校验、重试等静态设计稿不容易表达的状态，它尤其有用。",
+          "下文关于开放范围和费用的信息，于 2026 年 10 月 24 日依据 Figma Config India 官方文档核对。本文是基于文档的使用指南，不代表每一个账号都已获得公测权限。"
+        ],
+        "links": [
+          {
+            "label": "Code Layers 官方发布说明与 FAQ",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "如何找到 Code Layers 入口",
+        "paragraphs": [
+          "先打开自己有编辑权限的 Figma Design 文件。功能开放到账号后，工具栏会出现 Code 图标。官方发布说明列出的范围包括 Starter、Professional、Organization、Enterprise 和符合条件的 Education 套餐，其中不包括 K–12 Education。",
+          "第一次使用可以选择工作区设置这样的小页面。先写出预期状态，再让代理生成原型，便于判断结果是否实现了要求的行为，而不只是看起来像一个完整页面。"
+        ],
+        "links": [
+          {
+            "label": "Code Layers 官方入门指南",
+            "href": "https://help.figma.com/hc/en-us/articles/44193259600535",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "为什么没有入口？还要加入 waitlist 吗？",
+        "paragraphs": [
+          "首先确认正在使用 Figma Design，并且有文件编辑权限。接着检查套餐和组织的 AI 功能设置；企业管理员可以关闭 AI 功能，Code Layers 也会随之关闭。",
+          "官方说明功能将在数周内逐步开放，同一团队的不同用户也可能在不同时间获得权限。搜索结果中的 waitlist 信息可能来自较早阶段；本次官方公告描述的是开放公测和分批推送，没有承诺所有账号立即可用。",
+          "权限和设置确认后仍无入口，可以关注官方开放进度，或向 Figma 支持提供套餐及权限情况。安装无关插件不是官方激活方式。"
+        ]
+      },
+      {
+        "heading": "是否免费？注意付费套餐优惠期",
+        "paragraphs": [
+          "截至 2026 年 10 月 24 日查阅的官方说明，付费套餐中在 Code Layers 内生成和编辑代码的操作，在 2026 年 11 月 4 日前享有不消耗 AI 积分的优惠。这是有明确期限的优惠条件，不是永久免费的承诺。",
+          "同一条提示可能包含多种代理任务。优惠仅覆盖符合条件的 Code Layer 生成和编辑操作，其他代理操作仍可能消耗积分；也不应把付费套餐的优惠推断为 Starter 账号同样适用。",
+          "同一公告说明，11 月 4 日之后 Code Layer 任务将像其他代理功能一样消耗积分，具体用量与任务复杂度等因素有关。实际使用前应检查最新政策及提示回执，不宜照搬一个固定积分估算。"
+        ],
+        "links": [
+          {
+            "label": "优惠条件与 Code Layers FAQ",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          },
+          {
+            "label": "AI 积分消耗说明",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "官方介绍的四种起点",
+        "paragraphs": [
+          "从设计稿开始：选中画布上的 frame，让代理将其转换为 Code Layer。从空白开始：新建空 Code Layer，再描述一个具体的小交互。",
+          "从已有代码开始：连接并克隆 GitHub 仓库，在现有前端代码上继续探索。从网页开始：使用官方 Figma Chrome 扩展捕获代码，再粘贴到画布上。每种方式都应按官方说明完成设置和授权。",
+          "第一轮实验只选一个起点。一次同时引入外部代码、新后台逻辑和新视觉体系，出现问题后会更难定位原因。"
+        ],
+        "links": [
+          {
+            "label": "Figma 官方 Chrome 扩展",
+            "href": "https://figma.com/downloads/chrome-extension/",
+            "kind": "external"
+          },
+          {
+            "label": "先用 Specs 写清楚规范",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "原型完成前，按规范检查行为",
+        "paragraphs": [
+          "对于设置表单，要检查无效输入能否被提交、保存中是否阻止重复请求、请求失败是否保留草稿，以及成功状态是否有可访问的提示。还应验证键盘操作与窄屏布局。",
+          "配套设计规范可以直接作为验收清单。示例使用虚构数据和模拟请求，帮助评审行为；它不意味着例子已经具备生产应用的全部条件。"
+        ],
+        "links": [
+          {
+            "label": "获取工作区设置规范模板",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "design-spec-markdown-template": {
+    "title": "Markdown 设计规范模板：在线预览、修改与下载",
+    "seoTitle": "Markdown 设计规范模板：组件状态、响应式与验收清单",
+    "description": "下载完整的工作区设置设计规范，在 Markdown 预览工具中修改，复用设计变量、组件状态、响应式规则和验收清单。",
+    "excerpt": "下载完整的工作区设置设计规范，在 Markdown 预览工具中修改，复用设计变量、组件状态、响应式规则和验收清单。",
+    "readingTime": "6 分钟",
+    "keywords": [
+      "设计规范模板",
+      "Markdown 设计规范",
+      "Figma Specs 模板",
+      "UI 设计规范",
+      "AI 设计规范"
+    ],
+    "sections": [
+      {
+        "heading": "有用的规范，要把决策写清楚",
+        "paragraphs": [
+          "截图可以展示一个按钮，却无法完整解释何时禁用、请求期间如何变化，以及失败后是否保留用户草稿。好的规范让这些决策对设计师、开发者和 AI 助手都清晰可见。",
+          "这份 DiagramPreview 独立模板描述工作区设置表单。它使用普通 Markdown，可以适配代码仓库、评审文档或 Figma Specs 工作流。它不是 Figma 官方模板、自动导入格式，也不承诺在不同编辑器中呈现完全一致。"
+        ],
+        "links": [
+          {
+            "label": "了解 Figma Specs 入口与 Markdown 支持",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "打开、修改或下载完整示例",
+        "paragraphs": [
+          "点击打开模板，即可把下方同一份源文档载入现有 Markdown 编辑器。修改项目名称、交互和设计规则后，检查标题、列表与验收清单的预览效果。下载按钮提供完全相同的源文档。",
+          "预览链接把示例文字放在网址片段中。之后如果分享带有自己修改内容的链接，收到链接的人就可以读取其中的源文档。分享前请去掉项目私密信息。"
+        ],
+        "templateSlug": "workspace-design-spec"
+      },
+      {
+        "heading": "如何改成自己的项目规范",
+        "paragraphs": [
+          "先替换业务范围。账单表单、邀请流程和通知设置的权限与失败路径并不相同。删除不适用的状态，并补充真实流程需要的状态。",
+          "再把颜色、字体和间距替换为已有的设计变量，同时说明各变量的用途。单独一个十六进制色值，并不能告诉实现者它应该用于背景、边框还是错误提示。",
+          "将待确认事项与已批准规则分开。示例把生产接口和授权契约留给研发确认；助手遇到缺口应指出问题，而不是自行编造后台行为。"
+        ]
+      },
+      {
+        "heading": "给 AI 一条范围明确的实现请求",
+        "paragraphs": [
+          "附上修改后的规范与相关设计稿或组件资料，一次请求实现一个页面，并明确范围。下面的提示词可以复用，不依赖特定 AI 厂商。"
+        ],
+        "code": {
+          "language": "text",
+          "content": "依据附带规范，实现工作区设置原型。\n复用有名称的设计变量与现有组件。\n实现默认、加载、成功、失败和禁用状态。\n仅使用虚构数据与模拟请求。\n列出待确认事项，不编造接口或授权规则。\n逐项报告验收条件：已演示、缺失或需人工检查。",
+          "caption": "让规范与小型原型逐项对应的提示词示例。"
+        }
+      },
+      {
+        "heading": "按验收清单核对实际结果",
+        "paragraphs": [
+          "亲自执行无效输入、重复提交、网络失败与成功路径，将观察到的结果对应到每个验收项。生成的检查报告可以辅助评审，但不能代替原型真正运行后的证据。",
+          "除正常流程外，还要检查键盘焦点和窄屏布局。记录观察到什么、在哪个环境检查，以及哪些决策仍未确定。把规范放在实现附近，后续修改也能按同一套规则评审。"
+        ]
+      },
+      {
+        "heading": "流程复杂时，再添加图表",
+        "paragraphs": [
+          "单个表单用编号步骤通常已经足够。审批分支或跨服务交互比较复杂时，可以另加流程图或时序图，并从规范中链接过去。",
+          "DiagramPreview 的 Markdown 工作流支持 Mermaid，但这不代表 Figma Specs 原生支持 Mermaid。交付到 Figma 时，需要确认适用的嵌入或图片方式，同时单独保留图表源码以便后续修改。"
+        ],
+        "links": [
+          {
+            "label": "Markdown 与 Mermaid 文档工作流",
+            "href": "/blog/markdown-mermaid-documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "浏览可复用模板",
+            "href": "/templates#documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Figma Specs 官方指南",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  }
+}

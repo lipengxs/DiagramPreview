@@ -72,7 +72,7 @@ export function GET() {
     for (const post of coreBlogs) {
       entries.push({
         url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
-        lastModified: new Date(post.date),
+        lastModified: new Date(post.updatedAt ?? post.date),
         changeFrequency: "monthly",
         priority: post.tier === "core" ? 0.76 : 0.7
       });
@@ -92,6 +92,6 @@ export function GET() {
 }
 
 function getLatestBlogDate() {
-  const timestamps = sitemapBlogPosts.map((post) => new Date(post.date).getTime()).filter(Number.isFinite);
+  const timestamps = sitemapBlogPosts.map((post) => new Date(post.updatedAt ?? post.date).getTime()).filter(Number.isFinite);
   return new Date(timestamps.length ? Math.max(...timestamps) : Date.UTC(2026, 5, 25));
 }

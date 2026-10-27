@@ -1,0 +1,9 @@
+web: Web app
+api: Order API
+db: Database
+queue: Event queue
+worker: Worker
+web -> api: HTTPS
+api -> db: SQL
+api -> queue: publish
+queue -> worker: consume

@@ -18,6 +18,7 @@ type ExportToolbarProps = {
   canExportSvg: boolean;
   canExportPng: boolean;
   canCopyHtml: boolean;
+  canShare?: boolean;
   showCopyHtml?: boolean;
   showExportSvg?: boolean;
   showExportPng?: boolean;
@@ -39,6 +40,7 @@ export function ExportToolbar({
   canExportSvg,
   canExportPng,
   canCopyHtml,
+  canShare = true,
   showCopyHtml = true,
   showExportSvg = true,
   showExportPng = true,
@@ -67,13 +69,13 @@ export function ExportToolbar({
         </Button>
       ) : null}
       {onCopyMarkdown ? (
-        <Button onClick={onCopyMarkdown}>
+        <Button onClick={onCopyMarkdown} disabled={!canShare}>
           <FileText className="h-4 w-4" />
           {actions.copyMarkdown ?? "Markdown"}
         </Button>
       ) : null}
       {onShareLink ? (
-        <Button onClick={onShareLink}>
+        <Button onClick={onShareLink} disabled={!canShare}>
           <Link2 className="h-4 w-4" />
           {actions.shareLink ?? "Share"}
         </Button>

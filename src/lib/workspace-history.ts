@@ -23,15 +23,14 @@ export function readWorkspaceDraft(storage: Storage, toolSlug: ToolSlug | string
 
 export function recordWorkspaceDraft(storage: Storage, entry: Omit<WorkspaceHistoryEntry, "updatedAt" | "sourcePreview">, now = Date.now()) {
   if (!entry.source.trim()) {
-    removeWorkspaceDraft(storage, entry.toolSlug);
-    return;
+    return removeWorkspaceDraft(storage, entry.toolSlug);
   }
 
-  writeHistory(storage, workspaceDraftsStorageKey, upsertEntry(readHistory(storage, workspaceDraftsStorageKey), entry, now));
+  return writeHistory(storage, workspaceDraftsStorageKey, upsertEntry(readHistory(storage, workspaceDraftsStorageKey), entry, now));
 }
 
 export function removeWorkspaceDraft(storage: Storage, toolSlug: ToolSlug | string) {
-  writeHistory(
+  return writeHistory(
     storage,
     workspaceDraftsStorageKey,
     readHistory(storage, workspaceDraftsStorageKey).filter((entry) => entry.toolSlug !== toolSlug)
@@ -74,7 +73,13 @@ function readHistory(storage: Storage, key: string): WorkspaceHistoryEntry[] {
 }
 
 function writeHistory(storage: Storage, key: string, entries: WorkspaceHistoryEntry[]) {
-  storage.setItem(key, JSON.stringify(entries.slice(0, maxHistoryEntries)));
+  try {
+    storage.setItem(key, JSON.stringify(entries.slice(0, maxHistoryEntries)));
+    return true;
+  } catch {
+    // Local history is optional: full or disabled storage must not break file preview/export.
+    return false;
+  }
 }
 
 function upsertEntry(

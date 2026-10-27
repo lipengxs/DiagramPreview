@@ -64,7 +64,7 @@ const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
       intent: "Move Mermaid diagrams from docs-as-code into editable draw.io / diagrams.net handoff files.",
       bestFor: ["README Mermaid migration", "AI Mermaid to editable diagrams", "Stakeholder handoff when visual editing matters"],
       notFor: ["Round-tripping draw.io back to Mermaid", "Advanced Mermaid syntax that needs exact visual parity", "Replacing the original Mermaid source"],
-      failureModes: ["Unsupported Mermaid features may need manual cleanup", "Long labels become hard to edit visually", "Mixed diagram types should be converted separately"],
+      failureModes: ["Unsupported structures stop conversion", "More than 36 nodes or 40 relationships stops conversion", "Sequence diagrams become relationship graphs and lose message order"],
       workflow: "Mermaid to draw.io documentation workflow",
       workflowBody: "Preview Mermaid first, convert only stable diagrams, then inspect the draw.io XML before sharing."
     },
@@ -72,7 +72,7 @@ const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
       intent: "把 docs-as-code 里的 Mermaid 转成可编辑的 draw.io / diagrams.net 交付文件。",
       bestFor: ["README Mermaid 迁移", "AI Mermaid 转可编辑图", "需要非开发同事可视化编辑的交接"],
       notFor: ["draw.io 可靠反转回 Mermaid", "要求高级 Mermaid 语法完全等价", "替代原始 Mermaid 源码"],
-      failureModes: ["不支持的 Mermaid 特性需要手工整理", "长 label 会降低可视化编辑体验", "混合图表类型应拆开转换"],
+      failureModes: ["不支持的结构会停止转换", "超过 36 节点或 40 条关系会停止转换", "时序图转为关系图，不保留消息顺序"],
       workflow: "Mermaid to draw.io 文档工作流",
       workflowBody: "先预览 Mermaid，只转换稳定图，再检查 draw.io XML 后分享。"
     }
@@ -99,20 +99,28 @@ const toolIntent: Partial<Record<ToolSlug, SeoToolIntent>> = {
   "drawio-preview": {
     workflowSlug: "open-drawio-file-online",
     en: {
-      intent: "Open draw.io XML online to inspect pages, objects, hidden content, and export readiness.",
+      intent: "Open a draw.io file locally, preview supported flat shapes and export the selected page.",
       bestFor: ["Opening diagrams.net XML safely", "Checking pages and object counts", "Reviewing handoff files before sharing"],
-      notFor: ["Full diagrams.net editing", "Trusting hidden pages without inspection", "Publishing unknown XML without checking embedded resources"],
-      failureModes: ["Incomplete mxfile XML will not preview", "External images may not be portable", "Hidden draft pages can leak unfinished content"],
+      notFor: ["Full diagrams.net editing", "Groups, swimlanes, images or custom shapes", "Preserving an entire multi-page file in the current-page export"],
+      failureModes: ["Incomplete XML cannot be parsed", "Unsupported objects block image export on that page", "Files above 2 MiB or 20 pages, or pages above 500 cells, exceed viewer limits"],
       workflow: "Draw.io inspect and export workflow",
-      workflowBody: "Inspect draw.io structure first, then export SVG or route the file into conversion workflows only when it is clean."
+      workflowBody: "Select the page, compare labels and connectors, then export SVG/PNG or its XML. Keep the original file for all other pages and metadata."
     },
     zh: {
-      intent: "在线打开 draw.io XML，检查页面、对象、隐藏内容和导出风险。",
+      intent: "在浏览器本地打开 draw.io 文件，预览支持的平面图形并导出当前页。",
       bestFor: ["安全打开 diagrams.net XML", "检查页面数和对象数", "分享前 review 交付文件"],
-      notFor: ["完整替代 diagrams.net 编辑器", "不检查隐藏页面就信任文件", "未检查外链资源就发布未知 XML"],
-      failureModes: ["不完整 mxfile XML 无法预览", "外链图片可能不可移植", "隐藏草稿页可能泄露未完成内容"],
+      notFor: ["完整替代 diagrams.net 编辑器", "分组、泳道、图片和自定义形状", "用当前页导出保留整个多页文件"],
+      failureModes: ["不完整 XML 无法解析", "不支持的对象会阻止该页图片导出", "超过 2 MiB、20 页或每页 500 cell 会超出查看器限制"],
       workflow: "Draw.io 检查与导出工作流",
-      workflowBody: "先检查 draw.io 结构，确认干净后再导出 SVG 或进入转换流程。"
+      workflowBody: "先选页面并核对标签与连线，再导出 SVG/PNG 或当前页 XML；原文件用于保留其他页面和元信息。"
+    },
+    es: {
+      intent: "Abre un archivo draw.io localmente, revisa las formas planas compatibles y exporta la página seleccionada.",
+      bestFor: ["Abrir XML de diagrams.net", "Seleccionar y revisar páginas", "Exportar una página como SVG, PNG o XML"],
+      notFor: ["Edición completa como diagrams.net", "Grupos, carriles, imágenes y formas personalizadas", "Conservar todas las páginas en una exportación de una página"],
+      failureModes: ["El XML incompleto no se puede analizar", "Los objetos no compatibles bloquean la exportación de imágenes de esa página", "Límites de 2 MiB, 20 páginas y 500 celdas por página"],
+      workflow: "Revisar y exportar Draw.io",
+      workflowBody: "Selecciona una página, comprueba etiquetas y conectores y exporta SVG/PNG o XML. Conserva el archivo original para mantener el resto de páginas y metadatos."
     },
     de: {
       intent: "Draw.io-XML online öffnen und vor der Übergabe Seiten, Objekte, ausgeblendete Inhalte und externe Ressourcen prüfen.",

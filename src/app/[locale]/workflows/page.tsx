@@ -16,6 +16,7 @@ export async function generateMetadata({params}: WorkflowsPageProps): Promise<Me
   const metadata = buildMetadata({
     locale,
     path: `/${locale}/workflows`,
+    pageLocales: growthContentIndexableLocales,
     title: "Developer Diagram Workflows - DiagramPreview",
     description: "Practical workflows for AI-generated Mermaid diagrams, draw.io files, API debugging, and schema visualization.",
     keywords: ["developer diagram workflows", "ai mermaid workflow", "api debugging sequence diagram", "schema visualization workflow"]

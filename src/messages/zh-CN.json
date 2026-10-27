@@ -139,7 +139,7 @@
       },
       {
         "question": "输入内容会上传到服务器吗？",
-        "answer": "大多数预览和转换优先在浏览器端完成。AI 生成类工具会把提示词发送到服务端 API，但普通预览工具不需要把源码交给 AI。"
+        "answer": "Mermaid、Draw.io 文件读取和 D2 基础预览在浏览器本地处理。PlantUML 源码会经本站接口发送到公共 PlantUML 服务；原始源码可单独下载。"
       },
       {
         "question": "可以把图表用于正式文档吗？",
@@ -269,7 +269,7 @@
     },
     "plantuml-preview": {
       "name": "PlantUML 在线预览",
-      "shortDescription": "在线预览 PlantUML 时序图、类图、用例图和活动图。",
+      "shortDescription": "在线预览 PlantUML，并下载 SVG、PNG 或原始 .puml 源码。",
       "seoTitle": "PlantUML 在线预览 - PlantUML 编辑器与 SVG 查看器",
       "seoDescription": "粘贴 PlantUML 源码，在线预览时序图、类图、用例图和活动图，检查服务端渲染 SVG、标签、participant 和文档发布风险。",
       "keywords": [
@@ -280,7 +280,7 @@
         "PlantUML SVG"
       ],
       "h1": "PlantUML 在线预览",
-      "intro": "粘贴包含 @startuml 和 @enduml 的 PlantUML 源码，快速检查 UML 图是否能渲染、标签是否可读、参与方和失败分支是否完整。",
+      "intro": "粘贴包含 @startuml 和 @enduml 的源码，预览后下载 SVG、PNG 或原始 .puml 文件。渲染会经本站接口调用公共 PlantUML 服务。",
       "badges": [
         "Server SVG",
         "文本图表",
@@ -313,7 +313,7 @@
         "从时序图、类图、用例图或活动图示例开始，先确认基础语法可渲染。",
         "检查渲染 SVG 中的 participant、类名、消息标签、note 和 alt 分支是否符合文档意图。",
         "遇到失败时先缩小到最小可渲染示例，再逐步加回 skinparam、note、sprite 或 include。",
-        "确认源码可以和文档一起维护后，再导出或复制结果。"
+        "确认结果后下载 SVG/PNG，或通过“下载文件”保存原始 .puml。失败时先检查语法或缩小图表，再点击重试渲染。"
       ],
       "useCases": [
         "UML 时序图",
@@ -326,11 +326,11 @@
       "faq": [
         {
           "question": "PlantUML 是如何渲染的？",
-          "answer": "当前版本会编码 PlantUML 源码，并通过 PlantUML 渲染服务生成 SVG 预览。"
+          "answer": "源码会经本站接口发送到公共 PlantUML 渲染服务。渲染成功后，SVG 会清理为静态内容，用于预览和图片导出。本站不缓存这些请求。敏感图请使用可信的私有渲染器。"
         },
         {
-          "question": "后续可以替换渲染器吗？",
-          "answer": "可以。PlantUML URL 构建逻辑隔离在 renderer 模块中，后续可替换为自建或私有渲染服务。"
+          "question": "可以下载 SVG、PNG 和 PlantUML 源码吗？",
+          "answer": "渲染成功后可下载 SVG 或 PNG。Download file 会把当前编辑器内的原始源码保存为 .puml，渲染失败时也可使用。PNG 使用图像的实际尺寸；超大图请优先下载 SVG。"
         },
         {
           "question": "发布 PlantUML 图前应该检查什么？",
@@ -343,8 +343,9 @@
       ],
       "seoBody": [
         "PlantUML Preview 帮助团队直接在浏览器中复核 UML 风格图表，适合时序流程、类图、活动图和用例图。",
-        "第一版采用标准 PlantUML server URL 方案。编码逻辑已隔离，后续可以替换成本地或私有 renderer。",
-        "因为输入是纯文本，图表可以自然进入代码评审、Wiki、Issue 和 SVG 资产流程。"
+        "本站通过同源接口调用固定的公共 PlantUML 渲染服务。JSON 请求上限为 64 KiB，SVG 返回上限为 2 MiB。超时和语法错误会显示重试入口，失败时不能下载图片。",
+        "因为输入是纯文本，图表可以自然进入代码评审、Wiki、Issue 和 SVG 资产流程。",
+        "预览和图片导出只保留静态 SVG，超链接、嵌入图片和外部资源会被移除。下载 .puml 可保留原始源码及其依赖声明；SVG/PNG 则对应预览中的清理后图像。"
       ],
       "deepDives": [
         {
@@ -547,9 +548,9 @@
     },
     "d2-preview": {
       "name": "D2 在线预览",
-      "shortDescription": "在线预览 D2 架构图和服务关系图，适合文本优先的架构文档。",
+      "shortDescription": "本地预览 D2 基础节点与有向关系，支持 SVG/PNG 导出。",
       "seoTitle": "D2 在线预览 - D2 架构图查看器",
-      "seoDescription": "粘贴 D2 diagram 文本，预览架构草图、服务地图、依赖关系和部署区域，适合文本优先的开发者文档流程。",
+      "seoDescription": "本地预览 D2 平面节点、标签和有向关系，下载 SVG/PNG；基础解析器不支持容器、样式和时序图。",
       "keywords": [
         "D2 在线预览",
         "D2 diagram viewer",
@@ -558,7 +559,7 @@
         "service map"
       ],
       "h1": "D2 在线预览",
-      "intro": "用 D2 文本描述服务、容器、边界和依赖关系，在发布文档前先检查结构和标签是否清楚。",
+      "intro": "在浏览器本地查看 D2 平面节点、标签和有向关系，下载 SVG/PNG。本页是基础子集解析器，不支持容器、样式或真正的时序图。",
       "badges": [
         "D2",
         "架构",
@@ -567,7 +568,7 @@
       "inputLabel": "D2 源码",
       "outputLabel": "D2 预览",
       "placeholder": "在这里粘贴 D2 图表文本...",
-      "emptyPreview": "D2 renderer 正在建设中。",
+      "emptyPreview": "输入平面节点或 -> 关系后查看预览。",
       "samples": {
         "architecture": {
           "label": "架构",
@@ -578,80 +579,57 @@
           "code": "web: Web app\napi: API service\ndb: Database\nweb -> api -> db"
         },
         "sequence": {
-          "label": "时序",
+          "label": "请求关系图（非时序）",
           "code": "user -> app: request\napp -> api: fetch\napi -> app: response"
         }
       },
       "howToUse": [
-        "粘贴 D2 文本，先从节点和关系开始，不要急着加样式。",
-        "使用示例组织 service map、deployment zone 或架构说明。",
-        "保持 identifier 稳定，避免后续编辑时图形大幅变化。",
-        "当关系不明显时，用协议、事件或动词作为边标签。",
-        "专用 SVG renderer 启用后，可回到此页面导出最终图。"
+        "每行写节点、id: 标签或用 -> 连接多个节点。",
+        "先用简单服务图检查标签和关系端点。",
+        "点击 SVG 或 PNG 下载当前成功预览。",
+        "复杂容器、布局、主题和时序图请使用官方 D2 渲染器。"
       ],
       "useCases": [
-        "架构草图",
-        "服务地图",
-        "系统图",
-        "依赖 review",
-        "部署区域图",
-        "文本优先架构文档"
+        "平面服务地图",
+        "简单依赖图",
+        "协议标签核对",
+        "文本架构草图"
       ],
       "faq": [
         {
           "question": "D2 渲染已经启用了吗？",
-          "answer": "路由和工作区已准备好，专用 renderer 会在后续构建阶段完善。"
+          "answer": "已启用本地基础解析与 SVG/PNG 下载；它不是官方 D2 布局引擎。"
         },
         {
-          "question": "什么样的 D2 图更容易 review？",
-          "answer": "稳定 node id、短边标签、边界 container 和假设注释，会让 D2 图更容易以文本维护。"
+          "question": "支持哪些语法？",
+          "answer": "平面节点、id: 标签和 -> 连续关系，最多 100 节点、200 条关系。图中超过 22 字符的标签会显示省略。"
         },
         {
-          "question": "什么时候用 D2 而不是 Mermaid？",
-          "answer": "当你想表达有明确 container、label 和服务关系的文本优先架构图时，D2 更合适。"
+          "question": "容器和时序图能用吗？",
+          "answer": "不支持容器、属性、样式、双向/无向边及真正时序图；这些输入会报错，请使用官方 D2 渲染器。"
         }
       ],
       "seoBody": [
-        "D2 Preview 已接入 DiagramPreview 工具家族，后续可以复用同一套编辑器、metadata、导出和相关工具导航。",
-        "第一版先搭好页面结构和示例系统，专用 renderer 后续可无缝接入。",
-        "该页面面向架构草图、服务图和文本优先的系统图。"
+        "本页适合小型服务依赖草图，源码在当前浏览器解析。",
+        "基础布局会重新安排节点，不能作为官方 D2 输出的逐像素替代。",
+        "先核对标签和箭头，再下载 SVG/PNG；超限或不支持语法时会阻止图片导出。"
       ],
       "deepDives": [
         {
-          "title": "Demo：起草 D2 服务地图",
-          "body": "D2 适合需要标签、容器和类型化关系的架构图。即使还没最终样式，预览也能确认文本是否描述了目标系统。",
+          "title": "示例：五个服务的依赖图",
+          "body": "短标识用于建立关系，独立标签用于说明服务；仅展示平面结构。",
+          "code": "web: Web app\napi: Order API\ndb: Database\nqueue: Event queue\nworker: Worker\nweb -> api: HTTPS\napi -> db: SQL\napi -> queue: publish\nqueue -> worker: consume",
           "bullets": [
-            "用嵌套 block 表示领域或部署区域。",
-            "边标签写成动词、协议或事件。",
-            "保持 identifier 稳定，避免未来编辑导致图大幅重排。"
-          ],
-          "code": "client -> gateway: HTTPS\ngateway -> orders: REST\norders -> queue: publish event\nqueue -> worker: consume\norders -> db: SQL"
-        },
-        {
-          "title": "Review 提示：先结构后视觉",
-          "body": "最好的 D2 工作流从结构开始。节点和边正确后再应用主题和布局，否则样式会掩盖缺失依赖。",
-          "bullets": [
-            "先在纯结构下验证图。",
-            "flow 正确后再加 icon 或自定义样式。",
-            "用注释解释图中看不出的假设。"
-          ],
-          "code": "# Assumption: analytics is async\napi -> event_bus: order.created\nevent_bus -> analytics: consume"
-        },
-        {
-          "title": "架构提示：先建模边界，再添加依赖",
-          "body": "D2 很适合表达 bounded context、部署区域和 ownership 边界。先建 container，再在边界内外添加依赖。",
-          "bullets": [
-            "用 nested block 表示团队、网络或运行区。",
-            "明确命名外部依赖，避免被误认为内部服务。",
-            "通过标签区分同步和异步关系。"
-          ],
-          "code": "prod: {\n  web\n  api\n  worker\n}\nexternal: {\n  stripe\n}\nweb -> api: HTTPS\napi -> stripe: payment auth\napi -> worker: order.created"
+            "五节点、四关系。",
+            "不包含嵌套容器或自定义形状。",
+            "大图应拆分后逐个核对。"
+          ]
         }
       ]
     },
     "drawio-preview": {
       "name": "Draw.io 在线打开",
-      "shortDescription": "在线打开 draw.io / diagrams.net XML，检查页面、对象、标签和可移植性。",
+      "shortDescription": "本地打开 draw.io 文件，预览基础图形、切换页面、缩放并导出当前页。",
       "seoTitle": "Draw.io 在线打开 - diagrams.net 文件预览与 XML 检查",
       "seoDescription": "无需安装 diagrams.net，在线检查 .drawio 文件和 mxfile XML，查看页面名称、对象数量、隐藏草稿、外部图片和导出前问题。",
       "keywords": [
@@ -662,20 +640,20 @@
         "draw.io SVG 导出"
       ],
       "h1": "Draw.io 在线打开",
-      "intro": "粘贴 .drawio 或 diagrams.net XML，在分享、迁移或导出前先检查文件结构、页面名称、对象数量和潜在的隐藏草稿内容。",
+      "intro": "选择本地 .drawio / XML 文件，或粘贴 diagrams.net XML。在浏览器内预览基础图形和压缩页面，按页下载 SVG、PNG 或可编辑 .drawio。",
       "badges": [
         "draw.io",
         "XML",
         "Viewer"
       ],
       "inputLabel": "draw.io XML",
-      "outputLabel": "文件摘要",
+      "outputLabel": "图形预览",
       "placeholder": "在这里粘贴 draw.io XML...",
-      "emptyPreview": "draw.io 文件摘要会显示在这里。",
+      "emptyPreview": "draw.io 页面预览会显示在这里。",
       "samples": {
         "xml": {
           "label": "XML",
-          "code": "<mxfile><diagram name=\"Page-1\"><mxGraphModel><root><mxCell id=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+          "code": "<mxfile><diagram id=\"quick-start\" name=\"快速开始\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"start\" value=\"开始\" style=\"rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"40\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"check\" value=\"就绪？\" style=\"rhombus;fillColor=#fef3c7;strokeColor=#d97706;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"240\" y=\"50\" width=\"120\" height=\"80\" as=\"geometry\"/></mxCell><mxCell id=\"done\" value=\"完成\" style=\"ellipse;fillColor=#dcfce7;strokeColor=#16a34a;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"440\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" value=\"\" edge=\"1\" parent=\"1\" source=\"start\" target=\"check\" style=\"endArrow=block;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" value=\"Yes\" edge=\"1\" parent=\"1\" source=\"check\" target=\"done\" style=\"endArrow=block;dashed=1;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
         },
         "pages": {
           "label": "多页面文件",
@@ -684,14 +662,18 @@
         "serviceMap": {
           "label": "服务关系图",
           "code": "<mxfile host=\"DiagramPreview\"><diagram name=\"服务关系\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"web\" value=\"Web 应用\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"80\" y=\"100\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"worker\" value=\"Worker\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"40\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"db\" value=\"数据库\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"280\" y=\"160\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_worker\" edge=\"1\" parent=\"1\" source=\"web\" target=\"worker\" value=\"队列任务\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"edge_web_db\" edge=\"1\" parent=\"1\" source=\"web\" target=\"db\" value=\"读写\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
+        },
+        "compressed": {
+          "label": "压缩文件",
+          "code": "<mxfile><diagram id=\"compressed\" name=\"快速开始\">xZVLboMwEIZPM3uDEyBLoCSrHqBLg4eAanBkmzxuXweshBQSRW2qLpDmjf9PgwGaNseNYrvqXXIUQDOgqZLSDFZzTFEI8EnNgb6B7xP7gL++k/X6LNkxha15pkEbpszQtGeiwyEK2RKSFCJyNuIQomQo0eYkXImSXcvxPMUDmpS1EKkUUvVJynNkpS1MtFHyE0cZfxlQzG3GvROVwePds/chd/ANygaNOtkS17AYpJHT4AbOPdTcVK7fqScV1tvK3NYxPfjby+ArJ2s4VPPYigqLz3lsBBIPshCSBOIYsvUZ5Go95VfJJu/0lF2JJS3COXZ8FYYkeA277/CWT8KLXgCPyxZn2cUZRClkAUQRrMgEmZ1S7zTOrFtRFjiLzAsYXbAXrds/7ht6U2B9APkWH+uxCGWnCpx879baopns8xh4y2Ol5MF6uZC2YOA4JaRQMFPvb0/yK73+RO8H6p9JHmkbS75u4WPFnOnqcs/9jXzrXm/8PnfzQ/gC</diagram></mxfile>"
         }
       },
       "howToUse": [
-        "粘贴 .drawio、diagrams.net 或 mxfile XML 内容。",
-        "检查页面名称、对象数量、标签是否完整，以及 XML 是否足够完整可分享。",
-        "关注默认页面名、隐藏草稿、画布外对象和外部图片，这些内容可能在另一个工作区失效。",
-        "需要发布时再结合相关转换工具，把可编辑 XML 转为更适合文档的 SVG 或 PNG。",
-        "如果图表属于架构文档或故障复盘，把原始 .drawio XML 保留在仓库中。"
+        "选择本地 .drawio / .xml 文件、粘贴 XML，或加载示例。文件内容不会上传，本地草稿可能保存在此浏览器中。",
+        "切换页面，检查图形、标签与连线；大图可放大、缩小或适应宽度。",
+        "阅读支持范围提示。分组、隐藏对象、图片、自定义形状或不支持的连线路由会阻止该页图片导出。",
+        "SVG/PNG 导出当前页预览，“下载文件”仅保存当前页的可编辑 .drawio XML。",
+        "另行保留原始多页文件。基础查看器会简化标签、样式、箭头和路由；完整效果请使用 diagrams.net。"
       ],
       "useCases": [
         "在线打开 draw.io 文件",
@@ -703,15 +685,15 @@
       "faq": [
         {
           "question": "可以渲染复杂 draw.io 文件吗？",
-          "answer": "第一版重点是结构检查和干净的预览占位。"
+          "answer": "基础版支持平面页面中的矩形、圆角矩形、椭圆、菱形、文本和连线，以及 raw-deflate 压缩页面。分组、隐藏对象、图片和自定义形状需使用 diagrams.net；不支持的页面不能导出图片。"
         },
         {
           "question": "不安装 diagrams.net 可以打开 draw.io 文件吗？",
-          "answer": "可以，把 .drawio XML 内容粘贴到浏览器工作区，就能先检查页面、对象和文件结构。"
+          "answer": "可以。选择本地 .drawio / XML 文件或粘贴内容，可切换页面、缩放和下载当前页，无需上传文件或加载第三方查看器。"
         },
         {
           "question": "分享 draw.io 文件前应该检查什么？",
-          "answer": "建议检查页面名称、隐藏草稿内容、过长标签、嵌入图片，以及 XML 是否能正常加载。"
+          "answer": "确认当前页、文字、连线和支持范围提示。SVG/PNG 对应简化预览，“下载文件”仅保存当前页；请保留原始文件中的其他页面与完整样式。"
         },
         {
           "question": "什么时候应该保留 draw.io XML，而不是只导出 SVG？",
@@ -719,20 +701,21 @@
         }
       ],
       "seoBody": [
-        "Draw.io Viewer 面向需要在线打开 draw.io 文件、检查 diagrams.net XML、或在迁移图表前做快速预览的开发者。",
-        "你可以在分享到 README、Wiki、Issue 或设计文档前，检查页面名称、对象数量、隐藏草稿和文件结构。",
-        "该页面也会连接 draw.io 预览、PlantUML 转 draw.io、AI 生成 draw.io 和 SVG 导出等工作流。"
+        "Draw.io Viewer 在浏览器内打开 .drawio 和 diagrams.net XML，支持 mxfile、diagram、mxGraphModel，以及未压缩 XML 和 raw-deflate 压缩页面。",
+        "基础查看器保留节点坐标，支持基础形状、颜色、箭头、虚线和连线控制点。富文本会转为纯文本，字体、标签、箭头和路由可能与 diagrams.net 不同；不支持的结构按页提示。",
+        "文件最多 2 MiB、20 页，每页最多 500 个 cell，全文件最多 5000 个 cell。解压 XML 每页最多 2 MiB，总计最多 8 MiB。PNG 过大时请下载 SVG。",
+        "文件内容不会上传，外部资源不会加载。SVG/PNG 导出当前页预览；.drawio 下载保留当前页的模型 XML。请另行保留原始多页文件供后续编辑。"
       ],
       "deepDives": [
         {
           "title": "Demo：分享前检查 diagrams.net XML",
-          "body": "draw.io 文件本质是 XML。预览可以发现损坏下载、页面缺失、标签过长以及仍含私密草稿节点的图。",
+          "body": "打开这个平面图示例，核对形状与连线标签，再比较 SVG、PNG 和当前页可编辑 XML 下载。",
           "bullets": [
-            "发送给 reviewer 前检查页面名称。",
-            "查找画布外对象和隐藏草稿内容。",
-            "XML 能正常加载后再导出 SVG。"
+            "下载前选中正确页面。",
+            "核对标签与箭头方向。",
+            "包含不支持的对象时使用 diagrams.net。"
           ],
-          "code": "<mxfile><diagram name=\"System\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/></root></mxGraphModel></diagram></mxfile>"
+          "code": "<mxfile><diagram id=\"quick-start\" name=\"快速开始\"><mxGraphModel><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"start\" value=\"开始\" style=\"rounded=1;fillColor=#dbeafe;strokeColor=#2563eb;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"40\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"check\" value=\"就绪？\" style=\"rhombus;fillColor=#fef3c7;strokeColor=#d97706;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"240\" y=\"50\" width=\"120\" height=\"80\" as=\"geometry\"/></mxCell><mxCell id=\"done\" value=\"完成\" style=\"ellipse;fillColor=#dcfce7;strokeColor=#16a34a;\" vertex=\"1\" parent=\"1\"><mxGeometry x=\"440\" y=\"60\" width=\"120\" height=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"e1\" value=\"\" edge=\"1\" parent=\"1\" source=\"start\" target=\"check\" style=\"endArrow=block;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"e2\" value=\"Yes\" edge=\"1\" parent=\"1\" source=\"check\" target=\"done\" style=\"endArrow=block;dashed=1;\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>"
         },
         {
           "title": "调试清单：让 draw.io 文件更可移植",
@@ -3011,7 +2994,7 @@
       "faq": [
         {
           "question": "哪些 Mermaid 图最适合转换？",
-          "answer": "简单流程图和时序图效果最好，复杂 Mermaid 语法可能需要转换后手动整理。"
+          "answer": "流程图保留节点、连线、文字标签、箭头方向和基础形状；时序图会转换为关系图，不保留消息顺序和生命线。布局会重新生成。上限为 36 个节点、40 条关系；超限或遇到无法可靠转换的结构时会阻止导出，不生成残缺文件。"
         },
         {
           "question": "为什么不直接导出 Mermaid SVG？",
@@ -3025,7 +3008,8 @@
       "seoBody": [
         "Mermaid to Draw.io 会把常见 Mermaid 流程图和时序图转成可编辑 diagrams.net XML。",
         "当 AI 或 README 工作流产出 Mermaid，但后续评审、wiki 或演示需要拖拽编辑的 draw.io 文件时，这个工具很适合。",
-        "它是文本化画图和可视化维护之间的桥梁。"
+        "它是文本化画图和可视化维护之间的桥梁。",
+        "转换在浏览器内进行，支持连续箭头、带标签的分支、中文标签及显示名相同的独立节点。请阅读转换提示：subgraph 边界会展开，自定义样式和 click 动作不会保留，直接连接 subgraph 边界的连线暂不支持。下载后请保留原始 Mermaid 源码。"
       ],
       "deepDives": [
         {
@@ -7982,9 +7966,9 @@
       "plantuml-to-drawio-editable-diagram": {
         "title": "如何把 PlantUML 转成可编辑 draw.io 图",
         "seoTitle": "如何把 PlantUML 转成可编辑 draw.io 图 - DiagramPreview",
-        "description": "围绕 PlantUML to Draw.io 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "excerpt": "围绕 PlantUML to Draw.io 的长尾教程，介绍使用场景、输入示例、常见错误和发布到技术文档的步骤。",
-        "readingTime": "9 分钟阅读",
+        "description": "将小型 PlantUML 服务图转换为可编辑 draw.io XML，核对下载文件，并了解布局、样式和时序信息的保留边界。",
+        "excerpt": "将小型 PlantUML 服务图转换为可编辑 draw.io XML，核对下载文件，并了解布局、样式和时序信息的保留边界。",
+        "readingTime": "6 分钟",
         "keywords": [
           "PlantUML to draw.io",
           "editable diagrams.net XML",
@@ -7992,55 +7976,61 @@
         ],
         "sections": [
           {
-            "heading": "这个长尾场景为什么有价值",
+            "heading": "先判断图是否适合转换",
             "paragraphs": [
-              "很多开发者现在会让 AI 先生成 PlantUML to Draw.io 相关内容，但真正放进 README、技术方案或 runbook 前，还需要预览、校验和导出。这个步骤决定图表是否可读、是否能渲染、是否适合团队评审。",
-              "这篇文章聚焦 How to convert PlantUML to editable draw.io diagrams，把搜索用户最关心的问题拆成可执行步骤：输入什么、怎么看结果、哪里容易错、最后如何发布。"
-            ],
-            "image": {
-              "src": "/blog/plantuml-to-drawio-editable-diagram.png",
-              "alt": "如何把 PlantUML 转成可编辑 draw.io 图",
-              "caption": "PlantUML to Draw.io 工作流预览图"
-            }
-          },
-          {
-            "heading": "推荐工作流",
-            "paragraphs": [
-              "第一步，先准备最小输入。不要一开始就粘贴完整生产配置，先用一小段 Mermaid、PlantUML、YAML、SQL 或 API 片段确认工具理解方向。",
-              "第二步，预览输出并检查标签、方向、分组和错误提示。第三步，再补充真实字段、错误码、监控指标或拓扑关系。这样比一次性生成大图更容易定位问题。"
+              "此轻量转换器提取常见 actor、participant、class、component、database 声明和基础关系，重新生成关系图布局，不保留 PlantUML 位置、主题、类成员和时序生命线。",
+              "保留原始 .puml。超过 36 节点或 40 条关系时请先拆图；当前转换器会提示裁剪，不宜直接交付超大图。"
             ]
           },
           {
-            "heading": "可以直接粘贴的 demo",
+            "heading": "载入三个服务的可复现示例",
             "paragraphs": [
-              "下面这个例子可以直接放进工具里试，不追求覆盖完整生产场景，而是为了让第一轮预览马上产生可观察结果。",
-              "确认能渲染后，再替换成你的真实服务、字段、资源或指标。记得把源码和导出图一起保留，后续 review 会轻松很多。"
+              "示例为 Web → API → Database，带 HTTPS 和 SQL 标签。预期输出三个可编辑节点、两条连线；使用简单 -> 箭头，便于逐条核对。",
+              "下方“载入此示例”会把完整源码带入转换器，“下载原始输入”可保存 .puml 文件。"
             ],
             "code": {
               "language": "plantuml",
-              "content": "@startuml\ncomponent Web\ncomponent API\ndatabase PostgreSQL\nWeb --> API : HTTPS\nAPI --> PostgreSQL : SQL\n@enduml",
-              "caption": "小 demo 能让预览流程变得可复现。"
+              "content": "@startuml\ncomponent Web\ncomponent API\ndatabase Database\nWeb -> API: HTTPS\nAPI -> Database: SQL\n@enduml"
             }
           },
           {
-            "heading": "常见错误和检查点",
+            "heading": "转换并下载当前 XML",
             "paragraphs": [
-              "最常见的问题不是工具不能画，而是输入信息不够明确：节点名称太长、关系缺失、配置里有多个环境、或者 AI 生成的语法有小错误。",
-              "发布前建议检查三件事：图表是否能独立说明上下文，导出的 SVG/PNG 是否清晰，源文本是否保留在仓库里。这样后续修改不会依赖截图。"
+              "等待转换摘要，检查节点名与两条关系标签后下载 .drawio。修改源码后旧产物会禁用，直到新转换完成。",
+              "“携带转换后的 XML 继续”打开本地查看器。若编码片段超过 32 KiB，请先下载文件，再在查看器本地打开。"
+            ],
+            "image": {
+              "src": "/blog/demos/plantuml-conversion-verified.png",
+              "alt": "PlantUML Web API Database 转换，包含三个可编辑节点、两条关系",
+              "caption": "2026-10-25 本地浏览器实际输出；转换会重新布局。"
+            }
+          },
+          {
+            "heading": "在 diagrams.net 中打开和编辑",
+            "paragraphs": [
+              "在 diagrams.net 使用 File → Open From → Device，选中下载的 .drawio，移动节点、修改标签并保存，再核对连线端点。",
+              "下方示例在本地验收中使用 diagrams.net 官方 Graph/mxCodec 引擎解码，核对三个节点、两条边、标签和端点。这是引擎导入验证，尚不等于跨浏览器完整编辑器操作验收。"
+            ],
+            "links": [
+              {
+                "label": "打开 diagrams.net",
+                "href": "https://app.diagrams.net/",
+                "kind": "external"
+              }
             ]
           },
           {
-            "heading": "什么时候用相关工具",
+            "heading": "失败时先检查可转换结构",
             "paragraphs": [
-              "如果你需要快速验证图表语法，优先使用预览工具；如果你需要从配置生成结构图，使用 Developer Diagrams；如果你希望 AI 先给草稿，再人工确认，可以从 AI Diagram Tools 开始。",
-              "DiagramPreview 的优势是每个工具都有独立 URL、示例、导出和相关工具入口，适合围绕一个具体问题建立长期可搜索的文档工作流。"
+              "失败示例仅有主题指令，没有支持的节点或关系，应报错并禁用转换 XML 下载。合法 PlantUML 能渲染，不代表此提取式转换器支持其全部内容。",
+              "时序输入会转为关系图，部分复杂信息可能被省略。交付前逐条比较源码与结果；需要原始时序图时请使用 PlantUML 预览。"
             ]
           },
           {
-            "heading": "发布建议",
+            "heading": "交付时保留三种文件",
             "paragraphs": [
-              "博客、README 和内部文档更适合使用 SVG；聊天工具和演示文稿通常使用 PNG 更稳。对于 draw.io 或 Grafana 这类可编辑格式，建议同时保留源文件和预览图。",
-              "如果内容来自 AI，最好把它当成草稿而不是最终结果。先预览，再修正，再导出，这是避免文档中出现坏图和误导性架构图的关键。"
+              "将原始 .puml、可编辑 .drawio、SVG/PNG 预览一起保存，注明被简化的信息，保持图的大小便于逐条核对。",
+              "下方提供原始输入、浏览器实际导出与失败案例；可以载入到当前工具复现。"
             ]
           }
         ]

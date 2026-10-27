@@ -2,6 +2,8 @@
 
 import {Link} from "@/i18n/navigation";
 import {trackEvent} from "@/lib/analytics";
+import {toolHandoff} from "@/lib/tool-handoff";
+import {handoffCopy} from "./handoff-copy";
 
 type NextStepRecommendationsProps = {
   relatedTools: Array<{slug: string; name: string; description: string}>;
@@ -9,6 +11,11 @@ type NextStepRecommendationsProps = {
   description: string;
   actionLabel: string;
   currentSlug: string;
+  source?: string;
+  current?: boolean;
+  artifact?: {filename: string; mime: string; content: string};
+  locale?: string;
+  onDownload?: (file: {filename: string; mime: string; content: string}) => void;
 };
 
 export function NextStepRecommendations({
@@ -16,17 +23,23 @@ export function NextStepRecommendations({
   title,
   description,
   actionLabel,
-  currentSlug
+  currentSlug,
+  source = "",
+  current = false,
+  artifact,
+  locale,
+  onDownload
 }: NextStepRecommendationsProps) {
   const workflow = workflowForTool(currentSlug);
   const orderedTools = orderRelatedTools(relatedTools, workflow?.tools || []);
+  const copy = handoffCopy(locale);
 
   if (!orderedTools.length) {
     return null;
   }
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+    <section aria-label={title} className="min-w-0 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
       <h2 className="text-base font-semibold text-ink">{title}</h2>
       <p className="mt-1 text-sm leading-6 text-slate-600">{description}</p>
       {workflow ? (
@@ -40,20 +53,24 @@ export function NextStepRecommendations({
         </div>
       ) : null}
       <div className="mt-4 grid gap-3 md:grid-cols-3">
-        {orderedTools.slice(0, 3).map((related) => (
-          <Link
-            key={related.slug}
-            href={`/${related.slug}`}
-            className="group rounded-md border border-slate-200 p-3 hover:border-primary hover:bg-blue-50"
-            onClick={() => trackEvent("tool_next_step_click", {tool_slug: currentSlug, target_tool_slug: related.slug})}
-          >
-            <div className="font-semibold text-ink group-hover:text-primary">{related.name}</div>
+        {orderedTools.slice(0, 3).map((related) => {
+          const handoff = toolHandoff({slug: currentSlug, source, current, artifact}, related.slug);
+          const label = handoff.tooLarge ? copy.open : handoff.kind === "source" && handoff.file ? copy.source : handoff.kind === "drawio" ? copy.xml : actionLabel;
+          return (
+          <div key={related.slug} data-handoff-target={related.slug} className="min-w-0 rounded-md border border-slate-200 p-3">
+            <div className="font-semibold text-ink">{related.name}</div>
             <p className="mt-1 line-clamp-2 text-sm leading-6 text-slate-600">{related.description}</p>
-            <span className="mt-3 inline-flex rounded-md bg-white px-2 py-1 text-xs font-semibold text-primary ring-1 ring-blue-100">
-              {actionLabel}
-            </span>
-          </Link>
-        ))}
+            {handoff.kind === "unavailable" ? <p className="mt-3 text-sm text-slate-600" role="status">{copy.unavailable}</p> : <Link
+              href={handoff.href}
+              className="mt-3 inline-flex rounded-md bg-blue-50 px-3 py-2 text-sm font-semibold text-primary hover:bg-blue-100"
+              onClick={() => trackEvent("tool_next_step_click", {tool_slug: currentSlug, target_tool_slug: related.slug, entry_surface: "workspace_next_step"})}
+            >{label}</Link>}
+            {handoff.tooLarge && handoff.file && onDownload ? <div className="mt-3 text-sm leading-6 text-slate-600">
+              <p>{copy.large}</p>
+              <button type="button" className="mt-2 rounded-md border border-slate-300 px-3 py-2 font-semibold text-primary" onClick={() => onDownload(handoff.file!)}>{copy.download}</button>
+            </div> : null}
+          </div>
+        );})}
       </div>
     </section>
   );
