@@ -136,3 +136,13 @@ Mark `tool_render_qualified` and `tool_export_success` as key events with **once
 | Reporting acceptance | Pending | DebugView/Realtime first; standard reports after processing, often 24–48 hours |
 
 Do not compare pre/post conversion totals across these semantic/configuration cutovers without an annotation. Registration and key-event changes do not repair historical reports. At deployment +7 and +14 days, compare GSC/Bing search clicks and index coverage alongside qualified users and export users; report page/country/device/channel and sample size. Traffic growth remains a separate outcome from successful local implementation.
+
+## Design specification generator
+
+- `spec_generate`: explicit form generation or confirmed replacement; parameters `tool_slug=design-spec-generator`, `output_language`.
+- `spec_check`: explicit local specification check; only `tool_slug=design-spec-generator`. Document text, matched lines, unresolved decisions and diagram source are never event parameters.
+- `tool_copy_markdown`: copy attempt, with `success`.
+- `tool_download_file`: browser download request, with `success`; this is not confirmation that the file was saved by the user.
+- `tool_next_step_click`: open current Markdown in a new tab, with `target_tool_slug=markdown-preview`.
+- The optional editable save-flow example uses the same handoff event with `target_tool_slug=mermaid-preview`. Its current source is in the URL fragment; SVG/PNG exports use the existing Mermaid tool events.
+- `tool_open` follows existing discovery conventions. Never send field values, titles, document contents or source URLs in analytics parameters.

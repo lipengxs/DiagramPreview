@@ -1,0 +1,230 @@
+{
+  "generator": {
+    "name": "Générateur de spécifications de conception",
+    "shortDescription": "Créez des spécifications Markdown, repérez les exigences manquantes et exportez un diagramme.",
+    "seoTitle": "Spécifications de conception — Générateur et liste de contrôle Markdown",
+    "seoDescription": "Créez une spécification UI et vérifiez les états, variables, interactions clavier et contraintes d’affichage à partir du texte.",
+    "intro": "Adaptez l’exemple des paramètres d’espace de travail pour créer une spécification Markdown modifiable et téléchargeable.",
+    "formTitle": "1. Décrire les règles de conception",
+    "formHint": "Remplacez les règles d’exemple par les décisions de votre produit. Les sections acceptent Markdown ; les sections vides restent à confirmer.",
+    "titleLabel": "Titre du document",
+    "generate": "Générer le Markdown",
+    "changed": "Le formulaire a changé. Générez à nouveau pour actualiser le document.",
+    "outputTitle": "2. Relire la spécification",
+    "preview": "Aperçu",
+    "edit": "Modifier le Markdown",
+    "editorLabel": "Markdown de la spécification",
+    "placeholder": "Rédigez ou générez une spécification…",
+    "empty": "Rédigez ou générez une spécification pour afficher l’aperçu.",
+    "ready": "Prêt",
+    "rendering": "Rendu en cours…",
+    "previewError": "Impossible d’afficher l’aperçu. Le texte reste disponible dans l’éditeur Markdown.",
+    "copy": "Copier le Markdown",
+    "download": "Télécharger le .md",
+    "openPreview": "Ouvrir l’aperçu Markdown ↗",
+    "openHint": "Ouvre le document actuel dans un nouvel onglet. L’URL contient le texte source ; partagez-la uniquement avec les personnes autorisées.",
+    "replaceWarning": "Vous avez modifié le Markdown directement. Une nouvelle génération remplacera ces modifications par le formulaire.",
+    "replace": "Remplacer par le formulaire",
+    "cancel": "Conserver mes modifications",
+    "generated": "Spécification générée. Consultez l’aperçu ou modifiez le Markdown.",
+    "copied": "Markdown copié.",
+    "copyError": "Presse-papiers inaccessible. Sélectionnez et copiez le texte dans l’éditeur.",
+    "downloadStarted": "Téléchargement du Markdown demandé.",
+    "downloadError": "Impossible de lancer le téléchargement. Vous pouvez toujours copier le Markdown.",
+    "manualHint": "La copie, le téléchargement et l’aperçu utilisent le Markdown actuel. Le formulaire ne s’applique qu’à la prochaine génération.",
+    "privacy": "La génération et l’édition sont locales, sans service d’IA. L’aperçu retire le HTML dangereux et les médias intégrés ; il ne valide ni les règles métier ni l’importation dans Figma.",
+    "guide": "Lire le guide du modèle et des critères de validation",
+    "faqTitle": "Utiliser le générateur",
+    "untitled": "Spécification sans titre",
+    "unresolved": "TODO : compléter les règles sans inventer de comportement non défini.",
+    "leaveWarning": "Changer de langue charge son exemple et supprime vos modifications. Téléchargez d’abord votre travail. Continuer ?",
+    "keywords": [
+      "Générateur de spécifications de conception",
+      "Markdown",
+      "Figma Specs",
+      "Spécifications de conception — Générateur et liste de contrôle Markdown"
+    ],
+    "badges": [
+      "Sans connexion",
+      "Dans votre navigateur",
+      "Export Markdown"
+    ],
+    "faq": [
+      {
+        "question": "Que vérifie le contrôle de complétude ?",
+        "answer": "Il recherche des motifs textuels et affiche des lignes sources ou des suggestions, sans note de qualité ni validation du comportement réel. Modifier le Markdown invalide le rapport. Un exemple Mermaid indépendant mène à l’export SVG/PNG."
+      },
+      {
+        "question": "Que produit le générateur ?",
+        "answer": "Un document Markdown décrivant objectifs, variables, états, interactions, affichage adaptatif, accessibilité, validation et décisions ouvertes. Adaptez les exemples à votre produit."
+      },
+      {
+        "question": "Utilise-t-il une IA ?",
+        "answer": "Non. Le navigateur organise vos règles selon un modèle. Les sections manquantes restent explicitement à compléter."
+      },
+      {
+        "question": "Peut-on utiliser le résultat avec Figma Specs ?",
+        "answer": "Transférez les éléments pertinents dans votre processus documentaire. Il ne s’agit ni d’un format officiel Figma ni d’un import automatique ; un rendu identique n’est pas garanti."
+      },
+      {
+        "question": "La génération efface-t-elle mes modifications ?",
+        "answer": "Le formulaire ne modifie pas immédiatement le document. Un remplacement des modifications manuelles demande confirmation. La copie et le téléchargement utilisent le texte actuel. Téléchargez-le avant de quitter la page."
+      }
+    ],
+    "switchLanguage": "Changer de langue"
+  },
+  "review": {
+    "title": "3. Vérifier la complétude",
+    "intro": "Repérez les lacunes courantes dans le Markdown actuel. Chaque règle présente la première ligne correspondante ou une suggestion, sans note de qualité.",
+    "check": "Vérifier le Markdown actuel",
+    "checked": "Contrôle actualisé pour le Markdown actuel.",
+    "stale": "Le Markdown a changé. Relancez le contrôle.",
+    "limits": "Les règles recherchent des mots sur une même ligne dans la langue de la page, ainsi qu’en anglais et chinois simplifié. Titres, blocs de code courants, commentaires HTML et lignes à confirmer sont exclus. D’autres formulations peuvent être ignorées ; négations ou contradictions peuvent correspondre. Les résultats ne valident ni l’implémentation ni l’accessibilité ni chaque composant.",
+    "found": "Texte trouvé — à vérifier manuellement",
+    "missing": "Aucun texte correspondant — à compléter ou vérifier",
+    "rule": "Règle de détection",
+    "line": "Ligne source",
+    "suggestion": "Exemple à adapter",
+    "unresolved": "Décisions à confirmer",
+    "unresolvedRule": "Recherche TODO, TBD et les marqueurs locaux de décisions ouvertes hors titres et code. Affiche au maximum cinq lignes.",
+    "unresolvedFound": "Marqueurs trouvés — à confirmer avec le responsable",
+    "unresolvedMissing": "Aucun marqueur trouvé ; certaines décisions peuvent néanmoins rester ouvertes.",
+    "diagramTitle": "Facultatif : adapter le flux d’enregistrement",
+    "diagramHint": "Cet exemple indépendant couvre la validation, l’enregistrement et la nouvelle tentative. Adaptez-le au produit. Il n’est pas déduit de votre spécification et ne modifie pas le Markdown.",
+    "diagramLabel": "Source Mermaid du flux d’enregistrement",
+    "diagramOpen": "Prévisualiser et exporter en SVG / PNG ↗",
+    "diagramPrivacy": "Ouvre un nouvel onglet dont l’URL contient le diagramme actuel. Partagez uniquement le contenu approprié. Les images ne sont pas des diagrammes Figma natifs modifiables.",
+    "diagramSource": "flowchart TD\n  A[\"Modifier les paramètres\"] --> B{\"Valeurs valides et modifiées ?\"}\n  B -->|Non| C[\"Afficher les erreurs ou laisser Enregistrer désactivé\"]\n  B -->|Oui| D[\"Enregistrement : empêcher les doublons\"]\n  D --> E{\"Enregistrement réussi ?\"}\n  E -->|Oui| F[\"Annoncer la fin et conserver les valeurs confirmées\"]\n  E -->|Non| G[\"Afficher l’erreur et conserver les saisies\"]\n  G --> H[\"Réessayer\"]\n  H --> D\n"
+  },
+  "rules": [
+    {
+      "id": "loading",
+      "title": "Retour pendant le chargement",
+      "criteria": "Une ligne contient un état d’attente et un retour visuel ou un blocage.",
+      "suggestion": "Pendant le chargement, afficher un message et empêcher les envois multiples.",
+      "terms": [
+        [
+          "chargement",
+          "enregistrement",
+          "en attente"
+        ],
+        [
+          "afficher",
+          "message",
+          "indicateur",
+          "désactiver",
+          "empêcher"
+        ]
+      ]
+    },
+    {
+      "id": "error",
+      "title": "Erreur et récupération",
+      "criteria": "Une ligne mentionne une erreur et une action de récupération.",
+      "suggestion": "En cas d’erreur, conserver les saisies et proposer de réessayer.",
+      "terms": [
+        [
+          "erreur",
+          "échec"
+        ],
+        [
+          "conserver",
+          "réessayer",
+          "récupérer"
+        ]
+      ]
+    },
+    {
+      "id": "empty",
+      "title": "Données vides",
+      "criteria": "Une ligne décrit des données vides et une réponse visible.",
+      "suggestion": "Si les données sont vides, afficher un message.",
+      "terms": [
+        [
+          "vide",
+          "aucune donnée",
+          "aucun résultat"
+        ],
+        [
+          "afficher",
+          "message",
+          "masquer",
+          "désactiver"
+        ]
+      ]
+    },
+    {
+      "id": "tokens",
+      "title": "Variable de conception nommée",
+      "criteria": "Détecte --name, $name ou un nom comme color.action.primary ; une couleur seule ne suffit pas.",
+      "suggestion": "Fond du bouton : color.action.primary = #1D4ED8. Vérifier sa définition dans la bibliothèque.",
+      "terms": []
+    },
+    {
+      "id": "keyboard",
+      "title": "Clavier et focus",
+      "criteria": "Une ligne mentionne le clavier ou une touche, ainsi que le focus ou l’ordre.",
+      "suggestion": "Au clavier, Tab suit l’ordre visuel et le focus reste visible.",
+      "terms": [
+        [
+          "clavier",
+          "tab",
+          "entrée",
+          "escape"
+        ],
+        [
+          "focus",
+          "ordre"
+        ]
+      ]
+    },
+    {
+      "id": "responsive",
+      "title": "Contrainte adaptative",
+      "criteria": "Une ligne contient une valeur en px, rem ou em et une règle de disposition.",
+      "suggestion": "Sous 768px : une colonne et une marge de 16px.",
+      "terms": [
+        [
+          "colonne",
+          "largeur",
+          "marge",
+          "défilement",
+          "fenêtre",
+          "rupture"
+        ]
+      ]
+    },
+    {
+      "id": "acceptance",
+      "title": "Critère observable",
+      "criteria": "Une case Markdown décrit un résultat observable.",
+      "suggestion": "- [ ] Après une erreur, conserver les saisies et afficher une action pour réessayer.",
+      "terms": [
+        [
+          "afficher",
+          "conserver",
+          "annoncer",
+          "empêcher",
+          "désactiver",
+          "impossible",
+          "une seule"
+        ]
+      ]
+    }
+  ],
+  "unresolvedTerms": [
+    "à confirmer",
+    "à compléter"
+  ],
+  "template": {
+    "title": "Modèle Markdown de spécification",
+    "description": "Exemple de paramètres avec états, règles visuelles et critères de validation.",
+    "open": "Ouvrir le modèle et l’aperçu",
+    "download": "Télécharger le modèle Markdown",
+    "customize": "Personnaliser la spécification",
+    "contents": "Sommaire",
+    "related": "Guides associés",
+    "demo": "Exemple à copier",
+    "source": "# Paramètres de l’espace de travail — spécification\n\n> Exemple indépendant DiagramPreview. À adapter au produit ; ce n’est pas un format officiel Figma.\n\n## Objectif et périmètre\nPermettre au propriétaire de modifier le nom et la préférence de notification.\nExclure facturation, invitations et gestion des permissions.\nUtiliser des données fictives sans connexion à la production.\n\n## Variables de conception\n- Action principale : #1D4ED8 avec texte blanc.\n- Texte : #0F172A sur #FFFFFF ; secondaire : #475569 ; erreur : #B91C1C.\n- Police : system-ui ; corps 16px / 24px ; titre 24px / 32px.\n- Espacements : 4, 8, 12, 16, 24, 32px ; rayon de carte : 8px.\n- Employer des variables nommées plutôt que des couleurs ou espacements arbitraires.\n\n## Composants et états\n### Bouton Enregistrer\n- Normal : « Enregistrer les modifications », fond principal.\n- Survol : #1E40AF avec texte blanc lisible.\n- Focus : contour visible de 2px, décalé de 2px.\n- Désactivé sans changement ou si invalide ; expliquer les erreurs près des champs.\n- Pendant l’enregistrement, afficher un message et empêcher les envois multiples.\n- Succès : annoncer « Modifications enregistrées » dans une région dynamique.\n- En cas d’erreur, conserver les saisies et proposer de réessayer.\n### Nom de l’espace de travail\n- Obligatoire, de 2 à 60 caractères après suppression des espaces externes.\n- Libellé et aide visibles ; l’indication de saisie ne remplace pas le libellé.\n- Valider à la perte du focus et avant enregistrement ; associer l’erreur au champ.\n- Ne rien enregistrer si les données sont invalides.\n\n## Interactions et données\n1. Charger le nom et la préférence actuels.\n2. Activer Enregistrer uniquement pour des valeurs modifiées et valides.\n3. Simuler la requête et présenter l’état de chargement.\n4. En cas de succès, conserver les valeurs confirmées et annoncer la fin.\n5. En cas d’échec, conserver le brouillon et permettre de réessayer.\n- Chargement initial : afficher un indicateur accompagné de texte.\n- Échec initial : proposer de réessayer sans inventer les données enregistrées.\n- Si le nom est vide, afficher le message de champ obligatoire.\n\n## Affichage adaptatif\n- Sous 768px : une colonne, marge de 16px et bouton pleine largeur.\n- À partir de 768px : formulaire centré, largeur maximale 640px, marge de 24px.\n- À 320px de largeur : aucun défilement horizontal.\n\n## Accessibilité\n- Chaque champ possède un libellé programmatique ; Tab suit l’ordre visuel.\n- Utilisation au clavier avec focus visible sur toutes les commandes.\n- Expliquer succès et erreurs par du texte, pas uniquement par la couleur.\n- Vérifier un contraste minimal de 4.5:1 sur le fond réel pour le texte normal.\n\n## Liste de validation\n- [ ] Pour un nom vide, afficher une erreur et empêcher l’envoi.\n- [ ] Hors de la plage 2–60 caractères, afficher une erreur précise.\n- [ ] Pendant l’enregistrement, les clics répétés produisent une seule requête.\n- [ ] En cas d’erreur, conserver les saisies et permettre de réessayer.\n- [ ] Annoncer le succès sans déplacer le focus.\n- [ ] Tester le clavier et la largeur de 320px.\n- [ ] Comparer chaque état implémenté à cette spécification.\n\n## Décisions avant production\n- TODO : confirmer l’API, les autorisations et les réponses d’erreur avec le développement.\n- TODO : confirmer les notifications et les textes avec le responsable produit.\n- Remplacer les requêtes simulées après validation du contrat de données.\n"
+  }
+}

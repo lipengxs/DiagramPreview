@@ -15,7 +15,8 @@ export type SeoInput = {
 };
 
 export function buildMetadata({locale, path, title, description, keywords = [], pageLocales = indexableLocales}: SeoInput): Metadata {
-  const eligibleLocales = pageLocales.filter((candidate) => indexableLocales.includes(candidate));
+  // Explicit pageLocales describes fully translated pages; the global list is only the default.
+  const eligibleLocales = pageLocales;
   const isIndexableLocale = eligibleLocales.includes(locale);
   const pathWithoutLocale = stripLocalePrefix(path);
   const canonicalPath = isIndexableLocale ? path : `/${eligibleLocales[0] ?? defaultLocale}${pathWithoutLocale}`;

@@ -18,8 +18,10 @@ import {
   Timer,
   Workflow
 } from "lucide-react";
+import {locales, type Locale} from "./locales";
 
 export type ToolSlug =
+  | "design-spec-generator"
   | "mermaid-preview"
   | "plantuml-preview"
   | "markdown-preview"
@@ -110,6 +112,7 @@ export type ToolConfig = {
   popular?: boolean;
   recentlyAdded?: boolean;
   updatedAt?: string;
+  pageLocales?: readonly Locale[];
   priority: number;
   implemented: boolean;
   renderer:
@@ -185,6 +188,19 @@ export type ToolConfig = {
 };
 
 export const tools: ToolConfig[] = [
+  {
+    slug: "design-spec-generator",
+    category: "developer",
+    navGroup: "preview-tools",
+    icon: FileText,
+    recentlyAdded: true,
+    updatedAt: "2026-11-01",
+    pageLocales: locales,
+    priority: 65,
+    implemented: true,
+    renderer: "markdown",
+    sampleKeys: []
+  },
   {
     slug: "ai-diagram-generator",
     category: "developer",

@@ -1,5 +1,5 @@
 import type {MetadataRoute} from "next";
-import {sitemapBlogPosts} from "@/config/blog";
+import {sitemapBlogPosts, getBlogPostLocales} from "@/config/blog";
 import {blogIndexableLocales} from "@/config/seo-focus";
 import {siteConfig} from "@/config/site";
 import {sitemapResponse} from "@/lib/sitemap-xml";
@@ -16,8 +16,10 @@ export function GET() {
       changeFrequency: "weekly",
       priority: 0.72
     });
+  }
 
-    for (const post of sitemapBlogPosts) {
+  for (const post of sitemapBlogPosts) {
+    for (const locale of getBlogPostLocales(post)) {
       entries.push({
         url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
         lastModified: new Date(post.updatedAt ?? post.date),

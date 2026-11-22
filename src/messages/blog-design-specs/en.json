@@ -106,6 +106,11 @@
             "label": "Figma MCP client catalog",
             "href": "https://www.figma.com/mcp-catalog",
             "kind": "external"
+          },
+          {
+            "label": "Open the design specification generator",
+            "href": "/design-spec-generator",
+            "kind": "internal"
           }
         ]
       }
@@ -212,6 +217,11 @@
             "label": "Get the workspace settings specification",
             "href": "/blog/design-spec-markdown-template",
             "kind": "internal"
+          },
+          {
+            "label": "Open the design specification generator",
+            "href": "/design-spec-generator",
+            "kind": "internal"
           }
         ]
       }
@@ -249,9 +259,17 @@
         "heading": "Open, edit, or download the full example",
         "paragraphs": [
           "Open the template to load this exact source into DiagramPreview’s existing Markdown editor. Change the project name, behavior, and design rules, then inspect the rendered headings, lists, and checklist. The download below contains the same source.",
-          "The preview link carries example text in its URL fragment. If you later share a link containing your edited source, anyone receiving that link can read that source. Remove private project details before sharing."
+          "The preview link carries example text in its URL fragment. If you later share a link containing your edited source, anyone receiving that link can read that source. Remove private project details before sharing.",
+          "To adapt the rules through a form, open the specification generator, fill in goals, tokens, component states and acceptance criteria, then edit, preview and download the Markdown. Run the completeness check to see text evidence or suggestions for states, named tokens, keyboard behavior, responsive constraints and acceptance items. Adapt the optional Mermaid example separately and open it in the existing SVG/PNG exporter; matching text is not proof of correct implementation."
         ],
-        "templateSlug": "workspace-design-spec"
+        "templateSlug": "workspace-design-spec",
+        "links": [
+          {
+            "label": "Open the design specification generator",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
       },
       {
         "heading": "Adapt the rules to your product",

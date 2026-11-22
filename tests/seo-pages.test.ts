@@ -5,6 +5,8 @@ import {renderD2Preview} from "../src/lib/renderers/d2";
 import {evidenceFamilies} from "../src/config/tool-evidence";
 import {readFileSync, existsSync} from "node:fs";
 import {resolve} from "node:path";
+import {locales} from "../src/config/locales";
+import {getBlogPost, getBlogPostLocales} from "../src/config/blog";
 
 test("page locale eligibility controls reciprocal alternates and canonical fallback", () => {
   const input = {locale: "en" as const, path: "/en/workflows/example", title: "Title", description: "Description", pageLocales: ["en"] as const};
@@ -16,6 +18,18 @@ test("page locale eligibility controls reciprocal alternates and canonical fallb
   assert.deepEqual(translated.robots, {index: false, follow: true});
   const blog = buildMetadata({...input, pageLocales: ["en", "zh-CN"], path: "/en/blog/example"});
   assert.deepEqual(Object.keys(blog.alternates?.languages || {}), ["en", "zh-CN", "x-default"]);
+  for (const locale of locales) {
+    const localized = buildMetadata({...input, locale, path: `/${locale}/design-spec-generator`, pageLocales: locales});
+    assert.equal(localized.alternates?.canonical, `https://diagrampreview.com/${locale}/design-spec-generator`);
+    assert.deepEqual(localized.robots, {index: true, follow: true});
+    assert.deepEqual(Object.keys(localized.alternates?.languages || {}), [...locales, "x-default"]);
+  }
+  // Explicitly translated pages must not broaden the defaults of unrelated pages.
+  assert.deepEqual(buildMetadata({locale: "ja", path: "/ja/mermaid-preview", title: "Title", description: "Description"}).robots, {index: false, follow: true});
+  for (const slug of ["figma-specs-guide", "figma-code-layers-guide", "design-spec-markdown-template"]) {
+    assert.deepEqual(getBlogPostLocales(getBlogPost(slug)!), locales);
+  }
+  assert.deepEqual(getBlogPostLocales(getBlogPost("mermaid-preview-guide")!), ["en", "zh-CN"]);
 });
 
 test("D2 examples preserve flat labels, relationships and XML escaping", () => {

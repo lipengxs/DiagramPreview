@@ -155,6 +155,7 @@ const toolMenuSections: ToolMenuSection[] = [
       "mermaid-preview",
       "plantuml-preview",
       "markdown-preview",
+      "design-spec-generator",
       "html-preview-sandbox",
       "css-gradient-preview",
       "css-box-shadow-preview",

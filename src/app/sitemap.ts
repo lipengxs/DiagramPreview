@@ -1,5 +1,5 @@
 import type {MetadataRoute} from "next";
-import {sitemapBlogPosts} from "@/config/blog";
+import {sitemapBlogPosts, getBlogPostLocales} from "@/config/blog";
 import {indexableLocales} from "@/config/locales";
 import {toolHubs} from "@/config/navigation";
 import {blogIndexableLocales, growthContentIndexableLocales} from "@/config/seo-focus";
@@ -63,19 +63,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
       }
     }
+  }
 
-    if (blogIndexableLocales.includes(locale)) {
-      for (const post of sitemapBlogPosts) {
-        urls.push({
-          url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
-          lastModified: new Date(post.updatedAt ?? post.date),
-          changeFrequency: "monthly",
-          priority: 0.68
-        });
-      }
+  for (const post of sitemapBlogPosts) {
+    for (const locale of getBlogPostLocales(post)) {
+      urls.push({
+        url: `${siteConfig.url}/${locale}/blog/${post.slug}`,
+        lastModified: new Date(post.updatedAt ?? post.date),
+        changeFrequency: "monthly",
+        priority: 0.68
+      });
     }
+  }
 
-    for (const tool of tools) {
+  for (const tool of tools) {
+    for (const locale of tool.pageLocales ?? indexableLocales) {
       urls.push({
         url: `${siteConfig.url}/${locale}/${tool.slug}`,
         lastModified: getToolLastModified(tool),

@@ -1,3 +1,4 @@
+import {getDesignSpecMessages} from "@/config/design-spec-messages";
 import type {Metadata} from "next";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {growthContentIndexableLocales} from "@/config/seo-focus";
@@ -41,6 +42,7 @@ export default async function TemplatesPage({params}: TemplatesPageProps) {
   setRequestLocale(locale);
   const t = await getTranslations({locale});
   const isChineseLocale = locale.startsWith("zh");
+  const specCopy = getDesignSpecMessages(locale).template;
   const templates = getLocalizedTemplates(locale);
   const pageTitle = isChineseLocale ? "可直接打开的图表模板" : "Paste-ready diagram templates";
   const pageDescription = isChineseLocale
@@ -77,8 +79,8 @@ export default async function TemplatesPage({params}: TemplatesPageProps) {
         return (
           <section key={category.id} id={category.id} className="grid scroll-mt-24 gap-4">
             <div>
-              <h2 className="text-xl font-bold text-ink">{category.id === "documentation" && isChineseLocale ? "设计规范模板" : category.title}</h2>
-              <p className="mt-1 text-sm leading-6 text-slate-600">{category.id === "documentation" && isChineseLocale ? "可编辑的 Markdown 设计规范，用于明确 UI 行为与验收要求。" : category.description}</p>
+              <h2 className="text-xl font-bold text-ink">{category.id === "documentation" ? specCopy.title : category.title}</h2>
+              <p className="mt-1 text-sm leading-6 text-slate-600">{category.id === "documentation" ? specCopy.description : category.description}</p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {categoryTemplates.map((template) => {
@@ -90,6 +92,11 @@ export default async function TemplatesPage({params}: TemplatesPageProps) {
                     <h3 className="mt-4 text-base font-semibold text-ink">{template.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{template.description}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
+                      {template.slug === "workspace-design-spec" ? (
+                        <TrackedToolLink href="/design-spec-generator" eventName="tool_entry_click" targetToolSlug="design-spec-generator" source="template:workspace-design-spec" className="rounded-md border border-primary px-3 py-2 text-sm font-semibold text-primary hover:bg-blue-50">
+                          {specCopy.customize}
+                        </TrackedToolLink>
+                      ) : null}
                       <TrackedToolLink
                         href={sourceUrl(`/${template.tool}`, template.source)}
                         eventName="tool_entry_click"
@@ -97,11 +104,11 @@ export default async function TemplatesPage({params}: TemplatesPageProps) {
                         source={`template:${template.slug}`}
                         className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-blue-700"
                       >
-                        {isChineseLocale ? "打开模板" : "Open template"}
+                        {template.slug === "workspace-design-spec" ? specCopy.open : isChineseLocale ? "打开模板" : "Open template"}
                       </TrackedToolLink>
                       {template.downloadHref ? (
                         <a href={template.downloadHref} download className="rounded-md border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">
-                          {isChineseLocale ? "下载 Markdown" : "Download Markdown"}
+                          {template.slug === "workspace-design-spec" ? specCopy.download : isChineseLocale ? "下载 Markdown" : "Download Markdown"}
                         </a>
                       ) : null}
                       <Link href={`/${template.tool}`} className="rounded-md border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">

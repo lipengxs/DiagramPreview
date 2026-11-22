@@ -1,4 +1,5 @@
 import {marked} from "marked";
+import DOMPurify from "dompurify";
 import {renderMermaid} from "./mermaid";
 
 const mermaidFencePattern = /```mermaid\s*([\s\S]*?)```/gi;
@@ -17,6 +18,8 @@ export async function renderMarkdown(source: string) {
     gfm: true,
     breaks: false
   });
+  // Remove active HTML from user Markdown before inserting rendered Mermaid SVG.
+  html = DOMPurify.sanitize(html, {USE_PROFILES: {html: true}});
 
   for (let index = 0; index < blocks.length; index += 1) {
     const svg = await renderMermaid(blocks[index]);

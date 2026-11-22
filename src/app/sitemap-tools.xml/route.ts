@@ -10,8 +10,8 @@ export const dynamic = "force-static";
 export function GET() {
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const locale of indexableLocales) {
-    for (const tool of tools) {
+  for (const tool of tools) {
+    for (const locale of tool.pageLocales ?? indexableLocales) {
       entries.push({
         url: `${siteConfig.url}/${locale}/${tool.slug}`,
         lastModified: getToolLastModified(tool),

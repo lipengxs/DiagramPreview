@@ -106,6 +106,11 @@
             "label": "Figma MCP 客户端目录",
             "href": "https://www.figma.com/mcp-catalog",
             "kind": "external"
+          },
+          {
+            "label": "打开在线设计规范生成器",
+            "href": "/design-spec-generator",
+            "kind": "internal"
           }
         ]
       }
@@ -212,6 +217,11 @@
             "label": "获取工作区设置规范模板",
             "href": "/blog/design-spec-markdown-template",
             "kind": "internal"
+          },
+          {
+            "label": "打开在线设计规范生成器",
+            "href": "/design-spec-generator",
+            "kind": "internal"
           }
         ]
       }
@@ -249,9 +259,17 @@
         "heading": "打开、修改或下载完整示例",
         "paragraphs": [
           "点击打开模板，即可把下方同一份源文档载入现有 Markdown 编辑器。修改项目名称、交互和设计规则后，检查标题、列表与验收清单的预览效果。下载按钮提供完全相同的源文档。",
-          "预览链接把示例文字放在网址片段中。之后如果分享带有自己修改内容的链接，收到链接的人就可以读取其中的源文档。分享前请去掉项目私密信息。"
+          "预览链接把示例文字放在网址片段中。之后如果分享带有自己修改内容的链接，收到链接的人就可以读取其中的源文档。分享前请去掉项目私密信息。",
+          "需要按项目填写规则时，可以打开规范生成器，分别填写目标、设计变量、组件状态和验收清单，再编辑、预览与下载 Markdown。运行完整性检查，可查看状态、具名变量、键盘行为、响应式约束和验收条目的原文依据或补充建议。可另行修改 Mermaid 示例并打开现有工具导出 SVG/PNG；文字命中不代表实现正确。"
         ],
-        "templateSlug": "workspace-design-spec"
+        "templateSlug": "workspace-design-spec",
+        "links": [
+          {
+            "label": "打开在线设计规范生成器",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
       },
       {
         "heading": "如何改成自己的项目规范",

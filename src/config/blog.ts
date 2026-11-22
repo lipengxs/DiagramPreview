@@ -1,3 +1,6 @@
+import {locales, type Locale} from "./locales";
+import {blogIndexableLocales} from "./seo-focus";
+
 export type BlogSlug =
   | "figma-specs-guide"
   | "figma-code-layers-guide"
@@ -61,6 +64,7 @@ export type BlogTopic =
 
 export type BlogPostConfig = {
   slug: BlogSlug;
+  pageLocales?: readonly Locale[];
   image: string;
   date: string;
   updatedAt?: string;
@@ -82,25 +86,31 @@ export type BlogSection = {
 export const blogPosts: BlogPostConfig[] = [
   {
     slug: "figma-specs-guide",
+    pageLocales: locales,
     image: "/blog/figma-specs-guide.png",
     date: "2026-10-24",
-    tools: ["markdown-preview"],
+    updatedAt: "2026-11-01",
+    tools: ["design-spec-generator", "markdown-preview"],
     tier: "supporting",
     relatedPosts: ["design-spec-markdown-template", "figma-code-layers-guide"]
   },
   {
     slug: "figma-code-layers-guide",
+    pageLocales: locales,
     image: "/blog/figma-code-layers-guide.png",
     date: "2026-10-24",
-    tools: ["markdown-preview"],
+    updatedAt: "2026-11-01",
+    tools: ["design-spec-generator", "markdown-preview"],
     tier: "supporting",
     relatedPosts: ["figma-specs-guide", "design-spec-markdown-template"]
   },
   {
     slug: "design-spec-markdown-template",
+    pageLocales: locales,
     image: "/blog/design-spec-markdown-template.png",
     date: "2026-10-24",
-    tools: ["markdown-preview", "mermaid-preview"],
+    updatedAt: "2026-11-01",
+    tools: ["design-spec-generator", "markdown-preview", "mermaid-preview"],
     tier: "supporting",
     relatedPosts: ["figma-specs-guide", "figma-code-layers-guide", "markdown-mermaid-documentation"]
   },
@@ -522,4 +532,8 @@ export function getBlogPostTopic(post: BlogPostConfig) {
 
 export function getVisibleBlogPostsByTopic(topic: BlogTopic) {
   return visibleBlogPosts.filter((post) => getBlogPostTopic(post) === topic);
+}
+
+export function getBlogPostLocales(post: BlogPostConfig): readonly Locale[] {
+  return post.pageLocales ?? blogIndexableLocales;
 }

@@ -1,0 +1,212 @@
+{
+  "figma-specs-guide": {
+    "title": "Figma Specs : accès, Markdown et crédits IA",
+    "seoTitle": "Figma Specs : accès, Markdown et crédits IA",
+    "description": "Découvrez comment ouvrir Specs, ses possibilités Markdown et la différence entre accès au produit et crédits IA.",
+    "excerpt": "Découvrez comment ouvrir Specs, ses possibilités Markdown et la différence entre accès au produit et crédits IA.",
+    "readingTime": "5 min",
+    "keywords": [
+      "Figma Specs : accès, Markdown et crédits IA",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Le rôle de Specs",
+        "paragraphs": [
+          "Specs rassemble les exigences et le contexte dans Figma : objectifs, comportements des composants et critères de validation. Les informations d’accès et de coût ont été vérifiées dans la documentation Config India le 24 octobre 2026. Cela ne signifie pas que tous les comptes disposent déjà de la fonction."
+        ],
+        "links": [
+          {
+            "label": "Documentation officielle Figma",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Accès et déploiement progressif",
+        "paragraphs": [
+          "Lorsque la fonction est activée, choisissez Spec dans le navigateur de fichiers ou ouvrez figma.com/spec/new. Figma Design et FigJam permettent de placer le document près du travail. L’annonce cite Education, Professional, Organization, Enterprise et Government ; ne supposez pas que Starter est inclus. La lecture exige un droit de consultation et la modification un droit d’édition. Si l’entrée manque, vérifiez abonnement, autorisations et état du déploiement."
+        ],
+        "links": [
+          {
+            "label": "Documentation officielle Figma",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Markdown et crédits : deux limites distinctes",
+        "paragraphs": [
+          "Specs propose titres, listes, citations, code, images et intégrations Figma. Des raccourcis Markdown ne garantissent ni l’import complet d’un .md, ni Mermaid, ni la conservation des commentaires après export. L’écriture et l’édition manuelles n’utilisent pas les crédits de l’agent. Demander à l’agent de créer ou modifier un Spec peut en consommer. L’éligibilité de l’abonnement reste une question séparée."
+        ],
+        "links": [
+          {
+            "label": "Documentation officielle Figma",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Commencer par des exigences observables",
+        "paragraphs": [
+          "Décrivez objectif, exclusions, chargement, état vide, erreurs et réussite, puis les variables nommées et les critères observables. Code Layers peut démontrer une interaction sur le canevas sans valider la sécurité ou la production. Les agents connectés peuvent utiliser les outils MCP Figma et la compétence figma-spec selon leurs droits et capacités. Commencez par un petit document et adaptez le modèle indépendant ci-dessous."
+        ],
+        "links": [
+          {
+            "label": "Modèle Markdown de spécification : états UI et validation",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "Générateur de spécifications de conception",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "figma-code-layers-guide": {
+    "title": "Figma Code Layers : accès bêta, entrée absente et coût",
+    "seoTitle": "Figma Code Layers : accès bêta, entrée absente et coût",
+    "description": "Comprenez le déploiement de la bêta et l’offre temporaire sur les crédits avant votre premier prototype interactif.",
+    "excerpt": "Comprenez le déploiement de la bêta et l’offre temporaire sur les crédits avant votre premier prototype interactif.",
+    "readingTime": "5 min",
+    "keywords": [
+      "Figma Code Layers : accès bêta, entrée absente et coût",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Du code exécuté sur le canevas",
+        "paragraphs": [
+          "Un Code Layer exécute du code sur le canevas Figma Design pour comparer des interactions, validations et états de chargement. Ce guide s’appuie sur la documentation officielle vérifiée le 24 octobre 2026, sans promettre l’accès immédiat à chaque compte."
+        ],
+        "links": [
+          {
+            "label": "Documentation officielle Figma",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Trouver l’entrée et vérifier les droits",
+        "paragraphs": [
+          "Ouvrez un fichier Figma Design modifiable. L’icône Code apparaît après activation. L’annonce cite Starter, Professional, Organization, Enterprise et certaines offres Education, hors K–12. Vérifiez aussi les réglages IA de l’organisation : leur désactivation peut rendre Code Layers indisponible. La bêta ouverte est déployée sur plusieurs semaines ; d’anciennes mentions de liste d’attente peuvent être dépassées. Suivez les mises à jour officielles ou contactez le support si l’entrée reste absente."
+        ],
+        "links": [
+          {
+            "label": "Documentation officielle Figma",
+            "href": "https://help.figma.com/hc/en-us/articles/44193259600535",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Une promotion jusqu’au 4 novembre 2026",
+        "paragraphs": [
+          "Selon la documentation du 24 octobre, générer et modifier du code dans Code Layers sur les offres payantes ne consomme pas de crédits IA jusqu’au 4 novembre 2026 inclus. Ce n’est ni une gratuité permanente ni une promesse pour Starter. D’autres travaux de l’agent déclenchés par le même prompt peuvent rester facturés en crédits. Après cette date, les règles habituelles s’appliquent. Vérifiez les conditions actuelles et le reçu d’utilisation plutôt qu’un coût fixe supposé par prompt."
+        ],
+        "links": [
+          {
+            "label": "Documentation officielle Figma",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Quatre points de départ et une vérification",
+        "paragraphs": [
+          "Vous pouvez convertir des frames sélectionnées, partir d’un Code Layer vide, connecter et cloner un dépôt GitHub ou récupérer du code de page via l’extension Chrome officielle de Figma. Suivez la configuration et les autorisations propres à chaque méthode. Pour commencer, choisissez un seul chemin avec données fictives et requêtes simulées. Vérifiez saisies invalides, envois répétés, conservation après erreur, annonce du succès, clavier et petit écran."
+        ],
+        "links": [
+          {
+            "label": "Modèle Markdown de spécification : états UI et validation",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "Générateur de spécifications de conception",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "design-spec-markdown-template": {
+    "title": "Modèle Markdown de spécification : états UI et validation",
+    "seoTitle": "Modèle Markdown de spécification : états UI et validation",
+    "description": "Téléchargez et adaptez une spécification complète de paramètres d’espace de travail, puis examinez les lacunes de transmission.",
+    "excerpt": "Téléchargez et adaptez une spécification complète de paramètres d’espace de travail, puis examinez les lacunes de transmission.",
+    "readingTime": "5 min",
+    "keywords": [
+      "Modèle Markdown de spécification : états UI et validation",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Rendre les décisions explicites",
+        "paragraphs": [
+          "Une capture d’écran ne dit pas quand désactiver Enregistrer ni si une erreur conserve le brouillon. Ce modèle indépendant DiagramPreview rend ces décisions lisibles par designers, développeurs et assistants. Ce n’est ni un modèle officiel Figma ni un import automatique, et le rendu exact n’est pas garanti."
+        ],
+        "links": [
+          {
+            "label": "Figma Specs : accès, Markdown et crédits IA",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "Ouvrir, modifier et télécharger",
+        "paragraphs": [
+          "La prévisualisation et le téléchargement utilisent le même Markdown localisé. Adaptez titre, objectifs, variables, états et critères. Le générateur propose un formulaire, l’édition directe et un contrôle local affichant les lignes trouvées ou des suggestions. Un texte correspondant ne prouve pas que l’implémentation fonctionne. Les liens de prévisualisation contiennent la source dans leur fragment URL ; retirez les informations privées avant partage."
+        ],
+        "templateSlug": "workspace-design-spec",
+        "links": [
+          {
+            "label": "Générateur de spécifications de conception",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "Séparer décisions prises et questions ouvertes",
+        "paragraphs": [
+          "Réutilisez les variables et composants existants en précisant leur usage. Laissez API, autorisations et choix non validés explicitement ouverts. Limitez une demande de prototype à un écran, des données fictives et des requêtes simulées. Testez vous-même erreurs de saisie, répétitions, échec réseau, succès, focus et largeur mobile. Un rapport généré ne remplace pas ces observations."
+        ]
+      },
+      {
+        "heading": "Ajouter un diagramme si nécessaire",
+        "paragraphs": [
+          "Des étapes numérotées suffisent souvent pour un formulaire. Pour des embranchements, ajoutez un diagramme Mermaid séparé. Le générateur fournit un exemple indépendant et modifiable de sauvegarde vers l’exporteur SVG/PNG existant ; il n’est pas déduit de votre texte. La prise en charge Mermaid dans DiagramPreview ne prouve pas celle de Figma Specs. Vérifiez le mode d’intégration accepté et conservez la source du diagramme."
+        ],
+        "links": [
+          {
+            "label": "Modèle Markdown de spécification",
+            "href": "/templates#documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Documentation officielle Figma",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  }
+}

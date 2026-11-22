@@ -3,6 +3,8 @@ import {sanitizedAnalyticsLocation, sanitizedAnalyticsReferrer} from "./analytic
 type AnalyticsParams = Record<string, string | number | boolean | undefined>;
 
 export type AnalyticsEventName =
+  | "spec_generate"
+  | "spec_check"
   | "advanced_export_intent"
   | "ai_generate_error"
   | "ai_generate_start"

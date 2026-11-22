@@ -1,0 +1,235 @@
+{
+  "generator": {
+    "name": "Gerador de especificações de design",
+    "shortDescription": "Crie especificações Markdown, revise requisitos ausentes e exporte fluxogramas.",
+    "seoTitle": "Especificações de design — Gerador e checklist Markdown",
+    "seoDescription": "Gere especificações de interface e revise estados, tokens, teclado e layout responsivo com referências ao texto.",
+    "intro": "Adapte o exemplo de configurações do espaço de trabalho e gere uma especificação Markdown editável para download.",
+    "formTitle": "1. Descreva as regras de design",
+    "formHint": "Substitua as regras do exemplo pelas decisões do produto. As seções aceitam Markdown; seções vazias ficam pendentes.",
+    "titleLabel": "Título do documento",
+    "generate": "Gerar Markdown",
+    "changed": "O formulário mudou. Gere novamente para atualizar o documento.",
+    "outputTitle": "2. Revise a especificação",
+    "preview": "Prévia",
+    "edit": "Editar Markdown",
+    "editorLabel": "Markdown da especificação",
+    "placeholder": "Escreva ou gere uma especificação…",
+    "empty": "Escreva ou gere uma especificação para visualizar.",
+    "ready": "Pronto",
+    "rendering": "Renderizando…",
+    "previewError": "Não foi possível mostrar a prévia. O texto continua disponível no editor Markdown.",
+    "copy": "Copiar Markdown",
+    "download": "Baixar .md",
+    "openPreview": "Abrir prévia Markdown ↗",
+    "openHint": "Abre o documento atual em outra aba. A URL contém o texto; compartilhe apenas com pessoas autorizadas.",
+    "replaceWarning": "Você editou o Markdown diretamente. Gerar novamente substituirá essas alterações pelos valores do formulário.",
+    "replace": "Substituir pelo formulário",
+    "cancel": "Manter minhas alterações",
+    "generated": "Especificação gerada. Confira a prévia ou edite o Markdown.",
+    "copied": "Markdown copiado.",
+    "copyError": "Não foi possível acessar a área de transferência. Selecione e copie o texto no editor.",
+    "downloadStarted": "Download do Markdown solicitado.",
+    "downloadError": "Não foi possível iniciar o download. Você ainda pode copiar o Markdown.",
+    "manualHint": "Copiar, baixar e visualizar usam o Markdown atual. As alterações do formulário só se aplicam ao gerar novamente.",
+    "privacy": "Geração e edição são locais, sem serviço de IA. A prévia remove HTML inseguro e mídias incorporadas; não valida regras de negócio nem compatibilidade de importação no Figma.",
+    "guide": "Ler o guia do modelo e dos critérios de aceitação",
+    "faqTitle": "Como usar o gerador",
+    "untitled": "Especificação sem título",
+    "unresolved": "TODO: complete as regras sem inventar comportamentos não definidos.",
+    "leaveWarning": "Mudar o idioma carrega o exemplo correspondente e descarta suas alterações. Baixe seu trabalho primeiro. Continuar?",
+    "keywords": [
+      "Gerador de especificações de design",
+      "Markdown",
+      "Figma Specs",
+      "Especificações de design — Gerador e checklist Markdown"
+    ],
+    "badges": [
+      "Sem cadastro",
+      "No navegador",
+      "Exportação Markdown"
+    ],
+    "faq": [
+      {
+        "question": "O que a revisão de completude verifica?",
+        "answer": "Ela busca padrões de texto e mostra linhas ou sugestões, sem nota de qualidade nem validação do comportamento real. Editar Markdown invalida o relatório. Um exemplo Mermaid independente leva à exportação SVG/PNG."
+      },
+      {
+        "question": "O que o gerador cria?",
+        "answer": "Um documento Markdown com objetivos, tokens, estados, interações, layout responsivo, acessibilidade, critérios de aceitação e decisões pendentes. Adapte as regras do exemplo."
+      },
+      {
+        "question": "Ele utiliza um modelo de IA?",
+        "answer": "Não. O navegador organiza suas regras a partir de um modelo. Seções sem informação continuam pendentes."
+      },
+      {
+        "question": "Posso usar o resultado no Figma Specs?",
+        "answer": "Transfira o conteúdo adequado ao seu processo de documentação. Não é um formato oficial do Figma nem uma importação automática; a aparência idêntica não é garantida."
+      },
+      {
+        "question": "Vou perder minhas alterações manuais?",
+        "answer": "O formulário não muda o documento imediatamente. Substituir edições manuais exige confirmação. Copiar e baixar usam o texto atual. Baixe seu trabalho antes de sair."
+      }
+    ],
+    "switchLanguage": "Mudar idioma"
+  },
+  "review": {
+    "title": "3. Revisar a completude da especificação",
+    "intro": "Encontre lacunas comuns no Markdown atual. Cada regra mostra a primeira linha correspondente ou uma sugestão, sem nota de qualidade.",
+    "check": "Revisar Markdown atual",
+    "checked": "Revisão atualizada para o Markdown atual.",
+    "stale": "O Markdown mudou. Execute a revisão novamente.",
+    "limits": "As regras buscam palavras na mesma linha no idioma da página, em inglês e em chinês simplificado. Títulos, blocos de código comuns, comentários HTML e linhas pendentes são ignorados. Outras expressões podem não ser encontradas; negações e contradições podem corresponder. Resultados não validam a implementação, a acessibilidade ou todos os componentes.",
+    "found": "Texto encontrado — verificar manualmente",
+    "missing": "Sem correspondência — completar ou verificar",
+    "rule": "Regra de detecção",
+    "line": "Linha de origem",
+    "suggestion": "Exemplo para adaptar",
+    "unresolved": "Decisões pendentes",
+    "unresolvedRule": "Busca TODO, TBD e marcadores locais de pendências fora de títulos e código. Mostra até cinco linhas.",
+    "unresolvedFound": "Marcadores encontrados — confirmar com o responsável",
+    "unresolvedMissing": "Nenhum marcador encontrado; ainda podem existir decisões pendentes.",
+    "diagramTitle": "Opcional: adaptar o fluxo de salvamento",
+    "diagramHint": "Este exemplo independente inclui validação, salvamento e nova tentativa. Adapte-o ao produto. Ele não é deduzido da especificação e não altera o Markdown.",
+    "diagramLabel": "Código Mermaid do fluxo de salvamento",
+    "diagramOpen": "Visualizar e exportar SVG / PNG ↗",
+    "diagramPrivacy": "Abre outra aba com o código atual do diagrama na URL. Compartilhe apenas conteúdo apropriado. As imagens não são diagramas nativos editáveis do Figma.",
+    "diagramSource": "flowchart TD\n  A[\"Editar configurações\"] --> B{\"Valores válidos e alterados?\"}\n  B -->|Não| C[\"Mostrar erros ou manter Salvar desativado\"]\n  B -->|Sim| D[\"Salvando: impedir duplicados\"]\n  D --> E{\"Salvou com sucesso?\"}\n  E -->|Sim| F[\"Anunciar conclusão e manter valores confirmados\"]\n  E -->|Não| G[\"Mostrar erro e preservar dados\"]\n  G --> H[\"Tentar novamente\"]\n  H --> D\n"
+  },
+  "rules": [
+    {
+      "id": "loading",
+      "title": "Retorno durante o carregamento",
+      "criteria": "Uma linha contém um estado de espera e uma indicação visual ou bloqueio.",
+      "suggestion": "Durante o carregamento, mostrar uma mensagem e impedir envios duplicados.",
+      "terms": [
+        [
+          "carregamento",
+          "salvando",
+          "em espera"
+        ],
+        [
+          "mostrar",
+          "mensagem",
+          "indicador",
+          "desativar",
+          "impedir"
+        ]
+      ]
+    },
+    {
+      "id": "error",
+      "title": "Erro e recuperação",
+      "criteria": "Uma linha menciona uma falha e uma ação de recuperação.",
+      "suggestion": "Em caso de erro, preservar os dados e permitir tentar novamente.",
+      "terms": [
+        [
+          "erro",
+          "falha"
+        ],
+        [
+          "preservar",
+          "manter",
+          "tentar novamente",
+          "recuperar"
+        ]
+      ]
+    },
+    {
+      "id": "empty",
+      "title": "Dados vazios",
+      "criteria": "Uma linha menciona dados vazios e uma resposta visível.",
+      "suggestion": "Quando não há resultados, mostrar uma mensagem.",
+      "terms": [
+        [
+          "vazio",
+          "vazia",
+          "vazios",
+          "sem dados",
+          "não há resultados"
+        ],
+        [
+          "mostrar",
+          "mensagem",
+          "ocultar",
+          "desativar"
+        ]
+      ]
+    },
+    {
+      "id": "tokens",
+      "title": "Token de design nomeado",
+      "criteria": "Detecta --name, $name ou um nome como color.action.primary; uma cor isolada não basta.",
+      "suggestion": "Fundo do botão: color.action.primary = #1D4ED8. Confirmar sua definição na biblioteca.",
+      "terms": []
+    },
+    {
+      "id": "keyboard",
+      "title": "Teclado e foco",
+      "criteria": "Uma linha menciona teclado ou tecla, além de foco ou ordem.",
+      "suggestion": "No teclado, Tab segue a ordem visual e o foco fica visível.",
+      "terms": [
+        [
+          "teclado",
+          "tab",
+          "enter",
+          "escape"
+        ],
+        [
+          "foco",
+          "ordem"
+        ]
+      ]
+    },
+    {
+      "id": "responsive",
+      "title": "Restrição responsiva",
+      "criteria": "Uma linha contém um número em px, rem ou em e uma regra de layout.",
+      "suggestion": "Abaixo de 768px: uma coluna com margem de 16px.",
+      "terms": [
+        [
+          "coluna",
+          "largura",
+          "margem",
+          "rolagem",
+          "janela",
+          "breakpoint"
+        ]
+      ]
+    },
+    {
+      "id": "acceptance",
+      "title": "Critério observável",
+      "criteria": "Uma caixa Markdown descreve um resultado observável.",
+      "suggestion": "- [ ] Em caso de erro, preservar os dados e mostrar uma opção para tentar novamente.",
+      "terms": [
+        [
+          "mostrar",
+          "preservar",
+          "manter",
+          "anunciar",
+          "impedir",
+          "desativar",
+          "não permite",
+          "uma única"
+        ]
+      ]
+    }
+  ],
+  "unresolvedTerms": [
+    "a confirmar",
+    "a completar",
+    "pendente de confirmação"
+  ],
+  "template": {
+    "title": "Modelo Markdown de especificação",
+    "description": "Exemplo de configurações com estados, regras visuais e critérios de aceitação.",
+    "open": "Abrir modelo e prévia",
+    "download": "Baixar modelo Markdown",
+    "customize": "Personalizar especificação",
+    "contents": "Conteúdo",
+    "related": "Guias relacionados",
+    "demo": "Exemplo para copiar",
+    "source": "# Configurações do espaço de trabalho — especificação\n\n> Exemplo independente do DiagramPreview. Adapte ao produto; não é um formato oficial do Figma.\n\n## Objetivo e escopo\nPermitir que o proprietário altere o nome e a preferência de notificações.\nNão inclui cobrança, convites nem gestão de permissões.\nUsar dados fictícios sem conectar à produção.\n\n## Tokens de design\n- Ação principal: #1D4ED8 com texto branco.\n- Texto: #0F172A sobre #FFFFFF; secundário: #475569; erro: #B91C1C.\n- Fonte: system-ui; corpo 16px / 24px; título 24px / 32px.\n- Espaçamentos: 4, 8, 12, 16, 24, 32px; raio do cartão: 8px.\n- Usar tokens nomeados, sem adicionar cores ou espaços arbitrários.\n\n## Componentes e estados\n### Botão Salvar\n- Padrão: “Salvar alterações”, com fundo principal.\n- Ao passar o cursor: #1E40AF com texto branco legível.\n- Foco: contorno visível de 2px com afastamento de 2px.\n- Desativado sem alterações ou com dados inválidos; explicar os erros junto ao campo.\n- Salvando: mostrar mensagem e impedir envios duplicados.\n- Sucesso: anunciar “Alterações salvas” em uma região dinâmica.\n- Em caso de erro, preservar os dados e permitir tentar novamente.\n### Nome do espaço\n- Obrigatório, de 2 a 60 caracteres após remover espaços externos.\n- Rótulo e ajuda visíveis; texto de exemplo não substitui o rótulo.\n- Validar ao perder o foco e antes de salvar; associar erros ao campo.\n- Não salvar dados inválidos.\n\n## Interação e dados\n1. Carregar o nome e a preferência atuais.\n2. Ativar Salvar apenas com valores válidos e alterados.\n3. Simular uma requisição e indicar o carregamento.\n4. No sucesso, manter valores confirmados e anunciar a conclusão.\n5. Na falha, preservar o rascunho e permitir tentar novamente.\n- Carregamento inicial: mostrar indicador com texto.\n- Falha inicial: permitir tentar novamente sem inventar dados salvos.\n- Se o nome estiver vazio, mostrar mensagem de campo obrigatório.\n\n## Layout responsivo\n- Abaixo de 768px: uma coluna, margem de 16px e botão com largura total.\n- A partir de 768px: formulário centralizado, largura máxima 640px e margem de 24px.\n- Com largura de 320px: sem rolagem horizontal.\n\n## Acessibilidade\n- Cada entrada tem rótulo programático; Tab segue a ordem visual.\n- Todos os controles funcionam pelo teclado com foco visível.\n- Informar sucesso e erros por texto, não apenas por cor.\n- Verificar contraste mínimo de 4.5:1 do texto comum contra o fundo real.\n\n## Critérios de aceitação\n- [ ] Para nomes vazios, mostrar erro e impedir o envio.\n- [ ] Fora de 2–60 caracteres, mostrar erro específico.\n- [ ] Cliques repetidos durante o salvamento geram uma única requisição.\n- [ ] Na falha, preservar os dados e permitir tentar novamente.\n- [ ] Anunciar sucesso sem mover o foco.\n- [ ] Testar teclado e layout de 320px.\n- [ ] Comparar todos os estados implementados com esta especificação.\n\n## Decisões antes da produção\n- TODO: confirmar API, autorizações e erros com a equipe de desenvolvimento.\n- TODO: confirmar notificações e textos com a equipe de produto.\n- Substituir a simulação após aprovação do contrato de dados.\n"
+  }
+}

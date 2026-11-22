@@ -2,12 +2,12 @@ import type {Metadata} from "next";
 import {getTranslations, setRequestLocale} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {CalendarDays, Clock3} from "lucide-react";
-import {blogPosts, getBlogPost, getCanonicalBlogPost, type BlogSection} from "@/config/blog";
+import {blogPosts, getBlogPost, getCanonicalBlogPost, getBlogPostLocales, type BlogSection} from "@/config/blog";
 import {getLocalizedTemplates} from "@/config/templates";
 import {TrackedToolLink} from "@/components/tools/TrackedToolLink";
 import {ToolEvidence} from "@/components/tools/ToolEvidence";
 import type {Locale} from "@/config/locales";
-import {blogIndexableLocales} from "@/config/seo-focus";
+import {getDesignSpecMessages} from "@/config/design-spec-messages";
 import {tools} from "@/config/tools";
 import {Link} from "@/i18n/navigation";
 import {absoluteUrl} from "@/lib/paths";
@@ -28,17 +28,18 @@ export async function generateMetadata({params}: BlogPostPageProps): Promise<Met
   if (!post) notFound();
   const t = await getTranslations({locale});
   const canonicalPost = getCanonicalBlogPost(post);
+  const pageLocales = getBlogPostLocales(canonicalPost ?? post);
 
   const metadata = buildMetadata({
     locale,
     path: `/${locale}/blog/${canonicalPost?.slug ?? slug}`,
-    pageLocales: blogIndexableLocales,
+    pageLocales: pageLocales,
     title: t(`blog.posts.${post.slug}.seoTitle`),
     description: t(`blog.posts.${post.slug}.description`),
     keywords: t.raw(`blog.posts.${post.slug}.keywords`)
   });
-  const canonical = absoluteUrl(`/${blogIndexableLocales.includes(locale) ? locale : "en"}/blog/${canonicalPost?.slug ?? slug}`);
-  const languages = Object.fromEntries(blogIndexableLocales.map((language) => [language, absoluteUrl(`/${language}/blog/${canonicalPost?.slug ?? slug}`)]));
+  const canonical = absoluteUrl(`/${pageLocales.includes(locale) ? locale : "en"}/blog/${canonicalPost?.slug ?? slug}`);
+  const languages = Object.fromEntries(pageLocales.map((language) => [language, absoluteUrl(`/${language}/blog/${canonicalPost?.slug ?? slug}`)]));
   metadata.alternates = {canonical, languages: {...languages, "x-default": absoluteUrl(`/en/blog/${canonicalPost?.slug ?? slug}`)}};
   metadata.openGraph = {
     ...metadata.openGraph,
@@ -50,7 +51,7 @@ export async function generateMetadata({params}: BlogPostPageProps): Promise<Met
   };
   metadata.twitter = {...metadata.twitter, card: "summary_large_image", images: [absoluteUrl(post.image)]};
 
-  if (!blogIndexableLocales.includes(locale)) {
+  if (!pageLocales.includes(locale)) {
     return {
       ...metadata,
       alternates: {canonical: absoluteUrl(`/en/blog/${canonicalPost?.slug ?? slug}`)},
@@ -72,6 +73,7 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
   const relatedTools = tools.filter((tool) => post.tools.includes(tool.slug));
   const canonicalPost = getCanonicalBlogPost(post);
   const isChineseLocale = locale.startsWith("zh");
+  const specCopy = post.pageLocales ? getDesignSpecMessages(locale).template : null;
   const title = t(`blog.posts.${post.slug}.title`);
   const description = t(`blog.posts.${post.slug}.description`);
   const articleLd = blogPostingJsonLd({
@@ -162,11 +164,11 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
                 {template ? (
                   <div className="mt-5 flex flex-wrap gap-3">
                     <TrackedToolLink href={sourceUrl(`/${template.tool}`, template.source)} eventName="tool_entry_click" targetToolSlug={template.tool} source={`blog:${post.slug}`} className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
-                      {isChineseLocale ? "打开模板并预览" : "Open template and preview"}
+                      {specCopy?.open ?? (isChineseLocale ? "打开模板并预览" : "Open template and preview")}
                     </TrackedToolLink>
                     {template.downloadHref ? (
                       <a href={template.downloadHref} download className="rounded-md border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-primary hover:text-primary">
-                        {isChineseLocale ? "下载 Markdown 模板" : "Download Markdown template"}
+                        {specCopy?.download ?? (isChineseLocale ? "下载 Markdown 模板" : "Download Markdown template")}
                       </a>
                     ) : null}
                   </div>
@@ -185,7 +187,7 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
                   <figure className="mt-5 min-w-0 overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-sm">
                     <div className="flex items-center justify-between border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
                       <span>{code.language}</span>
-                      <span>{isChineseLocale ? "可复制 Demo" : "Copyable demo"}</span>
+                      <span>{specCopy?.demo ?? (isChineseLocale ? "可复制 Demo" : "Copyable demo")}</span>
                     </div>
                     <pre className="overflow-auto p-4 text-sm leading-7 text-slate-100">
                       <code>{code.content}</code>
@@ -203,7 +205,7 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
         </div>
         <aside className="min-w-0 h-fit rounded-lg border border-slate-200 bg-white p-5 lg:sticky lg:top-24">
           <div>
-            <h2 className="text-base font-bold text-ink">{isChineseLocale ? "文章目录" : "Contents"}</h2>
+            <h2 className="text-base font-bold text-ink">{specCopy?.contents ?? (isChineseLocale ? "文章目录" : "Contents")}</h2>
             <div className="mt-4 grid gap-2">
               {sections.map((section, index) => (
                 <a key={section.heading} href={`#section-${index + 1}`} className="min-w-0 break-words rounded-md px-3 py-2 text-sm leading-5 text-slate-600 hover:bg-surface hover:text-primary">
@@ -224,7 +226,7 @@ export default async function BlogPostPage({params}: BlogPostPageProps) {
           </div>
           {post.relatedPosts?.length ? (
             <div className="mt-6 border-t border-slate-200 pt-5">
-              <h2 className="text-base font-bold text-ink">{isChineseLocale ? "延伸阅读" : "Related guides"}</h2>
+              <h2 className="text-base font-bold text-ink">{specCopy?.related ?? (isChineseLocale ? "延伸阅读" : "Related guides")}</h2>
               <div className="mt-4 grid gap-3">
                 {post.relatedPosts.map((relatedSlug) => (
                   <Link key={relatedSlug} href={`/blog/${relatedSlug}`} className="rounded-md border border-slate-200 p-3 text-sm font-semibold leading-6 text-slate-700 hover:border-primary hover:text-primary">

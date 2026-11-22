@@ -1,0 +1,212 @@
+{
+  "figma-specs-guide": {
+    "title": "Figma Specs：使用入口、Markdown 與 AI 點數",
+    "seoTitle": "Figma Specs：使用入口、Markdown 與 AI 點數",
+    "description": "了解 Specs 的入口、Markdown 支援範圍，以及方案資格和 AI 點數消耗的差別。",
+    "excerpt": "了解 Specs 的入口、Markdown 支援範圍，以及方案資格和 AI 點數消耗的差別。",
+    "readingTime": "5 分鐘",
+    "keywords": [
+      "Figma Specs：使用入口、Markdown 與 AI 點數",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Specs 的用途",
+        "paragraphs": [
+          "Specs 在 Figma 中保存需求與脈絡，可以記錄目標、元件行為和驗收條件。本文的入口與費用資訊依 2026 年 10 月 24 日查核的 Config India 官方文件整理，不代表所有帳號都已獲得功能。"
+        ],
+        "links": [
+          {
+            "label": "Figma 官方文件",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "入口與分批開放",
+        "paragraphs": [
+          "功能開放後，可在檔案瀏覽器選擇 Spec，或開啟 figma.com/spec/new。Figma Design 與 FigJam 可將文件放在工作內容旁。公告列出 Education、Professional、Organization、Enterprise、Government；不可推定 Starter 一定包含。閱讀需要檢視權限，修改需要編輯權限。若沒有入口，先檢查方案、檔案權限和分批開放進度。"
+        ],
+        "links": [
+          {
+            "label": "Figma 官方文件",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Markdown 與點數的界線",
+        "paragraphs": [
+          "Specs 支援標題、清單、引用、程式碼、圖片及 Figma 嵌入內容。Markdown 快捷輸入不代表完整 .md 匯入、Mermaid 繪圖或保留註解的來回轉換。手動撰寫和編輯不使用代理程式點數；請代理程式建立或修改 Spec 則可能消耗點數。方案資格與 AI 使用費用是兩件事，應查看實際使用明細。"
+        ],
+        "links": [
+          {
+            "label": "Figma 官方文件",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "先描述可驗證的行為",
+        "paragraphs": [
+          "先寫目標、排除範圍、載入、空狀態、錯誤和成功，再加上具名變數與可觀察的驗收條件。Code Layers 能示範互動，不代表認證、安全性或正式環境已驗證。連接的程式代理可透過 Figma MCP 工具與 figma-spec 技能操作 Specs，但仍須符合用戶端支援與權限。先用小文件與獨立範本確認流程。"
+        ],
+        "links": [
+          {
+            "label": "Markdown 設計規範範本：UI 狀態與驗收清單",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "設計規範產生器",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "figma-code-layers-guide": {
+    "title": "Figma Code Layers：Beta 入口、找不到功能與費用",
+    "seoTitle": "Figma Code Layers：Beta 入口、找不到功能與費用",
+    "description": "釐清逐步開放的 Beta 與限期點數優惠，再開始製作互動原型。",
+    "excerpt": "釐清逐步開放的 Beta 與限期點數優惠，再開始製作互動原型。",
+    "readingTime": "5 分鐘",
+    "keywords": [
+      "Figma Code Layers：Beta 入口、找不到功能與費用",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "在畫布中執行程式碼",
+        "paragraphs": [
+          "Code Layers 在 Figma Design 畫布上執行程式碼，方便把驗證、載入和重試行為與視覺設計一起檢查。本文依 2026 年 10 月 24 日查核的官方文件整理，並不保證每個帳號立即可用。"
+        ],
+        "links": [
+          {
+            "label": "Figma 官方文件",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "如何找到入口",
+        "paragraphs": [
+          "開啟你有編輯權限的 Figma Design 檔案，功能開放後工具列會出現 Code 圖示。公告列出 Starter、Professional、Organization、Enterprise 及符合資格的 Education，K–12 Education 除外。也要檢查組織的 AI 設定，停用 AI 可能同時停用 Code Layers。公開 Beta 會分數週開放，搜尋到的舊候補名單資訊可能已過時。持續沒有入口時，查官方更新或聯絡支援，不要把不相關外掛當成啟用方法。"
+        ],
+        "links": [
+          {
+            "label": "Figma 官方文件",
+            "href": "https://help.figma.com/hc/en-us/articles/44193259600535",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "優惠至 2026 年 11 月 4 日",
+        "paragraphs": [
+          "依 10 月 24 日的文件，有付費方案的使用者在 Code Layers 內產生與編輯程式碼，至 2026 年 11 月 4 日不消耗 AI 點數。這是限期條件，不是永久免費，也不可直接延伸到 Starter。同一提示觸發的其他代理工作仍可能耗點；之後 Code Layer 工作會依一般代理功能消耗點數。請查最新政策及實際明細，不要假設每次提示都有固定點數價格。"
+        ],
+        "links": [
+          {
+            "label": "Figma 官方文件",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "四種起點與驗收",
+        "paragraphs": [
+          "官方列出選取畫框轉換、從空白 Code Layer 開始、連接並複製 GitHub 儲存庫，以及透過 Figma 官方 Chrome 擴充功能擷取網頁程式碼。各方式須依文件完成設定與授權。第一次先選一種，使用虛構資料與模擬請求。對照規範檢查無效輸入、重複提交、失敗後保留草稿、成功通知、鍵盤操作與窄版畫面。"
+        ],
+        "links": [
+          {
+            "label": "Markdown 設計規範範本：UI 狀態與驗收清單",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "設計規範產生器",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "design-spec-markdown-template": {
+    "title": "Markdown 設計規範範本：UI 狀態與驗收清單",
+    "seoTitle": "Markdown 設計規範範本：UI 狀態與驗收清單",
+    "description": "下載完整工作區設定規範，修改設計規則，並在交接前檢查常見缺漏。",
+    "excerpt": "下載完整工作區設定規範，修改設計規則，並在交接前檢查常見缺漏。",
+    "readingTime": "5 分鐘",
+    "keywords": [
+      "Markdown 設計規範範本：UI 狀態與驗收清單",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "規範要說明決策",
+        "paragraphs": [
+          "截圖無法完整說明何時停用儲存，或失敗後是否保留草稿。DiagramPreview 獨立範本將這些決策寫給設計、開發與助理閱讀。這不是 Figma 官方範本、自動匯入格式，也不保證不同編輯器呈現完全一致。"
+        ],
+        "links": [
+          {
+            "label": "Figma Specs：使用入口、Markdown 與 AI 點數",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "開啟、編輯或透過表單產生",
+        "paragraphs": [
+          "預覽與下載使用同一份本地化 Markdown。請調整標題、目標、變數、狀態與驗收條件。產生器提供表單、直接編輯，以及展示原文行或建議的本機檢查；文字符合不代表實作正確。預覽網址片段包含原始碼，分享前請移除專案私密資訊。"
+        ],
+        "templateSlug": "workspace-design-spec",
+        "links": [
+          {
+            "label": "設計規範產生器",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "將待確認事項分開",
+        "paragraphs": [
+          "重用現有設計變數和元件，說明各變數用在哪裡。API、授權和未核准規則應保留待確認，不要由助理編造。原型請求先限制為一個畫面、虛構資料和模擬請求。親自操作無效輸入、連續點擊、網路失敗、成功、焦點與手機寬度，記錄觀察結果；產生的報告不能取代實際驗證。"
+        ]
+      },
+      {
+        "heading": "需要時再加入圖表",
+        "paragraphs": [
+          "單一表單可能只需要編號步驟；有分支時可補上獨立 Mermaid 流程圖。產生器附有可編輯的儲存範例，可開啟現有工具匯出 SVG/PNG，但不從規範自動推論。DiagramPreview 支援 Mermaid 不代表 Figma Specs 原生支援；請確認可接受的嵌入方式，並另存圖表原始碼以便修改。"
+        ],
+        "links": [
+          {
+            "label": "Markdown 設計規範範本",
+            "href": "/templates#documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Figma 官方文件",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  }
+}

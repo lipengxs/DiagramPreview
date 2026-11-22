@@ -1,0 +1,212 @@
+{
+  "figma-specs-guide": {
+    "title": "Figma Specs：利用条件、Markdown、AI クレジット",
+    "seoTitle": "Figma Specs：利用条件、Markdown、AI クレジット",
+    "description": "Specs の開き方、Markdown の対応範囲、プランの利用条件と AI クレジットの違いを整理します。",
+    "excerpt": "Specs の開き方、Markdown の対応範囲、プランの利用条件と AI クレジットの違いを整理します。",
+    "readingTime": "約5分",
+    "keywords": [
+      "Figma Specs：利用条件、Markdown、AI クレジット",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Specs の役割",
+        "paragraphs": [
+          "Specs は Figma 内に要件と文脈をまとめる文書です。目的、コンポーネントの動作、受け入れ基準を記録できます。利用条件と費用の情報は 2026年10月24日に Config India の公式資料で確認した時点のもので、全アカウントへの即時提供を意味しません。"
+        ],
+        "links": [
+          {
+            "label": "Figma 公式ドキュメント",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "入口と段階的な提供",
+        "paragraphs": [
+          "利用可能な場合、ファイルブラウザーの Spec または figma.com/spec/new から作成します。Figma Design や FigJam では作業の横に文書を配置できます。発表に記載されたプランは Education、Professional、Organization、Enterprise、Government です。Starter でも使えるとは限りません。閲覧権限と編集権限を確認し、入口がない場合はプラン、ファイル権限、段階的な提供状況を確認してください。"
+        ],
+        "links": [
+          {
+            "label": "Figma 公式ドキュメント",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Markdown とクレジットの境界",
+        "paragraphs": [
+          "見出し、リスト、引用、コード、画像、Figma の埋め込みなどに対応します。ただし Markdown の入力ショートカットは、完全な .md インポート、Mermaid、コメントを維持した往復編集まで保証するものではありません。手動での記入や編集はエージェントのクレジットを使いませんが、作成や変更をエージェントに依頼すると消費する場合があります。プランの利用資格とは別に考えてください。"
+        ],
+        "links": [
+          {
+            "label": "Figma 公式ドキュメント",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "観察できる動作から書く",
+        "paragraphs": [
+          "目的と対象外、読み込み、空状態、失敗、成功を記述し、その後に名前付きトークンと観察可能な基準を追加します。Code Layers で操作を示せても、認証や本番運用の安全性の検証にはなりません。接続されたエージェントは Figma MCP と figma-spec スキルを使える場合がありますが、クライアント対応と権限が必要です。まず小さな文書で独立テンプレートを調整してください。"
+        ],
+        "links": [
+          {
+            "label": "Markdown デザイン仕様書テンプレート：UI 状態と受け入れ基準",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "デザイン仕様書ジェネレーター",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "figma-code-layers-guide": {
+    "title": "Figma Code Layers：ベータの入口、利用条件、費用",
+    "seoTitle": "Figma Code Layers：ベータの入口、利用条件、費用",
+    "description": "段階的なベータ提供と期間限定のクレジット特典を確認し、最初のインタラクティブな試作に備えます。",
+    "excerpt": "段階的なベータ提供と期間限定のクレジット特典を確認し、最初のインタラクティブな試作に備えます。",
+    "readingTime": "約5分",
+    "keywords": [
+      "Figma Code Layers：ベータの入口、利用条件、費用",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "キャンバス上でコードを実行",
+        "paragraphs": [
+          "Code Layers は Figma Design のキャンバス上でコードを実行し、入力検証、読み込み、再試行をデザインと並べて試せます。本ガイドは 2026年10月24日に確認した公式資料に基づき、全員が即座に利用できるという意味ではありません。"
+        ],
+        "links": [
+          {
+            "label": "Figma 公式ドキュメント",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "入口が見つからないとき",
+        "paragraphs": [
+          "編集できる Figma Design ファイルを開き、機能が提供済みならツールバーの Code アイコンを使います。Starter、Professional、Organization、Enterprise、対象となる Education が記載され、K–12 Education は除外されています。組織の AI 設定を無効にすると Code Layers も利用できない場合があります。オープンベータは数週間かけて提供されるため、古い待機リストの情報と区別してください。入口がない場合は公式更新情報かサポートを確認します。"
+        ],
+        "links": [
+          {
+            "label": "Figma 公式ドキュメント",
+            "href": "https://help.figma.com/hc/en-us/articles/44193259600535",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "2026年11月4日までの特典",
+        "paragraphs": [
+          "10月24日時点の資料では、有料プランの Code Layers 内で行うコード生成・編集は 2026年11月4日まで AI クレジットを消費しないとされています。永続的な無料枠ではなく、Starter にそのまま適用できません。同じプロンプトで実行される別のエージェント作業は対象外の場合があります。その後は通常のクレジット利用規則に従います。固定の消費量を推測せず、最新条件と実際の利用明細を確認してください。"
+        ],
+        "links": [
+          {
+            "label": "Figma 公式ドキュメント",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "四つの始め方と動作確認",
+        "paragraphs": [
+          "選択フレームの変換、空の Code Layer からの作成、GitHub リポジトリの接続・複製、Figma 公式 Chrome 拡張からのページコード取得が案内されています。それぞれの設定と権限に従ってください。初回は一つの方法に絞り、架空データと模擬リクエストを使います。不正入力、重複送信、失敗後の入力保持、成功通知、キーボード、狭い画面を仕様書と比較してください。"
+        ],
+        "links": [
+          {
+            "label": "Markdown デザイン仕様書テンプレート：UI 状態と受け入れ基準",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "デザイン仕様書ジェネレーター",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "design-spec-markdown-template": {
+    "title": "Markdown デザイン仕様書テンプレート：UI 状態と受け入れ基準",
+    "seoTitle": "Markdown デザイン仕様書テンプレート：UI 状態と受け入れ基準",
+    "description": "設定画面の仕様書をダウンロードして編集し、開発へ渡す前に記述の不足を確認します。",
+    "excerpt": "設定画面の仕様書をダウンロードして編集し、開発へ渡す前に記述の不足を確認します。",
+    "readingTime": "約5分",
+    "keywords": [
+      "Markdown デザイン仕様書テンプレート：UI 状態と受け入れ基準",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "画像だけでなく決定事項を書く",
+        "paragraphs": [
+          "画面の画像だけでは保存を無効にする条件や、失敗時に下書きを残すかは分かりません。DiagramPreview の独立テンプレートはこれらを設計者、開発者、アシスタントへ伝えます。Figma の公式テンプレート、自動インポート形式、同じ表示の保証ではありません。"
+        ],
+        "links": [
+          {
+            "label": "Figma Specs：利用条件、Markdown、AI クレジット",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "開く・編集する・フォームで作成する",
+        "paragraphs": [
+          "プレビューとダウンロードは同じ言語の同一 Markdown を使います。タイトル、目的、トークン、状態、基準を変更してください。ジェネレーターではフォームと直接編集、原文行または補足例を表示するローカルチェックを使えます。文字の一致は実装の正しさを証明しません。プレビュー URL のフラグメントには原文が含まれるため、共有前に非公開情報を除いてください。"
+        ],
+        "templateSlug": "workspace-design-spec",
+        "links": [
+          {
+            "label": "デザイン仕様書ジェネレーター",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "未決事項を分けて管理",
+        "paragraphs": [
+          "既存のトークンとコンポーネントを再利用し、用途も記載します。API、認可、未承認ルールは未決として残してください。試作依頼は一画面、架空データ、模擬リクエストに限定します。不正入力、連打、通信失敗、成功、フォーカス、モバイル幅を自分で確認し、結果を記録してください。生成された報告書は実際の観察の代わりにはなりません。"
+        ]
+      },
+      {
+        "heading": "必要な場合に図を追加",
+        "paragraphs": [
+          "単純なフォームなら番号付きの操作手順だけで十分な場合があります。分岐があるときは独立した Mermaid 図を追加します。ジェネレーターの保存フロー例は編集して既存の SVG/PNG 出力へ渡せますが、仕様書から自動推論しません。DiagramPreview の Mermaid 対応は Figma Specs のネイティブ対応を証明しません。受け入れ可能な埋め込み方式を確認し、変更に備えて図のソースも保管してください。"
+        ],
+        "links": [
+          {
+            "label": "Markdown デザイン仕様書テンプレート",
+            "href": "/templates#documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Figma 公式ドキュメント",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "generator": {
+    "name": "Generator für Designspezifikationen",
+    "shortDescription": "Markdown-Spezifikationen erstellen, fehlende Anforderungen prüfen und Ablaufdiagramme exportieren.",
+    "seoTitle": "Designspezifikation erstellen und prüfen — Markdown und Ablaufdiagramme",
+    "seoDescription": "Erstellen Sie UI-Spezifikationen und prüfen Sie Zustände, Tokens, Tastaturbedienung und Layoutregeln anhand von Textbelegen.",
+    "intro": "Passen Sie das Beispiel für Arbeitsbereichseinstellungen an und erstellen Sie eine bearbeitbare Markdown-Spezifikation.",
+    "formTitle": "1. Designregeln beschreiben",
+    "formHint": "Ersetzen Sie die Beispielregeln durch Ihre Produktentscheidungen. Die Abschnitte unterstützen Markdown; leere Abschnitte bleiben offen.",
+    "titleLabel": "Dokumenttitel",
+    "generate": "Markdown erstellen",
+    "changed": "Das Formular wurde geändert. Erstellen Sie das Dokument erneut, um die Änderungen zu übernehmen.",
+    "outputTitle": "2. Spezifikation prüfen",
+    "preview": "Vorschau",
+    "edit": "Markdown bearbeiten",
+    "editorLabel": "Markdown der Spezifikation",
+    "placeholder": "Spezifikation schreiben oder erstellen…",
+    "empty": "Erstellen oder schreiben Sie eine Spezifikation für die Vorschau.",
+    "ready": "Bereit",
+    "rendering": "Wird gerendert…",
+    "previewError": "Die Vorschau ist fehlgeschlagen. Der Quelltext bleibt unter „Markdown bearbeiten“ verfügbar.",
+    "copy": "Markdown kopieren",
+    "download": ".md herunterladen",
+    "openPreview": "Markdown-Vorschau öffnen ↗",
+    "openHint": "Öffnet das aktuelle Dokument in einem neuen Tab. Die URL enthält den Quelltext; teilen Sie sie nur mit berechtigten Personen.",
+    "replaceWarning": "Sie haben Markdown direkt bearbeitet. Erneutes Erstellen ersetzt diese Änderungen durch die Formularwerte.",
+    "replace": "Durch Formularwerte ersetzen",
+    "cancel": "Änderungen behalten",
+    "generated": "Spezifikation erstellt. Prüfen Sie die Vorschau oder bearbeiten Sie Markdown.",
+    "copied": "Markdown kopiert.",
+    "copyError": "Kein Zugriff auf die Zwischenablage. Kopieren Sie den Text direkt im Editor.",
+    "downloadStarted": "Markdown-Download angefordert.",
+    "downloadError": "Der Download konnte nicht gestartet werden. Sie können Markdown weiterhin kopieren.",
+    "manualHint": "Kopieren, Download und Vorschau verwenden das aktuelle Markdown. Formularänderungen werden erst beim erneuten Erstellen übernommen.",
+    "privacy": "Erstellung und Bearbeitung erfolgen lokal ohne KI-Dienst. Die Vorschau entfernt unsicheres HTML und eingebettete Medien; sie prüft weder Geschäftsregeln noch Figma-Importkompatibilität.",
+    "guide": "Anleitung zu Vorlage und Abnahmecheckliste lesen",
+    "faqTitle": "So verwenden Sie den Generator",
+    "untitled": "Unbenannte Designspezifikation",
+    "unresolved": "TODO: Regeln ergänzen; nicht definiertes Verhalten nicht erfinden.",
+    "leaveWarning": "Ein Sprachwechsel lädt das Beispiel der Zielsprache und verwirft Ihre Änderungen. Bitte zuerst herunterladen. Trotzdem wechseln?",
+    "keywords": [
+      "Generator für Designspezifikationen",
+      "Markdown",
+      "Figma Specs",
+      "Designspezifikation erstellen und prüfen — Markdown und Ablaufdiagramme"
+    ],
+    "badges": [
+      "Ohne Anmeldung",
+      "Lokal im Browser",
+      "Markdown-Export"
+    ],
+    "faq": [
+      {
+        "question": "Was prüft die Vollständigkeitsprüfung?",
+        "answer": "Sie sucht explizite Textmuster und zeigt Fundstellen oder Vorschläge. Sie bewertet weder die Qualität noch tatsächliches Verhalten. Markdown-Änderungen machen den Bericht ungültig. Ein unabhängiges Mermaid-Beispiel führt zum SVG/PNG-Export."
+      },
+      {
+        "question": "Was erstellt der Generator?",
+        "answer": "Ein Markdown-Dokument mit Ziel, Tokens, Zuständen, Interaktion, responsivem Layout, Barrierefreiheit, Abnahmekriterien und offenen Entscheidungen. Passen Sie die Beispielregeln an."
+      },
+      {
+        "question": "Wird ein KI-Modell verwendet?",
+        "answer": "Nein. Der Browser ordnet Ihre Regeln anhand einer Vorlage. Fehlende Angaben bleiben offen."
+      },
+      {
+        "question": "Kann ich das Ergebnis mit Figma Specs verwenden?",
+        "answer": "Übertragen Sie geeignete Inhalte in Ihren Dokumentationsablauf. Dies ist kein offizielles Figma-Format und kein automatischer Import; identische Darstellung wird nicht garantiert."
+      },
+      {
+        "question": "Gehen manuelle Änderungen verloren?",
+        "answer": "Formulareingaben ändern das Dokument nicht sofort. Vor dem Ersetzen manueller Änderungen erscheint eine Bestätigung. Download und Kopieren verwenden den aktuellen Text. Laden Sie Ihre Arbeit vor dem Verlassen herunter."
+      }
+    ],
+    "switchLanguage": "Sprache wechseln"
+  },
+  "review": {
+    "title": "3. Vollständigkeit der Spezifikation prüfen",
+    "intro": "Prüfen Sie das aktuelle Markdown auf typische Übergabelücken. Jede Regel zeigt die erste passende Quelltextzeile oder einen Vorschlag, keine Qualitätsnote.",
+    "check": "Aktuelles Markdown prüfen",
+    "checked": "Prüfung für das aktuelle Markdown aktualisiert.",
+    "stale": "Markdown wurde geändert. Bitte erneut prüfen.",
+    "limits": "Die Prüfung sucht Wörter derselben Zeile in der Seitensprache sowie Englisch und vereinfachtem Chinesisch. Überschriften, gewöhnliche Codeblöcke, HTML-Kommentare und offene Angaben zählen nicht als Beleg. Andere Formulierungen können fehlen; Verneinungen oder Widersprüche können passen. Treffer bestätigen weder die Umsetzung noch Barrierefreiheit oder die Abdeckung aller Komponenten.",
+    "found": "Text gefunden — manuell prüfen",
+    "missing": "Kein passender Text — ergänzen oder prüfen",
+    "rule": "Erkennungsregel",
+    "line": "Quelltextzeile",
+    "suggestion": "Anpassbares Beispiel",
+    "unresolved": "Offene Entscheidungen",
+    "unresolvedRule": "Sucht TODO, TBD und sprachspezifische Marker für offene Angaben außerhalb von Überschriften und Code. Zeigt höchstens fünf Zeilen.",
+    "unresolvedFound": "Offene Angaben gefunden — mit Verantwortlichen klären",
+    "unresolvedMissing": "Keine Marker gefunden; dennoch können Entscheidungen offen sein.",
+    "diagramTitle": "Optional: Ablauf beim Speichern anpassen",
+    "diagramHint": "Dieses unabhängige Beispiel zeigt Validierung, Speichern und Wiederholen. Passen Sie es an Ihr Produkt an. Es wird nicht aus Ihrer Spezifikation abgeleitet und ändert sie nicht.",
+    "diagramLabel": "Mermaid-Quelltext des Speicherablaufs",
+    "diagramOpen": "Diagramm ansehen und SVG / PNG exportieren ↗",
+    "diagramPrivacy": "Öffnet einen neuen Tab mit dem aktuellen Diagrammquelltext in der URL. Teilen Sie ihn bewusst. Exportierte Bilder sind keine nativ bearbeitbaren Figma-Diagramme.",
+    "diagramSource": "flowchart TD\n  A[\"Einstellungen bearbeiten\"] --> B{\"Werte gültig und geändert?\"}\n  B -->|Nein| C[\"Fehler anzeigen oder Speichern deaktiviert lassen\"]\n  B -->|Ja| D[\"Speichern: doppelte Anfragen verhindern\"]\n  D --> E{\"Speichern erfolgreich?\"}\n  E -->|Ja| F[\"Abschluss melden und bestätigte Werte behalten\"]\n  E -->|Nein| G[\"Fehler anzeigen und Eingaben behalten\"]\n  G --> H[\"Wiederholen\"]\n  H --> D\n"
+  },
+  "rules": [
+    {
+      "id": "loading",
+      "title": "Ladeanzeige",
+      "criteria": "Eine Zeile enthält einen Ladebegriff und eine Anzeige oder Sperre.",
+      "suggestion": "Beim Laden eine Meldung anzeigen und doppelte Anfragen verhindern.",
+      "terms": [
+        [
+          "laden",
+          "speichern",
+          "ausstehend"
+        ],
+        [
+          "anzeigen",
+          "meldung",
+          "platzhalter",
+          "deaktivieren",
+          "verhindern"
+        ]
+      ]
+    },
+    {
+      "id": "error",
+      "title": "Fehler und Wiederherstellung",
+      "criteria": "Eine Zeile nennt einen Fehler und Wiederholen, Beibehalten oder Wiederherstellen.",
+      "suggestion": "Bei einem Fehler Eingaben beibehalten und Wiederholen anbieten.",
+      "terms": [
+        [
+          "fehler",
+          "fehlgeschlagen"
+        ],
+        [
+          "wiederholen",
+          "beibehalten",
+          "wiederherstellen"
+        ]
+      ]
+    },
+    {
+      "id": "empty",
+      "title": "Leere Daten",
+      "criteria": "Eine Zeile nennt leere Daten und eine Anzeige oder Aktion.",
+      "suggestion": "Bei leeren Daten eine Meldung anzeigen.",
+      "terms": [
+        [
+          "leer",
+          "keine daten",
+          "keine ergebnisse"
+        ],
+        [
+          "anzeigen",
+          "meldung",
+          "ausblenden",
+          "deaktivieren"
+        ]
+      ]
+    },
+    {
+      "id": "tokens",
+      "title": "Benannter Design-Token",
+      "criteria": "Sucht --name, $name oder einen Namen wie color.action.primary; ein Farbwert allein reicht nicht.",
+      "suggestion": "Hintergrund der Speichern-Schaltfläche: color.action.primary = #1D4ED8. Definition in der Bibliothek prüfen.",
+      "terms": []
+    },
+    {
+      "id": "keyboard",
+      "title": "Tastatur und Fokus",
+      "criteria": "Eine Zeile nennt eine Taste oder Tastatur sowie Fokus oder Reihenfolge.",
+      "suggestion": "Tastatur: Tab folgt der visuellen Reihenfolge, der Fokus bleibt sichtbar.",
+      "terms": [
+        [
+          "tastatur",
+          "tab",
+          "enter",
+          "escape"
+        ],
+        [
+          "fokus",
+          "reihenfolge"
+        ]
+      ]
+    },
+    {
+      "id": "responsive",
+      "title": "Responsive Vorgabe",
+      "criteria": "Eine Zeile enthält eine Zahl mit px, rem oder em sowie einen Layoutbegriff.",
+      "suggestion": "Unter 768px: eine Spalte und 16px Seitenabstand.",
+      "terms": [
+        [
+          "spalte",
+          "breite",
+          "abstand",
+          "scroll",
+          "viewport",
+          "haltepunkt"
+        ]
+      ]
+    },
+    {
+      "id": "acceptance",
+      "title": "Beobachtbares Abnahmekriterium",
+      "criteria": "Ein Markdown-Kontrollkästchen beschreibt ein sichtbares Ergebnis.",
+      "suggestion": "- [ ] Bei einem Fehler bleiben die Eingaben erhalten und eine Meldung wird angezeigt.",
+      "terms": [
+        [
+          "anzeigen",
+          "angezeigt",
+          "beibehalten",
+          "erhalten",
+          "verhindern",
+          "deaktivieren",
+          "nicht möglich",
+          "nur eine"
+        ]
+      ]
+    }
+  ],
+  "unresolvedTerms": [
+    "noch zu klären",
+    "zu bestätigen",
+    "offen:"
+  ],
+  "template": {
+    "title": "Markdown-Vorlage für Designspezifikationen",
+    "description": "Arbeitsbereichseinstellungen mit Zuständen, Designregeln und Abnahmekriterien.",
+    "open": "Vorlage öffnen und ansehen",
+    "download": "Markdown-Vorlage herunterladen",
+    "customize": "Spezifikation anpassen",
+    "contents": "Inhalt",
+    "related": "Weiterführende Anleitungen",
+    "demo": "Kopierbares Beispiel",
+    "source": "# Arbeitsbereichseinstellungen — Designspezifikation\n\n> Unabhängiges DiagramPreview-Beispiel. Passen Sie die Regeln an Ihr Produkt an. Kein offizielles Figma-Format.\n\n## Ziel und Umfang\nEigentümer können den Namen und die Benachrichtigungseinstellung des Arbeitsbereichs ändern.\nAbrechnung, Einladungen und Berechtigungsverwaltung gehören nicht zum Umfang.\nNur synthetische Daten verwenden; keine Produktionsanbindung.\n\n## Design-Tokens\n- Primäre Aktion: #1D4ED8 mit weißem Text.\n- Text: #0F172A auf #FFFFFF; sekundär: #475569; Fehler: #B91C1C.\n- Schrift: system-ui; Fließtext 16px / 24px, Überschrift 24px / 32px.\n- Abstände: 4, 8, 12, 16, 24, 32px; Kartenradius: 8px.\n- Benannte Tokens verwenden, keine beliebigen Farben oder Abstände ergänzen.\n\n## Komponenten und Zustände\n### Speichern-Schaltfläche\n- Standard: „Änderungen speichern“ auf primärem Hintergrund.\n- Hover: #1E40AF mit lesbarem weißem Text.\n- Fokus: sichtbare Kontur von 2px mit 2px Abstand.\n- Deaktiviert bei unveränderten oder ungültigen Daten; Feldfehler erläutern.\n- Beim Speichern eine Meldung anzeigen und doppelte Anfragen verhindern.\n- Erfolg: „Änderungen gespeichert“ über eine Live-Region melden.\n- Bei einem Fehler Eingaben beibehalten und Wiederholen anbieten.\n### Name des Arbeitsbereichs\n- Pflichtfeld: nach Entfernen äußerer Leerzeichen 2–60 Zeichen.\n- Sichtbare Beschriftung und Hilfe; Platzhalter ersetzt keine Beschriftung.\n- Beim Fokusverlust und vor dem Speichern validieren, Fehler dem Feld zuordnen.\n- Ungültige Daten nicht speichern.\n\n## Interaktion und Daten\n1. Aktuellen Namen und Benachrichtigungswert laden.\n2. Speichern nur bei gültigen geänderten Werten aktivieren.\n3. Beim Absenden einen simulierten Vorgang ausführen und Ladezustand zeigen.\n4. Bei Erfolg bestätigte Werte behalten und Abschluss melden.\n5. Bei Fehler Entwurf behalten und Wiederholen anbieten.\n- Beim ersten Laden einen beschrifteten Platzhalter anzeigen.\n- Initialer Ladefehler: Wiederholen anbieten; gespeicherte Daten nicht erfinden.\n- Bei leerem Namen vom Server eine Pflichtfeldmeldung anzeigen.\n\n## Responsives Layout\n- Unter 768px: eine Spalte, 16px Seitenabstand, Speichern über volle Breite.\n- Ab 768px: zentriertes Formular, maximal 640px breit, 24px Abstand.\n- Bei 320px Viewport-Breite kein horizontales Scrollen.\n\n## Barrierefreiheit\n- Alle Eingaben haben programmatische Beschriftungen; Tab folgt der visuellen Reihenfolge.\n- Tastaturbedienung mit sichtbarem Fokus für alle interaktiven Elemente.\n- Erfolg und Fehler durch Text, nicht nur Farbe vermitteln.\n- Normalen Textkontrast von mindestens 4.5:1 am tatsächlichen Hintergrund prüfen.\n\n## Abnahmecheckliste\n- [ ] Leere Namen können nicht abgesendet werden; eine Meldung wird angezeigt.\n- [ ] Außerhalb von 2–60 Zeichen wird ein konkreter Fehler angezeigt.\n- [ ] Wiederholtes Klicken während des Speicherns erzeugt nur eine Anfrage.\n- [ ] Bei Fehler bleiben Eingaben erhalten; Wiederholen ist möglich.\n- [ ] Erfolg wird ohne Fokusverschiebung angekündigt.\n- [ ] Tastaturbedienung und 320px-Layout prüfen.\n- [ ] Jeden umgesetzten Zustand mit der Spezifikation vergleichen.\n\n## Vor Produktion klären\n- TODO: Endpunkt, Berechtigungen und Fehlerantworten mit der Entwicklung bestätigen.\n- TODO: Benachrichtigungsverhalten und Texte mit der Produktverantwortung bestätigen.\n- Simulation erst nach Freigabe des Datenvertrags ersetzen.\n"
+  }
+}

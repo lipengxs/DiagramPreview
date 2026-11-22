@@ -1,5 +1,6 @@
 import type {ToolSlug} from "./tools";
 import {designSpecSources} from "./design-spec-template";
+import {designSpecMessages} from "./design-spec-messages";
 
 export type TemplateCategory = "documentation" | "mermaid" | "drawio" | "api" | "schema" | "devops";
 
@@ -56,14 +57,12 @@ export const templates: TemplateConfig[] = [
     description: "A workspace settings specification with design tokens, component states, responsive rules, and acceptance criteria.",
     source: designSpecSources.en,
     downloadHref: "/templates/design-specs/workspace-settings.en.md",
-    translations: {
-      "zh-CN": {
-        title: "Markdown 设计规范模板",
-        description: "工作区设置完整示例，包含设计变量、组件状态、响应式规则和验收清单。",
-        source: designSpecSources["zh-CN"],
-        downloadHref: "/templates/design-specs/workspace-settings.zh-CN.md"
-      }
-    }
+    translations: Object.fromEntries(Object.entries(designSpecMessages).map(([locale, {template}]) => [locale, {
+      title: template.title,
+      description: template.description,
+      source: template.source,
+      downloadHref: `/templates/design-specs/workspace-settings.${locale}.md`
+    }]))
   },
   {
     slug: "readme-service-flow",

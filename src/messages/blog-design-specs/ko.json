@@ -1,0 +1,212 @@
+{
+  "figma-specs-guide": {
+    "title": "Figma Specs: 이용 조건, Markdown, AI 크레딧",
+    "seoTitle": "Figma Specs: 이용 조건, Markdown, AI 크레딧",
+    "description": "Specs를 여는 방법과 Markdown 지원 범위, 요금제 이용 자격과 AI 크레딧의 차이를 살펴봅니다.",
+    "excerpt": "Specs를 여는 방법과 Markdown 지원 범위, 요금제 이용 자격과 AI 크레딧의 차이를 살펴봅니다.",
+    "readingTime": "5분",
+    "keywords": [
+      "Figma Specs: 이용 조건, Markdown, AI 크레딧",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Specs의 역할",
+        "paragraphs": [
+          "Specs는 Figma 안에서 요구사항과 맥락을 정리하는 문서입니다. 목적, 구성요소 동작, 인수 기준을 기록할 수 있습니다. 이용 조건과 비용은 2026년 10월 24일 Config India 공식 자료에서 확인한 내용이며, 모든 계정에 즉시 제공된다는 뜻은 아닙니다."
+        ],
+        "links": [
+          {
+            "label": "Figma 공식 문서",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "진입점과 점진적 제공",
+        "paragraphs": [
+          "사용할 수 있는 계정에서는 파일 탐색기의 Spec 또는 figma.com/spec/new로 만듭니다. Figma Design과 FigJam에서는 작업 옆에 문서를 배치할 수 있습니다. 발표에 나열된 요금제는 Education, Professional, Organization, Enterprise, Government입니다. Starter도 포함된다고 가정하지 마세요. 열람 권한과 편집 권한이 각각 필요합니다. 진입점이 없으면 요금제, 파일 권한, 점진적 배포 상태를 확인하세요."
+        ],
+        "links": [
+          {
+            "label": "Figma 공식 문서",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Markdown과 크레딧의 경계",
+        "paragraphs": [
+          "제목, 목록, 인용, 코드, 이미지, Figma 파일 삽입 등을 지원합니다. 그러나 Markdown 단축 문법은 완전한 .md 가져오기, Mermaid 렌더링, 주석을 보존하는 왕복 편집을 보장하지 않습니다. 직접 작성하고 편집하면 에이전트 크레딧을 사용하지 않지만, 에이전트에게 생성이나 변경을 요청하면 소비할 수 있습니다. 요금제 이용 자격과 AI 사용 비용은 별개입니다."
+        ],
+        "links": [
+          {
+            "label": "Figma 공식 문서",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "관찰 가능한 동작부터 작성",
+        "paragraphs": [
+          "목적과 제외 범위, 로딩, 빈 상태, 실패, 성공을 먼저 적고 이름 있는 토큰과 관찰 가능한 기준을 추가하세요. Code Layers로 상호작용을 보여도 인증이나 운영 준비를 검증한 것은 아닙니다. 연결된 에이전트는 Figma MCP 도구와 figma-spec 스킬을 이용할 수 있지만 클라이언트 지원과 권한이 필요합니다. 작은 문서부터 독립 템플릿을 수정해 사용하세요."
+        ],
+        "links": [
+          {
+            "label": "Markdown 디자인 명세 템플릿: UI 상태와 인수 기준",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "디자인 명세 생성기",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "figma-code-layers-guide": {
+    "title": "Figma Code Layers: 베타 진입점, 이용 조건과 비용",
+    "seoTitle": "Figma Code Layers: 베타 진입점, 이용 조건과 비용",
+    "description": "점진적 베타 제공과 기간 한정 크레딧 혜택을 확인하고 첫 인터랙티브 프로토타입을 준비하세요.",
+    "excerpt": "점진적 베타 제공과 기간 한정 크레딧 혜택을 확인하고 첫 인터랙티브 프로토타입을 준비하세요.",
+    "readingTime": "5분",
+    "keywords": [
+      "Figma Code Layers: 베타 진입점, 이용 조건과 비용",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "캔버스에서 실행되는 코드",
+        "paragraphs": [
+          "Code Layers는 Figma Design 캔버스에서 코드를 실행하여 검증, 로딩, 재시도를 디자인 옆에서 시험할 수 있게 합니다. 이 안내는 2026년 10월 24일 확인한 공식 자료를 기반으로 하며 모든 계정의 즉시 접근을 보장하지 않습니다."
+        ],
+        "links": [
+          {
+            "label": "Figma 공식 문서",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "진입점이 없을 때",
+        "paragraphs": [
+          "편집 가능한 Figma Design 파일을 여세요. 기능이 제공된 계정에는 도구 모음에 Code 아이콘이 나타납니다. Starter, Professional, Organization, Enterprise, 자격을 갖춘 Education이 나열되며 K–12 Education은 제외됩니다. 조직에서 AI를 비활성화하면 Code Layers도 사용할 수 없을 수 있습니다. 오픈 베타는 몇 주에 걸쳐 배포되므로 과거 대기 목록 정보와 구분하세요. 계속 보이지 않으면 공식 업데이트나 지원팀에 확인하세요."
+        ],
+        "links": [
+          {
+            "label": "Figma 공식 문서",
+            "href": "https://help.figma.com/hc/en-us/articles/44193259600535",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "2026년 11월 4일까지의 혜택",
+        "paragraphs": [
+          "10월 24일 자료에 따르면 유료 요금제의 Code Layers 코드 생성·편집은 2026년 11월 4일까지 AI 크레딧을 사용하지 않습니다. 영구 무료 혜택이 아니며 Starter에 그대로 적용하면 안 됩니다. 같은 프롬프트에서 수행하는 다른 에이전트 작업은 크레딧을 소비할 수 있습니다. 이후에는 일반 크레딧 규칙이 적용됩니다. 요청당 고정 비용을 추정하지 말고 최신 정책과 실제 사용 내역을 확인하세요."
+        ],
+        "links": [
+          {
+            "label": "Figma 공식 문서",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "네 가지 시작 방법과 검증",
+        "paragraphs": [
+          "선택한 프레임 변환, 빈 Code Layer에서 시작, GitHub 저장소 연결·복제, Figma 공식 Chrome 확장으로 웹페이지 코드 가져오기가 안내되어 있습니다. 각 방법의 설정과 권한을 따르세요. 처음에는 하나만 선택하고 가상 데이터와 모의 요청을 사용하세요. 잘못된 입력, 반복 전송, 실패 후 초안 유지, 성공 알림, 키보드와 좁은 화면을 명세와 비교해야 합니다."
+        ],
+        "links": [
+          {
+            "label": "Markdown 디자인 명세 템플릿: UI 상태와 인수 기준",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "디자인 명세 생성기",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "design-spec-markdown-template": {
+    "title": "Markdown 디자인 명세 템플릿: UI 상태와 인수 기준",
+    "seoTitle": "Markdown 디자인 명세 템플릿: UI 상태와 인수 기준",
+    "description": "설정 화면 명세를 다운로드하고 수정하여 개발 인계 전에 문서의 누락 사항을 확인하세요.",
+    "excerpt": "설정 화면 명세를 다운로드하고 수정하여 개발 인계 전에 문서의 누락 사항을 확인하세요.",
+    "readingTime": "5분",
+    "keywords": [
+      "Markdown 디자인 명세 템플릿: UI 상태와 인수 기준",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "이미지보다 명확한 결정 사항",
+        "paragraphs": [
+          "화면 이미지만으로는 저장을 언제 비활성화하는지, 실패 후 초안을 유지하는지 알 수 없습니다. DiagramPreview 독립 템플릿은 이를 디자이너, 개발자, 도우미에게 설명합니다. Figma 공식 템플릿이나 자동 가져오기 형식이 아니며 동일한 화면 표시도 보장하지 않습니다."
+        ],
+        "links": [
+          {
+            "label": "Figma Specs: 이용 조건, Markdown, AI 크레딧",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "열기, 수정, 양식으로 생성",
+        "paragraphs": [
+          "미리보기와 다운로드는 같은 언어의 동일한 Markdown을 사용합니다. 제목, 목적, 토큰, 상태, 기준을 수정하세요. 생성기는 양식, 직접 편집, 일치한 원문 행 또는 제안을 보여주는 로컬 점검을 제공합니다. 텍스트 일치는 구현의 정확성을 입증하지 않습니다. 미리보기 URL의 프래그먼트에는 원문이 포함되므로 공유 전에 비공개 정보를 제거하세요."
+        ],
+        "templateSlug": "workspace-design-spec",
+        "links": [
+          {
+            "label": "디자인 명세 생성기",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "미결 사항을 분리",
+        "paragraphs": [
+          "기존 토큰과 구성요소를 재사용하고 용도도 명시하세요. API, 인가, 승인되지 않은 규칙은 미결로 남깁니다. 프로토타입 요청은 한 화면, 가상 데이터, 모의 요청으로 제한하세요. 잘못된 입력, 반복 클릭, 네트워크 실패, 성공, 포커스, 모바일 너비를 직접 시험하고 관찰 내용을 기록하세요. 생성된 보고서는 실제 검증을 대신하지 못합니다."
+        ]
+      },
+      {
+        "heading": "필요할 때 흐름도 추가",
+        "paragraphs": [
+          "단순한 양식은 번호가 있는 단계만으로 충분할 수 있습니다. 분기가 있다면 별도 Mermaid 흐름도를 추가하세요. 생성기의 독립 저장 예제는 수정하여 기존 SVG/PNG 도구로 보낼 수 있지만 명세에서 자동 추론하지 않습니다. DiagramPreview의 Mermaid 지원은 Figma Specs의 기본 지원을 의미하지 않습니다. 허용되는 삽입 방식을 확인하고 추후 수정을 위해 흐름도 원문도 보관하세요."
+        ],
+        "links": [
+          {
+            "label": "Markdown 디자인 명세 템플릿",
+            "href": "/templates#documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Figma 공식 문서",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  }
+}

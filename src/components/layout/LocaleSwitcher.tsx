@@ -36,7 +36,11 @@ export function LocaleSwitcher({locale, label}: LocaleSwitcherProps) {
                 "flex cursor-pointer items-center justify-between gap-2 rounded px-2 py-2 outline-none hover:bg-slate-100",
                 candidate === locale && "font-semibold text-primary"
               )}
-              onSelect={() => router.replace(pathname, {locale: candidate})}
+              onSelect={() => {
+                if (candidate === locale) return;
+                const proceed = () => router.replace(pathname, {locale: candidate});
+                if (window.dispatchEvent(new CustomEvent("before-locale-change", {cancelable: true, detail: {proceed}}))) proceed();
+              }}
             >
               <span className="min-w-0 truncate">{localeNames[candidate]}</span>
               {candidate === locale ? <Check className="h-4 w-4" /> : null}

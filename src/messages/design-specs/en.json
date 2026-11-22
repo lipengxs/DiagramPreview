@@ -1,0 +1,167 @@
+{
+  "generator": {
+    "name": "Design Spec Generator",
+    "shortDescription": "Generate Markdown design specs, review missing requirements and export a flow diagram.",
+    "seoTitle": "Design Spec Generator & Checklist — Markdown and Flow Diagrams",
+    "seoDescription": "Generate Markdown design specifications and check loading, error, empty states, tokens, keyboard and responsive requirements. Review line evidence and export flow diagrams.",
+    "keywords": [
+      "design specification generator",
+      "Markdown design spec",
+      "UI specification template",
+      "Figma Specs template",
+      "design spec checklist"
+    ],
+    "intro": "Start with the workspace settings example, adapt its rules, and generate a Markdown specification you can edit and download.",
+    "badges": [
+      "No sign-in",
+      "Runs in your browser",
+      "Markdown export"
+    ],
+    "formTitle": "1. Describe your design",
+    "formHint": "These are example rules. Replace them with your product’s decisions. Section fields accept Markdown; empty sections stay marked as unresolved.",
+    "titleLabel": "Document title",
+    "generate": "Generate Markdown",
+    "changed": "Form changes are ready. Generate to update the document.",
+    "outputTitle": "2. Review your specification",
+    "preview": "Preview",
+    "edit": "Edit Markdown",
+    "editorLabel": "Specification Markdown",
+    "placeholder": "Write or generate a specification…",
+    "empty": "Generate or write a specification to preview it.",
+    "ready": "Ready",
+    "rendering": "Rendering…",
+    "previewError": "The document could not be previewed. Your source is still available in Edit Markdown.",
+    "copy": "Copy Markdown",
+    "download": "Download .md",
+    "openPreview": "Open Markdown preview ↗",
+    "openHint": "Opens the current document in a new tab. The preview URL contains your source; share it only with people who should read it.",
+    "replaceWarning": "You edited the Markdown directly. Generating again will replace those edits with the form values.",
+    "replace": "Replace with form values",
+    "cancel": "Keep my edits",
+    "generated": "Specification generated. Review the preview or edit the Markdown.",
+    "copied": "Markdown copied.",
+    "copyError": "Could not access the clipboard. Select and copy the text in Edit Markdown.",
+    "downloadStarted": "Markdown download requested.",
+    "downloadError": "Could not start the download. You can still copy the Markdown.",
+    "manualHint": "Copy, download and preview use the Markdown currently in this editor. Form changes apply only when you generate again.",
+    "privacy": "Generation and editing run locally. No AI service is called. This preview removes unsafe HTML and embedded media; it does not verify business rules or Figma import compatibility.",
+    "guide": "Read the template and acceptance checklist guide",
+    "faqTitle": "How to use this generator",
+    "faq": [
+      {
+        "question": "What does the completeness check verify?",
+        "answer": "It searches the current Markdown for explicit English/Chinese text patterns and shows matching source lines or suggestions. It does not verify actual behavior or give a quality score. Editing the Markdown invalidates the report. An independent Mermaid example can be edited and opened in the existing SVG/PNG exporter."
+      },
+      {
+        "question": "What does the generator create?",
+        "answer": "It assembles your inputs into a Markdown document covering purpose, tokens, component states, interaction, responsive layout, accessibility, acceptance criteria and open decisions. Review the example rules before using them."
+      },
+      {
+        "question": "Does it use an AI model?",
+        "answer": "No. It organizes your own rules using a reusable template in your browser. Missing sections remain explicitly unresolved instead of being filled with invented requirements."
+      },
+      {
+        "question": "Can I use the output with Figma Specs?",
+        "answer": "Use it to prepare your design decisions and transfer the appropriate content into your team’s documentation workflow. This is not an official Figma format, automatic import or guarantee of identical rendering."
+      },
+      {
+        "question": "Will generating again erase my edits?",
+        "answer": "Changing form fields leaves the current Markdown untouched. If you edit the Markdown directly, regenerating asks before replacing it. Copy and download always use the current output. Download your work before leaving or reloading the page."
+      }
+    ],
+    "untitled": "Untitled design specification",
+    "unresolved": "To confirm: add the rules; do not infer undefined behavior.",
+    "leaveWarning": "Switching language loads that language’s example and discards your edits. Download your work first. Switch anyway?",
+    "switchLanguage": "Switch language"
+  },
+  "review": {
+    "title": "3. Review specification completeness",
+    "intro": "Check the current Markdown for common handoff gaps. Each item shows its text rule and the first matching source line. This is a review aid, not a quality score.",
+    "check": "Check current Markdown",
+    "checked": "Review updated for the current Markdown.",
+    "stale": "The Markdown changed. Run the check again to review the current document.",
+    "limits": "These English/Chinese rules look for words on the same line. Headings, standard code blocks and HTML comments are ignored; unresolved lines cannot satisfy a rule. Different wording or nested Markdown may be missed; negated or contradictory statements may match. Matches do not verify implementation, accessibility compliance or completeness for every component.",
+    "found": "Text found — verify manually",
+    "missing": "No matching text — review",
+    "rule": "Detection rule",
+    "line": "Source line",
+    "suggestion": "Example to adapt",
+    "unresolved": "Unresolved decisions",
+    "unresolvedRule": "Looks for TODO, TBD, to confirm, 待确认 or 待补充 outside headings and code. Only the first five matching lines are shown.",
+    "unresolvedFound": "Markers found — resolve with the owner",
+    "unresolvedMissing": "No markers found — this does not prove all decisions are settled.",
+    "diagramTitle": "Optional: adapt a save-flow diagram",
+    "diagramHint": "This independent example covers validation, saving, success and retry. Edit it to match your product; it is not inferred from your specification and does not change the Markdown above.",
+    "diagramLabel": "Mermaid save-flow source",
+    "diagramOpen": "Preview diagram and export SVG / PNG ↗",
+    "diagramPrivacy": "Opens in a new tab with the current diagram source in the URL. Share only appropriate content. Exported images are not native editable Figma diagrams.",
+    "diagramSource": "flowchart TD\n  A[\"Edit settings\"] --> B{\"Valid changed values?\"}\n  B -->|No| C[\"Show validation errors or keep Save disabled\"]\n  B -->|Yes| D[\"Saving: prevent duplicate submissions\"]\n  D --> E{\"Save succeeded?\"}\n  E -->|Yes| F[\"Announce completion and retain confirmed values\"]\n  E -->|No| G[\"Show error and preserve edits\"]\n  G --> H[\"Retry\"]\n  H --> D\n"
+  },
+  "rules": [
+    {
+      "id": "loading",
+      "title": "Loading feedback",
+      "criteria": "One line mentions loading, saving or pending, plus a label, message, spinner, skeleton, placeholder, show, disable or prevent.",
+      "suggestion": "Loading: show a Saving… label and prevent duplicate submissions.",
+      "terms": []
+    },
+    {
+      "id": "error",
+      "title": "Failure and recovery",
+      "criteria": "One line mentions error, failure or failed, plus retry, preserve, retain or recover.",
+      "suggestion": "On failure, preserve edited values and offer retry.",
+      "terms": []
+    },
+    {
+      "id": "empty",
+      "title": "Empty data behavior",
+      "criteria": "One line mentions empty, no data or no results, plus show, display, message, prompt, hide or disable.",
+      "suggestion": "Empty results: show a No results message and a clear-filter action.",
+      "terms": []
+    },
+    {
+      "id": "tokens",
+      "title": "Named design token",
+      "criteria": "A line contains a CSS variable (--name), a $name token or a dotted name such as color.action.primary. A color value alone does not match.",
+      "suggestion": "Save button background: use color.action.primary = #1D4ED8. Confirm it exists in your token library.",
+      "terms": []
+    },
+    {
+      "id": "keyboard",
+      "title": "Keyboard and focus",
+      "criteria": "One line mentions keyboard, Tab, Enter or Escape, plus focus or order.",
+      "suggestion": "Keyboard: Tab follows visual order; all controls have visible focus.",
+      "terms": []
+    },
+    {
+      "id": "responsive",
+      "title": "Responsive constraint",
+      "criteria": "One line contains a number with px, rem or em, plus column, width, padding, scroll, viewport or breakpoint.",
+      "suggestion": "Below 768px: one column, 16px page padding; at 320px, no horizontal scrolling.",
+      "terms": []
+    },
+    {
+      "id": "acceptance",
+      "title": "Observable acceptance item",
+      "criteria": "A Markdown checkbox (-, + or * [ ] / [x]) mentions show, display, preserve, retain, announce, prevent, disable, cannot, only one or no horizontal.",
+      "suggestion": "- [ ] A failed save preserves edits and displays a retry action.",
+      "terms": []
+    }
+  ],
+  "unresolvedTerms": [
+    "to confirm",
+    "TODO",
+    "TBD"
+  ],
+  "template": {
+    "source": "# Workspace settings — design specification\n\n> Independent DiagramPreview example. Adapt the rules to your product; this is not an official Figma template or import format.\n\n## Purpose and scope\nLet a workspace owner update the workspace name and notification preference.\nNon-goals: billing, team invitations, and permission management.\nUse synthetic preview data; do not connect a production backend for this example.\n\n## Design tokens\n- Primary action: #1D4ED8 with white text.\n- Body text: #0F172A on #FFFFFF.\n- Muted text: #475569; error text: #B91C1C.\n- Typeface: system-ui; body 16px / 24px; heading 24px / 32px.\n- Spacing scale: 4, 8, 12, 16, 24, 32px. Card radius: 8px.\n- Use named tokens instead of adding arbitrary colors or spacing.\n\n## Components and states\n### Save button\n- Default: label “Save changes”; primary background.\n- Hover: use #1E40AF; retain readable white text.\n- Focus: visible 2px outline with 2px offset.\n- Disabled: when unchanged or invalid; explain field errors beside inputs.\n- Loading: label “Saving…”; prevent duplicate submissions.\n- Success: announce “Changes saved” in a live region.\n- Error: show an inline message and allow retry; preserve edited values.\n\n### Workspace name\n- Required, 2–60 characters after trimming surrounding whitespace.\n- Persistent visible label and helper text; placeholder is not a label.\n- Validate on blur and before saving; associate errors with the input.\n- No changes are persisted when validation fails.\n\n## Interaction and data\n1. Load the current name and notification preference.\n2. Allow editing; enable Save only for valid changed values.\n3. On submit, show the loading state while a simulated request runs.\n4. On success, keep the confirmed values and announce completion.\n5. On failure, retain the draft and offer retry.\n- Initial loading: show a labeled loading placeholder.\n- Initial request failure: show a retry action; do not fabricate saved data.\n- Empty name from the server: show the required-field message before saving.\n\n## Responsive layout\n- Below 768px: one column, 16px page padding, full-width save button.\n- At 768px and above: centered form, maximum width 640px, 24px padding.\n- At 320px viewport width: no horizontal page scrolling.\n\n## Accessibility\n- Every input has a programmatic label; tab order follows visual order.\n- All interactive elements work by keyboard and have visible focus.\n- Error and success states use text, not color alone.\n- Verify normal text contrast at least 4.5:1 against its actual background.\n\n## Acceptance checklist\n- [ ] Blank or whitespace-only names cannot be submitted.\n- [ ] Names outside 2–60 characters show a specific error.\n- [ ] Repeated clicks during saving produce only one request.\n- [ ] A failed save preserves edits and supports retry.\n- [ ] A successful save announces completion without moving focus.\n- [ ] Keyboard and 320px mobile checks pass.\n- [ ] Every implemented state matches this specification.\n\n## Decisions before production\n- Confirm the real endpoint, authorization rules, and error responses with engineering.\n- Confirm notification behavior and final copy with the product owner.\n- Replace simulated requests only after the data contract is approved.\n",
+    "title": "Markdown design specification",
+    "description": "A workspace settings specification with tokens, component states, responsive rules and acceptance criteria.",
+    "open": "Open template and preview",
+    "download": "Download Markdown template",
+    "customize": "Customize specification",
+    "contents": "Contents",
+    "related": "Related guides",
+    "demo": "Copyable example"
+  }
+}

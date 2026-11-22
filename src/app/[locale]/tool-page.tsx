@@ -26,7 +26,8 @@ export function createToolMetadata(slug: ToolSlug) {
       path: toolPath(locale, slug),
       title: t(`tools.${slug}.seoTitle`),
       description: t(`tools.${slug}.seoDescription`),
-      keywords: t.raw(`tools.${slug}.keywords`)
+      keywords: t.raw(`tools.${slug}.keywords`),
+      pageLocales: getTool(slug)?.pageLocales
     });
   };
 }

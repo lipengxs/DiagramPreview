@@ -1,0 +1,212 @@
+{
+  "figma-specs-guide": {
+    "title": "Figma Specs: Zugang, Markdown und KI-Credits",
+    "seoTitle": "Figma Specs: Zugang, Markdown und KI-Credits",
+    "description": "Erfahren Sie, wie Sie Specs öffnen, welche Markdown-Funktionen dokumentiert sind und wann KI-Credits anfallen.",
+    "excerpt": "Erfahren Sie, wie Sie Specs öffnen, welche Markdown-Funktionen dokumentiert sind und wann KI-Credits anfallen.",
+    "readingTime": "5 Min.",
+    "keywords": [
+      "Figma Specs: Zugang, Markdown und KI-Credits",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Was ist Figma Specs?",
+        "paragraphs": [
+          "Specs bündelt Anforderungen und Kontext in Figma. Ein Dokument kann Ziele, Komponentenverhalten und Abnahmekriterien festhalten. Die Angaben zu Zugang und Kosten beruhen auf der am 24. Oktober 2026 geprüften Config-India-Dokumentation; die Verfügbarkeit kann je Konto abweichen."
+        ],
+        "links": [
+          {
+            "label": "Offizielle Figma-Dokumentation",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Zugang und schrittweise Freigabe",
+        "paragraphs": [
+          "Bei freigeschaltetem Zugang wählen Sie Spec im Dateibrowser oder öffnen figma.com/spec/new. In Figma Design und FigJam lässt sich ein Spec neben der Arbeit platzieren. Die Ankündigung nennt Education, Professional, Organization, Enterprise und Government; Starter ist damit nicht automatisch eingeschlossen. Lesen und Bearbeiten erfordern entsprechende Dateirechte. Bei fehlendem Eintrag zuerst Tarif und Rechte prüfen, dann den Rollout-Status."
+        ],
+        "links": [
+          {
+            "label": "Offizielle Figma-Dokumentation",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Markdown und Kosten unterscheiden",
+        "paragraphs": [
+          "Specs unterstützt Blöcke wie Überschriften, Listen, Zitate, Code, Bilder und Figma-Einbettungen. Markdown-Kürzel sind keine Zusage für vollständigen .md-Import, Mermaid oder unveränderten Export mit Kommentaren. Manuelles Schreiben und Bearbeiten verbraucht keine Agent-Credits; Agent-Aufträge zur Erstellung oder Änderung können Credits verbrauchen. Tarifzugang und KI-Kosten sind getrennte Fragen."
+        ],
+        "links": [
+          {
+            "label": "Offizielle Figma-Dokumentation",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Von Regeln zu überprüfbarem Verhalten",
+        "paragraphs": [
+          "Beschreiben Sie Ziel, Nicht-Ziele, Lade-, Leer-, Fehler- und Erfolgszustände, danach benannte Tokens und beobachtbare Abnahmekriterien. Code Layers kann Verhalten auf der Zeichenfläche darstellen, bestätigt aber weder Authentifizierung noch Produktionsreife. Verbundene Agenten können über Figma-MCP und den figma-spec-Skill mit Specs arbeiten; Berechtigungen und Client-Unterstützung bleiben erforderlich. Nutzen Sie die unabhängige Vorlage zunächst für einen kleinen Ablauf."
+        ],
+        "links": [
+          {
+            "label": "Markdown-Designspezifikation: Vorlage, Zustände und Abnahme",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "Generator für Designspezifikationen",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "figma-code-layers-guide": {
+    "title": "Figma Code Layers: Beta-Zugang, fehlender Eintrag und Kosten",
+    "seoTitle": "Figma Code Layers: Beta-Zugang, fehlender Eintrag und Kosten",
+    "description": "Prüfen Sie Zugang und Freigabe sowie die befristete Credit-Aktion, bevor Sie einen interaktiven Prototyp erstellen.",
+    "excerpt": "Prüfen Sie Zugang und Freigabe sowie die befristete Credit-Aktion, bevor Sie einen interaktiven Prototyp erstellen.",
+    "readingTime": "5 Min.",
+    "keywords": [
+      "Figma Code Layers: Beta-Zugang, fehlender Eintrag und Kosten",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Laufender Code auf der Zeichenfläche",
+        "paragraphs": [
+          "Code Layers bringt ausführbaren Code auf die Figma-Design-Zeichenfläche. So lassen sich Validierung, Laden und Wiederholen neben dem Entwurf testen. Grundlage dieses Leitfadens ist die offizielle Dokumentation vom 24. Oktober 2026; sie belegt keinen sofortigen Zugang für jedes Konto."
+        ],
+        "links": [
+          {
+            "label": "Offizielle Figma-Dokumentation",
+            "href": "https://help.figma.com/hc/en-us/articles/43663368947863-What-s-new-from-Config-India-2026",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Wo befindet sich der Einstieg?",
+        "paragraphs": [
+          "Öffnen Sie eine bearbeitbare Figma-Design-Datei. Nach Freigabe erscheint das Code-Symbol in der Werkzeugleiste. Genannt werden Starter, Professional, Organization, Enterprise und berechtigte Education-Tarife; K–12 Education ist ausgenommen. Prüfen Sie auch die KI-Einstellungen der Organisation: deaktivierte KI kann Code Layers sperren. Die offene Beta wird schrittweise über mehrere Wochen freigegeben; alte Wartelistenmeldungen können überholt sein. Bei weiter fehlendem Zugang die offiziellen Hinweise oder den Support nutzen."
+        ],
+        "links": [
+          {
+            "label": "Offizielle Figma-Dokumentation",
+            "href": "https://help.figma.com/hc/en-us/articles/44193259600535",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Die Aktion endet am 4. November 2026",
+        "paragraphs": [
+          "Laut Stand vom 24. Oktober verbrauchen das Generieren und Bearbeiten von Code Layers in bezahlten Tarifen bis einschließlich 4. November 2026 keine KI-Credits. Dies ist keine dauerhafte kostenlose Stufe und keine Zusage für Starter. Andere Agent-Aufgaben innerhalb desselben Prompts können weiterhin Credits kosten. Danach gelten die Credit-Regeln für Agent-Funktionen. Prüfen Sie aktuelle Bedingungen und den Nutzungsbeleg; feste Kosten pro Prompt lassen sich daraus nicht ableiten."
+        ],
+        "links": [
+          {
+            "label": "Offizielle Figma-Dokumentation",
+            "href": "https://help.figma.com/hc/en-us/articles/33459875669015",
+            "kind": "external"
+          }
+        ]
+      },
+      {
+        "heading": "Klein beginnen und Ergebnisse prüfen",
+        "paragraphs": [
+          "Dokumentiert sind vier Einstiege: ausgewählte Frames umwandeln, mit einem leeren Code Layer beginnen, ein GitHub-Repository verbinden und klonen oder Webseiten-Code über die offizielle Figma-Chrome-Erweiterung übernehmen. Beachten Sie jeweils Einrichtung und Rechte. Wählen Sie zunächst einen Weg mit synthetischen Daten. Prüfen Sie ungültige Eingaben, doppelte Anfragen, Entwurfserhalt bei Fehlern, Erfolgsmeldung, Tastatur und schmale Ansichten gegen die Spezifikation."
+        ],
+        "links": [
+          {
+            "label": "Markdown-Designspezifikation: Vorlage, Zustände und Abnahme",
+            "href": "/blog/design-spec-markdown-template",
+            "kind": "internal"
+          },
+          {
+            "label": "Generator für Designspezifikationen",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      }
+    ]
+  },
+  "design-spec-markdown-template": {
+    "title": "Markdown-Designspezifikation: Vorlage, Zustände und Abnahme",
+    "seoTitle": "Markdown-Designspezifikation: Vorlage, Zustände und Abnahme",
+    "description": "Bearbeiten und laden Sie eine vollständige Spezifikation für Arbeitsbereichseinstellungen herunter und prüfen Sie typische Übergabelücken.",
+    "excerpt": "Bearbeiten und laden Sie eine vollständige Spezifikation für Arbeitsbereichseinstellungen herunter und prüfen Sie typische Übergabelücken.",
+    "readingTime": "5 Min.",
+    "keywords": [
+      "Markdown-Designspezifikation: Vorlage, Zustände und Abnahme",
+      "Figma Specs",
+      "Markdown",
+      "UI"
+    ],
+    "sections": [
+      {
+        "heading": "Entscheidungen statt nur Screenshots",
+        "paragraphs": [
+          "Ein Screenshot erklärt nicht, wann Speichern gesperrt wird oder ob ein Fehler die Eingaben erhält. Die unabhängige DiagramPreview-Vorlage beschreibt diese Entscheidungen für Design, Entwicklung und Assistenzsysteme. Sie ist weder eine offizielle Figma-Vorlage noch ein automatisches Importformat oder eine Garantie identischer Darstellung."
+        ],
+        "links": [
+          {
+            "label": "Figma Specs: Zugang, Markdown und KI-Credits",
+            "href": "/blog/figma-specs-guide",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "Vorlage öffnen oder Regeln im Formular anpassen",
+        "paragraphs": [
+          "Vorschau und Download verwenden denselben lokalisierten Markdown-Quelltext. Ersetzen Sie Titel, Ziel, Tokens, Zustände und Abnahmekriterien. Der Generator bietet Formular, direkte Bearbeitung und lokale Textprüfung mit Fundstellen oder Vorschlägen. Übereinstimmungen beweisen keine korrekte Umsetzung. Vorschau-Links enthalten den Quelltext im URL-Fragment; entfernen Sie private Angaben vor dem Teilen."
+        ],
+        "templateSlug": "workspace-design-spec",
+        "links": [
+          {
+            "label": "Generator für Designspezifikationen",
+            "href": "/design-spec-generator",
+            "kind": "internal"
+          }
+        ]
+      },
+      {
+        "heading": "Offene Fragen getrennt halten",
+        "paragraphs": [
+          "Übernehmen Sie Tokens und Komponenten aus dem bestehenden Designsystem und nennen Sie deren Verwendung. Lassen Sie API, Autorisierung und nicht entschiedene Regeln ausdrücklich offen. Für einen Prototyp nur eine Ansicht, synthetische Daten und simulierte Anfragen beauftragen. Testen Sie ungültige Eingaben, Wiederholungen, Fehler, Erfolg, Fokus und mobile Breite selbst; ein generierter Bericht ersetzt diese Beobachtungen nicht."
+        ]
+      },
+      {
+        "heading": "Diagramme ergänzen, wenn sie helfen",
+        "paragraphs": [
+          "Für ein einfaches Formular reichen oft nummerierte Schritte. Bei Verzweigungen kann ein separates Mermaid-Diagramm helfen. Der Generator enthält ein unabhängiges editierbares Speicherbeispiel mit Übergabe an die vorhandene SVG/PNG-Vorschau. Es wird nicht aus Ihrer Spezifikation abgeleitet. Mermaid-Unterstützung in DiagramPreview belegt keine native Unterstützung in Figma Specs; prüfen Sie Einbettungen und behalten Sie die Diagrammquelle für spätere Änderungen."
+        ],
+        "links": [
+          {
+            "label": "Markdown-Vorlage für Designspezifikationen",
+            "href": "/templates#documentation",
+            "kind": "internal"
+          },
+          {
+            "label": "Offizielle Figma-Dokumentation",
+            "href": "https://help.figma.com/hc/en-us/articles/44049066011671",
+            "kind": "external"
+          }
+        ]
+      }
+    ]
+  }
+}
